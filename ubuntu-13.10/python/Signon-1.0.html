@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="Python">
+    
+    <title>Signon-1.0 Python API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>Signon-1.0 Python API Documentation</h1>
+
+<div class="class-normal">
+<a href="Signon-1.0.html#Signon.AuthService" class="class-anchor">⚓</a><h2 class="class-normal" id="Signon.AuthService">Class: Signon.AuthService</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+<p>
+Opaque struct. Use the accessor functions below.</p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Signon.AuthService.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Signon.AuthService.query_mechanisms">query_mechanisms</span><span class="method-parameters">(<span class="type-basetype ">method</span>, <a class="link-Callback " href="Signon-1.0.html#Signon.QueryMechanismCb">cb</a>, <span class="type-basetype ">user_data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Signon.AuthService.query_methods">query_methods</span><span class="method-parameters">(<a class="link-Callback " href="Signon-1.0.html#Signon.QueryMethodsCb">cb</a>, <span class="type-basetype ">user_data</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Signon-1.0.html#Signon.AuthSession" class="class-anchor">⚓</a><h2 class="class-normal" id="Signon.AuthSession">Class: Signon.AuthSession</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+<p>
+Opaque struct. Use the accessor functions below.</p>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Signon.AuthSession.state-changed">"state-changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Signon-1.0.html#Signon.AuthSession">auth_session</a>, <span class="type-basetype ">state</span>, <span class="type-basetype ">message</span>)</span><p class="signal-doc">
+Emitted when the state of the #SignonAuthSession changes.</p>
+</p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Signon.AuthSession.new">new</span><span class="method-parameters">(<a class="link-Type " href="Signon-1.0.html#gint">id</a>, <a class="link-Type " href="Signon-1.0.html#utf8">method_name</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Signon.AuthSession.cancel">cancel</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Signon.AuthSession.get_method">get_method</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Signon.AuthSession.process">process</span><span class="method-parameters">(<a class="link-Record " href="GLib-2.0.html#GLib.HashTable">session_data</a>, <span class="type-basetype ">mechanism</span>, <a class="link-Callback " href="Signon-1.0.html#Signon.AuthSessionProcessCb">cb</a>, <span class="type-basetype ">user_data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Signon.AuthSession.process_async">process_async</span><span class="method-parameters">(<a class="link-Record " href="GLib-2.0.html#GLib.Variant">session_data</a>, <span class="type-basetype ">mechanism</span>, <a class="link-Class " href="Gio-2.0.html#Gio.Cancellable">cancellable</a>, <a class="link-Callback " href="Gio-2.0.html#Gio.AsyncReadyCallback">callback</a>, <span class="type-basetype ">user_data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GLib.Variant</a></span><span class="method-name" id="Signon.AuthSession.process_finish">process_finish</span><span class="method-parameters">(<a class="link-Interface " href="Gio-2.0.html#Gio.AsyncResult">res</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Signon.AuthSession.query_available_mechanisms">query_available_mechanisms</span><span class="method-parameters">(<span class="type-basetype ">wanted_mechanisms</span>, <a class="link-Callback " href="Signon-1.0.html#Signon.AuthSessionQueryAvailableMechanismsCb">cb</a>, <span class="type-basetype ">user_data</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Signon-1.0.html#Signon.Identity" class="class-anchor">⚓</a><h2 class="class-normal" id="Signon.Identity">Class: Signon.Identity</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+<p>
+Opaque struct. Use the accessor functions below.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">int</span><span class="property-name" id="Signon.Identity.id">"id"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Signon.Identity.signout">"signout"</span><span class="signal-parameters">(self, <a class="link-Class " href="Signon-1.0.html#Signon.Identity">identity</a>)</span><p class="signal-doc">
+Emitted when the identity was signed out.</p>
+</p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Signon.Identity.new">new</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Signon.Identity.new_from_db">new_from_db</span><span class="method-parameters">(<a class="link-Type " href="Signon-1.0.html#guint32">id</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Signon.Identity.add_reference">add_reference</span><span class="method-parameters">(<span class="type-basetype ">reference</span>, cb, <span class="type-basetype ">user_data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Signon-1.0.html#Signon.AuthSession">Signon.AuthSession</a></span><span class="method-name" id="Signon.Identity.create_session">create_session</span><span class="method-parameters">(<span class="type-basetype ">method</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Error">GLib.Error</a></span><span class="method-name" id="Signon.Identity.get_last_error">get_last_error</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Signon.Identity.query_info">query_info</span><span class="method-parameters">(<a class="link-Callback " href="Signon-1.0.html#Signon.IdentityInfoCb">cb</a>, <span class="type-basetype ">user_data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Signon.Identity.remove">remove</span><span class="method-parameters">(cb, <span class="type-basetype ">user_data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Signon.Identity.remove_reference">remove_reference</span><span class="method-parameters">(<span class="type-basetype ">reference</span>, cb, <span class="type-basetype ">user_data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Signon.Identity.signout">signout</span><span class="method-parameters">(cb, <span class="type-basetype ">user_data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Signon.Identity.store_credentials_with_args">store_credentials_with_args</span><span class="method-parameters">(<span class="type-basetype ">username</span>, <span class="type-basetype ">secret</span>, <span class="type-basetype ">store_secret</span>, <a class="link-Record " href="GLib-2.0.html#GLib.HashTable">methods</a>, <span class="type-basetype ">caption</span>, <span class="type-basetype ">realms</span>, <span class="type-basetype ">access_control_list</span>, <a class="link-BitField " href="Signon-1.0.html#Signon.IdentityType">type</a>, <a class="link-Callback " href="Signon-1.0.html#Signon.IdentityStoreCredentialsCb">cb</a>, <span class="type-basetype ">user_data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Signon.Identity.store_credentials_with_info">store_credentials_with_info</span><span class="method-parameters">(<a class="link-Record " href="Signon-1.0.html#Signon.IdentityInfo">info</a>, <a class="link-Callback " href="Signon-1.0.html#Signon.IdentityStoreCredentialsCb">cb</a>, <span class="type-basetype ">user_data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Signon.Identity.verify_secret">verify_secret</span><span class="method-parameters">(<span class="type-basetype ">secret</span>, <a class="link-Callback " href="Signon-1.0.html#Signon.IdentityVerifyCb">cb</a>, <span class="type-basetype ">user_data</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-enum">
+<a href="Signon-1.0.html#Signon.IdentityType" class="class-anchor">⚓</a><h2 class="class-enum" id="Signon.IdentityType">Enum: Signon.IdentityType</h2>
+<div class="enum-members">
+<span class="enum-member">OTHER</span><span class="enum-value">0</span><span class="enum-member">APP</span><span class="enum-value">1</span><span class="enum-member">WEB</span><span class="enum-value">2</span><span class="enum-member">NETWORK</span><span class="enum-value">4</span></div>
+</div>
+<div class="class-enum">
+<a href="Signon-1.0.html#Signon.SessionDataUiPolicy" class="class-anchor">⚓</a><h2 class="class-enum" id="Signon.SessionDataUiPolicy">Enum: Signon.SessionDataUiPolicy</h2>
+<div class="enum-members">
+<span class="enum-member">DEFAULT</span><span class="enum-value">0</span><span class="enum-member">REQUEST_PASSWORD</span><span class="enum-value">1</span><span class="enum-member">NO_USER_INTERACTION</span><span class="enum-value">2</span><span class="enum-member">VALIDATION</span><span class="enum-value">3</span></div>
+</div>
+<div class="class-enum">
+<a href="Signon-1.0.html#Signon.Error" class="class-anchor">⚓</a><h2 class="class-enum" id="Signon.Error">Enum: Signon.Error</h2>
+<div class="enum-members">
+<span class="enum-member">UNKNOWN</span><span class="enum-value">1</span><span class="enum-member">INTERNAL_SERVER</span><span class="enum-value">2</span><span class="enum-member">INTERNAL_COMMUNICATION</span><span class="enum-value">3</span><span class="enum-member">PERMISSION_DENIED</span><span class="enum-value">4</span><span class="enum-member">METHOD_NOT_KNOWN</span><span class="enum-value">101</span><span class="enum-member">SERVICE_NOT_AVAILABLE</span><span class="enum-value">102</span><span class="enum-member">INVALID_QUERY</span><span class="enum-value">103</span><span class="enum-member">METHOD_NOT_AVAILABLE</span><span class="enum-value">201</span><span class="enum-member">IDENTITY_NOT_FOUND</span><span class="enum-value">202</span><span class="enum-member">STORE_FAILED</span><span class="enum-value">203</span><span class="enum-member">REMOVE_FAILED</span><span class="enum-value">204</span><span class="enum-member">SIGNOUT_FAILED</span><span class="enum-value">205</span><span class="enum-member">IDENTITY_OPERATION_CANCELED</span><span class="enum-value">206</span><span class="enum-member">CREDENTIALS_NOT_AVAILABLE</span><span class="enum-value">207</span><span class="enum-member">REFERENCE_NOT_FOUND</span><span class="enum-value">208</span><span class="enum-member">MECHANISM_NOT_AVAILABLE</span><span class="enum-value">301</span><span class="enum-member">MISSING_DATA</span><span class="enum-value">302</span><span class="enum-member">INVALID_CREDENTIALS</span><span class="enum-value">303</span><span class="enum-member">NOT_AUTHORIZED</span><span class="enum-value">304</span><span class="enum-member">WRONG_STATE</span><span class="enum-value">305</span><span class="enum-member">OPERATION_NOT_SUPPORTED</span><span class="enum-value">306</span><span class="enum-member">NO_CONNECTION</span><span class="enum-value">307</span><span class="enum-member">NETWORK</span><span class="enum-value">308</span><span class="enum-member">SSL</span><span class="enum-value">309</span><span class="enum-member">RUNTIME</span><span class="enum-value">310</span><span class="enum-member">SESSION_CANCELED</span><span class="enum-value">311</span><span class="enum-member">TIMED_OUT</span><span class="enum-value">312</span><span class="enum-member">USER_INTERACTION</span><span class="enum-value">313</span><span class="enum-member">OPERATION_FAILED</span><span class="enum-value">314</span><span class="enum-member">ENCRYPTION_FAILED</span><span class="enum-value">315</span><span class="enum-member">TOS_NOT_ACCEPTED</span><span class="enum-value">316</span><span class="enum-member">FORGOT_PASSWORD</span><span class="enum-value">317</span><span class="enum-member">METHOD_OR_MECHANISM_NOT_ALLOWED</span><span class="enum-value">318</span><span class="enum-member">INCORRECT_DATE</span><span class="enum-value">319</span><span class="enum-member">USER_ERROR</span><span class="enum-value">400</span></div>
+</div>
+</body>
+</html>
+

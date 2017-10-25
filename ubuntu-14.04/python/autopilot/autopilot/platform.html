@@ -1,0 +1,309 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>autopilot.platform &mdash; Autopilot 1.4+14.04.20140416-0 documentation</title>
+    
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/otto.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/centertext.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.4+14.04.20140416-0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/jquery.js"></script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/underscore.js"></script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/doctools.js"></script>
+    <link rel="shortcut icon" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/favicon.ico"/>
+    <link rel="top" title="Autopilot 1.4+14.04.20140416-0 documentation" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html" />
+    <link rel="up" title="autopilot" href="../autopilot.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html">Autopilot 1.4+14.04.20140416-0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../autopilot.html" accesskey="U">autopilot</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for autopilot.platform</h1><div class="highlight"><pre>
+<span class="c"># -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-</span>
+<span class="c">#</span>
+<span class="c"># Autopilot Functional Test Tool</span>
+<span class="c"># Copyright (C) 2012-2013 Canonical</span>
+<span class="c">#</span>
+<span class="c"># This program is free software: you can redistribute it and/or modify</span>
+<span class="c"># it under the terms of the GNU General Public License as published by</span>
+<span class="c"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c"># (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c"># This program is distributed in the hope that it will be useful,</span>
+<span class="c"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c"># GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c"># You should have received a copy of the GNU General Public License</span>
+<span class="c"># along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c">#</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Platform identification utilities for Autopilot.</span>
+<span class="sd">================================================</span>
+
+<span class="sd">This module provides functions that give test authors hints as to which</span>
+<span class="sd">platform their tests are currently running on. This is useful when a test</span>
+<span class="sd">needs to test slight different behavior depending on the system it&#39;s running</span>
+<span class="sd">on. For example::</span>
+
+<span class="sd">    from autopilot import platform</span>
+
+<span class="sd">    ...</span>
+
+<span class="sd">    def test_something(self):</span>
+<span class="sd">        if platform.model() == &quot;Galaxy Nexus&quot;:</span>
+<span class="sd">            # do something</span>
+<span class="sd">        elif platform.model() == &quot;Desktop&quot;:</span>
+<span class="sd">            # do something else</span>
+
+<span class="sd">    def test_something_else(self):</span>
+<span class="sd">        if platform.is_tablet():</span>
+<span class="sd">            # run a tablet test</span>
+<span class="sd">        else:</span>
+<span class="sd">            # run a non-tablet test</span>
+
+<span class="sd">Skipping tests based on Platform</span>
+<span class="sd">++++++++++++++++++++++++++++++++</span>
+
+<span class="sd">Sometimes you want a test to not run on certain platforms, or only run on</span>
+<span class="sd">certain platforms. This can be easily achieved with a combination of the</span>
+<span class="sd">functions in this module and the ``skipIf`` and ``skipUnless`` decorators. For</span>
+<span class="sd">example, to define a test that only runs on the galaxy nexus device, write</span>
+<span class="sd">this::</span>
+
+<span class="sd">    from testtools import skipUnless</span>
+
+<span class="sd">    ...</span>
+
+<span class="sd">    @skipUnless(</span>
+<span class="sd">        platform.model() == &#39;Galaxy Nexus&#39;,</span>
+<span class="sd">        &quot;Test is only for Galaxy Nexus&quot;</span>
+<span class="sd">    )</span>
+<span class="sd">    def test_something(self):</span>
+<span class="sd">        # test things!</span>
+
+<span class="sd">The inverse is possible as well. To define a test that will run on every device</span>
+<span class="sd">except the Galaxy Nexus, write this::</span>
+
+<span class="sd">    from testtools import skipIf</span>
+
+<span class="sd">    ...</span>
+
+<span class="sd">    @skipIf(</span>
+<span class="sd">        platform.model() == &#39;Galaxy Nexus&#39;,</span>
+<span class="sd">        &quot;Test not available for Galaxy Nexus&quot;</span>
+<span class="sd">    )</span>
+<span class="sd">    def test_something(self):</span>
+<span class="sd">        # test things!</span>
+
+<span class="sd">Tuples of values can be used as well, to select more than one platform. For</span>
+<span class="sd">example::</span>
+
+<span class="sd">    @skipIf(</span>
+<span class="sd">        platform.model() in (&#39;Model One&#39;, &#39;Model Two&#39;),</span>
+<span class="sd">        &quot;Test not available for Models One and Two&quot;</span>
+<span class="sd">    )</span>
+<span class="sd">        def test_something(self):</span>
+<span class="sd">            # test things!</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="model"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/platform.html#autopilot.platform.model">[docs]</a><span class="k">def</span> <span class="nf">model</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Get the model name of the current platform.</span>
+
+<span class="sd">    For desktop / laptop installations, this will return &quot;Desktop&quot;.</span>
+<span class="sd">    Otherwise, the current hardware model will be returned. For example::</span>
+
+<span class="sd">        platform.model()</span>
+
+<span class="sd">        ... &quot;Galaxy Nexus&quot;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_PlatformDetector</span><span class="o">.</span><span class="n">create</span><span class="p">()</span><span class="o">.</span><span class="n">model</span>
+
+</div>
+<div class="viewcode-block" id="image_codename"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/platform.html#autopilot.platform.image_codename">[docs]</a><span class="k">def</span> <span class="nf">image_codename</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Get the image codename.</span>
+
+<span class="sd">    For desktop / laptop installations this will return &quot;Desktop&quot;.</span>
+<span class="sd">    Otherwise, the codename of the image that was installed will be</span>
+<span class="sd">    returned. For example:</span>
+
+<span class="sd">    platform.image_codename()</span>
+
+<span class="sd">    ... &quot;maguro&quot;</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_PlatformDetector</span><span class="o">.</span><span class="n">create</span><span class="p">()</span><span class="o">.</span><span class="n">image_codename</span>
+
+</div>
+<div class="viewcode-block" id="is_tablet"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/platform.html#autopilot.platform.is_tablet">[docs]</a><span class="k">def</span> <span class="nf">is_tablet</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Indicate whether system is a tablet.</span>
+
+<span class="sd">    The &#39;ro.build.characteristics&#39; property is checked for &#39;tablet&#39;.</span>
+<span class="sd">    For example:</span>
+
+<span class="sd">    platform.tablet()</span>
+
+<span class="sd">    ... True</span>
+
+<span class="sd">    :returns: boolean indicating whether this is a tablet</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">_PlatformDetector</span><span class="o">.</span><span class="n">create</span><span class="p">()</span><span class="o">.</span><span class="n">is_tablet</span>
+
+</div>
+<span class="k">class</span> <span class="nc">_PlatformDetector</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="n">_cached_detector</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">create</span><span class="p">():</span>
+        <span class="sd">&quot;&quot;&quot;Create a platform detector object, or return one we baked</span>
+<span class="sd">        earlier.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">_PlatformDetector</span><span class="o">.</span><span class="n">_cached_detector</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">_PlatformDetector</span><span class="o">.</span><span class="n">_cached_detector</span> <span class="o">=</span> <span class="n">_PlatformDetector</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">_PlatformDetector</span><span class="o">.</span><span class="n">_cached_detector</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="s">&quot;Desktop&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_codename</span> <span class="o">=</span> <span class="s">&quot;Desktop&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_tablet</span> <span class="o">=</span> <span class="bp">False</span>
+
+        <span class="n">property_file</span> <span class="o">=</span> <span class="n">_get_property_file</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">property_file</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">update_values_from_build_file</span><span class="p">(</span><span class="n">property_file</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">update_values_from_build_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">property_file</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Read build.prop file and parse it.&quot;&quot;&quot;</span>
+        <span class="n">properties</span> <span class="o">=</span> <span class="n">_parse_build_properties_file</span><span class="p">(</span><span class="n">property_file</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;ro.product.model&#39;</span><span class="p">,</span> <span class="s">&quot;Desktop&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">image_codename</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;ro.product.name&#39;</span><span class="p">,</span> <span class="s">&quot;Desktop&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">is_tablet</span> <span class="o">=</span> <span class="p">(</span><span class="s">&#39;ro.build.characteristics&#39;</span> <span class="ow">in</span> <span class="n">properties</span> <span class="ow">and</span>
+                          <span class="s">&#39;tablet&#39;</span> <span class="ow">in</span> <span class="n">properties</span><span class="p">[</span><span class="s">&#39;ro.build.characteristics&#39;</span><span class="p">])</span>
+
+
+<span class="k">def</span> <span class="nf">_get_property_file_path</span><span class="p">():</span>
+    <span class="k">return</span> <span class="s">&#39;/system/build.prop&#39;</span>
+
+
+<span class="k">def</span> <span class="nf">_get_property_file</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return a file-like object that contains the contents of the build</span>
+<span class="sd">    properties file, if it exists, or None.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="n">_get_property_file_path</span><span class="p">()</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span>
+
+
+<span class="k">def</span> <span class="nf">_parse_build_properties_file</span><span class="p">(</span><span class="n">property_file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Parse &#39;property_file&#39;, which must be a file-like object containing the</span>
+<span class="sd">    system build properties.</span>
+
+<span class="sd">    Returns a dictionary of key,value pairs.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">properties</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">property_file</span><span class="p">:</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">line</span> <span class="ow">or</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;#&#39;</span><span class="p">):</span>
+            <span class="k">continue</span>
+        <span class="n">split_location</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s">&#39;=&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">split_location</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="k">continue</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">line</span><span class="p">[:</span><span class="n">split_location</span><span class="p">]</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">line</span><span class="p">[</span><span class="n">split_location</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:]</span>
+
+        <span class="n">properties</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">return</span> <span class="n">properties</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html">
+              <img class="logo" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/otto-64.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html">Autopilot 1.4+14.04.20140416-0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../autopilot.html" >autopilot</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      <div class=center_text>
+        <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/faq/contribute.html">Learn how you can contribute!</a> / <a href="https://bugs.launchpad.net/autopilot/+filebug">File a bug</a>
+     <br/>
+      </div>
+        &copy; Copyright 2012-2013, Canonical.
+    </div>
+
+
+  </body>
+</html>

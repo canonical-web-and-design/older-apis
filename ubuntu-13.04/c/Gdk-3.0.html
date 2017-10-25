@@ -1,0 +1,1887 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="C">
+    
+    <title>Gdk-3.0 C API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>Gdk-3.0 C API Documentation</h1>
+
+<div class="class-normal">
+<a href="Gdk-3.0.html#Gdk.AppLaunchContext" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.AppLaunchContext">Class: GdkAppLaunchContext</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Gio-2.0.html#Gio.AppLaunchContext">GAppLaunchContext</a></p>
+<p>
+GdkAppLaunchContext is an implementation of #GAppLaunchContext that
+handles launching an application in a graphical context. It provides
+startup notification and allows to launch applications on a specific
+screen or workspace.
+&lt;example&gt;
+&lt;title&gt;Launching an application&lt;/title&gt;
+&lt;informalexample&gt;
+&lt;programlisting&gt;
+GdkAppLaunchContext *context;
+
+context = gdk_display_get_app_launch_context (display);
+
+gdk_app_launch_context_set_screen (screen);
+gdk_app_launch_context_set_timestamp (event-&gt;time);
+
+if (!g_app_info_launch_default_for_uri ("http://www.gtk.org", context, &amp;error))
+  g_warning ("Launching failed: %s\n", error-&gt;message);
+
+g_object_unref (context);
+&lt;/programlisting&gt;
+&lt;/informalexample&gt;
+&lt;/example&gt;</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay</a></span><span class="property-name">"display"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.AppLaunchContext">GdkAppLaunchContext</a>*</span><span class="method-name">gdk_app_launch_context_new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_app_launch_context_set_desktop</span><span class="method-parameters">(GdkAppLaunchContext *self, <span class="type-basetype type ">gint</span> desktop)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_app_launch_context_set_display</span><span class="method-parameters">(GdkAppLaunchContext *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay</a> *display)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_app_launch_context_set_icon</span><span class="method-parameters">(GdkAppLaunchContext *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon</a> *icon)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_app_launch_context_set_icon_name</span><span class="method-parameters">(GdkAppLaunchContext *self, <span class="type-basetype type ">gchar</span> *icon_name)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_app_launch_context_set_screen</span><span class="method-parameters">(GdkAppLaunchContext *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Screen">GdkScreen</a> *screen)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_app_launch_context_set_timestamp</span><span class="method-parameters">(GdkAppLaunchContext *self, <span class="type-basetype type ">guint32</span> timestamp)</span></p>
+</div>
+</div>
+</div>
+<div class="class-abstract">
+<a href="Gdk-3.0.html#Gdk.Cursor" class="class-anchor">⚓</a><h2 class="class-abstract" id="Gdk.Cursor">Abstract Class: GdkCursor</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class type " href="GdkX11-3.0.html#GdkX11.X11Cursor">GdkX11Cursor</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+The #GdkCursor structure represents a cursor. Its contents are private.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.CursorType">GdkCursorType</a></span><span class="property-name">"cursor-type"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay</a></span><span class="property-name">"display"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Cursor">GdkCursor</a>*</span><span class="method-name">gdk_cursor_new</span><span class="method-parameters">(<a class="link-Type type " href="Gdk-3.0.html#Gdk.CursorType">GdkCursorType</a> cursor_type)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Cursor">GdkCursor</a>*</span><span class="method-name">gdk_cursor_new_from_name</span><span class="method-parameters">(<a class="link-Type type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay</a> *display, <a class="link-Type type " href="Gdk-3.0.html#utf8">const gchar</a> *name)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Cursor">GdkCursor</a>*</span><span class="method-name">gdk_cursor_new_from_pixbuf</span><span class="method-parameters">(<a class="link-Type type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay</a> *display, <span class="type ">GdkPixbuf</span> *pixbuf, <a class="link-Type type " href="Gdk-3.0.html#gint">gint</a> x, <a class="link-Type type " href="Gdk-3.0.html#gint">gint</a> y)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Cursor">GdkCursor</a>*</span><span class="method-name">gdk_cursor_new_for_display</span><span class="method-parameters">(<a class="link-Type type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay</a> *display, <a class="link-Type type " href="Gdk-3.0.html#Gdk.CursorType">GdkCursorType</a> cursor_type)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.CursorType">GdkCursorType</a></span><span class="method-name">gdk_cursor_get_cursor_type</span><span class="method-parameters">(GdkCursor *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay*</a></span><span class="method-name">gdk_cursor_get_display</span><span class="method-parameters">(GdkCursor *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">GdkPixbuf*</span></span><span class="method-name">gdk_cursor_get_image</span><span class="method-parameters">(GdkCursor *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Cursor">GdkCursor*</a></span><span class="method-name">gdk_cursor_ref</span><span class="method-parameters">(GdkCursor *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_cursor_unref</span><span class="method-parameters">(GdkCursor *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-abstract">
+<a href="Gdk-3.0.html#Gdk.Device" class="class-anchor">⚓</a><h2 class="class-abstract" id="Gdk.Device">Abstract Class: GdkDevice</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+The #GdkDevice object represents a single input device, such
+as a keyboard, a mouse, a touchpad, etc.
+
+See the #GdkDeviceManager documentation for more information
+about the various kinds of master and slave devices, and their
+relationships.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Device">GdkDevice</a></span><span class="property-name">"associated-device"</span><span class="property-access"> read-only</span></p>
+<p class="property-doc">
+Associated pointer or keyboard with this device, if any. Devices of type #GDK_DEVICE_TYPE_MASTER
+always come in keyboard/pointer pairs. Other device types will have a %NULL associated device.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.InputMode">GdkInputMode</a></span><span class="property-name">"input-mode"</span><span class="property-access">read/write</span></p>
+<p class="property-doc">
+Input mode for the device.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">guint</span></span><span class="property-name">"n-axes"</span><span class="property-access"> read-only</span></p>
+<p class="property-doc">
+Number of axes in the device.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"name"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The device name.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.InputSource">GdkInputSource</a></span><span class="property-name">"input-source"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+Source type for the device.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.DeviceManager">GdkDeviceManager</a></span><span class="property-name">"device-manager"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The #GdkDeviceManager the #GdkDevice pertains to.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.DeviceType">GdkDeviceType</a></span><span class="property-name">"type"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+Device role in the device manager.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay</a></span><span class="property-name">"display"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The #GdkDisplay the #GdkDevice pertains to.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"has-cursor"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+Whether the device is represented by a cursor on the screen. Devices of type
+%GDK_DEVICE_TYPE_MASTER will have %TRUE here.</p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"changed"</span><span class="signal-parameters">(GdkDevice *device)</span></p>
+<p class="signal-doc">
+The ::changed signal is emitted either when the #GdkDevice
+has changed the number of either axes or keys. For example
+In X this will normally happen when the slave device routing
+events through the master device changes (for example, user
+switches from the USB mouse to a tablet), in that case the
+master device will change to reflect the new slave device
+axes and keys.</p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_device_free_history</span><span class="method-parameters">(<a class="link-Record type " href="Gdk-3.0.html#Gdk.TimeCoord">GdkTimeCoord</a> *events, <span class="type-basetype type ">gint</span> n_events)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Device">GdkDevice*</a></span><span class="method-name">gdk_device_get_associated_device</span><span class="method-parameters">(GdkDevice *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_device_get_axis</span><span class="method-parameters">(GdkDevice *self, <span class="type ">gdouble</span> **axes, <a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.AxisUse">GdkAxisUse</a> use, <span class="type-basetype type ">gdouble</span> **value)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.AxisUse">GdkAxisUse</a></span><span class="method-name">gdk_device_get_axis_use</span><span class="method-parameters">(GdkDevice *self, <span class="type-basetype type ">guint</span> index_)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_device_get_axis_value</span><span class="method-parameters">(GdkDevice *self, <span class="type ">gdouble</span> **axes, <a class="link-Record type " href="Gdk-3.0.html#Gdk.Atom">GdkAtom</a> axis_label, <span class="type-basetype type ">gdouble</span> *value)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.DeviceType">GdkDeviceType</a></span><span class="method-name">gdk_device_get_device_type</span><span class="method-parameters">(GdkDevice *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay*</a></span><span class="method-name">gdk_device_get_display</span><span class="method-parameters">(GdkDevice *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_device_get_has_cursor</span><span class="method-parameters">(GdkDevice *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_device_get_history</span><span class="method-parameters">(GdkDevice *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow</a> *window, <span class="type-basetype type ">guint32</span> start, <span class="type-basetype type ">guint32</span> stop, <span class="type ">GdkTimeCoord</span> **events, <span class="type-basetype type ">gint</span> **n_events)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_device_get_key</span><span class="method-parameters">(GdkDevice *self, <span class="type-basetype type ">guint</span> index_, <span class="type-basetype type ">guint</span> **keyval, <a class="link-BitField type " href="Gdk-3.0.html#Gdk.ModifierType">GdkModifierType</a> **modifiers)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.InputMode">GdkInputMode</a></span><span class="method-name">gdk_device_get_mode</span><span class="method-parameters">(GdkDevice *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_device_get_n_axes</span><span class="method-parameters">(GdkDevice *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_device_get_n_keys</span><span class="method-parameters">(GdkDevice *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">gdk_device_get_name</span><span class="method-parameters">(GdkDevice *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_device_get_position</span><span class="method-parameters">(GdkDevice *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Screen">GdkScreen</a> **screen, <span class="type-basetype type ">gint</span> **x, <span class="type-basetype type ">gint</span> **y)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.InputSource">GdkInputSource</a></span><span class="method-name">gdk_device_get_source</span><span class="method-parameters">(GdkDevice *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_device_get_state</span><span class="method-parameters">(GdkDevice *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow</a> *window, <span class="type-basetype type ">gdouble</span> *axes, <a class="link-BitField type " href="Gdk-3.0.html#Gdk.ModifierType">GdkModifierType</a> *mask)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow*</a></span><span class="method-name">gdk_device_get_window_at_position</span><span class="method-parameters">(GdkDevice *self, <span class="type-basetype type ">gint</span> **win_x, <span class="type-basetype type ">gint</span> **win_y)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.GrabStatus">GdkGrabStatus</a></span><span class="method-name">gdk_device_grab</span><span class="method-parameters">(GdkDevice *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow</a> *window, <a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.GrabOwnership">GdkGrabOwnership</a> grab_ownership, <span class="type-basetype type ">gboolean</span> owner_events, <a class="link-BitField type " href="Gdk-3.0.html#Gdk.EventMask">GdkEventMask</a> event_mask, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Cursor">GdkCursor</a> *cursor, <span class="type-basetype type ">guint32</span> time_)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_device_grab_info_libgtk_only</span><span class="method-parameters">(<a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay</a> *display, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Device">GdkDevice</a> *device, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow</a> **grab_window, <span class="type-basetype type ">gboolean</span> **owner_events)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">gdk_device_list_axes</span><span class="method-parameters">(GdkDevice *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">gdk_device_list_slave_devices</span><span class="method-parameters">(GdkDevice *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_device_set_axis_use</span><span class="method-parameters">(GdkDevice *self, <span class="type-basetype type ">guint</span> index_, <a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.AxisUse">GdkAxisUse</a> use)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_device_set_key</span><span class="method-parameters">(GdkDevice *self, <span class="type-basetype type ">guint</span> index_, <span class="type-basetype type ">guint</span> keyval, <a class="link-BitField type " href="Gdk-3.0.html#Gdk.ModifierType">GdkModifierType</a> modifiers)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_device_set_mode</span><span class="method-parameters">(GdkDevice *self, <a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.InputMode">GdkInputMode</a> mode)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_device_ungrab</span><span class="method-parameters">(GdkDevice *self, <span class="type-basetype type ">guint32</span> time_)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_device_warp</span><span class="method-parameters">(GdkDevice *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Screen">GdkScreen</a> *screen, <span class="type-basetype type ">gint</span> x, <span class="type-basetype type ">gint</span> y)</span></p>
+</div>
+</div>
+</div>
+<div class="class-abstract">
+<a href="Gdk-3.0.html#Gdk.DeviceManager" class="class-anchor">⚓</a><h2 class="class-abstract" id="Gdk.DeviceManager">Abstract Class: GdkDeviceManager</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+In addition to a single pointer and keyboard for user interface input,
+GDK contains support for a variety of input devices, including graphics
+tablets, touchscreens and multiple pointers/keyboards interacting
+simultaneously with the user interface. Such input devices often have
+additional features, such as sub-pixel positioning information and
+additional device-dependent information.
+
+In order to query the device hierarchy and be aware of changes in the
+device hierarchy (such as virtual devices being created or removed, or
+physical devices being plugged or unplugged), GDK provides
+#GdkDeviceManager.
+
+By default, and if the platform supports it, GDK is aware of multiple
+keyboard/pointer pairs and multitouch devices. This behavior can be
+changed by calling gdk_disable_multidevice() before gdk_display_open().
+There should rarely be a need to do that though, since GDK defaults
+to a compatibility mode in which it will emit just one enter/leave
+event pair for all devices on a window. To enable per-device
+enter/leave events and other multi-pointer interaction features,
+gdk_window_set_support_multidevice() must be called on
+#GdkWindows (or gtk_widget_set_support_multidevice() on widgets).
+window. See the gdk_window_set_support_multidevice() documentation
+for more information.
+
+On X11, multi-device support is implemented through XInput 2.
+Unless gdk_disable_multidevice() is called, the XInput 2
+#GdkDeviceManager implementation will be used as the input source.
+Otherwise either the core or XInput 1 implementations will be used.
+
+For simple applications that don't have any special interest in
+input devices, the so-called &lt;firstterm&gt;client pointer&lt;/firstterm&gt;
+provides a reasonable approximation to a simple setup with a single
+pointer and keyboard. The device that has been set as the client
+pointer can be accessed via gdk_device_manager_get_client_pointer().
+
+Conceptually, in multidevice mode there are 2 device types. Virtual
+devices (or master devices) are represented by the pointer cursors
+and keyboard foci that are seen on the screen. Physical devices (or
+slave devices) represent the hardware that is controlling the virtual
+devices, and thus have no visible cursor on the screen.
+
+Virtual devices are always paired, so there is a keyboard device for every
+pointer device. Associations between devices may be inspected through
+gdk_device_get_associated_device().
+
+There may be several virtual devices, and several physical devices could
+be controlling each of these virtual devices. Physical devices may also
+be "floating", which means they are not attached to any virtual device.
+
+&lt;example&gt;&lt;title&gt;Master and slave devices&lt;/title&gt;
+&lt;screen&gt;
+carlos@sacarino:~$ xinput list
+⎡ Virtual core pointer                          id=2    [master pointer  (3)]
+⎜   ↳ Virtual core XTEST pointer                id=4    [slave  pointer  (2)]
+⎜   ↳ Wacom ISDv4 E6 Pen stylus                 id=10   [slave  pointer  (2)]
+⎜   ↳ Wacom ISDv4 E6 Finger touch               id=11   [slave  pointer  (2)]
+⎜   ↳ SynPS/2 Synaptics TouchPad                id=13   [slave  pointer  (2)]
+⎜   ↳ TPPS/2 IBM TrackPoint                     id=14   [slave  pointer  (2)]
+⎜   ↳ Wacom ISDv4 E6 Pen eraser                 id=16   [slave  pointer  (2)]
+⎣ Virtual core keyboard                         id=3    [master keyboard (2)]
+    ↳ Virtual core XTEST keyboard               id=5    [slave  keyboard (3)]
+    ↳ Power Button                              id=6    [slave  keyboard (3)]
+    ↳ Video Bus                                 id=7    [slave  keyboard (3)]
+    ↳ Sleep Button                              id=8    [slave  keyboard (3)]
+    ↳ Integrated Camera                         id=9    [slave  keyboard (3)]
+    ↳ AT Translated Set 2 keyboard              id=12   [slave  keyboard (3)]
+    ↳ ThinkPad Extra Buttons                    id=15   [slave  keyboard (3)]
+&lt;/screen&gt;
+&lt;/example&gt;
+
+By default, GDK will automatically listen for events coming from all
+master devices, setting the #GdkDevice for all events coming from input
+devices. Events containing device information are #GDK_MOTION_NOTIFY,
+#GDK_BUTTON_PRESS, #GDK_2BUTTON_PRESS, #GDK_3BUTTON_PRESS,
+#GDK_BUTTON_RELEASE, #GDK_SCROLL, #GDK_KEY_PRESS, #GDK_KEY_RELEASE,
+#GDK_ENTER_NOTIFY, #GDK_LEAVE_NOTIFY, #GDK_FOCUS_CHANGE,
+#GDK_PROXIMITY_IN, #GDK_PROXIMITY_OUT, #GDK_DRAG_ENTER, #GDK_DRAG_LEAVE,
+#GDK_DRAG_MOTION, #GDK_DRAG_STATUS, #GDK_DROP_START, #GDK_DROP_FINISHED
+and #GDK_GRAB_BROKEN. When dealing with an event on a master device,
+it is possible to get the source (slave) device that the event originated
+from via gdk_event_get_source_device().
+
+In order to listen for events coming from devices
+other than a virtual device, gdk_window_set_device_events() must be
+called. Generally, this function can be used to modify the event mask
+for any given device.
+
+Input devices may also provide additional information besides X/Y.
+For example, graphics tablets may also provide pressure and X/Y tilt
+information. This information is device-dependent, and may be
+queried through gdk_device_get_axis(). In multidevice mode, virtual
+devices will change axes in order to always represent the physical
+device that is routing events through it. Whenever the physical device
+changes, the #GdkDevice:n-axes property will be notified, and
+gdk_device_list_axes() will return the new device axes.
+
+Devices may also have associated &lt;firstterm&gt;keys&lt;/firstterm&gt; or
+macro buttons. Such keys can be globally set to map into normal X
+keyboard events. The mapping is set using gdk_device_set_key().</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay</a></span><span class="property-name">"display"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"device-removed"</span><span class="signal-parameters">(GdkDeviceManager *device_manager, GdkDevice device)</span></p>
+<p class="signal-doc">
+The ::device-removed signal is emitted either when a master
+pointer is removed, or when a slave (Hardware) input device
+is unplugged.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"device-added"</span><span class="signal-parameters">(GdkDeviceManager *device_manager, GdkDevice device)</span></p>
+<p class="signal-doc">
+The ::device-added signal is emitted either when a new master
+pointer is created, or when a slave (Hardware) input device
+is plugged in.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"device-changed"</span><span class="signal-parameters">(GdkDeviceManager *device_manager, GdkDevice device)</span></p>
+<p class="signal-doc">
+The ::device-changed signal is emitted whenever a device
+has changed in the hierarchy, either slave devices being
+disconnected from their master device or connected to
+another one, or master devices being added or removed
+a slave device.
+
+If a slave device is detached from all master devices
+(gdk_device_get_associated_device() returns %NULL), its
+#GdkDeviceType will change to %GDK_DEVICE_TYPE_FLOATING,
+if it's attached, it will change to %GDK_DEVICE_TYPE_SLAVE.</p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Device">GdkDevice*</a></span><span class="method-name">gdk_device_manager_get_client_pointer</span><span class="method-parameters">(GdkDeviceManager *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay*</a></span><span class="method-name">gdk_device_manager_get_display</span><span class="method-parameters">(GdkDeviceManager *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">gdk_device_manager_list_devices</span><span class="method-parameters">(GdkDeviceManager *self, <a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.DeviceType">GdkDeviceType</a> type)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-3.0.html#Gdk.Display" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.Display">Class: GdkDisplay</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class type " href="GdkX11-3.0.html#GdkX11.X11Display">GdkX11Display</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+#GdkDisplay objects purpose are two fold:
+&lt;itemizedlist&gt;
+&lt;listitem&gt;
+  To manage and provide information about input devices (pointers
+  and keyboards)
+&lt;/listitem&gt;
+&lt;listitem&gt;
+  To manage and provide information about the available #GdkScreens
+&lt;/listitem&gt;
+&lt;/itemizedlist&gt;
+
+GdkDisplay objects are the GDK representation of an X Display,
+which can be described as &lt;emphasis&gt;a workstation consisting of
+a keyboard, a pointing device (such as a mouse) and one or more
+screens&lt;/emphasis&gt;.
+It is used to open and keep track of various GdkScreen objects
+currently instantiated by the application. It is also used to
+access the keyboard(s) and mouse pointer(s) of the display.
+
+Most of the input device handling has been factored out into
+the separate #GdkDeviceManager object. Every display has a
+device manager, which you can obtain using
+gdk_display_get_device_manager().</p>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"opened"</span><span class="signal-parameters">(GdkDisplay *display)</span></p>
+<p class="signal-doc">
+The ::opened signal is emitted when the connection to the windowing
+system for @display is opened.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"closed"</span><span class="signal-parameters">(GdkDisplay *display, gboolean is_error)</span></p>
+<p class="signal-doc">
+The ::closed signal is emitted when the connection to the windowing
+system for @display is closed.</p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_display_beep</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_display_close</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_display_device_is_grabbed</span><span class="method-parameters">(GdkDisplay *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Device">GdkDevice</a> *device)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_display_flush</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.AppLaunchContext">GdkAppLaunchContext*</a></span><span class="method-name">gdk_display_get_app_launch_context</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay*</a></span><span class="method-name">gdk_display_get_default</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">gdk_display_get_default_cursor_size</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow*</a></span><span class="method-name">gdk_display_get_default_group</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Screen">GdkScreen*</a></span><span class="method-name">gdk_display_get_default_screen</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.DeviceManager">GdkDeviceManager*</a></span><span class="method-name">gdk_display_get_device_manager</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">GdkEvent*</span></span><span class="method-name">gdk_display_get_event</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_display_get_maximal_cursor_size</span><span class="method-parameters">(GdkDisplay *self, <span class="type-basetype type ">guint</span> **width, <span class="type-basetype type ">guint</span> **height)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_display_get_n_screens</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">gdk_display_get_name</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_display_get_pointer</span><span class="method-parameters">(GdkDisplay *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Screen">GdkScreen</a> **screen, <span class="type-basetype type ">gint</span> **x, <span class="type-basetype type ">gint</span> **y, <a class="link-BitField type " href="Gdk-3.0.html#Gdk.ModifierType">GdkModifierType</a> **mask)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Screen">GdkScreen*</a></span><span class="method-name">gdk_display_get_screen</span><span class="method-parameters">(GdkDisplay *self, <span class="type-basetype type ">gint</span> screen_num)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow*</a></span><span class="method-name">gdk_display_get_window_at_pointer</span><span class="method-parameters">(GdkDisplay *self, <span class="type-basetype type ">gint</span> **win_x, <span class="type-basetype type ">gint</span> **win_y)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_display_has_pending</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_display_is_closed</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_display_keyboard_ungrab</span><span class="method-parameters">(GdkDisplay *self, <span class="type-basetype type ">guint32</span> time_)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">gdk_display_list_devices</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_display_notify_startup_complete</span><span class="method-parameters">(GdkDisplay *self, <span class="type-basetype type ">gchar</span> *startup_id)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay*</a></span><span class="method-name">gdk_display_open</span><span class="method-parameters">(<span class="type-basetype type ">gchar</span> *display_name)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay*</a></span><span class="method-name">gdk_display_open_default_libgtk_only</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">GdkEvent*</span></span><span class="method-name">gdk_display_peek_event</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_display_pointer_is_grabbed</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_display_pointer_ungrab</span><span class="method-parameters">(GdkDisplay *self, <span class="type-basetype type ">guint32</span> time_)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_display_put_event</span><span class="method-parameters">(GdkDisplay *self, <span class="type ">const GdkEvent</span> *event)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_display_request_selection_notification</span><span class="method-parameters">(GdkDisplay *self, <a class="link-Record type " href="Gdk-3.0.html#Gdk.Atom">GdkAtom</a> selection)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_display_set_double_click_distance</span><span class="method-parameters">(GdkDisplay *self, <span class="type-basetype type ">guint</span> distance)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_display_set_double_click_time</span><span class="method-parameters">(GdkDisplay *self, <span class="type-basetype type ">guint</span> msec)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_display_store_clipboard</span><span class="method-parameters">(GdkDisplay *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow</a> *clipboard_window, <span class="type-basetype type ">guint32</span> time_, <span class="type ">GdkAtom</span> **targets, <span class="type-basetype type ">gint</span> n_targets)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_display_supports_clipboard_persistence</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_display_supports_composite</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_display_supports_cursor_alpha</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_display_supports_cursor_color</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_display_supports_input_shapes</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_display_supports_selection_notification</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_display_supports_shapes</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_display_sync</span><span class="method-parameters">(GdkDisplay *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_display_warp_pointer</span><span class="method-parameters">(GdkDisplay *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Screen">GdkScreen</a> *screen, <span class="type-basetype type ">gint</span> x, <span class="type-basetype type ">gint</span> y)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-3.0.html#Gdk.DisplayManager" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.DisplayManager">Class: GdkDisplayManager</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+The purpose of the #GdkDisplayManager singleton object is to offer
+notification when displays appear or disappear or the default display
+changes.
+
+You can use gdk_display_manager_get() to obtain the GdkDisplayManager
+singleton, but that should be rarely necessary. Typically, initializing
+GTK+ opens a display that you can work with without ever accessing the
+GdkDisplayManager.
+
+The GDK library can be built with support for multiple backends.
+The GdkDisplayManager object determines which backend is used
+at runtime.
+
+When writing backend-specific code that is supposed to work with
+multiple GDK backends, you have to consider both compile time and
+runtime. At compile time, use the #GDK_WINDOWING_X11, #GDK_WINDOWING_WIN32
+macros, etc. to find out which backends are present in the GDK library
+you are building your application against. At runtime, use type-check
+macros like GDK_IS_X11_DISPLAY() to find out which backend is in use:
+
+&lt;example id="backend-specific"&gt;
+&lt;title&gt;Backend-specific code&lt;/title&gt;
+&lt;programlisting&gt;
+#ifdef GDK_WINDOWING_X11
+  if (GDK_IS_X11_DISPLAY (display))
+    {
+      /&amp;ast; make X11-specific calls here &amp;ast;/
+    }
+  else
+#endif
+#ifdef GDK_WINDOWING_QUARTZ
+  if (GDK_IS_QUARTZ_DISPLAY (display))
+    {
+      /&amp;ast; make Quartz-specific calls here &amp;ast;/
+    }
+  else
+#endif
+  g_error ("Unsupported GDK backend");
+&lt;/programlisting&gt;
+&lt;/example&gt;</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay</a></span><span class="property-name">"default-display"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"display-opened"</span><span class="signal-parameters">(GdkDisplayManager *display_manager, GdkDisplay display)</span></p>
+<p class="signal-doc">
+The ::display-opened signal is emitted when a display is opened.</p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.DisplayManager">GdkDisplayManager*</a></span><span class="method-name">gdk_display_manager_get</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay*</a></span><span class="method-name">gdk_display_manager_get_default_display</span><span class="method-parameters">(GdkDisplayManager *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.SList">GSList*</a></span><span class="method-name">gdk_display_manager_list_displays</span><span class="method-parameters">(GdkDisplayManager *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay*</a></span><span class="method-name">gdk_display_manager_open_display</span><span class="method-parameters">(GdkDisplayManager *self, <span class="type-basetype type ">gchar</span> *name)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_display_manager_set_default_display</span><span class="method-parameters">(GdkDisplayManager *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay</a> *display)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-3.0.html#Gdk.DragContext" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.DragContext">Class: GdkDragContext</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-BitField type " href="Gdk-3.0.html#Gdk.DragAction">GdkDragAction</a></span><span class="method-name">gdk_drag_context_get_actions</span><span class="method-parameters">(GdkDragContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow*</a></span><span class="method-name">gdk_drag_context_get_dest_window</span><span class="method-parameters">(GdkDragContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Device">GdkDevice*</a></span><span class="method-name">gdk_drag_context_get_device</span><span class="method-parameters">(GdkDragContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.DragProtocol">GdkDragProtocol</a></span><span class="method-name">gdk_drag_context_get_protocol</span><span class="method-parameters">(GdkDragContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-BitField type " href="Gdk-3.0.html#Gdk.DragAction">GdkDragAction</a></span><span class="method-name">gdk_drag_context_get_selected_action</span><span class="method-parameters">(GdkDragContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow*</a></span><span class="method-name">gdk_drag_context_get_source_window</span><span class="method-parameters">(GdkDragContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-BitField type " href="Gdk-3.0.html#Gdk.DragAction">GdkDragAction</a></span><span class="method-name">gdk_drag_context_get_suggested_action</span><span class="method-parameters">(GdkDragContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">gdk_drag_context_list_targets</span><span class="method-parameters">(GdkDragContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_drag_context_set_device</span><span class="method-parameters">(GdkDragContext *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Device">GdkDevice</a> *device)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-3.0.html#Gdk.Keymap" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.Keymap">Class: GdkKeymap</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+A #GdkKeymap defines the translation from keyboard state
+(including a hardware key, a modifier mask, and active keyboard group)
+to a keyval. This translation has two phases. The first phase is
+to determine the effective keyboard group and level for the keyboard
+state; the second phase is to look up the keycode/group/level triplet
+in the keymap and see what keyval it corresponds to.</p>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"direction-changed"</span><span class="signal-parameters">(GdkKeymap *keymap)</span></p>
+<p class="signal-doc">
+The ::direction-changed signal gets emitted when the direction of
+the keymap changes.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"state-changed"</span><span class="signal-parameters">(GdkKeymap *keymap)</span></p>
+<p class="signal-doc">
+The ::state-changed signal is emitted when the state of the
+keyboard changes, e.g when Caps Lock is turned on or off.
+See gdk_keymap_get_caps_lock_state().</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"keys-changed"</span><span class="signal-parameters">(GdkKeymap *keymap)</span></p>
+<p class="signal-doc">
+The ::keys-changed signal is emitted when the mapping represented by
+@keymap changes.</p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_keymap_add_virtual_modifiers</span><span class="method-parameters">(GdkKeymap *self, <a class="link-BitField type " href="Gdk-3.0.html#Gdk.ModifierType">GdkModifierType</a> *state)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_keymap_get_caps_lock_state</span><span class="method-parameters">(GdkKeymap *self)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Keymap">GdkKeymap*</a></span><span class="method-name">gdk_keymap_get_default</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">PangoDirection</span></span><span class="method-name">gdk_keymap_get_direction</span><span class="method-parameters">(GdkKeymap *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_keymap_get_entries_for_keycode</span><span class="method-parameters">(GdkKeymap *self, <span class="type-basetype type ">guint</span> hardware_keycode, <span class="type ">GdkKeymapKey</span> **keys, <span class="type ">guint</span> **keyvals, <span class="type-basetype type ">gint</span> **n_entries)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_keymap_get_entries_for_keyval</span><span class="method-parameters">(GdkKeymap *self, <span class="type-basetype type ">guint</span> keyval, <span class="type ">GdkKeymapKey</span> **keys, <span class="type-basetype type ">gint</span> **n_keys)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Keymap">GdkKeymap*</a></span><span class="method-name">gdk_keymap_get_for_display</span><span class="method-parameters">(<a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay</a> *display)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-BitField type " href="Gdk-3.0.html#Gdk.ModifierType">GdkModifierType</a></span><span class="method-name">gdk_keymap_get_modifier_mask</span><span class="method-parameters">(GdkKeymap *self, <a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.ModifierIntent">GdkModifierIntent</a> intent)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">gdk_keymap_get_modifier_state</span><span class="method-parameters">(GdkKeymap *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_keymap_get_num_lock_state</span><span class="method-parameters">(GdkKeymap *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_keymap_have_bidi_layouts</span><span class="method-parameters">(GdkKeymap *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">gdk_keymap_lookup_key</span><span class="method-parameters">(GdkKeymap *self, <a class="link-Record type " href="Gdk-3.0.html#Gdk.KeymapKey">GdkKeymapKey</a> *key)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_keymap_map_virtual_modifiers</span><span class="method-parameters">(GdkKeymap *self, <a class="link-BitField type " href="Gdk-3.0.html#Gdk.ModifierType">GdkModifierType</a> *state)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_keymap_translate_keyboard_state</span><span class="method-parameters">(GdkKeymap *self, <span class="type-basetype type ">guint</span> hardware_keycode, <a class="link-BitField type " href="Gdk-3.0.html#Gdk.ModifierType">GdkModifierType</a> state, <span class="type-basetype type ">gint</span> group, <span class="type-basetype type ">guint</span> **keyval, <span class="type-basetype type ">gint</span> **effective_group, <span class="type-basetype type ">gint</span> **level, <a class="link-BitField type " href="Gdk-3.0.html#Gdk.ModifierType">GdkModifierType</a> **consumed_modifiers)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-3.0.html#Gdk.Screen" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.Screen">Class: GdkScreen</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class type " href="GdkX11-3.0.html#GdkX11.X11Screen">GdkX11Screen</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+#GdkScreen objects are the GDK representation of the screen on
+which windows can be displayed and on which the pointer moves.
+X originally identified screens with physical screens, but
+nowadays it is more common to have a single #GdkScreen which
+combines several physical monitors (see gdk_screen_get_n_monitors()).
+
+GdkScreen is used throughout GDK and GTK+ to specify which screen
+the top level windows are to be displayed on. it is also used to
+query the screen specification and default settings such as
+the default visual (gdk_screen_get_system_visual()), the dimensions
+of the physical monitors (gdk_screen_get_monitor_geometry()), etc.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gdouble</span></span><span class="property-name">"resolution"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gpointer</span></span><span class="property-name">"font-options"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"size-changed"</span><span class="signal-parameters">(GdkScreen *screen)</span></p>
+<p class="signal-doc">
+The ::size-changed signal is emitted when the pixel width or 
+height of a screen changes.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"monitors-changed"</span><span class="signal-parameters">(GdkScreen *screen)</span></p>
+<p class="signal-doc">
+The ::monitors-changed signal is emitted when the number, size
+or position of the monitors attached to the screen change. 
+
+Only for X11 and OS X for now. A future implementation for Win32
+may be a possibility.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"composited-changed"</span><span class="signal-parameters">(GdkScreen *screen)</span></p>
+<p class="signal-doc">
+The ::composited-changed signal is emitted when the composited
+status of the screen changes</p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow*</a></span><span class="method-name">gdk_screen_get_active_window</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Screen">GdkScreen*</a></span><span class="method-name">gdk_screen_get_default</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay*</a></span><span class="method-name">gdk_screen_get_display</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="cairo-1.0.html#cairo.FontOptions">cairo_font_options_t*</a></span><span class="method-name">gdk_screen_get_font_options</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_screen_get_height</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_screen_get_height_mm</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_screen_get_monitor_at_point</span><span class="method-parameters">(GdkScreen *self, <span class="type-basetype type ">gint</span> x, <span class="type-basetype type ">gint</span> y)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_screen_get_monitor_at_window</span><span class="method-parameters">(GdkScreen *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow</a> *window)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_screen_get_monitor_geometry</span><span class="method-parameters">(GdkScreen *self, <span class="type-basetype type ">gint</span> monitor_num, <span class="type ">GdkRectangle</span> **dest)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_screen_get_monitor_height_mm</span><span class="method-parameters">(GdkScreen *self, <span class="type-basetype type ">gint</span> monitor_num)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">gdk_screen_get_monitor_plug_name</span><span class="method-parameters">(GdkScreen *self, <span class="type-basetype type ">gint</span> monitor_num)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_screen_get_monitor_width_mm</span><span class="method-parameters">(GdkScreen *self, <span class="type-basetype type ">gint</span> monitor_num)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_screen_get_monitor_workarea</span><span class="method-parameters">(GdkScreen *self, <span class="type-basetype type ">gint</span> monitor_num, <span class="type ">GdkRectangle</span> **dest)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_screen_get_n_monitors</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_screen_get_number</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_screen_get_primary_monitor</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gdouble</span></span><span class="method-name">gdk_screen_get_resolution</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Visual">GdkVisual*</a></span><span class="method-name">gdk_screen_get_rgba_visual</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow*</a></span><span class="method-name">gdk_screen_get_root_window</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_screen_get_setting</span><span class="method-parameters">(GdkScreen *self, <span class="type-basetype type ">gchar</span> *name, <a class="link-Record type " href="GObject-2.0.html#GObject.Value">GValue</a> *value)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Visual">GdkVisual*</a></span><span class="method-name">gdk_screen_get_system_visual</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">gdk_screen_get_toplevel_windows</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_screen_get_width</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_screen_get_width_mm</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">gdk_screen_get_window_stack</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_screen_height</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_screen_height_mm</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_screen_is_composited</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">gdk_screen_list_visuals</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">gdk_screen_make_display_name</span><span class="method-parameters">(GdkScreen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_screen_set_font_options</span><span class="method-parameters">(GdkScreen *self, <a class="link-Record type " href="cairo-1.0.html#cairo.FontOptions">cairo_font_options_t</a> *options)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_screen_set_resolution</span><span class="method-parameters">(GdkScreen *self, <span class="type-basetype type ">gdouble</span> dpi)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_screen_width</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_screen_width_mm</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-3.0.html#Gdk.Visual" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.Visual">Class: GdkVisual</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class type " href="GdkX11-3.0.html#GdkX11.X11Visual">GdkX11Visual</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+The #GdkVisual structure contains information about
+a particular visual.</p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Visual">GdkVisual*</a></span><span class="method-name">gdk_visual_get_best</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_visual_get_best_depth</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.VisualType">GdkVisualType</a></span><span class="method-name">gdk_visual_get_best_type</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Visual">GdkVisual*</a></span><span class="method-name">gdk_visual_get_best_with_both</span><span class="method-parameters">(<span class="type-basetype type ">gint</span> depth, <a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.VisualType">GdkVisualType</a> visual_type)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Visual">GdkVisual*</a></span><span class="method-name">gdk_visual_get_best_with_depth</span><span class="method-parameters">(<span class="type-basetype type ">gint</span> depth)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Visual">GdkVisual*</a></span><span class="method-name">gdk_visual_get_best_with_type</span><span class="method-parameters">(<a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.VisualType">GdkVisualType</a> visual_type)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_visual_get_bits_per_rgb</span><span class="method-parameters">(GdkVisual *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_visual_get_blue_pixel_details</span><span class="method-parameters">(GdkVisual *self, <span class="type-basetype type ">guint32</span> **mask, <span class="type-basetype type ">gint</span> **shift, <span class="type-basetype type ">gint</span> **precision)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.ByteOrder">GdkByteOrder</a></span><span class="method-name">gdk_visual_get_byte_order</span><span class="method-parameters">(GdkVisual *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_visual_get_colormap_size</span><span class="method-parameters">(GdkVisual *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_visual_get_depth</span><span class="method-parameters">(GdkVisual *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_visual_get_green_pixel_details</span><span class="method-parameters">(GdkVisual *self, <span class="type-basetype type ">guint32</span> **mask, <span class="type-basetype type ">gint</span> **shift, <span class="type-basetype type ">gint</span> **precision)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_visual_get_red_pixel_details</span><span class="method-parameters">(GdkVisual *self, <span class="type-basetype type ">guint32</span> **mask, <span class="type-basetype type ">gint</span> **shift, <span class="type-basetype type ">gint</span> **precision)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Screen">GdkScreen*</a></span><span class="method-name">gdk_visual_get_screen</span><span class="method-parameters">(GdkVisual *self)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Visual">GdkVisual*</a></span><span class="method-name">gdk_visual_get_system</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.VisualType">GdkVisualType</a></span><span class="method-name">gdk_visual_get_visual_type</span><span class="method-parameters">(GdkVisual *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-abstract">
+<a href="Gdk-3.0.html#Gdk.Window" class="class-anchor">⚓</a><h2 class="class-abstract" id="Gdk.Window">Abstract Class: GdkWindow</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class type " href="GdkX11-3.0.html#GdkX11.X11Window">GdkX11Window</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Cursor">GdkCursor</a></span><span class="property-name">"cursor"</span><span class="property-access">read/write</span></p>
+<p class="property-doc">
+The mouse pointer for a #GdkWindow. See gdk_window_set_cursor() and
+gdk_window_get_cursor() for details.</p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">GdkWindow</span><span class="signal-name">"pick-embedded-child"</span><span class="signal-parameters">(GdkWindow *window, gdouble x, gdouble y)</span></p>
+<p class="signal-doc">
+The ::pick-embedded-child signal is emitted to find an embedded
+child at the given position.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"from-embedder"</span><span class="signal-parameters">(GdkWindow *window, gdouble embedder_x, gdouble embedder_y, gdouble offscreen_x, gdouble offscreen_y)</span></p>
+<p class="signal-doc">
+The ::from-embedder signal is emitted to translate coordinates
+in the embedder of an offscreen window to the offscreen window.
+
+See also #GtkWindow::to-embedder.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">cairo_surface_t</span><span class="signal-name">"create-surface"</span><span class="signal-parameters">(GdkWindow *window, gint width, gint height)</span></p>
+<p class="signal-doc">
+The ::create-surface signal is emitted when an offscreen window
+needs its surface (re)created, which happens either when the the
+window is first drawn to, or when the window is being
+resized. The first signal handler that returns a non-%NULL
+surface will stop any further signal emission, and its surface
+will be used.
+
+Note that it is not possible to access the window's previous
+surface from within any callback of this signal. Calling
+gdk_offscreen_window_get_surface() will lead to a crash.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"to-embedder"</span><span class="signal-parameters">(GdkWindow *window, gdouble offscreen_x, gdouble offscreen_y, gdouble embedder_x, gdouble embedder_y)</span></p>
+<p class="signal-doc">
+The ::to-embedder signal is emitted to translate coordinates
+in an offscreen window to its embedder.
+
+See also #GtkWindow::from-embedder.</p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow</a>*</span><span class="method-name">gdk_window_new</span><span class="method-parameters">(<a class="link-Type type " href="Gdk-3.0.html#Gdk.Window">GdkWindow</a> *parent, <a class="link-Type type " href="Gdk-3.0.html#Gdk.WindowAttr">GdkWindowAttr</a> *attributes, <a class="link-Type type " href="Gdk-3.0.html#Gdk.WindowAttributesType">gint</a> attributes_mask)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_add_filter</span><span class="method-parameters">(GdkWindow *self, <a class="link-Callback type " href="Gdk-3.0.html#Gdk.FilterFunc">GdkFilterFunc</a> function, <span class="type-basetype type ">gpointer</span> data)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow*</a></span><span class="method-name">gdk_window_at_pointer</span><span class="method-parameters">(<span class="type-basetype type ">gint</span> **win_x, <span class="type-basetype type ">gint</span> **win_y)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_beep</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_begin_move_drag</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gint</span> button, <span class="type-basetype type ">gint</span> root_x, <span class="type-basetype type ">gint</span> root_y, <span class="type-basetype type ">guint32</span> timestamp)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_begin_move_drag_for_device</span><span class="method-parameters">(GdkWindow *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Device">GdkDevice</a> *device, <span class="type-basetype type ">gint</span> button, <span class="type-basetype type ">gint</span> root_x, <span class="type-basetype type ">gint</span> root_y, <span class="type-basetype type ">guint32</span> timestamp)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_begin_paint_rect</span><span class="method-parameters">(GdkWindow *self, <span class="type ">const GdkRectangle</span> *rectangle)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_begin_paint_region</span><span class="method-parameters">(GdkWindow *self, <a class="link-Record type " href="cairo-1.0.html#cairo.Region">cairo_region_t</a> *region)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_begin_resize_drag</span><span class="method-parameters">(GdkWindow *self, <a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.WindowEdge">GdkWindowEdge</a> edge, <span class="type-basetype type ">gint</span> button, <span class="type-basetype type ">gint</span> root_x, <span class="type-basetype type ">gint</span> root_y, <span class="type-basetype type ">guint32</span> timestamp)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_begin_resize_drag_for_device</span><span class="method-parameters">(GdkWindow *self, <a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.WindowEdge">GdkWindowEdge</a> edge, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Device">GdkDevice</a> *device, <span class="type-basetype type ">gint</span> button, <span class="type-basetype type ">gint</span> root_x, <span class="type-basetype type ">gint</span> root_y, <span class="type-basetype type ">guint32</span> timestamp)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_configure_finished</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_constrain_size</span><span class="method-parameters">(<a class="link-Record type " href="Gdk-3.0.html#Gdk.Geometry">GdkGeometry</a> *geometry, <span class="type-basetype type ">guint</span> flags, <span class="type-basetype type ">gint</span> width, <span class="type-basetype type ">gint</span> height, <span class="type-basetype type ">gint</span> **new_width, <span class="type-basetype type ">gint</span> **new_height)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_coords_from_parent</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gdouble</span> parent_x, <span class="type-basetype type ">gdouble</span> parent_y, <span class="type-basetype type ">gdouble</span> **x, <span class="type-basetype type ">gdouble</span> **y)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_coords_to_parent</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gdouble</span> x, <span class="type-basetype type ">gdouble</span> y, <span class="type-basetype type ">gdouble</span> **parent_x, <span class="type-basetype type ">gdouble</span> **parent_y)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="cairo-1.0.html#cairo.Surface">cairo_surface_t*</a></span><span class="method-name">gdk_window_create_similar_surface</span><span class="method-parameters">(GdkWindow *self, <a class="link-Enumeration type " href="cairo-1.0.html#cairo.Content">cairo_content_t</a> content, <span class="type-basetype type ">gint</span> width, <span class="type-basetype type ">gint</span> height)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="cairo-1.0.html#cairo.Surface">cairo_surface_t*</a></span><span class="method-name">gdk_window_create_surface</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gint</span> width, <span class="type-basetype type ">gint</span> height)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_deiconify</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_destroy</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_destroy_notify</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_enable_synchronized_configure</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_end_paint</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_window_ensure_native</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_flush</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_focus</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">guint32</span> timestamp)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_freeze_toplevel_updates_libgtk_only</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_freeze_updates</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_from_embedder</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gdouble</span> embedder_x, <span class="type-basetype type ">gdouble</span> embedder_y, <span class="type-basetype type ">gdouble</span> *offscreen_x, <span class="type-basetype type ">gdouble</span> *offscreen_y)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_fullscreen</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_geometry_changed</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_window_get_accept_focus</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="cairo-1.0.html#cairo.Pattern">cairo_pattern_t*</a></span><span class="method-name">gdk_window_get_background_pattern</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">gdk_window_get_children</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="cairo-1.0.html#cairo.Region">cairo_region_t*</a></span><span class="method-name">gdk_window_get_clip_region</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_window_get_composited</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Cursor">GdkCursor*</a></span><span class="method-name">gdk_window_get_cursor</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_window_get_decorations</span><span class="method-parameters">(GdkWindow *self, <a class="link-BitField type " href="Gdk-3.0.html#Gdk.WMDecoration">GdkWMDecoration</a> **decorations)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Cursor">GdkCursor*</a></span><span class="method-name">gdk_window_get_device_cursor</span><span class="method-parameters">(GdkWindow *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Device">GdkDevice</a> *device)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-BitField type " href="Gdk-3.0.html#Gdk.EventMask">GdkEventMask</a></span><span class="method-name">gdk_window_get_device_events</span><span class="method-parameters">(GdkWindow *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Device">GdkDevice</a> *device)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow*</a></span><span class="method-name">gdk_window_get_device_position</span><span class="method-parameters">(GdkWindow *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Device">GdkDevice</a> *device, <span class="type-basetype type ">gint</span> **x, <span class="type-basetype type ">gint</span> **y, <a class="link-BitField type " href="Gdk-3.0.html#Gdk.ModifierType">GdkModifierType</a> **mask)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay*</a></span><span class="method-name">gdk_window_get_display</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.DragProtocol">GdkDragProtocol</a></span><span class="method-name">gdk_window_get_drag_protocol</span><span class="method-parameters">(GdkWindow *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow</a> **target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow*</a></span><span class="method-name">gdk_window_get_effective_parent</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow*</a></span><span class="method-name">gdk_window_get_effective_toplevel</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-BitField type " href="Gdk-3.0.html#Gdk.EventMask">GdkEventMask</a></span><span class="method-name">gdk_window_get_events</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_window_get_focus_on_map</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_get_frame_extents</span><span class="method-parameters">(GdkWindow *self, <span class="type ">GdkRectangle</span> **rect)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_get_geometry</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gint</span> **x, <span class="type-basetype type ">gint</span> **y, <span class="type-basetype type ">gint</span> **width, <span class="type-basetype type ">gint</span> **height)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow*</a></span><span class="method-name">gdk_window_get_group</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_window_get_height</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_window_get_modal_hint</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_window_get_origin</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gint</span> **x, <span class="type-basetype type ">gint</span> **y)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow*</a></span><span class="method-name">gdk_window_get_parent</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow*</a></span><span class="method-name">gdk_window_get_pointer</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gint</span> **x, <span class="type-basetype type ">gint</span> **y, <a class="link-BitField type " href="Gdk-3.0.html#Gdk.ModifierType">GdkModifierType</a> **mask)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_get_position</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gint</span> **x, <span class="type-basetype type ">gint</span> **y)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_get_root_coords</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gint</span> x, <span class="type-basetype type ">gint</span> y, <span class="type-basetype type ">gint</span> **root_x, <span class="type-basetype type ">gint</span> **root_y)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_get_root_origin</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gint</span> **x, <span class="type-basetype type ">gint</span> **y)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Screen">GdkScreen*</a></span><span class="method-name">gdk_window_get_screen</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-BitField type " href="Gdk-3.0.html#Gdk.EventMask">GdkEventMask</a></span><span class="method-name">gdk_window_get_source_events</span><span class="method-parameters">(GdkWindow *self, <a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.InputSource">GdkInputSource</a> source)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-BitField type " href="Gdk-3.0.html#Gdk.WindowState">GdkWindowState</a></span><span class="method-name">gdk_window_get_state</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_window_get_support_multidevice</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow*</a></span><span class="method-name">gdk_window_get_toplevel</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.WindowTypeHint">GdkWindowTypeHint</a></span><span class="method-name">gdk_window_get_type_hint</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="cairo-1.0.html#cairo.Region">cairo_region_t*</a></span><span class="method-name">gdk_window_get_update_area</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_get_user_data</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gpointer</span> **data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="cairo-1.0.html#cairo.Region">cairo_region_t*</a></span><span class="method-name">gdk_window_get_visible_region</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Visual">GdkVisual*</a></span><span class="method-name">gdk_window_get_visual</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_window_get_width</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.WindowType">GdkWindowType</a></span><span class="method-name">gdk_window_get_window_type</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_window_has_native</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_hide</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_iconify</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_input_shape_combine_region</span><span class="method-parameters">(GdkWindow *self, <a class="link-Record type " href="cairo-1.0.html#cairo.Region">cairo_region_t</a> *shape_region, <span class="type-basetype type ">gint</span> offset_x, <span class="type-basetype type ">gint</span> offset_y)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_invalidate_maybe_recurse</span><span class="method-parameters">(GdkWindow *self, <a class="link-Record type " href="cairo-1.0.html#cairo.Region">cairo_region_t</a> *region, <a class="link-Callback type " href="Gdk-3.0.html#Gdk.WindowChildFunc">GdkWindowChildFunc</a> child_func, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_invalidate_rect</span><span class="method-parameters">(GdkWindow *self, <span class="type ">const GdkRectangle</span> *rect, <span class="type-basetype type ">gboolean</span> invalidate_children)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_invalidate_region</span><span class="method-parameters">(GdkWindow *self, <a class="link-Record type " href="cairo-1.0.html#cairo.Region">cairo_region_t</a> *region, <span class="type-basetype type ">gboolean</span> invalidate_children)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_window_is_destroyed</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_window_is_input_only</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_window_is_shaped</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_window_is_viewable</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_window_is_visible</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_lower</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_maximize</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_merge_child_input_shapes</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_merge_child_shapes</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_move</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gint</span> x, <span class="type-basetype type ">gint</span> y)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_move_region</span><span class="method-parameters">(GdkWindow *self, <a class="link-Record type " href="cairo-1.0.html#cairo.Region">cairo_region_t</a> *region, <span class="type-basetype type ">gint</span> dx, <span class="type-basetype type ">gint</span> dy)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_move_resize</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gint</span> x, <span class="type-basetype type ">gint</span> y, <span class="type-basetype type ">gint</span> width, <span class="type-basetype type ">gint</span> height)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">gdk_window_peek_children</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow*</a></span><span class="method-name">gdk_window_pick_embedded_child</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gdouble</span> x, <span class="type-basetype type ">gdouble</span> y)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_process_all_updates</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_process_updates</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gboolean</span> update_children)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_raise</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_register_dnd</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_remove_filter</span><span class="method-parameters">(GdkWindow *self, <a class="link-Callback type " href="Gdk-3.0.html#Gdk.FilterFunc">GdkFilterFunc</a> function, <span class="type-basetype type ">gpointer</span> data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_reparent</span><span class="method-parameters">(GdkWindow *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow</a> *new_parent, <span class="type-basetype type ">gint</span> x, <span class="type-basetype type ">gint</span> y)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_resize</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gint</span> width, <span class="type-basetype type ">gint</span> height)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_restack</span><span class="method-parameters">(GdkWindow *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow</a> *sibling, <span class="type-basetype type ">gboolean</span> above)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_scroll</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gint</span> dx, <span class="type-basetype type ">gint</span> dy)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_accept_focus</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gboolean</span> accept_focus)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_background</span><span class="method-parameters">(GdkWindow *self, <a class="link-Record type " href="Gdk-3.0.html#Gdk.Color">GdkColor</a> *color)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_background_pattern</span><span class="method-parameters">(GdkWindow *self, <a class="link-Record type " href="cairo-1.0.html#cairo.Pattern">cairo_pattern_t</a> *pattern)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_background_rgba</span><span class="method-parameters">(GdkWindow *self, <a class="link-Record type " href="Gdk-3.0.html#Gdk.RGBA">GdkRGBA</a> *rgba)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_child_input_shapes</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_child_shapes</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_composited</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gboolean</span> composited)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_cursor</span><span class="method-parameters">(GdkWindow *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Cursor">GdkCursor</a> *cursor)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_debug_updates</span><span class="method-parameters">(<span class="type-basetype type ">gboolean</span> setting)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_decorations</span><span class="method-parameters">(GdkWindow *self, <a class="link-BitField type " href="Gdk-3.0.html#Gdk.WMDecoration">GdkWMDecoration</a> decorations)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_device_cursor</span><span class="method-parameters">(GdkWindow *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Device">GdkDevice</a> *device, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Cursor">GdkCursor</a> *cursor)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_device_events</span><span class="method-parameters">(GdkWindow *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Device">GdkDevice</a> *device, <a class="link-BitField type " href="Gdk-3.0.html#Gdk.EventMask">GdkEventMask</a> event_mask)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_events</span><span class="method-parameters">(GdkWindow *self, <a class="link-BitField type " href="Gdk-3.0.html#Gdk.EventMask">GdkEventMask</a> event_mask)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_focus_on_map</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gboolean</span> focus_on_map)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_functions</span><span class="method-parameters">(GdkWindow *self, <a class="link-BitField type " href="Gdk-3.0.html#Gdk.WMFunction">GdkWMFunction</a> functions)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_geometry_hints</span><span class="method-parameters">(GdkWindow *self, <a class="link-Record type " href="Gdk-3.0.html#Gdk.Geometry">GdkGeometry</a> *geometry, <a class="link-BitField type " href="Gdk-3.0.html#Gdk.WindowHints">GdkWindowHints</a> geom_mask)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_group</span><span class="method-parameters">(GdkWindow *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow</a> *leader)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_icon_list</span><span class="method-parameters">(GdkWindow *self, <a class="link-Record type " href="GLib-2.0.html#GLib.List">GList</a> *pixbufs)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_icon_name</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gchar</span> *name)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_keep_above</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gboolean</span> setting)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_keep_below</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gboolean</span> setting)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_modal_hint</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gboolean</span> modal)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_opacity</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gdouble</span> opacity)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_override_redirect</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gboolean</span> override_redirect)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_role</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gchar</span> *role)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_skip_pager_hint</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gboolean</span> skips_pager)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_skip_taskbar_hint</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gboolean</span> skips_taskbar)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_source_events</span><span class="method-parameters">(GdkWindow *self, <a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.InputSource">GdkInputSource</a> source, <a class="link-BitField type " href="Gdk-3.0.html#Gdk.EventMask">GdkEventMask</a> event_mask)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_startup_id</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gchar</span> *startup_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_window_set_static_gravities</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gboolean</span> use_static)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_support_multidevice</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gboolean</span> support_multidevice)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_title</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gchar</span> *title)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_transient_for</span><span class="method-parameters">(GdkWindow *self, <a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow</a> *parent)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_type_hint</span><span class="method-parameters">(GdkWindow *self, <a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.WindowTypeHint">GdkWindowTypeHint</a> hint)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_urgency_hint</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gboolean</span> urgent)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_set_user_data</span><span class="method-parameters">(GdkWindow *self, <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_shape_combine_region</span><span class="method-parameters">(GdkWindow *self, <a class="link-Record type " href="cairo-1.0.html#cairo.Region">cairo_region_t</a> *shape_region, <span class="type-basetype type ">gint</span> offset_x, <span class="type-basetype type ">gint</span> offset_y)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_show</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_show_unraised</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_stick</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_thaw_toplevel_updates_libgtk_only</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_thaw_updates</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_to_embedder</span><span class="method-parameters">(GdkWindow *self, <span class="type-basetype type ">gdouble</span> offscreen_x, <span class="type-basetype type ">gdouble</span> offscreen_y, <span class="type-basetype type ">gdouble</span> *embedder_x, <span class="type-basetype type ">gdouble</span> *embedder_y)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_unfullscreen</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_unmaximize</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_unstick</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_window_withdraw</span><span class="method-parameters">(GdkWindow *self)</span></p>
+</div>
+</div>
+</div>
+</body>
+</html>
+

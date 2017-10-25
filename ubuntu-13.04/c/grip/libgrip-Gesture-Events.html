@@ -1,0 +1,685 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Gesture Events</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="libgrip Reference Manual">
+<link rel="up" href="libgrip-api.html" title="Programming Interface">
+<link rel="prev" href="GripGestureManager.html" title="GripGestureManager">
+<link rel="next" href="libgrip-Input-Devices.html" title="Input Devices">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="GripGestureManager.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libgrip-api.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libgrip Reference Manual</th>
+<td><a accesskey="n" href="libgrip-Input-Devices.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="libgrip-Gesture-Events.html#libgrip-Gesture-Events.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="libgrip-Gesture-Events.html#libgrip-Gesture-Events.description" class="shortcut">Description</a>
+                   | 
+                  <a href="libgrip-Gesture-Events.html#libgrip-Gesture-Events.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libgrip-Gesture-Events"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libgrip-Gesture-Events.top_of_page"></a>Gesture Events</span></h2>
+<p>Gesture Events</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libgrip-Gesture-Events.synopsis"></a><h2>Synopsis</h2>
+<a name="GripGestureType"></a><a name="GripTimeType"></a><a name="GripGestureEvent"></a><pre class="synopsis">enum                <a class="link" href="libgrip-Gesture-Events.html#GripGestureType-enum" title="enum GripGestureType">GripGestureType</a>;
+
+enum                <a class="link" href="libgrip-Gesture-Events.html#GripDeviceType" title="enum GripDeviceType">GripDeviceType</a>;
+#define             <a class="link" href="libgrip-Gesture-Events.html#GRIP-DEVICE-ALL:CAPS" title="GRIP_DEVICE_ALL">GRIP_DEVICE_ALL</a>
+
+enum                <a class="link" href="libgrip-Gesture-Events.html#GripTimeType-enum" title="enum GripTimeType">GripTimeType</a>;
+
+union               <a class="link" href="libgrip-Gesture-Events.html#GripGestureEvent">GripGestureEvent</a>;
+struct              <a class="link" href="libgrip-Gesture-Events.html#GripEventGestureAny" title="struct GripEventGestureAny">GripEventGestureAny</a>;
+struct              <a class="link" href="libgrip-Gesture-Events.html#GripEventGestureDrag" title="struct GripEventGestureDrag">GripEventGestureDrag</a>;
+struct              <a class="link" href="libgrip-Gesture-Events.html#GripEventGesturePinch" title="struct GripEventGesturePinch">GripEventGesturePinch</a>;
+struct              <a class="link" href="libgrip-Gesture-Events.html#GripEventGestureRotate" title="struct GripEventGestureRotate">GripEventGestureRotate</a>;
+struct              <a class="link" href="libgrip-Gesture-Events.html#GripEventGestureTap" title="struct GripEventGestureTap">GripEventGestureTap</a>;
+<a class="link" href="libgrip-Gesture-Events.html#GripGestureEvent"><span class="returnvalue">GripGestureEvent</span></a> *  <a class="link" href="libgrip-Gesture-Events.html#grip-gesture-event-new" title="grip_gesture_event_new ()">grip_gesture_event_new</a>              (<em class="parameter"><code><a class="link" href="libgrip-Gesture-Events.html#GripGestureType"><span class="type">GripGestureType</span></a> gesture_type</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libgrip-Gesture-Events.html#grip-gesture-event-free" title="grip_gesture_event_free ()">grip_gesture_event_free</a>             (<em class="parameter"><code><a class="link" href="libgrip-Gesture-Events.html#GripGestureEvent"><span class="type">GripGestureEvent</span></a> *event</code></em>);
+<a class="link" href="libgrip-Gesture-Events.html#GripGestureEvent"><span class="returnvalue">GripGestureEvent</span></a> *  <a class="link" href="libgrip-Gesture-Events.html#grip-gesture-event-copy" title="grip_gesture_event_copy ()">grip_gesture_event_copy</a>             (<em class="parameter"><code>const <a class="link" href="libgrip-Gesture-Events.html#GripGestureEvent"><span class="type">GripGestureEvent</span></a> *event</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libgrip-Gesture-Events.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GEnum
+   +----GripGestureType
+</pre>
+<pre class="synopsis">
+  GEnum
+   +----GripTimeType
+</pre>
+<pre class="synopsis">
+  GBoxed
+   +----GripGestureEvent
+</pre>
+</div>
+<div class="refsect1">
+<a name="libgrip-Gesture-Events.description"></a><h2>Description</h2>
+<p>
+A series of one or more events are passed to the gesture callback.  Each
+event conveys information specific to the type of gesture occurring.
+</p>
+</div>
+<div class="refsect1">
+<a name="libgrip-Gesture-Events.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GripGestureType-enum"></a><h3>enum GripGestureType</h3>
+<pre class="programlisting">typedef enum {
+  GRIP_GESTURE_DRAG    = 0,
+  GRIP_GESTURE_PINCH   = 1,
+  GRIP_GESTURE_ROTATE  = 2,
+  GRIP_GESTURE_TAP     = 15
+} GripGestureType;
+</pre>
+<p>
+Indicates the type of gesture for which a gesture event is being received.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="GRIP-GESTURE-DRAG:CAPS"></a><span class="term"><code class="literal">GRIP_GESTURE_DRAG</code></span></p></td>
+<td>a drag gesture
+</td>
+</tr>
+<tr>
+<td><p><a name="GRIP-GESTURE-PINCH:CAPS"></a><span class="term"><code class="literal">GRIP_GESTURE_PINCH</code></span></p></td>
+<td>a pinch/expand gesture
+</td>
+</tr>
+<tr>
+<td><p><a name="GRIP-GESTURE-ROTATE:CAPS"></a><span class="term"><code class="literal">GRIP_GESTURE_ROTATE</code></span></p></td>
+<td>a rotate gesture
+</td>
+</tr>
+<tr>
+<td><p><a name="GRIP-GESTURE-TAP:CAPS"></a><span class="term"><code class="literal">GRIP_GESTURE_TAP</code></span></p></td>
+<td>a tap gesture
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GripDeviceType"></a><h3>enum GripDeviceType</h3>
+<pre class="programlisting">typedef enum {
+  GRIP_DEVICE_TOUCHSCREEN = 1,
+  GRIP_DEVICE_TOUCHPAD    = 2,
+  GRIP_DEVICE_INDEPENDENT = 4,
+} GripDeviceType;
+</pre>
+<p>
+Describes certain properties of a gesture input device.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="GRIP-DEVICE-TOUCHSCREEN:CAPS"></a><span class="term"><code class="literal">GRIP_DEVICE_TOUCHSCREEN</code></span></p></td>
+<td>device is a touchscreen.
+</td>
+</tr>
+<tr>
+<td><p><a name="GRIP-DEVICE-TOUCHPAD:CAPS"></a><span class="term"><code class="literal">GRIP_DEVICE_TOUCHPAD</code></span></p></td>
+<td>device is a touchpad
+</td>
+</tr>
+<tr>
+<td><p><a name="GRIP-DEVICE-INDEPENDENT:CAPS"></a><span class="term"><code class="literal">GRIP_DEVICE_INDEPENDENT</code></span></p></td>
+<td>device is a Magic Mouse
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GRIP-DEVICE-ALL:CAPS"></a><h3>GRIP_DEVICE_ALL</h3>
+<pre class="programlisting">#define GRIP_DEVICE_ALL (GRIP_DEVICE_TOUCHSCREEN | GRIP_DEVICE_TOUCHPAD | GRIP_DEVICE_INDEPENDENT)
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GripTimeType-enum"></a><h3>enum GripTimeType</h3>
+<pre class="programlisting">typedef enum {
+  GRIP_TIME_START,
+  GRIP_TIME_UPDATE,
+  GRIP_TIME_END
+} GripTimeType;
+</pre>
+<p>
+Indicates the part of the gesture stream ocuuring during the gesture event.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="GRIP-TIME-START:CAPS"></a><span class="term"><code class="literal">GRIP_TIME_START</code></span></p></td>
+<td>a new gesture is starting
+</td>
+</tr>
+<tr>
+<td><p><a name="GRIP-TIME-UPDATE:CAPS"></a><span class="term"><code class="literal">GRIP_TIME_UPDATE</code></span></p></td>
+<td>an existing gesture is updating
+</td>
+</tr>
+<tr>
+<td><p><a name="GRIP-TIME-END:CAPS"></a><span class="term"><code class="literal">GRIP_TIME_END</code></span></p></td>
+<td>a gesture is ending
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GripGestureEvent"></a><h3>union GripGestureEvent</h3>
+<pre class="programlisting">union _GripGestureEvent
+{
+  GripGestureType        type;
+  GripEventGestureAny    any;
+  GripEventGestureDrag   drag;
+  GripEventGesturePinch  pinch;
+  GripEventGestureRotate rotate;
+  GripEventGestureTap    tap;
+};
+</pre>
+<p>
+This is a boxed type.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a class="link" href="libgrip-Gesture-Events.html#GripGestureType"><span class="type">GripGestureType</span></a> <em class="structfield"><code><a name="GripGestureEvent.type"></a>type</code></em>;</span></p></td>
+<td>the <a class="link" href="libgrip-Gesture-Events.html#GripGestureType"><span class="type">GripGestureType</span></a>, selects the variant record</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="libgrip-Gesture-Events.html#GripEventGestureAny" title="struct GripEventGestureAny"><span class="type">GripEventGestureAny</span></a> <em class="structfield"><code><a name="GripGestureEvent.any"></a>any</code></em>;</span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="libgrip-Gesture-Events.html#GripEventGestureDrag" title="struct GripEventGestureDrag"><span class="type">GripEventGestureDrag</span></a> <em class="structfield"><code><a name="GripGestureEvent.drag"></a>drag</code></em>;</span></p></td>
+<td>the event contains a drag gesture record</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="libgrip-Gesture-Events.html#GripEventGesturePinch" title="struct GripEventGesturePinch"><span class="type">GripEventGesturePinch</span></a> <em class="structfield"><code><a name="GripGestureEvent.pinch"></a>pinch</code></em>;</span></p></td>
+<td>the event contains a pinch gesture record</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="libgrip-Gesture-Events.html#GripEventGestureRotate" title="struct GripEventGestureRotate"><span class="type">GripEventGestureRotate</span></a> <em class="structfield"><code><a name="GripGestureEvent.rotate"></a>rotate</code></em>;</span></p></td>
+<td>the event contains a rotate gesture record</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="libgrip-Gesture-Events.html#GripEventGestureTap" title="struct GripEventGestureTap"><span class="type">GripEventGestureTap</span></a> <em class="structfield"><code><a name="GripGestureEvent.tap"></a>tap</code></em>;</span></p></td>
+<td>the event contains a tap gesture record</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GripEventGestureAny"></a><h3>struct GripEventGestureAny</h3>
+<pre class="programlisting">struct GripEventGestureAny {
+  GdkEventType  type;
+  GdkWindow    *window;
+};
+</pre>
+<p>
+This struct is not used.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GripEventGestureDrag"></a><h3>struct GripEventGestureDrag</h3>
+<pre class="programlisting">struct GripEventGestureDrag {
+  GripGestureType   type;
+  guint             id;
+  GdkWindow        *window;
+  GdkWindow        *root;
+  GdkWindow        *child;
+  guint32           timestamp;
+  gint              fingers;
+  gdouble           focus_x;
+  gdouble           focus_y;
+  gint              delta_x;
+  gint              delta_y;
+  gdouble           velocity_x;
+  gdouble           velocity_y;
+  gdouble           position_x;
+  gdouble           position_y;
+  GripInputDevice  *input_device;
+};
+</pre>
+<p>
+Data associated with a drag event.  A drag is a lateral motion.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a class="link" href="libgrip-Gesture-Events.html#GripGestureType"><span class="type">GripGestureType</span></a> <em class="structfield"><code><a name="GripEventGestureDrag.type"></a>type</code></em>;</span></p></td>
+<td>the <a class="link" href="libgrip-Gesture-Events.html#GripGestureType"><span class="type">GripGestureType</span></a> of the gesture</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">guint</span> <em class="structfield"><code><a name="GripEventGestureDrag.id"></a>id</code></em>;</span></p></td>
+<td>identifies the gesture</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">GdkWindow</span> *<em class="structfield"><code><a name="GripEventGestureDrag.window"></a>window</code></em>;</span></p></td>
+<td>the <span class="type">GdkWindow</span> in which the gesture occurred</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">GdkWindow</span> *<em class="structfield"><code><a name="GripEventGestureDrag.root"></a>root</code></em>;</span></p></td>
+<td>the root <span class="type">GdkWindow</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">GdkWindow</span> *<em class="structfield"><code><a name="GripEventGestureDrag.child"></a>child</code></em>;</span></p></td>
+<td>the child <span class="type">GdkWindow</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">guint32</span> <em class="structfield"><code><a name="GripEventGestureDrag.timestamp"></a>timestamp</code></em>;</span></p></td>
+<td>the time the gesture event occurred</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gint</span> <em class="structfield"><code><a name="GripEventGestureDrag.fingers"></a>fingers</code></em>;</span></p></td>
+<td>the number of touches making up the gesture</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gdouble</span> <em class="structfield"><code><a name="GripEventGestureDrag.focus-x"></a>focus_x</code></em>;</span></p></td>
+<td>the X coordinate of the focus point of the gesture start</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gdouble</span> <em class="structfield"><code><a name="GripEventGestureDrag.focus-y"></a>focus_y</code></em>;</span></p></td>
+<td>the Y coordinate of the focus point of the gesture start</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gint</span> <em class="structfield"><code><a name="GripEventGestureDrag.delta-x"></a>delta_x</code></em>;</span></p></td>
+<td>the change in the X coordinate since the last gesture event</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gint</span> <em class="structfield"><code><a name="GripEventGestureDrag.delta-y"></a>delta_y</code></em>;</span></p></td>
+<td>the change in the Y coordinate since the last gesture event</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gdouble</span> <em class="structfield"><code><a name="GripEventGestureDrag.velocity-x"></a>velocity_x</code></em>;</span></p></td>
+<td>the rate of change of the X coordinate</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gdouble</span> <em class="structfield"><code><a name="GripEventGestureDrag.velocity-y"></a>velocity_y</code></em>;</span></p></td>
+<td>the rate of change of the Y coordinate</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gdouble</span> <em class="structfield"><code><a name="GripEventGestureDrag.position-x"></a>position_x</code></em>;</span></p></td>
+<td>the current X coordinate of the centroid poistion of the touches</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gdouble</span> <em class="structfield"><code><a name="GripEventGestureDrag.position-y"></a>position_y</code></em>;</span></p></td>
+<td>the current Y coordinate of the centroid poistion of the touches</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> *<em class="structfield"><code><a name="GripEventGestureDrag.input-device"></a>input_device</code></em>;</span></p></td>
+<td>the <a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> used to make the gesture</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GripEventGesturePinch"></a><h3>struct GripEventGesturePinch</h3>
+<pre class="programlisting">struct GripEventGesturePinch {
+  GripGestureType   type;
+  guint             id;
+  GdkWindow        *window;
+  GdkWindow        *root;
+  GdkWindow        *child;
+  guint32           timestamp;
+  guint             fingers;
+  gdouble           focus_x;
+  gdouble           focus_y;
+  gdouble           radius_delta;
+  gdouble           radial_velocity;
+  gdouble           radius;
+  gfloat            position_x;
+  gfloat            position_y;
+  GripInputDevice  *input_device;
+};
+</pre>
+<p>
+Data associated with a pinch event.  A pinch is an expand or contract motion.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a class="link" href="libgrip-Gesture-Events.html#GripGestureType"><span class="type">GripGestureType</span></a> <em class="structfield"><code><a name="GripEventGesturePinch.type"></a>type</code></em>;</span></p></td>
+<td>the <a class="link" href="libgrip-Gesture-Events.html#GripGestureType"><span class="type">GripGestureType</span></a> of the gesture</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">guint</span> <em class="structfield"><code><a name="GripEventGesturePinch.id"></a>id</code></em>;</span></p></td>
+<td>identifies the gesture</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">GdkWindow</span> *<em class="structfield"><code><a name="GripEventGesturePinch.window"></a>window</code></em>;</span></p></td>
+<td>the <span class="type">GdkWindow</span> in which the gesture occurred</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">GdkWindow</span> *<em class="structfield"><code><a name="GripEventGesturePinch.root"></a>root</code></em>;</span></p></td>
+<td>the root <span class="type">GdkWindow</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">GdkWindow</span> *<em class="structfield"><code><a name="GripEventGesturePinch.child"></a>child</code></em>;</span></p></td>
+<td>the child <span class="type">GdkWindow</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">guint32</span> <em class="structfield"><code><a name="GripEventGesturePinch.timestamp"></a>timestamp</code></em>;</span></p></td>
+<td>the time the gesture event occurred</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">guint</span> <em class="structfield"><code><a name="GripEventGesturePinch.fingers"></a>fingers</code></em>;</span></p></td>
+<td>the number of touches making up the gesture</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gdouble</span> <em class="structfield"><code><a name="GripEventGesturePinch.focus-x"></a>focus_x</code></em>;</span></p></td>
+<td>the X coordinate of the focus point of the gesture start</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gdouble</span> <em class="structfield"><code><a name="GripEventGesturePinch.focus-y"></a>focus_y</code></em>;</span></p></td>
+<td>the Y coordinate of the focus point of the gesture start</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gdouble</span> <em class="structfield"><code><a name="GripEventGesturePinch.radius-delta"></a>radius_delta</code></em>;</span></p></td>
+<td>the change in the radius (in screen coordinates)</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gdouble</span> <em class="structfield"><code><a name="GripEventGesturePinch.radial-velocity"></a>radial_velocity</code></em>;</span></p></td>
+<td>the rate of change of the radius</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gdouble</span> <em class="structfield"><code><a name="GripEventGesturePinch.radius"></a>radius</code></em>;</span></p></td>
+<td>the current radius (in screen coordinates)</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gfloat</span> <em class="structfield"><code><a name="GripEventGesturePinch.position-x"></a>position_x</code></em>;</span></p></td>
+<td>the current X coordinate of the centroid poistion of the touches</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gfloat</span> <em class="structfield"><code><a name="GripEventGesturePinch.position-y"></a>position_y</code></em>;</span></p></td>
+<td>the current Y coordinate of the centroid poistion of the touches</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> *<em class="structfield"><code><a name="GripEventGesturePinch.input-device"></a>input_device</code></em>;</span></p></td>
+<td>the <a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> used to make the gesture</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GripEventGestureRotate"></a><h3>struct GripEventGestureRotate</h3>
+<pre class="programlisting">struct GripEventGestureRotate {
+  GripGestureType  type;
+  guint             id;
+  GdkWindow        *window;
+  GdkWindow        *root;
+  GdkWindow        *child;
+  guint32           timestamp;
+  guint             fingers;
+  gdouble           focus_x;
+  gdouble           focus_y;
+  gdouble           angle_delta;
+  gdouble           angular_velocity;
+  gdouble           angle;
+  gfloat            position_x;
+  gfloat            position_y;
+  GripInputDevice  *input_device;
+};
+</pre>
+<p>
+Data associated with a rotate gesture event.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a class="link" href="libgrip-Gesture-Events.html#GripGestureType"><span class="type">GripGestureType</span></a> <em class="structfield"><code><a name="GripEventGestureRotate.type"></a>type</code></em>;</span></p></td>
+<td>the <a class="link" href="libgrip-Gesture-Events.html#GripGestureType"><span class="type">GripGestureType</span></a> of the gesture</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">guint</span> <em class="structfield"><code><a name="GripEventGestureRotate.id"></a>id</code></em>;</span></p></td>
+<td>identifies the gesture</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">GdkWindow</span> *<em class="structfield"><code><a name="GripEventGestureRotate.window"></a>window</code></em>;</span></p></td>
+<td>the <span class="type">GdkWindow</span> in which the gesture occurred</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">GdkWindow</span> *<em class="structfield"><code><a name="GripEventGestureRotate.root"></a>root</code></em>;</span></p></td>
+<td>the root <span class="type">GdkWindow</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">GdkWindow</span> *<em class="structfield"><code><a name="GripEventGestureRotate.child"></a>child</code></em>;</span></p></td>
+<td>the child <span class="type">GdkWindow</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">guint32</span> <em class="structfield"><code><a name="GripEventGestureRotate.timestamp"></a>timestamp</code></em>;</span></p></td>
+<td>the time the gesture event occurred</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">guint</span> <em class="structfield"><code><a name="GripEventGestureRotate.fingers"></a>fingers</code></em>;</span></p></td>
+<td>the number of touches making up the gesture</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gdouble</span> <em class="structfield"><code><a name="GripEventGestureRotate.focus-x"></a>focus_x</code></em>;</span></p></td>
+<td>the X coordinate of the focus point of the gesture start</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gdouble</span> <em class="structfield"><code><a name="GripEventGestureRotate.focus-y"></a>focus_y</code></em>;</span></p></td>
+<td>the Y coordinate of the focus point of the gesture start</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gdouble</span> <em class="structfield"><code><a name="GripEventGestureRotate.angle-delta"></a>angle_delta</code></em>;</span></p></td>
+<td>the change in the rotation angle (in radians)</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gdouble</span> <em class="structfield"><code><a name="GripEventGestureRotate.angular-velocity"></a>angular_velocity</code></em>;</span></p></td>
+<td>the rate of change in the rotation angle</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gdouble</span> <em class="structfield"><code><a name="GripEventGestureRotate.angle"></a>angle</code></em>;</span></p></td>
+<td>the current rotation angle</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gfloat</span> <em class="structfield"><code><a name="GripEventGestureRotate.position-x"></a>position_x</code></em>;</span></p></td>
+<td>the current X coordinate of the centroid poistion of the touches</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gfloat</span> <em class="structfield"><code><a name="GripEventGestureRotate.position-y"></a>position_y</code></em>;</span></p></td>
+<td>the current Y coordinate of the centroid poistion of the touches</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> *<em class="structfield"><code><a name="GripEventGestureRotate.input-device"></a>input_device</code></em>;</span></p></td>
+<td>the <a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> used to make the gesture</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GripEventGestureTap"></a><h3>struct GripEventGestureTap</h3>
+<pre class="programlisting">struct GripEventGestureTap {
+  GripGestureType  type;
+  guint             id;
+  GdkWindow        *window;
+  GdkWindow        *root;
+  GdkWindow        *child;
+  guint32           timestamp;
+  guint             fingers;
+  guint32           tap_time;
+  gfloat            focus_x;
+  gfloat            focus_y;
+  gfloat            position_x;
+  gfloat            position_y;
+  GripInputDevice  *input_device;
+};
+</pre>
+<p>
+Data associated with a tap gesture.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><a class="link" href="libgrip-Gesture-Events.html#GripGestureType"><span class="type">GripGestureType</span></a> <em class="structfield"><code><a name="GripEventGestureTap.type"></a>type</code></em>;</span></p></td>
+<td>the <a class="link" href="libgrip-Gesture-Events.html#GripGestureType"><span class="type">GripGestureType</span></a> of the gesture</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">guint</span> <em class="structfield"><code><a name="GripEventGestureTap.id"></a>id</code></em>;</span></p></td>
+<td>identifies the gesture</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">GdkWindow</span> *<em class="structfield"><code><a name="GripEventGestureTap.window"></a>window</code></em>;</span></p></td>
+<td>the <span class="type">GdkWindow</span> in which the gesture occurred</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">GdkWindow</span> *<em class="structfield"><code><a name="GripEventGestureTap.root"></a>root</code></em>;</span></p></td>
+<td>the root <span class="type">GdkWindow</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">GdkWindow</span> *<em class="structfield"><code><a name="GripEventGestureTap.child"></a>child</code></em>;</span></p></td>
+<td>the child <span class="type">GdkWindow</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">guint32</span> <em class="structfield"><code><a name="GripEventGestureTap.timestamp"></a>timestamp</code></em>;</span></p></td>
+<td>the time the gesture event occurred</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">guint</span> <em class="structfield"><code><a name="GripEventGestureTap.fingers"></a>fingers</code></em>;</span></p></td>
+<td>the number of touches making up the gesture</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">guint32</span> <em class="structfield"><code><a name="GripEventGestureTap.tap-time"></a>tap_time</code></em>;</span></p></td>
+<td>the duration of the tap</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gfloat</span> <em class="structfield"><code><a name="GripEventGestureTap.focus-x"></a>focus_x</code></em>;</span></p></td>
+<td>the X coordinate of the focus point of the gesture start</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gfloat</span> <em class="structfield"><code><a name="GripEventGestureTap.focus-y"></a>focus_y</code></em>;</span></p></td>
+<td>the Y coordinate of the focus point of the gesture start</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gfloat</span> <em class="structfield"><code><a name="GripEventGestureTap.position-x"></a>position_x</code></em>;</span></p></td>
+<td>the current X coordinate of the centroid poistion of the touches</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">gfloat</span> <em class="structfield"><code><a name="GripEventGestureTap.position-y"></a>position_y</code></em>;</span></p></td>
+<td>the current Y coordinate of the centroid poistion of the touches</td>
+</tr>
+<tr>
+<td><p><span class="term"><a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> *<em class="structfield"><code><a name="GripEventGestureTap.input-device"></a>input_device</code></em>;</span></p></td>
+<td>the <a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> used to make the gesture</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grip-gesture-event-new"></a><h3>grip_gesture_event_new ()</h3>
+<pre class="programlisting"><a class="link" href="libgrip-Gesture-Events.html#GripGestureEvent"><span class="returnvalue">GripGestureEvent</span></a> *  grip_gesture_event_new              (<em class="parameter"><code><a class="link" href="libgrip-Gesture-Events.html#GripGestureType"><span class="type">GripGestureType</span></a> gesture_type</code></em>);</pre>
+<p>
+Creates a new Grip gesture event.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gesture_type</code></em> :</span></p></td>
+<td>the type of the gesture</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="libgrip-Gesture-Events.html#GripGestureEvent"><span class="type">GripGestureEvent</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grip-gesture-event-free"></a><h3>grip_gesture_event_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grip_gesture_event_free             (<em class="parameter"><code><a class="link" href="libgrip-Gesture-Events.html#GripGestureEvent"><span class="type">GripGestureEvent</span></a> *event</code></em>);</pre>
+<p>
+Frees the resources allocated for a <a class="link" href="libgrip-Gesture-Events.html#GripGestureEvent"><span class="type">GripGestureEvent</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>a <a class="link" href="libgrip-Gesture-Events.html#GripGestureEvent"><span class="type">GripGestureEvent</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grip-gesture-event-copy"></a><h3>grip_gesture_event_copy ()</h3>
+<pre class="programlisting"><a class="link" href="libgrip-Gesture-Events.html#GripGestureEvent"><span class="returnvalue">GripGestureEvent</span></a> *  grip_gesture_event_copy             (<em class="parameter"><code>const <a class="link" href="libgrip-Gesture-Events.html#GripGestureEvent"><span class="type">GripGestureEvent</span></a> *event</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="libgrip-Gesture-Events.html#GripGestureEvent"><span class="type">GripGestureEvent</span></a> instance using a deep copy of and existing
+event.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>event</code></em> :</span></p></td>
+<td>an existing <a class="link" href="libgrip-Gesture-Events.html#GripGestureEvent"><span class="type">GripGestureEvent</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="libgrip-Gesture-Events.html#GripGestureEvent"><span class="type">GripGestureEvent</span></a>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

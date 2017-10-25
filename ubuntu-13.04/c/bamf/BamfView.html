@@ -1,0 +1,612 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>BamfView</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="libbamf Reference Manual">
+<link rel="up" href="ch01.html" title="Classes">
+<link rel="prev" href="BamfTabSource.html" title="BamfTabSource">
+<link rel="next" href="BamfApplication.html" title="BamfApplication">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="BamfTabSource.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libbamf Reference Manual</th>
+<td><a accesskey="n" href="BamfApplication.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="BamfView.html#BamfView.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="BamfView.html#BamfView.description" class="shortcut">Description</a>
+                   | 
+                  <a href="BamfView.html#BamfView.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="BamfView.html#BamfView.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="BamfView.html#BamfView.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="BamfView"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="BamfView.top_of_page"></a>BamfView</span></h2>
+<p>BamfView — The base class for all views</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="BamfView.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">enum                <a class="link" href="BamfView.html#BamfClickBehavior" title="enum BamfClickBehavior">BamfClickBehavior</a>;
+struct              <a class="link" href="BamfView.html#BamfView-struct" title="struct BamfView">BamfView</a>;
+struct              <a class="link" href="BamfView.html#BamfViewClass" title="struct BamfViewClass">BamfViewClass</a>;
+<span class="returnvalue">GList</span> *             <a class="link" href="BamfView.html#bamf-view-get-children" title="bamf_view_get_children ()">bamf_view_get_children</a>              (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);
+<a class="link" href="BamfView.html#BamfClickBehavior" title="enum BamfClickBehavior"><span class="returnvalue">BamfClickBehavior</span></a>   <a class="link" href="BamfView.html#bamf-view-get-click-suggestion" title="bamf_view_get_click_suggestion ()">bamf_view_get_click_suggestion</a>      (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="BamfView.html#bamf-view-get-icon" title="bamf_view_get_icon ()">bamf_view_get_icon</a>                  (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="BamfView.html#bamf-view-get-name" title="bamf_view_get_name ()">bamf_view_get_name</a>                  (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="BamfView.html#bamf-view-get-view-type" title="bamf_view_get_view_type ()">bamf_view_get_view_type</a>             (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="BamfView.html#bamf-view-is-active" title="bamf_view_is_active ()">bamf_view_is_active</a>                 (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="BamfView.html#bamf-view-is-closed" title="bamf_view_is_closed ()">bamf_view_is_closed</a>                 (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="BamfView.html#bamf-view-is-running" title="bamf_view_is_running ()">bamf_view_is_running</a>                (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="BamfView.html#bamf-view-is-sticky" title="bamf_view_is_sticky ()">bamf_view_is_sticky</a>                 (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="BamfView.html#bamf-view-is-urgent" title="bamf_view_is_urgent ()">bamf_view_is_urgent</a>                 (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="BamfView.html#bamf-view-is-user-visible" title="bamf_view_is_user_visible ()">bamf_view_is_user_visible</a>           (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="BamfView.html#bamf-view-set-sticky" title="bamf_view_set_sticky ()">bamf_view_set_sticky</a>                (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> value</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="BamfView.html#bamf-view-user-visible" title="bamf_view_user_visible ()">bamf_view_user_visible</a>              (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="BamfView.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----GInitiallyUnowned
+         +----BamfView
+               +----<a class="link" href="BamfApplication.html" title="BamfApplication">BamfApplication</a>
+               +----<a class="link" href="BamfWindow.html" title="BamfWindow">BamfWindow</a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="BamfView.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="BamfView.html#BamfView--active" title='The "active" property'>active</a>"                   <span class="type">gboolean</span>              : Read
+  "<a class="link" href="BamfView.html#BamfView--path" title='The "path" property'>path</a>"                     <span class="type">gchar</span>*                : Read
+  "<a class="link" href="BamfView.html#BamfView--running" title='The "running" property'>running</a>"                  <span class="type">gboolean</span>              : Read
+  "<a class="link" href="BamfView.html#BamfView--urgent" title='The "urgent" property'>urgent</a>"                   <span class="type">gboolean</span>              : Read
+  "<a class="link" href="BamfView.html#BamfView--user-visible" title='The "user-visible" property'>user-visible</a>"             <span class="type">gboolean</span>              : Read
+</pre>
+</div>
+<div class="refsect1">
+<a name="BamfView.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="BamfView.html#BamfView-active-changed" title='The "active-changed" signal'>active-changed</a>"                                 : <code class="literal">Run First</code>
+  "<a class="link" href="BamfView.html#BamfView-child-added" title='The "child-added" signal'>child-added</a>"                                    : <code class="literal">Run First</code>
+  "<a class="link" href="BamfView.html#BamfView-child-moved" title='The "child-moved" signal'>child-moved</a>"                                    : <code class="literal">Run First</code>
+  "<a class="link" href="BamfView.html#BamfView-child-removed" title='The "child-removed" signal'>child-removed</a>"                                  : <code class="literal">Run First</code>
+  "<a class="link" href="BamfView.html#BamfView-closed" title='The "closed" signal'>closed</a>"                                         : <code class="literal">Run First</code>
+  "<a class="link" href="BamfView.html#BamfView-name-changed" title='The "name-changed" signal'>name-changed</a>"                                   
+  "<a class="link" href="BamfView.html#BamfView-running-changed" title='The "running-changed" signal'>running-changed</a>"                                : <code class="literal">Run First</code>
+  "<a class="link" href="BamfView.html#BamfView-urgent-changed" title='The "urgent-changed" signal'>urgent-changed</a>"                                 : <code class="literal">Run First</code>
+  "<a class="link" href="BamfView.html#BamfView-user-visible-changed" title='The "user-visible-changed" signal'>user-visible-changed</a>"                           : <code class="literal">Run First</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="BamfView.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> is the base class that all views need to derive from.
+</p>
+</div>
+<div class="refsect1">
+<a name="BamfView.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="BamfClickBehavior"></a><h3>enum BamfClickBehavior</h3>
+<pre class="programlisting">typedef enum {
+  BAMF_CLICK_BEHAVIOR_NONE,
+  BAMF_CLICK_BEHAVIOR_OPEN,
+  BAMF_CLICK_BEHAVIOR_FOCUS,
+  BAMF_CLICK_BEHAVIOR_FOCUS_ALL,
+  BAMF_CLICK_BEHAVIOR_MINIMIZE,
+  BAMF_CLICK_BEHAVIOR_RESTORE,
+  BAMF_CLICK_BEHAVIOR_RESTORE_ALL,
+  BAMF_CLICK_BEHAVIOR_PICKER,
+} BamfClickBehavior;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfView-struct"></a><h3>struct BamfView</h3>
+<pre class="programlisting">struct BamfView;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfViewClass"></a><h3>struct BamfViewClass</h3>
+<pre class="programlisting">struct BamfViewClass {
+  GInitiallyUnownedClass parent_class;
+  
+  GList            * (*get_children)        (BamfView *view);
+  gboolean           (*is_active)           (BamfView *view);
+  gboolean           (*is_running)          (BamfView *view);
+  gboolean           (*is_urgent)           (BamfView *view);
+  gchar            * (*get_name)            (BamfView *view);
+  gchar            * (*get_icon)            (BamfView *view);
+  const gchar      * (*view_type)           (BamfView *view);
+  void               (*set_path)            (BamfView *view, const gchar *path);
+  BamfClickBehavior  (*click_behavior)      (BamfView *view);
+  
+  
+  /*&lt; signals &gt;*/
+  void (*active_changed)              (BamfView *view, gboolean active);
+  void (*closed)                      (BamfView *view);
+  void (*child_added)                 (BamfView *view, BamfView *child);
+  void (*child_removed)               (BamfView *view, BamfView *child);
+  void (*running_changed)             (BamfView *view, gboolean running);
+  void (*urgent_changed)              (BamfView *view, gboolean urgent);
+  void (*user_visible_changed)        (BamfView *view, gboolean user_visible);
+  void (*name_changed)                (BamfView *view, gchar* old_name, gchar* new_name);
+  void (*child_moved)                 (BamfView *view, BamfView *child);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-view-get-children"></a><h3>bamf_view_get_children ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *             bamf_view_get_children              (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);</pre>
+<p>
+Note: Makes sever dbus calls the first time this is called on a view. Dbus messaging is reduced afterwards.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Returns a list of <a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> which must be
+freed after usage. Elements of the list are owned by bamf and should not be unreffed. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> Bamf.View][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-view-get-click-suggestion"></a><h3>bamf_view_get_click_suggestion ()</h3>
+<pre class="programlisting"><a class="link" href="BamfView.html#BamfClickBehavior" title="enum BamfClickBehavior"><span class="returnvalue">BamfClickBehavior</span></a>   bamf_view_get_click_suggestion      (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-view-get-icon"></a><h3>bamf_view_get_icon ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             bamf_view_get_icon                  (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);</pre>
+<p>
+Gets the icon of a view. This icon is used to visually represent the view.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-view-get-name"></a><h3>bamf_view_get_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             bamf_view_get_name                  (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);</pre>
+<p>
+Gets the name of a view. This name is a short name best used to represent the view with text.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-view-get-view-type"></a><h3>bamf_view_get_view_type ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       bamf_view_get_view_type             (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);</pre>
+<p>
+The view type of a window is a short string used to represent all views of the same class. These
+descriptions should not be used to do casting as they are not considered stable.
+</p>
+<p>
+Virtual: view_type
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-view-is-active"></a><h3>bamf_view_is_active ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            bamf_view_is_active                 (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);</pre>
+<p>
+Determines if the view is currently active and focused by the user. Useful for an active window indicator.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-view-is-closed"></a><h3>bamf_view_is_closed ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            bamf_view_is_closed                 (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);</pre>
+<p>
+Determines if the view is closed or not.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-view-is-running"></a><h3>bamf_view_is_running ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            bamf_view_is_running                (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);</pre>
+<p>
+Determines if the view is currently running. Useful for a running window indicator.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-view-is-sticky"></a><h3>bamf_view_is_sticky ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            bamf_view_is_sticky                 (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-view-is-urgent"></a><h3>bamf_view_is_urgent ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            bamf_view_is_urgent                 (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);</pre>
+<p>
+Determines if the view is currently requiring attention. Useful for a running window indicator.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-view-is-user-visible"></a><h3>bamf_view_is_user_visible ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            bamf_view_is_user_visible           (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a boolean useful for determining if a particular view is "user visible". User visible
+is a concept relating to whether or not a window should be shown in a launcher tasklist.</td>
+</tr>
+</tbody>
+</table></div>
+<p class="since">Since 0.4.0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-view-set-sticky"></a><h3>bamf_view_set_sticky ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                bamf_view_set_sticky                (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> value</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-view-user-visible"></a><h3>bamf_view_user_visible ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            bamf_view_user_visible              (<em class="parameter"><code><a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *view</code></em>);</pre>
+<div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;">
+<h3 class="title">Warning</h3>
+<p><code class="literal">bamf_view_user_visible</code> is deprecated and should not be used in newly-written code. 0.4.0</p>
+</div>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a boolean useful for determining if a particular view is "user visible". User visible
+is a concept relating to whether or not a window should be shown in a launcher tasklist.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="BamfView.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="BamfView--active"></a><h3>The <code class="literal">"active"</code> property</h3>
+<pre class="programlisting">  "active"                   <span class="type">gboolean</span>              : Read</pre>
+<p>active.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfView--path"></a><h3>The <code class="literal">"path"</code> property</h3>
+<pre class="programlisting">  "path"                     <span class="type">gchar</span>*                : Read</pre>
+<p>path.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfView--running"></a><h3>The <code class="literal">"running"</code> property</h3>
+<pre class="programlisting">  "running"                  <span class="type">gboolean</span>              : Read</pre>
+<p>running.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfView--urgent"></a><h3>The <code class="literal">"urgent"</code> property</h3>
+<pre class="programlisting">  "urgent"                   <span class="type">gboolean</span>              : Read</pre>
+<p>urgent.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfView--user-visible"></a><h3>The <code class="literal">"user-visible"</code> property</h3>
+<pre class="programlisting">  "user-visible"             <span class="type">gboolean</span>              : Read</pre>
+<p>user-visible.</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="BamfView.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="BamfView-active-changed"></a><h3>The <code class="literal">"active-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *bamfview,
+                                                        <span class="type">gboolean</span>  arg1,
+                                                        <span class="type">gpointer</span>  user_data)      : <code class="literal">Run First</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bamfview</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfView-child-added"></a><h3>The <code class="literal">"child-added"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *bamfview,
+                                                        <a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *arg1,
+                                                        <span class="type">gpointer</span>  user_data)      : <code class="literal">Run First</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bamfview</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfView-child-moved"></a><h3>The <code class="literal">"child-moved"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *bamfview,
+                                                        <a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *arg1,
+                                                        <span class="type">gpointer</span>  user_data)      : <code class="literal">Run First</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bamfview</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfView-child-removed"></a><h3>The <code class="literal">"child-removed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *bamfview,
+                                                        <a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *arg1,
+                                                        <span class="type">gpointer</span>  user_data)      : <code class="literal">Run First</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bamfview</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfView-closed"></a><h3>The <code class="literal">"closed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *bamfview,
+                                                        <span class="type">gpointer</span>  user_data)      : <code class="literal">Run First</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bamfview</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfView-name-changed"></a><h3>The <code class="literal">"name-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *bamfview,
+                                                        <span class="type">gchar</span>    *arg1,
+                                                        <span class="type">gchar</span>    *arg2,
+                                                        <span class="type">gpointer</span>  user_data)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bamfview</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfView-running-changed"></a><h3>The <code class="literal">"running-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *bamfview,
+                                                        <span class="type">gboolean</span>  arg1,
+                                                        <span class="type">gpointer</span>  user_data)      : <code class="literal">Run First</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bamfview</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfView-urgent-changed"></a><h3>The <code class="literal">"urgent-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *bamfview,
+                                                        <span class="type">gboolean</span>  arg1,
+                                                        <span class="type">gpointer</span>  user_data)      : <code class="literal">Run First</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bamfview</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfView-user-visible-changed"></a><h3>The <code class="literal">"user-visible-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a> *bamfview,
+                                                        <span class="type">gboolean</span>  arg1,
+                                                        <span class="type">gpointer</span>  user_data)      : <code class="literal">Run First</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bamfview</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

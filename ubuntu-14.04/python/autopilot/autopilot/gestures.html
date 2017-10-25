@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>autopilot.gestures &mdash; Autopilot 1.4+14.04.20140416-0 documentation</title>
+    
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/otto.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/centertext.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.4+14.04.20140416-0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/jquery.js"></script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/underscore.js"></script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/doctools.js"></script>
+    <link rel="shortcut icon" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/favicon.ico"/>
+    <link rel="top" title="Autopilot 1.4+14.04.20140416-0 documentation" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html" />
+    <link rel="up" title="autopilot" href="../autopilot.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html">Autopilot 1.4+14.04.20140416-0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../autopilot.html" accesskey="U">autopilot</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for autopilot.gestures</h1><div class="highlight"><pre>
+<span class="c"># -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-</span>
+<span class="c">#</span>
+<span class="c"># Autopilot Functional Test Tool</span>
+<span class="c"># Copyright (C) 2012-2013 Canonical</span>
+<span class="c">#</span>
+<span class="c"># This program is free software: you can redistribute it and/or modify</span>
+<span class="c"># it under the terms of the GNU General Public License as published by</span>
+<span class="c"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c"># (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c"># This program is distributed in the hope that it will be useful,</span>
+<span class="c"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c"># GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c"># You should have received a copy of the GNU General Public License</span>
+<span class="c"># along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c">#</span>
+
+
+<span class="sd">&quot;&quot;&quot;Gestural support for autopilot.</span>
+
+<span class="sd">This module contains functions that can generate touch and multi-touch gestures</span>
+<span class="sd">for you. This is a convenience for the test author - there is nothing to</span>
+<span class="sd">prevent you from generating your own gestures!</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">autopilot.input</span> <span class="kn">import</span> <span class="n">Touch</span>
+<span class="kn">from</span> <span class="nn">autopilot.utilities</span> <span class="kn">import</span> <span class="n">sleep</span>
+
+
+<div class="viewcode-block" id="pinch"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/gestures.html#autopilot.gestures.pinch">[docs]</a><span class="k">def</span> <span class="nf">pinch</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">vector_start</span><span class="p">,</span> <span class="n">vector_end</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Perform a two finger pinch (zoom) gesture.</span>
+
+<span class="sd">    :param center: The coordinates (x,y) of the center of the pinch gesture.</span>
+<span class="sd">    :param vector_start: The (x,y) values to move away from the center for the</span>
+<span class="sd">     start.</span>
+<span class="sd">    :param vector_end: The (x,y) values to move away from the center for the</span>
+<span class="sd">     end.</span>
+
+<span class="sd">    The fingers will move in 100 steps between the start and the end points.</span>
+<span class="sd">    If start is smaller than end, the gesture will zoom in, otherwise it</span>
+<span class="sd">    will zoom out.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">finger_1_start</span> <span class="o">=</span> <span class="p">[</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">vector_start</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">vector_start</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="n">finger_2_start</span> <span class="o">=</span> <span class="p">[</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">vector_start</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">vector_start</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="n">finger_1_end</span> <span class="o">=</span> <span class="p">[</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">vector_end</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">vector_end</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+    <span class="n">finger_2_end</span> <span class="o">=</span> <span class="p">[</span><span class="n">center</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">vector_end</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">center</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">vector_end</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+
+    <span class="n">dx</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">finger_1_end</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">finger_1_start</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">100</span>
+    <span class="n">dy</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">finger_1_end</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">finger_1_start</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">100</span>
+
+    <span class="n">finger_1</span> <span class="o">=</span> <span class="n">Touch</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+    <span class="n">finger_2</span> <span class="o">=</span> <span class="n">Touch</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+
+    <span class="n">finger_1</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="o">*</span><span class="n">finger_1_start</span><span class="p">)</span>
+    <span class="n">finger_2</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="o">*</span><span class="n">finger_2_start</span><span class="p">)</span>
+
+    <span class="n">finger_1_cur</span> <span class="o">=</span> <span class="p">[</span><span class="n">finger_1_start</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="n">finger_1_start</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">dy</span><span class="p">]</span>
+    <span class="n">finger_2_cur</span> <span class="o">=</span> <span class="p">[</span><span class="n">finger_2_start</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">dx</span><span class="p">,</span> <span class="n">finger_2_start</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">dy</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">):</span>
+        <span class="n">finger_1</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="o">*</span><span class="n">finger_1_cur</span><span class="p">)</span>
+        <span class="n">finger_2</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="o">*</span><span class="n">finger_2_cur</span><span class="p">)</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mf">0.005</span><span class="p">)</span>
+
+        <span class="n">finger_1_cur</span> <span class="o">=</span> <span class="p">[</span><span class="n">finger_1_cur</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">dx</span><span class="p">,</span> <span class="n">finger_1_cur</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">dy</span><span class="p">]</span>
+        <span class="n">finger_2_cur</span> <span class="o">=</span> <span class="p">[</span><span class="n">finger_2_cur</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">dx</span><span class="p">,</span> <span class="n">finger_2_cur</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">dy</span><span class="p">]</span>
+
+    <span class="n">finger_1</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="o">*</span><span class="n">finger_1_end</span><span class="p">)</span>
+    <span class="n">finger_2</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="o">*</span><span class="n">finger_2_end</span><span class="p">)</span>
+    <span class="n">finger_1</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+    <span class="n">finger_2</span><span class="o">.</span><span class="n">release</span><span class="p">()</span></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html">
+              <img class="logo" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/otto-64.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html">Autopilot 1.4+14.04.20140416-0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../autopilot.html" >autopilot</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      <div class=center_text>
+        <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/faq/contribute.html">Learn how you can contribute!</a> / <a href="https://bugs.launchpad.net/autopilot/+filebug">File a bug</a>
+     <br/>
+      </div>
+        &copy; Copyright 2012-2013, Canonical.
+    </div>
+
+
+  </body>
+</html>

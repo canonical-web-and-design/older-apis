@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Popover.qml -->
+  <title>UbuntuUserInterfaceToolkit 0.1: Popover</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="overview-ubuntu-sdk.html">Ubuntu User Interface Toolkit</a></li>
+<li>Popover</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-components-popups0-popover.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-components-popups0-popover.html#methods">Methods</a></li>
+<li class="level1"><a href="qml-ubuntu-components-popups0-popover.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">Popover</h1>
+<span class="subtitle"></span>
+<!-- $$$Popover-brief -->
+<p>A popover allows an application to present additional content without changing the view. A popover has a fixed width and automatic height, depending on is contents. It can be closed by clicking anywhere outside of the popover area. <a href="qml-ubuntu-components-popups0-popover.html#details">More...</a></p>
+<!-- @@@Popover -->
+<p>Inherits <a href="qml-ubuntu-components-popups0-popupbase.html">PopupBase</a></p>
+<p>Inherited by <a href="qml-ubuntu-components-popups0-actionselectionpopover.html">ActionSelectionPopover</a>.</p>
+<ul>
+<li><a href="qml-ubuntu-components-popups0-popover-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components-popups0-popover.html#autoClose-prop">autoClose</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-popups0-popover.html#caller-prop">caller</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-popups0-popover.html#callerMargin-prop">callerMargin</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-popups0-popover.html#container-prop">container</a></b></b> : list&lt;Object&gt;</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-popups0-popover.html#contentHeight-prop">contentHeight</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-popups0-popover.html#contentWidth-prop">contentWidth</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-popups0-popover.html#edgeMargins-prop">edgeMargins</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-popups0-popover.html#pointerTarget-prop">pointerTarget</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-popups0-popover.html#style-prop">style</a></b></b> : Component</li>
+</ul>
+<a name="methods"></a>
+<h2>Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components-popups0-popover.html#hide-method">hide</a></b></b>()<tt> (preliminary)</tt></li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-popups0-popover.html#show-method">show</a></b></b>()<tt> (preliminary)</tt></li>
+</ul>
+<!-- $$$Popover-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p><a href="http://design.ubuntu.com/apps/building-blocks/popover">See also the Design Guidelines on Popovers</a>.</p>
+<p>Example:</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+import Ubuntu.Components.ListItems 0.1 as ListItem
+import Ubuntu.Components.Popups 0.1
+
+<span class="type">Rectangle</span> {
+    <span class="name">color</span>: <span class="name">Theme</span>.<span class="name">palette</span>.<span class="name">normal</span>.<span class="name">background</span>
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">80</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">80</span>)
+    <span class="type">Component</span> {
+        <span class="name">id</span>: <span class="name">popoverComponent</span>
+
+        <span class="type">Popover</span> {
+            <span class="name">id</span>: <span class="name">popover</span>
+            <span class="type">Column</span> {
+                <span class="name">id</span>: <span class="name">containerLayout</span>
+                <span class="type">anchors</span> {
+                    <span class="name">left</span>: <span class="name">parent</span>.<span class="name">left</span>
+                    <span class="name">top</span>: <span class="name">parent</span>.<span class="name">top</span>
+                    <span class="name">right</span>: <span class="name">parent</span>.<span class="name">right</span>
+                }
+                <span class="type">ListItem</span>.Header { <span class="name">text</span>: <span class="string">&quot;Standard list items&quot;</span> }
+                <span class="type">ListItem</span>.Standard { <span class="name">text</span>: <span class="string">&quot;Do something&quot;</span> }
+                <span class="type">ListItem</span>.Standard { <span class="name">text</span>: <span class="string">&quot;Do something else&quot;</span> }
+                <span class="type">ListItem</span>.Header { <span class="name">text</span>: <span class="string">&quot;Buttons&quot;</span> }
+                <span class="type">ListItem</span>.SingleControl {
+                    <span class="name">highlightWhenPressed</span>: <span class="number">false</span>
+                    <span class="name">control</span>: <span class="name">Button</span> {
+                        <span class="name">text</span>: <span class="string">&quot;Do nothing&quot;</span>
+                        <span class="type">anchors</span> {
+                            <span class="name">fill</span>: <span class="name">parent</span>
+                            <span class="name">margins</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">1</span>)
+                        }
+                    }
+                }
+                <span class="type">ListItem</span>.SingleControl {
+                    <span class="name">highlightWhenPressed</span>: <span class="number">false</span>
+                    <span class="name">control</span>: <span class="name">Button</span> {
+                        <span class="name">text</span>: <span class="string">&quot;Close&quot;</span>
+                        <span class="type">anchors</span> {
+                            <span class="name">fill</span>: <span class="name">parent</span>
+                            <span class="name">margins</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">1</span>)
+                        }
+                        <span class="name">onClicked</span>: <span class="name">PopupUtils</span>.<span class="name">close</span>(<span class="name">popover</span>)
+                    }
+                }
+            }
+        }
+    }
+    <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+        <span class="name">id</span>: <span class="name">popoverButton</span>
+        <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+        <span class="name">text</span>: <span class="string">&quot;open&quot;</span>
+        <span class="name">onClicked</span>: <span class="name">PopupUtils</span>.<span class="name">open</span>(<span class="name">popoverComponent</span>, <span class="name">popoverButton</span>)
+    }
+}</pre>
+<!-- @@@Popover -->
+<h2>Property Documentation</h2>
+<!-- $$$autoClose -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="autoClose-prop"></a><span class="name">autoClose</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>The property drives the automatic closing of the Popover when user taps on the dismissArea. The default behavior is to close the Popover, therefore set to true.</p>
+<p>When set to false, closing the Popover is the responsibility of the caller. Also, the mouse and touch events are not blocked from the dismissArea.</p>
+</div></div><!-- @@@autoClose -->
+<br/>
+<!-- $$$caller -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="caller-prop"></a><span class="name">caller</span> : <span class="type">Item</span></p></td></tr></table></div><div class="qmldoc"><p>The Item such as a <a href="qml-ubuntu-components0-button.html">Button</a> that the user interacted with to open the Dialog. This property will be used for the automatic positioning of the Dialog next to the caller, if possible.</p>
+</div></div><!-- @@@caller -->
+<br/>
+<!-- $$$callerMargin -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="callerMargin-prop"></a><span class="name">callerMargin</span> : <span class="type">real</span></p></td></tr></table></div><div class="qmldoc"><p>The property holds the margin from the popover's caller. The property is themed.</p>
+</div></div><!-- @@@callerMargin -->
+<br/>
+<!-- $$$container -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="container-prop"></a><span class="qmldefault">default</span><span class="name">container</span> : <span class="type">list</span>&lt;<span class="type">Object</span>&gt;</p></td></tr></table></div><div class="qmldoc"><p>Content will be put inside the foreround of the Popover.</p>
+</div></div><!-- @@@container -->
+<br/>
+<!-- $$$contentWidth -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="contentWidth-prop"></a><span class="name">contentWidth</span> : <span class="type">real</span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="contentHeight-prop"></a><span class="name">contentHeight</span> : <span class="type">real</span></p></td></tr></table></div><div class="qmldoc"><p>The properties can be used to alter the default content width and heights.</p>
+</div></div><!-- @@@contentWidth -->
+<br/>
+<!-- $$$edgeMargins -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="edgeMargins-prop"></a><span class="name">edgeMargins</span> : <span class="type">real</span></p></td></tr></table></div><div class="qmldoc"><p>The property holds the margins from the popover's dismissArea. The property is themed.</p>
+</div></div><!-- @@@edgeMargins -->
+<br/>
+<!-- $$$foregroundStyle -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="style-prop"></a><span class="name">style</span> : <span class="type">Component</span></p></td></tr></table></div><div class="qmldoc"><p>Exposes the style property of the <a href="qml-ubuntu-components0-styleditem.html">StyledItem</a> contained in the Popover. Refer to <a href="qml-ubuntu-components0-styleditem.html">StyledItem</a> how to use it.</p>
+</div></div><!-- @@@foregroundStyle -->
+<br/>
+<!-- $$$pointerTarget -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="pointerTarget-prop"></a><span class="name">pointerTarget</span> : <span class="type">Item</span></p></td></tr></table></div><div class="qmldoc"><p>The property holds the item to which the pointer should be anchored to. This can be same as the caller or any child of the caller. By default the property is set to caller.</p>
+</div></div><!-- @@@pointerTarget -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$hide -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="hide-method"></a>Popover::<span class="name">hide</span>()</p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>Hide the popover. Only use this function if you handle memory management. Otherwise use PopupUtils.close() to do it automatically.</p>
+</div></div><!-- @@@hide -->
+<br/>
+<!-- $$$show -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="show-method"></a>Popover::<span class="name">show</span>()</p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>Make the popover visible. Reparent to the background area object first if needed. Only use this function if you handle memory management. Otherwise use PopupUtils.open() to do it automatically.</p>
+</div></div><!-- @@@show -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

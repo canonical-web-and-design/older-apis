@@ -1,0 +1,677 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>autopilot.testcase &mdash; Autopilot 1.4+14.04.20140416-0 documentation</title>
+    
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/otto.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/centertext.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.4+14.04.20140416-0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/jquery.js"></script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/underscore.js"></script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/doctools.js"></script>
+    <link rel="shortcut icon" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/favicon.ico"/>
+    <link rel="top" title="Autopilot 1.4+14.04.20140416-0 documentation" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html" />
+    <link rel="up" title="autopilot" href="../autopilot.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html">Autopilot 1.4+14.04.20140416-0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../autopilot.html" accesskey="U">autopilot</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for autopilot.testcase</h1><div class="highlight"><pre>
+<span class="c"># -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-</span>
+<span class="c">#</span>
+<span class="c"># Autopilot Functional Test Tool</span>
+<span class="c"># Copyright (C) 2012-2013 Canonical</span>
+<span class="c">#</span>
+<span class="c"># This program is free software: you can redistribute it and/or modify</span>
+<span class="c"># it under the terms of the GNU General Public License as published by</span>
+<span class="c"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c"># (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c"># This program is distributed in the hope that it will be useful,</span>
+<span class="c"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c"># GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c"># You should have received a copy of the GNU General Public License</span>
+<span class="c"># along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c">#</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Quick Start</span>
+<span class="sd">===========</span>
+
+<span class="sd">The :class:`AutopilotTestCase` is the main class test authors will be</span>
+<span class="sd">interacting with. Every autopilot test case should derive from this class.</span>
+<span class="sd">:class:`AutopilotTestCase` derives from :class:`testtools.TestCase`, so test</span>
+<span class="sd">authors can use all the methods defined in that class as well.</span>
+
+<span class="sd">**Writing tests**</span>
+
+<span class="sd">Tests must be named: ``test_&lt;testname&gt;``, where *&lt;testname&gt;* is the name of the</span>
+<span class="sd">test. Test runners (including autopilot itself) look for methods with this</span>
+<span class="sd">naming convention. It is recommended that you make your test names descriptive</span>
+<span class="sd">of what each test is testing. For example, possible test names include::</span>
+
+<span class="sd">    test_ctrl_p_opens_print_dialog</span>
+<span class="sd">    test_dash_remembers_maximized_state</span>
+
+<span class="sd">**Launching the Application Under Test**</span>
+
+<span class="sd">If you are writing a test for an application, you need to use the</span>
+<span class="sd">:meth:`~AutopilotTestCase.launch_test_application` method. This will launch the</span>
+<span class="sd">application, enable introspection, and return a proxy object representing the</span>
+<span class="sd">root of the application introspection tree.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">six</span>
+
+<span class="kn">from</span> <span class="nn">testscenarios</span> <span class="kn">import</span> <span class="n">TestWithScenarios</span>
+<span class="kn">from</span> <span class="nn">testtools</span> <span class="kn">import</span> <span class="n">TestCase</span>
+<span class="kn">from</span> <span class="nn">testtools.matchers</span> <span class="kn">import</span> <span class="n">Equals</span>
+
+<span class="kn">from</span> <span class="nn">autopilot.application</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ClickApplicationLauncher</span><span class="p">,</span>
+    <span class="n">get_application_launcher_wrapper</span><span class="p">,</span>
+    <span class="n">NormalApplicationLauncher</span><span class="p">,</span>
+    <span class="n">UpstartApplicationLauncher</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">autopilot.display</span> <span class="kn">import</span> <span class="n">Display</span>
+<span class="kn">from</span> <span class="nn">autopilot.globals</span> <span class="kn">import</span> <span class="n">get_debug_profile_fixture</span>
+<span class="kn">from</span> <span class="nn">autopilot.input</span> <span class="kn">import</span> <span class="n">Keyboard</span><span class="p">,</span> <span class="n">Mouse</span>
+<span class="kn">from</span> <span class="nn">autopilot.introspection</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_proxy_object_for_existing_process</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">autopilot.keybindings</span> <span class="kn">import</span> <span class="n">KeybindingsHelper</span>
+<span class="kn">from</span> <span class="nn">autopilot.matchers</span> <span class="kn">import</span> <span class="n">Eventually</span>
+<span class="kn">from</span> <span class="nn">autopilot.process</span> <span class="kn">import</span> <span class="n">ProcessManager</span>
+<span class="kn">from</span> <span class="nn">autopilot.utilities</span> <span class="kn">import</span> <span class="n">deprecated</span><span class="p">,</span> <span class="n">on_test_started</span>
+<span class="kn">from</span> <span class="nn">autopilot._timeout</span> <span class="kn">import</span> <span class="n">Timeout</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">autopilot</span> <span class="kn">import</span> <span class="n">tracepoint</span> <span class="k">as</span> <span class="n">tp</span>
+    <span class="n">HAVE_TRACEPOINT</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">HAVE_TRACEPOINT</span> <span class="o">=</span> <span class="bp">False</span>
+
+<span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">testscenarios.scenarios</span> <span class="kn">import</span> <span class="n">multiply_scenarios</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">product</span>
+
+    <span class="k">def</span> <span class="nf">multiply_scenarios</span><span class="p">(</span><span class="o">*</span><span class="n">scenarios</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Multiply two or more iterables of scenarios.</span>
+
+<span class="sd">        It is safe to pass scenario generators or iterators.</span>
+
+<span class="sd">        :returns: A list of compound scenarios: the cross-product of all</span>
+<span class="sd">            scenarios, with the names concatenated and the parameters</span>
+<span class="sd">            merged together.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">scenario_lists</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">scenarios</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">combination</span> <span class="ow">in</span> <span class="n">product</span><span class="p">(</span><span class="o">*</span><span class="n">scenario_lists</span><span class="p">):</span>
+            <span class="n">names</span><span class="p">,</span> <span class="n">parameters</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">combination</span><span class="p">)</span>
+            <span class="n">scenario_name</span> <span class="o">=</span> <span class="s">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+            <span class="n">scenario_parameters</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">parameter</span> <span class="ow">in</span> <span class="n">parameters</span><span class="p">:</span>
+                <span class="n">scenario_parameters</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+            <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">scenario_name</span><span class="p">,</span> <span class="n">scenario_parameters</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+
+<span class="k">def</span> <span class="nf">_lttng_trace_test_started</span><span class="p">(</span><span class="n">test_id</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">HAVE_TRACEPOINT</span><span class="p">:</span>
+        <span class="n">tp</span><span class="o">.</span><span class="n">emit_test_started</span><span class="p">(</span><span class="n">test_id</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+            <span class="s">&quot;No tracing available - install the python-autopilot-trace &quot;</span>
+            <span class="s">&quot;package!&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_lttng_trace_test_ended</span><span class="p">(</span><span class="n">test_id</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">HAVE_TRACEPOINT</span><span class="p">:</span>
+        <span class="n">tp</span><span class="o">.</span><span class="n">emit_test_ended</span><span class="p">(</span><span class="n">test_id</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="AutopilotTestCase"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/testcase.html#autopilot.testcase.AutopilotTestCase">[docs]</a><span class="k">class</span> <span class="nc">AutopilotTestCase</span><span class="p">(</span><span class="n">TestWithScenarios</span><span class="p">,</span> <span class="n">TestCase</span><span class="p">,</span> <span class="n">KeybindingsHelper</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Wrapper around testtools.TestCase that adds significant functionality.</span>
+
+<span class="sd">    This class should be the base class for all autopilot test case classes.</span>
+<span class="sd">    Not using this class as the base class disables several important</span>
+<span class="sd">    convenience methods, and also prevents the use of the failed-test</span>
+<span class="sd">    recording tools.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">AutopilotTestCase</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">setUp</span><span class="p">()</span>
+        <span class="n">on_test_started</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">useFixture</span><span class="p">(</span><span class="n">get_debug_profile_fixture</span><span class="p">()(</span><span class="bp">self</span><span class="o">.</span><span class="n">addDetail</span><span class="p">))</span>
+
+        <span class="n">_lttng_trace_test_started</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">())</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addCleanup</span><span class="p">(</span><span class="n">_lttng_trace_test_ended</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">())</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_process_manager</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mouse</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_kb</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_display</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="c"># Work around for bug lp:1297592.</span>
+        <span class="n">_ensure_uinput_device_created</span><span class="p">()</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_app_snapshot</span> <span class="o">=</span> <span class="n">_get_process_snapshot</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">addCleanup</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_compare_system_with_app_snapshot</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">RuntimeError</span><span class="p">:</span>
+            <span class="n">_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                <span class="s">&quot;Process manager backend unavailable, application snapshot &quot;</span>
+                <span class="s">&quot;support disabled.&quot;</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">process_manager</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_manager</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_process_manager</span> <span class="o">=</span> <span class="n">ProcessManager</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_manager</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">keyboard</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kb</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_kb</span> <span class="o">=</span> <span class="n">Keyboard</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_kb</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">mouse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mouse</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_mouse</span> <span class="o">=</span> <span class="n">Mouse</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mouse</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_display</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_display</span> <span class="o">=</span> <span class="n">Display</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_display</span>
+
+<div class="viewcode-block" id="AutopilotTestCase.launch_test_application"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/testcase.html#autopilot.testcase.AutopilotTestCase.launch_test_application">[docs]</a>    <span class="k">def</span> <span class="nf">launch_test_application</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">application</span><span class="p">,</span> <span class="o">*</span><span class="n">arguments</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Launch ``application`` and return a proxy object for the</span>
+<span class="sd">        application.</span>
+
+<span class="sd">        Use this method to launch an application and start testing it. The</span>
+<span class="sd">        positional arguments are used as arguments to the application to lanch.</span>
+<span class="sd">        Keyword arguments are used to control the manner in which the</span>
+<span class="sd">        application is launched.</span>
+
+<span class="sd">        This method is designed to be flexible enough to launch all supported</span>
+<span class="sd">        types of applications. Autopilot can automatically determine how to</span>
+<span class="sd">        enable introspection support for dynamically linked binary</span>
+<span class="sd">        applications. For example, to launch a binary Gtk application, a test</span>
+<span class="sd">        might start with::</span>
+
+<span class="sd">            app_proxy = self.launch_test_application(&#39;gedit&#39;)</span>
+
+<span class="sd">        Applications can be given command line arguments by supplying</span>
+<span class="sd">        positional arguments to this method. For example, if we want to launch</span>
+<span class="sd">        ``gedit`` with a certain document loaded, we might do this::</span>
+
+<span class="sd">            app_proxy = self.launch_test_application(</span>
+<span class="sd">                &#39;gedit&#39;, &#39;/tmp/test-document.txt&#39;)</span>
+
+<span class="sd">        ... a Qt5 Qml application is launched in a similar fashion::</span>
+
+<span class="sd">            app_proxy = self.launch_test_application(</span>
+<span class="sd">                &#39;qmlscene&#39;, &#39;my_scene.qml&#39;)</span>
+
+<span class="sd">        If you wish to launch an application that is not a dynamically linked</span>
+<span class="sd">        binary, you must specify the application type. For example, a Qt4</span>
+<span class="sd">        python application might be launched like this::</span>
+
+<span class="sd">            app_proxy = self.launch_test_application(</span>
+<span class="sd">                &#39;my_qt_app.py&#39;, app_type=&#39;qt&#39;)</span>
+
+<span class="sd">        Similarly, a python/Gtk application is launched like so::</span>
+
+<span class="sd">            app_proxy = self.launch_test_application(</span>
+<span class="sd">                &#39;my_gtk_app.py&#39;, app_type=&#39;gtk&#39;)</span>
+
+<span class="sd">        :param application: The application to launch. The application can be</span>
+<span class="sd">            specified as:</span>
+
+<span class="sd">             * A full, absolute path to an executable file.</span>
+<span class="sd">               (``/usr/bin/gedit``)</span>
+<span class="sd">             * A relative path to an executable file.</span>
+<span class="sd">               (``./build/my_app``)</span>
+<span class="sd">             * An app name, which will be searched for in $PATH (``my_app``)</span>
+
+<span class="sd">        :keyword app_type: If set, provides a hint to autopilot as to which</span>
+<span class="sd">            kind of introspection to enable. This is needed when the</span>
+<span class="sd">            application you wish to launch is *not* a dynamically linked</span>
+<span class="sd">            binary. Valid values are &#39;gtk&#39; or &#39;qt&#39;. These strings are case</span>
+<span class="sd">            insensitive.</span>
+
+<span class="sd">        :keyword launch_dir: If set to a directory that exists the process</span>
+<span class="sd">            will be launched from that directory.</span>
+
+<span class="sd">        :keyword capture_output: If set to True (the default), the process</span>
+<span class="sd">            output will be captured and attached to the test as test detail.</span>
+
+<span class="sd">        :keyword emulator_base: If set, specifies the base class to be used for</span>
+<span class="sd">            all emulators for this loaded application.</span>
+
+<span class="sd">        :raises ValueError: if unknown keyword arguments are passed.</span>
+<span class="sd">        :return: A proxy object that represents the application. Introspection</span>
+<span class="sd">         data is retrievable via this object.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="s">&quot;Attempting to launch application &#39;</span><span class="si">%s</span><span class="s">&#39; with arguments &#39;</span><span class="si">%s</span><span class="s">&#39; as a &quot;</span>
+            <span class="s">&quot;normal process&quot;</span><span class="p">,</span>
+            <span class="n">application</span><span class="p">,</span>
+            <span class="s">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">arguments</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">launcher</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">useFixture</span><span class="p">(</span>
+            <span class="n">NormalApplicationLauncher</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">addDetail</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_launch_test_application</span><span class="p">(</span><span class="n">launcher</span><span class="p">,</span> <span class="n">application</span><span class="p">,</span> <span class="o">*</span><span class="n">arguments</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="AutopilotTestCase.launch_click_package"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/testcase.html#autopilot.testcase.AutopilotTestCase.launch_click_package">[docs]</a>    <span class="k">def</span> <span class="nf">launch_click_package</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">package_id</span><span class="p">,</span> <span class="n">app_name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">app_uris</span><span class="o">=</span><span class="p">[],</span>
+                             <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Launch a click package application with introspection enabled.</span>
+
+<span class="sd">        This method takes care of launching a click package with introspection</span>
+<span class="sd">        exabled. You probably want to use this method if your application is</span>
+<span class="sd">        packaged in a click application, or is started via upstart.</span>
+
+<span class="sd">        Usage is similar to the</span>
+<span class="sd">        :py:meth:`AutopilotTestCase.launch_test_application`::</span>
+
+<span class="sd">            app_proxy = self.launch_click_package(</span>
+<span class="sd">                &quot;com.ubuntu.dropping-letters&quot;</span>
+<span class="sd">            )</span>
+
+<span class="sd">        :param package_id: The Click package name you want to launch. For</span>
+<span class="sd">            example: ``com.ubuntu.dropping-letters``</span>
+<span class="sd">        :param app_name: Currently, only one application can be packaged in a</span>
+<span class="sd">            click package, and this parameter can be left at None. If</span>
+<span class="sd">            specified, it should be the application name you wish to launch.</span>
+<span class="sd">        :param app_uris: Parameters used to launch the click package. This</span>
+<span class="sd">            parameter will be left empty if not used.</span>
+
+<span class="sd">        :keyword emulator_base: If set, specifies the base class to be used for</span>
+<span class="sd">            all emulators for this loaded application.</span>
+
+<span class="sd">        :raises RuntimeError: If the specified package_id cannot be found in</span>
+<span class="sd">            the click package manifest.</span>
+<span class="sd">        :raises RuntimeError: If the specified app_name cannot be found within</span>
+<span class="sd">            the specified click package.</span>
+
+<span class="sd">        :returns: proxy object for the launched package application</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">app_uris</span><span class="p">,</span> <span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">,</span> <span class="n">six</span><span class="o">.</span><span class="n">binary_type</span><span class="p">)):</span>
+            <span class="n">app_uris</span> <span class="o">=</span> <span class="p">[</span><span class="n">app_uris</span><span class="p">]</span>
+        <span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="s">&quot;Attempting to launch click application &#39;</span><span class="si">%s</span><span class="s">&#39; from click package &quot;</span>
+            <span class="s">&quot; &#39;</span><span class="si">%s</span><span class="s">&#39; and URIs &#39;</span><span class="si">%s</span><span class="s">&#39;&quot;</span><span class="p">,</span>
+            <span class="n">app_name</span> <span class="k">if</span> <span class="n">app_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="k">else</span> <span class="s">&quot;(default)&quot;</span><span class="p">,</span>
+            <span class="n">package_id</span><span class="p">,</span>
+            <span class="s">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">app_uris</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">launcher</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">useFixture</span><span class="p">(</span>
+            <span class="n">ClickApplicationLauncher</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">addDetail</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_launch_test_application</span><span class="p">(</span><span class="n">launcher</span><span class="p">,</span> <span class="n">package_id</span><span class="p">,</span> <span class="n">app_name</span><span class="p">,</span>
+                                             <span class="n">app_uris</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="AutopilotTestCase.launch_upstart_application"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/testcase.html#autopilot.testcase.AutopilotTestCase.launch_upstart_application">[docs]</a>    <span class="k">def</span> <span class="nf">launch_upstart_application</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">application_name</span><span class="p">,</span> <span class="n">uris</span><span class="o">=</span><span class="p">[],</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Launch an application with upstart.</span>
+
+<span class="sd">        This method launched an application via the ``upstart-app-launch``</span>
+<span class="sd">        library, on platforms that support it.</span>
+
+<span class="sd">        Usage is similar to the</span>
+<span class="sd">        :py:meth:`AutopilotTestCase.launch_test_application`::</span>
+
+<span class="sd">            app_proxy = self.launch_upstart_application(&quot;gallery-app&quot;)</span>
+
+<span class="sd">        :param application_name: The name of the application to launch.</span>
+<span class="sd">        :keyword emulator_base: If set, specifies the base class to be used for</span>
+<span class="sd">            all emulators for this loaded application.</span>
+
+<span class="sd">        :raises RuntimeError: If the specified application cannot be launched.</span>
+<span class="sd">        :raises ValueError: If unknown keyword arguments are specified.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">uris</span><span class="p">,</span> <span class="p">(</span><span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">,</span> <span class="n">six</span><span class="o">.</span><span class="n">binary_type</span><span class="p">)):</span>
+            <span class="n">uris</span> <span class="o">=</span> <span class="p">[</span><span class="n">uris</span><span class="p">]</span>
+        <span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="s">&quot;Attempting to launch application &#39;</span><span class="si">%s</span><span class="s">&#39; with URIs &#39;</span><span class="si">%s</span><span class="s">&#39; via &quot;</span>
+            <span class="s">&quot;upstart-app-launch&quot;</span><span class="p">,</span>
+            <span class="n">application_name</span><span class="p">,</span>
+            <span class="s">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">uris</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">launcher</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">useFixture</span><span class="p">(</span>
+            <span class="n">UpstartApplicationLauncher</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">addDetail</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_launch_test_application</span><span class="p">(</span><span class="n">launcher</span><span class="p">,</span> <span class="n">application_name</span><span class="p">,</span> <span class="n">uris</span><span class="p">)</span>
+
+    <span class="c"># Wrapper function tying the newer ApplicationLauncher behaviour with the</span>
+    <span class="c"># previous (to be depreciated) behaviour</span></div>
+    <span class="k">def</span> <span class="nf">_launch_test_application</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">launcher_instance</span><span class="p">,</span> <span class="n">application</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+
+        <span class="n">dbus_bus</span> <span class="o">=</span> <span class="n">launcher_instance</span><span class="o">.</span><span class="n">dbus_bus</span>
+        <span class="k">if</span> <span class="n">dbus_bus</span> <span class="o">!=</span> <span class="s">&#39;session&#39;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">patch_environment</span><span class="p">(</span><span class="s">&quot;DBUS_SESSION_BUS_ADDRESS&quot;</span><span class="p">,</span> <span class="n">dbus_bus</span><span class="p">)</span>
+
+        <span class="n">pid</span> <span class="o">=</span> <span class="n">launcher_instance</span><span class="o">.</span><span class="n">launch</span><span class="p">(</span><span class="n">application</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+        <span class="n">process</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">launcher_instance</span><span class="p">,</span> <span class="s">&#39;process&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="n">application_name</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span>
+            <span class="n">launcher_instance</span><span class="p">,</span>
+            <span class="s">&#39;dbus_application_name&#39;</span><span class="p">,</span>
+            <span class="bp">None</span>
+        <span class="p">)</span>
+
+        <span class="n">proxy_obj</span> <span class="o">=</span> <span class="n">get_proxy_object_for_existing_process</span><span class="p">(</span>
+            <span class="n">pid</span><span class="o">=</span><span class="n">pid</span><span class="p">,</span>
+            <span class="n">process</span><span class="o">=</span><span class="n">process</span><span class="p">,</span>
+            <span class="n">dbus_bus</span><span class="o">=</span><span class="n">dbus_bus</span><span class="p">,</span>
+            <span class="n">emulator_base</span><span class="o">=</span><span class="n">launcher_instance</span><span class="o">.</span><span class="n">emulator_base</span><span class="p">,</span>
+            <span class="n">application_name</span><span class="o">=</span><span class="n">application_name</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">proxy_obj</span><span class="o">.</span><span class="n">set_process</span><span class="p">(</span><span class="n">process</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">proxy_obj</span>
+
+    <span class="k">def</span> <span class="nf">_compare_system_with_app_snapshot</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compare the currently running application with the last snapshot.</span>
+
+<span class="sd">        This method will raise an AssertionError if there are any new</span>
+<span class="sd">        applications currently running that were not running when the snapshot</span>
+<span class="sd">        was taken.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">_compare_system_with_process_snapshot</span><span class="p">(</span>
+                <span class="n">_get_process_snapshot</span><span class="p">,</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_app_snapshot</span>
+            <span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_app_snapshot</span> <span class="o">=</span> <span class="bp">None</span>
+
+<div class="viewcode-block" id="AutopilotTestCase.patch_environment"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/testcase.html#autopilot.testcase.AutopilotTestCase.patch_environment">[docs]</a>    <span class="k">def</span> <span class="nf">patch_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Patch the process environment, setting *key* with value *value*.</span>
+
+<span class="sd">        This patches os.environ for the duration of the test only. After</span>
+<span class="sd">        calling this method, the following should be True::</span>
+
+<span class="sd">            os.environ[key] == value</span>
+
+<span class="sd">        After the test, the patch will be undone (including deleting the key if</span>
+<span class="sd">        if didn&#39;t exist before this method was called).</span>
+
+<span class="sd">        .. note:: Be aware that patching the environment in this way only</span>
+<span class="sd">         affects the current autopilot process, and any processes spawned by</span>
+<span class="sd">         autopilot. If you are planing on starting an application from within</span>
+<span class="sd">         autopilot and you want this new application to read the patched</span>
+<span class="sd">         environment variable, you must patch the environment *before*</span>
+<span class="sd">         launching the new process.</span>
+
+<span class="sd">        :param string key: The name of the key you wish to set. If the key</span>
+<span class="sd">         does not already exist in the process environment it will be created</span>
+<span class="sd">         (and then deleted when the test ends).</span>
+<span class="sd">        :param string value: The value you wish to set.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">_undo_patch</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">old_value</span><span class="p">):</span>
+                <span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                    <span class="s">&quot;Resetting environment variable &#39;</span><span class="si">%s</span><span class="s">&#39; to &#39;</span><span class="si">%s</span><span class="s">&#39;&quot;</span><span class="p">,</span>
+                    <span class="n">key</span><span class="p">,</span>
+                    <span class="n">old_value</span>
+                <span class="p">)</span>
+                <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">old_value</span>
+            <span class="n">old_value</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">addCleanup</span><span class="p">(</span><span class="n">_undo_patch</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">old_value</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">def</span> <span class="nf">_remove_patch</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                        <span class="s">&quot;Deleting previously-created environment &quot;</span>
+                        <span class="s">&quot;variable &#39;</span><span class="si">%s</span><span class="s">&#39;&quot;</span><span class="p">,</span>
+                        <span class="n">key</span>
+                    <span class="p">)</span>
+                    <span class="k">del</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                    <span class="n">_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                        <span class="s">&quot;Attempted to delete environment key &#39;</span><span class="si">%s</span><span class="s">&#39; that doesn&#39;t&quot;</span>
+                        <span class="s">&quot;exist in the environment&quot;</span><span class="p">,</span>
+                        <span class="n">key</span>
+                    <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">addCleanup</span><span class="p">(</span><span class="n">_remove_patch</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="s">&quot;Setting environment variable &#39;</span><span class="si">%s</span><span class="s">&#39; to &#39;</span><span class="si">%s</span><span class="s">&#39;&quot;</span><span class="p">,</span>
+            <span class="n">key</span><span class="p">,</span>
+            <span class="n">value</span>
+        <span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+</div>
+<div class="viewcode-block" id="AutopilotTestCase.assertVisibleWindowStack"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/testcase.html#autopilot.testcase.AutopilotTestCase.assertVisibleWindowStack">[docs]</a>    <span class="k">def</span> <span class="nf">assertVisibleWindowStack</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stack_start</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Check that the visible window stack starts with the windows passed</span>
+<span class="sd">        in.</span>
+
+<span class="sd">        .. note:: Minimised windows are skipped.</span>
+
+<span class="sd">        :param stack_start: An iterable of</span>
+<span class="sd">         :class:`~autopilot.process.Window` instances.</span>
+<span class="sd">        :raises AssertionError: if the top of the window stack does not</span>
+<span class="sd">         match the contents of the stack_start parameter.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">stack</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">win</span> <span class="k">for</span> <span class="n">win</span> <span class="ow">in</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">process_manager</span><span class="o">.</span><span class="n">get_open_windows</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">win</span><span class="o">.</span><span class="n">is_hidden</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">pos</span><span class="p">,</span> <span class="n">win</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">stack_start</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertThat</span><span class="p">(</span>
+                <span class="n">stack</span><span class="p">[</span><span class="n">pos</span><span class="p">]</span><span class="o">.</span><span class="n">x_id</span><span class="p">,</span> <span class="n">Equals</span><span class="p">(</span><span class="n">win</span><span class="o">.</span><span class="n">x_id</span><span class="p">),</span>
+                <span class="s">&quot;</span><span class="si">%r</span><span class="s"> at </span><span class="si">%d</span><span class="s"> does not equal </span><span class="si">%r</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">stack</span><span class="p">[</span><span class="n">pos</span><span class="p">],</span> <span class="n">pos</span><span class="p">,</span> <span class="n">win</span><span class="p">))</span>
+</div>
+<div class="viewcode-block" id="AutopilotTestCase.assertProperty"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/testcase.html#autopilot.testcase.AutopilotTestCase.assertProperty">[docs]</a>    <span class="k">def</span> <span class="nf">assertProperty</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Assert that *obj* has properties equal to the key/value pairs in</span>
+<span class="sd">        kwargs.</span>
+
+<span class="sd">        This method is intended to be used on objects whose attributes do not</span>
+<span class="sd">        have the :meth:`wait_for` method (i.e.- objects that do not come from</span>
+<span class="sd">        the autopilot DBus interface).</span>
+
+<span class="sd">        For example, from within a test, to assert certain properties on a</span>
+<span class="sd">        `~autopilot.process.Window` instance::</span>
+
+<span class="sd">            self.assertProperty(my_window, is_maximized=True)</span>
+
+<span class="sd">        .. note:: assertProperties is a synonym for this method.</span>
+
+<span class="sd">        :param obj: The object to test.</span>
+<span class="sd">        :param kwargs: One or more keyword arguments to match against the</span>
+<span class="sd">         attributes of the *obj* parameter.</span>
+<span class="sd">        :raises ValueError: if no keyword arguments were given.</span>
+<span class="sd">        :raises ValueError: if a named attribute is a callable object.</span>
+<span class="sd">        :raises AssertionError: if any of the attribute/value pairs in</span>
+<span class="sd">         kwargs do not match the attributes on the object passed in.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;At least one keyword argument must be present.&quot;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">prop_name</span><span class="p">,</span> <span class="n">desired_value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">none_val</span> <span class="o">=</span> <span class="nb">object</span><span class="p">()</span>
+            <span class="n">attr</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">prop_name</span><span class="p">,</span> <span class="n">none_val</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">attr</span> <span class="o">==</span> <span class="n">none_val</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span>
+                    <span class="s">&quot;Object </span><span class="si">%r</span><span class="s"> does not have an attribute named &#39;</span><span class="si">%s</span><span class="s">&#39;&quot;</span>
+                    <span class="o">%</span> <span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">prop_name</span><span class="p">))</span>
+            <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">attr</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s">&quot;Object </span><span class="si">%r</span><span class="s">&#39;s &#39;</span><span class="si">%s</span><span class="s">&#39; attribute is a callable. It must be a &quot;</span>
+                    <span class="s">&quot;property.&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">prop_name</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertThat</span><span class="p">(</span>
+                <span class="k">lambda</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">prop_name</span><span class="p">),</span>
+                <span class="n">Eventually</span><span class="p">(</span><span class="n">Equals</span><span class="p">(</span><span class="n">desired_value</span><span class="p">)))</span>
+</div>
+    <span class="n">assertProperties</span> <span class="o">=</span> <span class="n">assertProperty</span>
+
+    <span class="nd">@deprecated</span><span class="p">(</span>
+        <span class="s">&quot;the &#39;app_type&#39; argument to the launch_test_application method&quot;</span>
+    <span class="p">)</span>
+<div class="viewcode-block" id="AutopilotTestCase.pick_app_launcher"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/testcase.html#autopilot.testcase.AutopilotTestCase.pick_app_launcher">[docs]</a>    <span class="k">def</span> <span class="nf">pick_app_launcher</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app_path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Given an application path, return an object suitable for launching</span>
+<span class="sd">        the application.</span>
+
+<span class="sd">        This function attempts to guess what kind of application you are</span>
+<span class="sd">        launching. If, for some reason the default implementation returns the</span>
+<span class="sd">        wrong launcher, test authors may override this method to provide their</span>
+<span class="sd">        own implemetnation.</span>
+
+<span class="sd">        The default implementation calls</span>
+<span class="sd">        :py:func:`autopilot.application.get_application_launcher_wrapper`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># default implementation is in autopilot.application:</span>
+        <span class="k">return</span> <span class="n">get_application_launcher_wrapper</span><span class="p">(</span><span class="n">app_path</span><span class="p">)</span>
+
+</div></div>
+<span class="k">def</span> <span class="nf">_get_process_snapshot</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return a snapshot of running processes on the system.</span>
+
+<span class="sd">    :returns: a list of running processes.</span>
+<span class="sd">    :raises RuntimeError: if the process manager is unsavailble on this</span>
+<span class="sd">        platform.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">ProcessManager</span><span class="o">.</span><span class="n">create</span><span class="p">()</span><span class="o">.</span><span class="n">get_running_applications</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">_compare_system_with_process_snapshot</span><span class="p">(</span><span class="n">snapshot_fn</span><span class="p">,</span> <span class="n">old_snapshot</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compare an existing process snapshot with current running processes.</span>
+
+<span class="sd">    :param snapshot_fn: A callable that returns the current running process</span>
+<span class="sd">        list.</span>
+<span class="sd">    :param old_snapshot: A list of processes to compare against.</span>
+<span class="sd">    :raises AssertionError: If, after 10 seconds, there are still running</span>
+<span class="sd">        processes that were not present in ``old_snapshot``.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">new_apps</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">Timeout</span><span class="o">.</span><span class="n">default</span><span class="p">():</span>
+        <span class="n">current_apps</span> <span class="o">=</span> <span class="n">snapshot_fn</span><span class="p">()</span>
+        <span class="n">new_apps</span> <span class="o">=</span> <span class="p">[</span><span class="n">app</span> <span class="k">for</span> <span class="n">app</span> <span class="ow">in</span> <span class="n">current_apps</span> <span class="k">if</span> <span class="n">app</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">old_snapshot</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">new_apps</span><span class="p">:</span>
+            <span class="k">return</span>
+    <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span>
+        <span class="s">&quot;The following apps were started during the test and not closed: &quot;</span>
+        <span class="s">&quot;</span><span class="si">%r</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">new_apps</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_ensure_uinput_device_created</span><span class="p">():</span>
+    <span class="c"># This exists for a work around for bug lp:1297592. Need to create</span>
+    <span class="c"># an input device before an application launch.</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">autopilot.input._uinput</span> <span class="kn">import</span> <span class="n">Touch</span><span class="p">,</span> <span class="n">_UInputTouchDevice</span>
+        <span class="k">if</span> <span class="n">_UInputTouchDevice</span><span class="o">.</span><span class="n">_device</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">Touch</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+            <span class="s">&quot;Failed to create Touch device for bug lp:1297595 workaround: &quot;</span>
+            <span class="s">&quot;</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="p">)</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html">
+              <img class="logo" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/otto-64.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html">Autopilot 1.4+14.04.20140416-0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../autopilot.html" >autopilot</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      <div class=center_text>
+        <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/faq/contribute.html">Learn how you can contribute!</a> / <a href="https://bugs.launchpad.net/autopilot/+filebug">File a bug</a>
+     <br/>
+      </div>
+        &copy; Copyright 2012-2013, Canonical.
+    </div>
+
+
+  </body>
+</html>

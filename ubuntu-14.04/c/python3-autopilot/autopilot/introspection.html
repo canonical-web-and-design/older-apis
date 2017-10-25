@@ -1,0 +1,781 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>autopilot.introspection &mdash; Autopilot 1.4+14.04.20140416-0 documentation</title>
+    
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/_static/otto.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/_static/centertext.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.4+14.04.20140416-0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/_static/jquery.js"></script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/_static/underscore.js"></script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/_static/doctools.js"></script>
+    <link rel="shortcut icon" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/_static/favicon.ico"/>
+    <link rel="top" title="Autopilot 1.4+14.04.20140416-0 documentation" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/index.html" />
+    <link rel="up" title="autopilot" href="../autopilot.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/index.html">Autopilot 1.4+14.04.20140416-0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../autopilot.html" accesskey="U">autopilot</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for autopilot.introspection</h1><div class="highlight"><pre>
+<span class="c"># -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-</span>
+<span class="c">#</span>
+<span class="c"># Autopilot Functional Test Tool</span>
+<span class="c"># Copyright (C) 2012-2013 Canonical</span>
+<span class="c">#</span>
+<span class="c"># This program is free software: you can redistribute it and/or modify</span>
+<span class="c"># it under the terms of the GNU General Public License as published by</span>
+<span class="c"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c"># (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c"># This program is distributed in the hope that it will be useful,</span>
+<span class="c"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c"># GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c"># You should have received a copy of the GNU General Public License</span>
+<span class="c"># along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c">#</span>
+
+
+<span class="sd">&quot;&quot;&quot;Package for introspection support.</span>
+
+<span class="sd">This package contains the internal implementation of the autopilot</span>
+<span class="sd">introspection mechanism, and probably isn&#39;t useful to most test authors.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+
+<span class="kn">from</span> <span class="nn">dbus</span> <span class="kn">import</span> <span class="n">DBusException</span><span class="p">,</span> <span class="n">Interface</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">psutil</span>
+<span class="kn">from</span> <span class="nn">six</span> <span class="kn">import</span> <span class="n">u</span>
+
+<span class="kn">from</span> <span class="nn">autopilot.dbus_handler</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_session_bus</span><span class="p">,</span>
+    <span class="n">get_system_bus</span><span class="p">,</span>
+    <span class="n">get_custom_bus</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">autopilot.introspection.backends</span> <span class="kn">import</span> <span class="n">DBusAddress</span>
+<span class="kn">from</span> <span class="nn">autopilot.introspection.constants</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">AUTOPILOT_PATH</span><span class="p">,</span>
+    <span class="n">QT_AUTOPILOT_IFACE</span><span class="p">,</span>
+    <span class="n">AP_INTROSPECTION_IFACE</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">autopilot.introspection.dbus</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">CustomEmulatorBase</span><span class="p">,</span>
+    <span class="n">DBusIntrospectionObject</span><span class="p">,</span>
+    <span class="n">get_classname_from_path</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">autopilot.introspection.utilities</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">_get_bus_connections_pid</span><span class="p">,</span>
+    <span class="n">_pid_is_running</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">autopilot._timeout</span> <span class="kn">import</span> <span class="n">Timeout</span>
+
+
+<span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="c"># Keep track of known connections during search</span>
+<span class="n">connection_list</span> <span class="o">=</span> <span class="p">[]</span>
+
+
+<span class="k">class</span> <span class="nc">ProcessSearchError</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
+    <span class="k">pass</span>
+
+
+<span class="k">def</span> <span class="nf">get_autopilot_proxy_object_for_process</span><span class="p">(</span>
+    <span class="n">process</span><span class="p">,</span>
+    <span class="n">emulator_base</span><span class="p">,</span>
+    <span class="n">dbus_bus</span><span class="o">=</span><span class="s">&#39;session&#39;</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the autopilot proxy object for the given *process*.</span>
+
+<span class="sd">    :raises: **RuntimeError** if no autopilot interface was found.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pid</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">pid</span>
+    <span class="n">proxy_obj</span> <span class="o">=</span> <span class="n">get_proxy_object_for_existing_process</span><span class="p">(</span>
+        <span class="n">pid</span><span class="p">,</span>
+        <span class="n">process</span><span class="o">=</span><span class="n">process</span><span class="p">,</span>
+        <span class="n">emulator_base</span><span class="o">=</span><span class="n">emulator_base</span><span class="p">,</span>
+        <span class="n">dbus_bus</span><span class="o">=</span><span class="n">dbus_bus</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">proxy_obj</span><span class="o">.</span><span class="n">set_process</span><span class="p">(</span><span class="n">process</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">proxy_obj</span>
+
+
+<div class="viewcode-block" id="get_proxy_object_for_existing_process"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/api/introspection.html#autopilot.introspection.get_proxy_object_for_existing_process">[docs]</a><span class="k">def</span> <span class="nf">get_proxy_object_for_existing_process</span><span class="p">(</span>
+        <span class="n">pid</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dbus_bus</span><span class="o">=</span><span class="s">&#39;session&#39;</span><span class="p">,</span> <span class="n">connection_name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">process</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+        <span class="n">object_path</span><span class="o">=</span><span class="n">AUTOPILOT_PATH</span><span class="p">,</span> <span class="n">application_name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">emulator_base</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a single proxy object for an application that is already running</span>
+<span class="sd">    (i.e. launched outside of Autopilot).</span>
+
+<span class="sd">    Searches on the given bus (supplied by **dbus_bus**) for an application</span>
+<span class="sd">    matching the search criteria, creating the proxy object using the supplied</span>
+<span class="sd">    custom emulator **emulator_base** (defaults to None).</span>
+
+<span class="sd">    For example for an application on the system bus where the applications</span>
+<span class="sd">    PID is known::</span>
+
+<span class="sd">        app_proxy = get_proxy_object_for_existing_process(pid=app_pid)</span>
+
+<span class="sd">    Multiple criteria are allowed, for instance you could search on **pid**</span>
+<span class="sd">    and **connection_name**::</span>
+
+<span class="sd">        app_proxy = get_proxy_object_for_existing_process(</span>
+<span class="sd">            pid=app_pid, connection_name=&#39;org.gnome.gedit&#39;)</span>
+
+<span class="sd">    If the application from the previous example was on the system bus::</span>
+
+<span class="sd">        app_proxy = get_proxy_object_for_existing_process(</span>
+<span class="sd">            dbus_bus=&#39;system&#39;, pid=app_pid, connection_name=&#39;org.gnome.gedit&#39;)</span>
+
+<span class="sd">    It is possible to search for the application given just the applications</span>
+<span class="sd">    name.</span>
+<span class="sd">    An example for an application running on a custom bus searching using the</span>
+<span class="sd">    applications name::</span>
+
+<span class="sd">        app_proxy = get_proxy_object_for_existing_process(</span>
+<span class="sd">            application_name=&#39;qmlscene&#39;,</span>
+<span class="sd">            dbus_bus=&#39;unix:abstract=/tmp/dbus-IgothuMHNk&#39;)</span>
+
+<span class="sd">    :param pid: The PID of the application to search for.</span>
+<span class="sd">    :param dbus_bus: A string containing either &#39;session&#39;, &#39;system&#39; or the</span>
+<span class="sd">        custom buses name (i.e. &#39;unix:abstract=/tmp/dbus-IgothuMHNk&#39;).</span>
+<span class="sd">    :param connection_name: A string containing the DBus connection name to</span>
+<span class="sd">        use with the search criteria.</span>
+<span class="sd">    :param object_path: A string containing the object path to use as the</span>
+<span class="sd">        search criteria. Defaults to</span>
+<span class="sd">        :py:data:`autopilot.introspection.constants.AUTOPILOT_PATH`.</span>
+<span class="sd">    :param application_name: A string containing the applications name to</span>
+<span class="sd">        search for.</span>
+<span class="sd">    :param emulator_base: The custom emulator to create the resulting proxy</span>
+<span class="sd">        object with.</span>
+
+<span class="sd">    :raises ProcessSearchError: if no search criteria match.</span>
+<span class="sd">    :raises RuntimeError: if the search criteria results in many matches.</span>
+<span class="sd">    :raises RuntimeError: if both ``process`` and ``pid`` are supplied, but</span>
+<span class="sd">        ``process.pid != pid``.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">pid</span> <span class="o">=</span> <span class="n">_check_process_and_pid_details</span><span class="p">(</span><span class="n">process</span><span class="p">,</span> <span class="n">pid</span><span class="p">)</span>
+
+    <span class="n">dbus_addresses</span> <span class="o">=</span> <span class="n">_get_dbus_addresses_from_search_parameters</span><span class="p">(</span>
+        <span class="n">pid</span><span class="p">,</span>
+        <span class="n">dbus_bus</span><span class="p">,</span>
+        <span class="n">connection_name</span><span class="p">,</span>
+        <span class="n">object_path</span><span class="p">,</span>
+        <span class="n">process</span>
+    <span class="p">)</span>
+
+    <span class="n">dbus_addresses</span> <span class="o">=</span> <span class="n">_maybe_filter_connections_by_app_name</span><span class="p">(</span>
+        <span class="n">application_name</span><span class="p">,</span>
+        <span class="n">dbus_addresses</span>
+    <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">dbus_addresses</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">dbus_addresses</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">criteria_string</span> <span class="o">=</span> <span class="n">_get_search_criteria_string_representation</span><span class="p">(</span>
+            <span class="n">pid</span><span class="p">,</span>
+            <span class="n">dbus_bus</span><span class="p">,</span>
+            <span class="n">connection_name</span><span class="p">,</span>
+            <span class="n">process</span><span class="p">,</span>
+            <span class="n">object_path</span><span class="p">,</span>
+            <span class="n">application_name</span>
+        <span class="p">)</span>
+        <span class="n">message_string</span> <span class="o">=</span> <span class="s">&quot;Search criteria (</span><span class="si">%s</span><span class="s">) returned no results&quot;</span> <span class="o">%</span> \
+            <span class="p">(</span><span class="n">criteria_string</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="n">ProcessSearchError</span><span class="p">(</span><span class="n">message_string</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dbus_addresses</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">criteria_string</span> <span class="o">=</span> <span class="n">_get_search_criteria_string_representation</span><span class="p">(</span>
+            <span class="n">pid</span><span class="p">,</span>
+            <span class="n">dbus_bus</span><span class="p">,</span>
+            <span class="n">connection_name</span><span class="p">,</span>
+            <span class="n">process</span><span class="p">,</span>
+            <span class="n">object_path</span><span class="p">,</span>
+            <span class="n">application_name</span>
+        <span class="p">)</span>
+        <span class="n">message_string</span> <span class="o">=</span> <span class="s">&quot;Search criteria (</span><span class="si">%s</span><span class="s">) returned multiple results&quot;</span> <span class="o">%</span> \
+            <span class="p">(</span><span class="n">criteria_string</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">message_string</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">_make_proxy_object</span><span class="p">(</span><span class="n">dbus_addresses</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">emulator_base</span><span class="p">)</span>
+
+</div>
+<span class="k">def</span> <span class="nf">_check_process_and_pid_details</span><span class="p">(</span><span class="n">process</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">pid</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Do error checking on process and pid specification.</span>
+
+<span class="sd">    :raises RuntimeError: if both process and pid are specified, but the</span>
+<span class="sd">        process&#39;s &#39;pid&#39; attribute is different to the pid attribute specified.</span>
+<span class="sd">    :raises ProcessSearchError: if the process specified is not running.</span>
+<span class="sd">    :returns: the pid to use in all search queries.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">process</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">pid</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">pid</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">pid</span>
+        <span class="k">elif</span> <span class="n">pid</span> <span class="o">!=</span> <span class="n">process</span><span class="o">.</span><span class="n">pid</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s">&quot;Supplied PID and process.pid do not match.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">pid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">_pid_is_running</span><span class="p">(</span><span class="n">pid</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">ProcessSearchError</span><span class="p">(</span><span class="s">&quot;PID </span><span class="si">%d</span><span class="s"> could not be found&quot;</span> <span class="o">%</span> <span class="n">pid</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">pid</span>
+
+
+<span class="k">def</span> <span class="nf">_maybe_filter_connections_by_app_name</span><span class="p">(</span><span class="n">application_name</span><span class="p">,</span> <span class="n">dbus_addresses</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Filter `dbus_addresses` by the application name exported, if</span>
+<span class="sd">    `application_name` has been specified.</span>
+
+<span class="sd">    :returns: a filtered list of connections.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">application_name</span><span class="p">:</span>
+        <span class="n">dbus_addresses</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">a</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">dbus_addresses</span>
+            <span class="k">if</span> <span class="n">_get_application_name_from_dbus_address</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">==</span> <span class="n">application_name</span>
+        <span class="p">]</span>
+    <span class="k">return</span> <span class="n">dbus_addresses</span>
+
+
+<span class="k">def</span> <span class="nf">_get_application_name_from_dbus_address</span><span class="p">(</span><span class="n">dbus_address</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the application name from a dbus_address object.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">get_classname_from_path</span><span class="p">(</span>
+        <span class="n">dbus_address</span><span class="o">.</span><span class="n">introspection_iface</span><span class="o">.</span><span class="n">GetState</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_search_criteria_string_representation</span><span class="p">(</span>
+        <span class="n">pid</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">dbus_bus</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">connection_name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">process</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span>
+        <span class="n">object_path</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">application_name</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get a string representation of the search criteria.</span>
+
+<span class="sd">    Used to represent the search criteria to users in error messages.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">description_parts</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">pid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">description_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">(</span><span class="s">&#39;pid = </span><span class="si">%d</span><span class="s">&#39;</span><span class="p">)</span> <span class="o">%</span> <span class="n">pid</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">dbus_bus</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">description_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">(</span><span class="s">&quot;dbus bus = &#39;</span><span class="si">%s</span><span class="s">&#39;&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="n">dbus_bus</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">connection_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">description_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">u</span><span class="p">(</span><span class="s">&quot;connection name = &#39;</span><span class="si">%s</span><span class="s">&#39;&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="n">connection_name</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">object_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">description_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">(</span><span class="s">&quot;object path = &#39;</span><span class="si">%s</span><span class="s">&#39;&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="n">object_path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">application_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">description_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="n">u</span><span class="p">(</span><span class="s">&quot;application name = &#39;</span><span class="si">%s</span><span class="s">&#39;&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="n">application_name</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">process</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">description_parts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">(</span><span class="s">&quot;process object = &#39;</span><span class="si">%r</span><span class="s">&#39;&quot;</span><span class="p">)</span> <span class="o">%</span> <span class="n">process</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="s">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">description_parts</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_dbus_addresses_from_search_parameters</span><span class="p">(</span>
+        <span class="n">pid</span><span class="p">,</span> <span class="n">dbus_bus</span><span class="p">,</span> <span class="n">connection_name</span><span class="p">,</span> <span class="n">object_path</span><span class="p">,</span> <span class="n">process</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns a list of :py:class: `DBusAddress` for all successfully matched</span>
+<span class="sd">    criteria.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_reset_known_connection_list</span><span class="p">()</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">Timeout</span><span class="o">.</span><span class="n">default</span><span class="p">():</span>
+        <span class="n">_get_child_pids</span><span class="o">.</span><span class="n">reset_cache</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">process</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">_process_is_running</span><span class="p">(</span><span class="n">process</span><span class="p">):</span>
+            <span class="n">return_code</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span>
+            <span class="k">raise</span> <span class="n">ProcessSearchError</span><span class="p">(</span>
+                <span class="s">&quot;Process exited with exit code: </span><span class="si">%d</span><span class="s">&quot;</span>
+                <span class="o">%</span> <span class="n">return_code</span>
+            <span class="p">)</span>
+
+        <span class="n">bus</span> <span class="o">=</span> <span class="n">_get_dbus_bus_from_string</span><span class="p">(</span><span class="n">dbus_bus</span><span class="p">)</span>
+
+        <span class="n">valid_connections</span> <span class="o">=</span> <span class="n">_search_for_valid_connections</span><span class="p">(</span>
+            <span class="n">pid</span><span class="p">,</span>
+            <span class="n">bus</span><span class="p">,</span>
+            <span class="n">connection_name</span><span class="p">,</span>
+            <span class="n">object_path</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">valid_connections</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">_get_dbus_address_object</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">object_path</span><span class="p">,</span> <span class="n">bus</span><span class="p">)</span> <span class="k">for</span> <span class="n">name</span>
+                    <span class="ow">in</span> <span class="n">valid_connections</span><span class="p">]</span>
+    <span class="k">return</span> <span class="p">[]</span>
+
+
+<span class="k">def</span> <span class="nf">_reset_known_connection_list</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">connection_list</span>
+    <span class="k">del</span> <span class="n">connection_list</span><span class="p">[:]</span>
+
+
+<span class="k">def</span> <span class="nf">_search_for_valid_connections</span><span class="p">(</span><span class="n">pid</span><span class="p">,</span> <span class="n">bus</span><span class="p">,</span> <span class="n">connection_name</span><span class="p">,</span> <span class="n">object_path</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">connection_list</span>
+
+    <span class="k">def</span> <span class="nf">_get_unchecked_connections</span><span class="p">(</span><span class="n">all_connections</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">all_connections</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">connection_list</span><span class="p">)))</span>
+
+    <span class="n">possible_connections</span> <span class="o">=</span> <span class="n">_get_possible_connections</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">connection_name</span><span class="p">)</span>
+    <span class="n">connection_list</span> <span class="o">=</span> <span class="n">_get_unchecked_connections</span><span class="p">(</span><span class="n">possible_connections</span><span class="p">)</span>
+    <span class="n">valid_connections</span> <span class="o">=</span> <span class="n">_get_valid_connections</span><span class="p">(</span>
+        <span class="n">connection_list</span><span class="p">,</span>
+        <span class="n">bus</span><span class="p">,</span>
+        <span class="n">pid</span><span class="p">,</span>
+        <span class="n">object_path</span>
+    <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">valid_connections</span>
+
+
+<span class="k">def</span> <span class="nf">_process_is_running</span><span class="p">(</span><span class="n">process</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">process</span><span class="o">.</span><span class="n">poll</span><span class="p">()</span> <span class="ow">is</span> <span class="bp">None</span>
+
+
+<span class="k">def</span> <span class="nf">_get_valid_connections</span><span class="p">(</span><span class="n">connections</span><span class="p">,</span> <span class="n">bus</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">object_path</span><span class="p">):</span>
+    <span class="n">filter_fn</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">_match_connection</span><span class="p">,</span> <span class="n">bus</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">object_path</span><span class="p">)</span>
+    <span class="n">valid_connections</span> <span class="o">=</span> <span class="nb">filter</span><span class="p">(</span><span class="n">filter_fn</span><span class="p">,</span> <span class="n">connections</span><span class="p">)</span>
+
+    <span class="n">unique_connections</span> <span class="o">=</span> <span class="n">_dedupe_connections_on_pid</span><span class="p">(</span><span class="n">valid_connections</span><span class="p">,</span> <span class="n">bus</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">unique_connections</span>
+
+
+<span class="k">def</span> <span class="nf">_dedupe_connections_on_pid</span><span class="p">(</span><span class="n">valid_connections</span><span class="p">,</span> <span class="n">bus</span><span class="p">):</span>
+    <span class="n">seen_pids</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">deduped_connections</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">connection</span> <span class="ow">in</span> <span class="n">valid_connections</span><span class="p">:</span>
+        <span class="n">pid</span> <span class="o">=</span> <span class="n">_get_bus_connections_pid</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pid</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">seen_pids</span><span class="p">:</span>
+            <span class="n">seen_pids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pid</span><span class="p">)</span>
+            <span class="n">deduped_connections</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">connection</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">deduped_connections</span>
+
+
+<span class="k">def</span> <span class="nf">_get_dbus_address_object</span><span class="p">(</span><span class="n">connection_name</span><span class="p">,</span> <span class="n">object_path</span><span class="p">,</span> <span class="n">bus</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">DBusAddress</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">connection_name</span><span class="p">,</span> <span class="n">object_path</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_dbus_bus_from_string</span><span class="p">(</span><span class="n">dbus_string</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">dbus_string</span> <span class="o">==</span> <span class="s">&#39;session&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">get_session_bus</span><span class="p">()</span>
+    <span class="k">elif</span> <span class="n">dbus_string</span> <span class="o">==</span> <span class="s">&#39;system&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">get_system_bus</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">get_custom_bus</span><span class="p">(</span><span class="n">dbus_string</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_possible_connections</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">connection_name</span><span class="p">):</span>
+    <span class="n">all_connection_names</span> <span class="o">=</span> <span class="n">bus</span><span class="o">.</span><span class="n">list_names</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">connection_name</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">all_connection_names</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">matching_connections</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">all_connection_names</span> <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="n">connection_name</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">matching_connections</span>
+
+
+<span class="k">def</span> <span class="nf">_match_connection</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">connection_name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Does the connection match our search criteria?&quot;&quot;&quot;</span>
+    <span class="n">success</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">if</span> <span class="n">pid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">success</span> <span class="o">=</span> <span class="n">_connection_matches_pid</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">connection_name</span><span class="p">,</span> <span class="n">pid</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+        <span class="n">success</span> <span class="o">=</span> <span class="n">_connection_has_path</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">connection_name</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">success</span>
+
+
+<span class="k">def</span> <span class="nf">_connection_matches_pid</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">connection_name</span><span class="p">,</span> <span class="n">pid</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Given a PID checks wherever it or its children are connected on this</span>
+<span class="sd">    bus.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">connection_name</span> <span class="o">==</span> <span class="s">&#39;org.freedesktop.DBus&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">_bus_pid_is_our_pid</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">connection_name</span><span class="p">,</span> <span class="n">pid</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">False</span>
+        <span class="n">bus_pid</span> <span class="o">=</span> <span class="n">_get_bus_connections_pid</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">connection_name</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">DBusException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">_logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+            <span class="s">&quot;dbus.DBusException while attempting to get PID for </span><span class="si">%s</span><span class="s">: </span><span class="si">%r</span><span class="s">&quot;</span> <span class="o">%</span>
+            <span class="p">(</span><span class="n">connection_name</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+        <span class="k">return</span> <span class="bp">False</span>
+    <span class="n">eligible_pids</span> <span class="o">=</span> <span class="p">[</span><span class="n">pid</span><span class="p">]</span> <span class="o">+</span> <span class="n">_get_child_pids</span><span class="p">(</span><span class="n">pid</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bus_pid</span> <span class="ow">in</span> <span class="n">eligible_pids</span>
+
+
+<span class="k">def</span> <span class="nf">_bus_pid_is_our_pid</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">connection_name</span><span class="p">,</span> <span class="n">pid</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns True if this scripts pid is the bus connections pid supplied.&quot;&quot;&quot;</span>
+    <span class="n">bus_pid</span> <span class="o">=</span> <span class="n">_get_bus_connections_pid</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">connection_name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">bus_pid</span> <span class="o">==</span> <span class="n">os</span><span class="o">.</span><span class="n">getpid</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">_connection_has_path</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">connection_name</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Ensure the connection has the path that we expect to be there.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">_check_connection_has_ap_interface</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">connection_name</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">except</span> <span class="n">DBusException</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+
+<span class="k">def</span> <span class="nf">_check_connection_has_ap_interface</span><span class="p">(</span><span class="n">bus</span><span class="p">,</span> <span class="n">connection_name</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Simple check if a bus with connection + path provide the Autopilot</span>
+<span class="sd">    Introspection Interface.</span>
+
+<span class="sd">    :raises: **DBusException** if it does not.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">obj</span> <span class="o">=</span> <span class="n">bus</span><span class="o">.</span><span class="n">get_object</span><span class="p">(</span><span class="n">connection_name</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+    <span class="n">obj_iface</span> <span class="o">=</span> <span class="n">Interface</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="s">&#39;com.canonical.Autopilot.Introspection&#39;</span><span class="p">)</span>
+    <span class="n">obj_iface</span><span class="o">.</span><span class="n">GetVersion</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">_cached_get_child_pids</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get a list of all child process Ids, for the given parent.</span>
+
+<span class="sd">    Since we call this often, and it&#39;s a very expensive call, we optimise this</span>
+<span class="sd">    such that the return value will be cached for each scan through the dbus</span>
+<span class="sd">    bus.</span>
+
+<span class="sd">    Calling reset_cache() at the end of each dbus scan will ensure that you get</span>
+<span class="sd">    fresh values on the next call.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cached_result</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pid</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_result</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_cached_result</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="n">p</span><span class="o">.</span><span class="n">pid</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">psutil</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">pid</span><span class="p">)</span><span class="o">.</span><span class="n">get_children</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+            <span class="p">]</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cached_result</span>
+
+    <span class="k">def</span> <span class="nf">reset_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_cached_result</span> <span class="o">=</span> <span class="bp">None</span>
+
+
+<span class="n">_get_child_pids</span> <span class="o">=</span> <span class="n">_cached_get_child_pids</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">_make_proxy_object</span><span class="p">(</span><span class="n">data_source</span><span class="p">,</span> <span class="n">emulator_base</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Returns a root proxy object given a DBus service name.</span>
+
+<span class="sd">    :param data_source: The dbus backend address object we&#39;re querying.</span>
+<span class="sd">    :param emulator_base: The emulator base object (or None), as provided by</span>
+<span class="sd">        the user.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">intro_xml</span> <span class="o">=</span> <span class="n">_get_introspection_xml_from_backend</span><span class="p">(</span><span class="n">data_source</span><span class="p">)</span>
+    <span class="n">cls_name</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">cls_state</span> <span class="o">=</span> <span class="n">_get_proxy_object_class_name_and_state</span><span class="p">(</span>
+        <span class="n">data_source</span>
+    <span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">proxy_bases</span> <span class="o">=</span> <span class="n">_get_proxy_bases_from_introspection_xml</span><span class="p">(</span><span class="n">intro_xml</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="s">&quot;Could not find Autopilot interface on dbus address &#39;</span><span class="si">%s</span><span class="s">&#39;.&quot;</span>
+            <span class="o">%</span> <span class="n">data_source</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="n">e</span>
+    <span class="n">proxy_bases</span> <span class="o">=</span> <span class="n">_extend_proxy_bases_with_emulator_base</span><span class="p">(</span>
+        <span class="n">proxy_bases</span><span class="p">,</span>
+        <span class="n">emulator_base</span>
+    <span class="p">)</span>
+    <span class="n">proxy_class</span> <span class="o">=</span> <span class="n">_make_proxy_class_object</span><span class="p">(</span><span class="n">cls_name</span><span class="p">,</span> <span class="n">proxy_bases</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">proxy_class</span><span class="p">(</span><span class="n">cls_state</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">data_source</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_make_proxy_object_async</span><span class="p">(</span>
+        <span class="n">data_source</span><span class="p">,</span> <span class="n">emulator_base</span><span class="p">,</span> <span class="n">reply_handler</span><span class="p">,</span> <span class="n">error_handler</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Make a proxy object for a dbus backend.</span>
+
+<span class="sd">    Similar to :meth:`_make_proxy_object` except this method runs</span>
+<span class="sd">    asynchronously and must have a reply_handler callable set. The</span>
+<span class="sd">    reply_handler will be called with a single argument: The proxy object.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c"># Note: read this function backwards!</span>
+    <span class="c">#</span>
+    <span class="c"># Due to the callbacks, I need to define the end of the callback chain</span>
+    <span class="c"># first, so start reading from the bottom of the function upwards, and</span>
+    <span class="c"># it&#39;ll make a whole lot more sense.</span>
+
+    <span class="c"># Final phase: We have all the information we need, now we construct</span>
+    <span class="c"># everything. This phase has no dbus calls, and so is very fast:</span>
+    <span class="k">def</span> <span class="nf">build_proxy</span><span class="p">(</span><span class="n">introspection_xml</span><span class="p">,</span> <span class="n">cls_name</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">cls_state</span><span class="p">):</span>
+        <span class="n">proxy_bases</span> <span class="o">=</span> <span class="n">_get_proxy_bases_from_introspection_xml</span><span class="p">(</span>
+            <span class="n">introspection_xml</span>
+        <span class="p">)</span>
+        <span class="n">proxy_bases</span> <span class="o">=</span> <span class="n">_extend_proxy_bases_with_emulator_base</span><span class="p">(</span>
+            <span class="n">proxy_bases</span><span class="p">,</span>
+            <span class="n">emulator_base</span>
+        <span class="p">)</span>
+        <span class="n">proxy_class</span> <span class="o">=</span> <span class="n">_make_proxy_class_object</span><span class="p">(</span><span class="n">cls_name</span><span class="p">,</span> <span class="n">proxy_bases</span><span class="p">)</span>
+        <span class="n">reply_handler</span><span class="p">(</span><span class="n">proxy_class</span><span class="p">(</span><span class="n">cls_state</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">data_source</span><span class="p">))</span>
+
+    <span class="c"># Phase 2: We recieve the introspection string, and make an asynchronous</span>
+    <span class="c"># dbus call to get the state information for the root of this applicaiton.</span>
+    <span class="k">def</span> <span class="nf">get_root_state</span><span class="p">(</span><span class="n">introspection_xml</span><span class="p">):</span>
+        <span class="n">_get_proxy_object_class_name_and_state</span><span class="p">(</span>
+            <span class="n">data_source</span><span class="p">,</span>
+            <span class="n">reply_handler</span><span class="o">=</span><span class="n">partial</span><span class="p">(</span><span class="n">build_proxy</span><span class="p">,</span> <span class="n">introspection_xml</span><span class="p">),</span>
+            <span class="n">error_handler</span><span class="o">=</span><span class="n">error_handler</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="c"># Phase 1: Make an asynchronous dbus call to get the introspection xml</span>
+    <span class="c"># from the data_source provided for us.</span>
+    <span class="n">_get_introspection_xml_from_backend</span><span class="p">(</span>
+        <span class="n">data_source</span><span class="p">,</span>
+        <span class="n">reply_handler</span><span class="o">=</span><span class="n">get_root_state</span><span class="p">,</span>
+        <span class="n">error_handler</span><span class="o">=</span><span class="n">error_handler</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_introspection_xml_from_backend</span><span class="p">(</span>
+        <span class="n">backend</span><span class="p">,</span> <span class="n">reply_handler</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">error_handler</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get DBus Introspection xml from a backend.</span>
+
+<span class="sd">    :param backend: The backend object to query.</span>
+<span class="sd">    :param reply_handler: If set, makes a dbus async call, and the result will</span>
+<span class="sd">        be sent to reply_handler. This must be a callable object.</span>
+<span class="sd">    :param error_handler: If set, this callable will recieve any errors, and</span>
+<span class="sd">        the call will be made asyncronously.</span>
+<span class="sd">    :returns: A string containing introspection xml, if called synchronously.</span>
+<span class="sd">    :raises ValueError: if one, but not both of &#39;reply_handler&#39; and</span>
+<span class="sd">        &#39;error_handler&#39; are set.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">reply_handler</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">callable</span><span class="p">(</span><span class="n">error_handler</span><span class="p">):</span>
+        <span class="n">backend</span><span class="o">.</span><span class="n">dbus_introspection_iface</span><span class="o">.</span><span class="n">Introspect</span><span class="p">(</span>
+            <span class="n">reply_handler</span><span class="o">=</span><span class="n">reply_handler</span><span class="p">,</span>
+            <span class="n">error_handler</span><span class="o">=</span><span class="n">error_handler</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">reply_handler</span> <span class="ow">or</span> <span class="n">error_handler</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s">&quot;Both &#39;reply_handler&#39; and &#39;error_handler&#39; must be set.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">backend</span><span class="o">.</span><span class="n">dbus_introspection_iface</span><span class="o">.</span><span class="n">Introspect</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">_get_proxy_bases_from_introspection_xml</span><span class="p">(</span><span class="n">introspection_xml</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return  tuple of the base classes to use when creating a proxy object.</span>
+
+<span class="sd">    Currently this works by looking for certain interface names in the XML. In</span>
+<span class="sd">    the future we may want to parse the XML and perform more rigerous checks.</span>
+
+<span class="sd">    :param introspection_xml: An xml string that describes the exported object</span>
+<span class="sd">        on the dbus backend. This determines which capabilities are present in</span>
+<span class="sd">        the backend, and therefore which base classes should be used to create</span>
+<span class="sd">        the proxy object.</span>
+
+<span class="sd">    :raises: **RuntimeError** if the autopilot interface cannot be found.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">bases</span> <span class="o">=</span> <span class="p">[</span><span class="n">ApplicationProxyObject</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">AP_INTROSPECTION_IFACE</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">introspection_xml</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s">&quot;Could not find Autopilot interface.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">QT_AUTOPILOT_IFACE</span> <span class="ow">in</span> <span class="n">introspection_xml</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">autopilot.introspection.qt</span> <span class="kn">import</span> <span class="n">QtObjectProxyMixin</span>
+        <span class="n">bases</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">QtObjectProxyMixin</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">bases</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_extend_proxy_bases_with_emulator_base</span><span class="p">(</span><span class="n">proxy_bases</span><span class="p">,</span> <span class="n">emulator_base</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">emulator_base</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">emulator_base</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="s">&#39;DefaultEmulatorBase&#39;</span><span class="p">,</span> <span class="p">(</span><span class="n">CustomEmulatorBase</span><span class="p">,),</span> <span class="p">{})</span>
+    <span class="k">return</span> <span class="n">proxy_bases</span> <span class="o">+</span> <span class="p">(</span><span class="n">emulator_base</span><span class="p">,</span> <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_proxy_object_class_name_and_state</span><span class="p">(</span>
+        <span class="n">backend</span><span class="p">,</span> <span class="n">reply_handler</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">error_handler</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get details about this autopilot backend via a dbus GetState call.</span>
+
+<span class="sd">    :param reply_handler: A callable that must accept three positional</span>
+<span class="sd">        arguments, which correspond to the return value of this function when</span>
+<span class="sd">        called synchronously.</span>
+
+<span class="sd">    :param error_handler: A callable which will recieve any dbus errors, should</span>
+<span class="sd">        they occur.</span>
+
+<span class="sd">    :raises ValueError: if one, but not both of reply_handler and error_handler</span>
+<span class="sd">        are set.</span>
+
+<span class="sd">    :returns: A tuple containing the class name of the root of the</span>
+<span class="sd">        introspection tree, the full path to the root of the introspection</span>
+<span class="sd">        tree, and the state dictionary of the root node in the introspection</span>
+<span class="sd">        tree.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">reply_handler</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">callable</span><span class="p">(</span><span class="n">error_handler</span><span class="p">):</span>
+        <span class="c"># Async call:</span>
+        <span class="c"># Since we get an array of state, and we only care about the first one</span>
+        <span class="c"># we use a lambda to unpack it and get the details we want.</span>
+        <span class="n">backend</span><span class="o">.</span><span class="n">introspection_iface</span><span class="o">.</span><span class="n">GetState</span><span class="p">(</span>
+            <span class="s">&quot;/&quot;</span><span class="p">,</span>
+            <span class="n">reply_handler</span><span class="o">=</span><span class="k">lambda</span> <span class="n">r</span><span class="p">:</span> <span class="n">reply_handler</span><span class="p">(</span>
+                <span class="o">*</span><span class="n">_get_details_from_state_data</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+            <span class="p">),</span>
+            <span class="n">error_handler</span><span class="o">=</span><span class="n">error_handler</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">reply_handler</span> <span class="ow">or</span> <span class="n">error_handler</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s">&quot;Both &#39;reply_handler&#39; and &#39;error_handler&#39; must be set.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c"># Sync call</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">introspection_iface</span><span class="o">.</span><span class="n">GetState</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">_get_details_from_state_data</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_details_from_state_data</span><span class="p">(</span><span class="n">state_data</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get details from a state data array.</span>
+
+<span class="sd">    Returns class name, path, and state dictionary.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">object_path</span><span class="p">,</span> <span class="n">object_state</span> <span class="o">=</span> <span class="n">state_data</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">get_classname_from_path</span><span class="p">(</span><span class="n">object_path</span><span class="p">),</span>
+        <span class="n">object_path</span><span class="p">,</span>
+        <span class="n">object_state</span><span class="p">,</span>
+    <span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_make_proxy_class_object</span><span class="p">(</span><span class="n">cls_name</span><span class="p">,</span> <span class="n">proxy_bases</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a class object for a proxy.</span>
+
+<span class="sd">    :param cls_name: The name of the class to be created. This is usually the</span>
+<span class="sd">        type as returned over the wire from an autopilot backend.</span>
+<span class="sd">    :param proxy_bases: A list of base classes this proxy class should derive</span>
+<span class="sd">        from. This determines the specific abilities of the new proxy.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">clsobj</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%s</span><span class="s">Base&quot;</span> <span class="o">%</span> <span class="n">cls_name</span><span class="p">),</span> <span class="n">proxy_bases</span><span class="p">,</span> <span class="p">{})</span>
+    <span class="n">proxy_class</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">cls_name</span><span class="p">),</span> <span class="p">(</span><span class="n">clsobj</span><span class="p">,),</span> <span class="p">{})</span>
+    <span class="k">return</span> <span class="n">proxy_class</span>
+
+
+<span class="k">class</span> <span class="nc">ApplicationProxyObject</span><span class="p">(</span><span class="n">DBusIntrospectionObject</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A class that better supports query data from an application.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">backend</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ApplicationProxyObject</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">backend</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_process</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="k">def</span> <span class="nf">set_process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">process</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Set the subprocess.Popen object of the process that this is a proxy</span>
+<span class="sd">        for.</span>
+
+<span class="sd">        You should never normally need to call this method.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_process</span> <span class="o">=</span> <span class="n">process</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">pid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process</span><span class="o">.</span><span class="n">pid</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process</span>
+
+    <span class="k">def</span> <span class="nf">kill_application</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Kill the running process that this is a proxy for using</span>
+<span class="sd">        &#39;kill `pid`&#39;.&quot;&quot;&quot;</span>
+        <span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">([</span><span class="s">&quot;kill&quot;</span><span class="p">,</span> <span class="s">&quot;</span><span class="si">%d</span><span class="s">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process</span><span class="o">.</span><span class="n">pid</span><span class="p">])</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/index.html">
+              <img class="logo" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/_static/otto-64.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/index.html">Autopilot 1.4+14.04.20140416-0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../autopilot.html" >autopilot</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      <div class=center_text>
+        <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/c/faq/contribute.html">Learn how you can contribute!</a> / <a href="https://bugs.launchpad.net/autopilot/+filebug">File a bug</a>
+     <br/>
+      </div>
+        &copy; Copyright 2012-2013, Canonical.
+    </div>
+
+
+  </body>
+</html>

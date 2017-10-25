@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="Python">
+    
+    <title>UnityWebapps-0.2 Python API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>UnityWebapps-0.2 Python API Documentation</h1>
+
+<div class="class-normal">
+<a href="UnityWebapps-0.2.html#UnityWebapps.Context" class="class-anchor">⚓</a><h2 class="class-normal" id="UnityWebapps.Context">Class: UnityWebapps.Context</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface " href="Gio-2.0.html#Gio.AsyncInitable">Gio.AsyncInitable</a>, <a class="link-Interface " href="Gio-2.0.html#Gio.Initable">Gio.Initable</a></p>
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="UnityWebapps.Context.domain">"domain"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="UnityWebapps.Context.name">"name"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="UnityWebapps-0.2.html#UnityWebapps.Service">UnityWebapps.Service</a><span class="property-name" id="UnityWebapps.Context.service">"service"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="UnityWebapps.Context.context-name">"context-name"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="UnityWebapps.Context.mime-types">"mime-types"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="UnityWebapps.Context.icon-url">"icon-url"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="UnityWebapps.Context.accept-data-changed">"accept-data-changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="UnityWebapps-0.2.html#UnityWebapps.Context">context</a>, object)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="UnityWebapps.Context.new_for_context_name">new_for_context_name</span><span class="method-parameters">(<a class="link-Type " href="UnityWebapps-0.2.html#UnityWebapps.Service">service</a>, <a class="link-Type " href="UnityWebapps-0.2.html#utf8">context_name</a>)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="UnityWebapps.Context.new_lazy">new_lazy</span><span class="method-parameters">(<a class="link-Type " href="UnityWebapps-0.2.html#UnityWebapps.Service">service</a>, <a class="link-Type " href="UnityWebapps-0.2.html#utf8">name</a>, <a class="link-Type " href="UnityWebapps-0.2.html#utf8">domain</a>, <a class="link-Type " href="UnityWebapps-0.2.html#utf8">icon_url</a>, <a class="link-Type " href="UnityWebapps-0.2.html#utf8">mime_types</a>)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="UnityWebapps.Context.new_sync">new_sync</span><span class="method-parameters">(<a class="link-Type " href="UnityWebapps-0.2.html#UnityWebapps.Service">service</a>, <a class="link-Type " href="UnityWebapps-0.2.html#utf8">name</a>, <a class="link-Type " href="UnityWebapps-0.2.html#utf8">domain</a>, <a class="link-Type " href="UnityWebapps-0.2.html#utf8">icon_url</a>, <a class="link-Type " href="UnityWebapps-0.2.html#utf8">mime_types</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Context.add_application_actions">add_application_actions</span><span class="method-parameters">(<a class="link-Record " href="UnityWebapps-0.2.html#UnityWebapps.ApplicationActionDesc">actions</a>, <span class="type-basetype ">len</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Context.add_icon">add_icon</span><span class="method-parameters">(<span class="type-basetype ">url</span>, <span class="type-basetype ">size</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Context.close">close</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Context.close_interest">close_interest</span><span class="method-parameters">(<span class="type-basetype ">interest_id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Context.destroy">destroy</span><span class="method-parameters">(<span class="type-basetype ">user_abandoned</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="UnityWebapps.Context.get_context_name">get_context_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="UnityWebapps.Context.get_desktop_name">get_desktop_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="UnityWebapps.Context.get_domain">get_domain</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="UnityWebapps.Context.get_focus_interest">get_focus_interest</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="UnityWebapps.Context.get_icon_name">get_icon_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="UnityWebapps.Context.get_interest_id">get_interest_id</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="UnityWebapps.Context.get_interest_owner">get_interest_owner</span><span class="method-parameters">(<span class="type-basetype ">interest_id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="UnityWebapps.Context.get_name">get_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="UnityWebapps.Context.get_view_is_active">get_view_is_active</span><span class="method-parameters">(<span class="type-basetype ">interest_id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="UnityWebapps.Context.get_view_location">get_view_location</span><span class="method-parameters">(<span class="type-basetype ">interest_id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="UnityWebapps.Context.get_view_window">get_view_window</span><span class="method-parameters">(<span class="type-basetype ">interest_id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GLib.Variant</a></span><span class="method-name" id="UnityWebapps.Context.list_interests">list_interests</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Context.raise">raise</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Context.raise_interest">raise_interest</span><span class="method-parameters">(<span class="type-basetype ">interest_id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Context.remove_application_action">remove_application_action</span><span class="method-parameters">(<span class="type-basetype ">label</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Context.remove_application_actions">remove_application_actions</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Context.set_application_accept_data">set_application_accept_data</span><span class="method-parameters">(<a class="link-Record " href="UnityWebapps-0.2.html#UnityWebapps.StrWrapperDesc">mimes</a>, <span class="type-basetype ">len</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Context.set_homepage">set_homepage</span><span class="method-parameters">(<span class="type-basetype ">homepage</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Context.set_view_is_active">set_view_is_active</span><span class="method-parameters">(<span class="type-basetype ">active</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Context.set_view_location">set_view_location</span><span class="method-parameters">(<span class="type-basetype ">location</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Context.set_view_window">set_view_window</span><span class="method-parameters">(<span class="type-basetype ">window</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="UnityWebapps.Context.shutdown">shutdown</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="UnityWebapps-0.2.html#UnityWebapps.Service" class="class-anchor">⚓</a><h2 class="class-normal" id="UnityWebapps.Service">Class: UnityWebapps.Service</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="UnityWebapps.Service.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Service.activate_application">activate_application</span><span class="method-parameters">(<span class="type-basetype ">name</span>, <span class="type-basetype ">domain</span>, <span class="type-basetype ">files</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Service.destroy_interest_for_context">destroy_interest_for_context</span><span class="method-parameters">(<span class="type-basetype ">name</span>, <span class="type-basetype ">domain</span>, <span class="type-basetype ">interest_id</span>, <span class="type-basetype ">abandoned</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gio-2.0.html#Gio.DBusConnection">Gio.DBusConnection</a></span><span class="method-name" id="UnityWebapps.Service.get_connection">get_connection</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gio-2.0.html#Gio.DBusProxy">Gio.DBusProxy</a></span><span class="method-name" id="UnityWebapps.Service.get_proxy">get_proxy</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Array&lt;utf8&gt;</span></span><span class="method-name" id="UnityWebapps.Service.list_contexts">list_contexts</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Service.open_homepage_sync">open_homepage_sync</span><span class="method-parameters">(<span class="type-basetype ">homepage</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Service.set_xid_for_browser_window_id">set_xid_for_browser_window_id</span><span class="method-parameters">(<a class="link-Class " href="UnityWebapps-0.2.html#UnityWebapps.Context">context</a>, <span class="type-basetype ">window_id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebapps.Service.shutdown">shutdown</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-enum">
+<a href="UnityWebapps-0.2.html#UnityWebapps.MusicPlayerPlaybackState" class="class-anchor">⚓</a><h2 class="class-enum" id="UnityWebapps.MusicPlayerPlaybackState">Enum: UnityWebapps.MusicPlayerPlaybackState</h2>
+<div class="enum-members">
+<span class="enum-member">PLAYING</span><span class="enum-value">0</span><span class="enum-member">PAUSED</span><span class="enum-value">1</span></div>
+</div>
+<div class="class-enum">
+<a href="UnityWebapps-0.2.html#UnityWebapps.DebugFlag" class="class-anchor">⚓</a><h2 class="class-enum" id="UnityWebapps.DebugFlag">Enum: UnityWebapps.DebugFlag</h2>
+<div class="enum-members">
+<span class="enum-member">ALL</span><span class="enum-value">1</span><span class="enum-member">CONTEXT</span><span class="enum-value">2</span><span class="enum-member">NOTIFICATION</span><span class="enum-value">4</span><span class="enum-member">INDICATOR</span><span class="enum-value">8</span><span class="enum-member">MUSIC_PLAYER</span><span class="enum-value">16</span><span class="enum-member">LAUNCHER</span><span class="enum-value">32</span><span class="enum-member">INTEREST</span><span class="enum-value">64</span><span class="enum-member">SERVICE</span><span class="enum-value">128</span><span class="enum-member">RESOURCE</span><span class="enum-value">256</span><span class="enum-member">RATE</span><span class="enum-value">512</span><span class="enum-member">ACTION</span><span class="enum-value">1024</span><span class="enum-member">WINDOW_TRACKER</span><span class="enum-value">2048</span><span class="enum-member">APPLICATION_INFO</span><span class="enum-value">4096</span><span class="enum-member">INDICATOR_MODEL</span><span class="enum-value">8192</span><span class="enum-member">URL_DB</span><span class="enum-value">16384</span><span class="enum-member">APPLICATION_REPOSITORY</span><span class="enum-value">32768</span><span class="enum-member">INDEX_UPDATER</span><span class="enum-value">65536</span><span class="enum-member">MISC</span><span class="enum-value">131072</span></div>
+</div>
+</body>
+</html>
+

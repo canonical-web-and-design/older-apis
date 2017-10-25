@@ -1,0 +1,449 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="Python">
+    
+    <title>Accounts-1.0 Python API Documentation</title>
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-12.10/giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>Accounts-1.0 Python API Documentation</h1>
+
+<div class="class-normal">
+<a href="Accounts-1.0.html#Accounts.Account" class="class-anchor">⚓</a><h2 class="class-normal" id="Accounts.Account">Class: Accounts.Account</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+<p>
+Use the accessor functions below.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Accounts-1.0.html#Accounts.Manager">Accounts.Manager</a><span class="property-name" id="Accounts.Account.manager">"manager"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Accounts.Account.provider">"provider"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">int</span><span class="property-name" id="Accounts.Account.id">"id"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The AgAccountId for the account.</p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Accounts.Account.foreign">"foreign"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Accounts.Account.deleted">"deleted"</span><span class="signal-parameters">(self, <a class="link-Class " href="Accounts-1.0.html#Accounts.Account">account</a>)</span><p class="signal-doc">
+Emitted when the account has been deleted.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Accounts.Account.enabled">"enabled"</span><span class="signal-parameters">(self, <a class="link-Class " href="Accounts-1.0.html#Accounts.Account">account</a>, <span class="type-basetype ">service</span>, <span class="type-basetype ">enabled</span>)</span><p class="signal-doc">
+Emitted when the account "enabled" status was changed for one of its
+services, or for the account globally.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Accounts.Account.display-name-changed">"display-name-changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Accounts-1.0.html#Accounts.Account">account</a>)</span><p class="signal-doc">
+Emitted when the account display name has changed.</p>
+</p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Accounts.Account.delete">delete</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Accounts.Account.get_display_name">get_display_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Accounts.Account.get_enabled">get_enabled</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Accounts-1.0.html#Accounts.Manager">Accounts.Manager</a></span><span class="method-name" id="Accounts.Account.get_manager">get_manager</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Accounts.Account.get_provider_name">get_provider_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.Service">Accounts.Service</a></span><span class="method-name" id="Accounts.Account.get_selected_service">get_selected_service</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.AccountSettingIter">Accounts.AccountSettingIter</a></span><span class="method-name" id="Accounts.Account.get_settings_iter">get_settings_iter</span><span class="method-parameters">(<span class="type-basetype ">key_prefix</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Accounts-1.0.html#Accounts.SettingSource">Accounts.SettingSource</a></span><span class="method-name" id="Accounts.Account.get_value">get_value</span><span class="method-parameters">(<span class="type-basetype ">key</span>, <a class="link-Record " href="GObject-2.0.html#GObject.Value">value</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="Accounts.Account.list_enabled_services">list_enabled_services</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="Accounts.Account.list_services">list_services</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="Accounts.Account.list_services_by_type">list_services_by_type</span><span class="method-parameters">(<span class="type-basetype ">service_type</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Accounts.Account.remove_watch">remove_watch</span><span class="method-parameters">(<a class="link-Record " href="Accounts-1.0.html#Accounts.AccountWatch">watch</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Accounts.Account.select_service">select_service</span><span class="method-parameters">(<a class="link-Record " href="Accounts-1.0.html#Accounts.Service">service</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Accounts.Account.set_display_name">set_display_name</span><span class="method-parameters">(<span class="type-basetype ">display_name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Accounts.Account.set_enabled">set_enabled</span><span class="method-parameters">(<span class="type-basetype ">enabled</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Accounts.Account.set_value">set_value</span><span class="method-parameters">(<span class="type-basetype ">key</span>, <a class="link-Record " href="GObject-2.0.html#GObject.Value">value</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Accounts.Account.settings_iter_init">settings_iter_init</span><span class="method-parameters">(<a class="link-Record " href="Accounts-1.0.html#Accounts.AccountSettingIter">iter</a>, <span class="type-basetype ">key_prefix</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Accounts.Account.sign">sign</span><span class="method-parameters">(<span class="type-basetype ">key</span>, <span class="type-basetype ">token</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Accounts.Account.store">store</span><span class="method-parameters">(<a class="link-Callback " href="Accounts-1.0.html#Accounts.AccountStoreCb">callback</a>, <span class="type-basetype ">user_data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Accounts.Account.store_blocking">store_blocking</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Accounts.Account.supports_service">supports_service</span><span class="method-parameters">(<span class="type-basetype ">service_type</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Accounts.Account.verify">verify</span><span class="method-parameters">(<span class="type-basetype ">key</span>, <span class="type-basetype ">token</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Accounts.Account.verify_with_tokens">verify_with_tokens</span><span class="method-parameters">(<span class="type-basetype ">key</span>, <span class="type-basetype ">tokens</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.AccountWatch">Accounts.AccountWatch</a></span><span class="method-name" id="Accounts.Account.watch_dir">watch_dir</span><span class="method-parameters">(<span class="type-basetype ">key_prefix</span>, <a class="link-Callback " href="Accounts-1.0.html#Accounts.AccountNotifyCb">callback</a>, <span class="type-basetype ">user_data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.AccountWatch">Accounts.AccountWatch</a></span><span class="method-name" id="Accounts.Account.watch_key">watch_key</span><span class="method-parameters">(<span class="type-basetype ">key</span>, <a class="link-Callback " href="Accounts-1.0.html#Accounts.AccountNotifyCb">callback</a>, <span class="type-basetype ">user_data</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Accounts-1.0.html#Accounts.AccountService" class="class-anchor">⚓</a><h2 class="class-normal" id="Accounts.AccountService">Class: Accounts.AccountService</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+<p>
+Use the accessor functions below.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Accounts-1.0.html#Accounts.Account">Accounts.Account</a><span class="property-name" id="Accounts.AccountService.account">"account"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Record type property-type" href="Accounts-1.0.html#Accounts.Service">Accounts.Service</a><span class="property-name" id="Accounts.AccountService.service">"service"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Accounts.AccountService.changed">"changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Accounts-1.0.html#Accounts.AccountService">account_service</a>)</span><p class="signal-doc">
+Emitted when some setting has changed on the account service. You can
+use the ag_account_service_get_changed_fields() method to retrieve the
+list of the settings which have changed.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Accounts.AccountService.enabled">"enabled"</span><span class="signal-parameters">(self, <a class="link-Class " href="Accounts-1.0.html#Accounts.AccountService">account_service</a>, <span class="type-basetype ">enabled</span>)</span><p class="signal-doc">
+Emitted when the service enabled state changes.</p>
+</p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Accounts.AccountService.new">new</span><span class="method-parameters">(<a class="link-Type " href="Accounts-1.0.html#Accounts.Account">account</a>, <a class="link-Type " href="Accounts-1.0.html#Accounts.Service">service</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Accounts-1.0.html#Accounts.Account">Accounts.Account</a></span><span class="method-name" id="Accounts.AccountService.get_account">get_account</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.AuthData">Accounts.AuthData</a></span><span class="method-name" id="Accounts.AccountService.get_auth_data">get_auth_data</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Array&lt;utf8&gt;</span></span><span class="method-name" id="Accounts.AccountService.get_changed_fields">get_changed_fields</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Accounts.AccountService.get_enabled">get_enabled</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.Service">Accounts.Service</a></span><span class="method-name" id="Accounts.AccountService.get_service">get_service</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.AccountSettingIter">Accounts.AccountSettingIter</a></span><span class="method-name" id="Accounts.AccountService.get_settings_iter">get_settings_iter</span><span class="method-parameters">(<span class="type-basetype ">key_prefix</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Accounts-1.0.html#Accounts.SettingSource">Accounts.SettingSource</a></span><span class="method-name" id="Accounts.AccountService.get_value">get_value</span><span class="method-parameters">(<span class="type-basetype ">key</span>, <a class="link-Record " href="GObject-2.0.html#GObject.Value">value</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Accounts.AccountService.set_value">set_value</span><span class="method-parameters">(<span class="type-basetype ">key</span>, <a class="link-Record " href="GObject-2.0.html#GObject.Value">value</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Accounts.AccountService.settings_iter_init">settings_iter_init</span><span class="method-parameters">(<a class="link-Record " href="Accounts-1.0.html#Accounts.AccountSettingIter">iter</a>, <span class="type-basetype ">key_prefix</span>)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span>, <span class="type-basetype type ">string</span>, <a class="link-Record type " href="GObject-2.0.html#GObject.Value">GObject.Value</a></span><span class="method-name" id="Accounts.AccountService.settings_iter_next">settings_iter_next</span><span class="method-parameters">(<a class="link-Record " href="Accounts-1.0.html#Accounts.AccountSettingIter">iter</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Accounts-1.0.html#Accounts.Manager" class="class-anchor">⚓</a><h2 class="class-normal" id="Accounts.Manager">Class: Accounts.Manager</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+<p>
+Use the accessor functions below.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Accounts.Manager.service-type">"service-type"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+If the service type is set, certain operations on the #AgManager, such
+as ag_manager_list() and ag_manager_list_services(), will be restricted
+to only affect accounts or services with that service type.</p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Accounts.Manager.account-created">"account-created"</span><span class="signal-parameters">(self, <a class="link-Class " href="Accounts-1.0.html#Accounts.Manager">manager</a>, <span class="type-basetype ">account_id</span>)</span><p class="signal-doc">
+Emitted when a new account has been created; note that the account must
+have been stored in the database: the signal is not emitted just in
+response to ag_manager_create_account().</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Accounts.Manager.account-deleted">"account-deleted"</span><span class="signal-parameters">(self, <a class="link-Class " href="Accounts-1.0.html#Accounts.Manager">manager</a>, <span class="type-basetype ">account_id</span>)</span><p class="signal-doc">
+Emitted when an account has been deleted.
+This signal is redundant with #AgAccount::deleted, but it is convenient
+to provide full change notification with #AgManager.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Accounts.Manager.account-updated">"account-updated"</span><span class="signal-parameters">(self, <a class="link-Class " href="Accounts-1.0.html#Accounts.Manager">manager</a>, <span class="type-basetype ">account_id</span>)</span><p class="signal-doc">
+Emitted when particular service of an account has been updated.
+This signal is redundant with #AgAccount::deleted, but it is convenient
+to provide full change notification with #AgManager.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Accounts.Manager.enabled-event">"enabled-event"</span><span class="signal-parameters">(self, <a class="link-Class " href="Accounts-1.0.html#Accounts.Manager">manager</a>, <span class="type-basetype ">account_id</span>)</span><p class="signal-doc">
+If the manager has been created with ag_manager_new_for_service_type(),
+this signal will be emitted when an account (identified by @account_id)
+has been modified in such a way that the application might be interested
+to start or stop using it: the "enabled" flag on the account or in some
+service supported by the account and matching the
+#AgManager:service-type have changed.
+In practice, this signal might be emitted more often than when strictly
+needed; applications must call ag_account_list_enabled_services() or
+ag_manager_list_enabled() to get the current state.</p>
+</p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Accounts.Manager.new">new</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Accounts.Manager.new_for_service_type">new_for_service_type</span><span class="method-parameters">(<a class="link-Type " href="Accounts-1.0.html#utf8">service_type</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Accounts.Manager.account_deleted">account_deleted</span><span class="method-parameters">(id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Accounts-1.0.html#Accounts.Account">Accounts.Account</a></span><span class="method-name" id="Accounts.Manager.create_account">create_account</span><span class="method-parameters">(<span class="type-basetype ">provider_name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Accounts.Manager.get_abort_on_db_timeout">get_abort_on_db_timeout</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Accounts-1.0.html#Accounts.Account">Accounts.Account</a></span><span class="method-name" id="Accounts.Manager.get_account">get_account</span><span class="method-parameters">(account_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="Accounts.Manager.get_account_services">get_account_services</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.Application">Accounts.Application</a></span><span class="method-name" id="Accounts.Manager.get_application">get_application</span><span class="method-parameters">(<span class="type-basetype ">application_name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Accounts.Manager.get_db_timeout">get_db_timeout</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="Accounts.Manager.get_enabled_account_services">get_enabled_account_services</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.Provider">Accounts.Provider</a></span><span class="method-name" id="Accounts.Manager.get_provider">get_provider</span><span class="method-parameters">(<span class="type-basetype ">provider_name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.Service">Accounts.Service</a></span><span class="method-name" id="Accounts.Manager.get_service">get_service</span><span class="method-parameters">(<span class="type-basetype ">service_name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Accounts.Manager.get_service_type">get_service_type</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="Accounts.Manager.list">list</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="Accounts.Manager.list_applications_by_service">list_applications_by_service</span><span class="method-parameters">(<a class="link-Record " href="Accounts-1.0.html#Accounts.Service">service</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="Accounts.Manager.list_by_service_type">list_by_service_type</span><span class="method-parameters">(<span class="type-basetype ">service_type</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="Accounts.Manager.list_enabled">list_enabled</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="Accounts.Manager.list_enabled_by_service_type">list_enabled_by_service_type</span><span class="method-parameters">(<span class="type-basetype ">service_type</span>)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Accounts.Manager.list_free">list_free</span><span class="method-parameters">(<a class="link-Record " href="GLib-2.0.html#GLib.List">list</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="Accounts.Manager.list_providers">list_providers</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="Accounts.Manager.list_service_types">list_service_types</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="Accounts.Manager.list_services">list_services</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="Accounts.Manager.list_services_by_type">list_services_by_type</span><span class="method-parameters">(<span class="type-basetype ">service_type</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Accounts-1.0.html#Accounts.Account">Accounts.Account</a></span><span class="method-name" id="Accounts.Manager.load_account">load_account</span><span class="method-parameters">(account_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.ServiceType">Accounts.ServiceType</a></span><span class="method-name" id="Accounts.Manager.load_service_type">load_service_type</span><span class="method-parameters">(<span class="type-basetype ">service_type</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Accounts.Manager.set_abort_on_db_timeout">set_abort_on_db_timeout</span><span class="method-parameters">(<span class="type-basetype ">abort</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Accounts.Manager.set_db_timeout">set_db_timeout</span><span class="method-parameters">(<span class="type-basetype ">timeout_ms</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-enum">
+<a href="Accounts-1.0.html#Accounts.AccountsError" class="class-anchor">⚓</a><h2 class="class-enum" id="Accounts.AccountsError">Enum: Accounts.AccountsError</h2>
+<div class="enum-members">
+<span class="enum-member">DB</span><span class="enum-value">0</span><span class="enum-member">DISPOSED</span><span class="enum-value">1</span><span class="enum-member">DELETED</span><span class="enum-value">2</span><span class="enum-member">DB_LOCKED</span><span class="enum-value">3</span><span class="enum-member">ACCOUNT_NOT_FOUND</span><span class="enum-value">4</span></div>
+</div>
+<div class="class-enum">
+<a href="Accounts-1.0.html#Accounts.SettingSource" class="class-anchor">⚓</a><h2 class="class-enum" id="Accounts.SettingSource">Enum: Accounts.SettingSource</h2>
+<div class="enum-members">
+<span class="enum-member">NONE</span><span class="enum-value">0</span><span class="enum-member">ACCOUNT</span><span class="enum-value">1</span><span class="enum-member">PROFILE</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="Accounts-1.0.html#Accounts.Error" class="class-anchor">⚓</a><h2 class="class-enum" id="Accounts.Error">Enum: Accounts.Error</h2>
+<div class="enum-members">
+<span class="enum-member">DB</span><span class="enum-value">0</span><span class="enum-member">DISPOSED</span><span class="enum-value">1</span><span class="enum-member">DELETED</span><span class="enum-value">2</span><span class="enum-member">DB_LOCKED</span><span class="enum-value">3</span><span class="enum-member">ACCOUNT_NOT_FOUND</span><span class="enum-value">4</span></div>
+</div>
+</body>
+</html>
+

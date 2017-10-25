@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>BamfApplication</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="libbamf Reference Manual">
+<link rel="up" href="ch01.html" title="Classes">
+<link rel="prev" href="BamfView.html" title="BamfView">
+<link rel="next" href="object-tree.html" title="Object Hierarchy">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="BamfView.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libbamf Reference Manual</th>
+<td><a accesskey="n" href="object-tree.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="BamfApplication.html#BamfApplication.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="BamfApplication.html#BamfApplication.description" class="shortcut">Description</a>
+                   | 
+                  <a href="BamfApplication.html#BamfApplication.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="BamfApplication.html#BamfApplication.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="BamfApplication"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="BamfApplication.top_of_page"></a>BamfApplication</span></h2>
+<p>BamfApplication — The base class for all applications</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="BamfApplication.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="BamfApplication.html#BamfApplication-struct" title="struct BamfApplication">BamfApplication</a>;
+struct              <a class="link" href="BamfApplication.html#BamfApplicationClass" title="struct BamfApplicationClass">BamfApplicationClass</a>;
+<span class="returnvalue">gboolean</span>            <a class="link" href="BamfApplication.html#bamf-application-get-application-menu" title="bamf_application_get_application_menu ()">bamf_application_get_application_menu</a>
+                                                        (<em class="parameter"><code><a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> *application</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **object_path</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="BamfApplication.html#bamf-application-get-application-type" title="bamf_application_get_application_type ()">bamf_application_get_application_type</a>
+                                                        (<em class="parameter"><code><a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> *application</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="BamfApplication.html#bamf-application-get-desktop-file" title="bamf_application_get_desktop_file ()">bamf_application_get_desktop_file</a>   (<em class="parameter"><code><a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> *application</code></em>);
+<a class="link" href="BamfView.html" title="BamfView"><span class="returnvalue">BamfView</span></a> *          <a class="link" href="BamfApplication.html#bamf-application-get-focusable-child" title="bamf_application_get_focusable_child ()">bamf_application_get_focusable_child</a>
+                                                        (<em class="parameter"><code><a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> *application</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="BamfApplication.html#bamf-application-get-show-menu-stubs" title="bamf_application_get_show_menu_stubs ()">bamf_application_get_show_menu_stubs</a>
+                                                        (<em class="parameter"><code><a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> *application</code></em>);
+<span class="returnvalue">gchar</span> **            <a class="link" href="BamfApplication.html#bamf-application-get-supported-mime-types" title="bamf_application_get_supported_mime_types ()">bamf_application_get_supported_mime_types</a>
+                                                        (<em class="parameter"><code><a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> *application</code></em>);
+<span class="returnvalue">GList</span> *             <a class="link" href="BamfApplication.html#bamf-application-get-windows" title="bamf_application_get_windows ()">bamf_application_get_windows</a>        (<em class="parameter"><code><a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> *application</code></em>);
+<span class="returnvalue">GArray</span> *            <a class="link" href="BamfApplication.html#bamf-application-get-xids" title="bamf_application_get_xids ()">bamf_application_get_xids</a>           (<em class="parameter"><code><a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> *application</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="BamfApplication.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----GInitiallyUnowned
+         +----<a class="link" href="BamfView.html" title="BamfView">BamfView</a>
+               +----BamfApplication
+</pre>
+</div>
+<div class="refsect1">
+<a name="BamfApplication.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="BamfApplication.html#BamfApplication-window-added" title='The "window-added" signal'>window-added</a>"                                   
+  "<a class="link" href="BamfApplication.html#BamfApplication-window-removed" title='The "window-removed" signal'>window-removed</a>"                                 
+</pre>
+</div>
+<div class="refsect1">
+<a name="BamfApplication.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> is the base class that all applications need to derive from.
+</p>
+</div>
+<div class="refsect1">
+<a name="BamfApplication.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="BamfApplication-struct"></a><h3>struct BamfApplication</h3>
+<pre class="programlisting">struct BamfApplication;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfApplicationClass"></a><h3>struct BamfApplicationClass</h3>
+<pre class="programlisting">struct BamfApplicationClass {
+  BamfViewClass parent_class;
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-application-get-application-menu"></a><h3>bamf_application_get_application_menu ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            bamf_application_get_application_menu
+                                                        (<em class="parameter"><code><a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> *application</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> **object_path</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-application-get-application-type"></a><h3>bamf_application_get_application_type ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       bamf_application_get_application_type
+                                                        (<em class="parameter"><code><a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> *application</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-application-get-desktop-file"></a><h3>bamf_application_get_desktop_file ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       bamf_application_get_desktop_file   (<em class="parameter"><code><a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> *application</code></em>);</pre>
+<p>
+Used to fetch the path to the .desktop file associated with the passed application. If
+none exists, the result is NULL.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>application</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A string representing the path to the desktop file.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-application-get-focusable-child"></a><h3>bamf_application_get_focusable_child ()</h3>
+<pre class="programlisting"><a class="link" href="BamfView.html" title="BamfView"><span class="returnvalue">BamfView</span></a> *          bamf_application_get_focusable_child
+                                                        (<em class="parameter"><code><a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> *application</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>application</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The focusable child for this application. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-application-get-show-menu-stubs"></a><h3>bamf_application_get_show_menu_stubs ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            bamf_application_get_show_menu_stubs
+                                                        (<em class="parameter"><code><a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> *application</code></em>);</pre>
+<p>
+Used to discover whether the application wants menu stubs shown.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>application</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Whether the stubs should be shown.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-application-get-supported-mime-types"></a><h3>bamf_application_get_supported_mime_types ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> **            bamf_application_get_supported_mime_types
+                                                        (<em class="parameter"><code><a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> *application</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>application</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A string array containing the supported mime-types. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-application-get-windows"></a><h3>bamf_application_get_windows ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *             bamf_application_get_windows        (<em class="parameter"><code><a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> *application</code></em>);</pre>
+<p>
+Used to fetch all <a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a>'s associated with the passed <a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>application</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A list of <a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a>'s. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> Bamf.Window][<acronym title="Free data container after the code is done."><span class="acronym">transfer container</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-application-get-xids"></a><h3>bamf_application_get_xids ()</h3>
+<pre class="programlisting"><span class="returnvalue">GArray</span> *            bamf_application_get_xids           (<em class="parameter"><code><a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> *application</code></em>);</pre>
+<p>
+Used to fetch all <a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a>'s xids associated with the passed <a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>application</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>An array of xids. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> guint32][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="BamfApplication.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="BamfApplication-window-added"></a><h3>The <code class="literal">"window-added"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> *bamfapplication,
+                                                        <a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a>        *arg1,
+                                                        <span class="type">gpointer</span>         user_data)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bamfapplication</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfApplication-window-removed"></a><h3>The <code class="literal">"window-removed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="BamfApplication.html" title="BamfApplication"><span class="type">BamfApplication</span></a> *bamfapplication,
+                                                        <a class="link" href="BamfView.html" title="BamfView"><span class="type">BamfView</span></a>        *arg1,
+                                                        <span class="type">gpointer</span>         user_data)</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bamfapplication</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

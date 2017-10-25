@@ -1,0 +1,754 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>autopilot.input &mdash; Autopilot 1.4+14.04.20140213-0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/otto.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/centertext.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.4+14.04.20140213-0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="top" title="Autopilot 1.4+14.04.20140213-0 documentation" href="../../index.html" />
+    <link rel="up" title="autopilot" href="../autopilot.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">Autopilot 1.4+14.04.20140213-0 documentation</a> &raquo;</li>
+          <li><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/autopilot/_modules/index.html" >Module code</a> &raquo;</li>
+          <li><a href="../autopilot.html" accesskey="U">autopilot</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for autopilot.input</h1><div class="highlight"><pre>
+<span class="c"># -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-</span>
+<span class="c">#</span>
+<span class="c"># Autopilot Functional Test Tool</span>
+<span class="c"># Copyright (C) 2012-2013 Canonical</span>
+<span class="c">#</span>
+<span class="c"># This program is free software: you can redistribute it and/or modify</span>
+<span class="c"># it under the terms of the GNU General Public License as published by</span>
+<span class="c"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c"># (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c"># This program is distributed in the hope that it will be useful,</span>
+<span class="c"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c"># GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c"># You should have received a copy of the GNU General Public License</span>
+<span class="c"># along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c">#</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Autopilot unified input system.</span>
+<span class="sd">===============================</span>
+
+<span class="sd">This package provides input methods for various platforms. Autopilot aims to</span>
+<span class="sd">provide an appropriate implementation for the currently running system. For</span>
+<span class="sd">example, not all systems have an X11 stack running: on those systems, autopilot</span>
+<span class="sd">will instantiate input classes class that use something other than X11 to</span>
+<span class="sd">generate events (possibly UInput).</span>
+
+<span class="sd">Test authors should instantiate the appropriate class using the ``create``</span>
+<span class="sd">method on each class. Calling ``create()`` with  no arguments will get an</span>
+<span class="sd">instance of the specified class that suits the current platform. In this case,</span>
+<span class="sd">autopilot will do it&#39;s best to pick a suitable backend. Calling ``create``</span>
+<span class="sd">with a backend name will result in that specific backend type being returned,</span>
+<span class="sd">or, if it cannot be created, an exception will be raised. For more information</span>
+<span class="sd">on creating backends, see :ref:`tut-picking-backends`</span>
+
+<span class="sd">There are three basic input types available:</span>
+
+<span class="sd"> * :class:`Keyboard` - traditional keyboard devices.</span>
+<span class="sd"> * :class:`Mouse` - traditional mouse devices (Currently only avaialble on the</span>
+<span class="sd">    desktop).</span>
+<span class="sd"> * :class:`Touch` - single point-of-contact touch device.</span>
+
+<span class="sd">The :class:`Pointer` class is a wrapper that unifies the API of the</span>
+<span class="sd">:class:`Mouse` and :class:`Touch` classes, which can be helpful if you want to</span>
+<span class="sd">write a test that can use either a mouse of a touch device. A common pattern is</span>
+<span class="sd">to use a Touch device when running on a mobile device, and a Mouse device when</span>
+<span class="sd">running on a desktop.</span>
+
+<span class="sd">.. seealso::</span>
+<span class="sd">    Module :mod:`autopilot.gestures`</span>
+<span class="sd">        Multitouch and gesture support for touch devices.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="kn">from</span> <span class="nn">autopilot.utilities</span> <span class="kn">import</span> <span class="n">_pick_backend</span><span class="p">,</span> <span class="n">CleanupRegistered</span>
+<span class="kn">from</span> <span class="nn">autopilot.input._common</span> <span class="kn">import</span> <span class="n">get_center_point</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="Keyboard"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Keyboard">[docs]</a><span class="k">class</span> <span class="nc">Keyboard</span><span class="p">(</span><span class="n">CleanupRegistered</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;A simple keyboard device class.</span>
+
+<span class="sd">    The keyboard class is used to generate key events while in an autopilot</span>
+<span class="sd">    test. This class should not be instantiated directly. To get an</span>
+<span class="sd">    instance of the keyboard class, call :py:meth:`create` instead.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Keyboard.create"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Keyboard.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">preferred_backend</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get an instance of the :py:class:`Keyboard` class.</span>
+
+<span class="sd">        For more infomration on picking specific backends, see</span>
+<span class="sd">        :ref:`tut-picking-backends`</span>
+
+<span class="sd">        For details regarding backend limitations please see:</span>
+<span class="sd">        :ref:`Keyboard backend limitations&lt;keyboard_backend_limitations&gt;`</span>
+
+<span class="sd">        .. warning:: The **OSK** (On Screen Keyboard) backend option does not</span>
+<span class="sd">         implement either :py:meth:`press` or :py:meth:`release` methods due to</span>
+<span class="sd">         technical implementation details and will raise a NotImplementedError</span>
+<span class="sd">         exception if used.</span>
+
+<span class="sd">        :param preferred_backend: A string containing a hint as to which</span>
+<span class="sd">            backend you would like. Possible backends are:</span>
+
+<span class="sd">            * ``X11`` - Generate keyboard events using the X11 client</span>
+<span class="sd">                libraries.</span>
+<span class="sd">            * ``UInput`` - Use UInput kernel-level device driver.</span>
+<span class="sd">            * ``OSK`` - Use the graphical On Screen Keyboard as a backend.</span>
+
+<span class="sd">        :raises: RuntimeError if autopilot cannot instantate any of the</span>
+<span class="sd">            possible backends.</span>
+<span class="sd">        :raises: RuntimeError if the preferred_backend is specified and is not</span>
+<span class="sd">            one of the possible backends for this device class.</span>
+<span class="sd">        :raises: :class:`~autopilot.BackendException` if the preferred_backend</span>
+<span class="sd">            is set, but that backend could not be instantiated.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">get_x11_kb</span><span class="p">():</span>
+            <span class="kn">from</span> <span class="nn">autopilot.input._X11</span> <span class="kn">import</span> <span class="n">Keyboard</span>
+            <span class="k">return</span> <span class="n">Keyboard</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">get_uinput_kb</span><span class="p">():</span>
+            <span class="kn">from</span> <span class="nn">autopilot.input._uinput</span> <span class="kn">import</span> <span class="n">Keyboard</span>
+            <span class="k">return</span> <span class="n">Keyboard</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">get_osk_kb</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="kn">from</span> <span class="nn">autopilot.input._osk</span> <span class="kn">import</span> <span class="n">Keyboard</span>
+                <span class="k">return</span> <span class="n">Keyboard</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">ImportError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">e</span><span class="o">.</span><span class="n">args</span> <span class="o">+=</span> <span class="p">(</span><span class="s">&quot;Unable to import the OSK backend&quot;</span><span class="p">,)</span>
+                <span class="k">raise</span>
+
+        <span class="n">backends</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+        <span class="n">backends</span><span class="p">[</span><span class="s">&#39;X11&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_x11_kb</span>
+        <span class="n">backends</span><span class="p">[</span><span class="s">&#39;UInput&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_uinput_kb</span>
+        <span class="n">backends</span><span class="p">[</span><span class="s">&#39;OSK&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_osk_kb</span>
+        <span class="k">return</span> <span class="n">_pick_backend</span><span class="p">(</span><span class="n">backends</span><span class="p">,</span> <span class="n">preferred_backend</span><span class="p">)</span>
+</div>
+    <span class="nd">@contextmanager</span>
+<div class="viewcode-block" id="Keyboard.focused_type"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Keyboard.focused_type">[docs]</a>    <span class="k">def</span> <span class="nf">focused_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_target</span><span class="p">,</span>  <span class="n">pointer</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Type into an input widget.</span>
+
+<span class="sd">        This context manager takes care of making sure a particular</span>
+<span class="sd">        *input_target* UI control is selected before any text is entered.</span>
+
+<span class="sd">        Some backends extend this method to perform cleanup actions at the end</span>
+<span class="sd">        of the context manager block. For example, the OSK backend dismisses</span>
+<span class="sd">        the keyboard.</span>
+
+<span class="sd">        If the *pointer* argument is None (default) then either a Mouse or</span>
+<span class="sd">        Touch pointer will be created based on the current platform.</span>
+
+<span class="sd">        An example of using the context manager (with an OSK backend)::</span>
+
+<span class="sd">            from autopilot.input import Keyboard</span>
+
+<span class="sd">            text_area = self._launch_test_input_area()</span>
+<span class="sd">            keyboard = Keyboard.create(&#39;OSK&#39;)</span>
+<span class="sd">            with keyboard.focused_type(text_area) as kb:</span>
+<span class="sd">                kb.type(&quot;Hello World.&quot;)</span>
+<span class="sd">                self.assertThat(text_area.text, Equals(&quot;Hello World&quot;))</span>
+<span class="sd">            # Upon leaving the context managers scope the keyboard is dismissed</span>
+<span class="sd">            # with a swipe</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">pointer</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="kn">from</span> <span class="nn">autopilot.platform</span> <span class="kn">import</span> <span class="n">model</span>
+            <span class="k">if</span> <span class="n">model</span><span class="p">()</span> <span class="o">==</span> <span class="s">&#39;Desktop&#39;</span><span class="p">:</span>
+                <span class="n">pointer</span> <span class="o">=</span> <span class="n">Pointer</span><span class="p">(</span><span class="n">Mouse</span><span class="o">.</span><span class="n">create</span><span class="p">())</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">pointer</span> <span class="o">=</span> <span class="n">Pointer</span><span class="p">(</span><span class="n">Touch</span><span class="o">.</span><span class="n">create</span><span class="p">())</span>
+
+        <span class="n">pointer</span><span class="o">.</span><span class="n">click_object</span><span class="p">(</span><span class="n">input_target</span><span class="p">)</span>
+        <span class="k">yield</span> <span class="bp">self</span>
+</div>
+<div class="viewcode-block" id="Keyboard.press"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Keyboard.press">[docs]</a>    <span class="k">def</span> <span class="nf">press</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keys</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Send key press events only.</span>
+
+<span class="sd">        :param keys: Keys you want pressed.</span>
+<span class="sd">        :param delay: The delay (in Seconds) after pressing the keys before</span>
+<span class="sd">            returning control to the caller.</span>
+<span class="sd">        :raises: NotImplementedError If called when using the OSK Backend.</span>
+
+<span class="sd">        .. warning:: The **OSK** backend does not implement the press method</span>
+<span class="sd">          and will raise a NotImplementedError if called.</span>
+
+<span class="sd">        Example::</span>
+
+<span class="sd">            press(&#39;Alt+F2&#39;)</span>
+
+<span class="sd">        presses the &#39;Alt&#39; and &#39;F2&#39; keys, but does not release them.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Keyboard.release"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Keyboard.release">[docs]</a>    <span class="k">def</span> <span class="nf">release</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keys</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Send key release events only.</span>
+
+<span class="sd">        :param keys: Keys you want released.</span>
+<span class="sd">        :param delay: The delay (in Seconds) after releasing the keys before</span>
+<span class="sd">            returning control to the caller.</span>
+<span class="sd">        :raises: NotImplementedError If called when using the OSK Backend.</span>
+
+<span class="sd">        .. warning:: The **OSK** backend does not implement the press method</span>
+<span class="sd">         and will raise a NotImplementedError if called.</span>
+
+<span class="sd">        Example::</span>
+
+<span class="sd">            release(&#39;Alt+F2&#39;)</span>
+
+<span class="sd">        releases the &#39;Alt&#39; and &#39;F2&#39; keys.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Keyboard.press_and_release"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Keyboard.press_and_release">[docs]</a>    <span class="k">def</span> <span class="nf">press_and_release</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keys</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Press and release all items in &#39;keys&#39;.</span>
+
+<span class="sd">        This is the same as calling &#39;press(keys);release(keys)&#39;.</span>
+
+<span class="sd">        :param keys: Keys you want pressed and released.</span>
+<span class="sd">        :param delay: The delay (in Seconds) after pressing and releasing each</span>
+<span class="sd">            key.</span>
+
+<span class="sd">        Example::</span>
+
+<span class="sd">            press_and_release(&#39;Alt+F2&#39;)</span>
+
+<span class="sd">        presses both the &#39;Alt&#39; and &#39;F2&#39; keys, and then releases both keys.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Keyboard.type"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Keyboard.type">[docs]</a>    <span class="k">def</span> <span class="nf">type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Simulate a user typing a string of text.</span>
+
+<span class="sd">        :param string: The string to text to type.</span>
+<span class="sd">        :param delay: The delay (in Seconds) after pressing and releasing each</span>
+<span class="sd">            key. Note that the default value here is shorter than for the</span>
+<span class="sd">            press, release and press_and_release methods.</span>
+
+<span class="sd">        .. note:: Only &#39;normal&#39; keys can be typed with this method. Control</span>
+<span class="sd">         characters (such as &#39;Alt&#39; will be interpreted as an &#39;A&#39;, and &#39;l&#39;,</span>
+<span class="sd">         and a &#39;t&#39;).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="Mouse"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Mouse">[docs]</a><span class="k">class</span> <span class="nc">Mouse</span><span class="p">(</span><span class="n">CleanupRegistered</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;A simple mouse device class.</span>
+
+<span class="sd">    The mouse class is used to generate mouse events while in an autopilot</span>
+<span class="sd">    test. This class should not be instantiated directly however. To get an</span>
+<span class="sd">    instance of the mouse class, call :py:meth:`create` instead.</span>
+
+<span class="sd">    For example, to create a mouse object and click at (100,50)::</span>
+
+<span class="sd">        mouse = Mouse.create()</span>
+<span class="sd">        mouse.move(100, 50)</span>
+<span class="sd">        mouse.click()</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Mouse.create"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Mouse.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">preferred_backend</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get an instance of the :py:class:`Mouse` class.</span>
+
+<span class="sd">        For more infomration on picking specific backends, see</span>
+<span class="sd">        :ref:`tut-picking-backends`</span>
+
+<span class="sd">        :param preferred_backend: A string containing a hint as to which</span>
+<span class="sd">            backend you would like. Possible backends are:</span>
+
+<span class="sd">            * ``X11`` - Generate mouse events using the X11 client libraries.</span>
+
+<span class="sd">        :raises: RuntimeError if autopilot cannot instantate any of the</span>
+<span class="sd">            possible backends.</span>
+<span class="sd">        :raises: RuntimeError if the preferred_backend is specified and is not</span>
+<span class="sd">            one of the possible backends for this device class.</span>
+<span class="sd">        :raises: :class:`~autopilot.BackendException` if the preferred_backend</span>
+<span class="sd">            is set, but that backend could not be instantiated.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">get_x11_mouse</span><span class="p">():</span>
+            <span class="kn">from</span> <span class="nn">autopilot.input._X11</span> <span class="kn">import</span> <span class="n">Mouse</span>
+            <span class="k">return</span> <span class="n">Mouse</span><span class="p">()</span>
+
+        <span class="kn">from</span> <span class="nn">autopilot.platform</span> <span class="kn">import</span> <span class="n">model</span>
+        <span class="k">if</span> <span class="n">model</span><span class="p">()</span> <span class="o">!=</span> <span class="s">&#39;Desktop&#39;</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+                <span class="s">&quot;You cannot create a Mouse on the devices where X11 is not &quot;</span>
+                <span class="s">&quot;available. consider using a Touch or Pointer device. &quot;</span>
+                <span class="s">&quot;For more information, see: &quot;</span>
+                <span class="s">&quot;http://unity.ubuntu.com/autopilot/api/input.html&quot;</span>
+                <span class="s">&quot;#autopilot-unified-input-system&quot;</span>
+            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="s">&quot;Cannot create a Mouse on devices where X11 is not available.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="n">backends</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+        <span class="n">backends</span><span class="p">[</span><span class="s">&#39;X11&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_x11_mouse</span>
+        <span class="k">return</span> <span class="n">_pick_backend</span><span class="p">(</span><span class="n">backends</span><span class="p">,</span> <span class="n">preferred_backend</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Mouse.x"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Mouse.x">[docs]</a>    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Mouse position X coordinate.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Mouse.y"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Mouse.y">[docs]</a>    <span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Mouse position Y coordinate.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Mouse.press"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Mouse.press">[docs]</a>    <span class="k">def</span> <span class="nf">press</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Press mouse button at current mouse location.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Mouse.release"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Mouse.release">[docs]</a>    <span class="k">def</span> <span class="nf">release</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Releases mouse button at current mouse location.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Mouse.click"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Mouse.click">[docs]</a>    <span class="k">def</span> <span class="nf">click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">press_duration</span><span class="o">=</span><span class="mf">0.10</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Click mouse at current location.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Mouse.click_object"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Mouse.click_object">[docs]</a>    <span class="k">def</span> <span class="nf">click_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">object_proxy</span><span class="p">,</span> <span class="n">button</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">press_duration</span><span class="o">=</span><span class="mf">0.10</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Click the center point of a given object.</span>
+
+<span class="sd">        It does this by looking for several attributes, in order. The first</span>
+<span class="sd">        attribute found will be used. The attributes used are (in order):</span>
+
+<span class="sd">         * globalRect (x,y,w,h)</span>
+<span class="sd">         * center_x, center_y</span>
+<span class="sd">         * x, y, w, h</span>
+
+<span class="sd">        :raises: **ValueError** if none of these attributes are found, or if an</span>
+<span class="sd">         attribute is of an incorrect type.</span>
+
+<span class="sd">         &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">move_to_object</span><span class="p">(</span><span class="n">object_proxy</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">button</span><span class="p">,</span> <span class="n">press_duration</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Mouse.move"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Mouse.move">[docs]</a>    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">animate</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">time_between_events</span><span class="o">=</span><span class="mf">0.01</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Moves mouse to location (x,y).</span>
+
+<span class="sd">        Callers should avoid specifying the *rate* or *time_between_events*</span>
+<span class="sd">        parameters unless they need a specific rate of movement.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Mouse.move_to_object"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Mouse.move_to_object">[docs]</a>    <span class="k">def</span> <span class="nf">move_to_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">object_proxy</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Attempts to move the mouse to &#39;object_proxy&#39;s centre point.</span>
+
+<span class="sd">        It does this by looking for several attributes, in order. The first</span>
+<span class="sd">        attribute found will be used. The attributes used are (in order):</span>
+
+<span class="sd">         * globalRect (x,y,w,h)</span>
+<span class="sd">         * center_x, center_y</span>
+<span class="sd">         * x, y, w, h</span>
+
+<span class="sd">        :raises: **ValueError** if none of these attributes are found, or if an</span>
+<span class="sd">         attribute is of an incorrect type.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Mouse.position"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Mouse.position">[docs]</a>    <span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the current position of the mouse pointer.</span>
+
+<span class="sd">        :return: (x,y) tuple</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Mouse.drag"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Mouse.drag">[docs]</a>    <span class="k">def</span> <span class="nf">drag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Performs a press, move and release.</span>
+
+<span class="sd">        This is to keep a common API between Mouse and Finger as long as</span>
+<span class="sd">        possible.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="Touch"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Touch">[docs]</a><span class="k">class</span> <span class="nc">Touch</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A simple touch driver class.</span>
+
+<span class="sd">    This class can be used for any touch events that require a single active</span>
+<span class="sd">    touch at once. If you want to do complex gestures (including multi-touch</span>
+<span class="sd">    gestures), look at the :py:mod:`autopilot.gestures` module.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Touch.create"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Touch.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">preferred_backend</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get an instance of the :py:class:`Touch` class.</span>
+
+<span class="sd">        :param preferred_backend: A string containing a hint as to which</span>
+<span class="sd">            backend you would like. If left blank, autopilot will pick a</span>
+<span class="sd">            suitable backend for you. Specifying a backend will guarantee that</span>
+<span class="sd">            either that backend is returned, or an exception is raised.</span>
+
+<span class="sd">            possible backends are:</span>
+
+<span class="sd">            * ``UInput`` - Use UInput kernel-level device driver.</span>
+
+<span class="sd">        :raises: RuntimeError if autopilot cannot instantate any of the</span>
+<span class="sd">            possible backends.</span>
+<span class="sd">        :raises: RuntimeError if the preferred_backend is specified and is not</span>
+<span class="sd">            one of the possible backends for this device class.</span>
+<span class="sd">        :raises: :class:`~autopilot.BackendException` if the preferred_backend</span>
+<span class="sd">            is set, but that backend could not be instantiated.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">get_uinput_touch</span><span class="p">():</span>
+            <span class="kn">from</span> <span class="nn">autopilot.input._uinput</span> <span class="kn">import</span> <span class="n">Touch</span>
+            <span class="k">return</span> <span class="n">Touch</span><span class="p">()</span>
+
+        <span class="n">backends</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+        <span class="n">backends</span><span class="p">[</span><span class="s">&#39;UInput&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_uinput_touch</span>
+        <span class="k">return</span> <span class="n">_pick_backend</span><span class="p">(</span><span class="n">backends</span><span class="p">,</span> <span class="n">preferred_backend</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Touch.pressed"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Touch.pressed">[docs]</a>    <span class="k">def</span> <span class="nf">pressed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return True if this touch is currently in use (i.e.- pressed on the</span>
+<span class="sd">            &#39;screen&#39;).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Touch.tap"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Touch.tap">[docs]</a>    <span class="k">def</span> <span class="nf">tap</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Click (or &#39;tap&#39;) at given x,y coordinates.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Touch.tap_object"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Touch.tap_object">[docs]</a>    <span class="k">def</span> <span class="nf">tap_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">object</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Tap the center point of a given object.</span>
+
+<span class="sd">        It does this by looking for several attributes, in order. The first</span>
+<span class="sd">        attribute found will be used. The attributes used are (in order):</span>
+
+<span class="sd">         * globalRect (x,y,w,h)</span>
+<span class="sd">         * center_x, center_y</span>
+<span class="sd">         * x, y, w, h</span>
+
+<span class="sd">        :raises: **ValueError** if none of these attributes are found, or if an</span>
+<span class="sd">         attribute is of an incorrect type.</span>
+
+<span class="sd">         &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Touch.press"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Touch.press">[docs]</a>    <span class="k">def</span> <span class="nf">press</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Press and hold at the given x,y coordinates.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Touch.move"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Touch.move">[docs]</a>    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Move the pointer coords to (x,y).</span>
+
+<span class="sd">        .. note:: The touch &#39;finger&#39; must be pressed for a call to this</span>
+<span class="sd">         method to be successful. (see :py:meth:`press` for further details on</span>
+<span class="sd">         touch presses.)</span>
+
+<span class="sd">        :raises: **RuntimeError** if called and the touch &#39;finger&#39; isn&#39;t</span>
+<span class="sd">         pressed.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Touch.release"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Touch.release">[docs]</a>    <span class="k">def</span> <span class="nf">release</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Release a previously pressed finger&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Touch.drag"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Touch.drag">[docs]</a>    <span class="k">def</span> <span class="nf">drag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Perform a drag gesture from (x1,y1) to (x2,y2)&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="Pointer"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Pointer">[docs]</a><span class="k">class</span> <span class="nc">Pointer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;A wrapper class that represents a pointing device which can either be a</span>
+<span class="sd">    mouse or a touch, and provides a unified API.</span>
+
+<span class="sd">    This class is useful if you want to run tests with either a mouse or a</span>
+<span class="sd">    touch device, and want to write your tests to use a single API. Create</span>
+<span class="sd">    this wrapper by passing it either a mouse or a touch device, like so::</span>
+
+<span class="sd">        pointer_device = Pointer(Mouse.create())</span>
+
+<span class="sd">    or, like so::</span>
+
+<span class="sd">        pointer_device = Pointer(Touch.create())</span>
+
+
+<span class="sd">    .. warning::</span>
+<span class="sd">        Some operations only make sense for certain devices. This class</span>
+<span class="sd">        attempts to minimise the differences between the Mouse and Touch APIs,</span>
+<span class="sd">        but there are still some operations that will cause exceptions to be</span>
+<span class="sd">        raised. These are documented in the specific methods below.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">Mouse</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">Touch</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s">&quot;`device` must be either a Touch or a Mouse instance.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_device</span> <span class="o">=</span> <span class="n">device</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Pointer.x"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Pointer.x">[docs]</a>    <span class="k">def</span> <span class="nf">x</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Pointer X coordinate.</span>
+
+<span class="sd">        If the wrapped device is a :class:`Touch` device, this will return the</span>
+<span class="sd">        last known X coordinate, which may not be a sensible value.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">,</span> <span class="n">Mouse</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">x</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_x</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Pointer.y"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Pointer.y">[docs]</a>    <span class="k">def</span> <span class="nf">y</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Pointer Y coordinate.</span>
+
+<span class="sd">        If the wrapped device is a :class:`Touch` device, this will return the</span>
+<span class="sd">        last known Y coordinate, which may not be a sensible value.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">,</span> <span class="n">Mouse</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">y</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span>
+</div>
+<div class="viewcode-block" id="Pointer.press"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Pointer.press">[docs]</a>    <span class="k">def</span> <span class="nf">press</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Press the pointer at it&#39;s current location.</span>
+
+<span class="sd">        If the wrapped device is a mouse, you may pass a button specification.</span>
+<span class="sd">        If it is a touch device, passing anything other than 1 will raise a</span>
+<span class="sd">        ValueError exception.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">,</span> <span class="n">Mouse</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">button</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s">&quot;Touch devices do not have button </span><span class="si">%d</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">button</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">press</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Pointer.release"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Pointer.release">[docs]</a>    <span class="k">def</span> <span class="nf">release</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Releases the pointer at it&#39;s current location.</span>
+
+<span class="sd">        If the wrapped device is a mouse, you may pass a button specification.</span>
+<span class="sd">        If it is a touch device, passing anything other than 1 will raise a</span>
+<span class="sd">        ValueError exception.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">,</span> <span class="n">Mouse</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="n">button</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">button</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s">&quot;Touch devices do not have button </span><span class="si">%d</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">button</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+</div>
+<div class="viewcode-block" id="Pointer.click"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Pointer.click">[docs]</a>    <span class="k">def</span> <span class="nf">click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">button</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">press_duration</span><span class="o">=</span><span class="mf">0.10</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Press and release at the current pointer location.</span>
+
+<span class="sd">        If the wrapped device is a mouse, the button specification is used. If</span>
+<span class="sd">        it is a touch device, passing anything other than 1 will raise a</span>
+<span class="sd">        ValueError exception.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">,</span> <span class="n">Mouse</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">button</span><span class="p">,</span> <span class="n">press_duration</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">button</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s">&quot;Touch devices do not have button </span><span class="si">%d</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">button</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">tap</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Pointer.move"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Pointer.move">[docs]</a>    <span class="k">def</span> <span class="nf">move</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Moves the pointer to the specified coordinates.</span>
+
+<span class="sd">        If the wrapped device is a mouse, the mouse will animate to the</span>
+<span class="sd">        specified coordinates. If the wrapped device is a touch device, this</span>
+<span class="sd">        method will determine where the next :meth:`press`, :meth:`release` or</span>
+<span class="sd">        :meth:`click` will occur.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">,</span> <span class="n">Mouse</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">x</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="n">y</span>
+</div>
+<div class="viewcode-block" id="Pointer.click_object"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Pointer.click_object">[docs]</a>    <span class="k">def</span> <span class="nf">click_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">object_proxy</span><span class="p">,</span> <span class="n">button</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">press_duration</span><span class="o">=</span><span class="mf">0.10</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Attempts to move the pointer to &#39;object_proxy&#39;s centre point.</span>
+<span class="sd">        and click a button</span>
+
+<span class="sd">        It does this by looking for several attributes, in order. The first</span>
+<span class="sd">        attribute found will be used. The attributes used are (in order):</span>
+
+<span class="sd">         * globalRect (x,y,w,h)</span>
+<span class="sd">         * center_x, center_y</span>
+<span class="sd">         * x, y, w, h</span>
+
+<span class="sd">        If the wrapped device is a mouse, the button specification is used. If</span>
+<span class="sd">        it is a touch device, passing anything other than 1 will raise a</span>
+<span class="sd">        ValueError exception.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">move_to_object</span><span class="p">(</span><span class="n">object_proxy</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">click</span><span class="p">(</span><span class="n">button</span><span class="p">,</span> <span class="n">press_duration</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Pointer.move_to_object"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Pointer.move_to_object">[docs]</a>    <span class="k">def</span> <span class="nf">move_to_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">object_proxy</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Attempts to move the pointer to &#39;object_proxy&#39;s centre point.</span>
+
+<span class="sd">        It does this by looking for several attributes, in order. The first</span>
+<span class="sd">        attribute found will be used. The attributes used are (in order):</span>
+
+<span class="sd">         * globalRect (x,y,w,h)</span>
+<span class="sd">         * center_x, center_y</span>
+<span class="sd">         * x, y, w, h</span>
+
+<span class="sd">        :raises: **ValueError** if none of these attributes are found, or if an</span>
+<span class="sd">         attribute is of an incorrect type.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">get_center_point</span><span class="p">(</span><span class="n">object_proxy</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Pointer.position"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Pointer.position">[docs]</a>    <span class="k">def</span> <span class="nf">position</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the current position of the pointer.</span>
+
+<span class="sd">        :return: (x,y) tuple</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">,</span> <span class="n">Mouse</span><span class="p">):</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">position</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_y</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Pointer.drag"><a class="viewcode-back" href="../../api/input.html#autopilot.input.Pointer.drag">[docs]</a>    <span class="k">def</span> <span class="nf">drag</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Performs a press, move and release.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="o">.</span><span class="n">drag</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_device</span><span class="p">,</span> <span class="n">Touch</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_x</span> <span class="o">=</span> <span class="n">x2</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_y</span> <span class="o">=</span> <span class="n">y2</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/otto-64.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://developer.ubuntu.com/api/devel/ubuntu-14.04/autopilot/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../../index.html">Autopilot 1.4+14.04.20140213-0 documentation</a> &raquo;</li>
+          <li><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/autopilot/_modules/index.html" >Module code</a> &raquo;</li>
+          <li><a href="../autopilot.html" >autopilot</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      <div class=center_text>
+        <a href="../../faq/contribute.html">Learn how you can contribute!</a> / <a href="https://bugs.launchpad.net/autopilot/+filebug">File a bug</a>
+     <br/>
+      </div>
+        &copy; Copyright 2012-2013, Canonical.
+    </div>
+
+
+  </body>
+</html>

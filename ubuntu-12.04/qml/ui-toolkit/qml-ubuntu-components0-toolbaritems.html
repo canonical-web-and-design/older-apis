@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ToolbarItems.qml -->
+  <title>UbuntuUserInterfaceToolkit 0.1: ToolbarItems</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="overview-ubuntu-sdk.html">Ubuntu User Interface Toolkit</a></li>
+<li>ToolbarItems</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-components0-toolbaritems.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-toolbaritems.html#signal-handlers">Signal Handlers</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-toolbaritems.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">ToolbarItems</h1>
+<span class="subtitle"></span>
+<!-- $$$ToolbarItems-brief -->
+<p>Row of Items to be placed in a toolbar. <a href="qml-ubuntu-components0-toolbaritems.html#details">More...</a></p>
+<!-- @@@ToolbarItems -->
+<p>Inherits <a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-item.html">Item</a></p>
+<ul>
+<li><a href="qml-ubuntu-components0-toolbaritems-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-toolbaritems.html#back-prop">back</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-toolbaritems.html#contents-prop">contents</a></b></b> : list&lt;Object&gt;</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-toolbaritems.html#locked-prop">locked</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-toolbaritems.html#opened-prop">opened</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-toolbaritems.html#pageStack-prop">pageStack</a></b></b> : Item</li>
+</ul>
+<a name="signal-handlers"></a>
+<h2>Signal Handlers</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-toolbaritems.html#onTriggered-signal-handler">onTriggered</a></b></b>()</li>
+</ul>
+<!-- $$$ToolbarItems-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>Each <a href="qml-ubuntu-components0-page.html">Page</a> has a tools property that can be set to change the tools of toolbar supplied by <a href="qml-ubuntu-components0-mainview.html">MainView</a> when the <a href="qml-ubuntu-components0-page.html">Page</a> is active. Each ToolbarItems consists of a set of Items and several properties that specify the behavior of the toolbar when the <a href="qml-ubuntu-components0-page.html">Page</a> is active.</p>
+<p>When a <a href="qml-ubuntu-components0-page.html">Page</a> is used inside a <a href="qml-ubuntu-components0-mainview.html">MainView</a>, <a href="qml-ubuntu-components0-tabs.html">Tabs</a> or <a href="qml-ubuntu-components0-pagestack.html">PageStack</a>, the toolbar will automatically show the tools of the active <a href="qml-ubuntu-components0-page.html">Page</a>. When the active <a href="qml-ubuntu-components0-page.html">Page</a> inside the <a href="qml-ubuntu-components0-tabs.html">Tabs</a> or <a href="qml-ubuntu-components0-pagestack.html">PageStack</a> is updated by changing the selected <a href="qml-ubuntu-components0-tab.html">Tab</a> or by pushing/popping a <a href="qml-ubuntu-components0-page.html">Page</a> on the <a href="qml-ubuntu-components0-pagestack.html">PageStack</a>, the toolbar will automatically hide, except if the new active <a href="qml-ubuntu-components0-page.html">Page</a> has the <a href="qml-ubuntu-components0-toolbaritems.html#locked-prop">locked</a> property set.</p>
+<p><a href="http://design.ubuntu.com/apps/building-blocks/toolbar">See also the Design Guidelines on Toolbars</a>.</p>
+<p>It is recommended to use <a href="qml-ubuntu-components0-toolbarbutton.html">ToolbarButton</a> inside the ToolbarItems to define the buttons that will be visible to the user:</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+
+<span class="type"><a href="qml-ubuntu-components0-mainview.html">MainView</a></span> {
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">50</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">50</span>)
+
+    <span class="type"><a href="qml-ubuntu-components0-page.html">Page</a></span> {
+        <span class="name">title</span>: <span class="string">&quot;Tools example&quot;</span>
+        <span class="type"><a href="qml-ubuntu-components0-label.html">Label</a></span> {
+            <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+            <span class="name">text</span>: <span class="string">&quot;Custom back button\nToolbar locked&quot;</span>
+        }
+        <span class="name">tools</span>: <span class="name">ToolbarItems</span> {
+            <span class="type"><a href="qml-ubuntu-components0-toolbarbutton.html">ToolbarButton</a></span> {
+                <span class="name">action</span>: <span class="name">Action</span> {
+                    <span class="name">text</span>: <span class="string">&quot;button&quot;</span>
+                    <span class="name">iconName</span>: <span class="string">&quot;compose&quot;</span>
+                    <span class="name">onTriggered</span>: <span class="name">print</span>(<span class="string">&quot;success!&quot;</span>)
+                }
+            }
+            <span class="name">locked</span>: <span class="number">true</span>
+            <span class="name">opened</span>: <span class="number">true</span>
+        }
+    }
+}</pre>
+<p>However, it is possible to include non-<a href="qml-ubuntu-components0-toolbarbutton.html">ToolbarButton</a> Items inside ToolbarItems, and to mix ToolbarButtons and other Items (for example standard Buttons). ToolbarButtons automatically span the full height of the toolbar, and other Items you will probably want to center vertically:</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+
+<span class="type"><a href="qml-ubuntu-components0-mainview.html">MainView</a></span> {
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">50</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">50</span>)
+
+    <span class="type"><a href="qml-ubuntu-components0-page.html">Page</a></span> {
+        <span class="name">title</span>: <span class="string">&quot;Tools example&quot;</span>
+        <span class="type"><a href="qml-ubuntu-components0-label.html">Label</a></span> {
+            <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+            <span class="name">text</span>: <span class="string">&quot;buttons!&quot;</span>
+        }
+        <span class="name">tools</span>: <span class="name">ToolbarItems</span> {
+            <span class="type"><a href="qml-ubuntu-components0-toolbarbutton.html">ToolbarButton</a></span> {
+                <span class="name">action</span>: <span class="name">Action</span> {
+                    <span class="name">text</span>: <span class="string">&quot;toolbar&quot;</span>
+                    <span class="name">iconName</span>: <span class="string">&quot;compose&quot;</span>
+                    <span class="name">onTriggered</span>: <span class="name">print</span>(<span class="string">&quot;success!&quot;</span>)
+                }
+            }
+            <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+                <span class="name">anchors</span>.verticalCenter: <span class="name">parent</span>.<span class="name">verticalCenter</span>
+                <span class="name">text</span>: <span class="string">&quot;standard&quot;</span>
+            }
+        }
+    }
+}</pre>
+<!-- @@@ToolbarItems -->
+<h2>Property Documentation</h2>
+<!-- $$$back -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="back-prop"></a><span class="name">back</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-item.html">Item</a></span></p></td></tr></table></div><div class="qmldoc"><p>The back button. If it is visible, it will be shown on the left-side of the toolbar. If there is a <a href="qml-ubuntu-components0-pagestack.html">PageStack</a> with depth greater than 1, the back button will be visible and triggering it will pop the page on top of the stack. If there is no <a href="qml-ubuntu-components0-pagestack.html">PageStack</a> with depth greater than 1, the back button is hidden by default</p>
+<p>The following example shows how to have a classic cancel button that is always visible in the toolbar, instead of the default toolbar-styled back button:</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+
+<span class="type"><a href="qml-ubuntu-components0-mainview.html">MainView</a></span> {
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">50</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">50</span>)
+
+    <span class="type"><a href="qml-ubuntu-components0-page.html">Page</a></span> {
+        <span class="name">title</span>: <span class="string">&quot;Custom back button&quot;</span>
+        <span class="name">tools</span>: <span class="name">ToolbarItems</span> {
+            <span class="name">back</span>: <span class="name">Button</span> {
+                <span class="name">text</span>: <span class="string">&quot;cancel&quot;</span>
+            }
+        }
+    }
+}</pre>
+</div></div><!-- @@@back -->
+<br/>
+<!-- $$$contents -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="contents-prop"></a><span class="qmldefault">default</span><span class="name">contents</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-list.html">list</a></span>&lt;<span class="type">Object</span>&gt;</p></td></tr></table></div><div class="qmldoc"><p>Default property, holds the content which will shown in the toolbar.</p>
+</div></div><!-- @@@contents -->
+<br/>
+<!-- $$$locked -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="locked-prop"></a><span class="name">locked</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>The toolbar cannot be opened/closed by bottom-edge swipes. If the <a href="qml-ubuntu-components0-toolbaritems.html">ToolbarItems</a> contains no visible Items, it is automatically locked (in closed state).</p>
+</div></div><!-- @@@locked -->
+<br/>
+<!-- $$$opened -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="opened-prop"></a><span class="name">opened</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>The toolbar is opened. When the toolbar is not locked, this value is automatically updated when the toolbar is opened/closed by user interaction or by other events (such as changing the active <a href="qml-ubuntu-components0-page.html">Page</a>).</p>
+</div></div><!-- @@@opened -->
+<br/>
+<!-- $$$pageStack -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="pageStack-prop"></a><span class="name">pageStack</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-item.html">Item</a></span></p></td></tr></table></div><div class="qmldoc"><p><a href="qml-ubuntu-components0-pagestack.html">PageStack</a> for the back button. <a href="qml-ubuntu-components0-page.html">Page</a> will automatically set the pageStack property of its tools.</p>
+</div></div><!-- @@@pageStack -->
+<br/>
+<h2>Signal Handler Documentation</h2>
+<!-- $$$onTriggered -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="onTriggered-signal-handler"></a>ToolbarItems::<span class="name">onTriggered</span>()</p></td></tr></table></div><div class="qmldoc"><p>If there is a <a href="qml-ubuntu-components0-pagestack.html">PageStack</a> of sufficient depth, triggering the back button will pop the <a href="qml-ubuntu-components0-page.html">Page</a> on top of the <a href="qml-ubuntu-components0-pagestack.html">PageStack</a>.</p>
+</div></div><!-- @@@onTriggered -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

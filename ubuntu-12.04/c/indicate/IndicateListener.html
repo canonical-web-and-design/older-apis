@@ -1,0 +1,462 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IndicateListener</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="libindicate Reference Manual">
+<link rel="up" href="listeners.html" title="Part III. Classes for Listeners">
+<link rel="prev" href="listeners.html" title="Part III. Classes for Listeners">
+<link rel="next" href="index.html" title="Part IV. ">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="listeners.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="listeners.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libindicate Reference Manual</th>
+<td><a accesskey="n" href="index.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="IndicateListener.html#IndicateListener.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="IndicateListener.html#IndicateListener.description" class="shortcut">Description</a>
+                   | 
+                  <a href="IndicateListener.html#IndicateListener.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="IndicateListener.html#IndicateListener.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="IndicateListener"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="IndicateListener.top_of_page"></a>IndicateListener</span></h2>
+<p>IndicateListener</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="IndicateListener.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;indicator.h&gt;
+
+struct              <a class="link" href="IndicateListener.html#IndicateListener-struct" title="struct IndicateListener">IndicateListener</a>;
+struct              <a class="link" href="IndicateListener.html#IndicateListenerClass" title="struct IndicateListenerClass">IndicateListenerClass</a>;
+                    <a class="link" href="IndicateListener.html#IndicateListenerIndicator" title="IndicateListenerIndicator">IndicateListenerIndicator</a>;
+                    <a class="link" href="IndicateListener.html#IndicateListenerServer" title="IndicateListenerServer">IndicateListenerServer</a>;
+<span class="returnvalue">void</span>                <a class="link" href="IndicateListener.html#indicate-listener-display" title="indicate_listener_display ()">indicate_listener_display</a>           (<em class="parameter"><code><a class="link" href="IndicateListener.html" title="IndicateListener"><span class="type">IndicateListener</span></a> *listener</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="IndicateListener.html#IndicateListenerServer" title="IndicateListenerServer"><span class="type">IndicateListenerServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="IndicateListener.html#IndicateListenerIndicator" title="IndicateListenerIndicator"><span class="type">IndicateListenerIndicator</span></a> *indicator</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> timestamp</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="IndicateListener.html#indicate-listener-get-property" title="indicate_listener_get_property ()">indicate_listener_get_property</a>      (<em class="parameter"><code><a class="link" href="IndicateListener.html" title="IndicateListener"><span class="type">IndicateListener</span></a> *listener</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="IndicateListener.html#IndicateListenerServer" title="IndicateListenerServer"><span class="type">IndicateListenerServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="IndicateListener.html#IndicateListenerIndicator" title="IndicateListenerIndicator"><span class="type">IndicateListenerIndicator</span></a> *indicator</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *property</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> (*callback) (IndicateListener * listener, IndicateListenerServer * server, IndicateListenerIndicator * indicator, gchar * property, const gchar * propertydata, gpointer data)</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="IndicateListener.html#indicate-listener-get-property-cb" title="indicate_listener_get_property_cb ()">*indicate_listener_get_property_cb</a>)
+                                                        (<em class="parameter"><code><a class="link" href="IndicateListener.html" title="IndicateListener"><span class="type">IndicateListener</span></a> *listener</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="IndicateListener.html#IndicateListenerServer" title="IndicateListenerServer"><span class="type">IndicateListenerServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="IndicateListener.html#IndicateListenerIndicator" title="IndicateListenerIndicator"><span class="type">IndicateListenerIndicator</span></a> *indicator</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *property</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *propertydata</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);
+<a class="link" href="IndicateListener.html" title="IndicateListener"><span class="returnvalue">IndicateListener</span></a> *  <a class="link" href="IndicateListener.html#indicate-listener-new" title="indicate_listener_new ()">indicate_listener_new</a>               (<em class="parameter"><code><span class="type">void</span></code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="IndicateListener.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----IndicateListener
+</pre>
+</div>
+<div class="refsect1">
+<a name="IndicateListener.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="IndicateListener.html#IndicateListener-indicator-added" title='The "indicator-added" signal'>indicator-added</a>"                                : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateListener.html#IndicateListener-indicator-modified" title='The "indicator-modified" signal'>indicator-modified</a>"                             : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateListener.html#IndicateListener-indicator-removed" title='The "indicator-removed" signal'>indicator-removed</a>"                              : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateListener.html#IndicateListener-indicator-servers-report" title='The "indicator-servers-report" signal'>indicator-servers-report</a>"                       : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateListener.html#IndicateListener-server-added" title='The "server-added" signal'>server-added</a>"                                   : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateListener.html#IndicateListener-server-count-changed" title='The "server-count-changed" signal'>server-count-changed</a>"                           : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateListener.html#IndicateListener-server-removed" title='The "server-removed" signal'>server-removed</a>"                                 : <code class="literal">Run Last</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="IndicateListener.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="IndicateListener.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="IndicateListener-struct"></a><h3>struct IndicateListener</h3>
+<pre class="programlisting">struct IndicateListener;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateListenerClass"></a><h3>struct IndicateListenerClass</h3>
+<pre class="programlisting">struct IndicateListenerClass {
+	/* Parent */
+	GObjectClass parent;
+
+	/* Signals */
+	void (* indicator_added) (IndicateListenerServer * server, IndicateListenerIndicator * indicator);
+	void (* indicator_removed) (IndicateListenerServer * server, IndicateListenerIndicator * indicator);
+	void (* indicator_modified) (IndicateListenerServer * server, IndicateListenerIndicator * indicator, gchar * property);
+
+	void (* server_added) (IndicateListenerServer * server, gchar * type);
+	void (* server_removed) (IndicateListenerServer * server, gchar * type);
+	void (* server_count_changed) (IndicateListenerServer * server, guint count);
+
+	void (* indicator_servers_report) (void);
+
+	/* Future Use */
+	void (*indicate_listener_reserved1)(void);
+	void (*indicate_listener_reserved2)(void);
+	void (*indicate_listener_reserved3)(void);
+};
+</pre>
+<p>
+The class has all of the signals that are supplied by
+the listener about what is happening on the server.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><span class="type">GObjectClass</span> <em class="structfield"><code><a name="IndicateListenerClass.parent"></a>parent</code></em>;</span></p></td>
+<td>Parent class <span class="type">GObjectClass</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateListenerClass.indicator-added"></a>indicator_added</code></em> ()</span></p></td>
+<td>Slot for IndicateListener::indicator-added.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateListenerClass.indicator-removed"></a>indicator_removed</code></em> ()</span></p></td>
+<td>Slot for IndicateListener::indicator-removed.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateListenerClass.indicator-modified"></a>indicator_modified</code></em> ()</span></p></td>
+<td>Slot for IndicateListener::indicator-modified.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateListenerClass.server-added"></a>server_added</code></em> ()</span></p></td>
+<td>Slot for IndicateListener::server-added.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateListenerClass.server-removed"></a>server_removed</code></em> ()</span></p></td>
+<td>Slot for IndicateListener::server-removed.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateListenerClass.server-count-changed"></a>server_count_changed</code></em> ()</span></p></td>
+<td>Slot for IndicateListener::server-count-changed.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateListenerClass.indicator-servers-report"></a>indicator_servers_report</code></em> ()</span></p></td>
+<td>Slot for IndicateListener::indicator-servers-report.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateListenerClass.indicate-listener-reserved1"></a>indicate_listener_reserved1</code></em> ()</span></p></td>
+<td>Reserved for future use</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateListenerClass.indicate-listener-reserved2"></a>indicate_listener_reserved2</code></em> ()</span></p></td>
+<td>Reserved for future use</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateListenerClass.indicate-listener-reserved3"></a>indicate_listener_reserved3</code></em> ()</span></p></td>
+<td>Reserved for future use</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateListenerIndicator"></a><h3>IndicateListenerIndicator</h3>
+<pre class="programlisting">typedef struct {
+	guint id;
+} IndicateListenerIndicator;
+</pre>
+<p>
+A private structure used to identify a specific Indicate
+Indicator that exists on a <a class="link" href="IndicateListener.html#IndicateListenerServer" title="IndicateListenerServer"><span class="type">IndicateListenerServer</span></a>.  Used as a
+paramaeter and a signal parameter.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateListenerServer"></a><h3>IndicateListenerServer</h3>
+<pre class="programlisting">typedef struct {
+	gchar * name;
+	GDBusProxy * proxy;
+	GDBusConnection * connection;
+	gboolean interests[INDICATE_INTEREST_LAST];
+	gint max_indicators;
+} IndicateListenerServer;
+</pre>
+<p>
+A private structure used to identify a specific Indicate
+server that exists on the bus.  Used as a paramaeter and a
+signal parameter.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-listener-display"></a><h3>indicate_listener_display ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                indicate_listener_display           (<em class="parameter"><code><a class="link" href="IndicateListener.html" title="IndicateListener"><span class="type">IndicateListener</span></a> *listener</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="IndicateListener.html#IndicateListenerServer" title="IndicateListenerServer"><span class="type">IndicateListenerServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="IndicateListener.html#IndicateListenerIndicator" title="IndicateListenerIndicator"><span class="type">IndicateListenerIndicator</span></a> *indicator</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> timestamp</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-listener-get-property"></a><h3>indicate_listener_get_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                indicate_listener_get_property      (<em class="parameter"><code><a class="link" href="IndicateListener.html" title="IndicateListener"><span class="type">IndicateListener</span></a> *listener</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="IndicateListener.html#IndicateListenerServer" title="IndicateListenerServer"><span class="type">IndicateListenerServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="IndicateListener.html#IndicateListenerIndicator" title="IndicateListenerIndicator"><span class="type">IndicateListenerIndicator</span></a> *indicator</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *property</code></em>,
+                                                         <em class="parameter"><code><span class="type">void</span> (*callback) (IndicateListener * listener, IndicateListenerServer * server, IndicateListenerIndicator * indicator, gchar * property, const gchar * propertydata, gpointer data)</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+A function to get a property from an indicator on a server
+and bring it back locally.  This wraps all the hassle of using
+the DBus API and makes it pretty easy to get properties.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>listener</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateListener.html" title="IndicateListener"><span class="type">IndicateListener</span></a> representing the connection</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>The server that the indicator is on</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicator</code></em> :</span></p></td>
+<td>Which indicator is being queried</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>property</code></em> :</span></p></td>
+<td>Name of the property to get</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>The callback function to call with the data</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>Arbitrary data to give the callback</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-listener-get-property-cb"></a><h3>indicate_listener_get_property_cb ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*indicate_listener_get_property_cb)
+                                                        (<em class="parameter"><code><a class="link" href="IndicateListener.html" title="IndicateListener"><span class="type">IndicateListener</span></a> *listener</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="IndicateListener.html#IndicateListenerServer" title="IndicateListenerServer"><span class="type">IndicateListenerServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="IndicateListener.html#IndicateListenerIndicator" title="IndicateListenerIndicator"><span class="type">IndicateListenerIndicator</span></a> *indicator</code></em>,
+                                                         <em class="parameter"><code><span class="type">gchar</span> *property</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *propertydata</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-listener-new"></a><h3>indicate_listener_new ()</h3>
+<pre class="programlisting"><a class="link" href="IndicateListener.html" title="IndicateListener"><span class="returnvalue">IndicateListener</span></a> *  indicate_listener_new               (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates a new Listener object.  Does not set this to the default
+listener object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A new listener object.</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="IndicateListener.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="IndicateListener-indicator-added"></a><h3>The <code class="literal">"indicator-added"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateListener.html" title="IndicateListener"><span class="type">IndicateListener</span></a>          *indicatelistener,
+                                                        <a class="link" href="IndicateListener.html#IndicateListenerServer" title="IndicateListenerServer"><span class="type">IndicateListenerServer</span></a>    *arg1,
+                                                        <a class="link" href="IndicateListener.html#IndicateListenerIndicator" title="IndicateListenerIndicator"><span class="type">IndicateListenerIndicator</span></a> *arg2,
+                                                        <span class="type">gpointer</span>                   user_data)             : <code class="literal">Run Last</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicatelistener</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateListener-indicator-modified"></a><h3>The <code class="literal">"indicator-modified"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateListener.html" title="IndicateListener"><span class="type">IndicateListener</span></a>          *indicatelistener,
+                                                        <a class="link" href="IndicateListener.html#IndicateListenerServer" title="IndicateListenerServer"><span class="type">IndicateListenerServer</span></a>    *arg1,
+                                                        <a class="link" href="IndicateListener.html#IndicateListenerIndicator" title="IndicateListenerIndicator"><span class="type">IndicateListenerIndicator</span></a> *arg2,
+                                                        <span class="type">gchar</span>                     *arg3,
+                                                        <span class="type">gpointer</span>                   user_data)             : <code class="literal">Run Last</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicatelistener</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateListener-indicator-removed"></a><h3>The <code class="literal">"indicator-removed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateListener.html" title="IndicateListener"><span class="type">IndicateListener</span></a>          *indicatelistener,
+                                                        <a class="link" href="IndicateListener.html#IndicateListenerServer" title="IndicateListenerServer"><span class="type">IndicateListenerServer</span></a>    *arg1,
+                                                        <a class="link" href="IndicateListener.html#IndicateListenerIndicator" title="IndicateListenerIndicator"><span class="type">IndicateListenerIndicator</span></a> *arg2,
+                                                        <span class="type">gpointer</span>                   user_data)             : <code class="literal">Run Last</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicatelistener</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateListener-indicator-servers-report"></a><h3>The <code class="literal">"indicator-servers-report"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateListener.html" title="IndicateListener"><span class="type">IndicateListener</span></a> *indicatelistener,
+                                                        <span class="type">gpointer</span>          user_data)             : <code class="literal">Run Last</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicatelistener</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateListener-server-added"></a><h3>The <code class="literal">"server-added"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateListener.html" title="IndicateListener"><span class="type">IndicateListener</span></a>       *indicatelistener,
+                                                        <a class="link" href="IndicateListener.html#IndicateListenerServer" title="IndicateListenerServer"><span class="type">IndicateListenerServer</span></a> *arg1,
+                                                        <span class="type">gchar</span>                  *arg2,
+                                                        <span class="type">gpointer</span>                user_data)             : <code class="literal">Run Last</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicatelistener</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateListener-server-count-changed"></a><h3>The <code class="literal">"server-count-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateListener.html" title="IndicateListener"><span class="type">IndicateListener</span></a>       *indicatelistener,
+                                                        <a class="link" href="IndicateListener.html#IndicateListenerServer" title="IndicateListenerServer"><span class="type">IndicateListenerServer</span></a> *arg1,
+                                                        <span class="type">guint</span>                   arg2,
+                                                        <span class="type">gpointer</span>                user_data)             : <code class="literal">Run Last</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicatelistener</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateListener-server-removed"></a><h3>The <code class="literal">"server-removed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateListener.html" title="IndicateListener"><span class="type">IndicateListener</span></a>       *indicatelistener,
+                                                        <a class="link" href="IndicateListener.html#IndicateListenerServer" title="IndicateListenerServer"><span class="type">IndicateListenerServer</span></a> *arg1,
+                                                        <span class="type">gchar</span>                  *arg2,
+                                                        <span class="type">gpointer</span>                user_data)             : <code class="literal">Run Last</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicatelistener</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

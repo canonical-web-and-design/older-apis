@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Panel.qml -->
+  <title>UbuntuUserInterfaceToolkit 0.1: Panel</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="overview-ubuntu-sdk.html">Ubuntu User Interface Toolkit</a></li>
+<li>Panel</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-components0-panel.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-panel.html#methods">Methods</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-panel.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">Panel</h1>
+<span class="subtitle"></span>
+<!-- $$$Panel-brief -->
+<p>A panel that can be swiped in and out from an edge of the window by the user. For most applications, it is highly recommended to use the <a href="qml-ubuntu-components0-mainview.html">MainView</a> instead which includes a toolbar at its bottom that can be swiped in or out. <a href="qml-ubuntu-components0-panel.html#details">More...</a></p>
+<!-- @@@Panel -->
+<p>Inherited by Toolbar.</p>
+<ul>
+<li><a href="qml-ubuntu-components0-panel-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-panel.html#align-prop">align</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-panel.html#animating-prop">animating</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-panel.html#contents-prop">contents</a></b></b> : list&lt;Object&gt;</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-panel.html#hintSize-prop">hintSize</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-panel.html#locked-prop">locked</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-panel.html#opened-prop">opened</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-panel.html#triggerSize-prop">triggerSize</a></b></b> : real</li>
+</ul>
+<a name="methods"></a>
+<h2>Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-panel.html#close-method">close</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-panel.html#open-method">open</a></b></b>()</li>
+</ul>
+<!-- $$$Panel-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>Unless your application has very specific needs for a Panel, use a <a href="qml-ubuntu-components0-mainview.html">MainView</a> with the default toolbar.</p>
+<p>When using a Panel, do not theme it directly, but theme its contents, because the Panel itself should not have visible elements, since it is in the view (to detect mouse events) even when its contents should be invisible.</p>
+<p>Set the anchors and/or width/height of the Panel to specify the area that the Panel covers when opened.</p>
+<p>A black panel that can be swiped in from the lower-right of the window can be created like this:</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+
+<span class="type">Item</span> {
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">80</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">80</span>)
+
+    <span class="type">Panel</span> {
+        <span class="name">id</span>: <span class="name">panel</span>
+        <span class="type">anchors</span> {
+            <span class="name">right</span>: <span class="name">parent</span>.<span class="name">right</span>
+            <span class="name">bottom</span>: <span class="name">parent</span>.<span class="name">bottom</span>
+        }
+        <span class="name">width</span>: <span class="name">parent</span>.<span class="name">width</span> <span class="operator">/</span> <span class="number">2</span>
+        <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">8</span>)
+
+        <span class="type">Rectangle</span> {
+            <span class="name">anchors</span>.fill: <span class="name">parent</span>
+            <span class="name">color</span>: <span class="name">Theme</span>.<span class="name">palette</span>.<span class="name">normal</span>.<span class="name">overlay</span>
+
+            <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+                <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+                <span class="name">text</span>: <span class="string">&quot;Click&quot;</span>
+            }
+        }
+    }
+}</pre>
+<p>A panel that looks like the standard (bottom-aligned) toolbar, but with custom contents, can be created like this:</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+
+<span class="type">Item</span> {
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">80</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">80</span>)
+
+    <span class="type">Panel</span> {
+        <span class="name">id</span>: <span class="name">panel</span>
+        <span class="type">anchors</span> {
+            <span class="name">left</span>: <span class="name">parent</span>.<span class="name">left</span>
+            <span class="name">right</span>: <span class="name">parent</span>.<span class="name">right</span>
+            <span class="name">bottom</span>: <span class="name">parent</span>.<span class="name">bottom</span>
+        }
+        <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">8</span>)
+
+        <span class="type">Item</span> {
+            <span class="name">anchors</span>.fill: <span class="name">parent</span>
+
+            <span class="comment">// two properties used by the toolbar delegate:</span>
+            property <span class="type">bool</span> <span class="name">opened</span>: <span class="name">panel</span>.<span class="name">opened</span>
+            property <span class="type">bool</span> <span class="name">animating</span>: <span class="name">panel</span>.<span class="name">animating</span>
+
+            <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+                <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+                <span class="name">text</span>: <span class="string">&quot;Click&quot;</span>
+            }
+        }
+    }
+}</pre>
+<p>Any Items can be placed inside the Panel, but MouseAreas can block mouse events from reaching the panel and thus obstruct the swiping behavior for hiding the panel. As a result, the user cannot start swiping on the buttons in the examples above in order to hide the panel. To remedy this, clicked() signals are forwarded from the panel to its children. The children's clicked() signal does not have a mouse parameter. Example:</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+
+<span class="type">Rectangle</span> {
+    <span class="name">color</span>: <span class="name">Theme</span>.<span class="name">palette</span>.<span class="name">normal</span>.<span class="name">background</span>
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">40</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">40</span>)
+
+    <span class="type">Panel</span> {
+        <span class="name">id</span>: <span class="name">panel</span>
+        <span class="type">anchors</span> {
+            <span class="name">left</span>: <span class="name">parent</span>.<span class="name">left</span>
+            <span class="name">right</span>: <span class="name">parent</span>.<span class="name">right</span>
+            <span class="name">bottom</span>: <span class="name">parent</span>.<span class="name">bottom</span>
+        }
+        <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">8</span>)
+
+        <span class="type">Rectangle</span> {
+            <span class="name">color</span>: <span class="name">Theme</span>.<span class="name">palette</span>.<span class="name">normal</span>.<span class="name">overlay</span>
+            <span class="name">anchors</span>.fill: <span class="name">parent</span>
+            <span class="type">Rectangle</span> {
+                <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">8</span>)
+                <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">4</span>)
+                <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+                <span class="name">color</span>: <span class="name">Theme</span>.<span class="name">palette</span>.<span class="name">normal</span>.<span class="name">foreground</span>
+                signal <span class="type">clicked</span>()
+                <span class="name">onClicked</span>: <span class="name">print</span>(<span class="string">&quot;The red rectangle was clicked&quot;</span>);
+            }
+        }
+    }
+}</pre>
+<p>Like this, the red rectangle accepts clicked() events, but the user can still swipe down on top of the rectangle in order to hide the panel.</p>
+<!-- @@@Panel -->
+<h2>Property Documentation</h2>
+<!-- $$$align -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="align-prop"></a><span class="name">align</span> : <span class="type">int</span></p></td></tr></table></div><div class="qmldoc"><p>The property defines the alignment of the panel. The implementation supports the following values:</p>
+<ul>
+<li>Qt.AlignBottom to swipe in the panel from the bottom (default)</li>
+<li>Qt.AlignTop to swipe in the panel from the top</li>
+<li>Qt.AlignLeft to swipe in the panel from the left</li>
+<li>Qt.AlignRight to swipe in the panel from the right</li>
+<li>Qt.AlignLeading left when layout mirrorring is disabled, right otherwise</li>
+<li>Qt.AlignTrailing right when layout mirroring is disabled, left otherwise</li>
+</ul>
+<p>The default value is <b>Qt.AlignBottom</b>, and it is not recommended to change the default value because the left, right and top edge are already used for system functions, while the bottom edge is reserved for app-specific functionality such as a default toolbar. The use of Qt.AlignLeading and Qt.AlignTrailing is preferred over Qt.AlignLeft and Qt.AlignRight in order to more easily support right-to-left user interfaces that use LayoutMirroring.</p>
+</div></div><!-- @@@align -->
+<br/>
+<!-- $$$animating -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="animating-prop"></a><span class="qmlreadonly">read-only</span><span class="name">animating</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>The toolbar is currently not in a stable hidden or visible state.</p>
+</div></div><!-- @@@animating -->
+<br/>
+<!-- $$$contents -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="contents-prop"></a><span class="qmldefault">default</span><span class="name">contents</span> : <span class="type">list</span>&lt;<span class="type">Object</span>&gt;</p></td></tr></table></div><div class="qmldoc"><p>Default property, holds the content which will be swiped in and out.</p>
+</div></div><!-- @@@contents -->
+<br/>
+<!-- $$$hintSize -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="hintSize-prop"></a><span class="name">hintSize</span> : <span class="type">real</span></p></td></tr></table></div><div class="qmldoc"><p>How much of the panel to show when the user touches the panel's edge. This gives the user a hint that there is a panel hiding at that edge and invites him/her to swipe to show the panel completely. Default value: units.gu(2).</p>
+</div></div><!-- @@@hintSize -->
+<br/>
+<!-- $$$locked -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="locked-prop"></a><span class="name">locked</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>Disable edge swipe to open/close the panel. False by default.</p>
+</div></div><!-- @@@locked -->
+<br/>
+<!-- $$$opened -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="opened-prop"></a><span class="name">opened</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>When opened, the panel is visible, otherwise it is hidden. Use edge swipes to open/close the panel. The opened property is not updated until the swipe gesture is completed.</p>
+</div></div><!-- @@@opened -->
+<br/>
+<!-- $$$triggerSize -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="triggerSize-prop"></a><span class="name">triggerSize</span> : <span class="type">real</span></p></td></tr></table></div><div class="qmldoc"><p>The size (height for top or bottom-aligned panels, width for left or right-aligned panels) of the mouse area used to detect edge swipes to open the panel, when the panel is not opened. Default value: units.gu(2).</p>
+</div></div><!-- @@@triggerSize -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$close -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="close-method"></a>Panel::<span class="name">close</span>()</p></td></tr></table></div><div class="qmldoc"><p>Close the panel</p>
+</div></div><!-- @@@close -->
+<br/>
+<!-- $$$open -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="open-method"></a>Panel::<span class="name">open</span>()</p></td></tr></table></div><div class="qmldoc"><p>Open the panel</p>
+</div></div><!-- @@@open -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

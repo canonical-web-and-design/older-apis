@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qwebsettings.html -->
+  <title>UbuntuUserInterfaceToolkit 0.1: QWebSettings Class</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="all-modules.html">Modules</a></li>
+<li><a href="qtwebkit-module.html">QtWebKit</a></li>
+<li>QWebSettings</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qwebsettings.html#public-types">Public Types</a></li>
+<li class="level1"><a href="qwebsettings.html#public-functions">Public Functions</a></li>
+<li class="level1"><a href="qwebsettings.html#static-public-members">Static Public Members</a></li>
+<li class="level1"><a href="qwebsettings.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">QWebSettings Class</h1>
+<p>This class was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<ul>
+<li><a href="qwebsettings-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#FontFamily-enum">FontFamily</a></b> { StandardFont, FixedFont, SerifFont, SansSerifFont, CursiveFont, FantasyFont }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#FontSize-enum">FontSize</a></b> { MinimumFontSize, MinimumLogicalFontSize, DefaultFontSize, DefaultFixedFontSize }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#ThirdPartyCookiePolicy-enum">ThirdPartyCookiePolicy</a></b> { AlwaysAllowThirdPartyCookies, AlwaysBlockThirdPartyCookies, AllowThirdPartyWithExistingCookies }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#WebAttribute-enum">WebAttribute</a></b> { AutoLoadImages, JavascriptEnabled, JavaEnabled, PluginsEnabled, ..., NotificationsEnabled }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#WebGraphic-enum">WebGraphic</a></b> { MissingImageGraphic, MissingPluginGraphic, DefaultFrameIconGraphic, TextAreaSizeGripCornerGraphic, ..., SearchCancelButtonPressedGraphic }</td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#cssMediaType">cssMediaType</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#defaultTextEncoding">defaultTextEncoding</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#fontFamily">fontFamily</a></b>(FontFamily<i> which</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#fontSize">fontSize</a></b>(FontSize<i> type</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#localStoragePath">localStoragePath</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#resetAttribute">resetAttribute</a></b>(WebAttribute<i> attribute</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#resetFontFamily">resetFontFamily</a></b>(FontFamily<i> which</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#resetFontSize">resetFontSize</a></b>(FontSize<i> type</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#setAttribute">setAttribute</a></b>(WebAttribute<i> attribute</i>, bool<i> on</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#setCSSMediaType">setCSSMediaType</a></b>(const QString &amp;<i> type</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#setDefaultTextEncoding">setDefaultTextEncoding</a></b>(const QString &amp;<i> encoding</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#setFontFamily">setFontFamily</a></b>(FontFamily<i> which</i>, const QString &amp;<i> family</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#setFontSize">setFontSize</a></b>(FontSize<i> type</i>, int<i> size</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#setLocalStoragePath">setLocalStoragePath</a></b>(const QString &amp;<i> path</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#setThirdPartyCookiePolicy">setThirdPartyCookiePolicy</a></b>(ThirdPartyCookiePolicy<i> policy</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#setUserStyleSheetUrl">setUserStyleSheetUrl</a></b>(const QUrl &amp;<i> location</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#testAttribute">testAttribute</a></b>(WebAttribute<i> attribute</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#thirdPartyCookiePolicy">thirdPartyCookiePolicy</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#userStyleSheetUrl">userStyleSheetUrl</a></b>() const</td></tr>
+</table>
+<a name="static-public-members"></a>
+<h2>Static Public Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#clearIconDatabase">clearIconDatabase</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#clearMemoryCaches">clearMemoryCaches</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#enablePersistentStorage">enablePersistentStorage</a></b>(const QString &amp;<i> path</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#globalSettings">globalSettings</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#iconDatabasePath">iconDatabasePath</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#iconForUrl">iconForUrl</a></b>(const QUrl &amp;<i> url</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#maximumPagesInCache">maximumPagesInCache</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#offlineStorageDefaultQuota">offlineStorageDefaultQuota</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#offlineStoragePath">offlineStoragePath</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#offlineWebApplicationCachePath">offlineWebApplicationCachePath</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#offlineWebApplicationCacheQuota">offlineWebApplicationCacheQuota</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#setIconDatabasePath">setIconDatabasePath</a></b>(const QString &amp;<i> path</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#setMaximumPagesInCache">setMaximumPagesInCache</a></b>(int<i> pages</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#setObjectCacheCapacities">setObjectCacheCapacities</a></b>(int<i> cacheMinDeadCapacity</i>, int<i> cacheMaxDead</i>, int<i> totalCapacity</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#setOfflineStorageDefaultQuota">setOfflineStorageDefaultQuota</a></b>(qint64<i> maximumSize</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#setOfflineStoragePath">setOfflineStoragePath</a></b>(const QString &amp;<i> path</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#setOfflineWebApplicationCachePath">setOfflineWebApplicationCachePath</a></b>(const QString &amp;<i> path</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#setOfflineWebApplicationCacheQuota">setOfflineWebApplicationCacheQuota</a></b>(qint64<i> maximumSize</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#setWebGraphic">setWebGraphic</a></b>(WebGraphic<i> type</i>, const QPixmap &amp;<i> graphic</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebsettings.html#webGraphic">webGraphic</a></b>(WebGraphic<i> type</i>)</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QWebSettings-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+</div>
+<!-- @@@QWebSettings -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$FontFamily$$$StandardFont$$$FixedFont$$$SerifFont$$$SansSerifFont$$$CursiveFont$$$FantasyFont -->
+<h3 class="fn"><a name="FontFamily-enum"></a>enum QWebSettings::<span class="name">FontFamily</span></h3>
+<!-- @@@FontFamily -->
+<!-- $$$FontSize$$$MinimumFontSize$$$MinimumLogicalFontSize$$$DefaultFontSize$$$DefaultFixedFontSize -->
+<h3 class="fn"><a name="FontSize-enum"></a>enum QWebSettings::<span class="name">FontSize</span></h3>
+<!-- @@@FontSize -->
+<!-- $$$ThirdPartyCookiePolicy$$$AlwaysAllowThirdPartyCookies$$$AlwaysBlockThirdPartyCookies$$$AllowThirdPartyWithExistingCookies -->
+<h3 class="fn"><a name="ThirdPartyCookiePolicy-enum"></a>enum QWebSettings::<span class="name">ThirdPartyCookiePolicy</span></h3>
+<p>This enum was introduced or modified in  QtWebKit 2,3.</p>
+<!-- @@@ThirdPartyCookiePolicy -->
+<!-- $$$WebAttribute$$$AutoLoadImages$$$JavascriptEnabled$$$JavaEnabled$$$PluginsEnabled$$$PrivateBrowsingEnabled$$$JavascriptCanOpenWindows$$$JavascriptCanAccessClipboard$$$DeveloperExtrasEnabled$$$LinksIncludedInFocusChain$$$ZoomTextOnly$$$PrintElementBackgrounds$$$OfflineStorageDatabaseEnabled$$$OfflineWebApplicationCacheEnabled$$$LocalStorageEnabled$$$LocalStorageDatabaseEnabled$$$LocalContentCanAccessRemoteUrls$$$DnsPrefetchEnabled$$$XSSAuditingEnabled$$$AcceleratedCompositingEnabled$$$SpatialNavigationEnabled$$$LocalContentCanAccessFileUrls$$$TiledBackingStoreEnabled$$$FrameFlatteningEnabled$$$SiteSpecificQuirksEnabled$$$JavascriptCanCloseWindows$$$WebGLEnabled$$$CSSRegionsEnabled$$$HyperlinkAuditingEnabled$$$CSSGridLayoutEnabled$$$ScrollAnimatorEnabled$$$CaretBrowsingEnabled$$$NotificationsEnabled -->
+<h3 class="fn"><a name="WebAttribute-enum"></a>enum QWebSettings::<span class="name">WebAttribute</span></h3>
+<!-- @@@WebAttribute -->
+<!-- $$$WebGraphic$$$MissingImageGraphic$$$MissingPluginGraphic$$$DefaultFrameIconGraphic$$$TextAreaSizeGripCornerGraphic$$$DeleteButtonGraphic$$$InputSpeechButtonGraphic$$$SearchCancelButtonGraphic$$$SearchCancelButtonPressedGraphic -->
+<h3 class="fn"><a name="WebGraphic-enum"></a>enum QWebSettings::<span class="name">WebGraphic</span></h3>
+<!-- @@@WebGraphic -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$clearIconDatabase[overload1]$$$clearIconDatabase -->
+<h3 class="fn"><a name="clearIconDatabase"></a>QWebSettings::<span class="name">clearIconDatabase</span>()<tt> [static]</tt></h3>
+<!-- @@@clearIconDatabase -->
+<!-- $$$clearMemoryCaches[overload1]$$$clearMemoryCaches -->
+<h3 class="fn"><a name="clearMemoryCaches"></a>QWebSettings::<span class="name">clearMemoryCaches</span>()<tt> [static]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@clearMemoryCaches -->
+<!-- $$$cssMediaType[overload1]$$$cssMediaType -->
+<h3 class="fn"><a name="cssMediaType"></a>QWebSettings::<span class="name">cssMediaType</span>() const</h3>
+<!-- @@@cssMediaType -->
+<!-- $$$defaultTextEncoding[overload1]$$$defaultTextEncoding -->
+<h3 class="fn"><a name="defaultTextEncoding"></a>QWebSettings::<span class="name">defaultTextEncoding</span>() const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<p><b>See also </b><a href="qwebsettings.html#setDefaultTextEncoding">setDefaultTextEncoding</a>().</p>
+<!-- @@@defaultTextEncoding -->
+<!-- $$$enablePersistentStorage[overload1]$$$enablePersistentStorageconstQString& -->
+<h3 class="fn"><a name="enablePersistentStorage"></a>QWebSettings::<span class="name">enablePersistentStorage</span>(const <span class="type">QString</span> &amp;<i> path</i>)<tt> [static]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@enablePersistentStorage -->
+<!-- $$$fontFamily[overload1]$$$fontFamilyFontFamily -->
+<h3 class="fn"><a name="fontFamily"></a>QWebSettings::<span class="name">fontFamily</span>(<span class="type"><a href="qwebsettings.html#FontFamily-enum">FontFamily</a></span><i> which</i>) const</h3>
+<p><b>See also </b><a href="qwebsettings.html#setFontFamily">setFontFamily</a>().</p>
+<!-- @@@fontFamily -->
+<!-- $$$fontSize[overload1]$$$fontSizeFontSize -->
+<h3 class="fn"><a name="fontSize"></a>QWebSettings::<span class="name">fontSize</span>(<span class="type"><a href="qwebsettings.html#FontSize-enum">FontSize</a></span><i> type</i>) const</h3>
+<p><b>See also </b><a href="qwebsettings.html#setFontSize">setFontSize</a>().</p>
+<!-- @@@fontSize -->
+<!-- $$$globalSettings[overload1]$$$globalSettings -->
+<h3 class="fn"><a name="globalSettings"></a>QWebSettings::<span class="name">globalSettings</span>()<tt> [static]</tt></h3>
+<!-- @@@globalSettings -->
+<!-- $$$iconDatabasePath[overload1]$$$iconDatabasePath -->
+<h3 class="fn"><a name="iconDatabasePath"></a>QWebSettings::<span class="name">iconDatabasePath</span>()<tt> [static]</tt></h3>
+<p><b>See also </b><a href="qwebsettings.html#setIconDatabasePath">setIconDatabasePath</a>().</p>
+<!-- @@@iconDatabasePath -->
+<!-- $$$iconForUrl[overload1]$$$iconForUrlconstQUrl& -->
+<h3 class="fn"><a name="iconForUrl"></a>QWebSettings::<span class="name">iconForUrl</span>(const <span class="type">QUrl</span> &amp;<i> url</i>)<tt> [static]</tt></h3>
+<!-- @@@iconForUrl -->
+<!-- $$$localStoragePath[overload1]$$$localStoragePath -->
+<h3 class="fn"><a name="localStoragePath"></a>QWebSettings::<span class="name">localStoragePath</span>() const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<p><b>See also </b><a href="qwebsettings.html#setLocalStoragePath">setLocalStoragePath</a>().</p>
+<!-- @@@localStoragePath -->
+<!-- $$$maximumPagesInCache[overload1]$$$maximumPagesInCache -->
+<h3 class="fn"><a name="maximumPagesInCache"></a>QWebSettings::<span class="name">maximumPagesInCache</span>()<tt> [static]</tt></h3>
+<p><b>See also </b><a href="qwebsettings.html#setMaximumPagesInCache">setMaximumPagesInCache</a>().</p>
+<!-- @@@maximumPagesInCache -->
+<!-- $$$offlineStorageDefaultQuota[overload1]$$$offlineStorageDefaultQuota -->
+<h3 class="fn"><a name="offlineStorageDefaultQuota"></a>QWebSettings::<span class="name">offlineStorageDefaultQuota</span>()<tt> [static]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<p><b>See also </b><a href="qwebsettings.html#setOfflineStorageDefaultQuota">setOfflineStorageDefaultQuota</a>().</p>
+<!-- @@@offlineStorageDefaultQuota -->
+<!-- $$$offlineStoragePath[overload1]$$$offlineStoragePath -->
+<h3 class="fn"><a name="offlineStoragePath"></a>QWebSettings::<span class="name">offlineStoragePath</span>()<tt> [static]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<p><b>See also </b><a href="qwebsettings.html#setOfflineStoragePath">setOfflineStoragePath</a>().</p>
+<!-- @@@offlineStoragePath -->
+<!-- $$$offlineWebApplicationCachePath[overload1]$$$offlineWebApplicationCachePath -->
+<h3 class="fn"><a name="offlineWebApplicationCachePath"></a>QWebSettings::<span class="name">offlineWebApplicationCachePath</span>()<tt> [static]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<p><b>See also </b><a href="qwebsettings.html#setOfflineWebApplicationCachePath">setOfflineWebApplicationCachePath</a>().</p>
+<!-- @@@offlineWebApplicationCachePath -->
+<!-- $$$offlineWebApplicationCacheQuota[overload1]$$$offlineWebApplicationCacheQuota -->
+<h3 class="fn"><a name="offlineWebApplicationCacheQuota"></a>QWebSettings::<span class="name">offlineWebApplicationCacheQuota</span>()<tt> [static]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<p><b>See also </b><a href="qwebsettings.html#setOfflineWebApplicationCacheQuota">setOfflineWebApplicationCacheQuota</a>().</p>
+<!-- @@@offlineWebApplicationCacheQuota -->
+<!-- $$$resetAttribute[overload1]$$$resetAttributeWebAttribute -->
+<h3 class="fn"><a name="resetAttribute"></a>QWebSettings::<span class="name">resetAttribute</span>(<span class="type"><a href="qwebsettings.html#WebAttribute-enum">WebAttribute</a></span><i> attribute</i>)</h3>
+<!-- @@@resetAttribute -->
+<!-- $$$resetFontFamily[overload1]$$$resetFontFamilyFontFamily -->
+<h3 class="fn"><a name="resetFontFamily"></a>QWebSettings::<span class="name">resetFontFamily</span>(<span class="type"><a href="qwebsettings.html#FontFamily-enum">FontFamily</a></span><i> which</i>)</h3>
+<!-- @@@resetFontFamily -->
+<!-- $$$resetFontSize[overload1]$$$resetFontSizeFontSize -->
+<h3 class="fn"><a name="resetFontSize"></a>QWebSettings::<span class="name">resetFontSize</span>(<span class="type"><a href="qwebsettings.html#FontSize-enum">FontSize</a></span><i> type</i>)</h3>
+<!-- @@@resetFontSize -->
+<!-- $$$setAttribute[overload1]$$$setAttributeWebAttributebool -->
+<h3 class="fn"><a name="setAttribute"></a>QWebSettings::<span class="name">setAttribute</span>(<span class="type"><a href="qwebsettings.html#WebAttribute-enum">WebAttribute</a></span><i> attribute</i>, <span class="type">bool</span><i> on</i>)</h3>
+<!-- @@@setAttribute -->
+<!-- $$$setCSSMediaType[overload1]$$$setCSSMediaTypeconstQString& -->
+<h3 class="fn"><a name="setCSSMediaType"></a>QWebSettings::<span class="name">setCSSMediaType</span>(const <span class="type">QString</span> &amp;<i> type</i>)</h3>
+<!-- @@@setCSSMediaType -->
+<!-- $$$setDefaultTextEncoding[overload1]$$$setDefaultTextEncodingconstQString& -->
+<h3 class="fn"><a name="setDefaultTextEncoding"></a>QWebSettings::<span class="name">setDefaultTextEncoding</span>(const <span class="type">QString</span> &amp;<i> encoding</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<p><b>See also </b><a href="qwebsettings.html#defaultTextEncoding">defaultTextEncoding</a>().</p>
+<!-- @@@setDefaultTextEncoding -->
+<!-- $$$setFontFamily[overload1]$$$setFontFamilyFontFamilyconstQString& -->
+<h3 class="fn"><a name="setFontFamily"></a>QWebSettings::<span class="name">setFontFamily</span>(<span class="type"><a href="qwebsettings.html#FontFamily-enum">FontFamily</a></span><i> which</i>, const <span class="type">QString</span> &amp;<i> family</i>)</h3>
+<p><b>See also </b><a href="qwebsettings.html#fontFamily">fontFamily</a>().</p>
+<!-- @@@setFontFamily -->
+<!-- $$$setFontSize[overload1]$$$setFontSizeFontSizeint -->
+<h3 class="fn"><a name="setFontSize"></a>QWebSettings::<span class="name">setFontSize</span>(<span class="type"><a href="qwebsettings.html#FontSize-enum">FontSize</a></span><i> type</i>, <span class="type">int</span><i> size</i>)</h3>
+<p><b>See also </b><a href="qwebsettings.html#fontSize">fontSize</a>().</p>
+<!-- @@@setFontSize -->
+<!-- $$$setIconDatabasePath[overload1]$$$setIconDatabasePathconstQString& -->
+<h3 class="fn"><a name="setIconDatabasePath"></a>QWebSettings::<span class="name">setIconDatabasePath</span>(const <span class="type">QString</span> &amp;<i> path</i>)<tt> [static]</tt></h3>
+<p><b>See also </b><a href="qwebsettings.html#iconDatabasePath">iconDatabasePath</a>().</p>
+<!-- @@@setIconDatabasePath -->
+<!-- $$$setLocalStoragePath[overload1]$$$setLocalStoragePathconstQString& -->
+<h3 class="fn"><a name="setLocalStoragePath"></a>QWebSettings::<span class="name">setLocalStoragePath</span>(const <span class="type">QString</span> &amp;<i> path</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<p><b>See also </b><a href="qwebsettings.html#localStoragePath">localStoragePath</a>().</p>
+<!-- @@@setLocalStoragePath -->
+<!-- $$$setMaximumPagesInCache[overload1]$$$setMaximumPagesInCacheint -->
+<h3 class="fn"><a name="setMaximumPagesInCache"></a>QWebSettings::<span class="name">setMaximumPagesInCache</span>(<span class="type">int</span><i> pages</i>)<tt> [static]</tt></h3>
+<p><b>See also </b><a href="qwebsettings.html#maximumPagesInCache">maximumPagesInCache</a>().</p>
+<!-- @@@setMaximumPagesInCache -->
+<!-- $$$setObjectCacheCapacities[overload1]$$$setObjectCacheCapacitiesintintint -->
+<h3 class="fn"><a name="setObjectCacheCapacities"></a>QWebSettings::<span class="name">setObjectCacheCapacities</span>(<span class="type">int</span><i> cacheMinDeadCapacity</i>, <span class="type">int</span><i> cacheMaxDead</i>, <span class="type">int</span><i> totalCapacity</i>)<tt> [static]</tt></h3>
+<!-- @@@setObjectCacheCapacities -->
+<!-- $$$setOfflineStorageDefaultQuota[overload1]$$$setOfflineStorageDefaultQuotaqint64 -->
+<h3 class="fn"><a name="setOfflineStorageDefaultQuota"></a>QWebSettings::<span class="name">setOfflineStorageDefaultQuota</span>(<span class="type">qint64</span><i> maximumSize</i>)<tt> [static]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<p><b>See also </b><a href="qwebsettings.html#offlineStorageDefaultQuota">offlineStorageDefaultQuota</a>().</p>
+<!-- @@@setOfflineStorageDefaultQuota -->
+<!-- $$$setOfflineStoragePath[overload1]$$$setOfflineStoragePathconstQString& -->
+<h3 class="fn"><a name="setOfflineStoragePath"></a>QWebSettings::<span class="name">setOfflineStoragePath</span>(const <span class="type">QString</span> &amp;<i> path</i>)<tt> [static]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<p><b>See also </b><a href="qwebsettings.html#offlineStoragePath">offlineStoragePath</a>().</p>
+<!-- @@@setOfflineStoragePath -->
+<!-- $$$setOfflineWebApplicationCachePath[overload1]$$$setOfflineWebApplicationCachePathconstQString& -->
+<h3 class="fn"><a name="setOfflineWebApplicationCachePath"></a>QWebSettings::<span class="name">setOfflineWebApplicationCachePath</span>(const <span class="type">QString</span> &amp;<i> path</i>)<tt> [static]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<p><b>See also </b><a href="qwebsettings.html#offlineWebApplicationCachePath">offlineWebApplicationCachePath</a>().</p>
+<!-- @@@setOfflineWebApplicationCachePath -->
+<!-- $$$setOfflineWebApplicationCacheQuota[overload1]$$$setOfflineWebApplicationCacheQuotaqint64 -->
+<h3 class="fn"><a name="setOfflineWebApplicationCacheQuota"></a>QWebSettings::<span class="name">setOfflineWebApplicationCacheQuota</span>(<span class="type">qint64</span><i> maximumSize</i>)<tt> [static]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<p><b>See also </b><a href="qwebsettings.html#offlineWebApplicationCacheQuota">offlineWebApplicationCacheQuota</a>().</p>
+<!-- @@@setOfflineWebApplicationCacheQuota -->
+<!-- $$$setThirdPartyCookiePolicy[overload1]$$$setThirdPartyCookiePolicyThirdPartyCookiePolicy -->
+<h3 class="fn"><a name="setThirdPartyCookiePolicy"></a>QWebSettings::<span class="name">setThirdPartyCookiePolicy</span>(<span class="type"><a href="qwebsettings.html#ThirdPartyCookiePolicy-enum">ThirdPartyCookiePolicy</a></span><i> policy</i>)</h3>
+<p><b>See also </b><a href="qwebsettings.html#thirdPartyCookiePolicy">thirdPartyCookiePolicy</a>().</p>
+<!-- @@@setThirdPartyCookiePolicy -->
+<!-- $$$setUserStyleSheetUrl[overload1]$$$setUserStyleSheetUrlconstQUrl& -->
+<h3 class="fn"><a name="setUserStyleSheetUrl"></a>QWebSettings::<span class="name">setUserStyleSheetUrl</span>(const <span class="type">QUrl</span> &amp;<i> location</i>)</h3>
+<p><b>See also </b><a href="qwebsettings.html#userStyleSheetUrl">userStyleSheetUrl</a>().</p>
+<!-- @@@setUserStyleSheetUrl -->
+<!-- $$$setWebGraphic[overload1]$$$setWebGraphicWebGraphicconstQPixmap& -->
+<h3 class="fn"><a name="setWebGraphic"></a>QWebSettings::<span class="name">setWebGraphic</span>(<span class="type"><a href="qwebsettings.html#WebGraphic-enum">WebGraphic</a></span><i> type</i>, const <span class="type">QPixmap</span> &amp;<i> graphic</i>)<tt> [static]</tt></h3>
+<p><b>See also </b><a href="qwebsettings.html#webGraphic">webGraphic</a>().</p>
+<!-- @@@setWebGraphic -->
+<!-- $$$testAttribute[overload1]$$$testAttributeWebAttribute -->
+<h3 class="fn"><a name="testAttribute"></a>QWebSettings::<span class="name">testAttribute</span>(<span class="type"><a href="qwebsettings.html#WebAttribute-enum">WebAttribute</a></span><i> attribute</i>) const</h3>
+<!-- @@@testAttribute -->
+<!-- $$$thirdPartyCookiePolicy[overload1]$$$thirdPartyCookiePolicy -->
+<h3 class="fn"><a name="thirdPartyCookiePolicy"></a>QWebSettings::<span class="name">thirdPartyCookiePolicy</span>() const</h3>
+<p><b>See also </b><a href="qwebsettings.html#setThirdPartyCookiePolicy">setThirdPartyCookiePolicy</a>().</p>
+<!-- @@@thirdPartyCookiePolicy -->
+<!-- $$$userStyleSheetUrl[overload1]$$$userStyleSheetUrl -->
+<h3 class="fn"><a name="userStyleSheetUrl"></a>QWebSettings::<span class="name">userStyleSheetUrl</span>() const</h3>
+<p><b>See also </b><a href="qwebsettings.html#setUserStyleSheetUrl">setUserStyleSheetUrl</a>().</p>
+<!-- @@@userStyleSheetUrl -->
+<!-- $$$webGraphic[overload1]$$$webGraphicWebGraphic -->
+<h3 class="fn"><a name="webGraphic"></a>QWebSettings::<span class="name">webGraphic</span>(<span class="type"><a href="qwebsettings.html#WebGraphic-enum">WebGraphic</a></span><i> type</i>)<tt> [static]</tt></h3>
+<p><b>See also </b><a href="qwebsettings.html#setWebGraphic">setWebGraphic</a>().</p>
+<!-- @@@webGraphic -->
+</div>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

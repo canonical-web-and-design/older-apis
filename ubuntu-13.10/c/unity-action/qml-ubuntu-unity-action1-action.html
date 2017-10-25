@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Action.qml -->
+  <title>Unity Action QML API : Action</title>
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<body>
+   <div class="wrapper">
+   <div class="main-content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-unity-action1-action.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-unity-action1-action.html#signals">Signals</a></li>
+<li class="level1"><a href="qml-ubuntu-unity-action1-action.html#methods">Methods</a></li>
+<li class="level1"><a href="qml-ubuntu-unity-action1-action.html#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">Action</h1>
+<span class="subtitle"></span>
+<!-- $$$Action-brief -->
+<p>The main action class. <a href="qml-ubuntu-unity-action1-action.html#details">More...</a></p>
+<!-- @@@Action -->
+<p>Inherited by <a href="qml-ubuntu-unity-action1-previewaction.html">PreviewAction</a>.</p>
+<p>This type was introduced in Unity Action QML API 1.0.</p>
+<ul>
+<li><a href="qml-ubuntu-unity-action1-action-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-action.html#description-prop">description</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-action.html#enabled-prop">enabled</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-action.html#iconName-prop">iconName</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-action.html#keywords-prop">keywords</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-action.html#name-prop">name</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-action.html#parameterType-prop">parameterType</a></b></b> : Type</li>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-action.html#text-prop">text</a></b></b> : string</li>
+</ul>
+<a name="signals"></a>
+<h2>Signals</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-action.html#triggered-signal">triggered</a></b></b>(var <i>value</i>)</li>
+</ul>
+<a name="methods"></a>
+<h2>Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-action.html#trigger-method">trigger</a></b></b>(<i>value</i>)</li>
+</ul>
+<!-- $$$Action-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>Unity services visualizing this class will usually be represented it as a simple button or menu item, depending upon where it is contributed.</p>
+<p>The optional name property is available through D-Bus and can be used to activate a specific Action from external componenets such as the Launcher. See <a href="platform-integration.html">Platform Integration</a> and <a href="offline-actions.html">Offline Actions</a> for more information.</p>
+<p>If the <a href="qml-ubuntu-unity-action1-action.html#parameterType-prop">parameterType</a> property is set, the Action is said to be parameterised. This means that when it is bound to a menu or button, the action expects a typed input parameter. The type affects the allowed value of the QVariant that must be passed to the <a href="qml-ubuntu-unity-action1-action.html#trigger-method">trigger()</a> and triggered().</p>
+<p><b>note:</b> As QVariant does automatic conversions between different normally uncorvertable types the developer must be careful of the side effects the conversions might have if accidentally passing wrong type of a parameter to <a href="qml-ubuntu-unity-action1-action.html#trigger-method">trigger()</a> or when handling the value of triggered(). Please, see the QVariant documentation for more information on the conversions QVariant does.</p>
+<p>Action has to be added to the <a href="qml-ubuntu-unity-action1-actionmanager.html">ActionManager</a> or a <a href="qml-ubuntu-unity-action1-actioncontext.html">ActionContext</a> to make it available for external components.</p>
+<pre class="qml">import Ubuntu.Unity.Action 1.0
+
+<span class="type">Action</span> {
+    <span class="name">id</span>: <span class="name">myaction1</span>
+    <span class="name">name</span>: <span class="string">&quot;myaction1&quot;</span>
+    <span class="name">text</span>: <span class="name">i18n</span>.<span class="name">tr</span>(<span class="string">&quot;My Action&quot;</span>)
+    <span class="name">description</span>: <span class="name">i18n</span>.<span class="name">tr</span>(<span class="string">&quot;Perform foo.&quot;</span>)
+    <span class="name">onTriggered</span>: {
+        <span class="name">console</span>.<span class="name">debug</span> (<span class="string">&quot;myaction1 is triggered.&quot;</span>);
+    }
+}</pre>
+<!-- @@@Action -->
+<h2>Property Documentation</h2>
+<!-- $$$description -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="description-prop"></a><span class="name">description</span> : <span class="type">string</span></p></td></tr></table></div><div class="qmldoc"><p>User visible secondary description for the action.</p>
+<p>Description is more verbose than the text and should describe the Action with couple of words.</p>
+</div></div><!-- @@@description -->
+<br/>
+<!-- $$$enabled -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="enabled-prop"></a><span class="name">enabled</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>If set to false the action can not be triggered.</p>
+<p>Components visualizing the action migth either hide the action or make it insensitive.</p>
+<p>If set to false the Action is removed from the search results of the HUD.</p>
+</div></div><!-- @@@enabled -->
+<br/>
+<!-- $$$iconName -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="iconName-prop"></a><span class="name">iconName</span> : <span class="type">string</span></p></td></tr></table></div><div class="qmldoc"><p>Name of a icon for this action.</p>
+<p>When the action is exported to external components the iconName must be avaible on system icon theme engine.</p>
+</div></div><!-- @@@iconName -->
+<br/>
+<!-- $$$keywords -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="keywords-prop"></a><span class="name">keywords</span> : <span class="type">string</span></p></td></tr></table></div><div class="qmldoc"><p>Additional user visible keywords for the action.</p>
+<p>Keywords improve the HUD search results when the user tries to search for an action with a synonym of the text. For example if we the application has an action &quot;Crop&quot; but the user tries to &quot;Trim&quot; then without the keywords the HUD would not try to offer the &quot;Crop&quot; action.</p>
+<p>The format of the keywords string is &quot;Keyword 1;Keyword 2;Keyword 3&quot; to allow translators to define different number of keywords per language.</p>
+<p>The keywords are separated by ; and they may contain spaces.</p>
+<pre class="qml"><span class="type"><a href="qml-ubuntu-unity-action1-action.html">Action</a></span> {
+  <span class="name">text</span>: <span class="name">i18n</span>.<span class="name">tr</span>(<span class="string">&quot;Crop&quot;</span>)
+  <span class="name">description</span>: <span class="name">i18n</span>.<span class="name">tr</span>(<span class="string">&quot;Crop the image&quot;</span>)
+  <span class="name">keywords</span>: <span class="name">i18n</span>.<span class="name">tr</span>(<span class="string">&quot;Trim;Cut&quot;</span>)
+}</pre>
+</div></div><!-- @@@keywords -->
+<br/>
+<!-- $$$name -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="name-prop"></a><span class="name">name</span> : <span class="type">string</span></p></td></tr></table></div><div class="qmldoc"><p>The name of the action. By default an action gets it's name generated automatically if not overridden with later. If name is set to &quot;&quot; then the action restores it's autogenerated name.</p>
+<p>The actions is accessible from D-Bus with this name.</p>
+<p>The name is not user visible.</p>
+<p><b>note:</b> Changing the name is potentially an expensive operation if the action is already added to the manager. If possible, set the name for your action before adding it to the manager.</p>
+</div></div><!-- @@@name -->
+<br/>
+<!-- $$$parameterType -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="parameterType-prop"></a><span class="name">parameterType</span> : <span class="type">Type</span></p></td></tr></table></div><div class="qmldoc"><p>Type of the parameter passed to <a href="qml-ubuntu-unity-action1-action.html#trigger-method">trigger()</a> and triggered().</p>
+<p><i>Type</i> is an enumeration:</p>
+<ul>
+<li><b>Action.None</b>: No paramater. (default)</li>
+<li><b>Action.String</b>: String parameter.</li>
+<li><b>Action.Integer</b>: Integer parameter.</li>
+<li><b>Action.Bool</b>: Boolean parameter.</li>
+<li><b>Action.Real</b>: Single precision floating point parameter.</li>
+</ul>
+<pre class="qml">Action {
+    id: action
+    parameterType: Action.String
+    onTriggered: {
+        // value arguments now contain strings
+        console.log(value);
+    }
+Component.onCompleted: action.trigger(&quot;Hello World&quot;)</pre>
+<p><b>note:</b> Changing the parameterType is potentially an expensive operation if the action is already added to the manager. If possible, set the parameterType of your action before adding it to the manager.</p>
+</div></div><!-- @@@parameterType -->
+<br/>
+<!-- $$$text -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="text-prop"></a><span class="name">text</span> : <span class="type">string</span></p></td></tr></table></div><div class="qmldoc"><p>The user visible primary label of the action.</p>
+</div></div><!-- @@@text -->
+<br/>
+<h2>Signal Documentation</h2>
+<!-- $$$triggered -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="triggered-signal"></a>Action::<span class="name">triggered</span>(<span class="type">var</span><i> value</i>)</p></td></tr></table></div><div class="qmldoc"><p>The value is always compatible with the set <a href="qml-ubuntu-unity-action1-action.html#parameterType-prop">parameterType</a>.</p>
+</div></div><!-- @@@triggered -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$trigger -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="trigger-method"></a>Action::<span class="name">trigger</span>(<i> value</i>)</p></td></tr></table></div><div class="qmldoc"><p>Checks the value agains <a href="qml-ubuntu-unity-action1-action.html#parameterType-prop">parameterType</a> and triggers the action.</p>
+<p>If paramType is Action::None the action can be triggered by simly calling:</p>
+<pre class="qml">action.trigger();</pre>
+</div></div><!-- @@@trigger -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+	</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qscriptvalue.html -->
+  <title>UbuntuUserInterfaceToolkit 0.1: QScriptValue Class</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="all-modules.html">Modules</a></li>
+<li>qtscript</li>
+<li>QScriptValue</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qscriptvalue.html#public-types">Public Types</a></li>
+<li class="level1"><a href="qscriptvalue.html#public-functions">Public Functions</a></li>
+<li class="level1"><a href="qscriptvalue.html#related-non-members">Related Non-Members</a></li>
+<li class="level1"><a href="qscriptvalue.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">QScriptValue Class</h1>
+<p>This class was introduced in UbuntuUserInterfaceToolkit 4.3.</p>
+<ul>
+<li><a href="qscriptvalue-members.html">List of all members, including inherited members</a></li>
+<li><a href="qscriptvalue-obsolete.html">Obsolete members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#PropertyFlag-enum">PropertyFlag</a></b> { ReadOnly, Undeletable, SkipInEnumeration, PropertyGetter, ..., UserRange }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#PropertyFlags-typedef">PropertyFlags</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#ResolveFlag-enum">ResolveFlag</a></b> { ResolveLocal, ResolvePrototype, ResolveScope, ResolveFull }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#ResolveFlags-typedef">ResolveFlags</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#SpecialValue-enum">SpecialValue</a></b> { NullValue, UndefinedValue }</td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#QScriptValue">QScriptValue</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#QScriptValue-9">QScriptValue</a></b>(SpecialValue<i> value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#QScriptValue-10">QScriptValue</a></b>(bool<i> value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#QScriptValue-11">QScriptValue</a></b>(const QLatin1String &amp;<i> value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#QScriptValue-12">QScriptValue</a></b>(const QScriptValue &amp;<i> other</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#QScriptValue-13">QScriptValue</a></b>(const QString &amp;<i> value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#QScriptValue-14">QScriptValue</a></b>(const char *<i> value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#QScriptValue-15">QScriptValue</a></b>(int<i> value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#QScriptValue-16">QScriptValue</a></b>(qsreal<i> value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#QScriptValue-17">QScriptValue</a></b>(uint<i> value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#dtor.QScriptValue">~QScriptValue</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#call">call</a></b>(const QScriptValue &amp;<i> thisObject</i>, const QScriptValueList &amp;<i> args</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#call-2">call</a></b>(const QScriptValue &amp;<i> thisObject</i>, const QScriptValue &amp;<i> arguments</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#construct">construct</a></b>(const QScriptValueList &amp;<i> args</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#construct-2">construct</a></b>(const QScriptValue &amp;<i> arguments</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#data">data</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#engine">engine</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#equals">equals</a></b>(const QScriptValue &amp;<i> other</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#instanceOf">instanceOf</a></b>(const QScriptValue &amp;<i> other</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#isArray">isArray</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#isBool">isBool</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#isDate">isDate</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#isError">isError</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#isFunction">isFunction</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#isNull">isNull</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#isNumber">isNumber</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#isObject">isObject</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#isQMetaObject">isQMetaObject</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#isQObject">isQObject</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#isRegExp">isRegExp</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#isString">isString</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#isUndefined">isUndefined</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#isValid">isValid</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#isVariant">isVariant</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#lessThan">lessThan</a></b>(const QScriptValue &amp;<i> other</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#property">property</a></b>(const QString &amp;<i> name</i>, const ResolveFlags &amp;<i> mode</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#property-2">property</a></b>(const QScriptString &amp;<i> name</i>, const ResolveFlags &amp;<i> mode</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#property-3">property</a></b>(quint32<i> arrayIndex</i>, const ResolveFlags &amp;<i> mode</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#propertyFlags">propertyFlags</a></b>(const QString &amp;<i> name</i>, const ResolveFlags &amp;<i> mode</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#propertyFlags-2">propertyFlags</a></b>(const QScriptString &amp;<i> name</i>, const ResolveFlags &amp;<i> mode</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#prototype">prototype</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#scriptClass">scriptClass</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#setData">setData</a></b>(const QScriptValue &amp;<i> data</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#setProperty">setProperty</a></b>(const QString &amp;<i> name</i>, const QScriptValue &amp;<i> value</i>, const PropertyFlags &amp;<i> flags</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#setProperty-2">setProperty</a></b>(const QScriptString &amp;<i> name</i>, const QScriptValue &amp;<i> value</i>, const PropertyFlags &amp;<i> flags</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#setProperty-3">setProperty</a></b>(quint32<i> arrayIndex</i>, const QScriptValue &amp;<i> value</i>, const PropertyFlags &amp;<i> flags</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#setPrototype">setPrototype</a></b>(const QScriptValue &amp;<i> prototype</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#setScriptClass">setScriptClass</a></b>(QScriptClass *<i> scriptClass</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#strictlyEquals">strictlyEquals</a></b>(const QScriptValue &amp;<i> other</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#toBool">toBool</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#toDateTime">toDateTime</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#toInt32">toInt32</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#toInteger">toInteger</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#toNumber">toNumber</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#toQMetaObject">toQMetaObject</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#toQObject">toQObject</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#toRegExp">toRegExp</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#toString">toString</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#toUInt16">toUInt16</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#toUInt32">toUInt32</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#toVariant">toVariant</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#operator-eq">operator=</a></b>(const QScriptValue &amp;<i> other</i>)</td></tr>
+</table>
+<a name="related-non-members"></a>
+<h2>Related Non-Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptvalue.html#qscriptvalue_cast">qscriptvalue_cast</a></b>(const QScriptValue &amp;<i> value</i>)</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QScriptValue-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+</div>
+<!-- @@@QScriptValue -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$PropertyFlag$$$ReadOnly$$$Undeletable$$$SkipInEnumeration$$$PropertyGetter$$$PropertySetter$$$QObjectMember$$$KeepExistingFlags$$$UserRange -->
+<h3 class="fn"><a name="PropertyFlag-enum"></a>enum QScriptValue::<span class="name">PropertyFlag</span></h3>
+<!-- @@@PropertyFlag -->
+<!-- $$$PropertyFlags -->
+<h3 class="fn"><a name="PropertyFlags-typedef"></a>typedef QScriptValue::<span class="name">PropertyFlags</span></h3>
+<!-- @@@PropertyFlags -->
+<!-- $$$ResolveFlag$$$ResolveLocal$$$ResolvePrototype$$$ResolveScope$$$ResolveFull -->
+<h3 class="fn"><a name="ResolveFlag-enum"></a>enum QScriptValue::<span class="name">ResolveFlag</span></h3>
+<!-- @@@ResolveFlag -->
+<!-- $$$ResolveFlags -->
+<h3 class="fn"><a name="ResolveFlags-typedef"></a>typedef QScriptValue::<span class="name">ResolveFlags</span></h3>
+<!-- @@@ResolveFlags -->
+<!-- $$$SpecialValue$$$NullValue$$$UndefinedValue -->
+<h3 class="fn"><a name="SpecialValue-enum"></a>enum QScriptValue::<span class="name">SpecialValue</span></h3>
+<!-- @@@SpecialValue -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QScriptValue[overload1]$$$QScriptValue -->
+<h3 class="fn"><a name="QScriptValue"></a>QScriptValue::<span class="name">QScriptValue</span>()</h3>
+<!-- @@@QScriptValue -->
+<!-- $$$QScriptValue$$$QScriptValueSpecialValue -->
+<h3 class="fn"><a name="QScriptValue-9"></a>QScriptValue::<span class="name">QScriptValue</span>(<span class="type"><a href="qscriptvalue.html#SpecialValue-enum">SpecialValue</a></span><i> value</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@QScriptValue -->
+<!-- $$$QScriptValue$$$QScriptValuebool -->
+<h3 class="fn"><a name="QScriptValue-10"></a>QScriptValue::<span class="name">QScriptValue</span>(<span class="type">bool</span><i> value</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@QScriptValue -->
+<!-- $$$QScriptValue$$$QScriptValueconstQLatin1String& -->
+<h3 class="fn"><a name="QScriptValue-11"></a>QScriptValue::<span class="name">QScriptValue</span>(const <span class="type">QLatin1String</span> &amp;<i> value</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@QScriptValue -->
+<!-- $$$QScriptValue$$$QScriptValueconstQScriptValue& -->
+<h3 class="fn"><a name="QScriptValue-12"></a>QScriptValue::<span class="name">QScriptValue</span>(const <span class="type">QScriptValue</span> &amp;<i> other</i>)</h3>
+<!-- @@@QScriptValue -->
+<!-- $$$QScriptValue$$$QScriptValueconstQString& -->
+<h3 class="fn"><a name="QScriptValue-13"></a>QScriptValue::<span class="name">QScriptValue</span>(const <span class="type">QString</span> &amp;<i> value</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@QScriptValue -->
+<!-- $$$QScriptValue$$$QScriptValueconstchar* -->
+<h3 class="fn"><a name="QScriptValue-14"></a>QScriptValue::<span class="name">QScriptValue</span>(const <span class="type">char</span> *<i> value</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@QScriptValue -->
+<!-- $$$QScriptValue$$$QScriptValueint -->
+<h3 class="fn"><a name="QScriptValue-15"></a>QScriptValue::<span class="name">QScriptValue</span>(<span class="type">int</span><i> value</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@QScriptValue -->
+<!-- $$$QScriptValue$$$QScriptValueqsreal -->
+<h3 class="fn"><a name="QScriptValue-16"></a>QScriptValue::<span class="name">QScriptValue</span>(<span class="type">qsreal</span><i> value</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@QScriptValue -->
+<!-- $$$QScriptValue$$$QScriptValueuint -->
+<h3 class="fn"><a name="QScriptValue-17"></a>QScriptValue::<span class="name">QScriptValue</span>(<span class="type">uint</span><i> value</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@QScriptValue -->
+<!-- $$$~QScriptValue[overload1]$$$~QScriptValue -->
+<h3 class="fn"><a name="dtor.QScriptValue"></a>QScriptValue::<span class="name">~QScriptValue</span>()</h3>
+<!-- @@@~QScriptValue -->
+<!-- $$$call[overload1]$$$callconstQScriptValue&constQScriptValueList& -->
+<h3 class="fn"><a name="call"></a>QScriptValue::<span class="name">call</span>(const <span class="type">QScriptValue</span> &amp;<i> thisObject</i>, const <span class="type">QScriptValueList</span> &amp;<i> args</i>)</h3>
+<!-- @@@call -->
+<!-- $$$call$$$callconstQScriptValue&constQScriptValue& -->
+<h3 class="fn"><a name="call-2"></a>QScriptValue::<span class="name">call</span>(const <span class="type">QScriptValue</span> &amp;<i> thisObject</i>, const <span class="type">QScriptValue</span> &amp;<i> arguments</i>)</h3>
+<!-- @@@call -->
+<!-- $$$construct[overload1]$$$constructconstQScriptValueList& -->
+<h3 class="fn"><a name="construct"></a>QScriptValue::<span class="name">construct</span>(const <span class="type">QScriptValueList</span> &amp;<i> args</i>)</h3>
+<!-- @@@construct -->
+<!-- $$$construct$$$constructconstQScriptValue& -->
+<h3 class="fn"><a name="construct-2"></a>QScriptValue::<span class="name">construct</span>(const <span class="type">QScriptValue</span> &amp;<i> arguments</i>)</h3>
+<!-- @@@construct -->
+<!-- $$$data[overload1]$$$data -->
+<h3 class="fn"><a name="data"></a>QScriptValue::<span class="name">data</span>() const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<p><b>See also </b><a href="qscriptvalue.html#setData">setData</a>().</p>
+<!-- @@@data -->
+<!-- $$$engine[overload1]$$$engine -->
+<h3 class="fn"><a name="engine"></a>QScriptValue::<span class="name">engine</span>() const</h3>
+<!-- @@@engine -->
+<!-- $$$equals[overload1]$$$equalsconstQScriptValue& -->
+<h3 class="fn"><a name="equals"></a>QScriptValue::<span class="name">equals</span>(const <span class="type">QScriptValue</span> &amp;<i> other</i>) const</h3>
+<!-- @@@equals -->
+<!-- $$$instanceOf[overload1]$$$instanceOfconstQScriptValue& -->
+<h3 class="fn"><a name="instanceOf"></a>QScriptValue::<span class="name">instanceOf</span>(const <span class="type">QScriptValue</span> &amp;<i> other</i>) const</h3>
+<!-- @@@instanceOf -->
+<!-- $$$isArray[overload1]$$$isArray -->
+<h3 class="fn"><a name="isArray"></a>QScriptValue::<span class="name">isArray</span>() const</h3>
+<!-- @@@isArray -->
+<!-- $$$isBool[overload1]$$$isBool -->
+<h3 class="fn"><a name="isBool"></a>QScriptValue::<span class="name">isBool</span>() const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@isBool -->
+<!-- $$$isDate[overload1]$$$isDate -->
+<h3 class="fn"><a name="isDate"></a>QScriptValue::<span class="name">isDate</span>() const</h3>
+<!-- @@@isDate -->
+<!-- $$$isError[overload1]$$$isError -->
+<h3 class="fn"><a name="isError"></a>QScriptValue::<span class="name">isError</span>() const</h3>
+<!-- @@@isError -->
+<!-- $$$isFunction[overload1]$$$isFunction -->
+<h3 class="fn"><a name="isFunction"></a>QScriptValue::<span class="name">isFunction</span>() const</h3>
+<!-- @@@isFunction -->
+<!-- $$$isNull[overload1]$$$isNull -->
+<h3 class="fn"><a name="isNull"></a>QScriptValue::<span class="name">isNull</span>() const</h3>
+<!-- @@@isNull -->
+<!-- $$$isNumber[overload1]$$$isNumber -->
+<h3 class="fn"><a name="isNumber"></a>QScriptValue::<span class="name">isNumber</span>() const</h3>
+<!-- @@@isNumber -->
+<!-- $$$isObject[overload1]$$$isObject -->
+<h3 class="fn"><a name="isObject"></a>QScriptValue::<span class="name">isObject</span>() const</h3>
+<!-- @@@isObject -->
+<!-- $$$isQMetaObject[overload1]$$$isQMetaObject -->
+<h3 class="fn"><a name="isQMetaObject"></a>QScriptValue::<span class="name">isQMetaObject</span>() const</h3>
+<!-- @@@isQMetaObject -->
+<!-- $$$isQObject[overload1]$$$isQObject -->
+<h3 class="fn"><a name="isQObject"></a>QScriptValue::<span class="name">isQObject</span>() const</h3>
+<!-- @@@isQObject -->
+<!-- $$$isRegExp[overload1]$$$isRegExp -->
+<h3 class="fn"><a name="isRegExp"></a>QScriptValue::<span class="name">isRegExp</span>() const</h3>
+<!-- @@@isRegExp -->
+<!-- $$$isString[overload1]$$$isString -->
+<h3 class="fn"><a name="isString"></a>QScriptValue::<span class="name">isString</span>() const</h3>
+<!-- @@@isString -->
+<!-- $$$isUndefined[overload1]$$$isUndefined -->
+<h3 class="fn"><a name="isUndefined"></a>QScriptValue::<span class="name">isUndefined</span>() const</h3>
+<!-- @@@isUndefined -->
+<!-- $$$isValid[overload1]$$$isValid -->
+<h3 class="fn"><a name="isValid"></a>QScriptValue::<span class="name">isValid</span>() const</h3>
+<!-- @@@isValid -->
+<!-- $$$isVariant[overload1]$$$isVariant -->
+<h3 class="fn"><a name="isVariant"></a>QScriptValue::<span class="name">isVariant</span>() const</h3>
+<!-- @@@isVariant -->
+<!-- $$$lessThan[overload1]$$$lessThanconstQScriptValue& -->
+<h3 class="fn"><a name="lessThan"></a>QScriptValue::<span class="name">lessThan</span>(const <span class="type">QScriptValue</span> &amp;<i> other</i>) const</h3>
+<!-- @@@lessThan -->
+<!-- $$$property[overload1]$$$propertyconstQString&constResolveFlags& -->
+<h3 class="fn"><a name="property"></a>QScriptValue::<span class="name">property</span>(const <span class="type">QString</span> &amp;<i> name</i>, const <span class="type"><a href="qscriptvalue.html#ResolveFlags-typedef">ResolveFlags</a></span> &amp;<i> mode</i>) const</h3>
+<p><b>See also </b><a href="qscriptvalue.html#setProperty">setProperty</a>().</p>
+<!-- @@@property -->
+<!-- $$$property$$$propertyconstQScriptString&constResolveFlags& -->
+<h3 class="fn"><a name="property-2"></a>QScriptValue::<span class="name">property</span>(const <span class="type"><a href="qscriptstring.html">QScriptString</a></span> &amp;<i> name</i>, const <span class="type"><a href="qscriptvalue.html#ResolveFlags-typedef">ResolveFlags</a></span> &amp;<i> mode</i>) const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<!-- @@@property -->
+<!-- $$$property$$$propertyquint32constResolveFlags& -->
+<h3 class="fn"><a name="property-3"></a>QScriptValue::<span class="name">property</span>(<span class="type">quint32</span><i> arrayIndex</i>, const <span class="type"><a href="qscriptvalue.html#ResolveFlags-typedef">ResolveFlags</a></span> &amp;<i> mode</i>) const</h3>
+<!-- @@@property -->
+<!-- $$$propertyFlags[overload1]$$$propertyFlagsconstQString&constResolveFlags& -->
+<h3 class="fn"><a name="propertyFlags"></a>QScriptValue::<span class="name">propertyFlags</span>(const <span class="type">QString</span> &amp;<i> name</i>, const <span class="type"><a href="qscriptvalue.html#ResolveFlags-typedef">ResolveFlags</a></span> &amp;<i> mode</i>) const</h3>
+<!-- @@@propertyFlags -->
+<!-- $$$propertyFlags$$$propertyFlagsconstQScriptString&constResolveFlags& -->
+<h3 class="fn"><a name="propertyFlags-2"></a>QScriptValue::<span class="name">propertyFlags</span>(const <span class="type"><a href="qscriptstring.html">QScriptString</a></span> &amp;<i> name</i>, const <span class="type"><a href="qscriptvalue.html#ResolveFlags-typedef">ResolveFlags</a></span> &amp;<i> mode</i>) const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<!-- @@@propertyFlags -->
+<!-- $$$prototype[overload1]$$$prototype -->
+<h3 class="fn"><a name="prototype"></a>QScriptValue::<span class="name">prototype</span>() const</h3>
+<p><b>See also </b><a href="qscriptvalue.html#setPrototype">setPrototype</a>().</p>
+<!-- @@@prototype -->
+<!-- $$$scriptClass[overload1]$$$scriptClass -->
+<h3 class="fn"><a name="scriptClass"></a>QScriptValue::<span class="name">scriptClass</span>() const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<p><b>See also </b><a href="qscriptvalue.html#setScriptClass">setScriptClass</a>().</p>
+<!-- @@@scriptClass -->
+<!-- $$$setData[overload1]$$$setDataconstQScriptValue& -->
+<h3 class="fn"><a name="setData"></a>QScriptValue::<span class="name">setData</span>(const <span class="type">QScriptValue</span> &amp;<i> data</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<p><b>See also </b><a href="qscriptvalue.html#data">data</a>().</p>
+<!-- @@@setData -->
+<!-- $$$setProperty[overload1]$$$setPropertyconstQString&constQScriptValue&constPropertyFlags& -->
+<h3 class="fn"><a name="setProperty"></a>QScriptValue::<span class="name">setProperty</span>(const <span class="type">QString</span> &amp;<i> name</i>, const <span class="type">QScriptValue</span> &amp;<i> value</i>, const <span class="type"><a href="qscriptvalue.html#PropertyFlags-typedef">PropertyFlags</a></span> &amp;<i> flags</i>)</h3>
+<p><b>See also </b><a href="qscriptvalue.html#property">property</a>().</p>
+<!-- @@@setProperty -->
+<!-- $$$setProperty$$$setPropertyconstQScriptString&constQScriptValue&constPropertyFlags& -->
+<h3 class="fn"><a name="setProperty-2"></a>QScriptValue::<span class="name">setProperty</span>(const <span class="type"><a href="qscriptstring.html">QScriptString</a></span> &amp;<i> name</i>, const <span class="type">QScriptValue</span> &amp;<i> value</i>, const <span class="type"><a href="qscriptvalue.html#PropertyFlags-typedef">PropertyFlags</a></span> &amp;<i> flags</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<!-- @@@setProperty -->
+<!-- $$$setProperty$$$setPropertyquint32constQScriptValue&constPropertyFlags& -->
+<h3 class="fn"><a name="setProperty-3"></a>QScriptValue::<span class="name">setProperty</span>(<span class="type">quint32</span><i> arrayIndex</i>, const <span class="type">QScriptValue</span> &amp;<i> value</i>, const <span class="type"><a href="qscriptvalue.html#PropertyFlags-typedef">PropertyFlags</a></span> &amp;<i> flags</i>)</h3>
+<!-- @@@setProperty -->
+<!-- $$$setPrototype[overload1]$$$setPrototypeconstQScriptValue& -->
+<h3 class="fn"><a name="setPrototype"></a>QScriptValue::<span class="name">setPrototype</span>(const <span class="type">QScriptValue</span> &amp;<i> prototype</i>)</h3>
+<p><b>See also </b><a href="qscriptvalue.html#prototype">prototype</a>().</p>
+<!-- @@@setPrototype -->
+<!-- $$$setScriptClass[overload1]$$$setScriptClassQScriptClass* -->
+<h3 class="fn"><a name="setScriptClass"></a>QScriptValue::<span class="name">setScriptClass</span>(<span class="type"><a href="qscriptclass.html">QScriptClass</a></span> *<i> scriptClass</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<p><b>See also </b><a href="qscriptvalue.html#scriptClass">scriptClass</a>().</p>
+<!-- @@@setScriptClass -->
+<!-- $$$strictlyEquals[overload1]$$$strictlyEqualsconstQScriptValue& -->
+<h3 class="fn"><a name="strictlyEquals"></a>QScriptValue::<span class="name">strictlyEquals</span>(const <span class="type">QScriptValue</span> &amp;<i> other</i>) const</h3>
+<!-- @@@strictlyEquals -->
+<!-- $$$toBool[overload1]$$$toBool -->
+<h3 class="fn"><a name="toBool"></a>QScriptValue::<span class="name">toBool</span>() const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@toBool -->
+<!-- $$$toDateTime[overload1]$$$toDateTime -->
+<h3 class="fn"><a name="toDateTime"></a>QScriptValue::<span class="name">toDateTime</span>() const</h3>
+<!-- @@@toDateTime -->
+<!-- $$$toInt32[overload1]$$$toInt32 -->
+<h3 class="fn"><a name="toInt32"></a>QScriptValue::<span class="name">toInt32</span>() const</h3>
+<!-- @@@toInt32 -->
+<!-- $$$toInteger[overload1]$$$toInteger -->
+<h3 class="fn"><a name="toInteger"></a>QScriptValue::<span class="name">toInteger</span>() const</h3>
+<!-- @@@toInteger -->
+<!-- $$$toNumber[overload1]$$$toNumber -->
+<h3 class="fn"><a name="toNumber"></a>QScriptValue::<span class="name">toNumber</span>() const</h3>
+<!-- @@@toNumber -->
+<!-- $$$toQMetaObject[overload1]$$$toQMetaObject -->
+<h3 class="fn"><a name="toQMetaObject"></a>QScriptValue::<span class="name">toQMetaObject</span>() const</h3>
+<!-- @@@toQMetaObject -->
+<!-- $$$toQObject[overload1]$$$toQObject -->
+<h3 class="fn"><a name="toQObject"></a>QScriptValue::<span class="name">toQObject</span>() const</h3>
+<!-- @@@toQObject -->
+<!-- $$$toRegExp[overload1]$$$toRegExp -->
+<h3 class="fn"><a name="toRegExp"></a>QScriptValue::<span class="name">toRegExp</span>() const</h3>
+<!-- @@@toRegExp -->
+<!-- $$$toString[overload1]$$$toString -->
+<h3 class="fn"><a name="toString"></a>QScriptValue::<span class="name">toString</span>() const</h3>
+<!-- @@@toString -->
+<!-- $$$toUInt16[overload1]$$$toUInt16 -->
+<h3 class="fn"><a name="toUInt16"></a>QScriptValue::<span class="name">toUInt16</span>() const</h3>
+<!-- @@@toUInt16 -->
+<!-- $$$toUInt32[overload1]$$$toUInt32 -->
+<h3 class="fn"><a name="toUInt32"></a>QScriptValue::<span class="name">toUInt32</span>() const</h3>
+<!-- @@@toUInt32 -->
+<!-- $$$toVariant[overload1]$$$toVariant -->
+<h3 class="fn"><a name="toVariant"></a>QScriptValue::<span class="name">toVariant</span>() const</h3>
+<!-- @@@toVariant -->
+<!-- $$$operator=[overload1]$$$operator=constQScriptValue& -->
+<h3 class="fn"><a name="operator-eq"></a>QScriptValue::<span class="name">operator=</span>(const <span class="type">QScriptValue</span> &amp;<i> other</i>)</h3>
+<!-- @@@operator= -->
+</div>
+<div class="relnonmem">
+<h2>Related Non-Members</h2>
+<!-- $$$qscriptvalue_cast[overload1]$$$qscriptvalue_castconstQScriptValue& -->
+<h3 class="fn"><a name="qscriptvalue_cast"></a><span class="name">qscriptvalue_cast</span>(const <span class="type">QScriptValue</span> &amp;<i> value</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.3.</p>
+<!-- @@@qscriptvalue_cast -->
+</div>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

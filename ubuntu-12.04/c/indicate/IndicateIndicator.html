@@ -1,0 +1,594 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IndicateIndicator</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="libindicate Reference Manual">
+<link rel="up" href="base.html" title="Part I. Base Classes for Applications">
+<link rel="prev" href="base.html" title="Part I. Base Classes for Applications">
+<link rel="next" href="IndicateServer.html" title="IndicateServer">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="base.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="base.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libindicate Reference Manual</th>
+<td><a accesskey="n" href="IndicateServer.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="IndicateIndicator.html#IndicateIndicator.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="IndicateIndicator.html#IndicateIndicator.description" class="shortcut">Description</a>
+                   | 
+                  <a href="IndicateIndicator.html#IndicateIndicator.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="IndicateIndicator.html#IndicateIndicator.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="IndicateIndicator"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="IndicateIndicator.top_of_page"></a>IndicateIndicator</span></h2>
+<p>IndicateIndicator — A representation of state for applications</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="IndicateIndicator.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="IndicateIndicator.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libindicate/indicator.h&gt;
+
+struct              <a class="link" href="IndicateIndicator.html#IndicateIndicator-struct" title="struct IndicateIndicator">IndicateIndicator</a>;
+struct              <a class="link" href="IndicateIndicator.html#IndicateIndicatorClass" title="struct IndicateIndicatorClass">IndicateIndicatorClass</a>;
+<span class="returnvalue">guint</span>               <a class="link" href="IndicateIndicator.html#indicate-indicator-get-id" title="indicate_indicator_get_id ()">indicate_indicator_get_id</a>           (<em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="IndicateIndicator.html#indicate-indicator-get-property" title="indicate_indicator_get_property ()">indicate_indicator_get_property</a>     (<em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="IndicateIndicator.html#indicate-indicator-hide" title="indicate_indicator_hide ()">indicate_indicator_hide</a>             (<em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="IndicateIndicator.html#indicate-indicator-is-visible" title="indicate_indicator_is_visible ()">indicate_indicator_is_visible</a>       (<em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>);
+<span class="returnvalue">GPtrArray</span> *         <a class="link" href="IndicateIndicator.html#indicate-indicator-list-properties" title="indicate_indicator_list_properties ()">indicate_indicator_list_properties</a>  (<em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>);
+<a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="returnvalue">IndicateIndicator</span></a> * <a class="link" href="IndicateIndicator.html#indicate-indicator-new" title="indicate_indicator_new ()">indicate_indicator_new</a>              (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="IndicateIndicator.html#indicate-indicator-set-property" title="indicate_indicator_set_property ()">indicate_indicator_set_property</a>     (<em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="IndicateIndicator.html#indicate-indicator-set-property-time" title="indicate_indicator_set_property_time ()">indicate_indicator_set_property_time</a>
+                                                        (<em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GTimeVal</span> *time</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="IndicateIndicator.html#indicate-indicator-show" title="indicate_indicator_show ()">indicate_indicator_show</a>             (<em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="IndicateIndicator.html#indicate-indicator-user-display" title="indicate_indicator_user_display ()">indicate_indicator_user_display</a>     (<em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> timestamp</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="IndicateIndicator.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----IndicateIndicator
+</pre>
+</div>
+<div class="refsect1">
+<a name="IndicateIndicator.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="IndicateIndicator.html#IndicateIndicator-displayed" title='The "displayed" signal'>displayed</a>"                                      : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateIndicator.html#IndicateIndicator-hide" title='The "hide" signal'>hide</a>"                                           : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateIndicator.html#IndicateIndicator-modified" title='The "modified" signal'>modified</a>"                                       : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateIndicator.html#IndicateIndicator-show" title='The "show" signal'>show</a>"                                           : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateIndicator.html#IndicateIndicator-user-display" title='The "user-display" signal'>user-display</a>"                                   : <code class="literal">Run Last</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="IndicateIndicator.description"></a><h2>Description</h2>
+<p>
+An indicator is designed to represent a single instance of something
+in your application.  So this might be an IM or an e-mail mail box
+or any other thing that is a small unit of information to pass on
+to the user.
+</p>
+<p>
+Indicators make no promises about how they are preceived by the
+user, it's up to the listener to represent them in an intutive and
+visually appealling way.  But, what we can do is provide information
+on the indicator to provide enough information for the listener
+to do that.
+</p>
+<p>
+Mostly this is done through properties.
+</p>
+<p>
+It may be that some users don't want to create objects for every
+indicator as it could be a lot of overhead if there are large numbers
+and there is already a data structure representing them all.  In that
+case it is recommended that you ignore the <a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> object
+tree in general and move to subclassing <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> directly.
+</p>
+</div>
+<div class="refsect1">
+<a name="IndicateIndicator.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="IndicateIndicator-struct"></a><h3>struct IndicateIndicator</h3>
+<pre class="programlisting">struct IndicateIndicator;</pre>
+<p>
+The indicator object represents a single item that is shared over the
+indicator bus.  This could be something like one IM, one e-mail or 
+a single system update.  It should be accessed only through its
+accessors.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateIndicatorClass"></a><h3>struct IndicateIndicatorClass</h3>
+<pre class="programlisting">struct IndicateIndicatorClass {
+	/* Parents */
+	GObjectClass parent_class;
+
+	/* Signals */
+	void (*hide) (IndicateIndicator * indicator, gpointer data);
+	void (*show) (IndicateIndicator * indicator, gpointer data);
+	void (*user_display) (IndicateIndicator * indicator, guint timestamp, gpointer data);
+	void (*modified) (IndicateIndicator * indicator, gchar * property, gpointer data);
+	void (*displayed) (IndicateIndicator * indicator, gboolean displayed);
+
+	/* Subclassable functions */
+	void (*set_property) (IndicateIndicator * indicator, const gchar * key, GVariant * data);
+	GVariant * (*get_property) (IndicateIndicator * indicator, const gchar * key);
+	indicate_indicator_list_properties_slot_t list_properties;
+
+	/* Reserver for future use */
+	void (*indicate_indicator_reserved1)(void);
+	void (*indicate_indicator_reserved2)(void);
+	void (*indicate_indicator_reserved3)(void);
+	void (*indicate_indicator_reserved4)(void);
+};
+</pre>
+<p>
+All of the functions that are used to modify or change data that is
+in the indicator.  Typically gets subclassed by other types of 
+indicators, for example <span class="type">IndicateIndicatorMessages</span>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><span class="type">GObjectClass</span> <em class="structfield"><code><a name="IndicateIndicatorClass.parent-class"></a>parent_class</code></em>;</span></p></td>
+<td>Parent class <span class="type">GObjectClass</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateIndicatorClass.hide"></a>hide</code></em> ()</span></p></td>
+<td>Slot for <a class="link" href="IndicateIndicator.html#IndicateIndicator-hide" title='The "hide" signal'><span class="type">"hide"</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateIndicatorClass.show"></a>show</code></em> ()</span></p></td>
+<td>Slot for <a class="link" href="IndicateIndicator.html#IndicateIndicator-show" title='The "show" signal'><span class="type">"show"</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateIndicatorClass.user-display"></a>user_display</code></em> ()</span></p></td>
+<td>Slot for <a class="link" href="IndicateIndicator.html#IndicateIndicator-user-display" title='The "user-display" signal'><span class="type">"user-display"</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateIndicatorClass.modified"></a>modified</code></em> ()</span></p></td>
+<td>Slot for <a class="link" href="IndicateIndicator.html#IndicateIndicator-modified" title='The "modified" signal'><span class="type">"modified"</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateIndicatorClass.displayed"></a>displayed</code></em> ()</span></p></td>
+<td>Slot for <a class="link" href="IndicateIndicator.html#IndicateIndicator-displayed" title='The "displayed" signal'><span class="type">"displayed"</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateIndicatorClass.set-property"></a>set_property</code></em> ()</span></p></td>
+<td>Called when <a class="link" href="IndicateIndicator.html#indicate-indicator-set-property" title="indicate_indicator_set_property ()"><code class="function">indicate_indicator_set_property()</code></a> is called
+and should set the value.  While typically it is overridden by
+subclasses they usually handle special properties themselves and
+then call the superclass for storage.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateIndicatorClass.get-property"></a>get_property</code></em> ()</span></p></td>
+<td>Called when <a class="link" href="IndicateIndicator.html#indicate-indicator-get-property" title="indicate_indicator_get_property ()"><code class="function">indicate_indicator_get_property()</code></a> is called
+and should return the value requested.  Many times this is left alone.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">indicate_indicator_list_properties_slot_t</span> <em class="structfield"><code><a name="IndicateIndicatorClass.list-properties"></a>list_properties</code></em>;</span></p></td>
+<td>Called when <a class="link" href="IndicateIndicator.html#indicate-indicator-list-properties" title="indicate_indicator_list_properties ()"><code class="function">indicate_indicator_list_properties()</code></a> is called
+and returns a list of the properties available.  Again this can be
+overridden by subclasses to handle special properties.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateIndicatorClass.indicate-indicator-reserved1"></a>indicate_indicator_reserved1</code></em> ()</span></p></td>
+<td>Reserved for future use</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateIndicatorClass.indicate-indicator-reserved2"></a>indicate_indicator_reserved2</code></em> ()</span></p></td>
+<td>Reserved for future use</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateIndicatorClass.indicate-indicator-reserved3"></a>indicate_indicator_reserved3</code></em> ()</span></p></td>
+<td>Reserved for future use</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateIndicatorClass.indicate-indicator-reserved4"></a>indicate_indicator_reserved4</code></em> ()</span></p></td>
+<td>Reserved for future use</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-indicator-get-id"></a><h3>indicate_indicator_get_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               indicate_indicator_get_id           (<em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>);</pre>
+<p>
+Gets the ID value of the <em class="parameter"><code>indicator</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicator</code></em> :</span></p></td>
+<td>a <a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> to act on</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The ID of the indicator.  Can not be zero.
+Zero represents an error.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-indicator-get-property"></a><h3>indicate_indicator_get_property ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       indicate_indicator_get_property     (<em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>);</pre>
+<p>
+Returns the value that is set for a property or <code class="literal">NULL</code> if that
+property is not set.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicator</code></em> :</span></p></td>
+<td>a <a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> to act on</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>name of the property</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A constant string or NULL.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-indicator-hide"></a><h3>indicate_indicator_hide ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                indicate_indicator_hide             (<em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>);</pre>
+<p>
+Hides the indicator from the bus.  Does not effect the
+indicator's <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> in any way.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>indicator</code></em> :</span></p></td>
+<td>a <a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> to act on</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-indicator-is-visible"></a><h3>indicate_indicator_is_visible ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            indicate_indicator_is_visible       (<em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>);</pre>
+<p>
+Checkes the visibility status of <em class="parameter"><code>indicator</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicator</code></em> :</span></p></td>
+<td>a <a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> to act on</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if the indicator is visible else <code class="literal">FALSE</code>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-indicator-list-properties"></a><h3>indicate_indicator_list_properties ()</h3>
+<pre class="programlisting"><span class="returnvalue">GPtrArray</span> *         indicate_indicator_list_properties  (<em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>);</pre>
+<p>
+This function gets a list of all the properties that exist
+on a <em class="parameter"><code>indicator</code></em>.  The array may have zero entries.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicator</code></em> :</span></p></td>
+<td>a <a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> to act on. <span class="annotation">[<a href="http://foldoc.org/in"><span class="acronym">in</span></a>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>An array of
+strings that is the keys of all the properties on this indicator. <span class="annotation">[<a href="http://foldoc.org/transfer%20full"><span class="acronym">transfer full</span></a>][<a href="http://foldoc.org/array"><span class="acronym">array</span></a>][<a href="http://foldoc.org/element-type"><span class="acronym">element-type</span></a> utf8]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-indicator-new"></a><h3>indicate_indicator_new ()</h3>
+<pre class="programlisting"><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="returnvalue">IndicateIndicator</span></a> * indicate_indicator_new              (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Builds a new indicator object using <code class="function">g_object_new()</code>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A pointer to a new <a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> object.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-indicator-set-property"></a><h3>indicate_indicator_set_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                indicate_indicator_set_property     (<em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *data</code></em>);</pre>
+<p>
+Sets a simple string property on <em class="parameter"><code>indicator</code></em>.  If the property
+had previously been set it will replace it with the new value,
+otherwise it will create the property.  This will include an
+emition of <a class="link" href="IndicateIndicator.html#IndicateIndicator-modified" title='The "modified" signal'><span class="type">"modified"</span></a> if the property value
+was changed.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicator</code></em> :</span></p></td>
+<td>a <a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> to act on</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>name of the property</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>value of the property</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-indicator-set-property-time"></a><h3>indicate_indicator_set_property_time ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                indicate_indicator_set_property_time
+                                                        (<em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *key</code></em>,
+                                                         <em class="parameter"><code><span class="type">GTimeVal</span> *time</code></em>);</pre>
+<p>
+This is a helper function that wraps around <a class="link" href="IndicateIndicator.html#indicate-indicator-set-property" title="indicate_indicator_set_property ()"><span class="type">indicate_indicator_set_property</span></a>
+but takes an <span class="type">GTimeVal</span> parameter.  It then takes the <em class="parameter"><code>data</code></em>
+parameter converts it to an ISO 8601 time string and
+uses that data to call <a class="link" href="IndicateIndicator.html#indicate-indicator-set-property" title="indicate_indicator_set_property ()"><span class="type">indicate_indicator_set_property</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicator</code></em> :</span></p></td>
+<td>a <a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> to act on</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>key</code></em> :</span></p></td>
+<td>name of the property</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>time</code></em> :</span></p></td>
+<td>time to set property with</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-indicator-show"></a><h3>indicate_indicator_show ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                indicate_indicator_show             (<em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>);</pre>
+<p>
+Shows this indicator on the bus.  If the <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> that it's
+connected to is not shown itself this function will show the server
+as well using <a class="link" href="IndicateServer.html#indicate-server-show" title="indicate_server_show ()"><span class="type">indicate_server_show</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>indicator</code></em> :</span></p></td>
+<td>a <a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> to act on</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-indicator-user-display"></a><h3>indicate_indicator_user_display ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                indicate_indicator_user_display     (<em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> timestamp</code></em>);</pre>
+<p>
+Emits the <a class="link" href="IndicateIndicator.html#IndicateIndicator-user-display" title='The "user-display" signal'><span class="type">"user-display"</span></a> signal simliar to a user
+clicking on <em class="parameter"><code>indicator</code></em> over the bus.  Signal will not be sent if the
+<em class="parameter"><code>indicator</code></em> is not visible.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicator</code></em> :</span></p></td>
+<td>a <a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> to act on</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>timestamp</code></em> :</span></p></td>
+<td>The time that the event happened</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="IndicateIndicator.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="IndicateIndicator-displayed"></a><h3>The <code class="literal">"displayed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *arg0,
+                                                        <span class="type">gboolean</span>           arg1,
+                                                        <span class="type">gpointer</span>           user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+This is the signal that the indicator has been displayed, or
+hidden by a listener.  In most cases, the signal will be that it
+has been displayed as most folks don't go hiding it later.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg0</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>Whether the indicator has been displayed</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateIndicator-hide"></a><h3>The <code class="literal">"hide"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *arg0,
+                                                        <span class="type">gpointer</span>           user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+Emitted every time this indicator is hidden.  This
+is mostly used by <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a>.
+</p>
+<p>
+Typically this results in an emition of <span class="type">"indicator-removed"</span>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg0</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateIndicator-modified"></a><h3>The <code class="literal">"modified"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *arg0,
+                                                        <span class="type">gchar</span>             *arg1,
+                                                        <span class="type">gpointer</span>           user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+Emitted every time an indicator property is changed.
+This is mostly used by <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a>.
+</p>
+<p>
+Typically this results in an emition of <a class="link" href="IndicateServer.html#IndicateServer-indicator-modified" title='The "indicator-modified" signal'><span class="type">"indicator-modified"</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg0</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>The name of the property that changed.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateIndicator-show"></a><h3>The <code class="literal">"show"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *arg0,
+                                                        <span class="type">gpointer</span>           user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+Emitted every time this indicator is shown.  This
+is mostly used by <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a>.
+</p>
+<p>
+Typically this results in an emition of <span class="type">"indicator-added"</span>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg0</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateIndicator-user-display"></a><h3>The <code class="literal">"user-display"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicateindicator,
+                                                        <span class="type">guint</span>              arg1,
+                                                        <span class="type">gpointer</span>           user_data)              : <code class="literal">Run Last</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicateindicator</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

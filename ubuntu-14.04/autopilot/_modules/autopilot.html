@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>autopilot &mdash; Autopilot 1.4+14.04.20140213-0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/otto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/centertext.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.4+14.04.20140213-0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="Autopilot 1.4+14.04.20140213-0 documentation" href="../index.html" />
+    <link rel="up" title="Module code" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/autopilot/_modules/index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Autopilot 1.4+14.04.20140213-0 documentation</a> &raquo;</li>
+          <li><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/autopilot/_modules/index.html" accesskey="U">Module code</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for autopilot</h1><div class="highlight"><pre>
+<span class="c"># -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-</span>
+<span class="c">#</span>
+<span class="c"># Autopilot Functional Test Tool</span>
+<span class="c"># Copyright (C) 2012-2013 Canonical</span>
+<span class="c">#</span>
+<span class="c"># This program is free software: you can redistribute it and/or modify</span>
+<span class="c"># it under the terms of the GNU General Public License as published by</span>
+<span class="c"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c"># (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c"># This program is distributed in the hope that it will be useful,</span>
+<span class="c"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c"># GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c"># You should have received a copy of the GNU General Public License</span>
+<span class="c"># along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c">#</span>
+
+<span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">ArgumentParser</span><span class="p">,</span> <span class="n">REMAINDER</span><span class="p">,</span> <span class="n">Action</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="kn">from</span> <span class="nn">autopilot._debug</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_all_debug_profiles</span><span class="p">,</span>
+    <span class="n">get_default_debug_profile</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">autopilot.testresult</span> <span class="kn">import</span> <span class="n">get_output_formats</span><span class="p">,</span> <span class="n">get_default_format</span>
+<span class="kn">from</span> <span class="nn">autopilot.exceptions</span> <span class="kn">import</span> <span class="n">BackendException</span>
+
+<span class="n">version</span> <span class="o">=</span> <span class="s">&#39;1.4.0&#39;</span>
+
+
+<div class="viewcode-block" id="parse_arguments"><a class="viewcode-back" href="../api/autopilot.html#autopilot.parse_arguments">[docs]</a><span class="k">def</span> <span class="nf">parse_arguments</span><span class="p">(</span><span class="n">argv</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Parse command-line arguments, and return an argparse arguments</span>
+<span class="sd">    object.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">ArgumentParser</span><span class="p">(</span>
+        <span class="n">description</span><span class="o">=</span><span class="s">&quot;Autopilot test tool.&quot;</span><span class="p">,</span>
+        <span class="n">epilog</span><span class="o">=</span><span class="s">&quot;Each command (run, list, launch etc.) has additional help that&quot;</span>
+        <span class="s">&quot; can be viewed by passing the &#39;-h&#39; flag to the command. For &quot;</span>
+        <span class="s">&quot;example: &#39;autopilot run -h&#39; displays further help for the &quot;</span>
+        <span class="s">&quot;&#39;run&#39; command.&quot;</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-v&#39;</span><span class="p">,</span> <span class="s">&#39;--version&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;version&#39;</span><span class="p">,</span>
+                        <span class="n">version</span><span class="o">=</span><span class="n">get_version_string</span><span class="p">(),</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s">&quot;Display autopilot version and exit.&quot;</span><span class="p">)</span>
+    <span class="n">subparsers</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">add_subparsers</span><span class="p">(</span><span class="n">help</span><span class="o">=</span><span class="s">&#39;Run modes&#39;</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s">&quot;mode&quot;</span><span class="p">)</span>
+
+    <span class="n">parser_run</span> <span class="o">=</span> <span class="n">subparsers</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s">&#39;run&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Run autopilot tests&quot;</span><span class="p">)</span>
+    <span class="n">parser_run</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-o&#39;</span><span class="p">,</span> <span class="s">&quot;--output&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                            <span class="n">help</span><span class="o">=</span><span class="s">&#39;Write test result report to file.</span><span class="se">\</span>
+<span class="s">                            Defaults to stdout.</span><span class="se">\</span>
+<span class="s">                            If given a directory instead of a file will </span><span class="se">\</span>
+<span class="s">                            write to a file in that directory named: </span><span class="se">\</span>
+<span class="s">                            &lt;hostname&gt;_&lt;dd.mm.yyy_HHMMSS&gt;.log&#39;</span><span class="p">)</span>
+    <span class="n">available_formats</span> <span class="o">=</span> <span class="n">get_output_formats</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+    <span class="n">parser_run</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-f&#39;</span><span class="p">,</span> <span class="s">&quot;--format&quot;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="n">available_formats</span><span class="p">,</span>
+                            <span class="n">default</span><span class="o">=</span><span class="n">get_default_format</span><span class="p">(),</span>
+                            <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                            <span class="n">help</span><span class="o">=</span><span class="s">&#39;Specify desired output format. </span><span class="se">\</span>
+<span class="s">                            Default is &quot;text&quot;.&#39;</span><span class="p">)</span>
+    <span class="n">parser_run</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-ff&quot;</span><span class="p">,</span> <span class="s">&quot;--failfast&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_true&#39;</span><span class="p">,</span>
+                            <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                            <span class="n">help</span><span class="o">=</span><span class="s">&quot;Stop the test run on the first error </span><span class="se">\</span>
+<span class="s">                            or failure.&quot;</span><span class="p">)</span>
+    <span class="n">parser_run</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&#39;-r&#39;</span><span class="p">,</span> <span class="s">&#39;--record&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_true&#39;</span><span class="p">,</span>
+                            <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                            <span class="n">help</span><span class="o">=</span><span class="s">&quot;Record failing tests. Required </span><span class="se">\</span>
+<span class="s">                            &#39;recordmydesktop&#39; app to be installed.</span><span class="se">\</span>
+<span class="s">                            Videos are stored in /tmp/autopilot.&quot;</span><span class="p">)</span>
+    <span class="n">parser_run</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-rd&quot;</span><span class="p">,</span> <span class="s">&quot;--record-directory&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                            <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Directory to put recorded tests&quot;</span><span class="p">)</span>
+    <span class="n">parser_run</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;--record-options&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                            <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Comma separated list of options </span><span class="se">\</span>
+<span class="s">                            to pass to recordmydesktop&quot;</span><span class="p">)</span>
+    <span class="n">parser_run</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;-ro&quot;</span><span class="p">,</span> <span class="s">&quot;--random-order&quot;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_true&#39;</span><span class="p">,</span>
+                            <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                            <span class="n">help</span><span class="o">=</span><span class="s">&quot;Run the tests in random order&quot;</span><span class="p">)</span>
+    <span class="n">parser_run</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s">&#39;-v&#39;</span><span class="p">,</span> <span class="s">&#39;--verbose&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;count&#39;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s">&quot;If set, autopilot will output test log data to stderr during a &quot;</span>
+        <span class="s">&quot;test run. Set twice to also log data useful for debugging autopilot &quot;</span>
+        <span class="s">&quot;itself.&quot;</span><span class="p">)</span>
+    <span class="n">parser_run</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s">&quot;--debug-profile&quot;</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">get_all_debug_profiles</span><span class="p">()],</span>
+        <span class="n">default</span><span class="o">=</span><span class="n">get_default_debug_profile</span><span class="p">()</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s">&quot;Select a profile for what additional debugging information &quot;</span>
+        <span class="s">&quot;should be attached to failed test results.&quot;</span>
+    <span class="p">)</span>
+    <span class="n">parser_run</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s">&quot;--timeout-profile&quot;</span><span class="p">,</span>
+        <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;normal&#39;</span><span class="p">,</span> <span class="s">&#39;long&#39;</span><span class="p">],</span>
+        <span class="n">default</span><span class="o">=</span><span class="s">&#39;normal&#39;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s">&quot;Alter the timeout values Autopilot uses. Selecting &#39;long&#39; will &quot;</span>
+        <span class="s">&quot;make autopilot use longer timeouts for various polling loops. This &quot;</span>
+        <span class="s">&quot;useful if autopilot is running on very slow hardware&quot;</span>
+    <span class="p">)</span>
+    <span class="n">parser_run</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;suite&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">&quot;+&quot;</span><span class="p">,</span>
+                            <span class="n">help</span><span class="o">=</span><span class="s">&quot;Specify test suite(s) to run.&quot;</span><span class="p">)</span>
+
+    <span class="n">parser_list</span> <span class="o">=</span> <span class="n">subparsers</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span><span class="s">&#39;list&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;List autopilot tests&quot;</span><span class="p">)</span>
+    <span class="n">parser_list</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s">&quot;-ro&quot;</span><span class="p">,</span> <span class="s">&quot;--run-order&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s">&quot;store_true&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s">&quot;List tests in run order, rather than alphabetical order (the &quot;</span>
+        <span class="s">&quot;default).&quot;</span><span class="p">)</span>
+    <span class="n">parser_list</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s">&quot;--suites&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;store_true&#39;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s">&quot;Lists only available suites, not tests contained within the &quot;</span>
+        <span class="s">&quot;suite.&quot;</span><span class="p">)</span>
+    <span class="n">parser_list</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s">&quot;suite&quot;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s">&quot;+&quot;</span><span class="p">,</span>
+                             <span class="n">help</span><span class="o">=</span><span class="s">&quot;Specify test suite(s) to run.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">have_vis</span><span class="p">():</span>
+        <span class="n">parser_vis</span> <span class="o">=</span> <span class="n">subparsers</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span>
+            <span class="s">&#39;vis&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Open the Autopilot visualiser tool&quot;</span><span class="p">)</span>
+        <span class="n">parser_vis</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+            <span class="s">&#39;-v&#39;</span><span class="p">,</span> <span class="s">&#39;--verbose&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;count&#39;</span><span class="p">,</span>
+            <span class="n">help</span><span class="o">=</span><span class="s">&quot;Show autopilot log messages. Set twice to also log data &quot;</span>
+            <span class="s">&quot;useful for debugging autopilot itself.&quot;</span><span class="p">)</span>
+
+    <span class="n">parser_launch</span> <span class="o">=</span> <span class="n">subparsers</span><span class="o">.</span><span class="n">add_parser</span><span class="p">(</span>
+        <span class="s">&#39;launch&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&quot;Launch an application with introspection enabled&quot;</span><span class="p">)</span>
+    <span class="n">parser_launch</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s">&#39;-i&#39;</span><span class="p">,</span> <span class="s">&#39;--interface&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">(</span><span class="s">&#39;Gtk&#39;</span><span class="p">,</span> <span class="s">&#39;Qt&#39;</span><span class="p">,</span> <span class="s">&#39;Auto&#39;</span><span class="p">),</span> <span class="n">default</span><span class="o">=</span><span class="s">&#39;Auto&#39;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s">&quot;Specify which introspection interface to load. The default&quot;</span>
+        <span class="s">&quot;(&#39;Auto&#39;) uses ldd to try and detect which interface to load.&quot;</span><span class="p">)</span>
+    <span class="n">parser_launch</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s">&#39;-v&#39;</span><span class="p">,</span> <span class="s">&#39;--verbose&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s">&#39;count&#39;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s">&quot;Show autopilot log messages. Set twice to also log data useful &quot;</span>
+        <span class="s">&quot;for debugging autopilot itself.&quot;</span><span class="p">)</span>
+    <span class="n">parser_launch</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s">&#39;application&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="n">_OneOrMoreArgumentStoreAction</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+        <span class="n">nargs</span><span class="o">=</span><span class="n">REMAINDER</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s">&quot;The application to launch. Can be a full path, or just an &quot;</span>
+        <span class="s">&quot;application name (in which case Autopilot will search for it in &quot;</span>
+        <span class="s">&quot;$PATH).&quot;</span><span class="p">)</span>
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">argv</span><span class="p">)</span>
+
+    <span class="c"># TR - 2013-11-27 - a bug in python3.3 means argparse doesn&#39;t fail</span>
+    <span class="c"># correctly when no commands are specified.</span>
+    <span class="c"># http://bugs.python.org/issue16308</span>
+    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">mode</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;too few arguments&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">args</span>
+
+</div>
+<span class="k">class</span> <span class="nc">_OneOrMoreArgumentStoreAction</span><span class="p">(</span><span class="n">Action</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>  <span class="n">parser</span><span class="p">,</span> <span class="n">namespace</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">option_string</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">values</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">parser</span><span class="o">.</span><span class="n">error</span><span class="p">(</span>
+                <span class="s">&quot;Must specify at least one argument to the &#39;launch&#39; command&quot;</span><span class="p">)</span>
+        <span class="nb">setattr</span><span class="p">(</span><span class="n">namespace</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dest</span><span class="p">,</span> <span class="n">values</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="have_vis"><a class="viewcode-back" href="../api/autopilot.html#autopilot.have_vis">[docs]</a><span class="k">def</span> <span class="nf">have_vis</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return true if the vis package is installed.&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">autopilot.vis</span> <span class="kn">import</span> <span class="n">vis_main</span>  <span class="c"># flake8: noqa</span>
+        <span class="k">return</span> <span class="bp">True</span>
+    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">False</span>
+
+</div>
+<div class="viewcode-block" id="get_version_string"><a class="viewcode-back" href="../api/autopilot.html#autopilot.get_version_string">[docs]</a><span class="k">def</span> <span class="nf">get_version_string</span><span class="p">():</span>
+    <span class="n">version_string</span> <span class="o">=</span> <span class="s">&quot;Autopilot Source Version: &quot;</span> <span class="o">+</span> <span class="n">_get_source_version</span><span class="p">()</span>
+    <span class="n">pkg_version</span> <span class="o">=</span> <span class="n">_get_package_version</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">pkg_version</span><span class="p">:</span>
+        <span class="n">version_string</span> <span class="o">+=</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">Autopilot Package Version: &quot;</span> <span class="o">+</span> <span class="n">pkg_version</span>
+    <span class="k">return</span> <span class="n">version_string</span>
+
+</div>
+<span class="k">def</span> <span class="nf">_get_source_version</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">version</span>
+
+
+<span class="k">def</span> <span class="nf">_get_package_version</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Get the version of the currently installed package version, or None.</span>
+
+<span class="sd">    Only returns the package version if the package is installed, *and* we seem</span>
+<span class="sd">    to be running the system-wide installed code.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">_running_in_system</span><span class="p">():</span>
+        <span class="k">return</span> <span class="n">_get_package_installed_version</span><span class="p">()</span>
+    <span class="k">return</span> <span class="bp">None</span>
+
+
+<span class="k">def</span> <span class="nf">_running_in_system</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Return True if we&#39;re running autopilot from the system installation</span>
+<span class="sd">    dir.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">__file__</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;/usr/&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_get_package_installed_version</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Get the version string of the system-wide installed package, or None if</span>
+<span class="sd">    it is not installed.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="s">&quot;dpkg-query&quot;</span><span class="p">,</span>
+                <span class="s">&quot;--showformat&quot;</span><span class="p">,</span>
+                <span class="s">&quot;${Version}&quot;</span><span class="p">,</span>
+                <span class="s">&quot;--show&quot;</span><span class="p">,</span>
+                <span class="s">&quot;python-autopilot&quot;</span><span class="p">,</span>
+            <span class="p">],</span>
+            <span class="n">universal_newlines</span><span class="o">=</span><span class="bp">True</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">None</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/otto-64.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://developer.ubuntu.com/api/devel/ubuntu-14.04/autopilot/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="../index.html">Autopilot 1.4+14.04.20140213-0 documentation</a> &raquo;</li>
+          <li><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/autopilot/_modules/index.html" >Module code</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      <div class=center_text>
+        <a href="../faq/contribute.html">Learn how you can contribute!</a> / <a href="https://bugs.launchpad.net/autopilot/+filebug">File a bug</a>
+     <br/>
+      </div>
+        &copy; Copyright 2012-2013, Canonical.
+    </div>
+
+
+  </body>
+</html>

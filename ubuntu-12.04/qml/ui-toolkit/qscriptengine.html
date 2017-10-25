@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qscriptengine.html -->
+  <title>UbuntuUserInterfaceToolkit 0.1: QScriptEngine Class</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="all-modules.html">Modules</a></li>
+<li>qtscript</li>
+<li>QScriptEngine</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qscriptengine.html#public-types">Public Types</a></li>
+<li class="level1"><a href="qscriptengine.html#public-functions">Public Functions</a></li>
+<li class="level1"><a href="qscriptengine.html#signals">Signals</a></li>
+<li class="level1"><a href="qscriptengine.html#static-public-members">Static Public Members</a></li>
+<li class="level1"><a href="qscriptengine.html#related-non-members">Related Non-Members</a></li>
+<li class="level1"><a href="qscriptengine.html#macros">Macros</a></li>
+<li class="level1"><a href="qscriptengine.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">QScriptEngine Class</h1>
+<p><b>Note:</b> All functions in this class are reentrant.</p>
+<p>This class was introduced in UbuntuUserInterfaceToolkit 4.3.</p>
+<ul>
+<li><a href="qscriptengine-members.html">List of all members, including inherited members</a></li>
+<li><a href="qscriptengine-obsolete.html">Obsolete members</a></li>
+<li><a href="qscriptengine-compat.html">Compatibility members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#FunctionSignature-typedef">FunctionSignature</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#FunctionWithArgSignature-typedef">FunctionWithArgSignature</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#QObjectWrapOption-enum">QObjectWrapOption</a></b> { ExcludeChildObjects, ExcludeSuperClassMethods, ExcludeSuperClassProperties, ExcludeSuperClassContents, ..., PreferExistingWrapperObject }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#QObjectWrapOptions-typedef">QObjectWrapOptions</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#ValueOwnership-enum">ValueOwnership</a></b> { QtOwnership, ScriptOwnership, AutoOwnership }</td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#QScriptEngine">QScriptEngine</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#QScriptEngine-2">QScriptEngine</a></b>(QObject *<i> parent</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#dtor.QScriptEngine">~QScriptEngine</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#abortEvaluation">abortEvaluation</a></b>(const QScriptValue &amp;<i> result</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#agent">agent</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#availableExtensions">availableExtensions</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#clearExceptions">clearExceptions</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#collectGarbage">collectGarbage</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#currentContext">currentContext</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#defaultPrototype">defaultPrototype</a></b>(int<i> metaTypeId</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#evaluate">evaluate</a></b>(const QString &amp;<i> program</i>, const QString &amp;<i> fileName</i>, int<i> lineNumber</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#evaluate-2">evaluate</a></b>(const QScriptProgram &amp;<i> program</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#fromScriptValue">fromScriptValue</a></b>(const QScriptValue &amp;<i> value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#globalObject">globalObject</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#hasUncaughtException">hasUncaughtException</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#importExtension">importExtension</a></b>(const QString &amp;<i> extension</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#importedExtensions">importedExtensions</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#installTranslatorFunctions">installTranslatorFunctions</a></b>(const QScriptValue &amp;<i> object</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#isEvaluating">isEvaluating</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#newArray">newArray</a></b>(uint<i> length</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#newDate">newDate</a></b>(qsreal<i> value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#newDate-2">newDate</a></b>(const QDateTime &amp;<i> value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#newFunction">newFunction</a></b>(FunctionSignature<i> fun</i>, int<i> length</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#newFunction-2">newFunction</a></b>(FunctionSignature<i> fun</i>, const QScriptValue &amp;<i> prototype</i>, int<i> length</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#newObject">newObject</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#newObject-2">newObject</a></b>(QScriptClass *<i> scriptClass</i>, const QScriptValue &amp;<i> data</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#newQMetaObject">newQMetaObject</a></b>(const QMetaObject *<i> metaObject</i>, const QScriptValue &amp;<i> ctor</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#newQObject">newQObject</a></b>(QObject *<i> object</i>, ValueOwnership<i> ownership</i>, const QObjectWrapOptions &amp;<i> options</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#newQObject-2">newQObject</a></b>(const QScriptValue &amp;<i> scriptObject</i>, QObject *<i> qtObject</i>, ValueOwnership<i> ownership</i>, const QObjectWrapOptions &amp;<i> options</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#newRegExp">newRegExp</a></b>(const QRegExp &amp;<i> regexp</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#newRegExp-2">newRegExp</a></b>(const QString &amp;<i> pattern</i>, const QString &amp;<i> flags</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#newVariant">newVariant</a></b>(const QVariant &amp;<i> value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#newVariant-2">newVariant</a></b>(const QScriptValue &amp;<i> object</i>, const QVariant &amp;<i> value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#nullValue">nullValue</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#popContext">popContext</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#processEventsInterval">processEventsInterval</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#pushContext">pushContext</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#reportAdditionalMemoryCost">reportAdditionalMemoryCost</a></b>(int<i> size</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#scriptValueFromQMetaObject">scriptValueFromQMetaObject</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#setAgent">setAgent</a></b>(QScriptEngineAgent *<i> agent</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#setDefaultPrototype">setDefaultPrototype</a></b>(int<i> metaTypeId</i>, const QScriptValue &amp;<i> prototype</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#setGlobalObject">setGlobalObject</a></b>(const QScriptValue &amp;<i> object</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#setProcessEventsInterval">setProcessEventsInterval</a></b>(int<i> interval</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#toObject">toObject</a></b>(const QScriptValue &amp;<i> value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#toScriptValue">toScriptValue</a></b>(const T &amp;<i> value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#toStringHandle">toStringHandle</a></b>(const QString &amp;<i> str</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#uncaughtException">uncaughtException</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#uncaughtExceptionBacktrace">uncaughtExceptionBacktrace</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#uncaughtExceptionLineNumber">uncaughtExceptionLineNumber</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#undefinedValue">undefinedValue</a></b>()</td></tr>
+</table>
+<a name="signals"></a>
+<h2>Signals</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#signalHandlerException">signalHandlerException</a></b>(const QScriptValue &amp;<i> exception</i>)</td></tr>
+</table>
+<a name="static-public-members"></a>
+<h2>Static Public Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#checkSyntax">checkSyntax</a></b>(const QString &amp;<i> program</i>)</td></tr>
+</table>
+<a name="related-non-members"></a>
+<h2>Related Non-Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#qScriptConnect">qScriptConnect</a></b>(QObject *<i> sender</i>, const char *<i> signal</i>, const QScriptValue &amp;<i> receiver</i>, const QScriptValue &amp;<i> function</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#qScriptDisconnect">qScriptDisconnect</a></b>(QObject *<i> sender</i>, const char *<i> signal</i>, const QScriptValue &amp;<i> receiver</i>, const QScriptValue &amp;<i> function</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#qScriptRegisterMetaType">qScriptRegisterMetaType</a></b>(QScriptEngine *<i> engine</i>, QScriptValue(* ) ( QScriptEngine *, const T &amp; t )<i> toScriptValue</i>, void(* ) ( const QScriptValue &amp;, T &amp; t )<i> fromScriptValue</i>, const QScriptValue &amp;<i> prototype</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#qScriptRegisterSequenceMetaType">qScriptRegisterSequenceMetaType</a></b>(QScriptEngine *<i> engine</i>, const QScriptValue &amp;<i> prototype</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#qScriptValueFromSequence">qScriptValueFromSequence</a></b>(QScriptEngine *<i> engine</i>, const Container &amp;<i> container</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#qScriptValueToSequence">qScriptValueToSequence</a></b>(const QScriptValue &amp;<i> value</i>, Container &amp;<i> container</i>)</td></tr>
+</table>
+<a name="macros"></a>
+<h2>Macros</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengine.html#Q_SCRIPT_DECLARE_QMETAOBJECT">Q_SCRIPT_DECLARE_QMETAOBJECT</a></b>(<i> QMetaObject</i>, <i> ArgType</i>)</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QScriptEngine-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+</div>
+<!-- @@@QScriptEngine -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$FunctionSignature -->
+<h3 class="fn"><a name="FunctionSignature-typedef"></a>typedef QScriptEngine::<span class="name">FunctionSignature</span></h3>
+<!-- @@@FunctionSignature -->
+<!-- $$$FunctionWithArgSignature -->
+<h3 class="fn"><a name="FunctionWithArgSignature-typedef"></a>typedef QScriptEngine::<span class="name">FunctionWithArgSignature</span></h3>
+<!-- @@@FunctionWithArgSignature -->
+<!-- $$$QObjectWrapOption$$$ExcludeChildObjects$$$ExcludeSuperClassMethods$$$ExcludeSuperClassProperties$$$ExcludeSuperClassContents$$$SkipMethodsInEnumeration$$$ExcludeDeleteLater$$$ExcludeSlots$$$AutoCreateDynamicProperties$$$PreferExistingWrapperObject -->
+<h3 class="fn"><a name="QObjectWrapOption-enum"></a>enum QScriptEngine::<span class="name">QObjectWrapOption</span></h3>
+<!-- @@@QObjectWrapOption -->
+<!-- $$$QObjectWrapOptions -->
+<h3 class="fn"><a name="QObjectWrapOptions-typedef"></a>typedef QScriptEngine::<span class="name">QObjectWrapOptions</span></h3>
+<!-- @@@QObjectWrapOptions -->
+<!-- $$$ValueOwnership$$$QtOwnership$$$ScriptOwnership$$$AutoOwnership -->
+<h3 class="fn"><a name="ValueOwnership-enum"></a>enum QScriptEngine::<span class="name">ValueOwnership</span></h3>
+<!-- @@@ValueOwnership -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QScriptEngine[overload1]$$$QScriptEngine -->
+<h3 class="fn"><a name="QScriptEngine"></a>QScriptEngine::<span class="name">QScriptEngine</span>()</h3>
+<!-- @@@QScriptEngine -->
+<!-- $$$QScriptEngine$$$QScriptEngineQObject* -->
+<h3 class="fn"><a name="QScriptEngine-2"></a>QScriptEngine::<span class="name">QScriptEngine</span>(<span class="type">QObject</span> *<i> parent</i>)</h3>
+<!-- @@@QScriptEngine -->
+<!-- $$$~QScriptEngine[overload1]$$$~QScriptEngine -->
+<h3 class="fn"><a name="dtor.QScriptEngine"></a>QScriptEngine::<span class="name">~QScriptEngine</span>()<tt> [virtual]</tt></h3>
+<!-- @@@~QScriptEngine -->
+<!-- $$$abortEvaluation[overload1]$$$abortEvaluationconstQScriptValue& -->
+<h3 class="fn"><a name="abortEvaluation"></a>QScriptEngine::<span class="name">abortEvaluation</span>(const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> result</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<!-- @@@abortEvaluation -->
+<!-- $$$agent[overload1]$$$agent -->
+<h3 class="fn"><a name="agent"></a>QScriptEngine::<span class="name">agent</span>() const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<p><b>See also </b><a href="qscriptengine.html#setAgent">setAgent</a>().</p>
+<!-- @@@agent -->
+<!-- $$$availableExtensions[overload1]$$$availableExtensions -->
+<h3 class="fn"><a name="availableExtensions"></a>QScriptEngine::<span class="name">availableExtensions</span>() const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<!-- @@@availableExtensions -->
+<!-- $$$checkSyntax[overload1]$$$checkSyntaxconstQString& -->
+<h3 class="fn"><a name="checkSyntax"></a>QScriptEngine::<span class="name">checkSyntax</span>(const <span class="type">QString</span> &amp;<i> program</i>)<tt> [static]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@checkSyntax -->
+<!-- $$$clearExceptions[overload1]$$$clearExceptions -->
+<h3 class="fn"><a name="clearExceptions"></a>QScriptEngine::<span class="name">clearExceptions</span>()</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<!-- @@@clearExceptions -->
+<!-- $$$collectGarbage[overload1]$$$collectGarbage -->
+<h3 class="fn"><a name="collectGarbage"></a>QScriptEngine::<span class="name">collectGarbage</span>()</h3>
+<!-- @@@collectGarbage -->
+<!-- $$$currentContext[overload1]$$$currentContext -->
+<h3 class="fn"><a name="currentContext"></a>QScriptEngine::<span class="name">currentContext</span>() const</h3>
+<!-- @@@currentContext -->
+<!-- $$$defaultPrototype[overload1]$$$defaultPrototypeint -->
+<h3 class="fn"><a name="defaultPrototype"></a>QScriptEngine::<span class="name">defaultPrototype</span>(<span class="type">int</span><i> metaTypeId</i>) const</h3>
+<p><b>See also </b><a href="qscriptengine.html#setDefaultPrototype">setDefaultPrototype</a>().</p>
+<!-- @@@defaultPrototype -->
+<!-- $$$evaluate[overload1]$$$evaluateconstQString&constQString&int -->
+<h3 class="fn"><a name="evaluate"></a>QScriptEngine::<span class="name">evaluate</span>(const <span class="type">QString</span> &amp;<i> program</i>, const <span class="type">QString</span> &amp;<i> fileName</i>, <span class="type">int</span><i> lineNumber</i>)</h3>
+<!-- @@@evaluate -->
+<!-- $$$evaluate$$$evaluateconstQScriptProgram& -->
+<h3 class="fn"><a name="evaluate-2"></a>QScriptEngine::<span class="name">evaluate</span>(const <span class="type"><a href="qscriptprogram.html">QScriptProgram</a></span> &amp;<i> program</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.7.</p>
+<!-- @@@evaluate -->
+<!-- $$$fromScriptValue[overload1]$$$fromScriptValueconstQScriptValue& -->
+<h3 class="fn"><a name="fromScriptValue"></a>QScriptEngine::<span class="name">fromScriptValue</span>(const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> value</i>)</h3>
+<!-- @@@fromScriptValue -->
+<!-- $$$globalObject[overload1]$$$globalObject -->
+<h3 class="fn"><a name="globalObject"></a>QScriptEngine::<span class="name">globalObject</span>() const</h3>
+<p><b>See also </b><a href="qscriptengine.html#setGlobalObject">setGlobalObject</a>().</p>
+<!-- @@@globalObject -->
+<!-- $$$hasUncaughtException[overload1]$$$hasUncaughtException -->
+<h3 class="fn"><a name="hasUncaughtException"></a>QScriptEngine::<span class="name">hasUncaughtException</span>() const</h3>
+<!-- @@@hasUncaughtException -->
+<!-- $$$importExtension[overload1]$$$importExtensionconstQString& -->
+<h3 class="fn"><a name="importExtension"></a>QScriptEngine::<span class="name">importExtension</span>(const <span class="type">QString</span> &amp;<i> extension</i>)</h3>
+<!-- @@@importExtension -->
+<!-- $$$importedExtensions[overload1]$$$importedExtensions -->
+<h3 class="fn"><a name="importedExtensions"></a>QScriptEngine::<span class="name">importedExtensions</span>() const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<!-- @@@importedExtensions -->
+<!-- $$$installTranslatorFunctions[overload1]$$$installTranslatorFunctionsconstQScriptValue& -->
+<h3 class="fn"><a name="installTranslatorFunctions"></a>QScriptEngine::<span class="name">installTranslatorFunctions</span>(const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> object</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@installTranslatorFunctions -->
+<!-- $$$isEvaluating[overload1]$$$isEvaluating -->
+<h3 class="fn"><a name="isEvaluating"></a>QScriptEngine::<span class="name">isEvaluating</span>() const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<!-- @@@isEvaluating -->
+<!-- $$$newArray[overload1]$$$newArrayuint -->
+<h3 class="fn"><a name="newArray"></a>QScriptEngine::<span class="name">newArray</span>(<span class="type">uint</span><i> length</i>)</h3>
+<!-- @@@newArray -->
+<!-- $$$newDate[overload1]$$$newDateqsreal -->
+<h3 class="fn"><a name="newDate"></a>QScriptEngine::<span class="name">newDate</span>(<span class="type">qsreal</span><i> value</i>)</h3>
+<!-- @@@newDate -->
+<!-- $$$newDate$$$newDateconstQDateTime& -->
+<h3 class="fn"><a name="newDate-2"></a>QScriptEngine::<span class="name">newDate</span>(const <span class="type">QDateTime</span> &amp;<i> value</i>)</h3>
+<!-- @@@newDate -->
+<!-- $$$newFunction[overload1]$$$newFunctionFunctionSignatureint -->
+<h3 class="fn"><a name="newFunction"></a>QScriptEngine::<span class="name">newFunction</span>(<span class="type"><a href="qscriptengine.html#FunctionSignature-typedef">FunctionSignature</a></span><i> fun</i>, <span class="type">int</span><i> length</i>)</h3>
+<!-- @@@newFunction -->
+<!-- $$$newFunction$$$newFunctionFunctionSignatureconstQScriptValue&int -->
+<h3 class="fn"><a name="newFunction-2"></a>QScriptEngine::<span class="name">newFunction</span>(<span class="type"><a href="qscriptengine.html#FunctionSignature-typedef">FunctionSignature</a></span><i> fun</i>, const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> prototype</i>, <span class="type">int</span><i> length</i>)</h3>
+<!-- @@@newFunction -->
+<!-- $$$newObject[overload1]$$$newObject -->
+<h3 class="fn"><a name="newObject"></a>QScriptEngine::<span class="name">newObject</span>()</h3>
+<!-- @@@newObject -->
+<!-- $$$newObject$$$newObjectQScriptClass*constQScriptValue& -->
+<h3 class="fn"><a name="newObject-2"></a>QScriptEngine::<span class="name">newObject</span>(<span class="type"><a href="qscriptclass.html">QScriptClass</a></span> *<i> scriptClass</i>, const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> data</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<!-- @@@newObject -->
+<!-- $$$newQMetaObject[overload1]$$$newQMetaObjectconstQMetaObject*constQScriptValue& -->
+<h3 class="fn"><a name="newQMetaObject"></a>QScriptEngine::<span class="name">newQMetaObject</span>(const <span class="type">QMetaObject</span> *<i> metaObject</i>, const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> ctor</i>)</h3>
+<!-- @@@newQMetaObject -->
+<!-- $$$newQObject[overload1]$$$newQObjectQObject*ValueOwnershipconstQObjectWrapOptions& -->
+<h3 class="fn"><a name="newQObject"></a>QScriptEngine::<span class="name">newQObject</span>(<span class="type">QObject</span> *<i> object</i>, <span class="type"><a href="qscriptengine.html#ValueOwnership-enum">ValueOwnership</a></span><i> ownership</i>, const <span class="type"><a href="qscriptengine.html#QObjectWrapOptions-typedef">QObjectWrapOptions</a></span> &amp;<i> options</i>)</h3>
+<!-- @@@newQObject -->
+<!-- $$$newQObject$$$newQObjectconstQScriptValue&QObject*ValueOwnershipconstQObjectWrapOptions& -->
+<h3 class="fn"><a name="newQObject-2"></a>QScriptEngine::<span class="name">newQObject</span>(const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> scriptObject</i>, <span class="type">QObject</span> *<i> qtObject</i>, <span class="type"><a href="qscriptengine.html#ValueOwnership-enum">ValueOwnership</a></span><i> ownership</i>, const <span class="type"><a href="qscriptengine.html#QObjectWrapOptions-typedef">QObjectWrapOptions</a></span> &amp;<i> options</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<!-- @@@newQObject -->
+<!-- $$$newRegExp[overload1]$$$newRegExpconstQRegExp& -->
+<h3 class="fn"><a name="newRegExp"></a>QScriptEngine::<span class="name">newRegExp</span>(const <span class="type">QRegExp</span> &amp;<i> regexp</i>)</h3>
+<!-- @@@newRegExp -->
+<!-- $$$newRegExp$$$newRegExpconstQString&constQString& -->
+<h3 class="fn"><a name="newRegExp-2"></a>QScriptEngine::<span class="name">newRegExp</span>(const <span class="type">QString</span> &amp;<i> pattern</i>, const <span class="type">QString</span> &amp;<i> flags</i>)</h3>
+<!-- @@@newRegExp -->
+<!-- $$$newVariant[overload1]$$$newVariantconstQVariant& -->
+<h3 class="fn"><a name="newVariant"></a>QScriptEngine::<span class="name">newVariant</span>(const <span class="type">QVariant</span> &amp;<i> value</i>)</h3>
+<!-- @@@newVariant -->
+<!-- $$$newVariant$$$newVariantconstQScriptValue&constQVariant& -->
+<h3 class="fn"><a name="newVariant-2"></a>QScriptEngine::<span class="name">newVariant</span>(const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> object</i>, const <span class="type">QVariant</span> &amp;<i> value</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<!-- @@@newVariant -->
+<!-- $$$nullValue[overload1]$$$nullValue -->
+<h3 class="fn"><a name="nullValue"></a>QScriptEngine::<span class="name">nullValue</span>()</h3>
+<!-- @@@nullValue -->
+<!-- $$$popContext[overload1]$$$popContext -->
+<h3 class="fn"><a name="popContext"></a>QScriptEngine::<span class="name">popContext</span>()</h3>
+<!-- @@@popContext -->
+<!-- $$$processEventsInterval[overload1]$$$processEventsInterval -->
+<h3 class="fn"><a name="processEventsInterval"></a>QScriptEngine::<span class="name">processEventsInterval</span>() const</h3>
+<p><b>See also </b><a href="qscriptengine.html#setProcessEventsInterval">setProcessEventsInterval</a>().</p>
+<!-- @@@processEventsInterval -->
+<!-- $$$pushContext[overload1]$$$pushContext -->
+<h3 class="fn"><a name="pushContext"></a>QScriptEngine::<span class="name">pushContext</span>()</h3>
+<!-- @@@pushContext -->
+<!-- $$$reportAdditionalMemoryCost[overload1]$$$reportAdditionalMemoryCostint -->
+<h3 class="fn"><a name="reportAdditionalMemoryCost"></a>QScriptEngine::<span class="name">reportAdditionalMemoryCost</span>(<span class="type">int</span><i> size</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.7.</p>
+<!-- @@@reportAdditionalMemoryCost -->
+<!-- $$$scriptValueFromQMetaObject[overload1]$$$scriptValueFromQMetaObject -->
+<h3 class="fn"><a name="scriptValueFromQMetaObject"></a>QScriptEngine::<span class="name">scriptValueFromQMetaObject</span>()</h3>
+<!-- @@@scriptValueFromQMetaObject -->
+<!-- $$$setAgent[overload1]$$$setAgentQScriptEngineAgent* -->
+<h3 class="fn"><a name="setAgent"></a>QScriptEngine::<span class="name">setAgent</span>(<span class="type"><a href="qscriptengineagent.html">QScriptEngineAgent</a></span> *<i> agent</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<p><b>See also </b><a href="qscriptengine.html#agent">agent</a>().</p>
+<!-- @@@setAgent -->
+<!-- $$$setDefaultPrototype[overload1]$$$setDefaultPrototypeintconstQScriptValue& -->
+<h3 class="fn"><a name="setDefaultPrototype"></a>QScriptEngine::<span class="name">setDefaultPrototype</span>(<span class="type">int</span><i> metaTypeId</i>, const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> prototype</i>)</h3>
+<p><b>See also </b><a href="qscriptengine.html#defaultPrototype">defaultPrototype</a>().</p>
+<!-- @@@setDefaultPrototype -->
+<!-- $$$setGlobalObject[overload1]$$$setGlobalObjectconstQScriptValue& -->
+<h3 class="fn"><a name="setGlobalObject"></a>QScriptEngine::<span class="name">setGlobalObject</span>(const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> object</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<p><b>See also </b><a href="qscriptengine.html#globalObject">globalObject</a>().</p>
+<!-- @@@setGlobalObject -->
+<!-- $$$setProcessEventsInterval[overload1]$$$setProcessEventsIntervalint -->
+<h3 class="fn"><a name="setProcessEventsInterval"></a>QScriptEngine::<span class="name">setProcessEventsInterval</span>(<span class="type">int</span><i> interval</i>)</h3>
+<p><b>See also </b><a href="qscriptengine.html#processEventsInterval">processEventsInterval</a>().</p>
+<!-- @@@setProcessEventsInterval -->
+<!-- $$$signalHandlerException[overload1]$$$signalHandlerExceptionconstQScriptValue& -->
+<h3 class="fn"><a name="signalHandlerException"></a>QScriptEngine::<span class="name">signalHandlerException</span>(const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> exception</i>)<tt> [signal]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<!-- @@@signalHandlerException -->
+<!-- $$$toObject[overload1]$$$toObjectconstQScriptValue& -->
+<h3 class="fn"><a name="toObject"></a>QScriptEngine::<span class="name">toObject</span>(const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> value</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@toObject -->
+<!-- $$$toScriptValue[overload1]$$$toScriptValueconstT& -->
+<h3 class="fn"><a name="toScriptValue"></a>QScriptEngine::<span class="name">toScriptValue</span>(const <span class="type">T</span> &amp;<i> value</i>)</h3>
+<!-- @@@toScriptValue -->
+<!-- $$$toStringHandle[overload1]$$$toStringHandleconstQString& -->
+<h3 class="fn"><a name="toStringHandle"></a>QScriptEngine::<span class="name">toStringHandle</span>(const <span class="type">QString</span> &amp;<i> str</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<!-- @@@toStringHandle -->
+<!-- $$$uncaughtException[overload1]$$$uncaughtException -->
+<h3 class="fn"><a name="uncaughtException"></a>QScriptEngine::<span class="name">uncaughtException</span>() const</h3>
+<!-- @@@uncaughtException -->
+<!-- $$$uncaughtExceptionBacktrace[overload1]$$$uncaughtExceptionBacktrace -->
+<h3 class="fn"><a name="uncaughtExceptionBacktrace"></a>QScriptEngine::<span class="name">uncaughtExceptionBacktrace</span>() const</h3>
+<!-- @@@uncaughtExceptionBacktrace -->
+<!-- $$$uncaughtExceptionLineNumber[overload1]$$$uncaughtExceptionLineNumber -->
+<h3 class="fn"><a name="uncaughtExceptionLineNumber"></a>QScriptEngine::<span class="name">uncaughtExceptionLineNumber</span>() const</h3>
+<!-- @@@uncaughtExceptionLineNumber -->
+<!-- $$$undefinedValue[overload1]$$$undefinedValue -->
+<h3 class="fn"><a name="undefinedValue"></a>QScriptEngine::<span class="name">undefinedValue</span>()</h3>
+<!-- @@@undefinedValue -->
+</div>
+<div class="relnonmem">
+<h2>Related Non-Members</h2>
+<!-- $$$qScriptConnect[overload1]$$$qScriptConnectQObject*constchar*constQScriptValue&constQScriptValue& -->
+<h3 class="fn"><a name="qScriptConnect"></a><span class="name">qScriptConnect</span>(<span class="type">QObject</span> *<i> sender</i>, const <span class="type">char</span> *<i> signal</i>, const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> receiver</i>, const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> function</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<!-- @@@qScriptConnect -->
+<!-- $$$qScriptDisconnect[overload1]$$$qScriptDisconnectQObject*constchar*constQScriptValue&constQScriptValue& -->
+<h3 class="fn"><a name="qScriptDisconnect"></a><span class="name">qScriptDisconnect</span>(<span class="type">QObject</span> *<i> sender</i>, const <span class="type">char</span> *<i> signal</i>, const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> receiver</i>, const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> function</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<!-- @@@qScriptDisconnect -->
+<!-- $$$qScriptRegisterMetaType[overload1]$$$qScriptRegisterMetaTypeQScriptEngine*QScriptValue(*)(QScriptEngine*,constT&t)void(*)(constQScriptValue&,T&t)constQScriptValue& -->
+<h3 class="fn"><a name="qScriptRegisterMetaType"></a><span class="name">qScriptRegisterMetaType</span>(<span class="type">QScriptEngine</span> *<i> engine</i>, <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span>(* ) ( <span class="type">QScriptEngine</span> *, const <span class="type">T</span> &amp; <span class="type">t</span> )<i> toScriptValue</i>, <span class="type">void</span>(* ) ( const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;, <span class="type">T</span> &amp; <span class="type">t</span> )<i> fromScriptValue</i>, const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> prototype</i>)</h3>
+<!-- @@@qScriptRegisterMetaType -->
+<!-- $$$qScriptRegisterSequenceMetaType[overload1]$$$qScriptRegisterSequenceMetaTypeQScriptEngine*constQScriptValue& -->
+<h3 class="fn"><a name="qScriptRegisterSequenceMetaType"></a><span class="name">qScriptRegisterSequenceMetaType</span>(<span class="type">QScriptEngine</span> *<i> engine</i>, const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> prototype</i>)</h3>
+<!-- @@@qScriptRegisterSequenceMetaType -->
+<!-- $$$qScriptValueFromSequence[overload1]$$$qScriptValueFromSequenceQScriptEngine*constContainer& -->
+<h3 class="fn"><a name="qScriptValueFromSequence"></a><span class="name">qScriptValueFromSequence</span>(<span class="type">QScriptEngine</span> *<i> engine</i>, const <span class="type">Container</span> &amp;<i> container</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.3.</p>
+<!-- @@@qScriptValueFromSequence -->
+<!-- $$$qScriptValueToSequence[overload1]$$$qScriptValueToSequenceconstQScriptValue&Container& -->
+<h3 class="fn"><a name="qScriptValueToSequence"></a><span class="name">qScriptValueToSequence</span>(const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> value</i>, <span class="type">Container</span> &amp;<i> container</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.3.</p>
+<!-- @@@qScriptValueToSequence -->
+</div>
+<div class="macros">
+<h2>Macro Documentation</h2>
+<!-- $$$Q_SCRIPT_DECLARE_QMETAOBJECT[overload1]$$$Q_SCRIPT_DECLARE_QMETAOBJECT -->
+<h3 class="fn"><a name="Q_SCRIPT_DECLARE_QMETAOBJECT"></a><span class="name">Q_SCRIPT_DECLARE_QMETAOBJECT</span>(<i> QMetaObject</i>, <i> ArgType</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.3.</p>
+<!-- @@@Q_SCRIPT_DECLARE_QMETAOBJECT -->
+</div>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Input Devices</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="libgrip Reference Manual">
+<link rel="up" href="libgrip-api.html" title="Programming Interface">
+<link rel="prev" href="libgrip-Gesture-Events.html" title="Gesture Events">
+<link rel="next" href="object-tree.html" title="Object Hierarchy">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libgrip-Gesture-Events.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libgrip-api.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libgrip Reference Manual</th>
+<td><a accesskey="n" href="object-tree.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="libgrip-Input-Devices.html#libgrip-Input-Devices.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="libgrip-Input-Devices.html#libgrip-Input-Devices.description" class="shortcut">Description</a>
+                   | 
+                  <a href="libgrip-Input-Devices.html#libgrip-Input-Devices.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="libgrip-Input-Devices.html#libgrip-Input-Devices.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libgrip-Input-Devices"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libgrip-Input-Devices.top_of_page"></a>Input Devices</span></h2>
+<p>Input Devices</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libgrip-Input-Devices.synopsis"></a><h2>Synopsis</h2>
+<a name="GripInputDevice"></a><pre class="synopsis">                    <a class="link" href="libgrip-Input-Devices.html#GripInputDevice-struct" title="GripInputDevice">GripInputDevice</a>;
+                    <a class="link" href="libgrip-Input-Devices.html#GripInputDeviceClass" title="GripInputDeviceClass">GripInputDeviceClass</a>;
+
+
+<span class="returnvalue">guint</span>               <a class="link" href="libgrip-Input-Devices.html#grip-input-device-get-id" title="grip_input_device_get_id ()">grip_input_device_get_id</a>            (<em class="parameter"><code><a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> *input_device</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="libgrip-Input-Devices.html#grip-input-device-get-name" title="grip_input_device_get_name ()">grip_input_device_get_name</a>          (<em class="parameter"><code><a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> *input_device</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libgrip-Input-Devices.html#grip-input-device-is-direct" title="grip_input_device_is_direct ()">grip_input_device_is_direct</a>         (<em class="parameter"><code><a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> *input_device</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libgrip-Input-Devices.html#grip-input-device-is-independent" title="grip_input_device_is_independent ()">grip_input_device_is_independent</a>    (<em class="parameter"><code><a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> *input_device</code></em>);
+const <span class="returnvalue">GripAxisExtents</span> * <a class="link" href="libgrip-Input-Devices.html#grip-input-device-get-x-extents" title="grip_input_device_get_x_extents ()">grip_input_device_get_x_extents</a> (<em class="parameter"><code><a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> *input_device</code></em>);
+const <span class="returnvalue">GripAxisExtents</span> * <a class="link" href="libgrip-Input-Devices.html#grip-input-device-get-y-extents" title="grip_input_device_get_y_extents ()">grip_input_device_get_y_extents</a> (<em class="parameter"><code><a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> *input_device</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libgrip-Input-Devices.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----GripInputDevice
+</pre>
+</div>
+<div class="refsect1">
+<a name="libgrip-Input-Devices.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="libgrip-Input-Devices.html#GripInputDevice--device-attrs" title='The "device-attrs" property'>device-attrs</a>"             <span class="type">gpointer</span>              : Write / Construct Only
+  "<a class="link" href="libgrip-Input-Devices.html#GripInputDevice--geis-device" title='The "geis-device" property'>geis-device</a>"              <span class="type">gpointer</span>              : Write / Construct Only
+</pre>
+</div>
+<div class="refsect1">
+<a name="libgrip-Input-Devices.description"></a><h2>Description</h2>
+<p>
+The Grip input device represents input devices known to the uTouch gesture
+recognition stack.
+</p>
+</div>
+<div class="refsect1">
+<a name="libgrip-Input-Devices.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GripInputDevice-struct"></a><h3>GripInputDevice</h3>
+<pre class="programlisting">typedef struct _GripInputDevice GripInputDevice;</pre>
+<p>
+This struct contains private data only, and should be accessed using the
+functions below.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GripInputDeviceClass"></a><h3>GripInputDeviceClass</h3>
+<pre class="programlisting">typedef struct {
+        GObjectClass parent_class;
+} GripInputDeviceClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grip-input-device-get-id"></a><h3>grip_input_device_get_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               grip_input_device_get_id            (<em class="parameter"><code><a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> *input_device</code></em>);</pre>
+<p>
+Gets the internal identifier of the input device.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>input_device</code></em> :</span></p></td>
+<td>A <a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a>. <span class="annotation">[<acronym title="Parameter for input. Default is transfer none."><span class="acronym">in</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the internal identifier of the input device</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grip-input-device-get-name"></a><h3>grip_input_device_get_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       grip_input_device_get_name          (<em class="parameter"><code><a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> *input_device</code></em>);</pre>
+<p>
+Gets the name of the input device, as retrieved from the device itself.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>input_device</code></em> :</span></p></td>
+<td>A <a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a>. <span class="annotation">[<acronym title="Parameter for input. Default is transfer none."><span class="acronym">in</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the seld-described name of the input device.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grip-input-device-is-direct"></a><h3>grip_input_device_is_direct ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            grip_input_device_is_direct         (<em class="parameter"><code><a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> *input_device</code></em>);</pre>
+<p>
+Indicates if the input device is a direct input device (eg. touchscreen) or
+not (eg. touchpad).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>input_device</code></em> :</span></p></td>
+<td>A <a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a>. <span class="annotation">[<acronym title="Parameter for input. Default is transfer none."><span class="acronym">in</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if the input device is an direct device, <code class="literal">FALSE</code>
+otherwsie.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grip-input-device-is-independent"></a><h3>grip_input_device_is_independent ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            grip_input_device_is_independent    (<em class="parameter"><code><a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> *input_device</code></em>);</pre>
+<p>
+Indicates if the input device is an independent input device (for example, an
+Apple MagicMouse).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>input_device</code></em> :</span></p></td>
+<td>A <a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a>. <span class="annotation">[<acronym title="Parameter for input. Default is transfer none."><span class="acronym">in</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if the input device is an independent device, <code class="literal">FALSE</code>
+otherwsie.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grip-input-device-get-x-extents"></a><h3>grip_input_device_get_x_extents ()</h3>
+<pre class="programlisting">const <span class="returnvalue">GripAxisExtents</span> * grip_input_device_get_x_extents (<em class="parameter"><code><a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> *input_device</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>input_device</code></em> :</span></p></td>
+<td>A <a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a>. <span class="annotation">[<acronym title="Parameter for input. Default is transfer none."><span class="acronym">in</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the X-axis extents of the device.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grip-input-device-get-y-extents"></a><h3>grip_input_device_get_y_extents ()</h3>
+<pre class="programlisting">const <span class="returnvalue">GripAxisExtents</span> * grip_input_device_get_y_extents (<em class="parameter"><code><a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> *input_device</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>input_device</code></em> :</span></p></td>
+<td>A <a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a>. <span class="annotation">[<acronym title="Parameter for input. Default is transfer none."><span class="acronym">in</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the Y-axis extents of the device.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="libgrip-Input-Devices.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="GripInputDevice--device-attrs"></a><h3>The <code class="literal">"device-attrs"</code> property</h3>
+<pre class="programlisting">  "device-attrs"             <span class="type">gpointer</span>              : Write / Construct Only</pre>
+<p>
+A list of GEIS v1 device attrs (passed into the device callback) used to
+construct a <a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a>.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GripInputDevice--geis-device"></a><h3>The <code class="literal">"geis-device"</code> property</h3>
+<pre class="programlisting">  "geis-device"              <span class="type">gpointer</span>              : Write / Construct Only</pre>
+<p>
+A GEIS v2 device object used to construct a <a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a>.
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

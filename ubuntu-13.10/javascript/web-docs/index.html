@@ -1,0 +1,256 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+	<title>Unity Web API Documentation</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />
+	<script type="text/javascript" src="sh.js"></script>
+    <script type="text/javascript" src="sh_js.js"></script>
+    <link type="text/css" rel="stylesheet" href="sh.css" />
+</head>
+<body onload="sh_highlightDocument();">
+<div id="fullheader">
+  <div id="headerText">
+    <div id="header">Unity Web API</div>
+    <div id="subheader">v1.0</div>
+  </div>
+</div>
+<div id="maincontent">
+<br/>
+<div class="section"><b>Introduction</b></div>
+<p>
+The Unity Web API is a toolkit for Web applications and pages to integrate with the Ubuntu Desktop. This is a Developer's guide, for user-oriented information about webapps check <a href="http://askubuntu.com/questions/165662/how-do-i-install-and-use-ubuntus-web-application-integration">here</a>. For developers, the Unity Web API provides a collection of ways to increase the presence of your application on the users' Desktop, and expose application interactions through Unity components. Points of integration include a spot on the Unity Launcher, integration with the Messaging and Music menus, and even exposing actions to the new Unity HUD!
+</p>
+<p>
+The Unity Web API is currently available for Ubuntu 12.10 (Quantal Quetzal), in both Firefox and Chromium. For information about installing the Unity Webapps System visit the <a href="https://launchpad.net/~webapps">WebApps team</a> on Launchpad.
+</p>
+<p>
+Continue reading for a 10 minute  quick-start guide to integrating your Web App with Unity. If you have already started and are looking to do more: <a href="unity-web-api-reference.html">reference documentation</a> for the API is available. 
+</p>
+
+<div class="section"><b>Quickstart</b></div>
+<p>
+In order to use the Unity Web API the first step is to identify as an application to Unity. This is done with the <code>Unity.init</code> method:
+</p>
+<pre class="sh_javascript">
+function unityReady() {
+  // Integrate with Unity!
+}
+var Unity = external.getUnityObject(1.0); 
+
+Unity.init({name: "Unity Web Tutorial",
+            iconUrl: "http://www.ubuntu.com/tutorialIcon.png",
+            onInit: unityReady});
+</pre>
+
+<script>
+function initializeUnity() {
+   var Unity = external.getUnityObject(1.0);
+   Unity.init({name: "Unity Web Tutorial",
+   iconUrl: "http://www.ubuntu.com/sites/www.ubuntu.com/files/active/02_ubuntu/U_homepage/picto-desktop.png",
+   onInit: function(){}});
+}
+</script>
+<p>
+If the user has not yet enabled integration for your application the browser will request that the application wishes to integrate with Ubuntu, and call the <code>onInit</code> member of the initialization dictionary if the user accepts. On further calls, onInit will be immediately executed. Using the Unity API before <code>onInit</code> has been invoked will produce no results. You can try <a href="javascript:initializeUnity()">executing this code now</a>.
+</p>
+
+<p>
+Simple, but this already this gets you quite a lot! A space on the Unity launcher and integration with application management features. 
+</p>
+
+<p>
+See the <a href="unity-web-api-reference.html#unityinitmethod">reference documentation</a> for a full listing of parameters to <code>Unity.init</code>
+</p>
+
+<div id="notifications" class="subsection">
+  Notifications
+</div>
+
+<p>
+The notification interface is the simplest Unity API:
+</p>
+
+<pre class="sh_javascript">
+Unity.Notification.showNotification("Attention", "Lorem ipsum dolor sit amet");
+</pre>
+
+<script>
+function notificationExampleOne() {
+  Unity.Notification.showNotification("Attention", "Lorem ipsum dolor sit amet");
+}
+</script>
+
+<p>
+Try <a href="javascript:notificationExampleOne()">executing this now</a>.
+</p>
+
+<p>
+The Notification interface is suitable for displaying transient information in an overlay window. Information presented in notifications should not require a users' input. Furthermore consider the notification as a nicety for the user, it is not recommended for displaying critical information.
+</p>
+
+<p>
+A full description of the Notification interface can be found in the <a href="unity-web-api-reference.html#unity-notification">reference documentation</a>.
+</p>
+
+<div id="mediamenu" class="subsection">
+Media Menu
+</div>
+<p>Integration with the Unity media controls is available for applications which present media to the user, such as sound or video.
+
+<pre class="sh_javascript">
+var trackInfo = {title: "Synchronous Grabs on my Heart",
+                 album: "Love in the Key of Compiz",
+                 artist: "Sam Spilsbury",
+                 artLocation: "http://www.ubuntu.com/exampleCoverArt.svg"}
+Unity.MediaPlayer.setTrack(trackInfo);
+</pre>
+
+<script>
+function musicExampleOne() {
+var trackInfo = {title: "Jamming in the Cloud",
+                 album: "Space Missions",
+                 artist: "Robert Parr",
+                 artLocation: "http://www.ubuntu.com/sites/www.ubuntu.com/files/active/02_ubuntu/U_homepage/picto-cloud.png"};
+Unity.MediaPlayer.setTrack(trackInfo);
+}
+</script>
+
+<p>
+This will allow the user to view metadata about your media through the Unity interface. Try <a href="javascript:musicExampleOne()">executing this now</a> and check in your Media menu!
+</p>
+
+<p>
+You can also hook your application into the Media Menu controls:
+</p>
+
+<pre class="sh_javascript">
+Unity.MediaPlayer.onNext(onNextTrackCallback);
+Unity.MediaPlayer.onPrevious(onPreviousTrackCallback);
+Unity.MediaPlayer.onPlaypause(onPlaypauseCallback);
+</pre>
+
+<p>
+For full documentation on the MediaPlayer interface, see the <a href="unity-web-api-reference.html#unity-media">reference documentation</a>.
+</p>
+
+<div id="hud" class="subsection">
+Unity HUD
+</div>
+<p>
+It is possible to export a hierarchy of actions from your application in to the Unity HUD. This may be of particular benefit for applications which feature complex nested menus. The API is simple:
+
+<pre class="sh_javascript">
+Unity.addAction("/File/Rename", function () {
+                                   alert("Got callback");
+                                });
+</pre>
+
+<script>
+function hudExampleOne() {
+Unity.addAction("/File/Rename", function () {
+                                   alert("Got callback");
+                                });
+}
+</script>
+
+<p>
+Go ahead. <a href="javascript:hudExampleOne()">Execute this snippet now</a>, and find the Rename action in your Unity HUD.
+</p>
+
+<p>
+Details of the <code>Unity.addAction</code> method are presented in the <a href="unity-web-api-reference.html#unity-hud">reference documentation</a>.
+</p>
+
+<div id="messagingmenu" class="subsection">
+Messaging Menu
+</div>
+
+<p>
+For messaging centric applications, such as those featuring Chat or Mail, the Messaging Menu allows the user a quick way to view recent activity, and follow up for more detail.
+</p>
+
+<pre class="sh_javascript">
+Unity.MessagingIndicator.showIndicator("Inbox", {count: numberOfMessages, 
+                                                 callback: viewInboxCallback});
+Unity.MessagingIndicator.showIndicator("Check out the Unity Web API", {time: new Date(), 
+                                                                       callback: viewMessage});
+
+Unity.MessagingIndicator.addAction("Compose New Message", composeNewMessageCallback);
+
+// Later
+Unity.MessagingIndicator.clearIndicator("Check out the Unity Web API");
+</pre>
+
+<script>
+function indicatorExampleOne() {
+Unity.MessagingIndicator.showIndicator("Inbox", {count: 3});
+Unity.MessagingIndicator.showIndicator("Check out the Unity Web API", {time: Date.now()});
+
+Unity.MessagingIndicator.addAction("Compose New Message", function(){});
+
+}
+</script>
+
+<p>
+This API both allows you to add indications of activity, and messaging related actions. <a href="javascript:indicatorExampleOne()">Execute this code now</a> and check your messaging menu to see the results.
+</p>
+
+<p>
+The Reference Documentation contains a <a href="unity-web-api-reference.html#unity-indicator">full list</a> of indicator methods and propertie.
+</p>
+
+<div id="launcher" class="subsection">
+Launcher
+</div>
+<p>The Launcher API both allows you to display simple information to the user through icon overlays.</p>
+
+<pre class="sh_javascript">
+Unity.Launcher.setCount(3);
+Unity.Launcher.setProgress(0.4);
+Unity.Launcher.setUrgent(true);
+
+// Later
+Unity.Launcher.clearCount();
+</pre>
+
+<script>
+function launcherExampleOne() {
+Unity.Launcher.setCount(3);
+Unity.Launcher.setProgress(0.4);
+Unity.Launcher.setUrgent(true);
+}
+</script>
+
+<p><a href="javascript:launcherExampleOne()">Execute this code now</a>, and watch the launcher icon added when integrating the quick-start guide.</p>
+
+<p>
+You can also use the Launcher Quicklist functionality to expose important actions or bookmarks. This is espescially appropriate if your site or application is easily divided in sections.
+</p>
+
+<pre class="sh_javascript">
+Unity.Launcher.addAction("Science", scienceActionCallback);
+Unity.Launcher.addAction("Sports", scienceActionCallback);
+Unity.Launcher.addAction("Entertainment", scienceActionCallback);
+</pre>
+
+<script>
+function launcherExampleTwo() {
+Unity.Launcher.addAction("Science", function(){});
+Unity.Launcher.addAction("Sports", function(){});
+Unity.Launcher.addAction("Entertainment", function(){});
+}
+</script>
+
+<p>
+<a href="javascript:launcherExampleTwo()">Execute this snippet now</a>. Right click on the Unity Web Tutorial Launcher Icon in order to see the results. <br/>
+</p>
+
+<p>
+The complete <code>Unity.Launcher</code> interface is described, of course, in the <a href="unity-web-api-reference.html#unity-launcher">Reference documentation</a>.
+</p>
+<br/>
+</div>
+</body>
+</html>

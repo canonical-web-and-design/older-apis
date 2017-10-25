@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- offline-actions.qdoc -->
+  <title>Unity Action QML API : Offline Actions</title>
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<body>
+   <div class="wrapper">
+   <div class="main-content">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
+<h1 class="title">Offline Actions</h1>
+<span class="subtitle"></span>
+<!-- $$$offline-actions.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>Applications can define offline (jump list) actions in their <i>.desktop</i> files. These actions are available in the Launcher, AppMenu, HUD and MessagingMenu even if the application is not running. When an offline action is executed and the application is not running the application is started and executes the given action on startup, but for the user it does not make any difference if the application is running or not prior to the action invocation.</p>
+<p>This example assumes we have a mail application, <i>MailApp</i>. This application defines offline actions in <i>mail-app.desktop</i>:</p>
+<pre class="cpp">[Desktop Entry]
+Encoding=UTF-8
+Name=Mail Application
+Exec=mail-app %u
+Actions=Compose;Contacts
+
+[Desktop Action Compose]
+Name=Compose New Message
+OnlyShowIn=Messaging Menu;Unity;
+Exec=
+
+[Desktop Action Contacts]
+Name=Contacts
+OnlyShowIn=Messaging Menu;Unity;
+Exec=</pre>
+<p>The desktop file's <i>Actions</i> key lists the offline actions. Each action then has its own group entry in the <i>.desktop</i> file. <i>MailApp</i> defines two offline actions: <i>Compose</i> and <i>Contacts</i>.</p>
+<p>By leaving the <i>Exec</i> keys empty for the actions the platform will invoke the Unity Actions defined by the application.</p>
+<p>Now, the Application has to define corresponding actions in it's code:</p>
+<pre class="cpp">import <span class="type">QtQuick</span> <span class="number">2.0</span>
+import Ubuntu<span class="operator">.</span>Unity<span class="operator">.</span>Action <span class="number">1.0</span>
+
+Item {
+    ActionManager {
+        Action {
+            id: newMessageAction
+            name: <span class="string">&quot;Compose&quot;</span> <span class="comment">// matches the .desktop file Desktop Action identifier</span>
+            onTriggered: {
+                <span class="comment">// show the compose view</span>
+            }
+        }
+        Action {
+            id: openAddressBookAction
+            name: <span class="string">&quot;Contacts&quot;</span> <span class="comment">// matches the .desktop file Desktop Action identifier</span>
+            onTriggered: {
+                <span class="comment">// show the address book view</span>
+            }
+        }
+    }
+}</pre>
+</div>
+<!-- @@@offline-actions.html -->
+<p class="naviNextPrevious footerNavi">
+</p>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+	</div>
+</footer>
+</body>
+</html>

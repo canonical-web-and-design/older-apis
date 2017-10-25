@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ApClient</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="account-plugin Reference Manual">
+<link rel="up" href="account-plugin.html" title="account-plugin">
+<link rel="prev" href="ApApplicationPlugin.html" title="ApApplicationPlugin">
+<link rel="next" href="ApOAuthPlugin.html" title="ApOAuthPlugin">
+<meta name="generator" content="GTK-Doc V1.19 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ApApplicationPlugin.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="account-plugin.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">account-plugin Reference Manual</th>
+<td><a accesskey="n" href="ApOAuthPlugin.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="account-plugin-ApClient.html#account-plugin-ApClient.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="account-plugin-ApClient.html#account-plugin-ApClient.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="account-plugin-ApClient"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="account-plugin-ApClient.top_of_page"></a>ApClient</span></h2>
+<p>ApClient — Load account and application plugins.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="account-plugin-ApClient.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libaccount-plugin/client.h&gt;
+
+<a class="link" href="ApPlugin.html" title="ApPlugin"><span class="returnvalue">ApPlugin</span></a> *          <a class="link" href="account-plugin-ApClient.html#ap-client-load-plugin" title="ap_client_load_plugin ()">ap_client_load_plugin</a>               (<em class="parameter"><code><span class="type">AgAccount</span> *account</code></em>);
+<a class="link" href="ApApplicationPlugin.html" title="ApApplicationPlugin"><span class="returnvalue">ApApplicationPlugin</span></a> * <a class="link" href="account-plugin-ApClient.html#ap-client-load-application-plugin" title="ap_client_load_application_plugin ()">ap_client_load_application_plugin</a> (<em class="parameter"><code><span class="type">AgApplication</span> *application</code></em>,
+                                                         <em class="parameter"><code><span class="type">AgAccount</span> *account</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="account-plugin-ApClient.description"></a><h2>Description</h2>
+<p>
+Load an <a class="link" href="ApApplicationPlugin.html" title="ApApplicationPlugin"><span class="type">ApApplicationPlugin</span></a> or <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.
+</p>
+</div>
+<div class="refsect1">
+<a name="account-plugin-ApClient.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ap-client-load-plugin"></a><h3>ap_client_load_plugin ()</h3>
+<pre class="programlisting"><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="returnvalue">ApPlugin</span></a> *          ap_client_load_plugin               (<em class="parameter"><code><span class="type">AgAccount</span> *account</code></em>);</pre>
+<p>
+Load the account plugin for <em class="parameter"><code>account</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>account</code></em> :</span></p></td>
+<td>the <span class="type">AgAccount</span> to be created/edited.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> if a valid plugin was found, <code class="literal">NULL</code>
+otherwise. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-client-load-application-plugin"></a><h3>ap_client_load_application_plugin ()</h3>
+<pre class="programlisting"><a class="link" href="ApApplicationPlugin.html" title="ApApplicationPlugin"><span class="returnvalue">ApApplicationPlugin</span></a> * ap_client_load_application_plugin (<em class="parameter"><code><span class="type">AgApplication</span> *application</code></em>,
+                                                         <em class="parameter"><code><span class="type">AgAccount</span> *account</code></em>);</pre>
+<p>
+Load the application plugin for editing the <em class="parameter"><code>application</code></em> specific settings
+of <em class="parameter"><code>account</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>application</code></em> :</span></p></td>
+<td>the <span class="type">AgApplication</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>account</code></em> :</span></p></td>
+<td>the <span class="type">AgAccount</span> to be edited.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="ApApplicationPlugin.html" title="ApApplicationPlugin"><span class="type">ApApplicationPlugin</span></a> if a valid plugin was
+found, <code class="literal">NULL</code> otherwise. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.19</div>
+</body>
+</html>

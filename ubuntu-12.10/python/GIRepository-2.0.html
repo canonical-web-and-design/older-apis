@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="Python">
+    
+    <title>GIRepository-2.0 Python API Documentation</title>
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-12.10/giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>GIRepository-2.0 Python API Documentation</h1>
+
+<div class="class-normal">
+<a href="GIRepository-2.0.html#GIRepository.Repository" class="class-anchor">⚓</a><h2 class="class-normal" id="GIRepository.Repository">Class: GIRepository.Repository</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="GIRepository.Repository.dump">dump</span><span class="method-parameters">(<span class="type-basetype ">arg</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="GIRepository.Repository.enumerate_versions">enumerate_versions</span><span class="method-parameters">(<span class="type-basetype ">namespace_</span>)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type ">GLib.Quark</span></span><span class="method-name" id="GIRepository.Repository.error_quark">error_quark</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">GIRepository.EnumInfo</span></span><span class="method-name" id="GIRepository.Repository.find_by_error_domain">find_by_error_domain</span><span class="method-parameters">(domain)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GIRepository-2.0.html#GIRepository.BaseInfo">GIRepository.BaseInfo</a></span><span class="method-name" id="GIRepository.Repository.find_by_gtype">find_by_gtype</span><span class="method-parameters">(<span class="type-basetype ">gtype</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GIRepository-2.0.html#GIRepository.BaseInfo">GIRepository.BaseInfo</a></span><span class="method-name" id="GIRepository.Repository.find_by_name">find_by_name</span><span class="method-parameters">(<span class="type-basetype ">namespace_</span>, <span class="type-basetype ">name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="GIRepository.Repository.get_c_prefix">get_c_prefix</span><span class="method-parameters">(<span class="type-basetype ">namespace_</span>)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="GIRepository-2.0.html#GIRepository.Repository">GIRepository.Repository</a></span><span class="method-name" id="GIRepository.Repository.get_default">get_default</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Array&lt;utf8&gt;</span></span><span class="method-name" id="GIRepository.Repository.get_dependencies">get_dependencies</span><span class="method-parameters">(<span class="type-basetype ">namespace_</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GIRepository-2.0.html#GIRepository.BaseInfo">GIRepository.BaseInfo</a></span><span class="method-name" id="GIRepository.Repository.get_info">get_info</span><span class="method-parameters">(<span class="type-basetype ">namespace_</span>, <span class="type-basetype ">index</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Array&lt;utf8&gt;</span></span><span class="method-name" id="GIRepository.Repository.get_loaded_namespaces">get_loaded_namespaces</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="GIRepository.Repository.get_n_infos">get_n_infos</span><span class="method-parameters">(<span class="type-basetype ">namespace_</span>)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.SList">GLib.SList</a></span><span class="method-name" id="GIRepository.Repository.get_search_path">get_search_path</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="GIRepository.Repository.get_shared_library">get_shared_library</span><span class="method-parameters">(<span class="type-basetype ">namespace_</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="GIRepository.Repository.get_typelib_path">get_typelib_path</span><span class="method-parameters">(<span class="type-basetype ">namespace_</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="GIRepository.Repository.get_version">get_version</span><span class="method-parameters">(<span class="type-basetype ">namespace_</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="GIRepository.Repository.is_registered">is_registered</span><span class="method-parameters">(<span class="type-basetype ">namespace_</span>, <span class="type-basetype ">version</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="GIRepository.Repository.load_typelib">load_typelib</span><span class="method-parameters">(<a class="link-Record " href="GIRepository-2.0.html#GIRepository.Typelib">typelib</a>, <a class="link-BitField " href="GIRepository-2.0.html#GIRepository.RepositoryLoadFlags">flags</a>)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GIRepository.Repository.prepend_search_path">prepend_search_path</span><span class="method-parameters">(<span class="type-basetype ">directory</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GIRepository-2.0.html#GIRepository.Typelib">GIRepository.Typelib</a></span><span class="method-name" id="GIRepository.Repository.require">require</span><span class="method-parameters">(<span class="type-basetype ">namespace_</span>, <span class="type-basetype ">version</span>, <a class="link-BitField " href="GIRepository-2.0.html#GIRepository.RepositoryLoadFlags">flags</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GIRepository-2.0.html#GIRepository.Typelib">GIRepository.Typelib</a></span><span class="method-name" id="GIRepository.Repository.require_private">require_private</span><span class="method-parameters">(<span class="type-basetype ">typelib_dir</span>, <span class="type-basetype ">namespace_</span>, <span class="type-basetype ">version</span>, <a class="link-BitField " href="GIRepository-2.0.html#GIRepository.RepositoryLoadFlags">flags</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-enum">
+<a href="GIRepository-2.0.html#GIRepository.Direction" class="class-anchor">⚓</a><h2 class="class-enum" id="GIRepository.Direction">Enum: GIRepository.Direction</h2>
+<div class="enum-members">
+<span class="enum-member">IN</span><span class="enum-value">0</span><span class="enum-member">OUT</span><span class="enum-value">1</span><span class="enum-member">INOUT</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="GIRepository-2.0.html#GIRepository.InfoType" class="class-anchor">⚓</a><h2 class="class-enum" id="GIRepository.InfoType">Enum: GIRepository.InfoType</h2>
+<div class="enum-members">
+<span class="enum-member">INVALID</span><span class="enum-value">0</span><span class="enum-member">FUNCTION</span><span class="enum-value">1</span><span class="enum-member">CALLBACK</span><span class="enum-value">2</span><span class="enum-member">STRUCT</span><span class="enum-value">3</span><span class="enum-member">BOXED</span><span class="enum-value">4</span><span class="enum-member">ENUM</span><span class="enum-value">5</span><span class="enum-member">FLAGS</span><span class="enum-value">6</span><span class="enum-member">OBJECT</span><span class="enum-value">7</span><span class="enum-member">INTERFACE</span><span class="enum-value">8</span><span class="enum-member">CONSTANT</span><span class="enum-value">9</span><span class="enum-member">INVALID_0</span><span class="enum-value">10</span><span class="enum-member">UNION</span><span class="enum-value">11</span><span class="enum-member">VALUE</span><span class="enum-value">12</span><span class="enum-member">SIGNAL</span><span class="enum-value">13</span><span class="enum-member">VFUNC</span><span class="enum-value">14</span><span class="enum-member">PROPERTY</span><span class="enum-value">15</span><span class="enum-member">FIELD</span><span class="enum-value">16</span><span class="enum-member">ARG</span><span class="enum-value">17</span><span class="enum-member">TYPE</span><span class="enum-value">18</span><span class="enum-member">UNRESOLVED</span><span class="enum-value">19</span></div>
+</div>
+<div class="class-enum">
+<a href="GIRepository-2.0.html#GIRepository.VFuncInfoFlags" class="class-anchor">⚓</a><h2 class="class-enum" id="GIRepository.VFuncInfoFlags">Enum: GIRepository.VFuncInfoFlags</h2>
+<div class="enum-members">
+<span class="enum-member">MUST_CHAIN_UP</span><span class="enum-value">1</span><span class="enum-member">MUST_OVERRIDE</span><span class="enum-value">2</span><span class="enum-member">MUST_NOT_OVERRIDE</span><span class="enum-value">4</span><span class="enum-member">THROWS</span><span class="enum-value">8</span></div>
+</div>
+<div class="class-enum">
+<a href="GIRepository-2.0.html#GIRepository.Transfer" class="class-anchor">⚓</a><h2 class="class-enum" id="GIRepository.Transfer">Enum: GIRepository.Transfer</h2>
+<div class="enum-members">
+<span class="enum-member">NOTHING</span><span class="enum-value">0</span><span class="enum-member">CONTAINER</span><span class="enum-value">1</span><span class="enum-member">EVERYTHING</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="GIRepository-2.0.html#GIRepository.RepositoryLoadFlags" class="class-anchor">⚓</a><h2 class="class-enum" id="GIRepository.RepositoryLoadFlags">Enum: GIRepository.RepositoryLoadFlags</h2>
+<div class="enum-members">
+<span class="enum-member">IREPOSITORY_LOAD_FLAG_LAZY</span><span class="enum-value">1</span></div>
+</div>
+<div class="class-enum">
+<a href="GIRepository-2.0.html#GIRepository.ArrayType" class="class-anchor">⚓</a><h2 class="class-enum" id="GIRepository.ArrayType">Enum: GIRepository.ArrayType</h2>
+<div class="enum-members">
+<span class="enum-member">C</span><span class="enum-value">0</span><span class="enum-member">ARRAY</span><span class="enum-value">1</span><span class="enum-member">PTR_ARRAY</span><span class="enum-value">2</span><span class="enum-member">BYTE_ARRAY</span><span class="enum-value">3</span></div>
+</div>
+<div class="class-enum">
+<a href="GIRepository-2.0.html#GIRepository.nvokeError" class="class-anchor">⚓</a><h2 class="class-enum" id="GIRepository.nvokeError">Enum: GIRepository.nvokeError</h2>
+<div class="enum-members">
+<span class="enum-member">FAILED</span><span class="enum-value">0</span><span class="enum-member">SYMBOL_NOT_FOUND</span><span class="enum-value">1</span><span class="enum-member">ARGUMENT_MISMATCH</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="GIRepository-2.0.html#GIRepository.RepositoryError" class="class-anchor">⚓</a><h2 class="class-enum" id="GIRepository.RepositoryError">Enum: GIRepository.RepositoryError</h2>
+<div class="enum-members">
+<span class="enum-member">TYPELIB_NOT_FOUND</span><span class="enum-value">0</span><span class="enum-member">NAMESPACE_MISMATCH</span><span class="enum-value">1</span><span class="enum-member">NAMESPACE_VERSION_CONFLICT</span><span class="enum-value">2</span><span class="enum-member">LIBRARY_NOT_FOUND</span><span class="enum-value">3</span></div>
+</div>
+<div class="class-enum">
+<a href="GIRepository-2.0.html#GIRepository.FieldInfoFlags" class="class-anchor">⚓</a><h2 class="class-enum" id="GIRepository.FieldInfoFlags">Enum: GIRepository.FieldInfoFlags</h2>
+<div class="enum-members">
+<span class="enum-member">READABLE</span><span class="enum-value">1</span><span class="enum-member">WRITABLE</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="GIRepository-2.0.html#GIRepository.FunctionInfoFlags" class="class-anchor">⚓</a><h2 class="class-enum" id="GIRepository.FunctionInfoFlags">Enum: GIRepository.FunctionInfoFlags</h2>
+<div class="enum-members">
+<span class="enum-member">IS_METHOD</span><span class="enum-value">1</span><span class="enum-member">IS_CONSTRUCTOR</span><span class="enum-value">2</span><span class="enum-member">IS_GETTER</span><span class="enum-value">4</span><span class="enum-member">IS_SETTER</span><span class="enum-value">8</span><span class="enum-member">WRAPS_VFUNC</span><span class="enum-value">16</span><span class="enum-member">THROWS</span><span class="enum-value">32</span></div>
+</div>
+<div class="class-enum">
+<a href="GIRepository-2.0.html#GIRepository.ScopeType" class="class-anchor">⚓</a><h2 class="class-enum" id="GIRepository.ScopeType">Enum: GIRepository.ScopeType</h2>
+<div class="enum-members">
+<span class="enum-member">INVALID</span><span class="enum-value">0</span><span class="enum-member">CALL</span><span class="enum-value">1</span><span class="enum-member">ASYNC</span><span class="enum-value">2</span><span class="enum-member">NOTIFIED</span><span class="enum-value">3</span></div>
+</div>
+<div class="class-enum">
+<a href="GIRepository-2.0.html#GIRepository.TypeTag" class="class-anchor">⚓</a><h2 class="class-enum" id="GIRepository.TypeTag">Enum: GIRepository.TypeTag</h2>
+<div class="enum-members">
+<span class="enum-member">VOID</span><span class="enum-value">0</span><span class="enum-member">BOOLEAN</span><span class="enum-value">1</span><span class="enum-member">INT8</span><span class="enum-value">2</span><span class="enum-member">UINT8</span><span class="enum-value">3</span><span class="enum-member">INT16</span><span class="enum-value">4</span><span class="enum-member">UINT16</span><span class="enum-value">5</span><span class="enum-member">INT32</span><span class="enum-value">6</span><span class="enum-member">UINT32</span><span class="enum-value">7</span><span class="enum-member">INT64</span><span class="enum-value">8</span><span class="enum-member">UINT64</span><span class="enum-value">9</span><span class="enum-member">FLOAT</span><span class="enum-value">10</span><span class="enum-member">DOUBLE</span><span class="enum-value">11</span><span class="enum-member">GTYPE</span><span class="enum-value">12</span><span class="enum-member">UTF8</span><span class="enum-value">13</span><span class="enum-member">FILENAME</span><span class="enum-value">14</span><span class="enum-member">ARRAY</span><span class="enum-value">15</span><span class="enum-member">INTERFACE</span><span class="enum-value">16</span><span class="enum-member">GLIST</span><span class="enum-value">17</span><span class="enum-member">GSLIST</span><span class="enum-value">18</span><span class="enum-member">GHASH</span><span class="enum-value">19</span><span class="enum-member">ERROR</span><span class="enum-value">20</span><span class="enum-member">UNICHAR</span><span class="enum-value">21</span></div>
+</div>
+</body>
+</html>
+

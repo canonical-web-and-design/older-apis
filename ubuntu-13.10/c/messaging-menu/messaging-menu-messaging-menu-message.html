@@ -1,0 +1,504 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>messaging-menu-message</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Messaging Menu Reference Manual">
+<link rel="up" href="ch01.html" title="API Reference">
+<link rel="prev" href="messaging-menu-messaging-menu-app.html" title="messaging-menu-app">
+<link rel="next" href="object-tree.html" title="Object Hierarchy">
+<meta name="generator" content="GTK-Doc V1.19 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="messaging-menu-messaging-menu-app.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Messaging Menu Reference Manual</th>
+<td><a accesskey="n" href="object-tree.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="messaging-menu-messaging-menu-message.html#messaging-menu-messaging-menu-message.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="messaging-menu-messaging-menu-message.html#messaging-menu-messaging-menu-message.description" class="shortcut">Description</a>
+                   | 
+                  <a href="messaging-menu-messaging-menu-message.html#messaging-menu-messaging-menu-message.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="messaging-menu-messaging-menu-message.html#messaging-menu-messaging-menu-message.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="messaging-menu-messaging-menu-message.html#messaging-menu-messaging-menu-message.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="messaging-menu-messaging-menu-message"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="messaging-menu-messaging-menu-message.top_of_page"></a>messaging-menu-message</span></h2>
+<p>messaging-menu-message</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="messaging-menu-messaging-menu-message.synopsis"></a><h2>Synopsis</h2>
+<a name="MessagingMenuMessage"></a><pre class="synopsis"><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="returnvalue">MessagingMenuMessage</span></a> * <a class="link" href="messaging-menu-messaging-menu-message.html#messaging-menu-message-new" title="messaging_menu_message_new ()">messaging_menu_message_new</a>       (<em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>,
+                                                         <em class="parameter"><code><span class="type">GIcon</span> *icon</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *title</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *subtitle</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *body</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint64</span> time</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="messaging-menu-messaging-menu-message.html#messaging-menu-message-get-id" title="messaging_menu_message_get_id ()">messaging_menu_message_get_id</a>       (<em class="parameter"><code><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg</code></em>);
+<span class="returnvalue">GIcon</span> *             <a class="link" href="messaging-menu-messaging-menu-message.html#messaging-menu-message-get-icon" title="messaging_menu_message_get_icon ()">messaging_menu_message_get_icon</a>     (<em class="parameter"><code><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="messaging-menu-messaging-menu-message.html#messaging-menu-message-get-title" title="messaging_menu_message_get_title ()">messaging_menu_message_get_title</a>    (<em class="parameter"><code><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="messaging-menu-messaging-menu-message.html#messaging-menu-message-get-subtitle" title="messaging_menu_message_get_subtitle ()">messaging_menu_message_get_subtitle</a> (<em class="parameter"><code><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="messaging-menu-messaging-menu-message.html#messaging-menu-message-get-body" title="messaging_menu_message_get_body ()">messaging_menu_message_get_body</a>     (<em class="parameter"><code><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg</code></em>);
+<span class="returnvalue">gint64</span>              <a class="link" href="messaging-menu-messaging-menu-message.html#messaging-menu-message-get-time" title="messaging_menu_message_get_time ()">messaging_menu_message_get_time</a>     (<em class="parameter"><code><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="messaging-menu-messaging-menu-message.html#messaging-menu-message-get-draws-attention" title="messaging_menu_message_get_draws_attention ()">messaging_menu_message_get_draws_attention</a>
+                                                        (<em class="parameter"><code><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="messaging-menu-messaging-menu-message.html#messaging-menu-message-set-draws-attention" title="messaging_menu_message_set_draws_attention ()">messaging_menu_message_set_draws_attention</a>
+                                                        (<em class="parameter"><code><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> draws_attention</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="messaging-menu-messaging-menu-message.html#messaging-menu-message-add-action" title="messaging_menu_message_add_action ()">messaging_menu_message_add_action</a>   (<em class="parameter"><code><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GVariantType</span> *parameter_type</code></em>,
+                                                         <em class="parameter"><code><span class="type">GVariant</span> *parameter_hint</code></em>);
+                    <a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage-struct" title="MessagingMenuMessage">MessagingMenuMessage</a>;
+</pre>
+</div>
+<div class="refsect1">
+<a name="messaging-menu-messaging-menu-message.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----MessagingMenuMessage
+</pre>
+</div>
+<div class="refsect1">
+<a name="messaging-menu-messaging-menu-message.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage--body" title='The "body" property'>body</a>"                     <span class="type">gchar</span>*                : Read / Write / Construct Only
+  "<a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage--draws-attention" title='The "draws-attention" property'>draws-attention</a>"          <span class="type">gboolean</span>              : Read / Write
+  "<a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage--icon" title='The "icon" property'>icon</a>"                     <span class="type">GIcon</span>*                : Read / Write / Construct Only
+  "<a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage--id" title='The "id" property'>id</a>"                       <span class="type">gchar</span>*                : Read / Write / Construct Only
+  "<a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage--subtitle" title='The "subtitle" property'>subtitle</a>"                 <span class="type">gchar</span>*                : Read / Write / Construct Only
+  "<a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage--time" title='The "time" property'>time</a>"                     <span class="type">gint64</span>                : Read / Write / Construct Only
+  "<a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage--title" title='The "title" property'>title</a>"                    <span class="type">gchar</span>*                : Read / Write / Construct Only
+</pre>
+</div>
+<div class="refsect1">
+<a name="messaging-menu-messaging-menu-message.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage-activate" title='The "activate" signal'>activate</a>"                                       : <code class="literal">Has Details</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="messaging-menu-messaging-menu-message.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="messaging-menu-messaging-menu-message.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="messaging-menu-message-new"></a><h3>messaging_menu_message_new ()</h3>
+<pre class="programlisting"><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="returnvalue">MessagingMenuMessage</span></a> * messaging_menu_message_new       (<em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>,
+                                                         <em class="parameter"><code><span class="type">GIcon</span> *icon</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *title</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *subtitle</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *body</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint64</span> time</code></em>);</pre>
+<p>
+Creates a new <a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>unique id of the message</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>icon</code></em> :</span></p></td>
+<td>a <span class="type">GIcon</span> representing the message. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>title</code></em> :</span></p></td>
+<td>the title of the message</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>subtitle</code></em> :</span></p></td>
+<td>the subtitle of the message. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>body</code></em> :</span></p></td>
+<td>the message body. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>time</code></em> :</span></p></td>
+<td>the time the message was received</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a new <a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a>. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="messaging-menu-message-get-id"></a><h3>messaging_menu_message_get_id ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       messaging_menu_message_get_id       (<em class="parameter"><code><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em> :</span></p></td>
+<td>a <a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the unique id of <em class="parameter"><code>msg</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="messaging-menu-message-get-icon"></a><h3>messaging_menu_message_get_icon ()</h3>
+<pre class="programlisting"><span class="returnvalue">GIcon</span> *             messaging_menu_message_get_icon     (<em class="parameter"><code><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em> :</span></p></td>
+<td>a <a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the icon of <em class="parameter"><code>msg</code></em>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="messaging-menu-message-get-title"></a><h3>messaging_menu_message_get_title ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       messaging_menu_message_get_title    (<em class="parameter"><code><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em> :</span></p></td>
+<td>a <a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the title of <em class="parameter"><code>msg</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="messaging-menu-message-get-subtitle"></a><h3>messaging_menu_message_get_subtitle ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       messaging_menu_message_get_subtitle (<em class="parameter"><code><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em> :</span></p></td>
+<td>a <a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the subtitle of <em class="parameter"><code>msg</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="messaging-menu-message-get-body"></a><h3>messaging_menu_message_get_body ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       messaging_menu_message_get_body     (<em class="parameter"><code><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em> :</span></p></td>
+<td>a <a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the body of <em class="parameter"><code>msg</code></em>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="messaging-menu-message-get-time"></a><h3>messaging_menu_message_get_time ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint64</span>              messaging_menu_message_get_time     (<em class="parameter"><code><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em> :</span></p></td>
+<td>a <a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the time at which <em class="parameter"><code>msg</code></em> was received</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="messaging-menu-message-get-draws-attention"></a><h3>messaging_menu_message_get_draws_attention ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            messaging_menu_message_get_draws_attention
+                                                        (<em class="parameter"><code><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em> :</span></p></td>
+<td>a <a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether <em class="parameter"><code>msg</code></em> is drawing attention</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="messaging-menu-message-set-draws-attention"></a><h3>messaging_menu_message_set_draws_attention ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                messaging_menu_message_set_draws_attention
+                                                        (<em class="parameter"><code><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> draws_attention</code></em>);</pre>
+<p>
+Sets whether <em class="parameter"><code>msg</code></em> is drawing attention.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em> :</span></p></td>
+<td>a <a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>draws_attention</code></em> :</span></p></td>
+<td>whether <em class="parameter"><code>msg</code></em> should draw attention</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="messaging-menu-message-add-action"></a><h3>messaging_menu_message_add_action ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                messaging_menu_message_add_action   (<em class="parameter"><code><a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *id</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GVariantType</span> *parameter_type</code></em>,
+                                                         <em class="parameter"><code><span class="type">GVariant</span> *parameter_hint</code></em>);</pre>
+<p>
+Adds an action with <em class="parameter"><code>id</code></em> and <em class="parameter"><code>label</code></em> to <em class="parameter"><code>message</code></em>.  Actions are an
+alternative way for users to activate a message.  Note that messages
+can still be activated without an action.
+</p>
+<p>
+If <em class="parameter"><code>parameter_type</code></em> is non-<code class="literal">NULL</code>, the action is able to receive user
+input in addition to simply activating the action.  Currently, only
+string parameters are supported.
+</p>
+<p>
+A list of predefined parameters can be supplied as a <span class="type">GVariant</span> array
+of <em class="parameter"><code>parameter_type</code></em> in <em class="parameter"><code>parameter_hint</code></em>.  If <em class="parameter"><code>parameter_hint</code></em> is
+floating, it will be consumed.
+</p>
+<p>
+It is recommended to add at most two actions to a message.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em> :</span></p></td>
+<td>a <a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>unique id of the action</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>label</code></em> :</span></p></td>
+<td>label of the action. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parameter_type</code></em> :</span></p></td>
+<td>a <span class="type">GVariantType</span>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parameter_hint</code></em> :</span></p></td>
+<td>a <span class="type">GVariant</span> suggesting a valid range
+for parameters. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MessagingMenuMessage-struct"></a><h3>MessagingMenuMessage</h3>
+<pre class="programlisting">typedef struct _MessagingMenuMessage MessagingMenuMessage;</pre>
+</div>
+</div>
+<div class="refsect1">
+<a name="messaging-menu-messaging-menu-message.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="MessagingMenuMessage--body"></a><h3>The <code class="literal">"body"</code> property</h3>
+<pre class="programlisting">  "body"                     <span class="type">gchar</span>*                : Read / Write / Construct Only</pre>
+<p>First lines of the body of the message.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MessagingMenuMessage--draws-attention"></a><h3>The <code class="literal">"draws-attention"</code> property</h3>
+<pre class="programlisting">  "draws-attention"          <span class="type">gboolean</span>              : Read / Write</pre>
+<p>Whether the message should draw attention.</p>
+<p>Default value: TRUE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MessagingMenuMessage--icon"></a><h3>The <code class="literal">"icon"</code> property</h3>
+<pre class="programlisting">  "icon"                     <span class="type">GIcon</span>*                : Read / Write / Construct Only</pre>
+<p>Icon of the message.</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MessagingMenuMessage--id"></a><h3>The <code class="literal">"id"</code> property</h3>
+<pre class="programlisting">  "id"                       <span class="type">gchar</span>*                : Read / Write / Construct Only</pre>
+<p>Unique id of the message.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MessagingMenuMessage--subtitle"></a><h3>The <code class="literal">"subtitle"</code> property</h3>
+<pre class="programlisting">  "subtitle"                 <span class="type">gchar</span>*                : Read / Write / Construct Only</pre>
+<p>Subtitle of the message.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MessagingMenuMessage--time"></a><h3>The <code class="literal">"time"</code> property</h3>
+<pre class="programlisting">  "time"                     <span class="type">gint64</span>                : Read / Write / Construct Only</pre>
+<p>Time the message was sent, in microseconds.</p>
+<p>Allowed values: &gt;= 0</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="MessagingMenuMessage--title"></a><h3>The <code class="literal">"title"</code> property</h3>
+<pre class="programlisting">  "title"                    <span class="type">gchar</span>*                : Read / Write / Construct Only</pre>
+<p>Title of the message.</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="messaging-menu-messaging-menu-message.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="MessagingMenuMessage-activate"></a><h3>The <code class="literal">"activate"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a> *msg,
+                                                        <span class="type">gchar</span>                *action,
+                                                        <span class="type">GVariant</span>             *parameter,
+                                                        <span class="type">gpointer</span>              user_data)      : <code class="literal">Has Details</code></pre>
+<p>
+Emitted when the user has activated the message.  The message is
+immediately removed from the application's menu, handlers of this
+signal do not need to call <a class="link" href="messaging-menu-messaging-menu-app.html#messaging-menu-app-remove-message" title="messaging_menu_app_remove_message ()"><code class="function">messaging_menu_app_remove_message()</code></a>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>msg</code></em> :</span></p></td>
+<td>the <a class="link" href="messaging-menu-messaging-menu-message.html#MessagingMenuMessage"><span class="type">MessagingMenuMessage</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>action</code></em> :</span></p></td>
+<td>the id of activated action, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parameter</code></em> :</span></p></td>
+<td>activation parameter, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.19</div>
+</body>
+</html>

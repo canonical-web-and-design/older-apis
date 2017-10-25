@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qwebframe.html -->
+  <title>UbuntuUserInterfaceToolkit 0.1: QWebFrame Class</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="all-modules.html">Modules</a></li>
+<li><a href="qtwebkit-module.html">QtWebKit</a></li>
+<li>QWebFrame</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qwebframe.html#public-types">Public Types</a></li>
+<li class="level1"><a href="qwebframe.html#properties">Properties</a></li>
+<li class="level1"><a href="qwebframe.html#public-functions">Public Functions</a></li>
+<li class="level1"><a href="qwebframe.html#public-slots">Public Slots</a></li>
+<li class="level1"><a href="qwebframe.html#signals">Signals</a></li>
+<li class="level1"><a href="qwebframe.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">QWebFrame Class</h1>
+<p>This class was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<ul>
+<li><a href="qwebframe-members.html">List of all members, including inherited members</a></li>
+<li><a href="qwebframe-obsolete.html">Obsolete members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#RenderLayer-enum">RenderLayer</a></b> { ContentsLayer, ScrollBarLayer, PanIconLayer, AllLayers }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#RenderLayers-typedef">RenderLayers</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#ValueOwnership-enum">ValueOwnership</a></b> { QtOwnership, ScriptOwnership, AutoOwnership }</td></tr>
+</table>
+<a name="properties"></a>
+<h2>Properties</h2>
+<table class="propsummary">
+<tr><td class="topAlign"><ul>
+<li class="fn"><b><a href="qwebframe.html#baseUrl-prop">baseUrl</a></b> : const </li>
+<li class="fn"><b><a href="qwebframe.html#contentsSize-prop">contentsSize</a></b> : const </li>
+<li class="fn"><b><a href="qwebframe.html#focus-prop">focus</a></b> : const </li>
+<li class="fn"><b><a href="qwebframe.html#icon-prop">icon</a></b> : const </li>
+<li class="fn"><b><a href="qwebframe.html#requestedUrl-prop">requestedUrl</a></b> : const </li>
+</ul></td><td class="topAlign"><ul>
+<li class="fn"><b><a href="qwebframe.html#scrollPosition-prop">scrollPosition</a></b> : const </li>
+<li class="fn"><b><a href="qwebframe.html#title-prop">title</a></b> : const </li>
+<li class="fn"><b><a href="qwebframe.html#url-prop">url</a></b> : const </li>
+<li class="fn"><b><a href="qwebframe.html#zoomFactor-prop">zoomFactor</a></b> : const </li>
+</ul>
+</td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#addToJavaScriptWindowObject">addToJavaScriptWindowObject</a></b>(const QString &amp;<i> name</i>, QObject *<i> object</i>, ValueOwnership<i> own</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#baseUrl">baseUrl</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#childFrames">childFrames</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#contentsSize">contentsSize</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#documentElement">documentElement</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#event">event</a></b>(QEvent *<i> e</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#findAllElements">findAllElements</a></b>(const QString &amp;<i> selectorQuery</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#findFirstElement">findFirstElement</a></b>(const QString &amp;<i> selectorQuery</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#frameName">frameName</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#geometry">geometry</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#hasFocus">hasFocus</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#hitTestContent">hitTestContent</a></b>(const QPoint &amp;<i> pos</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#icon">icon</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#load">load</a></b>(const QUrl &amp;<i> url</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#load-2">load</a></b>(const QNetworkRequest &amp;<i> req</i>, QNetworkAccessManager::Operation<i> operation</i>, const QByteArray &amp;<i> body</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#metaData">metaData</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#page">page</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#parentFrame">parentFrame</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#pos">pos</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#render">render</a></b>(QPainter *<i> painter</i>, const QRegion &amp;<i> clip</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#render-2">render</a></b>(QPainter *<i> painter</i>, QFlags&lt;QWebFrame::RenderLayer&gt;<i> layer</i>, const QRegion &amp;<i> clip</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#requestedUrl">requestedUrl</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#scroll">scroll</a></b>(int<i> dx</i>, int<i> dy</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#scrollBarGeometry">scrollBarGeometry</a></b>(Qt::Orientation<i> orientation</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#scrollBarMaximum">scrollBarMaximum</a></b>(Qt::Orientation<i> orientation</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#scrollBarMinimum">scrollBarMinimum</a></b>(Qt::Orientation<i> orientation</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#scrollBarPolicy">scrollBarPolicy</a></b>(Qt::Orientation<i> orientation</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#scrollBarValue">scrollBarValue</a></b>(Qt::Orientation<i> orientation</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#scrollPosition">scrollPosition</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#scrollToAnchor">scrollToAnchor</a></b>(const QString &amp;<i> anchor</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#securityOrigin">securityOrigin</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#setContent">setContent</a></b>(const QByteArray &amp;<i> data</i>, const QString &amp;<i> mimeType</i>, const QUrl &amp;<i> baseUrl</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#setFocus">setFocus</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#setHtml">setHtml</a></b>(const QString &amp;<i> html</i>, const QUrl &amp;<i> baseUrl</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#setScrollBarPolicy">setScrollBarPolicy</a></b>(Qt::Orientation<i> orientation</i>, Qt::ScrollBarPolicy<i> policy</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#setScrollBarValue">setScrollBarValue</a></b>(Qt::Orientation<i> orientation</i>, int<i> value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#setScrollPosition">setScrollPosition</a></b>(const QPoint &amp;<i> pos</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#setTextSizeMultiplier">setTextSizeMultiplier</a></b>(qreal<i> factor</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#setUrl">setUrl</a></b>(const QUrl &amp;<i> url</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#setZoomFactor">setZoomFactor</a></b>(qreal<i> factor</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#textSizeMultiplier">textSizeMultiplier</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#title">title</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#toHtml">toHtml</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#toPlainText">toPlainText</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#url">url</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#zoomFactor">zoomFactor</a></b>() const</td></tr>
+</table>
+<a name="public-slots"></a>
+<h2>Public Slots</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#evaluateJavaScript">evaluateJavaScript</a></b>(const QString &amp;<i> scriptSource</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#print">print</a></b>(QPrinter *<i> printer</i>) const</td></tr>
+</table>
+<a name="signals"></a>
+<h2>Signals</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#contentsSizeChanged">contentsSizeChanged</a></b>(const QSize &amp;<i> size</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#iconChanged">iconChanged</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#initialLayoutCompleted">initialLayoutCompleted</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#javaScriptWindowObjectCleared">javaScriptWindowObjectCleared</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#loadFinished">loadFinished</a></b>(bool<i> ok</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#loadStarted">loadStarted</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#pageChanged">pageChanged</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#titleChanged">titleChanged</a></b>(const QString &amp;<i> title</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebframe.html#urlChanged">urlChanged</a></b>(const QUrl &amp;<i> url</i>)</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QWebFrame-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+</div>
+<!-- @@@QWebFrame -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$RenderLayer$$$ContentsLayer$$$ScrollBarLayer$$$PanIconLayer$$$AllLayers -->
+<h3 class="fn"><a name="RenderLayer-enum"></a>enum QWebFrame::<span class="name">RenderLayer</span></h3>
+<!-- @@@RenderLayer -->
+<!-- $$$RenderLayers -->
+<h3 class="fn"><a name="RenderLayers-typedef"></a>typedef QWebFrame::<span class="name">RenderLayers</span></h3>
+<!-- @@@RenderLayers -->
+<!-- $$$ValueOwnership$$$QtOwnership$$$ScriptOwnership$$$AutoOwnership -->
+<h3 class="fn"><a name="ValueOwnership-enum"></a>enum QWebFrame::<span class="name">ValueOwnership</span></h3>
+<!-- @@@ValueOwnership -->
+</div>
+<div class="prop">
+<h2>Property Documentation</h2>
+<!-- $$$baseUrl-prop -->
+<h3 class="fn"><a name="baseUrl-prop"></a><span class="name">baseUrl</span> : const </h3>
+<p>This property was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@baseUrl -->
+<!-- $$$contentsSize-prop -->
+<h3 class="fn"><a name="contentsSize-prop"></a><span class="name">contentsSize</span> : const </h3>
+<!-- @@@contentsSize -->
+<!-- $$$focus-prop -->
+<h3 class="fn"><a name="focus-prop"></a><span class="name">focus</span> : const </h3>
+<p>This property was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@focus -->
+<!-- $$$icon-prop -->
+<h3 class="fn"><a name="icon-prop"></a><span class="name">icon</span> : const </h3>
+<!-- @@@icon -->
+<!-- $$$requestedUrl-prop -->
+<h3 class="fn"><a name="requestedUrl-prop"></a><span class="name">requestedUrl</span> : const </h3>
+<p>This property was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@requestedUrl -->
+<!-- $$$scrollPosition-prop -->
+<h3 class="fn"><a name="scrollPosition-prop"></a><span class="name">scrollPosition</span> : const </h3>
+<p>This property was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@scrollPosition -->
+<!-- $$$title-prop -->
+<h3 class="fn"><a name="title-prop"></a><span class="name">title</span> : const </h3>
+<!-- @@@title -->
+<!-- $$$url-prop -->
+<h3 class="fn"><a name="url-prop"></a><span class="name">url</span> : const </h3>
+<!-- @@@url -->
+<!-- $$$zoomFactor-prop -->
+<h3 class="fn"><a name="zoomFactor-prop"></a><span class="name">zoomFactor</span> : const </h3>
+<p>This property was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@zoomFactor -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$addToJavaScriptWindowObject[overload1]$$$addToJavaScriptWindowObjectconstQString&QObject*ValueOwnership -->
+<h3 class="fn"><a name="addToJavaScriptWindowObject"></a>QWebFrame::<span class="name">addToJavaScriptWindowObject</span>(const <span class="type">QString</span> &amp;<i> name</i>, <span class="type">QObject</span> *<i> object</i>, <span class="type"><a href="qwebframe.html#ValueOwnership-enum">ValueOwnership</a></span><i> own</i>)</h3>
+<!-- @@@addToJavaScriptWindowObject -->
+<!-- $$$baseUrl[overload1]$$$baseUrl -->
+<h3 class="fn"><a name="baseUrl"></a>QWebFrame::<span class="name">baseUrl</span>() const</h3>
+<!-- @@@baseUrl -->
+<!-- $$$childFrames[overload1]$$$childFrames -->
+<h3 class="fn"><a name="childFrames"></a>QWebFrame::<span class="name">childFrames</span>() const</h3>
+<!-- @@@childFrames -->
+<!-- $$$contentsSize[overload1]$$$contentsSize -->
+<h3 class="fn"><a name="contentsSize"></a>QWebFrame::<span class="name">contentsSize</span>() const</h3>
+<!-- @@@contentsSize -->
+<!-- $$$contentsSizeChanged[overload1]$$$contentsSizeChangedconstQSize& -->
+<h3 class="fn"><a name="contentsSizeChanged"></a>QWebFrame::<span class="name">contentsSizeChanged</span>(const <span class="type">QSize</span> &amp;<i> size</i>)<tt> [signal]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@contentsSizeChanged -->
+<!-- $$$documentElement[overload1]$$$documentElement -->
+<h3 class="fn"><a name="documentElement"></a>QWebFrame::<span class="name">documentElement</span>() const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@documentElement -->
+<!-- $$$evaluateJavaScript[overload1]$$$evaluateJavaScriptconstQString& -->
+<h3 class="fn"><a name="evaluateJavaScript"></a>QWebFrame::<span class="name">evaluateJavaScript</span>(const <span class="type">QString</span> &amp;<i> scriptSource</i>)<tt> [slot]</tt></h3>
+<!-- @@@evaluateJavaScript -->
+<!-- $$$event[overload1]$$$eventQEvent* -->
+<h3 class="fn"><a name="event"></a>QWebFrame::<span class="name">event</span>(<span class="type">QEvent</span> *<i> e</i>)<tt> [virtual]</tt></h3>
+<!-- @@@event -->
+<!-- $$$findAllElements[overload1]$$$findAllElementsconstQString& -->
+<h3 class="fn"><a name="findAllElements"></a>QWebFrame::<span class="name">findAllElements</span>(const <span class="type">QString</span> &amp;<i> selectorQuery</i>) const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@findAllElements -->
+<!-- $$$findFirstElement[overload1]$$$findFirstElementconstQString& -->
+<h3 class="fn"><a name="findFirstElement"></a>QWebFrame::<span class="name">findFirstElement</span>(const <span class="type">QString</span> &amp;<i> selectorQuery</i>) const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@findFirstElement -->
+<!-- $$$frameName[overload1]$$$frameName -->
+<h3 class="fn"><a name="frameName"></a>QWebFrame::<span class="name">frameName</span>() const</h3>
+<!-- @@@frameName -->
+<!-- $$$geometry[overload1]$$$geometry -->
+<h3 class="fn"><a name="geometry"></a>QWebFrame::<span class="name">geometry</span>() const</h3>
+<!-- @@@geometry -->
+<!-- $$$hasFocus[overload1]$$$hasFocus -->
+<h3 class="fn"><a name="hasFocus"></a>QWebFrame::<span class="name">hasFocus</span>() const</h3>
+<!-- @@@hasFocus -->
+<!-- $$$hitTestContent[overload1]$$$hitTestContentconstQPoint& -->
+<h3 class="fn"><a name="hitTestContent"></a>QWebFrame::<span class="name">hitTestContent</span>(const <span class="type">QPoint</span> &amp;<i> pos</i>) const</h3>
+<!-- @@@hitTestContent -->
+<!-- $$$icon[overload1]$$$icon -->
+<h3 class="fn"><a name="icon"></a>QWebFrame::<span class="name">icon</span>() const</h3>
+<!-- @@@icon -->
+<!-- $$$iconChanged[overload1]$$$iconChanged -->
+<h3 class="fn"><a name="iconChanged"></a>QWebFrame::<span class="name">iconChanged</span>()<tt> [signal]</tt></h3>
+<!-- @@@iconChanged -->
+<!-- $$$initialLayoutCompleted[overload1]$$$initialLayoutCompleted -->
+<h3 class="fn"><a name="initialLayoutCompleted"></a>QWebFrame::<span class="name">initialLayoutCompleted</span>()<tt> [signal]</tt></h3>
+<!-- @@@initialLayoutCompleted -->
+<!-- $$$javaScriptWindowObjectCleared[overload1]$$$javaScriptWindowObjectCleared -->
+<h3 class="fn"><a name="javaScriptWindowObjectCleared"></a>QWebFrame::<span class="name">javaScriptWindowObjectCleared</span>()<tt> [signal]</tt></h3>
+<!-- @@@javaScriptWindowObjectCleared -->
+<!-- $$$load[overload1]$$$loadconstQUrl& -->
+<h3 class="fn"><a name="load"></a>QWebFrame::<span class="name">load</span>(const <span class="type">QUrl</span> &amp;<i> url</i>)</h3>
+<!-- @@@load -->
+<!-- $$$load$$$loadconstQNetworkRequest&QNetworkAccessManager::OperationconstQByteArray& -->
+<h3 class="fn"><a name="load-2"></a>QWebFrame::<span class="name">load</span>(const <span class="type">QNetworkRequest</span> &amp;<i> req</i>, <span class="type">QNetworkAccessManager::Operation</span><i> operation</i>, const <span class="type">QByteArray</span> &amp;<i> body</i>)</h3>
+<!-- @@@load -->
+<!-- $$$loadFinished[overload1]$$$loadFinishedbool -->
+<h3 class="fn"><a name="loadFinished"></a>QWebFrame::<span class="name">loadFinished</span>(<span class="type">bool</span><i> ok</i>)<tt> [signal]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@loadFinished -->
+<!-- $$$loadStarted[overload1]$$$loadStarted -->
+<h3 class="fn"><a name="loadStarted"></a>QWebFrame::<span class="name">loadStarted</span>()<tt> [signal]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@loadStarted -->
+<!-- $$$metaData[overload1]$$$metaData -->
+<h3 class="fn"><a name="metaData"></a>QWebFrame::<span class="name">metaData</span>() const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@metaData -->
+<!-- $$$page[overload1]$$$page -->
+<h3 class="fn"><a name="page"></a>QWebFrame::<span class="name">page</span>() const</h3>
+<!-- @@@page -->
+<!-- $$$pageChanged[overload1]$$$pageChanged -->
+<h3 class="fn"><a name="pageChanged"></a>QWebFrame::<span class="name">pageChanged</span>()<tt> [signal]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.7.</p>
+<!-- @@@pageChanged -->
+<!-- $$$parentFrame[overload1]$$$parentFrame -->
+<h3 class="fn"><a name="parentFrame"></a>QWebFrame::<span class="name">parentFrame</span>() const</h3>
+<!-- @@@parentFrame -->
+<!-- $$$pos[overload1]$$$pos -->
+<h3 class="fn"><a name="pos"></a>QWebFrame::<span class="name">pos</span>() const</h3>
+<!-- @@@pos -->
+<!-- $$$print[overload1]$$$printQPrinter* -->
+<h3 class="fn"><a name="print"></a>QWebFrame::<span class="name">print</span>(<span class="type">QPrinter</span> *<i> printer</i>) const<tt> [slot]</tt></h3>
+<!-- @@@print -->
+<!-- $$$render[overload1]$$$renderQPainter*constQRegion& -->
+<h3 class="fn"><a name="render"></a>QWebFrame::<span class="name">render</span>(<span class="type">QPainter</span> *<i> painter</i>, const <span class="type">QRegion</span> &amp;<i> clip</i>)</h3>
+<!-- @@@render -->
+<!-- $$$render$$$renderQPainter*QFlags<QWebFrame::RenderLayer>constQRegion& -->
+<h3 class="fn"><a name="render-2"></a>QWebFrame::<span class="name">render</span>(<span class="type">QPainter</span> *<i> painter</i>, <span class="type">QFlags</span>&lt;<span class="type"><a href="qwebframe.html#RenderLayer-enum">QWebFrame::RenderLayer</a></span>&gt;<i> layer</i>, const <span class="type">QRegion</span> &amp;<i> clip</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@render -->
+<!-- $$$requestedUrl[overload1]$$$requestedUrl -->
+<h3 class="fn"><a name="requestedUrl"></a>QWebFrame::<span class="name">requestedUrl</span>() const</h3>
+<!-- @@@requestedUrl -->
+<!-- $$$scroll[overload1]$$$scrollintint -->
+<h3 class="fn"><a name="scroll"></a>QWebFrame::<span class="name">scroll</span>(<span class="type">int</span><i> dx</i>, <span class="type">int</span><i> dy</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@scroll -->
+<!-- $$$scrollBarGeometry[overload1]$$$scrollBarGeometryQt::Orientation -->
+<h3 class="fn"><a name="scrollBarGeometry"></a>QWebFrame::<span class="name">scrollBarGeometry</span>(<span class="type">Qt::Orientation</span><i> orientation</i>) const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@scrollBarGeometry -->
+<!-- $$$scrollBarMaximum[overload1]$$$scrollBarMaximumQt::Orientation -->
+<h3 class="fn"><a name="scrollBarMaximum"></a>QWebFrame::<span class="name">scrollBarMaximum</span>(<span class="type">Qt::Orientation</span><i> orientation</i>) const</h3>
+<!-- @@@scrollBarMaximum -->
+<!-- $$$scrollBarMinimum[overload1]$$$scrollBarMinimumQt::Orientation -->
+<h3 class="fn"><a name="scrollBarMinimum"></a>QWebFrame::<span class="name">scrollBarMinimum</span>(<span class="type">Qt::Orientation</span><i> orientation</i>) const</h3>
+<!-- @@@scrollBarMinimum -->
+<!-- $$$scrollBarPolicy[overload1]$$$scrollBarPolicyQt::Orientation -->
+<h3 class="fn"><a name="scrollBarPolicy"></a>QWebFrame::<span class="name">scrollBarPolicy</span>(<span class="type">Qt::Orientation</span><i> orientation</i>) const</h3>
+<p><b>See also </b><a href="qwebframe.html#setScrollBarPolicy">setScrollBarPolicy</a>().</p>
+<!-- @@@scrollBarPolicy -->
+<!-- $$$scrollBarValue[overload1]$$$scrollBarValueQt::Orientation -->
+<h3 class="fn"><a name="scrollBarValue"></a>QWebFrame::<span class="name">scrollBarValue</span>(<span class="type">Qt::Orientation</span><i> orientation</i>) const</h3>
+<p><b>See also </b><a href="qwebframe.html#setScrollBarValue">setScrollBarValue</a>().</p>
+<!-- @@@scrollBarValue -->
+<!-- $$$scrollPosition[overload1]$$$scrollPosition -->
+<h3 class="fn"><a name="scrollPosition"></a>QWebFrame::<span class="name">scrollPosition</span>() const</h3>
+<p><b>See also </b><a href="qwebframe.html#setScrollPosition">setScrollPosition</a>().</p>
+<!-- @@@scrollPosition -->
+<!-- $$$scrollToAnchor[overload1]$$$scrollToAnchorconstQString& -->
+<h3 class="fn"><a name="scrollToAnchor"></a>QWebFrame::<span class="name">scrollToAnchor</span>(const <span class="type">QString</span> &amp;<i> anchor</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.7.</p>
+<!-- @@@scrollToAnchor -->
+<!-- $$$securityOrigin[overload1]$$$securityOrigin -->
+<h3 class="fn"><a name="securityOrigin"></a>QWebFrame::<span class="name">securityOrigin</span>() const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@securityOrigin -->
+<!-- $$$setContent[overload1]$$$setContentconstQByteArray&constQString&constQUrl& -->
+<h3 class="fn"><a name="setContent"></a>QWebFrame::<span class="name">setContent</span>(const <span class="type">QByteArray</span> &amp;<i> data</i>, const <span class="type">QString</span> &amp;<i> mimeType</i>, const <span class="type">QUrl</span> &amp;<i> baseUrl</i>)</h3>
+<!-- @@@setContent -->
+<!-- $$$setFocus[overload1]$$$setFocus -->
+<h3 class="fn"><a name="setFocus"></a>QWebFrame::<span class="name">setFocus</span>()</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<p><b>See also </b><a href="qwebframe.html#hasFocus">hasFocus</a>().</p>
+<!-- @@@setFocus -->
+<!-- $$$setHtml[overload1]$$$setHtmlconstQString&constQUrl& -->
+<h3 class="fn"><a name="setHtml"></a>QWebFrame::<span class="name">setHtml</span>(const <span class="type">QString</span> &amp;<i> html</i>, const <span class="type">QUrl</span> &amp;<i> baseUrl</i>)</h3>
+<!-- @@@setHtml -->
+<!-- $$$setScrollBarPolicy[overload1]$$$setScrollBarPolicyQt::OrientationQt::ScrollBarPolicy -->
+<h3 class="fn"><a name="setScrollBarPolicy"></a>QWebFrame::<span class="name">setScrollBarPolicy</span>(<span class="type">Qt::Orientation</span><i> orientation</i>, <span class="type">Qt::ScrollBarPolicy</span><i> policy</i>)</h3>
+<p><b>See also </b><a href="qwebframe.html#scrollBarPolicy">scrollBarPolicy</a>().</p>
+<!-- @@@setScrollBarPolicy -->
+<!-- $$$setScrollBarValue[overload1]$$$setScrollBarValueQt::Orientationint -->
+<h3 class="fn"><a name="setScrollBarValue"></a>QWebFrame::<span class="name">setScrollBarValue</span>(<span class="type">Qt::Orientation</span><i> orientation</i>, <span class="type">int</span><i> value</i>)</h3>
+<p><b>See also </b><a href="qwebframe.html#scrollBarValue">scrollBarValue</a>().</p>
+<!-- @@@setScrollBarValue -->
+<!-- $$$setScrollPosition[overload1]$$$setScrollPositionconstQPoint& -->
+<h3 class="fn"><a name="setScrollPosition"></a>QWebFrame::<span class="name">setScrollPosition</span>(const <span class="type">QPoint</span> &amp;<i> pos</i>)</h3>
+<p><b>See also </b><a href="qwebframe.html#scrollPosition">scrollPosition</a>().</p>
+<!-- @@@setScrollPosition -->
+<!-- $$$setTextSizeMultiplier[overload1]$$$setTextSizeMultiplierqreal -->
+<h3 class="fn"><a name="setTextSizeMultiplier"></a>QWebFrame::<span class="name">setTextSizeMultiplier</span>(<span class="type">qreal</span><i> factor</i>)</h3>
+<p><b>See also </b><a href="qwebframe.html#textSizeMultiplier">textSizeMultiplier</a>().</p>
+<!-- @@@setTextSizeMultiplier -->
+<!-- $$$setUrl[overload1]$$$setUrlconstQUrl& -->
+<h3 class="fn"><a name="setUrl"></a>QWebFrame::<span class="name">setUrl</span>(const <span class="type">QUrl</span> &amp;<i> url</i>)</h3>
+<p><b>See also </b><a href="qwebframe.html#url">url</a>().</p>
+<!-- @@@setUrl -->
+<!-- $$$setZoomFactor[overload1]$$$setZoomFactorqreal -->
+<h3 class="fn"><a name="setZoomFactor"></a>QWebFrame::<span class="name">setZoomFactor</span>(<span class="type">qreal</span><i> factor</i>)</h3>
+<p><b>See also </b><a href="qwebframe.html#zoomFactor">zoomFactor</a>().</p>
+<!-- @@@setZoomFactor -->
+<!-- $$$textSizeMultiplier[overload1]$$$textSizeMultiplier -->
+<h3 class="fn"><a name="textSizeMultiplier"></a>QWebFrame::<span class="name">textSizeMultiplier</span>() const</h3>
+<p><b>See also </b><a href="qwebframe.html#setTextSizeMultiplier">setTextSizeMultiplier</a>().</p>
+<!-- @@@textSizeMultiplier -->
+<!-- $$$title[overload1]$$$title -->
+<h3 class="fn"><a name="title"></a>QWebFrame::<span class="name">title</span>() const</h3>
+<!-- @@@title -->
+<!-- $$$titleChanged[overload1]$$$titleChangedconstQString& -->
+<h3 class="fn"><a name="titleChanged"></a>QWebFrame::<span class="name">titleChanged</span>(const <span class="type">QString</span> &amp;<i> title</i>)<tt> [signal]</tt></h3>
+<!-- @@@titleChanged -->
+<!-- $$$toHtml[overload1]$$$toHtml -->
+<h3 class="fn"><a name="toHtml"></a>QWebFrame::<span class="name">toHtml</span>() const</h3>
+<!-- @@@toHtml -->
+<!-- $$$toPlainText[overload1]$$$toPlainText -->
+<h3 class="fn"><a name="toPlainText"></a>QWebFrame::<span class="name">toPlainText</span>() const</h3>
+<!-- @@@toPlainText -->
+<!-- $$$url[overload1]$$$url -->
+<h3 class="fn"><a name="url"></a>QWebFrame::<span class="name">url</span>() const</h3>
+<p><b>See also </b><a href="qwebframe.html#setUrl">setUrl</a>().</p>
+<!-- @@@url -->
+<!-- $$$urlChanged[overload1]$$$urlChangedconstQUrl& -->
+<h3 class="fn"><a name="urlChanged"></a>QWebFrame::<span class="name">urlChanged</span>(const <span class="type">QUrl</span> &amp;<i> url</i>)<tt> [signal]</tt></h3>
+<!-- @@@urlChanged -->
+<!-- $$$zoomFactor[overload1]$$$zoomFactor -->
+<h3 class="fn"><a name="zoomFactor"></a>QWebFrame::<span class="name">zoomFactor</span>() const</h3>
+<p><b>See also </b><a href="qwebframe.html#setZoomFactor">setZoomFactor</a>().</p>
+<!-- @@@zoomFactor -->
+</div>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="Python">
+    
+    <title>DbusmenuGtk-0.4 Python API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>DbusmenuGtk-0.4 Python API Documentation</h1>
+
+<div class="class-normal">
+<a href="DbusmenuGtk-0.4.html#DbusmenuGtk.Client" class="class-anchor">⚓</a><h2 class="class-normal" id="DbusmenuGtk.Client">Class: DbusmenuGtk.Client</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="Dbusmenu-0.4.html#Dbusmenu.Client">Dbusmenu.Client</a></p>
+<p>
+A subclass of #DbusmenuClient to add functionality with regarding
+building GTK items out of the abstract tree.</p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="DbusmenuGtk.Client.new">new</span><span class="method-parameters">(<a class="link-Type " href="DbusmenuGtk-0.4.html#utf8">dbus_name</a>, <a class="link-Type " href="DbusmenuGtk-0.4.html#utf8">dbus_object</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gtk-2.0.html#Gtk.AccelGroup">Gtk.AccelGroup</a></span><span class="method-name" id="DbusmenuGtk.Client.get_accel_group">get_accel_group</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gtk-2.0.html#Gtk.MenuItem">Gtk.MenuItem</a></span><span class="method-name" id="DbusmenuGtk.Client.menuitem_get">menuitem_get</span><span class="method-parameters">(<a class="link-Class " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">item</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gtk-2.0.html#Gtk.Menu">Gtk.Menu</a></span><span class="method-name" id="DbusmenuGtk.Client.menuitem_get_submenu">menuitem_get_submenu</span><span class="method-parameters">(<a class="link-Class " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">item</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="DbusmenuGtk.Client.newitem_base">newitem_base</span><span class="method-parameters">(<a class="link-Class " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">item</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.MenuItem">gmi</a>, <a class="link-Class " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">parent</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="DbusmenuGtk.Client.set_accel_group">set_accel_group</span><span class="method-parameters">(<a class="link-Class " href="Gtk-2.0.html#Gtk.AccelGroup">agroup</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="DbusmenuGtk-0.4.html#DbusmenuGtk.Menu" class="class-anchor">⚓</a><h2 class="class-normal" id="DbusmenuGtk.Menu">Class: DbusmenuGtk.Menu</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface " href="Atk-1.0.html#Atk.ImplementorIface">Atk.ImplementorIface</a>, <a class="link-Interface " href="Gtk-2.0.html#Gtk.Buildable">Gtk.Buildable</a></p>
+<p>
+Subclass of: <a class="link-Class " href="Gtk-2.0.html#Gtk.Menu">Gtk.Menu</a></p>
+<p>
+A #GtkMenu that is built using an abstract tree built from
+a #DbusmenuGtkClient.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="DbusmenuGtk.Menu.dbus-name">"dbus-name"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="DbusmenuGtk.Menu.dbus-object">"dbus-object"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="DbusmenuGtk.Menu.new">new</span><span class="method-parameters">(<a class="link-Type " href="DbusmenuGtk-0.4.html#utf8">dbus_name</a>, <a class="link-Type " href="DbusmenuGtk-0.4.html#utf8">dbus_object</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="DbusmenuGtk-0.4.html#DbusmenuGtk.Client">DbusmenuGtk.Client</a></span><span class="method-name" id="DbusmenuGtk.Menu.get_client">get_client</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+</body>
+</html>
+

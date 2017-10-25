@@ -1,0 +1,973 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="Python">
+    
+    <title>Unity-5.0 Python API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>Unity-5.0 Python API Documentation</h1>
+
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.ActivationResponse" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.ActivationResponse">Class: Unity.ActivationResponse</h2>
+<div class="relations">
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.ActivationResponse.goto-uri">"goto-uri"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Enumeration type property-type" href="Unity-5.0.html#Unity.HandledType">Unity.HandledType</a><span class="property-name" id="Unity.ActivationResponse.handled">"handled"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.ActivationResponse.new">new</span><span class="method-parameters">(<a class="link-Type " href="Unity-5.0.html#Unity.HandledType">handled</a>, <a class="link-Type " href="Unity-5.0.html#utf8">goto_uri</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.AlbumPreview" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.AlbumPreview">Class: Unity.AlbumPreview</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="Unity-5.0.html#Unity.Preview">Unity.Preview</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.AlbumPreview.new">new</span><span class="method-parameters">(<a class="link-Type " href="Unity-5.0.html#utf8">name</a>, <a class="link-Type " href="Unity-5.0.html#utf8">artist</a>, <a class="link-Type " href="Unity-5.0.html#utf8">year</a>, genres, <a class="link-Type " href="Unity-5.0.html#gint">genres_length1</a>, <a class="link-Type " href="Unity-5.0.html#utf8">album_cover</a>, <a class="link-Type " href="Unity-5.0.html#utf8">primary_action_name</a>, <a class="link-Type " href="Unity-5.0.html#utf8">primary_action_icon_hint</a>, <a class="link-Type " href="Unity-5.0.html#utf8">primary_action_uri</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.AppInfoManager" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.AppInfoManager">Class: Unity.AppInfoManager</h2>
+<div class="relations">
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Unity.AppInfoManager.changed">"changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Unity-5.0.html#Unity.AppInfoManager">app_info_manager</a>, <span class="type-basetype ">id</span>, new_appinfo)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Unity.AppInfoManager.clear">clear</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Array&lt;utf8&gt;</span>, <span class="type-basetype type ">int</span></span><span class="method-name" id="Unity.AppInfoManager.get_categories">get_categories</span><span class="method-parameters">(<span class="type-basetype ">id</span>)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-5.0.html#Unity.AppInfoManager">Unity.AppInfoManager</a></span><span class="method-name" id="Unity.AppInfoManager.get_default">get_default</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-5.0.html#Unity.AppInfoManager">Unity.AppInfoManager</a></span><span class="method-name" id="Unity.AppInfoManager.get_instance">get_instance</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Array&lt;utf8&gt;</span>, <span class="type-basetype type ">int</span></span><span class="method-name" id="Unity.AppInfoManager.get_keywords">get_keywords</span><span class="method-parameters">(<span class="type-basetype ">id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Unity.AppInfoManager.get_path">get_path</span><span class="method-parameters">(<span class="type-basetype ">id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Gio.AppInfo</span></span><span class="method-name" id="Unity.AppInfoManager.lookup">lookup</span><span class="method-parameters">(<span class="type-basetype ">id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Unity.AppInfoManager.lookup_async">lookup_async</span><span class="method-parameters">(<span class="type-basetype ">id</span>, _callback_, <span class="type-basetype ">_callback__target</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Gio.AppInfo</span></span><span class="method-name" id="Unity.AppInfoManager.lookup_finish">lookup_finish</span><span class="method-parameters">(_res_)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.ApplicationPreview" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.ApplicationPreview">Class: Unity.ApplicationPreview</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="Unity-5.0.html#Unity.Preview">Unity.Preview</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.ApplicationPreview.new">new</span><span class="method-parameters">(<a class="link-Type " href="Unity-5.0.html#utf8">name</a>, <a class="link-Type " href="Unity-5.0.html#utf8">version</a>, <a class="link-Type " href="Unity-5.0.html#utf8">size</a>, <a class="link-Type " href="Unity-5.0.html#utf8">license</a>, <a class="link-Type " href="Unity-5.0.html#utf8">last_updated</a>, <a class="link-Type " href="Unity-5.0.html#gfloat">rating</a>, <a class="link-Type " href="Unity-5.0.html#guint">n_ratings</a>, <a class="link-Type " href="Unity-5.0.html#utf8">description</a>, <a class="link-Type " href="Unity-5.0.html#utf8">icon_hint</a>, <a class="link-Type " href="Unity-5.0.html#utf8">screenshot_icon_hint</a>, <a class="link-Type " href="Unity-5.0.html#utf8">primary_action_name</a>, <a class="link-Type " href="Unity-5.0.html#utf8">primary_action_icon_hint</a>, <a class="link-Type " href="Unity-5.0.html#utf8">primary_action_uri</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.Category" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.Category">Class: Unity.Category</h2>
+<div class="relations">
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.Category.name">"name"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type property-type">Gio.Icon</span><span class="property-name" id="Unity.Category.icon-hint">"icon-hint"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Enumeration type property-type" href="Unity-5.0.html#Unity.CategoryRenderer">Unity.CategoryRenderer</a><span class="property-name" id="Unity.Category.default-renderer">"default-renderer"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.Category.new">new</span><span class="method-parameters">(<a class="link-Type " href="Unity-5.0.html#utf8">name</a>, icon_hint, <a class="link-Type " href="Unity-5.0.html#Unity.CategoryRenderer">renderer</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.CheckOptionFilter" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.CheckOptionFilter">Class: Unity.CheckOptionFilter</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="Unity-5.0.html#Unity.OptionsFilter">Unity.OptionsFilter</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.CheckOptionFilter.new">new</span><span class="method-parameters">(<a class="link-Type " href="Unity-5.0.html#utf8">id</a>, <a class="link-Type " href="Unity-5.0.html#utf8">display_name</a>, icon_hint, <a class="link-Type " href="Unity-5.0.html#gboolean">collapsed</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.CheckOptionFilterCompact" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.CheckOptionFilterCompact">Class: Unity.CheckOptionFilterCompact</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="Unity-5.0.html#Unity.OptionsFilter">Unity.OptionsFilter</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.CheckOptionFilterCompact.new">new</span><span class="method-parameters">(<a class="link-Type " href="Unity-5.0.html#utf8">id</a>, <a class="link-Type " href="Unity-5.0.html#utf8">display_name</a>, icon_hint, <a class="link-Type " href="Unity-5.0.html#gboolean">collapsed</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-abstract">
+<a href="Unity-5.0.html#Unity.Filter" class="class-anchor">⚓</a><h2 class="class-abstract" id="Unity.Filter">Abstract Class: Unity.Filter</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class " href="Unity-5.0.html#Unity.RatingsFilter">Unity.RatingsFilter</a>, <a class="link-Class " href="Unity-5.0.html#Unity.OptionsFilter">Unity.OptionsFilter</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.Filter.filtering">"filtering"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.Filter.collapsed">"collapsed"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.Filter.visible">"visible"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Enumeration type property-type" href="Unity-5.0.html#Unity.FilterRenderer">Unity.FilterRenderer</a><span class="property-name" id="Unity.Filter.renderer">"renderer"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type property-type">Gio.Icon</span><span class="property-name" id="Unity.Filter.icon-hint">"icon-hint"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.Filter.display-name">"display-name"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.Filter.id">"id"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Unity.Filter.changed">"changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Unity-5.0.html#Unity.Filter">filter</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.FilterOption" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.FilterOption">Class: Unity.FilterOption</h2>
+<div class="relations">
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.FilterOption.active">"active"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.FilterOption.display-name">"display-name"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.FilterOption.id">"id"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type property-type">Gio.Icon</span><span class="property-name" id="Unity.FilterOption.icon-hint">"icon-hint"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.FilterOption.new">new</span><span class="method-parameters">(<a class="link-Type " href="Unity-5.0.html#utf8">id</a>, <a class="link-Type " href="Unity-5.0.html#utf8">display_name</a>, icon_hint, <a class="link-Type " href="Unity-5.0.html#gboolean">active</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.GenericPreview" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.GenericPreview">Class: Unity.GenericPreview</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="Unity-5.0.html#Unity.Preview">Unity.Preview</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.GenericPreview.new">new</span><span class="method-parameters">(<a class="link-Type " href="Unity-5.0.html#utf8">name</a>, <a class="link-Type " href="Unity-5.0.html#guint">date_modified</a>, <a class="link-Type " href="Unity-5.0.html#guint">size</a>, <a class="link-Type " href="Unity-5.0.html#utf8">type</a>, <a class="link-Type " href="Unity-5.0.html#utf8">description</a>, <a class="link-Type " href="Unity-5.0.html#utf8">large_icon_hint</a>, <a class="link-Type " href="Unity-5.0.html#utf8">primary_action_name</a>, <a class="link-Type " href="Unity-5.0.html#utf8">primary_action_icon_hint</a>, <a class="link-Type " href="Unity-5.0.html#utf8">primary_action_uri</a>, <a class="link-Type " href="Unity-5.0.html#utf8">secondary_action_name</a>, <a class="link-Type " href="Unity-5.0.html#utf8">secondary_action_icon_hint</a>, <a class="link-Type " href="Unity-5.0.html#utf8">secondary_action_uri</a>, <a class="link-Type " href="Unity-5.0.html#utf8">tertiary_action_name</a>, <a class="link-Type " href="Unity-5.0.html#utf8">tertiary_action_icon_hint</a>, <a class="link-Type " href="Unity-5.0.html#utf8">tertiary_action_uri</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.Inspector" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.Inspector">Class: Unity.Inspector</h2>
+<div class="relations">
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.Inspector.unity-running">"unity-running"</span><span class="property-access">read-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.Inspector.unity-bus-name">"unity-bus-name"</span><span class="property-access">read-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-5.0.html#Unity.Inspector">Unity.Inspector</a></span><span class="method-name" id="Unity.Inspector.get_default">get_default</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.LauncherEntry" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.LauncherEntry">Class: Unity.LauncherEntry</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface " href="Dee-1.0.html#Dee.Serializable">Dee.Serializable</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">int</span><span class="property-name" id="Unity.LauncherEntry.count">"count"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.LauncherEntry.progress-visible">"progress-visible"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.LauncherEntry.count-visible">"count-visible"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.LauncherEntry.app-uri">"app-uri"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">Dbusmenu.Menuitem</a><span class="property-name" id="Unity.LauncherEntry.quicklist">"quicklist"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.LauncherEntry.urgent">"urgent"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">float</span><span class="property-name" id="Unity.LauncherEntry.progress">"progress"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-5.0.html#Unity.LauncherEntry">Unity.LauncherEntry</a></span><span class="method-name" id="Unity.LauncherEntry.get_for_app_uri">get_for_app_uri</span><span class="method-parameters">(<span class="type-basetype ">app_uri</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-5.0.html#Unity.LauncherEntry">Unity.LauncherEntry</a></span><span class="method-name" id="Unity.LauncherEntry.get_for_desktop_file">get_for_desktop_file</span><span class="method-parameters">(<span class="type-basetype ">desktop_file</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-5.0.html#Unity.LauncherEntry">Unity.LauncherEntry</a></span><span class="method-name" id="Unity.LauncherEntry.get_for_desktop_id">get_for_desktop_id</span><span class="method-parameters">(<span class="type-basetype ">desktop_id</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.LauncherFavorites" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.LauncherFavorites">Class: Unity.LauncherFavorites</h2>
+<div class="relations">
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Unity.LauncherFavorites.changed">"changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Unity-5.0.html#Unity.LauncherFavorites">launcher_favorites</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Array&lt;Gio.AppInfo&gt;</span>, <span class="type-basetype type ">int</span></span><span class="method-name" id="Unity.LauncherFavorites.enumerate_app_infos">enumerate_app_infos</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Array&lt;utf8&gt;</span>, <span class="type-basetype type ">int</span></span><span class="method-name" id="Unity.LauncherFavorites.enumerate_ids">enumerate_ids</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-5.0.html#Unity.LauncherFavorites">Unity.LauncherFavorites</a></span><span class="method-name" id="Unity.LauncherFavorites.get_default">get_default</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Unity.LauncherFavorites.has_app_id">has_app_id</span><span class="method-parameters">(<span class="type-basetype ">app_id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Unity.LauncherFavorites.has_app_info">has_app_info</span><span class="method-parameters">(appinfo)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Gio.AppInfo</span></span><span class="method-name" id="Unity.LauncherFavorites.lookup">lookup</span><span class="method-parameters">(<span class="type-basetype ">app_id</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.Lens" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.Lens">Class: Unity.Lens</h2>
+<div class="relations">
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<a class="link-Interface type property-type" href="Unity-5.0.html#Unity.MergeStrategy">Unity.MergeStrategy</a><span class="property-name" id="Unity.Lens.global-merge-strategy">"global-merge-strategy"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Interface type property-type" href="Unity-5.0.html#Unity.MergeStrategy">Unity.MergeStrategy</a><span class="property-name" id="Unity.Lens.merge-strategy">"merge-strategy"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.Lens.searching">"searching"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.Lens.search-hint">"search-hint"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.Lens.visible">"visible"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.Lens.search-in-global">"search-in-global"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.Lens.exported">"exported"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type property-type">GLib.List</span><span class="property-name" id="Unity.Lens.filters">"filters"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.Lens.active">"active"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.Lens.dbus-path">"dbus-path"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.Lens.id">"id"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type property-type">GLib.List</span><span class="property-name" id="Unity.Lens.categories">"categories"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.Lens.sources-display-name">"sources-display-name"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.Lens.new">new</span><span class="method-parameters">(<a class="link-Type " href="Unity-5.0.html#utf8">dbus_path_</a>, <a class="link-Type " href="Unity-5.0.html#utf8">id_</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Unity.Lens.add_local_scope">add_local_scope</span><span class="method-parameters">(<a class="link-Class " href="Unity-5.0.html#Unity.Scope">scope</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Unity.Lens.export">export</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.LensSearch" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.LensSearch">Class: Unity.LensSearch</h2>
+<div class="relations">
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type property-type">GLib.HashTable</span><span class="property-name" id="Unity.LensSearch.hints">"hints"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Dee-1.0.html#Dee.SerializableModel">Dee.SerializableModel</a><span class="property-name" id="Unity.LensSearch.results-model">"results-model"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.LensSearch.search-string">"search-string"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Unity.LensSearch.finished">"finished"</span><span class="signal-parameters">(self, <a class="link-Class " href="Unity-5.0.html#Unity.LensSearch">lens_search</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.LensSearch.new">new</span><span class="method-parameters">(<a class="link-Type " href="Unity-5.0.html#utf8">search_string</a>, hints, <a class="link-Type " href="Unity-5.0.html#Dee.SerializableModel">results_model</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Unity.LensSearch.equals">equals</span><span class="method-parameters">(<a class="link-Class " href="Unity-5.0.html#Unity.LensSearch">other</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Unity.LensSearch.finished">finished</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Unity.LensSearch.set_reply_hint">set_reply_hint</span><span class="method-parameters">(<span class="type-basetype ">key</span>, variant)</span></p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="Unity-5.0.html#Unity.MergeStrategy" class="class-anchor">⚓</a><h2 class="class-interface" id="Unity.MergeStrategy">Interface: Unity.MergeStrategy</h2>
+<div class="relations">
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">Dee.ModelIter</a></span><span class="method-name" id="Unity.MergeStrategy.merge_result">merge_result</span><span class="method-parameters">(<a class="link-Interface " href="Dee-1.0.html#Dee.Model">target</a>, row, <span class="type-basetype ">row_length1</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.MultiRangeFilter" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.MultiRangeFilter">Class: Unity.MultiRangeFilter</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="Unity-5.0.html#Unity.OptionsFilter">Unity.OptionsFilter</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.MultiRangeFilter.new">new</span><span class="method-parameters">(<a class="link-Type " href="Unity-5.0.html#utf8">id</a>, <a class="link-Type " href="Unity-5.0.html#utf8">display_name</a>, icon_hint, <a class="link-Type " href="Unity-5.0.html#gboolean">collapsed</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-5.0.html#Unity.FilterOption">Unity.FilterOption</a></span><span class="method-name" id="Unity.MultiRangeFilter.get_first_active">get_first_active</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-5.0.html#Unity.FilterOption">Unity.FilterOption</a></span><span class="method-name" id="Unity.MultiRangeFilter.get_last_active">get_last_active</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.MusicPlayer" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.MusicPlayer">Class: Unity.MusicPlayer</h2>
+<div class="relations">
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.MusicPlayer.can-play">"can-play"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Unity-5.0.html#Unity.Playlist">Unity.Playlist</a><span class="property-name" id="Unity.MusicPlayer.current-playlist">"current-playlist"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type property-type">Gio.AppInfo</span><span class="property-name" id="Unity.MusicPlayer.app-info">"app-info"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.MusicPlayer.can-go-next">"can-go-next"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.MusicPlayer.title">"title"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.MusicPlayer.can-go-previous">"can-go-previous"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.MusicPlayer.can-pause">"can-pause"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.MusicPlayer.is-blacklisted">"is-blacklisted"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">Dbusmenu.Menuitem</a><span class="property-name" id="Unity.MusicPlayer.track-menu">"track-menu"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.MusicPlayer.desktop-file-name">"desktop-file-name"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Unity-5.0.html#Unity.TrackMetadata">Unity.TrackMetadata</a><span class="property-name" id="Unity.MusicPlayer.current-track">"current-track"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Enumeration type property-type" href="Unity-5.0.html#Unity.PlaybackState">Unity.PlaybackState</a><span class="property-name" id="Unity.MusicPlayer.playback-state">"playback-state"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">Dbusmenu.Menuitem</a><span class="property-name" id="Unity.MusicPlayer.player-menu">"player-menu"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Unity.MusicPlayer.next">"next"</span><span class="signal-parameters">(self, <a class="link-Class " href="Unity-5.0.html#Unity.MusicPlayer">music_player</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Unity.MusicPlayer.previous">"previous"</span><span class="signal-parameters">(self, <a class="link-Class " href="Unity-5.0.html#Unity.MusicPlayer">music_player</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Unity.MusicPlayer.activate_playlist">"activate_playlist"</span><span class="signal-parameters">(self, <a class="link-Class " href="Unity-5.0.html#Unity.MusicPlayer">music_player</a>, playlist_id)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Unity.MusicPlayer.raise">"raise"</span><span class="signal-parameters">(self, <a class="link-Class " href="Unity-5.0.html#Unity.MusicPlayer">music_player</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Unity.MusicPlayer.play_pause">"play_pause"</span><span class="signal-parameters">(self, <a class="link-Class " href="Unity-5.0.html#Unity.MusicPlayer">music_player</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.MusicPlayer.new">new</span><span class="method-parameters">(<a class="link-Type " href="Unity-5.0.html#utf8">desktop</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Unity.MusicPlayer.add_playlist">add_playlist</span><span class="method-parameters">(<a class="link-Class " href="Unity-5.0.html#Unity.Playlist">p</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Unity.MusicPlayer.edit_playlist_name">edit_playlist_name</span><span class="method-parameters">(<span class="type-basetype ">id</span>, <span class="type-basetype ">name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Unity.MusicPlayer.export">export</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Array&lt;Unity.Playlist&gt;</span>, <span class="type-basetype type ">int</span></span><span class="method-name" id="Unity.MusicPlayer.get_playlists">get_playlists</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Unity.MusicPlayer.remove_playlist">remove_playlist</span><span class="method-parameters">(<a class="link-Class " href="Unity-5.0.html#Unity.Playlist">p</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Unity.MusicPlayer.unexport">unexport</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.NoPreview" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.NoPreview">Class: Unity.NoPreview</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="Unity-5.0.html#Unity.Preview">Unity.Preview</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.NoPreview.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.OptionsFilter" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.OptionsFilter">Class: Unity.OptionsFilter</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class " href="Unity-5.0.html#Unity.MultiRangeFilter">Unity.MultiRangeFilter</a>, <a class="link-Class " href="Unity-5.0.html#Unity.CheckOptionFilter">Unity.CheckOptionFilter</a>, <a class="link-Class " href="Unity-5.0.html#Unity.CheckOptionFilterCompact">Unity.CheckOptionFilterCompact</a>, <a class="link-Class " href="Unity-5.0.html#Unity.RadioOptionFilter">Unity.RadioOptionFilter</a></p>
+<p>
+Subclass of: <a class="link-Class " href="Unity-5.0.html#Unity.Filter">Unity.Filter</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<a class="link-Enumeration type property-type" href="Unity-5.0.html#Unity.OptionsFilterSortType">Unity.OptionsFilterSortType</a><span class="property-name" id="Unity.OptionsFilter.sort-type">"sort-type"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.OptionsFilter.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-5.0.html#Unity.FilterOption">Unity.FilterOption</a></span><span class="method-name" id="Unity.OptionsFilter.add_option">add_option</span><span class="method-parameters">(<span class="type-basetype ">id</span>, <span class="type-basetype ">display_name</span>, icon_hint)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-5.0.html#Unity.FilterOption">Unity.FilterOption</a></span><span class="method-name" id="Unity.OptionsFilter.get_option">get_option</span><span class="method-parameters">(<span class="type-basetype ">id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Unity.OptionsFilter.remove_option">remove_option</span><span class="method-parameters">(<span class="type-basetype ">id</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.Playlist" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.Playlist">Class: Unity.Playlist</h2>
+<div class="relations">
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.Playlist.name">"name"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type property-type">GLib.DateTime</span><span class="property-name" id="Unity.Playlist.last-play-date">"last-play-date"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type property-type">GLib.DateTime</span><span class="property-name" id="Unity.Playlist.creation-date">"creation-date"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type property-type">GLib.DateTime</span><span class="property-name" id="Unity.Playlist.modification-date">"modification-date"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.Playlist.id">"id"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type property-type">Gio.Icon</span><span class="property-name" id="Unity.Playlist.icon">"icon"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.Playlist.new">new</span><span class="method-parameters">(<a class="link-Type " href="Unity-5.0.html#utf8">id</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-abstract">
+<a href="Unity-5.0.html#Unity.Preview" class="class-anchor">⚓</a><h2 class="class-abstract" id="Unity.Preview">Abstract Class: Unity.Preview</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class " href="Unity-5.0.html#Unity.TrackPreview">Unity.TrackPreview</a>, <a class="link-Class " href="Unity-5.0.html#Unity.AlbumPreview">Unity.AlbumPreview</a>, <a class="link-Class " href="Unity-5.0.html#Unity.GenericPreview">Unity.GenericPreview</a>, <a class="link-Class " href="Unity-5.0.html#Unity.NoPreview">Unity.NoPreview</a>, <a class="link-Class " href="Unity-5.0.html#Unity.ApplicationPreview">Unity.ApplicationPreview</a></p>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.RadioOptionFilter" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.RadioOptionFilter">Class: Unity.RadioOptionFilter</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="Unity-5.0.html#Unity.OptionsFilter">Unity.OptionsFilter</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.RadioOptionFilter.new">new</span><span class="method-parameters">(<a class="link-Type " href="Unity-5.0.html#utf8">id</a>, <a class="link-Type " href="Unity-5.0.html#utf8">display_name</a>, icon_hint, <a class="link-Type " href="Unity-5.0.html#gboolean">collapsed</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-5.0.html#Unity.FilterOption">Unity.FilterOption</a></span><span class="method-name" id="Unity.RadioOptionFilter.get_active_option">get_active_option</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.RatingsFilter" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.RatingsFilter">Class: Unity.RatingsFilter</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="Unity-5.0.html#Unity.Filter">Unity.Filter</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">float</span><span class="property-name" id="Unity.RatingsFilter.rating">"rating"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.RatingsFilter.new">new</span><span class="method-parameters">(<a class="link-Type " href="Unity-5.0.html#utf8">id</a>, <a class="link-Type " href="Unity-5.0.html#utf8">display_name</a>, icon_hint, <a class="link-Type " href="Unity-5.0.html#gboolean">collapsed</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.Scope" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.Scope">Class: Unity.Scope</h2>
+<div class="relations">
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Unity-5.0.html#Unity.OptionsFilter">Unity.OptionsFilter</a><span class="property-name" id="Unity.Scope.sources">"sources"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.Scope.search-in-global">"search-in-global"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.Scope.exported">"exported"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type property-type">GLib.List</span><span class="property-name" id="Unity.Scope.filters">"filters"</span><span class="property-access">read-only</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Dee-1.0.html#Dee.SerializableModel">Dee.SerializableModel</a><span class="property-name" id="Unity.Scope.results-model">"results-model"</span><span class="property-access">read-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Unity.Scope.active">"active"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Dee-1.0.html#Dee.SerializableModel">Dee.SerializableModel</a><span class="property-name" id="Unity.Scope.global-results-model">"global-results-model"</span><span class="property-access">read-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.Scope.dbus-path">"dbus-path"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Unity.Scope.search_changed">"search_changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Unity-5.0.html#Unity.Scope">scope</a>, <a class="link-Class " href="Unity-5.0.html#Unity.LensSearch">search</a>, <a class="link-Enumeration " href="Unity-5.0.html#Unity.SearchType">search_type</a>, cancellable)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Class type " href="Unity-5.0.html#Unity.Preview">Unity.Preview</a></span><span class="signal-name" id="Unity.Scope.preview_uri">"preview_uri"</span><span class="signal-parameters">(self, <a class="link-Class " href="Unity-5.0.html#Unity.Scope">scope</a>, <span class="type-basetype ">uri</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Unity.Scope.active_sources_changed">"active_sources_changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Unity-5.0.html#Unity.Scope">scope</a>, active_ids, <span class="type-basetype ">active_ids_length1</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Unity.Scope.filters_changed">"filters_changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Unity-5.0.html#Unity.Scope">scope</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">string</span></span><span class="signal-name" id="Unity.Scope.generate_search_key">"generate_search_key"</span><span class="signal-parameters">(self, <a class="link-Class " href="Unity-5.0.html#Unity.Scope">scope</a>, <a class="link-Class " href="Unity-5.0.html#Unity.LensSearch">search</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Class type " href="Unity-5.0.html#Unity.ActivationResponse">Unity.ActivationResponse</a></span><span class="signal-name" id="Unity.Scope.activate_uri">"activate_uri"</span><span class="signal-parameters">(self, <a class="link-Class " href="Unity-5.0.html#Unity.Scope">scope</a>, <span class="type-basetype ">uri</span>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.Scope.new">new</span><span class="method-parameters">(<a class="link-Type " href="Unity-5.0.html#utf8">dbus_path_</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Unity.Scope.export">export</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-5.0.html#Unity.Filter">Unity.Filter</a></span><span class="method-name" id="Unity.Scope.get_filter">get_filter</span><span class="method-parameters">(<span class="type-basetype ">id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Unity.Scope.invalidate_search">invalidate_search</span><span class="method-parameters">(<a class="link-Enumeration " href="Unity-5.0.html#Unity.SearchType">search_type</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Unity.Scope.queue_search_changed">queue_search_changed</span><span class="method-parameters">(<a class="link-Enumeration " href="Unity-5.0.html#Unity.SearchType">search_type</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.TrackMetadata" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.TrackMetadata">Class: Unity.TrackMetadata</h2>
+<div class="relations">
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.TrackMetadata.album">"album"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type property-type">Gio.File</span><span class="property-name" id="Unity.TrackMetadata.art-location">"art-location"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.TrackMetadata.title">"title"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Unity.TrackMetadata.artist">"artist"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.TrackMetadata.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-5.0.html#Unity.TrackPreview" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.TrackPreview">Class: Unity.TrackPreview</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="Unity-5.0.html#Unity.Preview">Unity.Preview</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Unity.TrackPreview.new">new</span><span class="method-parameters">(<a class="link-Type " href="Unity-5.0.html#guint">number</a>, <a class="link-Type " href="Unity-5.0.html#utf8">title</a>, <a class="link-Type " href="Unity-5.0.html#utf8">artist</a>, <a class="link-Type " href="Unity-5.0.html#utf8">album</a>, <a class="link-Type " href="Unity-5.0.html#guint">length</a>, genres, <a class="link-Type " href="Unity-5.0.html#gint">genres_length1</a>, <a class="link-Type " href="Unity-5.0.html#utf8">album_cover</a>, <a class="link-Type " href="Unity-5.0.html#utf8">primary_action_name</a>, <a class="link-Type " href="Unity-5.0.html#utf8">primary_action_icon_hint</a>, <a class="link-Type " href="Unity-5.0.html#utf8">primary_action_uri</a>, <a class="link-Type " href="Unity-5.0.html#utf8">play_action_uri</a>, <a class="link-Type " href="Unity-5.0.html#utf8">pause_action_uri</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-enum">
+<a href="Unity-5.0.html#Unity.OptionsFilterSortType" class="class-anchor">⚓</a><h2 class="class-enum" id="Unity.OptionsFilterSortType">Enum: Unity.OptionsFilterSortType</h2>
+<div class="enum-members">
+<span class="enum-member">MANUAL</span><span class="enum-value">0</span><span class="enum-member">DISPLAY_NAME</span><span class="enum-value">1</span><span class="enum-member">ID</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="Unity-5.0.html#Unity.CategoryRenderer" class="class-anchor">⚓</a><h2 class="class-enum" id="Unity.CategoryRenderer">Enum: Unity.CategoryRenderer</h2>
+<div class="enum-members">
+<span class="enum-member">VERTICAL_TILE</span><span class="enum-value">0</span><span class="enum-member">HORIZONTAL_TILE</span><span class="enum-value">1</span><span class="enum-member">LIST_TILE</span><span class="enum-value">2</span><span class="enum-member">FLOW</span><span class="enum-value">3</span></div>
+</div>
+<div class="class-enum">
+<a href="Unity-5.0.html#Unity.SearchType" class="class-anchor">⚓</a><h2 class="class-enum" id="Unity.SearchType">Enum: Unity.SearchType</h2>
+<div class="enum-members">
+<span class="enum-member">DEFAULT</span><span class="enum-value">0</span><span class="enum-member">GLOBAL</span><span class="enum-value">1</span><span class="enum-member">N_TYPES</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="Unity-5.0.html#Unity.ScopeError" class="class-anchor">⚓</a><h2 class="class-enum" id="Unity.ScopeError">Enum: Unity.ScopeError</h2>
+<div class="enum-members">
+<span class="enum-member">SEARCH_CANCELLED</span><span class="enum-value">0</span><span class="enum-member">UNKNOWN</span><span class="enum-value">1</span></div>
+</div>
+<div class="class-enum">
+<a href="Unity-5.0.html#Unity.HandledType" class="class-anchor">⚓</a><h2 class="class-enum" id="Unity.HandledType">Enum: Unity.HandledType</h2>
+<div class="enum-members">
+<span class="enum-member">NOT_HANDLED</span><span class="enum-value">0</span><span class="enum-member">SHOW_DASH</span><span class="enum-value">1</span><span class="enum-member">HIDE_DASH</span><span class="enum-value">2</span><span class="enum-member">GOTO_DASH_URI</span><span class="enum-value">3</span></div>
+</div>
+<div class="class-enum">
+<a href="Unity-5.0.html#Unity.PlaybackState" class="class-anchor">⚓</a><h2 class="class-enum" id="Unity.PlaybackState">Enum: Unity.PlaybackState</h2>
+<div class="enum-members">
+<span class="enum-member">PLAYING</span><span class="enum-value">0</span><span class="enum-member">PAUSED</span><span class="enum-value">1</span></div>
+</div>
+<div class="class-enum">
+<a href="Unity-5.0.html#Unity.FilterRenderer" class="class-anchor">⚓</a><h2 class="class-enum" id="Unity.FilterRenderer">Enum: Unity.FilterRenderer</h2>
+<div class="enum-members">
+<span class="enum-member">CHECK_OPTIONS</span><span class="enum-value">0</span><span class="enum-member">RADIO_OPTIONS</span><span class="enum-value">1</span><span class="enum-member">MULTIRANGE</span><span class="enum-value">2</span><span class="enum-member">RATINGS</span><span class="enum-value">3</span><span class="enum-member">CHECK_OPTIONS_COMPACT</span><span class="enum-value">4</span></div>
+</div>
+</body>
+</html>
+

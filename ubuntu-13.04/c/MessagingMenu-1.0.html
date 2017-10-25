@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="C">
+    
+    <title>MessagingMenu-1.0 C API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>MessagingMenu-1.0 C API Documentation</h1>
+
+<div class="class-normal">
+<a href="MessagingMenu-1.0.html#MessagingMenu.App" class="class-anchor">⚓</a><h2 class="class-normal" id="MessagingMenu.App">Class: MessagingMenuApp</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+#MessagingMenuApp is an opaque structure.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"desktop-id"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The desktop id of the application associated with this application
+section.  Must be given when the #MessagingMenuApp is created.</p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"activate-source"</span><span class="signal-parameters">(MessagingMenuApp *app, gchar* source_id)</span></p>
+<p class="signal-doc">
+Emitted when the user has activated the message source with id
+@source_id.  The source is immediately removed from the menu,
+handlers of this signal do not need to call
+messaging_menu_app_remove_source().</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"status-changed"</span><span class="signal-parameters">(MessagingMenuApp *app, gint status)</span></p>
+<p class="signal-doc">
+Emitted when the chat status is changed through the messaging menu.
+
+Applications which are registered to use the chat status should
+change their status to @status upon receiving this signal.  Call
+messaging_menu_app_set_status() to acknowledge that the application
+changed its status.</p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="MessagingMenu-1.0.html#MessagingMenu.App">MessagingMenuApp</a>*</span><span class="method-name">messaging_menu_app_new</span><span class="method-parameters">(<a class="link-Type type " href="MessagingMenu-1.0.html#utf8">const gchar</a> *desktop_id)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_append_source</span><span class="method-parameters">(MessagingMenuApp *self, <span class="type-basetype type ">gchar</span> *id, <a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon</a> *icon, <span class="type-basetype type ">gchar</span> *label)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_append_source_with_count</span><span class="method-parameters">(MessagingMenuApp *self, <span class="type-basetype type ">gchar</span> *id, <a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon</a> *icon, <span class="type-basetype type ">gchar</span> *label, <span class="type-basetype type ">guint</span> count)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_append_source_with_string</span><span class="method-parameters">(MessagingMenuApp *self, <span class="type-basetype type ">gchar</span> *id, <a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon</a> *icon, <span class="type-basetype type ">gchar</span> *label, <span class="type-basetype type ">gchar</span> *str)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_append_source_with_time</span><span class="method-parameters">(MessagingMenuApp *self, <span class="type-basetype type ">gchar</span> *id, <a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon</a> *icon, <span class="type-basetype type ">gchar</span> *label, <span class="type-basetype type ">gint64</span> time)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_draw_attention</span><span class="method-parameters">(MessagingMenuApp *self, <span class="type-basetype type ">gchar</span> *source_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">messaging_menu_app_has_source</span><span class="method-parameters">(MessagingMenuApp *self, <span class="type-basetype type ">gchar</span> *source_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_insert_source</span><span class="method-parameters">(MessagingMenuApp *self, <span class="type-basetype type ">gint</span> position, <span class="type-basetype type ">gchar</span> *id, <a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon</a> *icon, <span class="type-basetype type ">gchar</span> *label)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_insert_source_with_count</span><span class="method-parameters">(MessagingMenuApp *self, <span class="type-basetype type ">gint</span> position, <span class="type-basetype type ">gchar</span> *id, <a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon</a> *icon, <span class="type-basetype type ">gchar</span> *label, <span class="type-basetype type ">guint</span> count)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_insert_source_with_string</span><span class="method-parameters">(MessagingMenuApp *self, <span class="type-basetype type ">gint</span> position, <span class="type-basetype type ">gchar</span> *id, <a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon</a> *icon, <span class="type-basetype type ">gchar</span> *label, <span class="type-basetype type ">gchar</span> *str)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_insert_source_with_time</span><span class="method-parameters">(MessagingMenuApp *self, <span class="type-basetype type ">gint</span> position, <span class="type-basetype type ">gchar</span> *id, <a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon</a> *icon, <span class="type-basetype type ">gchar</span> *label, <span class="type-basetype type ">gint64</span> time)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_register</span><span class="method-parameters">(MessagingMenuApp *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_remove_attention</span><span class="method-parameters">(MessagingMenuApp *self, <span class="type-basetype type ">gchar</span> *source_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_remove_source</span><span class="method-parameters">(MessagingMenuApp *self, <span class="type-basetype type ">gchar</span> *source_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_set_source_count</span><span class="method-parameters">(MessagingMenuApp *self, <span class="type-basetype type ">gchar</span> *source_id, <span class="type-basetype type ">guint</span> count)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_set_source_icon</span><span class="method-parameters">(MessagingMenuApp *self, <span class="type-basetype type ">gchar</span> *source_id, <a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon</a> *icon)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_set_source_label</span><span class="method-parameters">(MessagingMenuApp *self, <span class="type-basetype type ">gchar</span> *source_id, <span class="type-basetype type ">gchar</span> *label)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_set_source_string</span><span class="method-parameters">(MessagingMenuApp *self, <span class="type-basetype type ">gchar</span> *source_id, <span class="type-basetype type ">gchar</span> *str)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_set_source_time</span><span class="method-parameters">(MessagingMenuApp *self, <span class="type-basetype type ">gchar</span> *source_id, <span class="type-basetype type ">gint64</span> time)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_set_status</span><span class="method-parameters">(MessagingMenuApp *self, <a class="link-Enumeration type " href="MessagingMenu-1.0.html#MessagingMenu.Status">MessagingMenuStatus</a> status)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">messaging_menu_app_unregister</span><span class="method-parameters">(MessagingMenuApp *self)</span></p>
+</div>
+</div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,1445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="Python">
+    
+    <title>Atk-1.0 Python API Documentation</title>
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-12.10/giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>Atk-1.0 Python API Documentation</h1>
+
+<div class="class-interface">
+<a href="Atk-1.0.html#Atk.Action" class="class-anchor">⚓</a><h2 class="class-interface" id="Atk.Action">Interface: Atk.Action</h2>
+<div class="relations">
+<p>
+Classes implementing Atk.Action: <a class="link-Class " href="Atk-1.0.html#Atk.Hyperlink">Atk.Hyperlink</a>, <a class="link-Class " href="Atk-1.0.html#Atk.NoOpObject">Atk.NoOpObject</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Action.do_action">do_action</span><span class="method-parameters">(<span class="type-basetype ">i</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Action.get_description">get_description</span><span class="method-parameters">(<span class="type-basetype ">i</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Action.get_keybinding">get_keybinding</span><span class="method-parameters">(<span class="type-basetype ">i</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Action.get_localized_name">get_localized_name</span><span class="method-parameters">(<span class="type-basetype ">i</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Action.get_n_actions">get_n_actions</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Action.get_name">get_name</span><span class="method-parameters">(<span class="type-basetype ">i</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Action.set_description">set_description</span><span class="method-parameters">(<span class="type-basetype ">i</span>, <span class="type-basetype ">desc</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="Atk-1.0.html#Atk.Component" class="class-anchor">⚓</a><h2 class="class-interface" id="Atk.Component">Interface: Atk.Component</h2>
+<div class="relations">
+<p>
+Classes implementing Atk.Component: <a class="link-Class " href="Atk-1.0.html#Atk.Plug">Atk.Plug</a>, <a class="link-Class " href="Atk-1.0.html#Atk.Socket">Atk.Socket</a>, <a class="link-Class " href="Atk-1.0.html#Atk.NoOpObject">Atk.NoOpObject</a></p>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Component.bounds-changed">"bounds-changed"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Component">component</a>, <a class="link-Type " href="Atk-1.0.html#Atk.Rectangle">object</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Component.bounds_changed">bounds_changed</span><span class="method-parameters">(<a class="link-Record " href="Atk-1.0.html#Atk.Rectangle">bounds</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Component.contains">contains</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, <a class="link-Enumeration " href="Atk-1.0.html#Atk.CoordType">coord_type</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">float</span></span><span class="method-name" id="Atk.Component.get_alpha">get_alpha</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Component.get_extents">get_extents</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, <span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>, <a class="link-Enumeration " href="Atk-1.0.html#Atk.CoordType">coord_type</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Atk-1.0.html#Atk.Layer">Atk.Layer</a></span><span class="method-name" id="Atk.Component.get_layer">get_layer</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Component.get_mdi_zorder">get_mdi_zorder</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Component.get_position">get_position</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, <a class="link-Enumeration " href="Atk-1.0.html#Atk.CoordType">coord_type</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Component.get_size">get_size</span><span class="method-parameters">(<span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Component.grab_focus">grab_focus</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.Object">Atk.Object</a></span><span class="method-name" id="Atk.Component.ref_accessible_at_point">ref_accessible_at_point</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, <a class="link-Enumeration " href="Atk-1.0.html#Atk.CoordType">coord_type</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Component.remove_focus_handler">remove_focus_handler</span><span class="method-parameters">(<span class="type-basetype ">handler_id</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Component.set_extents">set_extents</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, <span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>, <a class="link-Enumeration " href="Atk-1.0.html#Atk.CoordType">coord_type</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Component.set_position">set_position</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, <a class="link-Enumeration " href="Atk-1.0.html#Atk.CoordType">coord_type</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Component.set_size">set_size</span><span class="method-parameters">(<span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="Atk-1.0.html#Atk.Document" class="class-anchor">⚓</a><h2 class="class-interface" id="Atk.Document">Interface: Atk.Document</h2>
+<div class="relations">
+<p>
+Classes implementing Atk.Document: <a class="link-Class " href="Atk-1.0.html#Atk.NoOpObject">Atk.NoOpObject</a></p>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Document.reload">"reload"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Document">document</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Document.load-stopped">"load-stopped"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Document">document</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Document.load-complete">"load-complete"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Document">document</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Document.get_attribute_value">get_attribute_value</span><span class="method-parameters">(<span class="type-basetype ">attribute_name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Atk.AttributeSet</span></span><span class="method-name" id="Atk.Document.get_attributes">get_attributes</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gpointer</span></span><span class="method-name" id="Atk.Document.get_document">get_document</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Document.get_document_attribute_value">get_document_attribute_value</span><span class="method-parameters">(<span class="type-basetype ">attribute_name</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Document.get_document_locale">get_document_locale</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Document.get_document_type">get_document_type</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Document.get_locale">get_locale</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Document.set_attribute_value">set_attribute_value</span><span class="method-parameters">(<span class="type-basetype ">attribute_name</span>, <span class="type-basetype ">attribute_value</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Document.set_document_attribute">set_document_attribute</span><span class="method-parameters">(<span class="type-basetype ">attribute_name</span>, <span class="type-basetype ">attribute_value</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="Atk-1.0.html#Atk.EditableText" class="class-anchor">⚓</a><h2 class="class-interface" id="Atk.EditableText">Interface: Atk.EditableText</h2>
+<div class="relations">
+<p>
+Classes implementing Atk.EditableText: <a class="link-Class " href="Atk-1.0.html#Atk.NoOpObject">Atk.NoOpObject</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.EditableText.copy_text">copy_text</span><span class="method-parameters">(<span class="type-basetype ">start_pos</span>, <span class="type-basetype ">end_pos</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.EditableText.cut_text">cut_text</span><span class="method-parameters">(<span class="type-basetype ">start_pos</span>, <span class="type-basetype ">end_pos</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.EditableText.delete_text">delete_text</span><span class="method-parameters">(<span class="type-basetype ">start_pos</span>, <span class="type-basetype ">end_pos</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.EditableText.insert_text">insert_text</span><span class="method-parameters">(<span class="type-basetype ">string</span>, <span class="type-basetype ">length</span>, <span class="type-basetype ">position</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.EditableText.paste_text">paste_text</span><span class="method-parameters">(<span class="type-basetype ">position</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.EditableText.set_run_attributes">set_run_attributes</span><span class="method-parameters">(attrib_set, <span class="type-basetype ">start_offset</span>, <span class="type-basetype ">end_offset</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.EditableText.set_text_contents">set_text_contents</span><span class="method-parameters">(<span class="type-basetype ">string</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Atk-1.0.html#Atk.GObjectAccessible" class="class-anchor">⚓</a><h2 class="class-normal" id="Atk.GObjectAccessible">Class: Atk.GObjectAccessible</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="Atk-1.0.html#Atk.Object">Atk.Object</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.Object">Atk.Object</a></span><span class="method-name" id="Atk.GObjectAccessible.for_object">for_object</span><span class="method-parameters">(<a class="link-Class " href="GObject-2.0.html#GObject.Object">obj</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject.Object</a></span><span class="method-name" id="Atk.GObjectAccessible.get_object">get_object</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Atk-1.0.html#Atk.Hyperlink" class="class-anchor">⚓</a><h2 class="class-normal" id="Atk.Hyperlink">Class: Atk.Hyperlink</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface " href="Atk-1.0.html#Atk.Action">Atk.Action</a></p>
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">int</span><span class="property-name" id="Atk.Hyperlink.start-index">"start-index"</span><span class="property-access">read-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">bool</span><span class="property-name" id="Atk.Hyperlink.selected-link">"selected-link"</span><span class="property-access">read-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">int</span><span class="property-name" id="Atk.Hyperlink.number-of-anchors">"number-of-anchors"</span><span class="property-access">read-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">int</span><span class="property-name" id="Atk.Hyperlink.end-index">"end-index"</span><span class="property-access">read-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Atk.Hyperlink.link-activated">"link-activated"</span><span class="signal-parameters">(self, <a class="link-Class " href="Atk-1.0.html#Atk.Hyperlink">hyperlink</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Hyperlink.get_end_index">get_end_index</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Hyperlink.get_n_anchors">get_n_anchors</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.Object">Atk.Object</a></span><span class="method-name" id="Atk.Hyperlink.get_object">get_object</span><span class="method-parameters">(<span class="type-basetype ">i</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Hyperlink.get_start_index">get_start_index</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Hyperlink.get_uri">get_uri</span><span class="method-parameters">(<span class="type-basetype ">i</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Hyperlink.is_inline">is_inline</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Hyperlink.is_selected_link">is_selected_link</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Hyperlink.is_valid">is_valid</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Hyperlink.link_activated">link_activated</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Hyperlink.link_state">link_state</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="Atk-1.0.html#Atk.HyperlinkImpl" class="class-anchor">⚓</a><h2 class="class-interface" id="Atk.HyperlinkImpl">Interface: Atk.HyperlinkImpl</h2>
+<div class="relations">
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.Hyperlink">Atk.Hyperlink</a></span><span class="method-name" id="Atk.HyperlinkImpl.get_hyperlink">get_hyperlink</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="Atk-1.0.html#Atk.Hypertext" class="class-anchor">⚓</a><h2 class="class-interface" id="Atk.Hypertext">Interface: Atk.Hypertext</h2>
+<div class="relations">
+<p>
+Classes implementing Atk.Hypertext: <a class="link-Class " href="Atk-1.0.html#Atk.NoOpObject">Atk.NoOpObject</a></p>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Hypertext.link-selected">"link-selected"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Hypertext">hypertext</a>, <a class="link-Type " href="Atk-1.0.html#gint">object</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.Hyperlink">Atk.Hyperlink</a></span><span class="method-name" id="Atk.Hypertext.get_link">get_link</span><span class="method-parameters">(<span class="type-basetype ">link_index</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Hypertext.get_link_index">get_link_index</span><span class="method-parameters">(<span class="type-basetype ">char_index</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Hypertext.get_n_links">get_n_links</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Hypertext.link_selected">link_selected</span><span class="method-parameters">(<span class="type-basetype ">link_index</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="Atk-1.0.html#Atk.Image" class="class-anchor">⚓</a><h2 class="class-interface" id="Atk.Image">Interface: Atk.Image</h2>
+<div class="relations">
+<p>
+Classes implementing Atk.Image: <a class="link-Class " href="Atk-1.0.html#Atk.NoOpObject">Atk.NoOpObject</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Image.get_image_description">get_image_description</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Image.get_image_locale">get_image_locale</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Image.get_image_position">get_image_position</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, <a class="link-Enumeration " href="Atk-1.0.html#Atk.CoordType">coord_type</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Image.get_image_size">get_image_size</span><span class="method-parameters">(<span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Image.set_image_description">set_image_description</span><span class="method-parameters">(<span class="type-basetype ">description</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="Atk-1.0.html#Atk.ImplementorIface" class="class-anchor">⚓</a><h2 class="class-interface" id="Atk.ImplementorIface">Interface: Atk.ImplementorIface</h2>
+<div class="relations">
+<p>
+Classes implementing Atk.ImplementorIface: <a class="link-Class " href="Gtk-2.0.html#Gtk.VScale">Gtk.VScale</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ColorSelectionDialog">Gtk.ColorSelectionDialog</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.InputDialog">Gtk.InputDialog</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Curve">Gtk.Curve</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.VButtonBox">Gtk.VButtonBox</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Bin">Gtk.Bin</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ToolPalette">Gtk.ToolPalette</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Statusbar">Gtk.Statusbar</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.HBox">Gtk.HBox</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.FileChooserButton">Gtk.FileChooserButton</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Box">Gtk.Box</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.VRuler">Gtk.VRuler</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.CellView">Gtk.CellView</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.HandleBox">Gtk.HandleBox</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ToggleButton">Gtk.ToggleButton</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.OldEditable">Gtk.OldEditable</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Socket">Gtk.Socket</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.TreeView">Gtk.TreeView</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.VolumeButton">Gtk.VolumeButton</a>, <a class="link-Class " href="DbusmenuGtk-0.4.html#DbusmenuGtk.Menu">DbusmenuGtk.Menu</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Image">Gtk.Image</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ColorSelection">Gtk.ColorSelection</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.TearoffMenuItem">Gtk.TearoffMenuItem</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Ruler">Gtk.Ruler</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.HButtonBox">Gtk.HButtonBox</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.VBox">Gtk.VBox</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Menu">Gtk.Menu</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ColorButton">Gtk.ColorButton</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Invisible">Gtk.Invisible</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.CList">Gtk.CList</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.List">Gtk.List</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.FileChooserDialog">Gtk.FileChooserDialog</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.DrawingArea">Gtk.DrawingArea</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.MessageDialog">Gtk.MessageDialog</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.SeparatorMenuItem">Gtk.SeparatorMenuItem</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.MenuShell">Gtk.MenuShell</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.MenuBar">Gtk.MenuBar</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ScrolledWindow">Gtk.ScrolledWindow</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.VScrollbar">Gtk.VScrollbar</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.GammaCurve">Gtk.GammaCurve</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.RadioButton">Gtk.RadioButton</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.CTree">Gtk.CTree</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.FontButton">Gtk.FontButton</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ToolItem">Gtk.ToolItem</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.FontSelection">Gtk.FontSelection</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.InfoBar">Gtk.InfoBar</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.CheckButton">Gtk.CheckButton</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ToolButton">Gtk.ToolButton</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Item">Gtk.Item</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.VSeparator">Gtk.VSeparator</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.HPaned">Gtk.HPaned</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Toolbar">Gtk.Toolbar</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Expander">Gtk.Expander</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Table">Gtk.Table</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Range">Gtk.Range</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Preview">Gtk.Preview</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.RecentChooserMenu">Gtk.RecentChooserMenu</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Combo">Gtk.Combo</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Alignment">Gtk.Alignment</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Viewport">Gtk.Viewport</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.HScale">Gtk.HScale</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Dialog">Gtk.Dialog</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Pixmap">Gtk.Pixmap</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.FileChooserWidget">Gtk.FileChooserWidget</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.OptionMenu">Gtk.OptionMenu</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Progress">Gtk.Progress</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ButtonBox">Gtk.ButtonBox</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.FileSelection">Gtk.FileSelection</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Window">Gtk.Window</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Frame">Gtk.Frame</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.TipsQuery">Gtk.TipsQuery</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Button">Gtk.Button</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.MenuItem">Gtk.MenuItem</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.TextView">Gtk.TextView</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ComboBoxEntry">Gtk.ComboBoxEntry</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Label">Gtk.Label</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ScaleButton">Gtk.ScaleButton</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Separator">Gtk.Separator</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Calendar">Gtk.Calendar</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.RadioToolButton">Gtk.RadioToolButton</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.SeparatorToolItem">Gtk.SeparatorToolItem</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.CheckMenuItem">Gtk.CheckMenuItem</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.AspectFrame">Gtk.AspectFrame</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ToggleToolButton">Gtk.ToggleToolButton</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ImageMenuItem">Gtk.ImageMenuItem</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Container">Gtk.Container</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Arrow">Gtk.Arrow</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.RadioMenuItem">Gtk.RadioMenuItem</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.HSV">Gtk.HSV</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Paned">Gtk.Paned</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Widget">Gtk.Widget</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.HSeparator">Gtk.HSeparator</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ComboBox">Gtk.ComboBox</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Layout">Gtk.Layout</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Plug">Gtk.Plug</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.AccelLabel">Gtk.AccelLabel</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.VPaned">Gtk.VPaned</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.SpinButton">Gtk.SpinButton</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.OffscreenWindow">Gtk.OffscreenWindow</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Misc">Gtk.Misc</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.IconView">Gtk.IconView</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.HScrollbar">Gtk.HScrollbar</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ToolItemGroup">Gtk.ToolItemGroup</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.RecentChooserWidget">Gtk.RecentChooserWidget</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Spinner">Gtk.Spinner</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ComboBoxText">Gtk.ComboBoxText</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Notebook">Gtk.Notebook</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ListItem">Gtk.ListItem</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.HRuler">Gtk.HRuler</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.RecentChooserDialog">Gtk.RecentChooserDialog</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.EventBox">Gtk.EventBox</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ProgressBar">Gtk.ProgressBar</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.MenuToolButton">Gtk.MenuToolButton</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.LinkButton">Gtk.LinkButton</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Fixed">Gtk.Fixed</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Scale">Gtk.Scale</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Assistant">Gtk.Assistant</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.AboutDialog">Gtk.AboutDialog</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.FontSelectionDialog">Gtk.FontSelectionDialog</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Entry">Gtk.Entry</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Scrollbar">Gtk.Scrollbar</a></p>
+</div>
+</div>
+<div class="class-normal">
+<a href="Atk-1.0.html#Atk.Misc" class="class-anchor">⚓</a><h2 class="class-normal" id="Atk.Misc">Class: Atk.Misc</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.Misc">Atk.Misc</a></span><span class="method-name" id="Atk.Misc.get_instance">get_instance</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Misc.threads_enter">threads_enter</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Misc.threads_leave">threads_leave</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Atk-1.0.html#Atk.NoOpObject" class="class-anchor">⚓</a><h2 class="class-normal" id="Atk.NoOpObject">Class: Atk.NoOpObject</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface " href="Atk-1.0.html#Atk.EditableText">Atk.EditableText</a>, <a class="link-Interface " href="Atk-1.0.html#Atk.Value">Atk.Value</a>, <a class="link-Interface " href="Atk-1.0.html#Atk.Document">Atk.Document</a>, <a class="link-Interface " href="Atk-1.0.html#Atk.Table">Atk.Table</a>, <a class="link-Interface " href="Atk-1.0.html#Atk.Action">Atk.Action</a>, <a class="link-Interface " href="Atk-1.0.html#Atk.Text">Atk.Text</a>, <a class="link-Interface " href="Atk-1.0.html#Atk.Selection">Atk.Selection</a>, <a class="link-Interface " href="Atk-1.0.html#Atk.Image">Atk.Image</a>, <a class="link-Interface " href="Atk-1.0.html#Atk.Window">Atk.Window</a>, <a class="link-Interface " href="Atk-1.0.html#Atk.Hypertext">Atk.Hypertext</a>, <a class="link-Interface " href="Atk-1.0.html#Atk.Component">Atk.Component</a></p>
+<p>
+Subclass of: <a class="link-Class " href="Atk-1.0.html#Atk.Object">Atk.Object</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Atk.NoOpObject.new">new</span><span class="method-parameters">(<a class="link-Type " href="Atk-1.0.html#GObject.Object">obj</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Atk-1.0.html#Atk.NoOpObjectFactory" class="class-anchor">⚓</a><h2 class="class-normal" id="Atk.NoOpObjectFactory">Class: Atk.NoOpObjectFactory</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="Atk-1.0.html#Atk.ObjectFactory">Atk.ObjectFactory</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Atk.NoOpObjectFactory.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Atk-1.0.html#Atk.Object" class="class-anchor">⚓</a><h2 class="class-normal" id="Atk.Object">Class: Atk.Object</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class " href="Atk-1.0.html#Atk.NoOpObject">Atk.NoOpObject</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Accessible">Gtk.Accessible</a>, <a class="link-Class " href="Atk-1.0.html#Atk.Plug">Atk.Plug</a>, <a class="link-Class " href="Atk-1.0.html#Atk.Socket">Atk.Socket</a>, <a class="link-Class " href="Atk-1.0.html#Atk.GObjectAccessible">Atk.GObjectAccessible</a></p>
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Atk-1.0.html#Atk.Object">Atk.Object</a><span class="property-name" id="Atk.Object.accessible-table-row-header">"accessible-table-row-header"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Atk.Object.accessible-description">"accessible-description"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">int</span><span class="property-name" id="Atk.Object.accessible-component-layer">"accessible-component-layer"</span><span class="property-access">read-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">int</span><span class="property-name" id="Atk.Object.accessible-hypertext-nlinks">"accessible-hypertext-nlinks"</span><span class="property-access">read-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Atk.Object.accessible-table-row-description">"accessible-table-row-description"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Atk-1.0.html#Atk.Object">Atk.Object</a><span class="property-name" id="Atk.Object.accessible-table-column-header">"accessible-table-column-header"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Atk.Object.accessible-table-column-description">"accessible-table-column-description"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">float</span><span class="property-name" id="Atk.Object.accessible-value">"accessible-value"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Atk-1.0.html#Atk.Object">Atk.Object</a><span class="property-name" id="Atk.Object.accessible-parent">"accessible-parent"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Atk.Object.accessible-table-caption">"accessible-table-caption"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Atk.Object.accessible-name">"accessible-name"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">int</span><span class="property-name" id="Atk.Object.accessible-role">"accessible-role"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">int</span><span class="property-name" id="Atk.Object.accessible-component-mdi-zorder">"accessible-component-mdi-zorder"</span><span class="property-access">read-only</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Atk-1.0.html#Atk.Object">Atk.Object</a><span class="property-name" id="Atk.Object.accessible-table-summary">"accessible-table-summary"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Atk-1.0.html#Atk.Object">Atk.Object</a><span class="property-name" id="Atk.Object.accessible-table-caption-object">"accessible-table-caption-object"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Atk.Object.focus-event">"focus-event"</span><span class="signal-parameters">(self, <a class="link-Class " href="Atk-1.0.html#Atk.Object">object</a>, <span class="type-basetype ">object</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Atk.Object.children-changed">"children-changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Atk-1.0.html#Atk.Object">object</a>, <span class="type-basetype ">object</span>, <span class="type-basetype ">p0</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Atk.Object.state-change">"state-change"</span><span class="signal-parameters">(self, <a class="link-Class " href="Atk-1.0.html#Atk.Object">object</a>, <span class="type-basetype ">object</span>, <span class="type-basetype ">p0</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Atk.Object.active-descendant-changed">"active-descendant-changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Atk-1.0.html#Atk.Object">object</a>, <span class="type-basetype ">object</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Atk.Object.visible-data-changed">"visible-data-changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Atk-1.0.html#Atk.Object">object</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Atk.Object.property-change">"property-change"</span><span class="signal-parameters">(self, <a class="link-Class " href="Atk-1.0.html#Atk.Object">object</a>, <span class="type-basetype ">object</span>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Object.active_descendant_changed">active_descendant_changed</span><span class="method-parameters">(<span class="type-basetype ">child</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Object.add_relationship">add_relationship</span><span class="method-parameters">(<a class="link-Enumeration " href="Atk-1.0.html#Atk.RelationType">relationship</a>, <a class="link-Class " href="Atk-1.0.html#Atk.Object">target</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Object.children_changed">children_changed</span><span class="method-parameters">(<span class="type-basetype ">change_index</span>, <span class="type-basetype ">changed_child</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Object.focus_event">focus_event</span><span class="method-parameters">(<span class="type-basetype ">focus_in</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type ">Atk.AttributeSet</span></span><span class="method-name" id="Atk.Object.get_attributes">get_attributes</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Object.get_description">get_description</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Object.get_index_in_parent">get_index_in_parent</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Atk-1.0.html#Atk.Layer">Atk.Layer</a></span><span class="method-name" id="Atk.Object.get_layer">get_layer</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Object.get_mdi_zorder">get_mdi_zorder</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Object.get_n_accessible_children">get_n_accessible_children</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Object.get_n_children">get_n_children</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Object.get_name">get_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.Object">Atk.Object</a></span><span class="method-name" id="Atk.Object.get_parent">get_parent</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Atk-1.0.html#Atk.Role">Atk.Role</a></span><span class="method-name" id="Atk.Object.get_role">get_role</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Object.initialize">initialize</span><span class="method-parameters">(<span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Object.notify_state_change">notify_state_change</span><span class="method-parameters">(state, <span class="type-basetype ">value</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.Object">Atk.Object</a></span><span class="method-name" id="Atk.Object.ref_accessible_child">ref_accessible_child</span><span class="method-parameters">(<span class="type-basetype ">i</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.RelationSet">Atk.RelationSet</a></span><span class="method-name" id="Atk.Object.ref_relation_set">ref_relation_set</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.StateSet">Atk.StateSet</a></span><span class="method-name" id="Atk.Object.ref_state_set">ref_state_set</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Object.remove_property_change_handler">remove_property_change_handler</span><span class="method-parameters">(<span class="type-basetype ">handler_id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Object.remove_relationship">remove_relationship</span><span class="method-parameters">(<a class="link-Enumeration " href="Atk-1.0.html#Atk.RelationType">relationship</a>, <a class="link-Class " href="Atk-1.0.html#Atk.Object">target</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Object.set_description">set_description</span><span class="method-parameters">(<span class="type-basetype ">description</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Object.set_name">set_name</span><span class="method-parameters">(<span class="type-basetype ">name</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Object.set_parent">set_parent</span><span class="method-parameters">(<a class="link-Class " href="Atk-1.0.html#Atk.Object">parent</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Object.set_role">set_role</span><span class="method-parameters">(<a class="link-Enumeration " href="Atk-1.0.html#Atk.Role">role</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Object.state_change">state_change</span><span class="method-parameters">(<span class="type-basetype ">name</span>, <span class="type-basetype ">state_set</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Object.visible_data_changed">visible_data_changed</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Atk-1.0.html#Atk.ObjectFactory" class="class-anchor">⚓</a><h2 class="class-normal" id="Atk.ObjectFactory">Class: Atk.ObjectFactory</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class " href="Atk-1.0.html#Atk.NoOpObjectFactory">Atk.NoOpObjectFactory</a></p>
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.Object">Atk.Object</a></span><span class="method-name" id="Atk.ObjectFactory.create_accessible">create_accessible</span><span class="method-parameters">(<a class="link-Class " href="GObject-2.0.html#GObject.Object">obj</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">GType</span></span><span class="method-name" id="Atk.ObjectFactory.get_accessible_type">get_accessible_type</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.ObjectFactory.invalidate">invalidate</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Atk-1.0.html#Atk.Plug" class="class-anchor">⚓</a><h2 class="class-normal" id="Atk.Plug">Class: Atk.Plug</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface " href="Atk-1.0.html#Atk.Component">Atk.Component</a></p>
+<p>
+Subclass of: <a class="link-Class " href="Atk-1.0.html#Atk.Object">Atk.Object</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Atk.Plug.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Plug.get_id">get_id</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Plug.get_object_id">get_object_id</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Atk-1.0.html#Atk.Registry" class="class-anchor">⚓</a><h2 class="class-normal" id="Atk.Registry">Class: Atk.Registry</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.ObjectFactory">Atk.ObjectFactory</a></span><span class="method-name" id="Atk.Registry.get_factory">get_factory</span><span class="method-parameters">(<span class="type-basetype ">type</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">GType</span></span><span class="method-name" id="Atk.Registry.get_factory_type">get_factory_type</span><span class="method-parameters">(<span class="type-basetype ">type</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Registry.set_factory_type">set_factory_type</span><span class="method-parameters">(<span class="type-basetype ">type</span>, <span class="type-basetype ">factory_type</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Atk-1.0.html#Atk.Relation" class="class-anchor">⚓</a><h2 class="class-normal" id="Atk.Relation">Class: Atk.Relation</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<a class="link-Enumeration type property-type" href="Atk-1.0.html#Atk.RelationType">Atk.RelationType</a><span class="property-name" id="Atk.Relation.relation-type">"relation-type"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Record type property-type" href="GObject-2.0.html#GObject.ValueArray">GObject.ValueArray</a><span class="property-name" id="Atk.Relation.target">"target"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Atk.Relation.new">new</span><span class="method-parameters">(<a class="link-Type " href="Atk-1.0.html#Atk.Object">targets</a>, <a class="link-Type " href="Atk-1.0.html#gint">n_targets</a>, <a class="link-Type " href="Atk-1.0.html#Atk.RelationType">relationship</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Relation.add_target">add_target</span><span class="method-parameters">(<a class="link-Class " href="Atk-1.0.html#Atk.Object">target</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Atk-1.0.html#Atk.RelationType">Atk.RelationType</a></span><span class="method-name" id="Atk.Relation.get_relation_type">get_relation_type</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Array&lt;gpointer&gt;</span></span><span class="method-name" id="Atk.Relation.get_target">get_target</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Relation.remove_target">remove_target</span><span class="method-parameters">(<a class="link-Class " href="Atk-1.0.html#Atk.Object">target</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Atk-1.0.html#Atk.RelationSet" class="class-anchor">⚓</a><h2 class="class-normal" id="Atk.RelationSet">Class: Atk.RelationSet</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Atk.RelationSet.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.RelationSet.add">add</span><span class="method-parameters">(<a class="link-Class " href="Atk-1.0.html#Atk.Relation">relation</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.RelationSet.add_relation_by_type">add_relation_by_type</span><span class="method-parameters">(<a class="link-Enumeration " href="Atk-1.0.html#Atk.RelationType">relationship</a>, <a class="link-Class " href="Atk-1.0.html#Atk.Object">target</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.RelationSet.contains">contains</span><span class="method-parameters">(<a class="link-Enumeration " href="Atk-1.0.html#Atk.RelationType">relationship</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.RelationSet.contains_target">contains_target</span><span class="method-parameters">(<a class="link-Enumeration " href="Atk-1.0.html#Atk.RelationType">relationship</a>, <a class="link-Class " href="Atk-1.0.html#Atk.Object">targe</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.RelationSet.get_n_relations">get_n_relations</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.Relation">Atk.Relation</a></span><span class="method-name" id="Atk.RelationSet.get_relation">get_relation</span><span class="method-parameters">(<span class="type-basetype ">i</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.Relation">Atk.Relation</a></span><span class="method-name" id="Atk.RelationSet.get_relation_by_type">get_relation_by_type</span><span class="method-parameters">(<a class="link-Enumeration " href="Atk-1.0.html#Atk.RelationType">relationship</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.RelationSet.remove">remove</span><span class="method-parameters">(<a class="link-Class " href="Atk-1.0.html#Atk.Relation">relation</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="Atk-1.0.html#Atk.Selection" class="class-anchor">⚓</a><h2 class="class-interface" id="Atk.Selection">Interface: Atk.Selection</h2>
+<div class="relations">
+<p>
+Classes implementing Atk.Selection: <a class="link-Class " href="Atk-1.0.html#Atk.NoOpObject">Atk.NoOpObject</a></p>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Selection.selection-changed">"selection-changed"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Selection">selection</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Selection.add_selection">add_selection</span><span class="method-parameters">(<span class="type-basetype ">i</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Selection.clear_selection">clear_selection</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Selection.get_selection_count">get_selection_count</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Selection.is_child_selected">is_child_selected</span><span class="method-parameters">(<span class="type-basetype ">i</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.Object">Atk.Object</a></span><span class="method-name" id="Atk.Selection.ref_selection">ref_selection</span><span class="method-parameters">(<span class="type-basetype ">i</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Selection.remove_selection">remove_selection</span><span class="method-parameters">(<span class="type-basetype ">i</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Selection.select_all_selection">select_all_selection</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Selection.selection_changed">selection_changed</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Atk-1.0.html#Atk.Socket" class="class-anchor">⚓</a><h2 class="class-normal" id="Atk.Socket">Class: Atk.Socket</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface " href="Atk-1.0.html#Atk.Component">Atk.Component</a></p>
+<p>
+Subclass of: <a class="link-Class " href="Atk-1.0.html#Atk.Object">Atk.Object</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Atk.Socket.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Socket.embed">embed</span><span class="method-parameters">(<span class="type-basetype ">plug_id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Socket.is_occupied">is_occupied</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Atk-1.0.html#Atk.StateSet" class="class-anchor">⚓</a><h2 class="class-normal" id="Atk.StateSet">Class: Atk.StateSet</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Atk.StateSet.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.StateSet.add_state">add_state</span><span class="method-parameters">(<a class="link-Enumeration " href="Atk-1.0.html#Atk.StateType">type</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.StateSet.add_states">add_states</span><span class="method-parameters">(<a class="link-Enumeration " href="Atk-1.0.html#Atk.StateType">types</a>, <span class="type-basetype ">n_types</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.StateSet">Atk.StateSet</a></span><span class="method-name" id="Atk.StateSet.and_sets">and_sets</span><span class="method-parameters">(<a class="link-Class " href="Atk-1.0.html#Atk.StateSet">compare_set</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.StateSet.clear_states">clear_states</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.StateSet.contains_state">contains_state</span><span class="method-parameters">(<a class="link-Enumeration " href="Atk-1.0.html#Atk.StateType">type</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.StateSet.contains_states">contains_states</span><span class="method-parameters">(<a class="link-Enumeration " href="Atk-1.0.html#Atk.StateType">types</a>, <span class="type-basetype ">n_types</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.StateSet.is_empty">is_empty</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.StateSet">Atk.StateSet</a></span><span class="method-name" id="Atk.StateSet.or_sets">or_sets</span><span class="method-parameters">(<a class="link-Class " href="Atk-1.0.html#Atk.StateSet">compare_set</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.StateSet.remove_state">remove_state</span><span class="method-parameters">(<a class="link-Enumeration " href="Atk-1.0.html#Atk.StateType">type</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.StateSet">Atk.StateSet</a></span><span class="method-name" id="Atk.StateSet.xor_sets">xor_sets</span><span class="method-parameters">(<a class="link-Class " href="Atk-1.0.html#Atk.StateSet">compare_set</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="Atk-1.0.html#Atk.StreamableContent" class="class-anchor">⚓</a><h2 class="class-interface" id="Atk.StreamableContent">Interface: Atk.StreamableContent</h2>
+<div class="relations">
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.StreamableContent.get_mime_type">get_mime_type</span><span class="method-parameters">(<span class="type-basetype ">i</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.StreamableContent.get_n_mime_types">get_n_mime_types</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.IOChannel">GLib.IOChannel</a></span><span class="method-name" id="Atk.StreamableContent.get_stream">get_stream</span><span class="method-parameters">(<span class="type-basetype ">mime_type</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.StreamableContent.get_uri">get_uri</span><span class="method-parameters">(<span class="type-basetype ">mime_type</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="Atk-1.0.html#Atk.Table" class="class-anchor">⚓</a><h2 class="class-interface" id="Atk.Table">Interface: Atk.Table</h2>
+<div class="relations">
+<p>
+Classes implementing Atk.Table: <a class="link-Class " href="Atk-1.0.html#Atk.NoOpObject">Atk.NoOpObject</a></p>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Table.column-deleted">"column-deleted"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Table">table</a>, <a class="link-Type " href="Atk-1.0.html#gint">object</a>, <a class="link-Type " href="Atk-1.0.html#gint">p0</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Table.column-reordered">"column-reordered"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Table">table</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Table.row-inserted">"row-inserted"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Table">table</a>, <a class="link-Type " href="Atk-1.0.html#gint">object</a>, <a class="link-Type " href="Atk-1.0.html#gint">p0</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Table.row-deleted">"row-deleted"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Table">table</a>, <a class="link-Type " href="Atk-1.0.html#gint">object</a>, <a class="link-Type " href="Atk-1.0.html#gint">p0</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Table.row-reordered">"row-reordered"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Table">table</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Table.column-inserted">"column-inserted"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Table">table</a>, <a class="link-Type " href="Atk-1.0.html#gint">object</a>, <a class="link-Type " href="Atk-1.0.html#gint">p0</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Table.model-changed">"model-changed"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Table">table</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Table.add_column_selection">add_column_selection</span><span class="method-parameters">(<span class="type-basetype ">column</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Table.add_row_selection">add_row_selection</span><span class="method-parameters">(<span class="type-basetype ">row</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Table.column_deleted">column_deleted</span><span class="method-parameters">(<span class="type-basetype ">column</span>, <span class="type-basetype ">num_deleted</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Table.column_inserted">column_inserted</span><span class="method-parameters">(<span class="type-basetype ">column</span>, <span class="type-basetype ">num_inserted</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Table.column_reordered">column_reordered</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.Object">Atk.Object</a></span><span class="method-name" id="Atk.Table.get_caption">get_caption</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Table.get_column_at_index">get_column_at_index</span><span class="method-parameters">(<span class="type-basetype ">index_</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Table.get_column_description">get_column_description</span><span class="method-parameters">(<span class="type-basetype ">column</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Table.get_column_extent_at">get_column_extent_at</span><span class="method-parameters">(<span class="type-basetype ">row</span>, <span class="type-basetype ">column</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.Object">Atk.Object</a></span><span class="method-name" id="Atk.Table.get_column_header">get_column_header</span><span class="method-parameters">(<span class="type-basetype ">column</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Table.get_index_at">get_index_at</span><span class="method-parameters">(<span class="type-basetype ">row</span>, <span class="type-basetype ">column</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Table.get_n_columns">get_n_columns</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Table.get_n_rows">get_n_rows</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Table.get_row_at_index">get_row_at_index</span><span class="method-parameters">(<span class="type-basetype ">index_</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Table.get_row_description">get_row_description</span><span class="method-parameters">(<span class="type-basetype ">row</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Table.get_row_extent_at">get_row_extent_at</span><span class="method-parameters">(<span class="type-basetype ">row</span>, <span class="type-basetype ">column</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.Object">Atk.Object</a></span><span class="method-name" id="Atk.Table.get_row_header">get_row_header</span><span class="method-parameters">(<span class="type-basetype ">row</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Table.get_selected_columns">get_selected_columns</span><span class="method-parameters">(<span class="type-basetype ">selected</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Table.get_selected_rows">get_selected_rows</span><span class="method-parameters">(<span class="type-basetype ">selected</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.Object">Atk.Object</a></span><span class="method-name" id="Atk.Table.get_summary">get_summary</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Table.is_column_selected">is_column_selected</span><span class="method-parameters">(<span class="type-basetype ">column</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Table.is_row_selected">is_row_selected</span><span class="method-parameters">(<span class="type-basetype ">row</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Table.is_selected">is_selected</span><span class="method-parameters">(<span class="type-basetype ">row</span>, <span class="type-basetype ">column</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Table.model_changed">model_changed</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Atk-1.0.html#Atk.Object">Atk.Object</a></span><span class="method-name" id="Atk.Table.ref_at">ref_at</span><span class="method-parameters">(<span class="type-basetype ">row</span>, <span class="type-basetype ">column</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Table.remove_column_selection">remove_column_selection</span><span class="method-parameters">(<span class="type-basetype ">column</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Table.remove_row_selection">remove_row_selection</span><span class="method-parameters">(<span class="type-basetype ">row</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Table.row_deleted">row_deleted</span><span class="method-parameters">(<span class="type-basetype ">row</span>, <span class="type-basetype ">num_deleted</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Table.row_inserted">row_inserted</span><span class="method-parameters">(<span class="type-basetype ">row</span>, <span class="type-basetype ">num_inserted</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Table.row_reordered">row_reordered</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Table.set_caption">set_caption</span><span class="method-parameters">(<a class="link-Class " href="Atk-1.0.html#Atk.Object">caption</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Table.set_column_description">set_column_description</span><span class="method-parameters">(<span class="type-basetype ">column</span>, <span class="type-basetype ">description</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Table.set_column_header">set_column_header</span><span class="method-parameters">(<span class="type-basetype ">column</span>, <a class="link-Class " href="Atk-1.0.html#Atk.Object">header</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Table.set_row_description">set_row_description</span><span class="method-parameters">(<span class="type-basetype ">row</span>, <span class="type-basetype ">description</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Table.set_row_header">set_row_header</span><span class="method-parameters">(<span class="type-basetype ">row</span>, <a class="link-Class " href="Atk-1.0.html#Atk.Object">header</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Table.set_summary">set_summary</span><span class="method-parameters">(<a class="link-Class " href="Atk-1.0.html#Atk.Object">accessible</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="Atk-1.0.html#Atk.Text" class="class-anchor">⚓</a><h2 class="class-interface" id="Atk.Text">Interface: Atk.Text</h2>
+<div class="relations">
+<p>
+Classes implementing Atk.Text: <a class="link-Class " href="Atk-1.0.html#Atk.NoOpObject">Atk.NoOpObject</a></p>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Text.text-remove">"text-remove"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Text">text</a>, <a class="link-Type " href="Atk-1.0.html#gint">object</a>, <a class="link-Type " href="Atk-1.0.html#gint">p0</a>, <a class="link-Type " href="Atk-1.0.html#utf8">p1</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Text.text-update">"text-update"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Text">text</a>, <a class="link-Type " href="Atk-1.0.html#gint">object</a>, <a class="link-Type " href="Atk-1.0.html#gint">p0</a>, <a class="link-Type " href="Atk-1.0.html#gint">p1</a>, <a class="link-Type " href="Atk-1.0.html#utf8">p2</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Text.text-caret-moved">"text-caret-moved"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Text">text</a>, <a class="link-Type " href="Atk-1.0.html#gint">object</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Text.text-changed">"text-changed"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Text">text</a>, <a class="link-Type " href="Atk-1.0.html#gint">object</a>, <a class="link-Type " href="Atk-1.0.html#gint">p0</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Text.text-selection-changed">"text-selection-changed"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Text">text</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Text.text-insert">"text-insert"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Text">text</a>, <a class="link-Type " href="Atk-1.0.html#gint">object</a>, <a class="link-Type " href="Atk-1.0.html#gint">p0</a>, <a class="link-Type " href="Atk-1.0.html#utf8">p1</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Text.text-attributes-changed">"text-attributes-changed"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Text">text</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Text.add_selection">add_selection</span><span class="method-parameters">(<span class="type-basetype ">start_offset</span>, <span class="type-basetype ">end_offset</span>)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Text.free_ranges">free_ranges</span><span class="method-parameters">(<a class="link-Record " href="Atk-1.0.html#Atk.TextRange">ranges</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Atk-1.0.html#Atk.TextRange">Atk.TextRange</a></span><span class="method-name" id="Atk.Text.get_bounded_ranges">get_bounded_ranges</span><span class="method-parameters">(<a class="link-Record " href="Atk-1.0.html#Atk.TextRectangle">rect</a>, <a class="link-Enumeration " href="Atk-1.0.html#Atk.CoordType">coord_type</a>, <a class="link-Enumeration " href="Atk-1.0.html#Atk.TextClipType">x_clip_type</a>, <a class="link-Enumeration " href="Atk-1.0.html#Atk.TextClipType">y_clip_type</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Text.get_caret_offset">get_caret_offset</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type ">Atk.gunichar</span></span><span class="method-name" id="Atk.Text.get_character_at_offset">get_character_at_offset</span><span class="method-parameters">(<span class="type-basetype ">offset</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Text.get_character_count">get_character_count</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Text.get_character_extents">get_character_extents</span><span class="method-parameters">(<span class="type-basetype ">offset</span>, <span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, <span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>, <a class="link-Enumeration " href="Atk-1.0.html#Atk.CoordType">coords</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type ">Atk.AttributeSet</span></span><span class="method-name" id="Atk.Text.get_default_attributes">get_default_attributes</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Text.get_n_selections">get_n_selections</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Atk.Text.get_offset_at_point">get_offset_at_point</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, <a class="link-Enumeration " href="Atk-1.0.html#Atk.CoordType">coords</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Text.get_range_extents">get_range_extents</span><span class="method-parameters">(<span class="type-basetype ">start_offset</span>, <span class="type-basetype ">end_offset</span>, <a class="link-Enumeration " href="Atk-1.0.html#Atk.CoordType">coord_type</a>, <a class="link-Record " href="Atk-1.0.html#Atk.TextRectangle">rect</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type ">Atk.AttributeSet</span></span><span class="method-name" id="Atk.Text.get_run_attributes">get_run_attributes</span><span class="method-parameters">(<span class="type-basetype ">offset</span>, <span class="type-basetype ">start_offset</span>, <span class="type-basetype ">end_offset</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Text.get_selection">get_selection</span><span class="method-parameters">(<span class="type-basetype ">selection_num</span>, <span class="type-basetype ">start_offset</span>, <span class="type-basetype ">end_offset</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Text.get_text">get_text</span><span class="method-parameters">(<span class="type-basetype ">start_offset</span>, <span class="type-basetype ">end_offset</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Text.get_text_after_offset">get_text_after_offset</span><span class="method-parameters">(<span class="type-basetype ">offset</span>, <a class="link-Enumeration " href="Atk-1.0.html#Atk.TextBoundary">boundary_type</a>, <span class="type-basetype ">start_offset</span>, <span class="type-basetype ">end_offset</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Text.get_text_at_offset">get_text_at_offset</span><span class="method-parameters">(<span class="type-basetype ">offset</span>, <a class="link-Enumeration " href="Atk-1.0.html#Atk.TextBoundary">boundary_type</a>, <span class="type-basetype ">start_offset</span>, <span class="type-basetype ">end_offset</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Atk.Text.get_text_before_offset">get_text_before_offset</span><span class="method-parameters">(<span class="type-basetype ">offset</span>, <a class="link-Enumeration " href="Atk-1.0.html#Atk.TextBoundary">boundary_type</a>, <span class="type-basetype ">start_offset</span>, <span class="type-basetype ">end_offset</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Text.remove_selection">remove_selection</span><span class="method-parameters">(<span class="type-basetype ">selection_num</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Text.set_caret_offset">set_caret_offset</span><span class="method-parameters">(<span class="type-basetype ">offset</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Text.set_selection">set_selection</span><span class="method-parameters">(<span class="type-basetype ">selection_num</span>, <span class="type-basetype ">start_offset</span>, <span class="type-basetype ">end_offset</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Text.text_attributes_changed">text_attributes_changed</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Text.text_caret_moved">text_caret_moved</span><span class="method-parameters">(<span class="type-basetype ">location</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Text.text_changed">text_changed</span><span class="method-parameters">(<span class="type-basetype ">position</span>, <span class="type-basetype ">length</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Text.text_selection_changed">text_selection_changed</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Atk-1.0.html#Atk.Util" class="class-anchor">⚓</a><h2 class="class-normal" id="Atk.Util">Class: Atk.Util</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+</div>
+<div class="class-interface">
+<a href="Atk-1.0.html#Atk.Value" class="class-anchor">⚓</a><h2 class="class-interface" id="Atk.Value">Interface: Atk.Value</h2>
+<div class="relations">
+<p>
+Classes implementing Atk.Value: <a class="link-Class " href="Atk-1.0.html#Atk.NoOpObject">Atk.NoOpObject</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Value.get_current_value">get_current_value</span><span class="method-parameters">(<a class="link-Record " href="GObject-2.0.html#GObject.Value">value</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Value.get_maximum_value">get_maximum_value</span><span class="method-parameters">(<a class="link-Record " href="GObject-2.0.html#GObject.Value">value</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Value.get_minimum_increment">get_minimum_increment</span><span class="method-parameters">(<a class="link-Record " href="GObject-2.0.html#GObject.Value">value</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Atk.Value.get_minimum_value">get_minimum_value</span><span class="method-parameters">(<a class="link-Record " href="GObject-2.0.html#GObject.Value">value</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Atk.Value.set_current_value">set_current_value</span><span class="method-parameters">(<a class="link-Record " href="GObject-2.0.html#GObject.Value">value</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="Atk-1.0.html#Atk.Window" class="class-anchor">⚓</a><h2 class="class-interface" id="Atk.Window">Interface: Atk.Window</h2>
+<div class="relations">
+<p>
+Classes implementing Atk.Window: <a class="link-Class " href="Atk-1.0.html#Atk.NoOpObject">Atk.NoOpObject</a></p>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Window.restore">"restore"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Window">window</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Window.activate">"activate"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Window">window</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Window.deactivate">"deactivate"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Window">window</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Window.create">"create"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Window">window</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Window.move">"move"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Window">window</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Window.minimize">"minimize"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Window">window</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Window.maximize">"maximize"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Window">window</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Window.destroy">"destroy"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Window">window</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Type type " href="Atk-1.0.html#none">none</a></span><span class="signal-name" id="Atk.Window.resize">"resize"</span><span class="signal-parameters">(self, <a class="link-Interface " href="Atk-1.0.html#Atk.Window">window</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-enum">
+<a href="Atk-1.0.html#Atk.HyperlinkStateFlags" class="class-anchor">⚓</a><h2 class="class-enum" id="Atk.HyperlinkStateFlags">Enum: Atk.HyperlinkStateFlags</h2>
+<div class="enum-members">
+<span class="enum-member">INLINE</span><span class="enum-value">1</span></div>
+</div>
+<div class="class-enum">
+<a href="Atk-1.0.html#Atk.Layer" class="class-anchor">⚓</a><h2 class="class-enum" id="Atk.Layer">Enum: Atk.Layer</h2>
+<div class="enum-members">
+<span class="enum-member">INVALID</span><span class="enum-value">0</span><span class="enum-member">BACKGROUND</span><span class="enum-value">1</span><span class="enum-member">CANVAS</span><span class="enum-value">2</span><span class="enum-member">WIDGET</span><span class="enum-value">3</span><span class="enum-member">MDI</span><span class="enum-value">4</span><span class="enum-member">POPUP</span><span class="enum-value">5</span><span class="enum-member">OVERLAY</span><span class="enum-value">6</span><span class="enum-member">WINDOW</span><span class="enum-value">7</span></div>
+</div>
+<div class="class-enum">
+<a href="Atk-1.0.html#Atk.StateType" class="class-anchor">⚓</a><h2 class="class-enum" id="Atk.StateType">Enum: Atk.StateType</h2>
+<div class="enum-members">
+<span class="enum-member">INVALID</span><span class="enum-value">0</span><span class="enum-member">ACTIVE</span><span class="enum-value">1</span><span class="enum-member">ARMED</span><span class="enum-value">2</span><span class="enum-member">BUSY</span><span class="enum-value">3</span><span class="enum-member">CHECKED</span><span class="enum-value">4</span><span class="enum-member">DEFUNCT</span><span class="enum-value">5</span><span class="enum-member">EDITABLE</span><span class="enum-value">6</span><span class="enum-member">ENABLED</span><span class="enum-value">7</span><span class="enum-member">EXPANDABLE</span><span class="enum-value">8</span><span class="enum-member">EXPANDED</span><span class="enum-value">9</span><span class="enum-member">FOCUSABLE</span><span class="enum-value">10</span><span class="enum-member">FOCUSED</span><span class="enum-value">11</span><span class="enum-member">HORIZONTAL</span><span class="enum-value">12</span><span class="enum-member">ICONIFIED</span><span class="enum-value">13</span><span class="enum-member">MODAL</span><span class="enum-value">14</span><span class="enum-member">MULTI_LINE</span><span class="enum-value">15</span><span class="enum-member">MULTISELECTABLE</span><span class="enum-value">16</span><span class="enum-member">OPAQUE</span><span class="enum-value">17</span><span class="enum-member">PRESSED</span><span class="enum-value">18</span><span class="enum-member">RESIZABLE</span><span class="enum-value">19</span><span class="enum-member">SELECTABLE</span><span class="enum-value">20</span><span class="enum-member">SELECTED</span><span class="enum-value">21</span><span class="enum-member">SENSITIVE</span><span class="enum-value">22</span><span class="enum-member">SHOWING</span><span class="enum-value">23</span><span class="enum-member">SINGLE_LINE</span><span class="enum-value">24</span><span class="enum-member">STALE</span><span class="enum-value">25</span><span class="enum-member">TRANSIENT</span><span class="enum-value">26</span><span class="enum-member">VERTICAL</span><span class="enum-value">27</span><span class="enum-member">VISIBLE</span><span class="enum-value">28</span><span class="enum-member">MANAGES_DESCENDANTS</span><span class="enum-value">29</span><span class="enum-member">INDETERMINATE</span><span class="enum-value">30</span><span class="enum-member">TRUNCATED</span><span class="enum-value">31</span><span class="enum-member">REQUIRED</span><span class="enum-value">32</span><span class="enum-member">INVALID_ENTRY</span><span class="enum-value">33</span><span class="enum-member">SUPPORTS_AUTOCOMPLETION</span><span class="enum-value">34</span><span class="enum-member">SELECTABLE_TEXT</span><span class="enum-value">35</span><span class="enum-member">DEFAULT</span><span class="enum-value">36</span><span class="enum-member">ANIMATED</span><span class="enum-value">37</span><span class="enum-member">VISITED</span><span class="enum-value">38</span><span class="enum-member">LAST_DEFINED</span><span class="enum-value">39</span></div>
+</div>
+<div class="class-enum">
+<a href="Atk-1.0.html#Atk.CoordType" class="class-anchor">⚓</a><h2 class="class-enum" id="Atk.CoordType">Enum: Atk.CoordType</h2>
+<div class="enum-members">
+<span class="enum-member">SCREEN</span><span class="enum-value">0</span><span class="enum-member">WINDOW</span><span class="enum-value">1</span></div>
+</div>
+<div class="class-enum">
+<a href="Atk-1.0.html#Atk.TextAttribute" class="class-anchor">⚓</a><h2 class="class-enum" id="Atk.TextAttribute">Enum: Atk.TextAttribute</h2>
+<div class="enum-members">
+<span class="enum-member">INVALID</span><span class="enum-value">0</span><span class="enum-member">LEFT_MARGIN</span><span class="enum-value">1</span><span class="enum-member">RIGHT_MARGIN</span><span class="enum-value">2</span><span class="enum-member">INDENT</span><span class="enum-value">3</span><span class="enum-member">INVISIBLE</span><span class="enum-value">4</span><span class="enum-member">EDITABLE</span><span class="enum-value">5</span><span class="enum-member">PIXELS_ABOVE_LINES</span><span class="enum-value">6</span><span class="enum-member">PIXELS_BELOW_LINES</span><span class="enum-value">7</span><span class="enum-member">PIXELS_INSIDE_WRAP</span><span class="enum-value">8</span><span class="enum-member">BG_FULL_HEIGHT</span><span class="enum-value">9</span><span class="enum-member">RISE</span><span class="enum-value">10</span><span class="enum-member">UNDERLINE</span><span class="enum-value">11</span><span class="enum-member">STRIKETHROUGH</span><span class="enum-value">12</span><span class="enum-member">SIZE</span><span class="enum-value">13</span><span class="enum-member">SCALE</span><span class="enum-value">14</span><span class="enum-member">WEIGHT</span><span class="enum-value">15</span><span class="enum-member">LANGUAGE</span><span class="enum-value">16</span><span class="enum-member">FAMILY_NAME</span><span class="enum-value">17</span><span class="enum-member">BG_COLOR</span><span class="enum-value">18</span><span class="enum-member">FG_COLOR</span><span class="enum-value">19</span><span class="enum-member">BG_STIPPLE</span><span class="enum-value">20</span><span class="enum-member">FG_STIPPLE</span><span class="enum-value">21</span><span class="enum-member">WRAP_MODE</span><span class="enum-value">22</span><span class="enum-member">DIRECTION</span><span class="enum-value">23</span><span class="enum-member">JUSTIFICATION</span><span class="enum-value">24</span><span class="enum-member">STRETCH</span><span class="enum-value">25</span><span class="enum-member">VARIANT</span><span class="enum-value">26</span><span class="enum-member">STYLE</span><span class="enum-value">27</span><span class="enum-member">LAST_DEFINED</span><span class="enum-value">28</span></div>
+</div>
+<div class="class-enum">
+<a href="Atk-1.0.html#Atk.TextBoundary" class="class-anchor">⚓</a><h2 class="class-enum" id="Atk.TextBoundary">Enum: Atk.TextBoundary</h2>
+<div class="enum-members">
+<span class="enum-member">CHAR</span><span class="enum-value">0</span><span class="enum-member">WORD_START</span><span class="enum-value">1</span><span class="enum-member">WORD_END</span><span class="enum-value">2</span><span class="enum-member">SENTENCE_START</span><span class="enum-value">3</span><span class="enum-member">SENTENCE_END</span><span class="enum-value">4</span><span class="enum-member">LINE_START</span><span class="enum-value">5</span><span class="enum-member">LINE_END</span><span class="enum-value">6</span></div>
+</div>
+<div class="class-enum">
+<a href="Atk-1.0.html#Atk.Role" class="class-anchor">⚓</a><h2 class="class-enum" id="Atk.Role">Enum: Atk.Role</h2>
+<div class="enum-members">
+<span class="enum-member">INVALID</span><span class="enum-value">0</span><span class="enum-member">ACCEL_LABEL</span><span class="enum-value">1</span><span class="enum-member">ALERT</span><span class="enum-value">2</span><span class="enum-member">ANIMATION</span><span class="enum-value">3</span><span class="enum-member">ARROW</span><span class="enum-value">4</span><span class="enum-member">CALENDAR</span><span class="enum-value">5</span><span class="enum-member">CANVAS</span><span class="enum-value">6</span><span class="enum-member">CHECK_BOX</span><span class="enum-value">7</span><span class="enum-member">CHECK_MENU_ITEM</span><span class="enum-value">8</span><span class="enum-member">COLOR_CHOOSER</span><span class="enum-value">9</span><span class="enum-member">COLUMN_HEADER</span><span class="enum-value">10</span><span class="enum-member">COMBO_BOX</span><span class="enum-value">11</span><span class="enum-member">DATE_EDITOR</span><span class="enum-value">12</span><span class="enum-member">DESKTOP_ICON</span><span class="enum-value">13</span><span class="enum-member">DESKTOP_FRAME</span><span class="enum-value">14</span><span class="enum-member">DIAL</span><span class="enum-value">15</span><span class="enum-member">DIALOG</span><span class="enum-value">16</span><span class="enum-member">DIRECTORY_PANE</span><span class="enum-value">17</span><span class="enum-member">DRAWING_AREA</span><span class="enum-value">18</span><span class="enum-member">FILE_CHOOSER</span><span class="enum-value">19</span><span class="enum-member">FILLER</span><span class="enum-value">20</span><span class="enum-member">FONT_CHOOSER</span><span class="enum-value">21</span><span class="enum-member">FRAME</span><span class="enum-value">22</span><span class="enum-member">GLASS_PANE</span><span class="enum-value">23</span><span class="enum-member">HTML_CONTAINER</span><span class="enum-value">24</span><span class="enum-member">ICON</span><span class="enum-value">25</span><span class="enum-member">IMAGE</span><span class="enum-value">26</span><span class="enum-member">INTERNAL_FRAME</span><span class="enum-value">27</span><span class="enum-member">LABEL</span><span class="enum-value">28</span><span class="enum-member">LAYERED_PANE</span><span class="enum-value">29</span><span class="enum-member">LIST</span><span class="enum-value">30</span><span class="enum-member">LIST_ITEM</span><span class="enum-value">31</span><span class="enum-member">MENU</span><span class="enum-value">32</span><span class="enum-member">MENU_BAR</span><span class="enum-value">33</span><span class="enum-member">MENU_ITEM</span><span class="enum-value">34</span><span class="enum-member">OPTION_PANE</span><span class="enum-value">35</span><span class="enum-member">PAGE_TAB</span><span class="enum-value">36</span><span class="enum-member">PAGE_TAB_LIST</span><span class="enum-value">37</span><span class="enum-member">PANEL</span><span class="enum-value">38</span><span class="enum-member">PASSWORD_TEXT</span><span class="enum-value">39</span><span class="enum-member">POPUP_MENU</span><span class="enum-value">40</span><span class="enum-member">PROGRESS_BAR</span><span class="enum-value">41</span><span class="enum-member">PUSH_BUTTON</span><span class="enum-value">42</span><span class="enum-member">RADIO_BUTTON</span><span class="enum-value">43</span><span class="enum-member">RADIO_MENU_ITEM</span><span class="enum-value">44</span><span class="enum-member">ROOT_PANE</span><span class="enum-value">45</span><span class="enum-member">ROW_HEADER</span><span class="enum-value">46</span><span class="enum-member">SCROLL_BAR</span><span class="enum-value">47</span><span class="enum-member">SCROLL_PANE</span><span class="enum-value">48</span><span class="enum-member">SEPARATOR</span><span class="enum-value">49</span><span class="enum-member">SLIDER</span><span class="enum-value">50</span><span class="enum-member">SPLIT_PANE</span><span class="enum-value">51</span><span class="enum-member">SPIN_BUTTON</span><span class="enum-value">52</span><span class="enum-member">STATUSBAR</span><span class="enum-value">53</span><span class="enum-member">TABLE</span><span class="enum-value">54</span><span class="enum-member">TABLE_CELL</span><span class="enum-value">55</span><span class="enum-member">TABLE_COLUMN_HEADER</span><span class="enum-value">56</span><span class="enum-member">TABLE_ROW_HEADER</span><span class="enum-value">57</span><span class="enum-member">TEAR_OFF_MENU_ITEM</span><span class="enum-value">58</span><span class="enum-member">TERMINAL</span><span class="enum-value">59</span><span class="enum-member">TEXT</span><span class="enum-value">60</span><span class="enum-member">TOGGLE_BUTTON</span><span class="enum-value">61</span><span class="enum-member">TOOL_BAR</span><span class="enum-value">62</span><span class="enum-member">TOOL_TIP</span><span class="enum-value">63</span><span class="enum-member">TREE</span><span class="enum-value">64</span><span class="enum-member">TREE_TABLE</span><span class="enum-value">65</span><span class="enum-member">UNKNOWN</span><span class="enum-value">66</span><span class="enum-member">VIEWPORT</span><span class="enum-value">67</span><span class="enum-member">WINDOW</span><span class="enum-value">68</span><span class="enum-member">HEADER</span><span class="enum-value">69</span><span class="enum-member">FOOTER</span><span class="enum-value">70</span><span class="enum-member">PARAGRAPH</span><span class="enum-value">71</span><span class="enum-member">RULER</span><span class="enum-value">72</span><span class="enum-member">APPLICATION</span><span class="enum-value">73</span><span class="enum-member">AUTOCOMPLETE</span><span class="enum-value">74</span><span class="enum-member">EDITBAR</span><span class="enum-value">75</span><span class="enum-member">EMBEDDED</span><span class="enum-value">76</span><span class="enum-member">ENTRY</span><span class="enum-value">77</span><span class="enum-member">CHART</span><span class="enum-value">78</span><span class="enum-member">CAPTION</span><span class="enum-value">79</span><span class="enum-member">DOCUMENT_FRAME</span><span class="enum-value">80</span><span class="enum-member">HEADING</span><span class="enum-value">81</span><span class="enum-member">PAGE</span><span class="enum-value">82</span><span class="enum-member">SECTION</span><span class="enum-value">83</span><span class="enum-member">REDUNDANT_OBJECT</span><span class="enum-value">84</span><span class="enum-member">FORM</span><span class="enum-value">85</span><span class="enum-member">LINK</span><span class="enum-value">86</span><span class="enum-member">INPUT_METHOD_WINDOW</span><span class="enum-value">87</span><span class="enum-member">TABLE_ROW</span><span class="enum-value">88</span><span class="enum-member">TREE_ITEM</span><span class="enum-value">89</span><span class="enum-member">DOCUMENT_SPREADSHEET</span><span class="enum-value">90</span><span class="enum-member">DOCUMENT_PRESENTATION</span><span class="enum-value">91</span><span class="enum-member">DOCUMENT_TEXT</span><span class="enum-value">92</span><span class="enum-member">DOCUMENT_WEB</span><span class="enum-value">93</span><span class="enum-member">DOCUMENT_EMAIL</span><span class="enum-value">94</span><span class="enum-member">COMMENT</span><span class="enum-value">95</span><span class="enum-member">LIST_BOX</span><span class="enum-value">96</span><span class="enum-member">GROUPING</span><span class="enum-value">97</span><span class="enum-member">IMAGE_MAP</span><span class="enum-value">98</span><span class="enum-member">NOTIFICATION</span><span class="enum-value">99</span><span class="enum-member">INFO_BAR</span><span class="enum-value">100</span><span class="enum-member">LAST_DEFINED</span><span class="enum-value">101</span></div>
+</div>
+<div class="class-enum">
+<a href="Atk-1.0.html#Atk.RelationType" class="class-anchor">⚓</a><h2 class="class-enum" id="Atk.RelationType">Enum: Atk.RelationType</h2>
+<div class="enum-members">
+<span class="enum-member">NULL</span><span class="enum-value">0</span><span class="enum-member">CONTROLLED_BY</span><span class="enum-value">1</span><span class="enum-member">CONTROLLER_FOR</span><span class="enum-value">2</span><span class="enum-member">LABEL_FOR</span><span class="enum-value">3</span><span class="enum-member">LABELLED_BY</span><span class="enum-value">4</span><span class="enum-member">MEMBER_OF</span><span class="enum-value">5</span><span class="enum-member">NODE_CHILD_OF</span><span class="enum-value">6</span><span class="enum-member">FLOWS_TO</span><span class="enum-value">7</span><span class="enum-member">FLOWS_FROM</span><span class="enum-value">8</span><span class="enum-member">SUBWINDOW_OF</span><span class="enum-value">9</span><span class="enum-member">EMBEDS</span><span class="enum-value">10</span><span class="enum-member">EMBEDDED_BY</span><span class="enum-value">11</span><span class="enum-member">POPUP_FOR</span><span class="enum-value">12</span><span class="enum-member">PARENT_WINDOW_OF</span><span class="enum-value">13</span><span class="enum-member">DESCRIBED_BY</span><span class="enum-value">14</span><span class="enum-member">DESCRIPTION_FOR</span><span class="enum-value">15</span><span class="enum-member">NODE_PARENT_OF</span><span class="enum-value">16</span><span class="enum-member">LAST_DEFINED</span><span class="enum-value">17</span></div>
+</div>
+<div class="class-enum">
+<a href="Atk-1.0.html#Atk.TextClipType" class="class-anchor">⚓</a><h2 class="class-enum" id="Atk.TextClipType">Enum: Atk.TextClipType</h2>
+<div class="enum-members">
+<span class="enum-member">NONE</span><span class="enum-value">0</span><span class="enum-member">MIN</span><span class="enum-value">1</span><span class="enum-member">MAX</span><span class="enum-value">2</span><span class="enum-member">BOTH</span><span class="enum-value">3</span></div>
+</div>
+<div class="class-enum">
+<a href="Atk-1.0.html#Atk.KeyEventType" class="class-anchor">⚓</a><h2 class="class-enum" id="Atk.KeyEventType">Enum: Atk.KeyEventType</h2>
+<div class="enum-members">
+<span class="enum-member">PRESS</span><span class="enum-value">0</span><span class="enum-member">RELEASE</span><span class="enum-value">1</span><span class="enum-member">LAST_DEFINED</span><span class="enum-value">2</span></div>
+</div>
+</body>
+</html>
+

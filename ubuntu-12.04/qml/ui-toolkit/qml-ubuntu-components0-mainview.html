@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- MainView.qml -->
+  <title>UbuntuUserInterfaceToolkit 0.1: MainView</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="overview-ubuntu-sdk.html">Ubuntu User Interface Toolkit</a></li>
+<li>MainView</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-components0-mainview.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-mainview.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">MainView</h1>
+<span class="subtitle"></span>
+<!-- $$$MainView-brief -->
+<p>MainView is the root Item that should be used for all applications. It automatically adds a header and toolbar for its contents and can rotate its content based on the device orientation. <a href="qml-ubuntu-components0-mainview.html#details">More...</a></p>
+<!-- @@@MainView -->
+<p>Inherits <a href="qml-ubuntu-components0-styleditem.html">StyledItem</a></p>
+<ul>
+<li><a href="qml-ubuntu-components0-mainview-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-mainview.html#actionManager-prop">actionManager</a></b></b> : UnityActions.ActionManager</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-mainview.html#actions-prop">actions</a></b></b> : list&lt;Action&gt;</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-mainview.html#anchorToKeyboard-prop">anchorToKeyboard</a></b></b> : bool<tt> (preliminary)</tt></li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-mainview.html#applicationName-prop">applicationName</a></b></b> : string<tt> (preliminary)</tt></li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-mainview.html#automaticOrientation-prop">automaticOrientation</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-mainview.html#backgroundColor-prop">backgroundColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-mainview.html#footerColor-prop">footerColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-mainview.html#headerColor-prop">headerColor</a></b></b> : color</li>
+</ul>
+<!-- $$$MainView-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>The simplest way to use a MainView is to include a <a href="qml-ubuntu-components0-page.html">Page</a> object inside the MainView:</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+
+<span class="type">MainView</span> {
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">48</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">60</span>)
+
+    <span class="type"><a href="qml-ubuntu-components0-page.html">Page</a></span> {
+        <span class="name">title</span>: <span class="string">&quot;Simple page&quot;</span>
+        <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+            <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+            <span class="name">text</span>: <span class="string">&quot;Push me&quot;</span>
+            <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">15</span>)
+            <span class="name">onClicked</span>: <span class="name">print</span>(<span class="string">&quot;Click!&quot;</span>)
+        }
+    }
+}</pre>
+<p>It is not required to set the anchors of the <a href="qml-ubuntu-components0-page.html">Page</a> as it will automatically fill its parent. The MainView has a header that automatically shows the title of the <a href="qml-ubuntu-components0-page.html">Page</a>.</p>
+<p>For the MainView to automatically rotate its content following the orientation of the device, set the <a href="qml-ubuntu-components0-mainview.html#automaticOrientation-prop">automaticOrientation</a> property to true.</p>
+<p>If the <a href="qml-ubuntu-components0-page.html">Page</a> inside the MainView includes a Flickable with enough contents for scrolling, the header will automatically hide and show when the user scrolls up or down:</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+
+<span class="type">MainView</span> {
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">48</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">60</span>)
+
+    <span class="type"><a href="qml-ubuntu-components0-page.html">Page</a></span> {
+        <span class="name">title</span>: <span class="string">&quot;Page with Flickable&quot;</span>
+
+        <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-flickable.html">Flickable</a></span> {
+            <span class="name">anchors</span>.fill: <span class="name">parent</span>
+            <span class="name">contentHeight</span>: <span class="name">column</span>.<span class="name">height</span>
+
+            <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-column.html">Column</a></span> {
+                <span class="name">id</span>: <span class="name">column</span>
+                <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-repeater.html">Repeater</a></span> {
+                    <span class="name">model</span>: <span class="number">100</span>
+                    <span class="type"><a href="qml-ubuntu-components0-label.html">Label</a></span> {
+                        <span class="name">text</span>: <span class="string">&quot;line &quot;</span><span class="operator">+</span><span class="name">index</span>
+                    }
+                }
+            }
+        }
+    }
+}</pre>
+<p>The same header behavior is automatic when using a <a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-listview.html">ListView</a> instead of a Flickable in the above example.</p>
+<p>A toolbar can be added to the application by setting the tools property of the <a href="qml-ubuntu-components0-page.html">Page</a>:</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+
+<span class="type">MainView</span> {
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">48</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">60</span>)
+
+    <span class="type"><a href="qml-ubuntu-components0-page.html">Page</a></span> {
+        <span class="name">title</span>: <span class="string">&quot;Page title&quot;</span>
+        <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-rectangle.html">Rectangle</a></span> {
+            <span class="name">id</span>: <span class="name">rectangle</span>
+            <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+            <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">20</span>)
+            <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">20</span>)
+            <span class="name">color</span>: <span class="name">UbuntuColors</span>.<span class="name">coolGrey</span>
+        }
+
+        <span class="name">tools</span>: <span class="name">ToolbarItems</span> {
+            <span class="type"><a href="qml-ubuntu-components0-toolbarbutton.html">ToolbarButton</a></span> {
+                <span class="name">action</span>: <span class="name">Action</span> {
+                    <span class="name">text</span>: <span class="string">&quot;orange&quot;</span>
+                    <span class="name">onTriggered</span>: <span class="name">rectangle</span>.<span class="name">color</span> <span class="operator">=</span> <span class="name">UbuntuColors</span>.<span class="name">orange</span>
+                }
+            }
+            <span class="type"><a href="qml-ubuntu-components0-toolbarbutton.html">ToolbarButton</a></span> {
+                <span class="name">action</span>: <span class="name">Action</span> {
+                    <span class="name">text</span>: <span class="string">&quot;purple&quot;</span>
+                    <span class="name">onTriggered</span>: <span class="name">rectangle</span>.<span class="name">color</span> <span class="operator">=</span> <span class="name">UbuntuColors</span>.<span class="name">lightAubergine</span>
+                }
+            }
+        }
+    }
+}</pre>
+<p>The toolbar is hidden by default, but will be made visible when the user performs a bottom-edge-swipe gesture, and hidden when the user swipes it out, or when the active <a href="qml-ubuntu-components0-page.html">Page</a> inside the MainView is changed. The examples above show how to include a single <a href="qml-ubuntu-components0-page.html">Page</a> inside a MainView, but more advanced application structures are possible using <a href="qml-ubuntu-components0-pagestack.html">PageStack</a> and <a href="qml-ubuntu-components0-tabs.html">Tabs</a>. See <a href="qml-ubuntu-components0-toolbaritems.html">ToolbarItems</a> for details on how to to control the behavior and contents of the toolbar.</p>
+<!-- @@@MainView -->
+<h2>Property Documentation</h2>
+<!-- $$$actionManager -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="actionManager-prop"></a><span class="name">actionManager</span> : <span class="type">UnityActions</span>.<span class="type">ActionManager</span></p></td></tr></table></div><div class="qmldoc"><p>The ActionManager that supervises the global and local ActionContexts. The <a href="qml-ubuntu-components0-mainview.html#actions-prop">actions</a> property should be used preferably since it covers most use cases. The ActionManager is accessible to have a more refined control over the actions, e.g&#x2e; if one wants to add/remove actions dynamically, create specific action contexts, etc.</p>
+</div></div><!-- @@@actionManager -->
+<br/>
+<!-- $$$actions -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="actions-prop"></a><span class="name">actions</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-list.html">list</a></span>&lt;<span class="type"><a href="qml-ubuntu-components0-action.html">Action</a></span>&gt;</p></td></tr></table></div><div class="qmldoc"><p>A global list of actions that will be available to the system (including HUD) as long as the application is running. For actions that are not always available to the system, but only when a certain <a href="qml-ubuntu-components0-page.html">Page</a> is active, see the actions property of <a href="qml-ubuntu-components0-page.html">Page</a>.</p>
+</div></div><!-- @@@actions -->
+<br/>
+<!-- $$$anchorToKeyboard -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="anchorToKeyboard-prop"></a><span class="name">anchorToKeyboard</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>The property holds if the application should automatically resize the contents when the input method appears</p>
+<p>The default value is false.</p>
+</div></div><!-- @@@anchorToKeyboard -->
+<br/>
+<!-- $$$applicationName -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="applicationName-prop"></a><span class="name">applicationName</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>The property holds the application's name, which must be the same as the desktop file's name. The name also sets the name of the QCoreApplication and defaults for data and cache folders that work on the desktop and under confinement. C++ code that writes files may use QStandardPaths::writableLocation with QStandardPaths::DataLocation or QStandardPaths::CacheLocation.</p>
+</div></div><!-- @@@applicationName -->
+<br/>
+<!-- $$$automaticOrientation -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="automaticOrientation-prop"></a><span class="name">automaticOrientation</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>Sets whether the application will be automatically rotating when the device is.</p>
+<p>The default value is false.</p>
+</div></div><!-- @@@automaticOrientation -->
+<br/>
+<!-- $$$backgroundColor -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="backgroundColor-prop"></a><span class="name">backgroundColor</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-color.html">color</a></span></p></td></tr></table></div><div class="qmldoc"><p>Color of the background.</p>
+<p>The background is usually a single color. However if <a href="qml-ubuntu-components0-mainview.html#headerColor-prop">headerColor</a> or <a href="qml-ubuntu-components0-mainview.html#footerColor-prop">footerColor</a> are set then a gradient of colors will be drawn.</p>
+<p>For example, in order for the <a href="qml-ubuntu-components0-mainview.html">MainView</a> to draw a color gradient beneath the content:</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+
+<span class="type"><a href="qml-ubuntu-components0-mainview.html">MainView</a></span> {
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">40</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">60</span>)
+
+    <span class="name">headerColor</span>: <span class="string">&quot;#343C60&quot;</span>
+    <span class="name">backgroundColor</span>: <span class="string">&quot;#6A69A2&quot;</span>
+    <span class="name">footerColor</span>: <span class="string">&quot;#8896D5&quot;</span>
+}</pre>
+<p><b>See also </b><a href="qml-ubuntu-components0-mainview.html#footerColor-prop">footerColor</a> and <a href="qml-ubuntu-components0-mainview.html#headerColor-prop">headerColor</a>.</p>
+</div></div><!-- @@@backgroundColor -->
+<br/>
+<!-- $$$footerColor -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="footerColor-prop"></a><span class="name">footerColor</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-color.html">color</a></span></p></td></tr></table></div><div class="qmldoc"><p>Color of the footer's background.</p>
+<p><b>See also </b><a href="qml-ubuntu-components0-mainview.html#backgroundColor-prop">backgroundColor</a> and <a href="qml-ubuntu-components0-mainview.html#headerColor-prop">headerColor</a>.</p>
+</div></div><!-- @@@footerColor -->
+<br/>
+<!-- $$$headerColor -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="headerColor-prop"></a><span class="name">headerColor</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-color.html">color</a></span></p></td></tr></table></div><div class="qmldoc"><p>Color of the header's background.</p>
+<p><b>See also </b><a href="qml-ubuntu-components0-mainview.html#backgroundColor-prop">backgroundColor</a> and <a href="qml-ubuntu-components0-mainview.html#footerColor-prop">footerColor</a>.</p>
+</div></div><!-- @@@headerColor -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

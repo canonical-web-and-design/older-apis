@@ -1,0 +1,589 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CouchdbSession</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Reference Manual for CouchDB GLib Bindings">
+<link rel="up" href="ch01.html" title="Core API">
+<link rel="prev" href="ch01.html" title="Core API">
+<link rel="next" href="couchdb-glib-CouchdbQuery.html" title="CouchdbQuery">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch01.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Reference Manual for CouchDB GLib Bindings</th>
+<td><a accesskey="n" href="couchdb-glib-CouchdbQuery.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="CouchdbSession.html#CouchdbSession.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="CouchdbSession.html#CouchdbSession.description" class="shortcut">Description</a>
+                   | 
+                  <a href="CouchdbSession.html#CouchdbSession.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="CouchdbSession.html#CouchdbSession.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="CouchdbSession.html#CouchdbSession.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="CouchdbSession"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="CouchdbSession.top_of_page"></a>CouchdbSession</span></h2>
+<p>CouchdbSession</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="CouchdbSession.synopsis"></a><h2>Synopsis</h2>
+<a name="CouchdbDatabase"></a><pre class="synopsis">                    <a class="link" href="CouchdbSession.html#CouchdbSession-struct" title="CouchdbSession">CouchdbSession</a>;
+                    <a class="link" href="CouchdbSession.html#CouchdbSessionClass" title="CouchdbSessionClass">CouchdbSessionClass</a>;
+<a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="returnvalue">CouchdbSession</span></a> *    <a class="link" href="CouchdbSession.html#couchdb-session-new" title="couchdb_session_new ()">couchdb_session_new</a>                 (<em class="parameter"><code>const <span class="type">char</span> *uri</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="CouchdbSession.html#couchdb-session-get-uri" title="couchdb_session_get_uri ()">couchdb_session_get_uri</a>             (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="CouchdbSession.html#couchdb-session-list-databases" title="couchdb_session_list_databases ()">couchdb_session_list_databases</a>      (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbSession.html#couchdb-session-free-database-list" title="couchdb_session_free_database_list ()">couchdb_session_free_database_list</a>  (<em class="parameter"><code><span class="type">GSList</span> *dblist</code></em>);
+<span class="returnvalue">CouchdbDatabaseInfo</span> * <a class="link" href="CouchdbSession.html#couchdb-session-get-database-info" title="couchdb_session_get_database_info ()">couchdb_session_get_database_info</a> (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *dbname</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="returnvalue">CouchdbDatabase</span></a> *   <a class="link" href="CouchdbSession.html#couchdb-session-get-database" title="couchdb_session_get_database ()">couchdb_session_get_database</a>        (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *dbname</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="CouchdbSession.html#couchdb-session-create-database" title="couchdb_session_create_database ()">couchdb_session_create_database</a>     (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *dbname</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="CouchdbSession.html#couchdb-session-delete-database" title="couchdb_session_delete_database ()">couchdb_session_delete_database</a>     (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *dbname</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="CouchdbSession.html#couchdb-session-compact-database" title="couchdb_session_compact_database ()">couchdb_session_compact_database</a>    (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *dbname</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbSession.html#couchdb-session-enable-authentication" title="couchdb_session_enable_authentication ()">couchdb_session_enable_authentication</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="CouchdbCredentials.html" title="CouchdbCredentials"><span class="type">CouchdbCredentials</span></a> *credentials</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbSession.html#couchdb-session-disable-authentication" title="couchdb_session_disable_authentication ()">couchdb_session_disable_authentication</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="CouchdbSession.html#couchdb-session-is-authentication-enabled" title="couchdb_session_is_authentication_enabled ()">couchdb_session_is_authentication_enabled</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="CouchdbSession.html#couchdb-session-replicate" title="couchdb_session_replicate ()">couchdb_session_replicate</a>           (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *target</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> continous</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+                    <a class="link" href="CouchdbSession.html#CouchdbDatabase-struct" title="CouchdbDatabase">CouchdbDatabase</a>;
+                    <a class="link" href="CouchdbSession.html#CouchdbSessionPrivate" title="CouchdbSessionPrivate">CouchdbSessionPrivate</a>;
+</pre>
+</div>
+<div class="refsect1">
+<a name="CouchdbSession.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----CouchdbSession
+</pre>
+<pre class="synopsis">
+  GObject
+   +----CouchdbDatabase
+</pre>
+</div>
+<div class="refsect1">
+<a name="CouchdbSession.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="CouchdbSession.html#CouchdbSession--uri" title='The "uri" property'>uri</a>"                      <span class="type">gchar</span>*                : Read / Write / Construct
+</pre>
+</div>
+<div class="refsect1">
+<a name="CouchdbSession.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="CouchdbSession.html#CouchdbSession-authentication-failed" title='The "authentication-failed" signal'>authentication-failed</a>"                          : <code class="literal">Run Last</code>
+  "<a class="link" href="CouchdbSession.html#CouchdbSession-database-created" title='The "database-created" signal'>database-created</a>"                               : <code class="literal">Run Last</code>
+  "<a class="link" href="CouchdbSession.html#CouchdbSession-database-deleted" title='The "database-deleted" signal'>database-deleted</a>"                               : <code class="literal">Run Last</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="CouchdbSession.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="CouchdbSession.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="CouchdbSession-struct"></a><h3>CouchdbSession</h3>
+<pre class="programlisting">typedef struct _CouchdbSession CouchdbSession;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CouchdbSessionClass"></a><h3>CouchdbSessionClass</h3>
+<pre class="programlisting">typedef struct {
+	GObjectClass parent_class;
+
+	/* Signals */
+	void (* authentication_failed) (CouchdbSession *session);
+
+	void (* database_created) (CouchdbSession *session, const char *dbname);
+	void (* database_deleted) (CouchdbSession *session, const char *dbname);
+} CouchdbSessionClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-session-new"></a><h3>couchdb_session_new ()</h3>
+<pre class="programlisting"><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="returnvalue">CouchdbSession</span></a> *    couchdb_session_new                 (<em class="parameter"><code>const <span class="type">char</span> *uri</code></em>);</pre>
+<p>
+Create a new <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object, which is the entry point for operations on a
+CouchDB instance.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri</code></em> :</span></p></td>
+<td>URI of the CouchDB instance to connect to</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly-created <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-session-get-uri"></a><h3>couchdb_session_get_uri ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_session_get_uri             (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>);</pre>
+<p>
+Retrieve the URI of the CouchDB instance a <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object is bound to.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the URI of the CouchDB instance used by this <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-session-list-databases"></a><h3>couchdb_session_list_databases ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            couchdb_session_list_databases      (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Retrieve the list of databases that exist in the CouchDB instance being used.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Placeholder for error information</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A list of strings containing the names of all the databases
+that exist in the CouchDB instance connected to. Once no longer needed, this
+list can be freed by calling <a class="link" href="CouchdbSession.html#couchdb-session-free-database-list" title="couchdb_session_free_database_list ()"><span class="type">couchdb_session_free_database_list</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-session-free-database-list"></a><h3>couchdb_session_free_database_list ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_session_free_database_list  (<em class="parameter"><code><span class="type">GSList</span> *dblist</code></em>);</pre>
+<p>
+Free the list of databases returned by <a class="link" href="CouchdbSession.html#couchdb-session-list-databases" title="couchdb_session_list_databases ()"><span class="type">couchdb_session_list_databases</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>dblist</code></em> :</span></p></td>
+<td>A list of databases, as returned by <a class="link" href="CouchdbSession.html#couchdb-session-list-databases" title="couchdb_session_list_databases ()"><span class="type">couchdb_session_list_databases</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-session-get-database-info"></a><h3>couchdb_session_get_database_info ()</h3>
+<pre class="programlisting"><span class="returnvalue">CouchdbDatabaseInfo</span> * couchdb_session_get_database_info (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *dbname</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Retrieve information about a given database.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbname</code></em> :</span></p></td>
+<td>Name of the database for which to retrieve the information</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Placeholder for error information</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <span class="type">CouchdbDatabaseInfo</span> object, whose API can be used to retrieve
+all the information returned by CouchDB about this database.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-session-get-database"></a><h3>couchdb_session_get_database ()</h3>
+<pre class="programlisting"><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="returnvalue">CouchdbDatabase</span></a> *   couchdb_session_get_database        (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *dbname</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Get a <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> object reference for an existing database.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbname</code></em> :</span></p></td>
+<td>Name of the database to retrieve</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Placeholder for error information</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> object if the database exists on the specified
+<a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object, or NULL if the database does not exist.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-session-create-database"></a><h3>couchdb_session_create_database ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            couchdb_session_create_database     (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *dbname</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Create a new database on a CouchDB instance.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbname</code></em> :</span></p></td>
+<td>Name of the database to be created</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Placeholder for error information</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if successful, FALSE otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-session-delete-database"></a><h3>couchdb_session_delete_database ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            couchdb_session_delete_database     (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *dbname</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Delete an existing database on a CouchDB instance.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbname</code></em> :</span></p></td>
+<td>Name of the database to be deleted</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Placeholder for error information</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if successful, FALSE otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-session-compact-database"></a><h3>couchdb_session_compact_database ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            couchdb_session_compact_database    (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *dbname</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Compact the given database, which means removing outdated document
+revisions and deleted documents.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbname</code></em> :</span></p></td>
+<td>Name of the database to be compacted</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Placeholder for error information</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if successful, FALSE otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-session-enable-authentication"></a><h3>couchdb_session_enable_authentication ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_session_enable_authentication
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="CouchdbCredentials.html" title="CouchdbCredentials"><span class="type">CouchdbCredentials</span></a> *credentials</code></em>);</pre>
+<p>
+Enables authentication for the given <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object. The authentication
+mechanism should be specificied when creating the <a class="link" href="CouchdbCredentials.html" title="CouchdbCredentials"><span class="type">CouchdbCredentials</span></a> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>credentials</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbCredentials.html" title="CouchdbCredentials"><span class="type">CouchdbCredentials</span></a> object</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-session-disable-authentication"></a><h3>couchdb_session_disable_authentication ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_session_disable_authentication
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>);</pre>
+<p>
+Disables authentication for the given <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-session-is-authentication-enabled"></a><h3>couchdb_session_is_authentication_enabled ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            couchdb_session_is_authentication_enabled
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>);</pre>
+<p>
+Gets whether the given <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object has authentication enabled.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if authentication is enabled, FALSE otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-session-replicate"></a><h3>couchdb_session_replicate ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            couchdb_session_replicate           (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *source</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *target</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> continous</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Replicates a source database to another database, on the same CouchDB instance
+or on a remote instance.
+</p>
+<p>
+If <em class="parameter"><code>continous</code></em> is FALSE, the replication will happen once, but if set to TRUE,
+CouchDB will listen to all changes made to the source database, and automatically
+replicate over any new docs as they come into the source to the target.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>Source database</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>Target database</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>continous</code></em> :</span></p></td>
+<td>Whether to replicate once or keep replicating</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Placeholder for error information</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if successful, FALSE otherwise, in which case the <em class="parameter"><code>error</code></em>
+parameter will be set to contain information about the error.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CouchdbDatabase-struct"></a><h3>CouchdbDatabase</h3>
+<pre class="programlisting">typedef struct _CouchdbDatabase CouchdbDatabase;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CouchdbSessionPrivate"></a><h3>CouchdbSessionPrivate</h3>
+<pre class="programlisting">typedef struct _CouchdbSessionPrivate CouchdbSessionPrivate;</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="CouchdbSession.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="CouchdbSession--uri"></a><h3>The <code class="literal">"uri"</code> property</h3>
+<pre class="programlisting">  "uri"                      <span class="type">gchar</span>*                : Read / Write / Construct</pre>
+<p>Uri pointing to the host to connect to.</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="CouchdbSession.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="CouchdbSession-authentication-failed"></a><h3>The <code class="literal">"authentication-failed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *couchdbsession,
+                                                        <span class="type">gpointer</span>        user_data)           : <code class="literal">Run Last</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>couchdbsession</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CouchdbSession-database-created"></a><h3>The <code class="literal">"database-created"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *couchdbsession,
+                                                        <span class="type">gchar</span>          *arg1,
+                                                        <span class="type">gpointer</span>        user_data)           : <code class="literal">Run Last</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>couchdbsession</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CouchdbSession-database-deleted"></a><h3>The <code class="literal">"database-deleted"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *couchdbsession,
+                                                        <span class="type">gchar</span>          *arg1,
+                                                        <span class="type">gpointer</span>        user_data)           : <code class="literal">Run Last</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>couchdbsession</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

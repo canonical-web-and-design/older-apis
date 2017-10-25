@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CouchdbDesignDocument</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Reference Manual for CouchDB GLib Bindings">
+<link rel="up" href="ch01.html" title="Core API">
+<link rel="prev" href="CouchdbDocument.html" title="CouchdbDocument">
+<link rel="next" href="couchdb-glib-CouchdbDocumentContact.html" title="CouchdbDocumentContact">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="CouchdbDocument.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Reference Manual for CouchDB GLib Bindings</th>
+<td><a accesskey="n" href="couchdb-glib-CouchdbDocumentContact.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="couchdb-glib-CouchdbDesignDocument.html#couchdb-glib-CouchdbDesignDocument.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="couchdb-glib-CouchdbDesignDocument.html#couchdb-glib-CouchdbDesignDocument.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="couchdb-glib-CouchdbDesignDocument"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="couchdb-glib-CouchdbDesignDocument.top_of_page"></a>CouchdbDesignDocument</span></h2>
+<p>CouchdbDesignDocument</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="couchdb-glib-CouchdbDesignDocument.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument">CouchdbDesignDocument</a>;
+                    <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocumentClass" title="CouchdbDesignDocumentClass">CouchdbDesignDocumentClass</a>;
+<a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="returnvalue">CouchdbDesignDocument</span></a> * <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#couchdb-design-document-new" title="couchdb_design_document_new ()">couchdb_design_document_new</a>     (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#couchdb-design-document-list-views" title="couchdb_design_document_list_views ()">couchdb_design_document_list_views</a>  (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#couchdb-design-document-free-views-list" title="couchdb_design_document_free_views_list ()">couchdb_design_document_free_views_list</a>
+                                                        (<em class="parameter"><code><span class="type">GSList</span> *list</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#couchdb-design-document-add-view" title="couchdb_design_document_add_view ()">couchdb_design_document_add_view</a>    (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *map_function</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *reduce_function</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#couchdb-design-document-delete-view" title="couchdb_design_document_delete_view ()">couchdb_design_document_delete_view</a> (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);
+enum                <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocumentLanguage" title="enum CouchdbDesignDocumentLanguage">CouchdbDesignDocumentLanguage</a>;
+<a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocumentLanguage" title="enum CouchdbDesignDocumentLanguage"><span class="returnvalue">CouchdbDesignDocumentLanguage</span></a> <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#couchdb-design-document-get-language" title="couchdb_design_document_get_language ()">couchdb_design_document_get_language</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#couchdb-design-document-set-language" title="couchdb_design_document_set_language ()">couchdb_design_document_set_language</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocumentLanguage" title="enum CouchdbDesignDocumentLanguage"><span class="type">CouchdbDesignDocumentLanguage</span></a> language</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="couchdb-glib-CouchdbDesignDocument.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="couchdb-glib-CouchdbDesignDocument.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="CouchdbDesignDocument"></a><h3>CouchdbDesignDocument</h3>
+<pre class="programlisting">typedef struct {
+	CouchdbDocument parent;
+} CouchdbDesignDocument;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CouchdbDesignDocumentClass"></a><h3>CouchdbDesignDocumentClass</h3>
+<pre class="programlisting">typedef struct {
+	CouchdbDocumentClass parent_class;
+} CouchdbDesignDocumentClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-design-document-new"></a><h3>couchdb_design_document_new ()</h3>
+<pre class="programlisting"><a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="returnvalue">CouchdbDesignDocument</span></a> * couchdb_design_document_new     (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Create a new design document, to contain views' code.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A new <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> object.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-design-document-list-views"></a><h3>couchdb_design_document_list_views ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            couchdb_design_document_list_views  (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> *document</code></em>);</pre>
+<p>
+Return a list of the names of the views contained in the given
+<a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A list of names of views. When no longer needed, this list
+should be freed by calling <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#couchdb-design-document-free-views-list" title="couchdb_design_document_free_views_list ()"><span class="type">couchdb_design_document_free_views_list</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-design-document-free-views-list"></a><h3>couchdb_design_document_free_views_list ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_design_document_free_views_list
+                                                        (<em class="parameter"><code><span class="type">GSList</span> *list</code></em>);</pre>
+<p>
+Free the list of views' names returned by <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#couchdb-design-document-list-views" title="couchdb_design_document_list_views ()"><span class="type">couchdb_design_document_list_views</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>list</code></em> :</span></p></td>
+<td>A list of views' names, as returned by <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#couchdb-design-document-list-views" title="couchdb_design_document_list_views ()"><span class="type">couchdb_design_document_list_views</span></a>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-design-document-add-view"></a><h3>couchdb_design_document_add_view ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_design_document_add_view    (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *map_function</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *reduce_function</code></em>);</pre>
+<p>
+Add a new view to the given <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> object. If the view already exists,
+it will get replaced by the new one. To make the change permanent, the document
+must be saved to the database by calling <a class="link" href="CouchdbDatabase.html#couchdb-database-put-document" title="couchdb_database_put_document ()"><span class="type">couchdb_database_put_document</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>Name of the view</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>map_function</code></em> :</span></p></td>
+<td>Source code for the map function</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>reduce_function</code></em> :</span></p></td>
+<td>Source code for the reduce function</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-design-document-delete-view"></a><h3>couchdb_design_document_delete_view ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_design_document_delete_view (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);</pre>
+<p>
+Delete a view from the given <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> object. To make the change permanent,
+the document must be saved to the database by calling <a class="link" href="CouchdbDatabase.html#couchdb-database-put-document" title="couchdb_database_put_document ()"><span class="type">couchdb_database_put_document</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>Name of the view to remove</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CouchdbDesignDocumentLanguage"></a><h3>enum CouchdbDesignDocumentLanguage</h3>
+<pre class="programlisting">typedef enum {
+	COUCHDB_DESIGN_DOCUMENT_LANGUAGE_UNKNOWN,
+	COUCHDB_DESIGN_DOCUMENT_LANGUAGE_JAVASCRIPT,
+	COUCHDB_DESIGN_DOCUMENT_LANGUAGE_PYTHON
+} CouchdbDesignDocumentLanguage;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-design-document-get-language"></a><h3>couchdb_design_document_get_language ()</h3>
+<pre class="programlisting"><a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocumentLanguage" title="enum CouchdbDesignDocumentLanguage"><span class="returnvalue">CouchdbDesignDocumentLanguage</span></a> couchdb_design_document_get_language
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> *document</code></em>);</pre>
+<p>
+Return the programming language in which the views on the given design
+document are written.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A value representing the language the views are written in.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-design-document-set-language"></a><h3>couchdb_design_document_set_language ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_design_document_set_language
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocumentLanguage" title="enum CouchdbDesignDocumentLanguage"><span class="type">CouchdbDesignDocumentLanguage</span></a> language</code></em>);</pre>
+<p>
+Set the language used in the views contained in the given <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a>
+object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>language</code></em> :</span></p></td>
+<td>Language for the views in this design document</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

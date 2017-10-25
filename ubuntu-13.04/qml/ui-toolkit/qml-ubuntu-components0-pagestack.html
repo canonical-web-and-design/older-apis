@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- PageStack.qml -->
+  <title>UbuntuUserInterfaceToolkit 0.1: PageStack</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="overview-ubuntu-sdk.html">Ubuntu User Interface Toolkit</a></li>
+<li>PageStack</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-components0-pagestack.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-pagestack.html#methods">Methods</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-pagestack.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">PageStack</h1>
+<span class="subtitle"></span>
+<!-- $$$PageStack-brief -->
+<p>A stack of <a href="qml-ubuntu-components0-page.html">Page</a> items that is used for inter-Page navigation. Pages on the stack can be popped, and new Pages can be pushed. The page on top of the stack is the visible one. <a href="qml-ubuntu-components0-pagestack.html#details">More...</a></p>
+<!-- @@@PageStack -->
+<p>Inherits <a href="qml-ubuntu-components0-styleditem.html">StyledItem</a></p>
+<ul>
+<li><a href="qml-ubuntu-components0-pagestack-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-pagestack.html#currentPage-prop">currentPage</a></b></b> : Item<tt> (preliminary)</tt></li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-pagestack.html#depth-prop">depth</a></b></b> : int<tt> (preliminary)</tt></li>
+</ul>
+<a name="methods"></a>
+<h2>Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-pagestack.html#clear-method">clear</a></b></b>()<tt> (preliminary)</tt></li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-pagestack.html#pop-method">pop</a></b></b>()<tt> (preliminary)</tt></li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-pagestack.html#push-method">push</a></b></b>(<i>page</i>,  <i>properties</i>)<tt> (preliminary)</tt></li>
+</ul>
+<!-- $$$PageStack-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>PageStack should be used inside a <a href="qml-ubuntu-components0-mainview.html">MainView</a> in order to automatically add a header and toolbar to control the stack. The PageStack will automatically set the header title to the title of the <a href="qml-ubuntu-components0-page.html">Page</a> that is currently on top of the stack, and the tools of the toolbar to the tools of the <a href="qml-ubuntu-components0-page.html">Page</a> on top of the stack. When more than one Pages are on the stack, the toolbar will automatically feature a back-button that pop the stack when triggered.</p>
+<p>Pages that are defined inside the PageStack must initially set their visibility to false to avoid the pages occluding the PageStack before they are pushed. When pushing a <a href="qml-ubuntu-components0-page.html">Page</a>, its visibility is automatically updated.</p>
+<p>Example:</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+import Ubuntu.Components.ListItems 0.1 as ListItem
+
+<span class="type"><a href="qml-ubuntu-components0-mainview.html">MainView</a></span> {
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">48</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">60</span>)
+
+    <span class="type">PageStack</span> {
+        <span class="name">id</span>: <span class="name">pageStack</span>
+        <span class="name">Component</span>.onCompleted: <span class="name">push</span>(<span class="name">page0</span>)
+
+        <span class="type"><a href="qml-ubuntu-components0-page.html">Page</a></span> {
+            <span class="name">id</span>: <span class="name">page0</span>
+            <span class="name">title</span>: <span class="name">i18n</span>.<span class="name">tr</span>(<span class="string">&quot;Root page&quot;</span>)
+            <span class="name">visible</span>: <span class="number">false</span>
+
+            <span class="type">Column</span> {
+                <span class="name">anchors</span>.fill: <span class="name">parent</span>
+                <span class="type">ListItem</span>.Standard {
+                    <span class="name">text</span>: <span class="name">i18n</span>.<span class="name">tr</span>(<span class="string">&quot;Page one&quot;</span>)
+                    <span class="name">onClicked</span>: <span class="name">pageStack</span>.<span class="name">push</span>(<span class="name">page1</span>, {color: <span class="name">UbuntuColors</span>.<span class="name">orange</span>})
+                    <span class="name">progression</span>: <span class="number">true</span>
+                }
+                <span class="type">ListItem</span>.Standard {
+                    <span class="name">text</span>: <span class="name">i18n</span>.<span class="name">tr</span>(<span class="string">&quot;External page&quot;</span>)
+                    <span class="name">onClicked</span>: <span class="name">pageStack</span>.<span class="name">push</span>(<span class="name">Qt</span>.<span class="name">resolvedUrl</span>(<span class="string">&quot;MyCustomPage.qml&quot;</span>))
+                    <span class="name">progression</span>: <span class="number">true</span>
+                }
+            }
+        }
+
+        <span class="type"><a href="qml-ubuntu-components0-page.html">Page</a></span> {
+            <span class="name">title</span>: <span class="string">&quot;Rectangle&quot;</span>
+            <span class="name">id</span>: <span class="name">page1</span>
+            <span class="name">visible</span>: <span class="number">false</span>
+            property <span class="type">alias</span> <span class="name">color</span>: <span class="name">rectangle</span>.<span class="name">color</span>
+            <span class="type">Rectangle</span> {
+                <span class="name">id</span>: <span class="name">rectangle</span>
+                <span class="type">anchors</span> {
+                    <span class="name">fill</span>: <span class="name">parent</span>
+                    <span class="name">margins</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">5</span>)
+                }
+            }
+        }
+    }
+}</pre>
+<p>As shown in the example above, the <a href="qml-ubuntu-components0-pagestack.html#push-method">push()</a> function can take an Item, Component or URL as input.</p>
+<!-- @@@PageStack -->
+<h2>Property Documentation</h2>
+<!-- $$$currentPage -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="currentPage-prop"></a><span class="name">currentPage</span> : <span class="type">Item</span></p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>The currently active page</p>
+</div></div><!-- @@@currentPage -->
+<br/>
+<!-- $$$depth -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="depth-prop"></a><span class="name">depth</span> : <span class="type">int</span></p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>The current size of the stack</p>
+</div></div><!-- @@@depth -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$clear -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="clear-method"></a>PageStack::<span class="name">clear</span>()</p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>Deactivate the active page and clear the stack.</p>
+</div></div><!-- @@@clear -->
+<br/>
+<!-- $$$pop -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="pop-method"></a>PageStack::<span class="name">pop</span>()</p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>Pop the top item from the stack if the stack size is at least 1. Do not do anything if 0 or 1 items are on the stack.</p>
+</div></div><!-- @@@pop -->
+<br/>
+<!-- $$$push -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="push-method"></a>PageStack::<span class="name">push</span>(<i> page</i>, <i> properties</i>)</p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>Push a page to the stack, and apply the given (optional) properties to the page. The pushed page may be an Item, Component or URL.</p>
+</div></div><!-- @@@push -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

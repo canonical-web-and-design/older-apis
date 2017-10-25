@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qscriptengineagent.html -->
+  <title>UbuntuUserInterfaceToolkit 0.1: QScriptEngineAgent Class</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="all-modules.html">Modules</a></li>
+<li>qtscript</li>
+<li>QScriptEngineAgent</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qscriptengineagent.html#public-types">Public Types</a></li>
+<li class="level1"><a href="qscriptengineagent.html#public-functions">Public Functions</a></li>
+<li class="level1"><a href="qscriptengineagent.html#protected-variables">Protected Variables</a></li>
+<li class="level1"><a href="qscriptengineagent.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">QScriptEngineAgent Class</h1>
+<p>This class was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<ul>
+<li><a href="qscriptengineagent-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qscriptengineagent.html#Extension-enum">Extension</a></b> { DebuggerInvocationRequest }</td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengineagent.html#QScriptEngineAgent">QScriptEngineAgent</a></b>(QScriptEngine *<i> engine</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qscriptengineagent.html#dtor.QScriptEngineAgent">~QScriptEngineAgent</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qscriptengineagent.html#contextPop">contextPop</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qscriptengineagent.html#contextPush">contextPush</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptengineagent.html#engine">engine</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qscriptengineagent.html#exceptionCatch">exceptionCatch</a></b>(qint64<i> scriptId</i>, const QScriptValue &amp;<i> exception</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qscriptengineagent.html#exceptionThrow">exceptionThrow</a></b>(qint64<i> scriptId</i>, const QScriptValue &amp;<i> exception</i>, bool<i> hasHandler</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qscriptengineagent.html#extension">extension</a></b>(Extension<i> extension</i>, const QVariant &amp;<i> argument</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qscriptengineagent.html#functionEntry">functionEntry</a></b>(qint64<i> scriptId</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qscriptengineagent.html#functionExit">functionExit</a></b>(qint64<i> scriptId</i>, const QScriptValue &amp;<i> returnValue</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qscriptengineagent.html#positionChange">positionChange</a></b>(qint64<i> scriptId</i>, int<i> lineNumber</i>, int<i> columnNumber</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qscriptengineagent.html#scriptLoad">scriptLoad</a></b>(qint64<i> id</i>, const QString &amp;<i> program</i>, const QString &amp;<i> fileName</i>, int<i> baseLineNumber</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qscriptengineagent.html#scriptUnload">scriptUnload</a></b>(qint64<i> id</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qscriptengineagent.html#supportsExtension">supportsExtension</a></b>(Extension<i> extension</i>) const</td></tr>
+</table>
+<a name="protected-variables"></a>
+<h2>Protected Variables</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign">  </td><td class="memItemRight bottomAlign"><b><a href="qscriptengineagent.html#d_ptr-var">d_ptr</a></b></td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QScriptEngineAgent-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+</div>
+<!-- @@@QScriptEngineAgent -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$Extension$$$DebuggerInvocationRequest -->
+<h3 class="fn"><a name="Extension-enum"></a>enum QScriptEngineAgent::<span class="name">Extension</span></h3>
+<!-- @@@Extension -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QScriptEngineAgent[overload1]$$$QScriptEngineAgentQScriptEngine* -->
+<h3 class="fn"><a name="QScriptEngineAgent"></a>QScriptEngineAgent::<span class="name">QScriptEngineAgent</span>(<span class="type"><a href="qscriptengine.html">QScriptEngine</a></span> *<i> engine</i>)</h3>
+<!-- @@@QScriptEngineAgent -->
+<!-- $$$~QScriptEngineAgent[overload1]$$$~QScriptEngineAgent -->
+<h3 class="fn"><a name="dtor.QScriptEngineAgent"></a>QScriptEngineAgent::<span class="name">~QScriptEngineAgent</span>()<tt> [virtual]</tt></h3>
+<!-- @@@~QScriptEngineAgent -->
+<!-- $$$contextPop[overload1]$$$contextPop -->
+<h3 class="fn"><a name="contextPop"></a>QScriptEngineAgent::<span class="name">contextPop</span>()<tt> [virtual]</tt></h3>
+<!-- @@@contextPop -->
+<!-- $$$contextPush[overload1]$$$contextPush -->
+<h3 class="fn"><a name="contextPush"></a>QScriptEngineAgent::<span class="name">contextPush</span>()<tt> [virtual]</tt></h3>
+<!-- @@@contextPush -->
+<!-- $$$engine[overload1]$$$engine -->
+<h3 class="fn"><a name="engine"></a>QScriptEngineAgent::<span class="name">engine</span>() const</h3>
+<!-- @@@engine -->
+<!-- $$$exceptionCatch[overload1]$$$exceptionCatchqint64constQScriptValue& -->
+<h3 class="fn"><a name="exceptionCatch"></a>QScriptEngineAgent::<span class="name">exceptionCatch</span>(<span class="type">qint64</span><i> scriptId</i>, const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> exception</i>)<tt> [virtual]</tt></h3>
+<!-- @@@exceptionCatch -->
+<!-- $$$exceptionThrow[overload1]$$$exceptionThrowqint64constQScriptValue&bool -->
+<h3 class="fn"><a name="exceptionThrow"></a>QScriptEngineAgent::<span class="name">exceptionThrow</span>(<span class="type">qint64</span><i> scriptId</i>, const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> exception</i>, <span class="type">bool</span><i> hasHandler</i>)<tt> [virtual]</tt></h3>
+<!-- @@@exceptionThrow -->
+<!-- $$$extension[overload1]$$$extensionExtensionconstQVariant& -->
+<h3 class="fn"><a name="extension"></a>QScriptEngineAgent::<span class="name">extension</span>(<span class="type"><a href="qscriptengineagent.html#Extension-enum">Extension</a></span><i> extension</i>, const <span class="type">QVariant</span> &amp;<i> argument</i>)<tt> [virtual]</tt></h3>
+<!-- @@@extension -->
+<!-- $$$functionEntry[overload1]$$$functionEntryqint64 -->
+<h3 class="fn"><a name="functionEntry"></a>QScriptEngineAgent::<span class="name">functionEntry</span>(<span class="type">qint64</span><i> scriptId</i>)<tt> [virtual]</tt></h3>
+<!-- @@@functionEntry -->
+<!-- $$$functionExit[overload1]$$$functionExitqint64constQScriptValue& -->
+<h3 class="fn"><a name="functionExit"></a>QScriptEngineAgent::<span class="name">functionExit</span>(<span class="type">qint64</span><i> scriptId</i>, const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> returnValue</i>)<tt> [virtual]</tt></h3>
+<!-- @@@functionExit -->
+<!-- $$$positionChange[overload1]$$$positionChangeqint64intint -->
+<h3 class="fn"><a name="positionChange"></a>QScriptEngineAgent::<span class="name">positionChange</span>(<span class="type">qint64</span><i> scriptId</i>, <span class="type">int</span><i> lineNumber</i>, <span class="type">int</span><i> columnNumber</i>)<tt> [virtual]</tt></h3>
+<!-- @@@positionChange -->
+<!-- $$$scriptLoad[overload1]$$$scriptLoadqint64constQString&constQString&int -->
+<h3 class="fn"><a name="scriptLoad"></a>QScriptEngineAgent::<span class="name">scriptLoad</span>(<span class="type">qint64</span><i> id</i>, const <span class="type">QString</span> &amp;<i> program</i>, const <span class="type">QString</span> &amp;<i> fileName</i>, <span class="type">int</span><i> baseLineNumber</i>)<tt> [virtual]</tt></h3>
+<!-- @@@scriptLoad -->
+<!-- $$$scriptUnload[overload1]$$$scriptUnloadqint64 -->
+<h3 class="fn"><a name="scriptUnload"></a>QScriptEngineAgent::<span class="name">scriptUnload</span>(<span class="type">qint64</span><i> id</i>)<tt> [virtual]</tt></h3>
+<!-- @@@scriptUnload -->
+<!-- $$$supportsExtension[overload1]$$$supportsExtensionExtension -->
+<h3 class="fn"><a name="supportsExtension"></a>QScriptEngineAgent::<span class="name">supportsExtension</span>(<span class="type"><a href="qscriptengineagent.html#Extension-enum">Extension</a></span><i> extension</i>) const<tt> [virtual]</tt></h3>
+<!-- @@@supportsExtension -->
+</div>
+<div class="vars">
+<h2>Member Variable Documentation</h2>
+<!-- $$$d_ptr -->
+<h3 class="fn"><a name="d_ptr-var"></a> QScriptEngineAgent::<span class="name">d_ptr</span></h3>
+<!-- @@@d_ptr -->
+</div>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qwebpage.html -->
+  <title>UbuntuUserInterfaceToolkit 0.1: QWebPage Class</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="all-modules.html">Modules</a></li>
+<li><a href="qtwebkit-module.html">QtWebKit</a></li>
+<li>QWebPage</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qwebpage.html#public-types">Public Types</a></li>
+<li class="level1"><a href="qwebpage.html#properties">Properties</a></li>
+<li class="level1"><a href="qwebpage.html#public-functions">Public Functions</a></li>
+<li class="level1"><a href="qwebpage.html#signals">Signals</a></li>
+<li class="level1"><a href="qwebpage.html#protected-functions">Protected Functions</a></li>
+<li class="level1"><a href="qwebpage.html#related-non-members">Related Non-Members</a></li>
+<li class="level1"><a href="qwebpage.html#macros">Macros</a></li>
+<li class="level1"><a href="qwebpage.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">QWebPage Class</h1>
+<p>This class was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<ul>
+<li><a href="qwebpage-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> class </td><td class="memItemRight bottomAlign"><b><a href="qwebpage-choosemultiplefilesextensionoption.html">ChooseMultipleFilesExtensionOption</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> class </td><td class="memItemRight bottomAlign"><b><a href="qwebpage-choosemultiplefilesextensionreturn.html">ChooseMultipleFilesExtensionReturn</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> class </td><td class="memItemRight bottomAlign"><b><a href="qwebpage-errorpageextensionoption.html">ErrorPageExtensionOption</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> class </td><td class="memItemRight bottomAlign"><b><a href="qwebpage-errorpageextensionreturn.html">ErrorPageExtensionReturn</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> class </td><td class="memItemRight bottomAlign"><b><a href="qwebpage-extensionoption.html">ExtensionOption</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> class </td><td class="memItemRight bottomAlign"><b><a href="qwebpage-extensionreturn.html">ExtensionReturn</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> class </td><td class="memItemRight bottomAlign"><b><a href="qwebpage-viewportattributes.html">ViewportAttributes</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#ErrorDomain-enum">ErrorDomain</a></b> { QtNetwork, Http, WebKit }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#Extension-enum">Extension</a></b> { ChooseMultipleFilesExtension, ErrorPageExtension }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#Feature-enum">Feature</a></b> { Notifications, Geolocation }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#FindFlag-enum">FindFlag</a></b> { FindBackward, FindCaseSensitively, FindWrapsAroundDocument, HighlightAllOccurrences }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> typedef </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#FindFlags-typedef">FindFlags</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#LinkDelegationPolicy-enum">LinkDelegationPolicy</a></b> { DontDelegateLinks, DelegateExternalLinks, DelegateAllLinks }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#NavigationType-enum">NavigationType</a></b> { NavigationTypeLinkClicked, NavigationTypeFormSubmitted, NavigationTypeBackOrForward, NavigationTypeReload, NavigationTypeFormResubmitted, NavigationTypeOther }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#PermissionPolicy-enum">PermissionPolicy</a></b> { PermissionUnknown, PermissionGrantedByUser, PermissionDeniedByUser }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#WebAction-enum">WebAction</a></b> { NoWebAction, OpenLink, OpenLinkInNewWindow, OpenFrameInNewWindow, ..., WebActionCount }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#WebWindowType-enum">WebWindowType</a></b> { WebBrowserWindow, WebModalDialog }</td></tr>
+</table>
+<a name="properties"></a>
+<h2>Properties</h2>
+<table class="propsummary">
+<tr><td class="topAlign"><ul>
+<li class="fn"><b><a href="qwebpage.html#contentEditable-prop">contentEditable</a></b> : const </li>
+<li class="fn"><b><a href="qwebpage.html#forwardUnsupportedContent-prop">forwardUnsupportedContent</a></b> : const </li>
+<li class="fn"><b><a href="qwebpage.html#hasSelection-prop">hasSelection</a></b> : const </li>
+<li class="fn"><b><a href="qwebpage.html#linkDelegationPolicy-prop">linkDelegationPolicy</a></b> : const </li>
+<li class="fn"><b><a href="qwebpage.html#modified-prop">modified</a></b> : const </li>
+</ul></td><td class="topAlign"><ul>
+<li class="fn"><b><a href="qwebpage.html#palette-prop">palette</a></b> : const </li>
+<li class="fn"><b><a href="qwebpage.html#preferredContentsSize-prop">preferredContentsSize</a></b> : const </li>
+<li class="fn"><b><a href="qwebpage.html#selectedHtml-prop">selectedHtml</a></b> : const </li>
+<li class="fn"><b><a href="qwebpage.html#selectedText-prop">selectedText</a></b> : const </li>
+<li class="fn"><b><a href="qwebpage.html#viewportSize-prop">viewportSize</a></b> : const </li>
+</ul>
+</td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#QWebPage">QWebPage</a></b>(QObject *<i> parent</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#dtor.QWebPage">~QWebPage</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#action">action</a></b>(WebAction<i> action</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#bytesReceived">bytesReceived</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#createStandardContextMenu">createStandardContextMenu</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#currentFrame">currentFrame</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#event">event</a></b>(QEvent *<i> ev</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#extension">extension</a></b>(Extension<i> extension</i>, const ExtensionOption *<i> option</i>, ExtensionReturn *<i> output</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#findText">findText</a></b>(const QString &amp;<i> subString</i>, QFlags&lt;QWebPage::FindFlag&gt;<i> options</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#focusNextPrevChild">focusNextPrevChild</a></b>(bool<i> next</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#forwardUnsupportedContent">forwardUnsupportedContent</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#frameAt">frameAt</a></b>(const QPoint &amp;<i> pos</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#hasSelection">hasSelection</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#history">history</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#inputMethodQuery">inputMethodQuery</a></b>(Qt::InputMethodQuery<i> property</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#isContentEditable">isContentEditable</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#isModified">isModified</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#linkDelegationPolicy">linkDelegationPolicy</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#mainFrame">mainFrame</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#networkAccessManager">networkAccessManager</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#palette">palette</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#pluginFactory">pluginFactory</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#preferredContentsSize">preferredContentsSize</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#selectedHtml">selectedHtml</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#selectedText">selectedText</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#setActualVisibleContentRect">setActualVisibleContentRect</a></b>(const QRect &amp;<i> rect</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#setContentEditable">setContentEditable</a></b>(bool<i> editable</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#setFeaturePermission">setFeaturePermission</a></b>(QWebFrame *<i> frame</i>, Feature<i> feature</i>, PermissionPolicy<i> policy</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#setForwardUnsupportedContent">setForwardUnsupportedContent</a></b>(bool<i> forward</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#setLinkDelegationPolicy">setLinkDelegationPolicy</a></b>(LinkDelegationPolicy<i> policy</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#setNetworkAccessManager">setNetworkAccessManager</a></b>(QNetworkAccessManager *<i> manager</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#setPalette">setPalette</a></b>(const QPalette &amp;<i> palette</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#setPluginFactory">setPluginFactory</a></b>(QWebPluginFactory *<i> factory</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#setPreferredContentsSize">setPreferredContentsSize</a></b>(const QSize &amp;<i> size</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#setView">setView</a></b>(QWidget *<i> view</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#setViewportSize">setViewportSize</a></b>(const QSize &amp;<i> size</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#settings">settings</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#shouldInterruptJavaScript">shouldInterruptJavaScript</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#supportedContentTypes">supportedContentTypes</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#supportsContentType">supportsContentType</a></b>(const QString &amp;<i> mimeType</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#supportsExtension">supportsExtension</a></b>(Extension<i> extension</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#swallowContextMenuEvent">swallowContextMenuEvent</a></b>(QContextMenuEvent *<i> event</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#totalBytes">totalBytes</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#triggerAction">triggerAction</a></b>(WebAction<i> action</i>, bool<i> checked</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#undoStack">undoStack</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#updatePositionDependentActions">updatePositionDependentActions</a></b>(const QPoint &amp;<i> pos</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#view">view</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#viewportAttributesForSize">viewportAttributesForSize</a></b>(const QSize &amp;<i> availableSize</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#viewportSize">viewportSize</a></b>() const</td></tr>
+</table>
+<a name="signals"></a>
+<h2>Signals</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#applicationCacheQuotaExceeded">applicationCacheQuotaExceeded</a></b>(QWebSecurityOrigin *<i> origin</i>, quint64<i> defaultOriginQuota</i>, quint64<i> totalSpaceNeeded</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#contentsChanged">contentsChanged</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#databaseQuotaExceeded">databaseQuotaExceeded</a></b>(QWebFrame *<i> frame</i>, QString<i> databaseName</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#downloadRequested">downloadRequested</a></b>(const QNetworkRequest &amp;<i> request</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#featurePermissionRequestCanceled">featurePermissionRequestCanceled</a></b>(QWebFrame *<i> frame</i>, QWebPage::Feature<i> feature</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#featurePermissionRequested">featurePermissionRequested</a></b>(QWebFrame *<i> frame</i>, QWebPage::Feature<i> feature</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#frameCreated">frameCreated</a></b>(QWebFrame *<i> frame</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#geometryChangeRequested">geometryChangeRequested</a></b>(const QRect &amp;<i> geom</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#linkClicked">linkClicked</a></b>(const QUrl &amp;<i> url</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#linkHovered">linkHovered</a></b>(const QString &amp;<i> link</i>, const QString &amp;<i> title</i>, const QString &amp;<i> textContent</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#loadFinished">loadFinished</a></b>(bool<i> ok</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#loadProgress">loadProgress</a></b>(int<i> progress</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#loadStarted">loadStarted</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#menuBarVisibilityChangeRequested">menuBarVisibilityChangeRequested</a></b>(bool<i> visible</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#microFocusChanged">microFocusChanged</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#printRequested">printRequested</a></b>(QWebFrame *<i> frame</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#repaintRequested">repaintRequested</a></b>(const QRect &amp;<i> dirtyRect</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#restoreFrameStateRequested">restoreFrameStateRequested</a></b>(QWebFrame *<i> frame</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#saveFrameStateRequested">saveFrameStateRequested</a></b>(QWebFrame *<i> frame</i>, QWebHistoryItem *<i> item</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#scrollRequested">scrollRequested</a></b>(int<i> dx</i>, int<i> dy</i>, const QRect &amp;<i> rectToScroll</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#selectionChanged">selectionChanged</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#statusBarMessage">statusBarMessage</a></b>(const QString &amp;<i> text</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#statusBarVisibilityChangeRequested">statusBarVisibilityChangeRequested</a></b>(bool<i> visible</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#toolBarVisibilityChangeRequested">toolBarVisibilityChangeRequested</a></b>(bool<i> visible</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#unsupportedContent">unsupportedContent</a></b>(QNetworkReply *<i> reply</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#viewportChangeRequested">viewportChangeRequested</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#windowCloseRequested">windowCloseRequested</a></b>()</td></tr>
+</table>
+<a name="protected-functions"></a>
+<h2>Protected Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#acceptNavigationRequest">acceptNavigationRequest</a></b>(QWebFrame *<i> frame</i>, const QNetworkRequest &amp;<i> request</i>, NavigationType<i> type</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#chooseFile">chooseFile</a></b>(QWebFrame *<i> parentFrame</i>, const QString &amp;<i> suggestedFile</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#createPlugin">createPlugin</a></b>(const QString &amp;<i> classid</i>, const QUrl &amp;<i> url</i>, const QStringList &amp;<i> paramNames</i>, const QStringList &amp;<i> paramValues</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#createWindow">createWindow</a></b>(WebWindowType<i> type</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#javaScriptAlert">javaScriptAlert</a></b>(QWebFrame *<i> frame</i>, const QString &amp;<i> msg</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#javaScriptConfirm">javaScriptConfirm</a></b>(QWebFrame *<i> frame</i>, const QString &amp;<i> msg</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#javaScriptConsoleMessage">javaScriptConsoleMessage</a></b>(const QString &amp;<i> message</i>, int<i> lineNumber</i>, const QString &amp;<i> sourceID</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#javaScriptPrompt">javaScriptPrompt</a></b>(QWebFrame *<i> frame</i>, const QString &amp;<i> msg</i>, const QString &amp;<i> defaultValue</i>, QString *<i> result</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#userAgentForUrl">userAgentForUrl</a></b>(const QUrl &amp;<i> url</i>) const</td></tr>
+</table>
+<a name="related-non-members"></a>
+<h2>Related Non-Members</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#qWebKitMajorVersion">qWebKitMajorVersion</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#qWebKitMinorVersion">qWebKitMinorVersion</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#qWebKitVersion">qWebKitVersion</a></b>()</td></tr>
+</table>
+<a name="macros"></a>
+<h2>Macros</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#QTWEBKIT_VERSION">QTWEBKIT_VERSION</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#QTWEBKIT_VERSION_CHECK">QTWEBKIT_VERSION_CHECK</a></b></td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebpage.html#QTWEBKIT_VERSION_STR">QTWEBKIT_VERSION_STR</a></b></td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QWebPage-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+</div>
+<!-- @@@QWebPage -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$ErrorDomain$$$QtNetwork$$$Http$$$WebKit -->
+<h3 class="fn"><a name="ErrorDomain-enum"></a>enum QWebPage::<span class="name">ErrorDomain</span></h3>
+<p>This enum was introduced or modified in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@ErrorDomain -->
+<!-- $$$Extension$$$ChooseMultipleFilesExtension$$$ErrorPageExtension -->
+<h3 class="fn"><a name="Extension-enum"></a>enum QWebPage::<span class="name">Extension</span></h3>
+<!-- @@@Extension -->
+<!-- $$$Feature$$$Notifications$$$Geolocation -->
+<h3 class="fn"><a name="Feature-enum"></a>enum QWebPage::<span class="name">Feature</span></h3>
+<!-- @@@Feature -->
+<!-- $$$FindFlag$$$FindBackward$$$FindCaseSensitively$$$FindWrapsAroundDocument$$$HighlightAllOccurrences -->
+<h3 class="fn"><a name="FindFlag-enum"></a>enum QWebPage::<span class="name">FindFlag</span></h3>
+<!-- @@@FindFlag -->
+<!-- $$$FindFlags -->
+<h3 class="fn"><a name="FindFlags-typedef"></a>typedef QWebPage::<span class="name">FindFlags</span></h3>
+<!-- @@@FindFlags -->
+<!-- $$$LinkDelegationPolicy$$$DontDelegateLinks$$$DelegateExternalLinks$$$DelegateAllLinks -->
+<h3 class="fn"><a name="LinkDelegationPolicy-enum"></a>enum QWebPage::<span class="name">LinkDelegationPolicy</span></h3>
+<!-- @@@LinkDelegationPolicy -->
+<!-- $$$NavigationType$$$NavigationTypeLinkClicked$$$NavigationTypeFormSubmitted$$$NavigationTypeBackOrForward$$$NavigationTypeReload$$$NavigationTypeFormResubmitted$$$NavigationTypeOther -->
+<h3 class="fn"><a name="NavigationType-enum"></a>enum QWebPage::<span class="name">NavigationType</span></h3>
+<!-- @@@NavigationType -->
+<!-- $$$PermissionPolicy$$$PermissionUnknown$$$PermissionGrantedByUser$$$PermissionDeniedByUser -->
+<h3 class="fn"><a name="PermissionPolicy-enum"></a>enum QWebPage::<span class="name">PermissionPolicy</span></h3>
+<!-- @@@PermissionPolicy -->
+<!-- $$$WebAction$$$NoWebAction$$$OpenLink$$$OpenLinkInNewWindow$$$OpenFrameInNewWindow$$$DownloadLinkToDisk$$$CopyLinkToClipboard$$$OpenImageInNewWindow$$$DownloadImageToDisk$$$CopyImageToClipboard$$$Back$$$Forward$$$Stop$$$Reload$$$Cut$$$Copy$$$Paste$$$Undo$$$Redo$$$MoveToNextChar$$$MoveToPreviousChar$$$MoveToNextWord$$$MoveToPreviousWord$$$MoveToNextLine$$$MoveToPreviousLine$$$MoveToStartOfLine$$$MoveToEndOfLine$$$MoveToStartOfBlock$$$MoveToEndOfBlock$$$MoveToStartOfDocument$$$MoveToEndOfDocument$$$SelectNextChar$$$SelectPreviousChar$$$SelectNextWord$$$SelectPreviousWord$$$SelectNextLine$$$SelectPreviousLine$$$SelectStartOfLine$$$SelectEndOfLine$$$SelectStartOfBlock$$$SelectEndOfBlock$$$SelectStartOfDocument$$$SelectEndOfDocument$$$DeleteStartOfWord$$$DeleteEndOfWord$$$SetTextDirectionDefault$$$SetTextDirectionLeftToRight$$$SetTextDirectionRightToLeft$$$ToggleBold$$$ToggleItalic$$$ToggleUnderline$$$InspectElement$$$InsertParagraphSeparator$$$InsertLineSeparator$$$SelectAll$$$ReloadAndBypassCache$$$PasteAndMatchStyle$$$RemoveFormat$$$ToggleStrikethrough$$$ToggleSubscript$$$ToggleSuperscript$$$InsertUnorderedList$$$InsertOrderedList$$$Indent$$$Outdent$$$AlignCenter$$$AlignJustified$$$AlignLeft$$$AlignRight$$$StopScheduledPageRefresh$$$CopyImageUrlToClipboard$$$OpenLinkInThisWindow$$$WebActionCount -->
+<h3 class="fn"><a name="WebAction-enum"></a>enum QWebPage::<span class="name">WebAction</span></h3>
+<!-- @@@WebAction -->
+<!-- $$$WebWindowType$$$WebBrowserWindow$$$WebModalDialog -->
+<h3 class="fn"><a name="WebWindowType-enum"></a>enum QWebPage::<span class="name">WebWindowType</span></h3>
+<!-- @@@WebWindowType -->
+</div>
+<div class="prop">
+<h2>Property Documentation</h2>
+<!-- $$$contentEditable-prop -->
+<h3 class="fn"><a name="contentEditable-prop"></a><span class="name">contentEditable</span> : const </h3>
+<p>This property was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@contentEditable -->
+<!-- $$$forwardUnsupportedContent-prop -->
+<h3 class="fn"><a name="forwardUnsupportedContent-prop"></a><span class="name">forwardUnsupportedContent</span> : const </h3>
+<!-- @@@forwardUnsupportedContent -->
+<!-- $$$hasSelection-prop -->
+<h3 class="fn"><a name="hasSelection-prop"></a><span class="name">hasSelection</span> : const </h3>
+<!-- @@@hasSelection -->
+<!-- $$$linkDelegationPolicy-prop -->
+<h3 class="fn"><a name="linkDelegationPolicy-prop"></a><span class="name">linkDelegationPolicy</span> : const </h3>
+<!-- @@@linkDelegationPolicy -->
+<!-- $$$modified-prop -->
+<h3 class="fn"><a name="modified-prop"></a><span class="name">modified</span> : const </h3>
+<!-- @@@modified -->
+<!-- $$$palette-prop -->
+<h3 class="fn"><a name="palette-prop"></a><span class="name">palette</span> : const </h3>
+<!-- @@@palette -->
+<!-- $$$preferredContentsSize-prop -->
+<h3 class="fn"><a name="preferredContentsSize-prop"></a><span class="name">preferredContentsSize</span> : const </h3>
+<p>This property was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@preferredContentsSize -->
+<!-- $$$selectedHtml-prop -->
+<h3 class="fn"><a name="selectedHtml-prop"></a><span class="name">selectedHtml</span> : const </h3>
+<p>This property was introduced in UbuntuUserInterfaceToolkit 4.8.</p>
+<!-- @@@selectedHtml -->
+<!-- $$$selectedText-prop -->
+<h3 class="fn"><a name="selectedText-prop"></a><span class="name">selectedText</span> : const </h3>
+<!-- @@@selectedText -->
+<!-- $$$viewportSize-prop -->
+<h3 class="fn"><a name="viewportSize-prop"></a><span class="name">viewportSize</span> : const </h3>
+<!-- @@@viewportSize -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QWebPage[overload1]$$$QWebPageQObject* -->
+<h3 class="fn"><a name="QWebPage"></a>QWebPage::<span class="name">QWebPage</span>(<span class="type">QObject</span> *<i> parent</i>)</h3>
+<!-- @@@QWebPage -->
+<!-- $$$~QWebPage[overload1]$$$~QWebPage -->
+<h3 class="fn"><a name="dtor.QWebPage"></a>QWebPage::<span class="name">~QWebPage</span>()</h3>
+<!-- @@@~QWebPage -->
+<!-- $$$acceptNavigationRequest[overload1]$$$acceptNavigationRequestQWebFrame*constQNetworkRequest&NavigationType -->
+<h3 class="fn"><a name="acceptNavigationRequest"></a>QWebPage::<span class="name">acceptNavigationRequest</span>(<span class="type"><a href="qwebframe.html">QWebFrame</a></span> *<i> frame</i>, const <span class="type">QNetworkRequest</span> &amp;<i> request</i>, <span class="type"><a href="qwebpage.html#NavigationType-enum">NavigationType</a></span><i> type</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@acceptNavigationRequest -->
+<!-- $$$action[overload1]$$$actionWebAction -->
+<h3 class="fn"><a name="action"></a>QWebPage::<span class="name">action</span>(<span class="type"><a href="qwebpage.html#WebAction-enum">WebAction</a></span><i> action</i>) const</h3>
+<!-- @@@action -->
+<!-- $$$applicationCacheQuotaExceeded[overload1]$$$applicationCacheQuotaExceededQWebSecurityOrigin*quint64quint64 -->
+<h3 class="fn"><a name="applicationCacheQuotaExceeded"></a>QWebPage::<span class="name">applicationCacheQuotaExceeded</span>(<span class="type"><a href="qwebsecurityorigin.html">QWebSecurityOrigin</a></span> *<i> origin</i>, <span class="type">quint64</span><i> defaultOriginQuota</i>, <span class="type">quint64</span><i> totalSpaceNeeded</i>)<tt> [signal]</tt></h3>
+<!-- @@@applicationCacheQuotaExceeded -->
+<!-- $$$bytesReceived[overload1]$$$bytesReceived -->
+<h3 class="fn"><a name="bytesReceived"></a>QWebPage::<span class="name">bytesReceived</span>() const</h3>
+<!-- @@@bytesReceived -->
+<!-- $$$chooseFile[overload1]$$$chooseFileQWebFrame*constQString& -->
+<h3 class="fn"><a name="chooseFile"></a>QWebPage::<span class="name">chooseFile</span>(<span class="type"><a href="qwebframe.html">QWebFrame</a></span> *<i> parentFrame</i>, const <span class="type">QString</span> &amp;<i> suggestedFile</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@chooseFile -->
+<!-- $$$contentsChanged[overload1]$$$contentsChanged -->
+<h3 class="fn"><a name="contentsChanged"></a>QWebPage::<span class="name">contentsChanged</span>()<tt> [signal]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@contentsChanged -->
+<!-- $$$createPlugin[overload1]$$$createPluginconstQString&constQUrl&constQStringList&constQStringList& -->
+<h3 class="fn"><a name="createPlugin"></a>QWebPage::<span class="name">createPlugin</span>(const <span class="type">QString</span> &amp;<i> classid</i>, const <span class="type">QUrl</span> &amp;<i> url</i>, const <span class="type">QStringList</span> &amp;<i> paramNames</i>, const <span class="type">QStringList</span> &amp;<i> paramValues</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@createPlugin -->
+<!-- $$$createStandardContextMenu[overload1]$$$createStandardContextMenu -->
+<h3 class="fn"><a name="createStandardContextMenu"></a>QWebPage::<span class="name">createStandardContextMenu</span>()</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@createStandardContextMenu -->
+<!-- $$$createWindow[overload1]$$$createWindowWebWindowType -->
+<h3 class="fn"><a name="createWindow"></a>QWebPage::<span class="name">createWindow</span>(<span class="type"><a href="qwebpage.html#WebWindowType-enum">WebWindowType</a></span><i> type</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@createWindow -->
+<!-- $$$currentFrame[overload1]$$$currentFrame -->
+<h3 class="fn"><a name="currentFrame"></a>QWebPage::<span class="name">currentFrame</span>() const</h3>
+<!-- @@@currentFrame -->
+<!-- $$$databaseQuotaExceeded[overload1]$$$databaseQuotaExceededQWebFrame*QString -->
+<h3 class="fn"><a name="databaseQuotaExceeded"></a>QWebPage::<span class="name">databaseQuotaExceeded</span>(<span class="type"><a href="qwebframe.html">QWebFrame</a></span> *<i> frame</i>, <span class="type">QString</span><i> databaseName</i>)<tt> [signal]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@databaseQuotaExceeded -->
+<!-- $$$downloadRequested[overload1]$$$downloadRequestedconstQNetworkRequest& -->
+<h3 class="fn"><a name="downloadRequested"></a>QWebPage::<span class="name">downloadRequested</span>(const <span class="type">QNetworkRequest</span> &amp;<i> request</i>)<tt> [signal]</tt></h3>
+<!-- @@@downloadRequested -->
+<!-- $$$event[overload1]$$$eventQEvent* -->
+<h3 class="fn"><a name="event"></a>QWebPage::<span class="name">event</span>(<span class="type">QEvent</span> *<i> ev</i>)<tt> [virtual]</tt></h3>
+<!-- @@@event -->
+<!-- $$$extension[overload1]$$$extensionExtensionconstExtensionOption*ExtensionReturn* -->
+<h3 class="fn"><a name="extension"></a>QWebPage::<span class="name">extension</span>(<span class="type"><a href="qwebpage.html#Extension-enum">Extension</a></span><i> extension</i>, const <span class="type"><a href="qwebpage-extensionoption.html">ExtensionOption</a></span> *<i> option</i>, <span class="type"><a href="qwebpage-extensionreturn.html">ExtensionReturn</a></span> *<i> output</i>)<tt> [virtual]</tt></h3>
+<!-- @@@extension -->
+<!-- $$$featurePermissionRequestCanceled[overload1]$$$featurePermissionRequestCanceledQWebFrame*QWebPage::Feature -->
+<h3 class="fn"><a name="featurePermissionRequestCanceled"></a>QWebPage::<span class="name">featurePermissionRequestCanceled</span>(<span class="type"><a href="qwebframe.html">QWebFrame</a></span> *<i> frame</i>, <span class="type"><a href="qwebpage.html#Feature-enum">QWebPage::Feature</a></span><i> feature</i>)<tt> [signal]</tt></h3>
+<!-- @@@featurePermissionRequestCanceled -->
+<!-- $$$featurePermissionRequested[overload1]$$$featurePermissionRequestedQWebFrame*QWebPage::Feature -->
+<h3 class="fn"><a name="featurePermissionRequested"></a>QWebPage::<span class="name">featurePermissionRequested</span>(<span class="type"><a href="qwebframe.html">QWebFrame</a></span> *<i> frame</i>, <span class="type"><a href="qwebpage.html#Feature-enum">QWebPage::Feature</a></span><i> feature</i>)<tt> [signal]</tt></h3>
+<!-- @@@featurePermissionRequested -->
+<!-- $$$findText[overload1]$$$findTextconstQString&QFlags<QWebPage::FindFlag> -->
+<h3 class="fn"><a name="findText"></a>QWebPage::<span class="name">findText</span>(const <span class="type">QString</span> &amp;<i> subString</i>, <span class="type">QFlags</span>&lt;<span class="type"><a href="qwebpage.html#FindFlag-enum">QWebPage::FindFlag</a></span>&gt;<i> options</i>)</h3>
+<!-- @@@findText -->
+<!-- $$$focusNextPrevChild[overload1]$$$focusNextPrevChildbool -->
+<h3 class="fn"><a name="focusNextPrevChild"></a>QWebPage::<span class="name">focusNextPrevChild</span>(<span class="type">bool</span><i> next</i>)</h3>
+<!-- @@@focusNextPrevChild -->
+<!-- $$$forwardUnsupportedContent[overload1]$$$forwardUnsupportedContent -->
+<h3 class="fn"><a name="forwardUnsupportedContent"></a>QWebPage::<span class="name">forwardUnsupportedContent</span>() const</h3>
+<p><b>See also </b><a href="qwebpage.html#setForwardUnsupportedContent">setForwardUnsupportedContent</a>().</p>
+<!-- @@@forwardUnsupportedContent -->
+<!-- $$$frameAt[overload1]$$$frameAtconstQPoint& -->
+<h3 class="fn"><a name="frameAt"></a>QWebPage::<span class="name">frameAt</span>(const <span class="type">QPoint</span> &amp;<i> pos</i>) const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@frameAt -->
+<!-- $$$frameCreated[overload1]$$$frameCreatedQWebFrame* -->
+<h3 class="fn"><a name="frameCreated"></a>QWebPage::<span class="name">frameCreated</span>(<span class="type"><a href="qwebframe.html">QWebFrame</a></span> *<i> frame</i>)<tt> [signal]</tt></h3>
+<!-- @@@frameCreated -->
+<!-- $$$geometryChangeRequested[overload1]$$$geometryChangeRequestedconstQRect& -->
+<h3 class="fn"><a name="geometryChangeRequested"></a>QWebPage::<span class="name">geometryChangeRequested</span>(const <span class="type">QRect</span> &amp;<i> geom</i>)<tt> [signal]</tt></h3>
+<!-- @@@geometryChangeRequested -->
+<!-- $$$hasSelection[overload1]$$$hasSelection -->
+<h3 class="fn"><a name="hasSelection"></a>QWebPage::<span class="name">hasSelection</span>() const</h3>
+<!-- @@@hasSelection -->
+<!-- $$$history[overload1]$$$history -->
+<h3 class="fn"><a name="history"></a>QWebPage::<span class="name">history</span>() const</h3>
+<!-- @@@history -->
+<!-- $$$inputMethodQuery[overload1]$$$inputMethodQueryQt::InputMethodQuery -->
+<h3 class="fn"><a name="inputMethodQuery"></a>QWebPage::<span class="name">inputMethodQuery</span>(<span class="type">Qt::InputMethodQuery</span><i> property</i>) const</h3>
+<!-- @@@inputMethodQuery -->
+<!-- $$$isContentEditable[overload1]$$$isContentEditable -->
+<h3 class="fn"><a name="isContentEditable"></a>QWebPage::<span class="name">isContentEditable</span>() const</h3>
+<!-- @@@isContentEditable -->
+<!-- $$$isModified[overload1]$$$isModified -->
+<h3 class="fn"><a name="isModified"></a>QWebPage::<span class="name">isModified</span>() const</h3>
+<!-- @@@isModified -->
+<!-- $$$javaScriptAlert[overload1]$$$javaScriptAlertQWebFrame*constQString& -->
+<h3 class="fn"><a name="javaScriptAlert"></a>QWebPage::<span class="name">javaScriptAlert</span>(<span class="type"><a href="qwebframe.html">QWebFrame</a></span> *<i> frame</i>, const <span class="type">QString</span> &amp;<i> msg</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@javaScriptAlert -->
+<!-- $$$javaScriptConfirm[overload1]$$$javaScriptConfirmQWebFrame*constQString& -->
+<h3 class="fn"><a name="javaScriptConfirm"></a>QWebPage::<span class="name">javaScriptConfirm</span>(<span class="type"><a href="qwebframe.html">QWebFrame</a></span> *<i> frame</i>, const <span class="type">QString</span> &amp;<i> msg</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@javaScriptConfirm -->
+<!-- $$$javaScriptConsoleMessage[overload1]$$$javaScriptConsoleMessageconstQString&intconstQString& -->
+<h3 class="fn"><a name="javaScriptConsoleMessage"></a>QWebPage::<span class="name">javaScriptConsoleMessage</span>(const <span class="type">QString</span> &amp;<i> message</i>, <span class="type">int</span><i> lineNumber</i>, const <span class="type">QString</span> &amp;<i> sourceID</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@javaScriptConsoleMessage -->
+<!-- $$$javaScriptPrompt[overload1]$$$javaScriptPromptQWebFrame*constQString&constQString&QString* -->
+<h3 class="fn"><a name="javaScriptPrompt"></a>QWebPage::<span class="name">javaScriptPrompt</span>(<span class="type"><a href="qwebframe.html">QWebFrame</a></span> *<i> frame</i>, const <span class="type">QString</span> &amp;<i> msg</i>, const <span class="type">QString</span> &amp;<i> defaultValue</i>, <span class="type">QString</span> *<i> result</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@javaScriptPrompt -->
+<!-- $$$linkClicked[overload1]$$$linkClickedconstQUrl& -->
+<h3 class="fn"><a name="linkClicked"></a>QWebPage::<span class="name">linkClicked</span>(const <span class="type">QUrl</span> &amp;<i> url</i>)<tt> [signal]</tt></h3>
+<!-- @@@linkClicked -->
+<!-- $$$linkDelegationPolicy[overload1]$$$linkDelegationPolicy -->
+<h3 class="fn"><a name="linkDelegationPolicy"></a>QWebPage::<span class="name">linkDelegationPolicy</span>() const</h3>
+<p><b>See also </b><a href="qwebpage.html#setLinkDelegationPolicy">setLinkDelegationPolicy</a>().</p>
+<!-- @@@linkDelegationPolicy -->
+<!-- $$$linkHovered[overload1]$$$linkHoveredconstQString&constQString&constQString& -->
+<h3 class="fn"><a name="linkHovered"></a>QWebPage::<span class="name">linkHovered</span>(const <span class="type">QString</span> &amp;<i> link</i>, const <span class="type">QString</span> &amp;<i> title</i>, const <span class="type">QString</span> &amp;<i> textContent</i>)<tt> [signal]</tt></h3>
+<!-- @@@linkHovered -->
+<!-- $$$loadFinished[overload1]$$$loadFinishedbool -->
+<h3 class="fn"><a name="loadFinished"></a>QWebPage::<span class="name">loadFinished</span>(<span class="type">bool</span><i> ok</i>)<tt> [signal]</tt></h3>
+<!-- @@@loadFinished -->
+<!-- $$$loadProgress[overload1]$$$loadProgressint -->
+<h3 class="fn"><a name="loadProgress"></a>QWebPage::<span class="name">loadProgress</span>(<span class="type">int</span><i> progress</i>)<tt> [signal]</tt></h3>
+<!-- @@@loadProgress -->
+<!-- $$$loadStarted[overload1]$$$loadStarted -->
+<h3 class="fn"><a name="loadStarted"></a>QWebPage::<span class="name">loadStarted</span>()<tt> [signal]</tt></h3>
+<!-- @@@loadStarted -->
+<!-- $$$mainFrame[overload1]$$$mainFrame -->
+<h3 class="fn"><a name="mainFrame"></a>QWebPage::<span class="name">mainFrame</span>() const</h3>
+<!-- @@@mainFrame -->
+<!-- $$$menuBarVisibilityChangeRequested[overload1]$$$menuBarVisibilityChangeRequestedbool -->
+<h3 class="fn"><a name="menuBarVisibilityChangeRequested"></a>QWebPage::<span class="name">menuBarVisibilityChangeRequested</span>(<span class="type">bool</span><i> visible</i>)<tt> [signal]</tt></h3>
+<!-- @@@menuBarVisibilityChangeRequested -->
+<!-- $$$microFocusChanged[overload1]$$$microFocusChanged -->
+<h3 class="fn"><a name="microFocusChanged"></a>QWebPage::<span class="name">microFocusChanged</span>()<tt> [signal]</tt></h3>
+<!-- @@@microFocusChanged -->
+<!-- $$$networkAccessManager[overload1]$$$networkAccessManager -->
+<h3 class="fn"><a name="networkAccessManager"></a>QWebPage::<span class="name">networkAccessManager</span>() const</h3>
+<p><b>See also </b><a href="qwebpage.html#setNetworkAccessManager">setNetworkAccessManager</a>().</p>
+<!-- @@@networkAccessManager -->
+<!-- $$$palette[overload1]$$$palette -->
+<h3 class="fn"><a name="palette"></a>QWebPage::<span class="name">palette</span>() const</h3>
+<p><b>See also </b><a href="qwebpage.html#setPalette">setPalette</a>().</p>
+<!-- @@@palette -->
+<!-- $$$pluginFactory[overload1]$$$pluginFactory -->
+<h3 class="fn"><a name="pluginFactory"></a>QWebPage::<span class="name">pluginFactory</span>() const</h3>
+<p><b>See also </b><a href="qwebpage.html#setPluginFactory">setPluginFactory</a>().</p>
+<!-- @@@pluginFactory -->
+<!-- $$$preferredContentsSize[overload1]$$$preferredContentsSize -->
+<h3 class="fn"><a name="preferredContentsSize"></a>QWebPage::<span class="name">preferredContentsSize</span>() const</h3>
+<p><b>See also </b><a href="qwebpage.html#setPreferredContentsSize">setPreferredContentsSize</a>().</p>
+<!-- @@@preferredContentsSize -->
+<!-- $$$printRequested[overload1]$$$printRequestedQWebFrame* -->
+<h3 class="fn"><a name="printRequested"></a>QWebPage::<span class="name">printRequested</span>(<span class="type"><a href="qwebframe.html">QWebFrame</a></span> *<i> frame</i>)<tt> [signal]</tt></h3>
+<!-- @@@printRequested -->
+<!-- $$$repaintRequested[overload1]$$$repaintRequestedconstQRect& -->
+<h3 class="fn"><a name="repaintRequested"></a>QWebPage::<span class="name">repaintRequested</span>(const <span class="type">QRect</span> &amp;<i> dirtyRect</i>)<tt> [signal]</tt></h3>
+<!-- @@@repaintRequested -->
+<!-- $$$restoreFrameStateRequested[overload1]$$$restoreFrameStateRequestedQWebFrame* -->
+<h3 class="fn"><a name="restoreFrameStateRequested"></a>QWebPage::<span class="name">restoreFrameStateRequested</span>(<span class="type"><a href="qwebframe.html">QWebFrame</a></span> *<i> frame</i>)<tt> [signal]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@restoreFrameStateRequested -->
+<!-- $$$saveFrameStateRequested[overload1]$$$saveFrameStateRequestedQWebFrame*QWebHistoryItem* -->
+<h3 class="fn"><a name="saveFrameStateRequested"></a>QWebPage::<span class="name">saveFrameStateRequested</span>(<span class="type"><a href="qwebframe.html">QWebFrame</a></span> *<i> frame</i>, <span class="type"><a href="qwebhistoryitem.html">QWebHistoryItem</a></span> *<i> item</i>)<tt> [signal]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@saveFrameStateRequested -->
+<!-- $$$scrollRequested[overload1]$$$scrollRequestedintintconstQRect& -->
+<h3 class="fn"><a name="scrollRequested"></a>QWebPage::<span class="name">scrollRequested</span>(<span class="type">int</span><i> dx</i>, <span class="type">int</span><i> dy</i>, const <span class="type">QRect</span> &amp;<i> rectToScroll</i>)<tt> [signal]</tt></h3>
+<!-- @@@scrollRequested -->
+<!-- $$$selectedHtml[overload1]$$$selectedHtml -->
+<h3 class="fn"><a name="selectedHtml"></a>QWebPage::<span class="name">selectedHtml</span>() const</h3>
+<!-- @@@selectedHtml -->
+<!-- $$$selectedText[overload1]$$$selectedText -->
+<h3 class="fn"><a name="selectedText"></a>QWebPage::<span class="name">selectedText</span>() const</h3>
+<!-- @@@selectedText -->
+<!-- $$$selectionChanged[overload1]$$$selectionChanged -->
+<h3 class="fn"><a name="selectionChanged"></a>QWebPage::<span class="name">selectionChanged</span>()<tt> [signal]</tt></h3>
+<!-- @@@selectionChanged -->
+<!-- $$$setActualVisibleContentRect[overload1]$$$setActualVisibleContentRectconstQRect& -->
+<h3 class="fn"><a name="setActualVisibleContentRect"></a>QWebPage::<span class="name">setActualVisibleContentRect</span>(const <span class="type">QRect</span> &amp;<i> rect</i>) const</h3>
+<!-- @@@setActualVisibleContentRect -->
+<!-- $$$setContentEditable[overload1]$$$setContentEditablebool -->
+<h3 class="fn"><a name="setContentEditable"></a>QWebPage::<span class="name">setContentEditable</span>(<span class="type">bool</span><i> editable</i>)</h3>
+<p><b>See also </b><a href="qwebpage.html#isContentEditable">isContentEditable</a>().</p>
+<!-- @@@setContentEditable -->
+<!-- $$$setFeaturePermission[overload1]$$$setFeaturePermissionQWebFrame*FeaturePermissionPolicy -->
+<h3 class="fn"><a name="setFeaturePermission"></a>QWebPage::<span class="name">setFeaturePermission</span>(<span class="type"><a href="qwebframe.html">QWebFrame</a></span> *<i> frame</i>, <span class="type"><a href="qwebpage.html#Feature-enum">Feature</a></span><i> feature</i>, <span class="type"><a href="qwebpage.html#PermissionPolicy-enum">PermissionPolicy</a></span><i> policy</i>)</h3>
+<!-- @@@setFeaturePermission -->
+<!-- $$$setForwardUnsupportedContent[overload1]$$$setForwardUnsupportedContentbool -->
+<h3 class="fn"><a name="setForwardUnsupportedContent"></a>QWebPage::<span class="name">setForwardUnsupportedContent</span>(<span class="type">bool</span><i> forward</i>)</h3>
+<p><b>See also </b><a href="qwebpage.html#forwardUnsupportedContent">forwardUnsupportedContent</a>().</p>
+<!-- @@@setForwardUnsupportedContent -->
+<!-- $$$setLinkDelegationPolicy[overload1]$$$setLinkDelegationPolicyLinkDelegationPolicy -->
+<h3 class="fn"><a name="setLinkDelegationPolicy"></a>QWebPage::<span class="name">setLinkDelegationPolicy</span>(<span class="type"><a href="qwebpage.html#LinkDelegationPolicy-enum">LinkDelegationPolicy</a></span><i> policy</i>)</h3>
+<p><b>See also </b><a href="qwebpage.html#linkDelegationPolicy">linkDelegationPolicy</a>().</p>
+<!-- @@@setLinkDelegationPolicy -->
+<!-- $$$setNetworkAccessManager[overload1]$$$setNetworkAccessManagerQNetworkAccessManager* -->
+<h3 class="fn"><a name="setNetworkAccessManager"></a>QWebPage::<span class="name">setNetworkAccessManager</span>(<span class="type">QNetworkAccessManager</span> *<i> manager</i>)</h3>
+<p><b>See also </b><a href="qwebpage.html#networkAccessManager">networkAccessManager</a>().</p>
+<!-- @@@setNetworkAccessManager -->
+<!-- $$$setPalette[overload1]$$$setPaletteconstQPalette& -->
+<h3 class="fn"><a name="setPalette"></a>QWebPage::<span class="name">setPalette</span>(const <span class="type">QPalette</span> &amp;<i> palette</i>)</h3>
+<p><b>See also </b><a href="qwebpage.html#palette">palette</a>().</p>
+<!-- @@@setPalette -->
+<!-- $$$setPluginFactory[overload1]$$$setPluginFactoryQWebPluginFactory* -->
+<h3 class="fn"><a name="setPluginFactory"></a>QWebPage::<span class="name">setPluginFactory</span>(<span class="type"><a href="qwebpluginfactory.html">QWebPluginFactory</a></span> *<i> factory</i>)</h3>
+<p><b>See also </b><a href="qwebpage.html#pluginFactory">pluginFactory</a>().</p>
+<!-- @@@setPluginFactory -->
+<!-- $$$setPreferredContentsSize[overload1]$$$setPreferredContentsSizeconstQSize& -->
+<h3 class="fn"><a name="setPreferredContentsSize"></a>QWebPage::<span class="name">setPreferredContentsSize</span>(const <span class="type">QSize</span> &amp;<i> size</i>) const</h3>
+<p><b>See also </b><a href="qwebpage.html#preferredContentsSize">preferredContentsSize</a>().</p>
+<!-- @@@setPreferredContentsSize -->
+<!-- $$$setView[overload1]$$$setViewQWidget* -->
+<h3 class="fn"><a name="setView"></a>QWebPage::<span class="name">setView</span>(<span class="type">QWidget</span> *<i> view</i>)</h3>
+<p><b>See also </b><a href="qwebpage.html#view">view</a>().</p>
+<!-- @@@setView -->
+<!-- $$$setViewportSize[overload1]$$$setViewportSizeconstQSize& -->
+<h3 class="fn"><a name="setViewportSize"></a>QWebPage::<span class="name">setViewportSize</span>(const <span class="type">QSize</span> &amp;<i> size</i>) const</h3>
+<p><b>See also </b><a href="qwebpage.html#viewportSize">viewportSize</a>().</p>
+<!-- @@@setViewportSize -->
+<!-- $$$settings[overload1]$$$settings -->
+<h3 class="fn"><a name="settings"></a>QWebPage::<span class="name">settings</span>() const</h3>
+<!-- @@@settings -->
+<!-- $$$shouldInterruptJavaScript[overload1]$$$shouldInterruptJavaScript -->
+<h3 class="fn"><a name="shouldInterruptJavaScript"></a>QWebPage::<span class="name">shouldInterruptJavaScript</span>()<tt> [virtual]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@shouldInterruptJavaScript -->
+<!-- $$$statusBarMessage[overload1]$$$statusBarMessageconstQString& -->
+<h3 class="fn"><a name="statusBarMessage"></a>QWebPage::<span class="name">statusBarMessage</span>(const <span class="type">QString</span> &amp;<i> text</i>)<tt> [signal]</tt></h3>
+<!-- @@@statusBarMessage -->
+<!-- $$$statusBarVisibilityChangeRequested[overload1]$$$statusBarVisibilityChangeRequestedbool -->
+<h3 class="fn"><a name="statusBarVisibilityChangeRequested"></a>QWebPage::<span class="name">statusBarVisibilityChangeRequested</span>(<span class="type">bool</span><i> visible</i>)<tt> [signal]</tt></h3>
+<!-- @@@statusBarVisibilityChangeRequested -->
+<!-- $$$supportedContentTypes[overload1]$$$supportedContentTypes -->
+<h3 class="fn"><a name="supportedContentTypes"></a>QWebPage::<span class="name">supportedContentTypes</span>() const</h3>
+<!-- @@@supportedContentTypes -->
+<!-- $$$supportsContentType[overload1]$$$supportsContentTypeconstQString& -->
+<h3 class="fn"><a name="supportsContentType"></a>QWebPage::<span class="name">supportsContentType</span>(const <span class="type">QString</span> &amp;<i> mimeType</i>) const</h3>
+<!-- @@@supportsContentType -->
+<!-- $$$supportsExtension[overload1]$$$supportsExtensionExtension -->
+<h3 class="fn"><a name="supportsExtension"></a>QWebPage::<span class="name">supportsExtension</span>(<span class="type"><a href="qwebpage.html#Extension-enum">Extension</a></span><i> extension</i>) const<tt> [virtual]</tt></h3>
+<!-- @@@supportsExtension -->
+<!-- $$$swallowContextMenuEvent[overload1]$$$swallowContextMenuEventQContextMenuEvent* -->
+<h3 class="fn"><a name="swallowContextMenuEvent"></a>QWebPage::<span class="name">swallowContextMenuEvent</span>(<span class="type">QContextMenuEvent</span> *<i> event</i>)</h3>
+<!-- @@@swallowContextMenuEvent -->
+<!-- $$$toolBarVisibilityChangeRequested[overload1]$$$toolBarVisibilityChangeRequestedbool -->
+<h3 class="fn"><a name="toolBarVisibilityChangeRequested"></a>QWebPage::<span class="name">toolBarVisibilityChangeRequested</span>(<span class="type">bool</span><i> visible</i>)<tt> [signal]</tt></h3>
+<!-- @@@toolBarVisibilityChangeRequested -->
+<!-- $$$totalBytes[overload1]$$$totalBytes -->
+<h3 class="fn"><a name="totalBytes"></a>QWebPage::<span class="name">totalBytes</span>() const</h3>
+<!-- @@@totalBytes -->
+<!-- $$$triggerAction[overload1]$$$triggerActionWebActionbool -->
+<h3 class="fn"><a name="triggerAction"></a>QWebPage::<span class="name">triggerAction</span>(<span class="type"><a href="qwebpage.html#WebAction-enum">WebAction</a></span><i> action</i>, <span class="type">bool</span><i> checked</i>)<tt> [virtual]</tt></h3>
+<!-- @@@triggerAction -->
+<!-- $$$undoStack[overload1]$$$undoStack -->
+<h3 class="fn"><a name="undoStack"></a>QWebPage::<span class="name">undoStack</span>() const</h3>
+<!-- @@@undoStack -->
+<!-- $$$unsupportedContent[overload1]$$$unsupportedContentQNetworkReply* -->
+<h3 class="fn"><a name="unsupportedContent"></a>QWebPage::<span class="name">unsupportedContent</span>(<span class="type">QNetworkReply</span> *<i> reply</i>)<tt> [signal]</tt></h3>
+<!-- @@@unsupportedContent -->
+<!-- $$$updatePositionDependentActions[overload1]$$$updatePositionDependentActionsconstQPoint& -->
+<h3 class="fn"><a name="updatePositionDependentActions"></a>QWebPage::<span class="name">updatePositionDependentActions</span>(const <span class="type">QPoint</span> &amp;<i> pos</i>)</h3>
+<!-- @@@updatePositionDependentActions -->
+<!-- $$$userAgentForUrl[overload1]$$$userAgentForUrlconstQUrl& -->
+<h3 class="fn"><a name="userAgentForUrl"></a>QWebPage::<span class="name">userAgentForUrl</span>(const <span class="type">QUrl</span> &amp;<i> url</i>) const<tt> [virtual protected]</tt></h3>
+<!-- @@@userAgentForUrl -->
+<!-- $$$view[overload1]$$$view -->
+<h3 class="fn"><a name="view"></a>QWebPage::<span class="name">view</span>() const</h3>
+<p><b>See also </b><a href="qwebpage.html#setView">setView</a>().</p>
+<!-- @@@view -->
+<!-- $$$viewportAttributesForSize[overload1]$$$viewportAttributesForSizeconstQSize& -->
+<h3 class="fn"><a name="viewportAttributesForSize"></a>QWebPage::<span class="name">viewportAttributesForSize</span>(const <span class="type">QSize</span> &amp;<i> availableSize</i>) const</h3>
+<!-- @@@viewportAttributesForSize -->
+<!-- $$$viewportChangeRequested[overload1]$$$viewportChangeRequested -->
+<h3 class="fn"><a name="viewportChangeRequested"></a>QWebPage::<span class="name">viewportChangeRequested</span>()<tt> [signal]</tt></h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.8.</p>
+<!-- @@@viewportChangeRequested -->
+<!-- $$$viewportSize[overload1]$$$viewportSize -->
+<h3 class="fn"><a name="viewportSize"></a>QWebPage::<span class="name">viewportSize</span>() const</h3>
+<p><b>See also </b><a href="qwebpage.html#setViewportSize">setViewportSize</a>().</p>
+<!-- @@@viewportSize -->
+<!-- $$$windowCloseRequested[overload1]$$$windowCloseRequested -->
+<h3 class="fn"><a name="windowCloseRequested"></a>QWebPage::<span class="name">windowCloseRequested</span>()<tt> [signal]</tt></h3>
+<!-- @@@windowCloseRequested -->
+</div>
+<div class="relnonmem">
+<h2>Related Non-Members</h2>
+<!-- $$$qWebKitMajorVersion[overload1]$$$qWebKitMajorVersion -->
+<h3 class="fn"><a name="qWebKitMajorVersion"></a><span class="name">qWebKitMajorVersion</span>()</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@qWebKitMajorVersion -->
+<!-- $$$qWebKitMinorVersion[overload1]$$$qWebKitMinorVersion -->
+<h3 class="fn"><a name="qWebKitMinorVersion"></a><span class="name">qWebKitMinorVersion</span>()</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@qWebKitMinorVersion -->
+<!-- $$$qWebKitVersion[overload1]$$$qWebKitVersion -->
+<h3 class="fn"><a name="qWebKitVersion"></a><span class="name">qWebKitVersion</span>()</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@qWebKitVersion -->
+</div>
+<div class="macros">
+<h2>Macro Documentation</h2>
+<!-- $$$QTWEBKIT_VERSION[overload1]$$$QTWEBKIT_VERSION -->
+<h3 class="fn"><a name="QTWEBKIT_VERSION"></a><span class="name">QTWEBKIT_VERSION</span></h3>
+<!-- @@@QTWEBKIT_VERSION -->
+<!-- $$$QTWEBKIT_VERSION_CHECK[overload1]$$$QTWEBKIT_VERSION_CHECK -->
+<h3 class="fn"><a name="QTWEBKIT_VERSION_CHECK"></a><span class="name">QTWEBKIT_VERSION_CHECK</span></h3>
+<!-- @@@QTWEBKIT_VERSION_CHECK -->
+<!-- $$$QTWEBKIT_VERSION_STR[overload1]$$$QTWEBKIT_VERSION_STR -->
+<h3 class="fn"><a name="QTWEBKIT_VERSION_STR"></a><span class="name">QTWEBKIT_VERSION_STR</span></h3>
+<!-- @@@QTWEBKIT_VERSION_STR -->
+</div>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

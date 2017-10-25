@@ -1,0 +1,269 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>autopilot.display &mdash; Autopilot 1.4+14.04.20140416-0 documentation</title>
+    
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/otto.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/centertext.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.4+14.04.20140416-0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/jquery.js"></script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/underscore.js"></script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/doctools.js"></script>
+    <link rel="shortcut icon" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/favicon.ico"/>
+    <link rel="top" title="Autopilot 1.4+14.04.20140416-0 documentation" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html" />
+    <link rel="up" title="autopilot" href="../autopilot.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html">Autopilot 1.4+14.04.20140416-0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../autopilot.html" accesskey="U">autopilot</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for autopilot.display</h1><div class="highlight"><pre>
+<span class="c"># -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-</span>
+<span class="c">#</span>
+<span class="c"># Autopilot Functional Test Tool</span>
+<span class="c"># Copyright (C) 2012-2013 Canonical</span>
+<span class="c">#</span>
+<span class="c"># This program is free software: you can redistribute it and/or modify</span>
+<span class="c"># it under the terms of the GNU General Public License as published by</span>
+<span class="c"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c"># (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c"># This program is distributed in the hope that it will be useful,</span>
+<span class="c"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c"># GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c"># You should have received a copy of the GNU General Public License</span>
+<span class="c"># along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c">#</span>
+
+
+<span class="sd">&quot;&quot;&quot;The display module contaions support for getting screen information.&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+<span class="kn">from</span> <span class="nn">autopilot.utilities</span> <span class="kn">import</span> <span class="n">_pick_backend</span>
+<span class="kn">from</span> <span class="nn">autopilot.input</span> <span class="kn">import</span> <span class="n">Mouse</span>
+
+
+<div class="viewcode-block" id="is_rect_on_screen"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/display.html#autopilot.display.is_rect_on_screen">[docs]</a><span class="k">def</span> <span class="nf">is_rect_on_screen</span><span class="p">(</span><span class="n">screen_number</span><span class="p">,</span> <span class="n">rect</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return True if *rect* is **entirely** on the specified screen, with no</span>
+<span class="sd">    overlap.&quot;&quot;&quot;</span>
+    <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span> <span class="o">=</span> <span class="n">rect</span>
+    <span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="n">my</span><span class="p">,</span> <span class="n">mw</span><span class="p">,</span> <span class="n">mh</span><span class="p">)</span> <span class="o">=</span> <span class="n">Display</span><span class="o">.</span><span class="n">create</span><span class="p">()</span><span class="o">.</span><span class="n">get_screen_geometry</span><span class="p">(</span><span class="n">screen_number</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">mx</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">+</span> <span class="n">w</span> <span class="o">&lt;=</span> <span class="n">mx</span> <span class="o">+</span> <span class="n">mw</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="n">my</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">+</span> <span class="n">h</span> <span class="o">&lt;=</span> <span class="n">my</span> <span class="o">+</span> <span class="n">mh</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="is_point_on_screen"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/display.html#autopilot.display.is_point_on_screen">[docs]</a><span class="k">def</span> <span class="nf">is_point_on_screen</span><span class="p">(</span><span class="n">screen_number</span><span class="p">,</span> <span class="n">point</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return True if *point* is on the specified screen.</span>
+
+<span class="sd">    *point* must be an iterable type with two elements: (x, y)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">point</span>
+    <span class="p">(</span><span class="n">mx</span><span class="p">,</span> <span class="n">my</span><span class="p">,</span> <span class="n">mw</span><span class="p">,</span> <span class="n">mh</span><span class="p">)</span> <span class="o">=</span> <span class="n">Display</span><span class="o">.</span><span class="n">create</span><span class="p">()</span><span class="o">.</span><span class="n">get_screen_geometry</span><span class="p">(</span><span class="n">screen_number</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="n">mx</span> <span class="ow">and</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">mx</span> <span class="o">+</span> <span class="n">mw</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&gt;=</span> <span class="n">my</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">&lt;</span> <span class="n">my</span> <span class="o">+</span> <span class="n">mh</span><span class="p">)</span>
+
+</div>
+<div class="viewcode-block" id="is_point_on_any_screen"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/display.html#autopilot.display.is_point_on_any_screen">[docs]</a><span class="k">def</span> <span class="nf">is_point_on_any_screen</span><span class="p">(</span><span class="n">point</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return true if *point* is on any currently configured screen.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">any</span><span class="p">([</span><span class="n">is_point_on_screen</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">point</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span>
+                <span class="nb">range</span><span class="p">(</span><span class="n">Display</span><span class="o">.</span><span class="n">create</span><span class="p">()</span><span class="o">.</span><span class="n">get_num_screens</span><span class="p">())])</span>
+
+</div>
+<div class="viewcode-block" id="move_mouse_to_screen"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/display.html#autopilot.display.move_mouse_to_screen">[docs]</a><span class="k">def</span> <span class="nf">move_mouse_to_screen</span><span class="p">(</span><span class="n">screen_number</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Move the mouse to the center of the specified screen.&quot;&quot;&quot;</span>
+    <span class="n">geo</span> <span class="o">=</span> <span class="n">Display</span><span class="o">.</span><span class="n">create</span><span class="p">()</span><span class="o">.</span><span class="n">get_screen_geometry</span><span class="p">(</span><span class="n">screen_number</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">geo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">geo</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">geo</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">geo</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="c">#dont animate this or it might not get there due to barriers</span>
+    <span class="n">Mouse</span><span class="o">.</span><span class="n">create</span><span class="p">()</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">False</span><span class="p">)</span>
+
+
+<span class="c"># veebers TODO: Write this so it&#39;s usable.</span>
+<span class="c"># def drag_window_to_screen(self, window, screen):</span>
+<span class="c">#     &quot;&quot;&quot;Drags *window* to *screen*</span>
+
+<span class="c">#     :param BamfWindow window: The window to drag</span>
+<span class="c">#     :param integer screen: The screen to drag the *window* to</span>
+<span class="c">#     :raises: **TypeError** if *window* is not a BamfWindow</span>
+
+<span class="c">#     &quot;&quot;&quot;</span>
+<span class="c">#     if not isinstance(window, BamfWindow):</span>
+<span class="c">#         raise TypeError(&quot;Window must be a BamfWindow&quot;)</span>
+
+<span class="c">#     if window.monitor == screen:</span>
+<span class="c">#         logger.debug(</span>
+<span class="c">#             &quot;Window %r is already on screen %d.&quot; % (window.x_id, screen))</span>
+<span class="c">#         return</span>
+
+<span class="c">#     assert(not window.is_maximized)</span>
+<span class="c">#     (win_x, win_y, win_w, win_h) = window.geometry</span>
+<span class="c">#     (mx, my, mw, mh) = self.get_screen_geometry(screen)</span>
+
+<span class="c">#     logger.debug(&quot;Dragging window %r to screen %d.&quot; % (window.x_id, screen))</span>
+
+<span class="c">#     mouse = Mouse()</span>
+<span class="c">#     keyboard = Keyboard()</span>
+<span class="c">#     mouse.move(win_x + win_w/2, win_y + win_h/2)</span>
+<span class="c">#     keyboard.press(&quot;Alt&quot;)</span>
+<span class="c">#     mouse.press()</span>
+<span class="c">#     keyboard.release(&quot;Alt&quot;)</span>
+
+<span class="c">#     # We do the movements in two steps, to reduce the risk of being</span>
+<span class="c">#     # blocked by the pointer barrier</span>
+<span class="c">#     target_x = mx + mw/2</span>
+<span class="c">#     target_y = my + mh/2</span>
+<span class="c">#     mouse.move(win_x, target_y, rate=20, time_between_events=0.005)</span>
+<span class="c">#     mouse.move(target_x, target_y, rate=20, time_between_events=0.005)</span>
+<span class="c">#     mouse.release()</span>
+
+</div>
+<div class="viewcode-block" id="Display"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/display.html#autopilot.display.Display">[docs]</a><span class="k">class</span> <span class="nc">Display</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;The base class/inteface for the display devices.&quot;&quot;&quot;</span>
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Display.create"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/display.html#autopilot.display.Display.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">preferred_backend</span><span class="o">=</span><span class="s">&#39;&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get an instance of the Display class.</span>
+
+<span class="sd">        For more infomration on picking specific backends, see</span>
+<span class="sd">        :ref:`tut-picking-backends`</span>
+
+<span class="sd">        :param preferred_backend: A string containing a hint as to which</span>
+<span class="sd">            backend you would like.</span>
+
+<span class="sd">            possible backends are:</span>
+
+<span class="sd">            * ``X11`` - Get display information from X11.</span>
+<span class="sd">            * ``UPA`` - Get display information from the ubuntu platform API.</span>
+<span class="sd">        :raises: RuntimeError if autopilot cannot instantate any of the</span>
+<span class="sd">            possible backends.</span>
+<span class="sd">        :raises: RuntimeError if the preferred_backend is specified and is not</span>
+<span class="sd">            one of the possible backends for this device class.</span>
+<span class="sd">        :raises: :class:`~autopilot.BackendException` if the preferred_backend</span>
+<span class="sd">            is set, but that backend could not be instantiated.</span>
+<span class="sd">        :returns: Instance of Display with appropriate backend.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">get_x11_display</span><span class="p">():</span>
+            <span class="kn">from</span> <span class="nn">autopilot.display._X11</span> <span class="kn">import</span> <span class="n">Display</span>
+            <span class="k">return</span> <span class="n">Display</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">get_upa_display</span><span class="p">():</span>
+            <span class="kn">from</span> <span class="nn">autopilot.display._upa</span> <span class="kn">import</span> <span class="n">Display</span>
+            <span class="k">return</span> <span class="n">Display</span><span class="p">()</span>
+
+        <span class="n">backends</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+        <span class="n">backends</span><span class="p">[</span><span class="s">&#39;X11&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_x11_display</span>
+        <span class="n">backends</span><span class="p">[</span><span class="s">&#39;UPA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_upa_display</span>
+        <span class="k">return</span> <span class="n">_pick_backend</span><span class="p">(</span><span class="n">backends</span><span class="p">,</span> <span class="n">preferred_backend</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Display.BlacklistedDriverError"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/display.html#autopilot.display.Display.BlacklistedDriverError">[docs]</a>    <span class="k">class</span> <span class="nc">BlacklistedDriverError</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Cannot set primary monitor when running drivers listed in the</span>
+<span class="sd">        driver blacklist.&quot;&quot;&quot;</span>
+</div>
+<div class="viewcode-block" id="Display.get_num_screens"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/display.html#autopilot.display.Display.get_num_screens">[docs]</a>    <span class="k">def</span> <span class="nf">get_num_screens</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the number of screens attached to the PC.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Display.get_primary_screen"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/display.html#autopilot.display.Display.get_primary_screen">[docs]</a>    <span class="k">def</span> <span class="nf">get_primary_screen</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Display.get_screen_width"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/display.html#autopilot.display.Display.get_screen_width">[docs]</a>    <span class="k">def</span> <span class="nf">get_screen_width</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">screen_number</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Display.get_screen_height"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/display.html#autopilot.display.Display.get_screen_height">[docs]</a>    <span class="k">def</span> <span class="nf">get_screen_height</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">screen_number</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Display.get_screen_geometry"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/display.html#autopilot.display.Display.get_screen_geometry">[docs]</a>    <span class="k">def</span> <span class="nf">get_screen_geometry</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">monitor_number</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the geometry for a particular monitor.</span>
+
+<span class="sd">        :return: Tuple containing (x, y, width, height).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html">
+              <img class="logo" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/otto-64.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html">Autopilot 1.4+14.04.20140416-0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../autopilot.html" >autopilot</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      <div class=center_text>
+        <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/faq/contribute.html">Learn how you can contribute!</a> / <a href="https://bugs.launchpad.net/autopilot/+filebug">File a bug</a>
+     <br/>
+      </div>
+        &copy; Copyright 2012-2013, Canonical.
+    </div>
+
+
+  </body>
+</html>

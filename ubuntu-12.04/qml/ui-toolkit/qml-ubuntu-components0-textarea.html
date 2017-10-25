@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TextArea.qml -->
+  <title>UbuntuUserInterfaceToolkit 0.1: TextArea</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="overview-ubuntu-sdk.html">Ubuntu User Interface Toolkit</a></li>
+<li>TextArea</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-components0-textarea.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-textarea.html#signals">Signals</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-textarea.html#methods">Methods</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-textarea.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">TextArea</h1>
+<span class="subtitle"></span>
+<!-- $$$TextArea-brief -->
+<p>The TextArea item displays a block of editable, scrollable, formatted text. <a href="qml-ubuntu-components0-textarea.html#details">More...</a></p>
+<!-- @@@TextArea -->
+<p>Inherits <a href="qml-ubuntu-components0-styleditem.html">StyledItem</a></p>
+<ul>
+<li><a href="qml-ubuntu-components0-textarea-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#activeFocusOnPress-prop">activeFocusOnPress</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#autoExpand-prop">autoExpand</a></b></b> : bool<tt> (deprecated)</tt></li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#autoSize-prop">autoSize</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#baseUrl-prop">baseUrl</a></b></b> : url</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#canPaste-prop">canPaste</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#canRedo-prop">canRedo</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#canUndo-prop">canUndo</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#color-prop">color</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#contentHeight-prop">contentHeight</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#contentWidth-prop">contentWidth</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#cursorDelegate-prop">cursorDelegate</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#cursorPosition-prop">cursorPosition</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#cursorRectangle-prop">cursorRectangle</a></b></b> : rectangle</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#cursorVisible-prop">cursorVisible</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#displayText-prop">displayText</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#effectiveHorizontalAlignment-prop">effectiveHorizontalAlignment</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#font-prop">font</a></b></b> : font</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#highlighted-prop">highlighted</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#horizontalAlignment-prop">horizontalAlignment</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#inputMethodComposing-prop">inputMethodComposing</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#inputMethodHints-prop">inputMethodHints</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#length-prop">length</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#lineCount-prop">lineCount</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#maximumLineCount-prop">maximumLineCount</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#mouseSelectionMode-prop">mouseSelectionMode</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#persistentSelection-prop">persistentSelection</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#placeholderText-prop">placeholderText</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#popover-prop">popover</a></b></b> : var</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#readOnly-prop">readOnly</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#renderType-prop">renderType</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#selectByMouse-prop">selectByMouse</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#selectedText-prop">selectedText</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#selectedTextColor-prop">selectedTextColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#selectionColor-prop">selectionColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#selectionEnd-prop">selectionEnd</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#selectionStart-prop">selectionStart</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#style-prop">style</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#text-prop">text</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#textFormat-prop">textFormat</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#verticalAlignment-prop">verticalAlignment</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#wrapMode-prop">wrapMode</a></b></b> : enumeration</li>
+</ul>
+<a name="signals"></a>
+<h2>Signals</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#linkActivated-signal">linkActivated</a></b></b>(string <i>link</i>)</li>
+</ul>
+<a name="methods"></a>
+<h2>Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#copy-method">copy</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#cut-method">cut</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#deselect-method">deselect</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#getFormattedText-method">getFormattedText</a></b></b>(<i>start</i>,  <i>end</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#getText-method">getText</a></b></b>(<i>start</i>,  <i>end</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#insert-method">insert</a></b></b>(<i>position</i>,  <i>text</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#isRightToLeft-method">isRightToLeft</a></b></b>(<i>start</i>,  <i>end</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#moveCursorSelection-method">moveCursorSelection</a></b></b>(<i>position</i>,  <i>mode</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#paste-method">paste</a></b></b>(<i>data</i>)<tt> (preliminary)</tt></li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#positionAt-method">positionAt</a></b></b>(<i>x</i>,  <i>y</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#positionToRectangle-method">positionToRectangle</a></b></b>(<i>position</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#redo-method">redo</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#remove-method">remove</a></b></b>(<i>start</i>,  <i>end</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#select-method">select</a></b></b>(<i>start</i>,  <i>end</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#selectAll-method">selectAll</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#selectWord-method">selectWord</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textarea.html#undo-method">undo</a></b></b>()</li>
+</ul>
+<!-- $$$TextArea-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>The TextArea supports fix-size and auto-expanding modes. In fix-size mode the content is scrolled when exceeds the boundaries and can be scrolled both horizontally and vertically, depending on the <a href="qml-ubuntu-components0-textarea.html#contentWidth-prop">contentWidth</a> and <a href="qml-ubuntu-components0-textarea.html#contentHeight-prop">contentHeight</a> set. The following example will scroll the editing area both horizontally and vertically:</p>
+<pre class="qml"><span class="type">TextArea</span> {
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">20</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">12</span>)
+    <span class="name">contentWidth</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">30</span>)
+    <span class="name">contentHeight</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">60</span>)
+}</pre>
+<p>The auto-expand mode is realized using two properties: <a href="qml-ubuntu-components0-textarea.html#autoSize-prop">autoSize</a> and <a href="qml-ubuntu-components0-textarea.html#maximumLineCount-prop">maximumLineCount</a>. Setting <a href="qml-ubuntu-components0-textarea.html#autoSize-prop">autoSize</a> will set implicitHeight to one line, and the height will follow the line count, meaning when lines are added the area will expand and when removed the area will shrink. The <a href="qml-ubuntu-components0-textarea.html#maximumLineCount-prop">maximumLineCount</a> specifies how much the editor should be expanded. If this value is set to 0, the area will always expand vertically to fit the content. When <a href="qml-ubuntu-components0-textarea.html#autoSize-prop">autoSize</a> is set, the <a href="qml-ubuntu-components0-textarea.html#contentHeight-prop">contentHeight</a> property value is ignored, and the expansion only happens vertically.</p>
+<pre class="qml"><span class="type">TextArea</span> {
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">20</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">12</span>)
+    <span class="name">contentWidth</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">30</span>)
+    <span class="name">autoSize</span>: <span class="number">true</span>
+    <span class="name">maximumLineCount</span>: <span class="number">0</span>
+}</pre>
+<p>TextArea comes with 30 grid-units implicit width and one line height on auto-sizing mode and 4 lines on fixed-mode. The line size is calculated from the font size and the ovarlay and frame spacing specified in the style.</p>
+<p>Scrolling the editing area can happen when the size is fixed or in auto-sizing mode when the content size is bigger than the visible area. The scrolling is realized by swipe gestures, or by navigating the cursor.</p>
+<p>The item enters in selection mode when the user performs a long tap (or long mouse press) or a double tap/press on the text area. The mode is visualized by two selection cursors (pins) which can be used to select the desired text. The text can also be selected by moving the finger/mouse towards the desired area right after entering in selection mode. The way the text is selected is driven by the <a href="qml-ubuntu-components0-textarea.html#mouseSelectionMode-prop">mouseSelectionMode</a> value, which is either character or word. The editor leaves the selection mode by pressing/tapping again on it or by losing focus.</p>
+<p><b>This component is under heavy development.</b></p>
+<!-- @@@TextArea -->
+<h2>Property Documentation</h2>
+<!-- $$$activeFocusOnPress -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="activeFocusOnPress-prop"></a><span class="name">activeFocusOnPress</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Whether the <a href="qml-ubuntu-components0-textarea.html">TextArea</a> should gain active focus on a mouse press. By default this is set to true.</p>
+</div></div><!-- @@@activeFocusOnPress -->
+<br/>
+<!-- $$$autoExpand -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="autoExpand-prop"></a><span class="name">autoExpand</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This documentation is deprecated.</p>
+<p>This property specifies whether the text area expands following the entered text or not. The default value is false. The property is deprecated, use <a href="qml-ubuntu-components0-textarea.html#autoSize-prop">autoSize</a> instead</p>
+</div></div><!-- @@@autoExpand -->
+<br/>
+<!-- $$$autoSize -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="autoSize-prop"></a><span class="name">autoSize</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property specifies whether the text area sizes following the line count or not. The default value is false.</p>
+</div></div><!-- @@@autoSize -->
+<br/>
+<!-- $$$baseUrl -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="baseUrl-prop"></a><span class="name">baseUrl</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-url.html">url</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property specifies a base URL which is used to resolve relative URLs within the text. The default value is the url of the QML file instantiating the <a href="qml-ubuntu-components0-textarea.html">TextArea</a> item.</p>
+</div></div><!-- @@@baseUrl -->
+<br/>
+<!-- $$$canPaste -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="canPaste-prop"></a><span class="name">canPaste</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Returns true if the <a href="qml-ubuntu-components0-textarea.html">TextArea</a> is writable and the content of the clipboard is suitable for pasting into the <a href="qml-ubuntu-components0-textarea.html">TextArea</a>.</p>
+</div></div><!-- @@@canPaste -->
+<br/>
+<!-- $$$canRedo -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="canRedo-prop"></a><span class="name">canRedo</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Returns true if the <a href="qml-ubuntu-components0-textarea.html">TextArea</a> is writable and there are undone operations that can be redone.</p>
+</div></div><!-- @@@canRedo -->
+<br/>
+<!-- $$$canUndo -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="canUndo-prop"></a><span class="name">canUndo</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Returns true if the <a href="qml-ubuntu-components0-textarea.html">TextArea</a> is writable and there are previous operations that can be undone.</p>
+</div></div><!-- @@@canUndo -->
+<br/>
+<!-- $$$color -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="color-prop"></a><span class="name">color</span> : <span class="type"><a href="qml-ubuntu-components0-textarea.html#color-prop">color</a></span></p></td></tr></table></div><div class="qmldoc"><p>The text color.</p>
+</div></div><!-- @@@color -->
+<br/>
+<!-- $$$contentHeight -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="contentHeight-prop"></a><span class="name">contentHeight</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>The property folds the height of the text editing content. This can be equal or bigger than the frame height minus the spacing between the frame and the input area defined in the current theme. The default value is the same as the visible input area's height.</p>
+</div></div><!-- @@@contentHeight -->
+<br/>
+<!-- $$$contentWidth -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="contentWidth-prop"></a><span class="name">contentWidth</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-real.html">real</a></span></p></td></tr></table></div><div class="qmldoc"><p>The property folds the width of the text editing content. This can be equal or bigger than the frame width minus the spacing between the frame and the input area defined in the current theme. The default value is the same as the visible input area's width.</p>
+</div></div><!-- @@@contentWidth -->
+<br/>
+<!-- $$$cursorDelegate -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="cursorDelegate-prop"></a><span class="name">cursorDelegate</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-qtquick2-component.html">Component</a></span></p></td></tr></table></div><div class="qmldoc"><p>The delegate for the cursor in the <a href="qml-ubuntu-components0-textarea.html">TextArea</a>.</p>
+<p>If you set a cursorDelegate for a <a href="qml-ubuntu-components0-textarea.html">TextArea</a>, this delegate will be used for drawing the cursor instead of the standard cursor. An instance of the delegate will be created and managed by the text edit when a cursor is needed, and the x and y properties of delegate instance will be set so as to be one pixel before the top left of the current character.</p>
+<p>Note that the root item of the delegate component must be a <a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qquickitem.html">QQuickItem</a> or <a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qquickitem.html">QQuickItem</a> derived item.</p>
+</div></div><!-- @@@cursorDelegate -->
+<br/>
+<!-- $$$cursorPosition -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="cursorPosition-prop"></a><span class="name">cursorPosition</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>The position of the cursor in the <a href="qml-ubuntu-components0-textarea.html">TextArea</a>.</p>
+</div></div><!-- @@@cursorPosition -->
+<br/>
+<!-- $$$cursorRectangle -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="cursorRectangle-prop"></a><span class="name">cursorRectangle</span> : <span class="type">rectangle</span></p></td></tr></table></div><div class="qmldoc"><p>The rectangle where the standard text cursor is rendered within the text edit. Read-only.</p>
+<p>The position and height of a custom <a href="qml-ubuntu-components0-textarea.html#cursorDelegate-prop">cursorDelegate</a> are updated to follow the cursorRectangle automatically when it changes. The width of the delegate is unaffected by changes in the cursor rectangle.</p>
+</div></div><!-- @@@cursorRectangle -->
+<br/>
+<!-- $$$cursorVisible -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="cursorVisible-prop"></a><span class="name">cursorVisible</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>If true the text edit shows a cursor.</p>
+<p>This property is set and unset when the text edit gets active focus, but it can also be set directly (useful, for example, if a KeyProxy might forward keys to it).</p>
+</div></div><!-- @@@cursorVisible -->
+<br/>
+<!-- $$$displayText -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="displayText-prop"></a><span class="qmlreadonly">read-only</span><span class="name">displayText</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property contains the text that is displayed on the screen. May differ from the text property value when <a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.RichText format is selected.</p>
+</div></div><!-- @@@displayText -->
+<br/>
+<!-- $$$effectiveHorizontalAlignment -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="effectiveHorizontalAlignment-prop"></a><span class="name">effectiveHorizontalAlignment</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>Presents the effective horizontal alignment that can be different from the one specified at <a href="qml-ubuntu-components0-textarea.html#horizontalAlignment-prop">horizontalAlignment</a> due to layout mirroring.</p>
+</div></div><!-- @@@effectiveHorizontalAlignment -->
+<br/>
+<!-- $$$font -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="font-prop"></a><span class="name">font</span> : <span class="type"><a href="qml-ubuntu-components0-textarea.html#font-prop">font</a></span></p></td></tr></table></div><div class="qmldoc"><p>The property holds the font used by the editing.</p>
+</div></div><!-- @@@font -->
+<br/>
+<!-- $$$highlighted -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="highlighted-prop"></a><span class="name">highlighted</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>The property presents whether the <a href="qml-ubuntu-components0-textarea.html">TextArea</a> is highlighted or not. By default the <a href="qml-ubuntu-components0-textarea.html">TextArea</a> gets highlighted when gets the focus, so can accept text input. This property allows to control the highlight separately from the focused behavior.</p>
+</div></div><!-- @@@highlighted -->
+<br/>
+<!-- $$$horizontalAlignment -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="horizontalAlignment-prop"></a><span class="name">horizontalAlignment</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>Sets the horizontal alignment of the text within the TextAre item's width and height. By default, the text alignment follows the natural alignment of the text, for example text that is read from left to right will be aligned to the left.</p>
+<p>Valid values for <a href="qml-ubuntu-components0-textarea.html#effectiveHorizontalAlignment-prop">effectiveHorizontalAlignment</a> are:</p>
+<ul>
+<li><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.AlignLeft (default)</li>
+<li><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.AlignRight</li>
+<li><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.AlignHCenter</li>
+<li><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.AlignJustify</li>
+</ul>
+</div></div><!-- @@@horizontalAlignment -->
+<br/>
+<!-- $$$inputMethodComposing -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="inputMethodComposing-prop"></a><span class="name">inputMethodComposing</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds whether the <a href="qml-ubuntu-components0-textarea.html">TextArea</a> has partial text input from an input method.</p>
+<p>While it is composing an input method may rely on mouse or key events from the <a href="qml-ubuntu-components0-textarea.html">TextArea</a> to edit or commit the partial text. This property can be used to determine when to disable events handlers that may interfere with the correct operation of an input method.</p>
+</div></div><!-- @@@inputMethodComposing -->
+<br/>
+<!-- $$$inputMethodHints -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="inputMethodHints-prop"></a><span class="name">inputMethodHints</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>Provides hints to the input method about the expected content of the text edit and how it should operate.</p>
+<p>The value is a bit-wise combination of flags or Qt.ImhNone if no hints are set.</p>
+<p>Flags that alter behaviour are:</p>
+<ul>
+<li>Qt.ImhHiddenText - Characters should be hidden, as is typically used when entering passwords.</li>
+<li>Qt.ImhSensitiveData - Typed text should not be stored by the active input method in any persistent storage like predictive user dictionary.</li>
+<li>Qt.ImhNoAutoUppercase - The input method should not try to automatically switch to upper case when a sentence ends.</li>
+<li>Qt.ImhPreferNumbers - Numbers are preferred (but not required).</li>
+<li>Qt.ImhPreferUppercase - Upper case letters are preferred (but not required).</li>
+<li>Qt.ImhPreferLowercase - Lower case letters are preferred (but not required).</li>
+<li>Qt.ImhNoPredictiveText - Do not use predictive text (i.e&#x2e; dictionary lookup) while typing.</li>
+<li>Qt.ImhDate - The text editor functions as a date field.</li>
+<li>Qt.ImhTime - The text editor functions as a time field.</li>
+</ul>
+<p>Flags that restrict input (exclusive flags) are:</p>
+<ul>
+<li>Qt.ImhDigitsOnly - Only digits are allowed.</li>
+<li>Qt.ImhFormattedNumbersOnly - Only number input is allowed. This includes decimal point and minus sign.</li>
+<li>Qt.ImhUppercaseOnly - Only upper case letter input is allowed.</li>
+<li>Qt.ImhLowercaseOnly - Only lower case letter input is allowed.</li>
+<li>Qt.ImhDialableCharactersOnly - Only characters suitable for phone dialing are allowed.</li>
+<li>Qt.ImhEmailCharactersOnly - Only characters suitable for email addresses are allowed.</li>
+<li>Qt.ImhUrlCharactersOnly - Only characters suitable for URLs are allowed.</li>
+</ul>
+<p>Masks:</p>
+<ul>
+<li>Qt.ImhExclusiveInputMask - This mask yields nonzero if any of the exclusive flags are used.</li>
+</ul>
+</div></div><!-- @@@inputMethodHints -->
+<br/>
+<!-- $$$length -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="length-prop"></a><span class="name">length</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>Returns the total number of plain text characters in the <a href="qml-ubuntu-components0-textarea.html">TextArea</a> item.</p>
+<p>As this number doesn't include any formatting markup it may not be the same as the length of the string returned by the text property.</p>
+<p>This property can be faster than querying the length the text property as it doesn't require any copying or conversion of the <a href="qml-ubuntu-components0-textarea.html">TextArea</a>'s internal string data.</p>
+</div></div><!-- @@@length -->
+<br/>
+<!-- $$$lineCount -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="lineCount-prop"></a><span class="name">lineCount</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>Returns the total number of lines in the <a href="qml-ubuntu-components0-textarea.html">TextArea</a> item.</p>
+</div></div><!-- @@@lineCount -->
+<br/>
+<!-- $$$maximumLineCount -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="maximumLineCount-prop"></a><span class="name">maximumLineCount</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>The property holds the maximum amount of lines to expand when <a href="qml-ubuntu-components0-textarea.html#autoSize-prop">autoSize</a> is enabled. The value of 0 does not put any upper limit and the control will expand forever.</p>
+<p>The default value is 5 lines.</p>
+</div></div><!-- @@@maximumLineCount -->
+<br/>
+<!-- $$$mouseSelectionMode -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="mouseSelectionMode-prop"></a><span class="name">mouseSelectionMode</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>Specifies how text should be selected using a mouse.</p>
+<ul>
+<li><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.SelectCharacters - The selection is updated with individual characters. (Default)</li>
+<li><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.SelectWords - The selection is updated with whole words.</li>
+</ul>
+<p>This property only applies when <a href="qml-ubuntu-components0-textarea.html#selectByMouse-prop">selectByMouse</a> is true.</p>
+</div></div><!-- @@@mouseSelectionMode -->
+<br/>
+<!-- $$$persistentSelection -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="persistentSelection-prop"></a><span class="name">persistentSelection</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>Whether the <a href="qml-ubuntu-components0-textarea.html">TextArea</a> should keep the selection visible when it loses active focus to another item in the scene. By default this is set to true;</p>
+</div></div><!-- @@@persistentSelection -->
+<br/>
+<!-- $$$placeholderText -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="placeholderText-prop"></a><span class="name">placeholderText</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>Text that appears when there is no focus and no content in the component (hint text).</p>
+</div></div><!-- @@@placeholderText -->
+<br/>
+<!-- $$$popover -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="popover-prop"></a><span class="name">popover</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-var.html">var</a></span></p></td></tr></table></div><div class="qmldoc"><p>The property overrides the default popover of the <a href="qml-ubuntu-components0-textarea.html">TextArea</a>. When set, the <a href="qml-ubuntu-components0-textarea.html">TextArea</a> will open the given popover instead of the default one defined. The popover can either be a component or a URL to be loaded.</p>
+</div></div><!-- @@@popover -->
+<br/>
+<!-- $$$readOnly -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="readOnly-prop"></a><span class="name">readOnly</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Whether the user can interact with the <a href="qml-ubuntu-components0-textarea.html">TextArea</a> item. If this property is set to true the text cannot be edited by user interaction.</p>
+<p>By default this property is false.</p>
+</div></div><!-- @@@readOnly -->
+<br/>
+<!-- $$$renderType -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="renderType-prop"></a><span class="name">renderType</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>Override the default rendering type for this component.</p>
+<p>Supported render types are:</p>
+<ul>
+<li>Text.QtRendering - the default</li>
+<li>Text.NativeRendering</li>
+</ul>
+<p>Select Text.NativeRendering if you prefer text to look native on the target platform and do not require advanced features such as transformation of the text. Using such features in combination with the NativeRendering render type will lend poor and sometimes pixelated results.</p>
+</div></div><!-- @@@renderType -->
+<br/>
+<!-- $$$selectByMouse -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectByMouse-prop"></a><span class="name">selectByMouse</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>The property drives whether text selection should happen with the mouse or not. The default value is true.</p>
+</div></div><!-- @@@selectByMouse -->
+<br/>
+<!-- $$$selectedText -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectedText-prop"></a><span class="name">selectedText</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>This read-only property provides the text currently selected in the text edit.</p>
+</div></div><!-- @@@selectedText -->
+<br/>
+<!-- $$$selectedTextColor -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectedTextColor-prop"></a><span class="name">selectedTextColor</span> : <span class="type"><a href="qml-ubuntu-components0-textarea.html#color-prop">color</a></span></p></td></tr></table></div><div class="qmldoc"><p>The selected text color, used in selections.</p>
+</div></div><!-- @@@selectedTextColor -->
+<br/>
+<!-- $$$selectionColor -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectionColor-prop"></a><span class="name">selectionColor</span> : <span class="type"><a href="qml-ubuntu-components0-textarea.html#color-prop">color</a></span></p></td></tr></table></div><div class="qmldoc"><p>The text highlight color, used behind selections.</p>
+</div></div><!-- @@@selectionColor -->
+<br/>
+<!-- $$$selectionEnd -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectionEnd-prop"></a><span class="name">selectionEnd</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>The cursor position after the last character in the current selection.</p>
+<p>This property is read-only. To change the selection, use select(start, end), <a href="qml-ubuntu-components0-textarea.html#selectAll-method">selectAll()</a>, or <a href="qml-ubuntu-components0-textarea.html#selectWord-method">selectWord()</a>.</p>
+<p>See also <a href="qml-ubuntu-components0-textarea.html#selectionStart-prop">selectionStart</a>, <a href="qml-ubuntu-components0-textarea.html#cursorPosition-prop">cursorPosition</a>, and <a href="qml-ubuntu-components0-textarea.html#selectedText-prop">selectedText</a>.</p>
+</div></div><!-- @@@selectionEnd -->
+<br/>
+<!-- $$$selectionStart -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectionStart-prop"></a><span class="name">selectionStart</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>The cursor position before the first character in the current selection.</p>
+<p>This property is read-only. To change the selection, use select(start, end), <a href="qml-ubuntu-components0-textarea.html#selectAll-method">selectAll()</a>, or <a href="qml-ubuntu-components0-textarea.html#selectWord-method">selectWord()</a>.</p>
+<p>See also <a href="qml-ubuntu-components0-textarea.html#selectionEnd-prop">selectionEnd</a>, <a href="qml-ubuntu-components0-textarea.html#cursorPosition-prop">cursorPosition</a>, and <a href="qml-ubuntu-components0-textarea.html#selectedText-prop">selectedText</a>.</p>
+</div></div><!-- @@@selectionStart -->
+<br/>
+<!-- $$$style -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="style-prop"></a><span class="name">style</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-qtquick2-component.html">Component</a></span></p></td></tr></table></div><div class="qmldoc"><p>Component instantiated immediately and placed below everything else.</p>
+</div></div><!-- @@@style -->
+<br/>
+<!-- $$$text -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="text-prop"></a><span class="name">text</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>The text to display. If the text format is AutoText the text edit will automatically determine whether the text should be treated as rich text. This determination is made using Qt::mightBeRichText().</p>
+</div></div><!-- @@@text -->
+<br/>
+<!-- $$$textFormat -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="textFormat-prop"></a><span class="name">textFormat</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>The way the text property should be displayed.</p>
+<ul>
+<li><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.AutoText</li>
+<li><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.PlainText</li>
+<li><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.RichText</li>
+</ul>
+<p>The default is <a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.PlainText. If the text format is <a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.AutoText the text edit will automatically determine whether the text should be treated as rich text. This determination is made using Qt::mightBeRichText().</p>
+</div></div><!-- @@@textFormat -->
+<br/>
+<!-- $$$verticalAlignment -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="verticalAlignment-prop"></a><span class="name">verticalAlignment</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>Sets the vertical alignment of the text within the TextAres item's width and height. By default, the text alignment follows the natural alignment of the text.</p>
+<p>Valid values for verticalAlignment are:</p>
+<ul>
+<li><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.AlignTop (default)</li>
+<li><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.AlignBottom</li>
+<li><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.AlignVCenter</li>
+</ul>
+</div></div><!-- @@@verticalAlignment -->
+<br/>
+<!-- $$$wrapMode -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="wrapMode-prop"></a><span class="name">wrapMode</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-enumeration.html">enumeration</a></span></p></td></tr></table></div><div class="qmldoc"><p>Set this property to wrap the text to the <a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a> item's width. The text will only wrap if an explicit width has been set.</p>
+<ul>
+<li><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.NoWrap - no wrapping will be performed. If the text contains insufficient newlines, then implicitWidth will exceed a set width.</li>
+<li><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.WordWrap - wrapping is done on word boundaries only. If a word is too long, implicitWidth will exceed a set width.</li>
+<li><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.WrapAnywhere - wrapping is done at any point on a line, even if it occurs in the middle of a word.</li>
+<li><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.Wrap - if possible, wrapping occurs at a word boundary; otherwise it will occur at the appropriate point on the line, even in the middle of a word.</li>
+</ul>
+<p>The default is <a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-textedit.html">TextEdit</a>.Wrap</p>
+</div></div><!-- @@@wrapMode -->
+<br/>
+<h2>Signal Documentation</h2>
+<!-- $$$linkActivated -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="linkActivated-signal"></a>TextArea::<span class="name">linkActivated</span>(<span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-string.html">string</a></span><i> link</i>)</p></td></tr></table></div><div class="qmldoc"><p>This handler is called when the user clicks on a link embedded in the text. The link must be in rich text or HTML format and the link string provides access to the particular link.</p>
+</div></div><!-- @@@linkActivated -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$copy -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="copy-method"></a>TextArea::<span class="name">copy</span>()</p></td></tr></table></div><div class="qmldoc"><p>Copies the currently selected text to the system clipboard.</p>
+</div></div><!-- @@@copy -->
+<br/>
+<!-- $$$cut -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="cut-method"></a>TextArea::<span class="name">cut</span>()</p></td></tr></table></div><div class="qmldoc"><p>Moves the currently selected text to the system clipboard.</p>
+</div></div><!-- @@@cut -->
+<br/>
+<!-- $$$deselect -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="deselect-method"></a>TextArea::<span class="name">deselect</span>()</p></td></tr></table></div><div class="qmldoc"><p>Removes active text selection.</p>
+</div></div><!-- @@@deselect -->
+<br/>
+<!-- $$$getFormattedText -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="getFormattedText-method"></a>TextArea::<span class="name">getFormattedText</span>(<i> start</i>, <i> end</i>)</p></td></tr></table></div><div class="qmldoc"><p>Returns the section of text that is between the start and end positions.</p>
+<p>The returned text will be formatted according the <a href="qml-ubuntu-components0-textarea.html#textFormat-prop">textFormat</a> property.</p>
+</div></div><!-- @@@getFormattedText -->
+<br/>
+<!-- $$$getText -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="getText-method"></a>TextArea::<span class="name">getText</span>(<i> start</i>, <i> end</i>)</p></td></tr></table></div><div class="qmldoc"><p>Returns the section of text that is between the start and end positions.</p>
+<p>The returned text does not include any rich text formatting. A getText(0, length) will result in the same value as <a href="qml-ubuntu-components0-textarea.html#displayText-prop">displayText</a>.</p>
+</div></div><!-- @@@getText -->
+<br/>
+<!-- $$$insert -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="insert-method"></a>TextArea::<span class="name">insert</span>(<i> position</i>, <i> text</i>)</p></td></tr></table></div><div class="qmldoc"><p>Inserts text into the <a href="qml-ubuntu-components0-textarea.html">TextArea</a> at position.</p>
+</div></div><!-- @@@insert -->
+<br/>
+<!-- $$$isRightToLeft -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="isRightToLeft-method"></a>TextArea::<span class="name">isRightToLeft</span>(<i> start</i>, <i> end</i>)</p></td></tr></table></div><div class="qmldoc"><p>Returns true if the natural reading direction of the editor text found between positions start and end is right to left.</p>
+</div></div><!-- @@@isRightToLeft -->
+<br/>
+<!-- $$$moveCursorSelection -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="moveCursorSelection-method"></a>TextArea::<span class="name">moveCursorSelection</span>(<i> position</i>, <i> mode</i>)</p></td></tr></table></div><div class="qmldoc"><p>Moves the cursor to position and updates the selection according to the optional mode parameter. (To only move the cursor, set the <a href="qml-ubuntu-components0-textarea.html#cursorPosition-prop">cursorPosition</a> property.)</p>
+<p>When this method is called it additionally sets either the <a href="qml-ubuntu-components0-textarea.html#selectionStart-prop">selectionStart</a> or the <a href="qml-ubuntu-components0-textarea.html#selectionEnd-prop">selectionEnd</a> (whichever was at the previous cursor position) to the specified position. This allows you to easily extend and contract the selected text range.</p>
+<p>The selection mode specifies whether the selection is updated on a per character or a per word basis. If not specified the selection mode will default to whatever is given in the <a href="qml-ubuntu-components0-textarea.html#mouseSelectionMode-prop">mouseSelectionMode</a> property.</p>
+</div></div><!-- @@@moveCursorSelection -->
+<br/>
+<!-- $$$paste -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="paste-method"></a>TextArea::<span class="name">paste</span>(<i> data</i>)</p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>Places the clipboard or the data given as parameter into the text input. The selected text will be replaces with the data.</p>
+</div></div><!-- @@@paste -->
+<br/>
+<!-- $$$positionAt -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="positionAt-method"></a>TextArea::<span class="name">positionAt</span>(<i> x</i>, <i> y</i>)</p></td></tr></table></div><div class="qmldoc"><p>Returns the text position closest to pixel position (x, y).</p>
+<p>Position 0 is before the first character, position 1 is after the first character but before the second, and so on until position text.length, which is after all characters.</p>
+</div></div><!-- @@@positionAt -->
+<br/>
+<!-- $$$positionToRectangle -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="positionToRectangle-method"></a>TextArea::<span class="name">positionToRectangle</span>(<i> position</i>)</p></td></tr></table></div><div class="qmldoc"><p>Returns the rectangle at the given position in the text. The x, y, and height properties correspond to the cursor that would describe that position.</p>
+</div></div><!-- @@@positionToRectangle -->
+<br/>
+<!-- $$$redo -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="redo-method"></a>TextArea::<span class="name">redo</span>()</p></td></tr></table></div><div class="qmldoc"><p>Redoes the last operation if redo is <a href="qml-ubuntu-components0-textarea.html#canRedo-prop">available</a>.</p>
+</div></div><!-- @@@redo -->
+<br/>
+<!-- $$$remove -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="remove-method"></a>TextArea::<span class="name">remove</span>(<i> start</i>, <i> end</i>)</p></td></tr></table></div><div class="qmldoc"><p>Removes the section of text that is between the start and end positions from the <a href="qml-ubuntu-components0-textarea.html">TextArea</a>.</p>
+</div></div><!-- @@@remove -->
+<br/>
+<!-- $$$select -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="select-method"></a>TextArea::<span class="name">select</span>(<i> start</i>, <i> end</i>)</p></td></tr></table></div><div class="qmldoc"><p>Causes the text from start to end to be selected.</p>
+<p>If either start or end is out of range, the selection is not changed.</p>
+<p>After calling this, <a href="qml-ubuntu-components0-textarea.html#selectionStart-prop">selectionStart</a> will become the lesser and <a href="qml-ubuntu-components0-textarea.html#selectionEnd-prop">selectionEnd</a> will become the greater (regardless of the order passed to this method).</p>
+<p>See also <a href="qml-ubuntu-components0-textarea.html#selectionStart-prop">selectionStart</a> and <a href="qml-ubuntu-components0-textarea.html#selectionEnd-prop">selectionEnd</a>.</p>
+</div></div><!-- @@@select -->
+<br/>
+<!-- $$$selectAll -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="selectAll-method"></a>TextArea::<span class="name">selectAll</span>()</p></td></tr></table></div><div class="qmldoc"><p>Causes all text to be selected.</p>
+</div></div><!-- @@@selectAll -->
+<br/>
+<!-- $$$selectWord -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="selectWord-method"></a>TextArea::<span class="name">selectWord</span>()</p></td></tr></table></div><div class="qmldoc"><p>Causes the word closest to the current cursor position to be selected.</p>
+</div></div><!-- @@@selectWord -->
+<br/>
+<!-- $$$undo -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="undo-method"></a>TextArea::<span class="name">undo</span>()</p></td></tr></table></div><div class="qmldoc"><p>Undoes the last operation if undo is <a href="qml-ubuntu-components0-textarea.html#canUndo-prop">available</a>. Deselects any current selection, and updates the selection start to the current cursor position.</p>
+</div></div><!-- @@@undo -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

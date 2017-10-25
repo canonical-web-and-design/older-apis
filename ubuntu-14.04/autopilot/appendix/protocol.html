@@ -1,0 +1,568 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>XPathSelect Query Protocol &mdash; Autopilot 1.4+14.04.20140213-0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/otto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/centertext.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.4+14.04.20140213-0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="Autopilot 1.4+14.04.20140213-0 documentation" href="../index.html" />
+    <link rel="up" title="Appendices" href="appendix.html" />
+    <link rel="prev" title="Appendices" href="appendix.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="appendix.html" title="Appendices"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Autopilot 1.4+14.04.20140213-0 documentation</a> &raquo;</li>
+          <li><a href="appendix.html" accesskey="U">Appendices</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="xpathselect-query-protocol">
+<h1><a class="toc-backref" href="protocol.html#id1">XPathSelect Query Protocol</a><a class="headerlink" href="protocol.html#xpathselect-query-protocol" title="Permalink to this headline">¶</a></h1>
+<p>This document defines the protocol used between autopilot and the application under test. In almost all cases, the application under test needs no knowledge of this protocol, since it is handled by one of the UI toolkit specific autopilot drivers (we support both Gtk and Qt). If you are a test author, you should be aware that this document likely contains no useful information for you!</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="protocol.html#xpathselect-query-protocol" id="id1">XPathSelect Query Protocol</a><ul>
+<li><a class="reference internal" href="protocol.html#dbus-interface" id="id2">DBus Interface</a></li>
+<li><a class="reference internal" href="protocol.html#object-trees" id="id3">Object Trees</a></li>
+<li><a class="reference internal" href="protocol.html#selecting-objects" id="id4">Selecting Objects</a><ul>
+<li><a class="reference internal" href="protocol.html#selecting-the-root-object" id="id5">Selecting the Root Object</a></li>
+<li><a class="reference internal" href="protocol.html#absolute-queries" id="id6">Absolute Queries</a></li>
+<li><a class="reference internal" href="protocol.html#relative-queries" id="id7">Relative Queries</a></li>
+<li><a class="reference internal" href="protocol.html#mixed-queries" id="id8">Mixed Queries</a></li>
+<li><a class="reference internal" href="protocol.html#attribute-queries" id="id9">Attribute Queries</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="protocol.html#wildcard-nodes" id="id10">Wildcard Nodes</a><ul>
+<li><a class="reference internal" href="protocol.html#selecting-all-children" id="id11">Selecting All Children</a></li>
+<li><a class="reference internal" href="protocol.html#selecting-nodes-based-on-attributes" id="id12">Selecting Nodes based on Attributes</a></li>
+<li><a class="reference internal" href="protocol.html#invalid-wildcard-queries" id="id13">Invalid Wildcard Queries</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="protocol.html#returning-state-data" id="id14">Returning State Data</a><ul>
+<li><a class="reference internal" href="protocol.html#valid-ids" id="id15">Valid IDs</a></li>
+<li><a class="reference internal" href="protocol.html#special-attributes" id="id16">Special Attributes</a></li>
+<li><a class="reference internal" href="protocol.html#example-getstate-return-values" id="id17">Example GetState Return Values</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<p><strong>Who should read this document:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>People wanting to hack on autopilot itself.</li>
+<li>People wanting to hack on xpathselect.</li>
+<li>People wanting to use autopilot to test an application not supported by the current autopilot UI toolkit drivers.</li>
+<li>People wanting to write a new UI toolkit driver.</li>
+</ul>
+</div></blockquote>
+<div class="section" id="dbus-interface">
+<h2><a class="toc-backref" href="protocol.html#id2">DBus Interface</a><a class="headerlink" href="protocol.html#dbus-interface" title="Permalink to this headline">¶</a></h2>
+<p>Every application under test must register itself on a DBus bus. Traditionally this is the DBus session bus, but autopilot supports any DBus bus that the user running autopilot has access to. Applications may choose to us ea well-known connection name, but it is not required.</p>
+<p>The only requirement for the DBus connection is that the <tt class="docutils literal"><span class="pre">com.canonical.Autopilot.Introspection</span></tt> interface is presented on exactly one exported object. The interface has two methods:</p>
+<blockquote>
+<div><ul class="simple">
+<li><tt class="docutils literal"><span class="pre">GetVersion()</span></tt>. The <tt class="docutils literal"><span class="pre">GetVersion</span></tt> method takes no parameters, and returns a string describing the DBus wire protocol version being used by the application under test. Autopilot will refuse to connect to DBus wire protocol versions that are different than the expected version. The current version string is described later in this document. The version string should be in the format &#8220;X.Y&#8221;, where <tt class="docutils literal"><span class="pre">X</span></tt>, <tt class="docutils literal"><span class="pre">Y</span></tt> are the major and minor version numbers, respectively.</li>
+<li><tt class="docutils literal"><span class="pre">GetState(...)</span></tt>. The <tt class="docutils literal"><span class="pre">GetState</span></tt> method takes a single string parameter, which is the &#8220;XPath Query&#8221;. The format of that string parameter, and the return value, are the subject of the rest of this document.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="object-trees">
+<h2><a class="toc-backref" href="protocol.html#id3">Object Trees</a><a class="headerlink" href="protocol.html#object-trees" title="Permalink to this headline">¶</a></h2>
+<p>Autopilot assumes that the application under test is constructed of a tree of objects. This is true for both Gtk and Qt applications, where the tree usually starts with an &#8220;application&#8221; object, and roughly follows widget stacking order.</p>
+<p>The purpose of the XPathSelect protocol is to allow autopilot to select the parts of the application that it is interested in.</p>
+<p>Autopilot passes a query string to the <tt class="docutils literal"><span class="pre">GetState</span></tt> method, and the application replies with the objects selected (if any), and their internal state details.</p>
+<p>The object tree is a tree of objects. Objects have several properties that are worth mentioning:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Each object <em>must</em> have a name that can be used as a python identifier. This is usually the class name or widget type (for example, <tt class="docutils literal"><span class="pre">QPushButton</span></tt>, in a Qt GUI application).</li>
+<li>Each object <em>must</em> have an attribute named &#8220;id&#8221;, whose value is an integer that is guaranteed to be unique for that object (note however that the same object may appear multiple times in the introspection tree in different places. In this case, the object id must remain consistent between each appearance).</li>
+<li>Objects <em>may</em> have more attributes. Each attribute name must be a string that can be represented as a python variable name. Attribute values can be any type that is representable over dbus.</li>
+<li>Objects <em>may</em> have zero or more child objects.</li>
+</ul>
+</div></blockquote>
+<p>This tree of objects is known as an &#8220;introspection tree&#8221; throughout the autopilot documentation.</p>
+</div>
+<div class="section" id="selecting-objects">
+<h2><a class="toc-backref" href="protocol.html#id4">Selecting Objects</a><a class="headerlink" href="protocol.html#selecting-objects" title="Permalink to this headline">¶</a></h2>
+<p>Objects in a tree are selected in a very similar fashion to files in a filesystem. The <tt class="docutils literal"><span class="pre">/</span></tt> character is used to separate between levels of the tree.</p>
+<div class="section" id="selecting-the-root-object">
+<h3><a class="toc-backref" href="protocol.html#id5">Selecting the Root Object</a><a class="headerlink" href="protocol.html#selecting-the-root-object" title="Permalink to this headline">¶</a></h3>
+<p>A shortcut exists for selecting the root object in the introspection tree. A query of <tt class="docutils literal"><span class="pre">/</span></tt> will always return the root object. This is used when autopilot does not yet know the name of, the root object.</p>
+</div>
+<div class="section" id="absolute-queries">
+<h3><a class="toc-backref" href="protocol.html#id6">Absolute Queries</a><a class="headerlink" href="protocol.html#absolute-queries" title="Permalink to this headline">¶</a></h3>
+<p>Absolute queries specify the entire path to the object, or objects autopilot is interested in. They must start with <tt class="docutils literal"><span class="pre">/</span></tt> and specify object names, separated by <tt class="docutils literal"><span class="pre">/</span></tt> characters. For example:</p>
+<table border="1" class="docutils">
+<caption><strong>XPathSelect Absolute Queries</strong></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Query:</th>
+<th class="head">Selects:</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">/</span></tt></td>
+<td>The root object (see above).</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">/foo</span></tt></td>
+<td>The root object, which must be named &#8216;foo&#8217;.</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">/foo/bar</span></tt></td>
+<td>Object &#8216;bar&#8217;, which is a direct child of the root object &#8216;foo&#8217;.</td>
+</tr>
+</tbody>
+</table>
+<p>Using absolute queries, it is possible to select nodes in a tree of objects. However, there is no requirement for an absolute query path to match to exactly one object in the tree. For example, given a tree that looks like this:</p>
+<p class="graphviz">
+<img src="../_images/graphviz-9c0904d2726c69e60a258a952357d4fb26656204.png" alt="digraph foo {
+   node [shape=box];
+   a [label=&quot;foo&quot;];
+   b [label=&quot;bar&quot;];
+   c [label=&quot;bar&quot;];
+   d [label=&quot;bar&quot;];
+
+   a -&gt; b;
+   a -&gt; c;
+   a -&gt; d;
+}" />
+</p>
+<p>a query of <tt class="docutils literal"><span class="pre">/foo/bar</span></tt> will select two objects. This is allowed, but not always what we want. There are several ways to avoid this, they will be covered later in this document.</p>
+</div>
+<div class="section" id="relative-queries">
+<h3><a class="toc-backref" href="protocol.html#id7">Relative Queries</a><a class="headerlink" href="protocol.html#relative-queries" title="Permalink to this headline">¶</a></h3>
+<p>Absolute queries are very fast for the application under test to process, and are used whenever autopilot knows where the object it wants to look at exists within the introspection tree. However, sometimes we need to be able to retrieve all the objects of a certain type within the tree. XPathSelect understands relative queries, which will select objects of a specified type anywhere in the tree. For example:</p>
+<table border="1" class="docutils">
+<caption><strong>XPathSelect Relative Queries</strong></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Query:</th>
+<th class="head">Selects:</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">//foo</span></tt></td>
+<td>All objects named &#8216;foo&#8217;, anywhere in the tree.</td>
+</tr>
+</tbody>
+</table>
+<p>Relative queries are much slower for the application under test to process, since the entire introspection tree must be searched for the objects that match the search criteria. Additionally, relative queries can generate a large amount of data that has to be sent across DBus, which can slow things down further.</p>
+</div>
+<div class="section" id="mixed-queries">
+<h3><a class="toc-backref" href="protocol.html#id8">Mixed Queries</a><a class="headerlink" href="protocol.html#mixed-queries" title="Permalink to this headline">¶</a></h3>
+<p>Absolute and relative queries can be mixed. All the relative queries in the above table will search the entire object tree. However, sometimes you only want to search part of the object tree, in which case you can use a mixed query:</p>
+<table border="1" class="docutils">
+<caption><strong>XPathSelect Mixed Queries</strong></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Query:</th>
+<th class="head">Selects:</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">/foo/bar//baz</span></tt></td>
+<td>Select all objects named &#8216;baz&#8217; which are in the tree beneath &#8216;/foo/bar&#8217;</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">/foo/far//bar/baz</span></tt></td>
+<td>Select all &#8216;baz&#8217; objects which are immeadiate children of a &#8216;bar&#8217; object, which itself is in the subtree beneath &#8216;/foo/far&#8217;.</td>
+</tr>
+</tbody>
+</table>
+<p>As you can see, mixed queries can get reasonably complicated.</p>
+</div>
+<div class="section" id="attribute-queries">
+<h3><a class="toc-backref" href="protocol.html#id9">Attribute Queries</a><a class="headerlink" href="protocol.html#attribute-queries" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes we want to select an object whose attributes match certain values. For example, if the application under test is a Qt application, we may want to retrieve a list of &#8216;QPushButton&#8217; objects whose &#8216;active&#8217; attribute is set to <tt class="docutils literal"><span class="pre">True</span></tt>.</p>
+<p>The XPathSelect query protocol supports three value types for attributes:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Boolean attribute values are represented as <tt class="docutils literal"><span class="pre">True</span></tt> or <tt class="docutils literal"><span class="pre">False</span></tt>.</li>
+<li>String attribute values are represented as strings inside double quote characters. The XPathSelect library understands the common character escape codes, as well as the <tt class="docutils literal"><span class="pre">\x__</span></tt> hexidecimal escape sequence (For exmaple: <tt class="docutils literal"><span class="pre">&quot;\x41&quot;</span></tt> would evaluate to a string with a single character &#8216;A&#8217;.).</li>
+<li>Integer attribute values are supported. Integers may use a sign (either &#8216;+&#8217; or &#8216;-&#8216;). The sign may be omitted for positive numbers. The range for integer values is from <img class="math" src="../_images/math/49dbef0634b8c21a3adaa23c5e06bdf9c605b5ce.png" alt="-2^{32}"/> to <img class="math" src="../_images/math/af4ca82253551d38e7b1e39ff781d0f1848120b2.png" alt="2^{31}-1"/>.</li>
+</ul>
+</div></blockquote>
+<p>Attribute queries are done inside square brackets (<tt class="docutils literal"><span class="pre">[...]</span></tt>) next to the object they apply to. The following table lists a number of attribute queries, as examples of what can be achieved.</p>
+<table border="1" class="docutils">
+<caption><strong>XPathSelect Attribute Queries</strong></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Query:</th>
+<th class="head">Selects:</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">//QPushButton[active=True]</span></tt></td>
+<td>Select all <tt class="docutils literal"><span class="pre">QPushbutton</span></tt> objects whose &#8220;active&#8221; attribute is set to True.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">//QPushButton[label=&quot;Deploy</span> <span class="pre">Robots!&quot;]</span></tt></td>
+<td>Select all <tt class="docutils literal"><span class="pre">QPushButton</span></tt> objects whose labels are set to the string &#8220;Deploy Robots&#8221;.</td>
+</tr>
+<tr class="row-even"><td><tt class="docutils literal"><span class="pre">//QPushButton[label=&quot;Deploy</span> <span class="pre">Robots!&quot;,active=True]</span></tt></td>
+<td>Select all <tt class="docutils literal"><span class="pre">QPushButton</span></tt> objects whose labels are set to the string &#8220;Deploy Robots&#8221;, <em>and</em> whose &#8220;active&#8221; attribute is set to True.</td>
+</tr>
+<tr class="row-odd"><td><tt class="docutils literal"><span class="pre">//QSpinBox[value=-10]</span></tt></td>
+<td>Select all <tt class="docutils literal"><span class="pre">QSpinBox</span></tt> objects whose value attribute is set to -10.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">While the XPathSelect protocol has a fairly limited list of supported types for attribute matching queries, it is important to note that autopilot transparently supports matching object attributes of any type. Autopilot will send attribute filters to the application under test using the XPathSelect protocol only if the attribute filters are supported by XPathSelect. In all other cases, the filtering will be done within autopilot. At worst, the test author may notice that some queries take longer than others.</p>
+</div>
+</div>
+</div>
+<div class="section" id="wildcard-nodes">
+<h2><a class="toc-backref" href="protocol.html#id10">Wildcard Nodes</a><a class="headerlink" href="protocol.html#wildcard-nodes" title="Permalink to this headline">¶</a></h2>
+<p>As well as selecting a node in the introspection tree by node name, one can also use <tt class="docutils literal"><span class="pre">*</span></tt> to select any node. However, there are a few restrictions on this feature, to stop the inadvertent selection of the entire tree.</p>
+<div class="section" id="selecting-all-children">
+<h3><a class="toc-backref" href="protocol.html#id11">Selecting All Children</a><a class="headerlink" href="protocol.html#selecting-all-children" title="Permalink to this headline">¶</a></h3>
+<p>Wildcard nodes are often used to select all the children of a particular object. For example, if the query <tt class="docutils literal"><span class="pre">/path/to/object[id=123]</span></tt> returns the parent object you are interested in, then the query <tt class="docutils literal"><span class="pre">/path/to/object[id=123]/*</span></tt> will return all the immediate children of that object.</p>
+</div>
+<div class="section" id="selecting-nodes-based-on-attributes">
+<h3><a class="toc-backref" href="protocol.html#id12">Selecting Nodes based on Attributes</a><a class="headerlink" href="protocol.html#selecting-nodes-based-on-attributes" title="Permalink to this headline">¶</a></h3>
+<p>The second use of wildcard nodes is to select nodes based purely on their attributes, rather than their type. For example, to select every object with a &#8216;visible&#8217; property set to &#8216;True&#8217;, the following query will work: <tt class="docutils literal"><span class="pre">//*[visible=True]</span></tt>. However, care must be taken - this query will traverse the entire introspection tree, and may take a long time. Additionally, a large amount of data may be returned over DBus.</p>
+</div>
+<div class="section" id="invalid-wildcard-queries">
+<h3><a class="toc-backref" href="protocol.html#id13">Invalid Wildcard Queries</a><a class="headerlink" href="protocol.html#invalid-wildcard-queries" title="Permalink to this headline">¶</a></h3>
+<p>The wildcard specifier may only be used after a search separator if you have also specified attribute filters. For example, all the following queries are invalid:</p>
+<p><strong>Invalid Queries</strong></p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">//*</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">/path/to/some/node//*</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">//node//*</span></tt></li>
+</ul>
+<p>However, the following queries are all valid:</p>
+<p><strong>Valid Queries</strong></p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">//node/*</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">/node//*[key=&quot;value&quot;]</span></tt></li>
+<li><tt class="docutils literal"><span class="pre">//node//*[key=True]</span></tt></li>
+</ul>
+</div>
+</div>
+<div class="section" id="returning-state-data">
+<h2><a class="toc-backref" href="protocol.html#id14">Returning State Data</a><a class="headerlink" href="protocol.html#returning-state-data" title="Permalink to this headline">¶</a></h2>
+<p>Once the application under test has parsed the XPathSleect query, and has a list (possibly empty!) of objects that match the given query, it must serialize those objects back across DBus as the return value from the <tt class="docutils literal"><span class="pre">GetState</span></tt> method. The data structure used is reasonably complex, and is described below:</p>
+<ul class="simple">
+<li>At the top level, the return type must be an array of objects. Each item in the array represents an object that matched the supplied query. If no objects matched the supplied query, an empty array must be returned.</li>
+</ul>
+<blockquote>
+<div><ul>
+<li><p class="first">Each object is a DBus structure that has two parts: a string, and a map. The string specifies the full tree path to the object being returned (for example &#8220;/path/to/object&#8221;).</p>
+<ul class="simple">
+<li>The map represents the object state, and is a map of strings to arrays. The keys in this map are property names (for example &#8220;visible&#8221;).</li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li>The arrays represents the property value. It contains at least two parts, a value type id (see below for a list of these ids and what they mean), and one or more values. The values can be any type representable over dbus. Some values may actually be arrays of values, for example.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<p class="graphviz">
+<img src="../_images/graphviz-1331c3fcd56183284e6a914e96d08a2b2ee7a8f5.png" alt="digraph dbus_data {
+   node [shape=record];
+
+   objects [label=&quot;Object|&lt;f1&gt;Object|...&quot;];
+   object2 [label=&quot;Object_name|&lt;f1&gt;Object_state&quot;];
+   object_state [label=&quot;property|&lt;f0&gt;property|...&quot;]
+   property [label=&quot;key|value_type|value|...&quot;]
+
+   objects:f1 -&gt; object2;
+   object2:f1 -&gt; object_state;
+   object_state:f0 -&gt; property;
+}" />
+</p>
+<div class="section" id="valid-ids">
+<h3><a class="toc-backref" href="protocol.html#id15">Valid IDs</a><a class="headerlink" href="protocol.html#valid-ids" title="Permalink to this headline">¶</a></h3>
+<p>The following table lists the various type Ids, and their meaning.</p>
+<table border="1" class="docutils">
+<caption><strong>Autopilot Type IDs and their meaning</strong></caption>
+<colgroup>
+<col width="5%" />
+<col width="95%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Type ID:</th>
+<th class="head">Meaning:</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>0</td>
+<td>Simple Type. The value is a DBus integer, boolean, or string, and that is exactly how it should be represented to the user.</td>
+</tr>
+<tr class="row-odd"><td>1</td>
+<td>Rectangle. The next four values are all integers, and represent a rectangle in cartesian space. The four numbers must represent the x, y, width and height of the rectangle, respectively. Autopilot will likely present the four values as &#8216;x&#8217;, &#8216;y&#8217;, &#8216;w&#8217; and &#8216;h&#8217; to test authors. Autopilot makes no assumptions about the coordinate space used.</td>
+</tr>
+<tr class="row-even"><td>2</td>
+<td>Point. The next two values are integers, and represent an X, Y, point in catesian space.</td>
+</tr>
+<tr class="row-odd"><td>3</td>
+<td>Size. The next two value are integers, and represent a width,height pair, describing a size in catesian space.</td>
+</tr>
+<tr class="row-even"><td>4</td>
+<td>Color. The next four values are all integers, and represent the red, green, blue, and alpha components of the color, respectively. Each component is bounded between 0 and 255.</td>
+</tr>
+<tr class="row-odd"><td>5</td>
+<td>Date or Date/Time. The next value is an integer representing the number of seconds since the unix epoch (1970-01-011 00:00:00), UTC time.</td>
+</tr>
+<tr class="row-even"><td>6</td>
+<td>Time. The next values are all integers, and represent hours, minutes, seconds, milliseconds.</td>
+</tr>
+<tr class="row-odd"><td>7</td>
+<td>3D Point. The next values are all integers, and represent the X, Y and Z coordinates of a point in 3D cartesian space.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="special-attributes">
+<h3><a class="toc-backref" href="protocol.html#id16">Special Attributes</a><a class="headerlink" href="protocol.html#special-attributes" title="Permalink to this headline">¶</a></h3>
+<p>Most attributes that are returned will be attributes of the UI toolkit class itself. However, there are two special attributes:</p>
+<ul class="simple">
+<li>The <tt class="docutils literal"><span class="pre">id</span></tt> attribute <em>must</em> be present, and must contain an integer number. This number must be unique for this instance of the object. This number must also be within the range suitable for integer parameter matching.</li>
+<li>The <tt class="docutils literal"><span class="pre">Children</span></tt> attribute <em>may</em> be present if the object being serialized has any children in the introspection tree. If it is present, it must be an array of strings, where each string is the class name of the immediate child object.</li>
+<li>The <tt class="docutils literal"><span class="pre">globalRect</span></tt> property should be present for any components that have an on-screen presence. It should be a 4-element array containing the x,y,w,h values of the items on-screen coordinates. Note that these coordinates should be in screen-space, rather than local application space.</li>
+</ul>
+</div>
+<div class="section" id="example-getstate-return-values">
+<h3><a class="toc-backref" href="protocol.html#id17">Example GetState Return Values</a><a class="headerlink" href="protocol.html#example-getstate-return-values" title="Permalink to this headline">¶</a></h3>
+<p>All the examples in this section have had whitespace added to make them more readable.</p>
+<p><strong>Example 1: Unity Shell</strong></p>
+<p>Query: <tt class="docutils literal"><span class="pre">/</span></tt></p>
+<p>Return Value:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span>
+        <span class="p">(</span>
+                <span class="s">&#39;/Unity&#39;</span><span class="p">,</span>
+                <span class="p">{</span>
+                        <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                        <span class="s">&#39;Children&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span>
+                                <span class="p">[</span>
+                                        <span class="s">&#39;DashController&#39;</span><span class="p">,</span>
+                                        <span class="s">&#39;HudController&#39;</span><span class="p">,</span>
+                                        <span class="s">&#39;LauncherController&#39;</span><span class="p">,</span>
+                                        <span class="s">&#39;PanelController&#39;</span><span class="p">,</span>
+                                        <span class="s">&#39;Screen&#39;</span><span class="p">,</span>
+                                        <span class="s">&#39;SessionController&#39;</span><span class="p">,</span>
+                                        <span class="s">&#39;ShortcutController&#39;</span><span class="p">,</span>
+                                        <span class="s">&#39;SwitcherController&#39;</span><span class="p">,</span>
+                                        <span class="s">&#39;WindowManager&#39;</span>
+                                <span class="p">]</span>
+                        <span class="p">]</span>
+                <span class="p">}</span>
+        <span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p><strong>Example 2: Qt Creator Menu</strong></p>
+<p>This is a much larger object, and shows the <tt class="docutils literal"><span class="pre">globalRect</span></tt> attribute.</p>
+<p>Query: <tt class="docutils literal"><span class="pre">/QtCreator/QMenu[objectName=&quot;Project.Menu.Session&quot;]</span></tt></p>
+<p>Return Value:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span>
+        <span class="p">(</span>
+                <span class="s">&#39;/QtCreator/QMenu&#39;</span><span class="p">,</span>
+                <span class="p">{</span>
+                        <span class="s">&#39;_autopilot_id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                        <span class="s">&#39;acceptDrops&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
+                        <span class="s">&#39;accessibleDescription&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">],</span>
+                        <span class="s">&#39;accessibleName&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">],</span>
+                        <span class="s">&#39;autoFillBackground&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
+                        <span class="s">&#39;baseSize&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                        <span class="s">&#39;Children&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="s">&#39;QAction&#39;</span><span class="p">,</span> <span class="s">&#39;DBusMenu&#39;</span><span class="p">]],</span>
+                        <span class="s">&#39;childrenRect&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                        <span class="s">&#39;contextMenuPolicy&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                        <span class="s">&#39;enabled&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">True</span><span class="p">],</span>
+                        <span class="s">&#39;focus&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
+                        <span class="s">&#39;focusPolicy&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                        <span class="s">&#39;frameGeometry&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+                        <span class="s">&#39;frameSize&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+                        <span class="s">&#39;fullScreen&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
+                        <span class="s">&#39;geometry&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+                        <span class="s">&#39;globalRect&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+                        <span class="s">&#39;height&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+                        <span class="s">&#39;id&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                        <span class="s">&#39;inputMethodHints&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                        <span class="s">&#39;isActiveWindow&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
+                        <span class="s">&#39;layoutDirection&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                        <span class="s">&#39;maximized&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
+                        <span class="s">&#39;maximumHeight&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16777215</span><span class="p">],</span>
+                        <span class="s">&#39;maximumSize&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">16777215</span><span class="p">,</span> <span class="mi">16777215</span><span class="p">],</span>
+                        <span class="s">&#39;maximumWidth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">16777215</span><span class="p">],</span>
+                        <span class="s">&#39;minimized&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
+                        <span class="s">&#39;minimumHeight&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                        <span class="s">&#39;minimumSize&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                        <span class="s">&#39;minimumSizeHint&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+                        <span class="s">&#39;minimumWidth&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                        <span class="s">&#39;modal&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
+                        <span class="s">&#39;mouseTracking&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">True</span><span class="p">],</span>
+                        <span class="s">&#39;normalGeometry&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                        <span class="s">&#39;objectName&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;ProjectExplorer.Menu.Debug&#39;</span><span class="p">],</span>
+                        <span class="s">&#39;pos&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                        <span class="s">&#39;rect&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+                        <span class="s">&#39;separatorsCollapsible&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">True</span><span class="p">],</span>
+                        <span class="s">&#39;size&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span>
+                        <span class="s">&#39;sizeHint&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">293</span><span class="p">,</span> <span class="mi">350</span><span class="p">],</span>
+                        <span class="s">&#39;sizeIncrement&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                        <span class="s">&#39;statusTip&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">],</span>
+                        <span class="s">&#39;styleSheet&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">],</span>
+                        <span class="s">&#39;tearOffEnabled&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
+                        <span class="s">&#39;title&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;&amp;Debug&#39;</span><span class="p">],</span>
+                        <span class="s">&#39;toolTip&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">],</span>
+                        <span class="s">&#39;updatesEnabled&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">True</span><span class="p">],</span>
+                        <span class="s">&#39;visible&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
+                        <span class="s">&#39;whatsThis&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">],</span>
+                        <span class="s">&#39;width&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">],</span>
+                        <span class="s">&#39;windowFilePath&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">],</span>
+                        <span class="s">&#39;windowIconText&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">],</span>
+                        <span class="s">&#39;windowModality&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                        <span class="s">&#39;windowModified&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">False</span><span class="p">],</span>
+                        <span class="s">&#39;windowOpacity&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+                        <span class="s">&#39;windowTitle&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s">&#39;&#39;</span><span class="p">],</span>
+                        <span class="s">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                        <span class="s">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+                <span class="p">}</span>
+        <span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Note that most attributes are given the &#8220;plain&#8221; type id of 0, but some (such as &#8216;pos&#8217;, &#8216;globalRect&#8217;, and &#8216;size&#8217; in the above example) are given more specific type ids.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/otto-64.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="protocol.html#">XPathSelect Query Protocol</a><ul>
+<li><a class="reference internal" href="protocol.html#dbus-interface">DBus Interface</a></li>
+<li><a class="reference internal" href="protocol.html#object-trees">Object Trees</a></li>
+<li><a class="reference internal" href="protocol.html#selecting-objects">Selecting Objects</a><ul>
+<li><a class="reference internal" href="protocol.html#selecting-the-root-object">Selecting the Root Object</a></li>
+<li><a class="reference internal" href="protocol.html#absolute-queries">Absolute Queries</a></li>
+<li><a class="reference internal" href="protocol.html#relative-queries">Relative Queries</a></li>
+<li><a class="reference internal" href="protocol.html#mixed-queries">Mixed Queries</a></li>
+<li><a class="reference internal" href="protocol.html#attribute-queries">Attribute Queries</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="protocol.html#wildcard-nodes">Wildcard Nodes</a><ul>
+<li><a class="reference internal" href="protocol.html#selecting-all-children">Selecting All Children</a></li>
+<li><a class="reference internal" href="protocol.html#selecting-nodes-based-on-attributes">Selecting Nodes based on Attributes</a></li>
+<li><a class="reference internal" href="protocol.html#invalid-wildcard-queries">Invalid Wildcard Queries</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="protocol.html#returning-state-data">Returning State Data</a><ul>
+<li><a class="reference internal" href="protocol.html#valid-ids">Valid IDs</a></li>
+<li><a class="reference internal" href="protocol.html#special-attributes">Special Attributes</a></li>
+<li><a class="reference internal" href="protocol.html#example-getstate-return-values">Example GetState Return Values</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://developer.ubuntu.com/api/devel/ubuntu-14.04/autopilot/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="appendix.html"
+                        title="previous chapter">Appendices</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="appendix.html" title="Appendices"
+             >previous</a> |</li>
+        <li><a href="../index.html">Autopilot 1.4+14.04.20140213-0 documentation</a> &raquo;</li>
+          <li><a href="appendix.html" >Appendices</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      <div class=center_text>
+        <a href="../faq/contribute.html">Learn how you can contribute!</a> / <a href="https://bugs.launchpad.net/autopilot/+filebug">File a bug</a>
+     <br/>
+      </div>
+        &copy; Copyright 2012-2013, Canonical.
+    </div>
+
+
+  </body>
+</html>

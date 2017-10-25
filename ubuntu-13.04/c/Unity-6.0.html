@@ -1,0 +1,1419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="C">
+    
+    <title>Unity-6.0 C API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>Unity-6.0 C API Documentation</h1>
+
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.ActivationResponse" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.ActivationResponse">Class: UnityActivationResponse</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.InitiallyUnowned">GInitiallyUnowned</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"goto-uri"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Enumeration type " href="Unity-6.0.html#Unity.HandledType">UnityHandledType</a></span><span class="property-name">"handled"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.ActivationResponse">UnityActivationResponse</a>*</span><span class="method-name">unity_activation_response_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#Unity.HandledType">UnityHandledType</a> handled, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *goto_uri)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.ActivationResponse">UnityActivationResponse</a>*</span><span class="method-name">unity_activation_response_new_with_preview</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#Unity.Preview">UnityPreview</a> *preview)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.AnnotatedIcon" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.AnnotatedIcon">Class: UnityAnnotatedIcon</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Enumeration type " href="Unity-6.0.html#Unity.CategoryType">UnityCategoryType</a></span><span class="property-name">"category"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Enumeration type " href="Unity-6.0.html#Unity.IconSizeHint">UnityIconSizeHint</a></span><span class="property-name">"size-hint"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"ribbon"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon*</a></span><span class="property-name">"icon"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.AnnotatedIcon">UnityAnnotatedIcon</a>*</span><span class="method-name">unity_annotated_icon_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *base_icon)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">unity_annotated_icon_to_string</span><span class="method-parameters">(UnityAnnotatedIcon *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.AppInfoManager" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.AppInfoManager">Class: UnityAppInfoManager</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"changed"</span><span class="signal-parameters">(UnityAppInfoManager *app_info_manager, gchar* id, GAppInfo new_appinfo)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_app_info_manager_clear</span><span class="method-parameters">(UnityAppInfoManager *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">gchar**</span></span><span class="method-name">unity_app_info_manager_get_categories</span><span class="method-parameters">(UnityAppInfoManager *self, <span class="type-basetype type ">gchar</span> *id, <span class="type-basetype type ">gint</span> *result_length1)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.AppInfoManager">UnityAppInfoManager*</a></span><span class="method-name">unity_app_info_manager_get_default</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.AppInfoManager">UnityAppInfoManager*</a></span><span class="method-name">unity_app_info_manager_get_instance</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">gchar**</span></span><span class="method-name">unity_app_info_manager_get_keywords</span><span class="method-parameters">(UnityAppInfoManager *self, <span class="type-basetype type ">gchar</span> *id, <span class="type-basetype type ">gint</span> *result_length1)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">unity_app_info_manager_get_path</span><span class="method-parameters">(UnityAppInfoManager *self, <span class="type-basetype type ">gchar</span> *id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Interface type " href="Gio-2.0.html#Gio.AppInfo">GAppInfo*</a></span><span class="method-name">unity_app_info_manager_lookup</span><span class="method-parameters">(UnityAppInfoManager *self, <span class="type-basetype type ">gchar</span> *id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_app_info_manager_lookup_async</span><span class="method-parameters">(UnityAppInfoManager *self, <span class="type-basetype type ">gchar</span> *id, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Interface type " href="Gio-2.0.html#Gio.AppInfo">GAppInfo*</a></span><span class="method-name">unity_app_info_manager_lookup_finish</span><span class="method-parameters">(UnityAppInfoManager *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.ApplicationPreview" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.ApplicationPreview">Class: UnityApplicationPreview</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Unity-6.0.html#Unity.Preview">UnityPreview</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"last-update"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"copyright"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon*</a></span><span class="property-name">"app-icon"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"license"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.ApplicationPreview">UnityApplicationPreview</a>*</span><span class="method-name">unity_application_preview_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *title, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *subtitle, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *description, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *icon, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *screenshot)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_application_preview_set_rating</span><span class="method-parameters">(UnityApplicationPreview *self, <span class="type-basetype type ">gfloat</span> rating, <span class="type-basetype type ">guint</span> num_ratings)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.AsyncPreview" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.AsyncPreview">Class: UnityAsyncPreview</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Unity-6.0.html#Unity.Preview">UnityPreview</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Gio-2.0.html#Gio.Cancellable">GCancellable*</a></span><span class="property-name">"cancellable"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"preview_ready"</span><span class="signal-parameters">(UnityAsyncPreview *async_preview, UnityPreview preview)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.AsyncPreview">UnityAsyncPreview</a>*</span><span class="method-name">unity_async_preview_new</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.AsyncPreview">UnityAsyncPreview</a>*</span><span class="method-name">unity_async_preview_new_with_cancellable</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#Gio.Cancellable">GCancellable</a> *cancellable)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_async_preview_preview_ready</span><span class="method-parameters">(UnityAsyncPreview *self, <a class="link-Class type " href="Unity-6.0.html#Unity.Preview">UnityPreview</a> *preview)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.Category" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.Category">Class: UnityCategory</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"name"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon*</a></span><span class="property-name">"icon-hint"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Enumeration type " href="Unity-6.0.html#Unity.CategoryRenderer">UnityCategoryRenderer</a></span><span class="property-name">"default-renderer"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.Category">UnityCategory</a>*</span><span class="method-name">unity_category_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *name, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *icon_hint, <a class="link-Type type " href="Unity-6.0.html#Unity.CategoryRenderer">UnityCategoryRenderer</a> renderer)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.CheckOptionFilter" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.CheckOptionFilter">Class: UnityCheckOptionFilter</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Unity-6.0.html#Unity.OptionsFilter">UnityOptionsFilter</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.CheckOptionFilter">UnityCheckOptionFilter</a>*</span><span class="method-name">unity_check_option_filter_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *id, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *display_name, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *icon_hint, <a class="link-Type type " href="Unity-6.0.html#gboolean">gboolean</a> collapsed)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.CheckOptionFilterCompact" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.CheckOptionFilterCompact">Class: UnityCheckOptionFilterCompact</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Unity-6.0.html#Unity.OptionsFilter">UnityOptionsFilter</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.CheckOptionFilterCompact">UnityCheckOptionFilterCompact</a>*</span><span class="method-name">unity_check_option_filter_compact_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *id, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *display_name, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *icon_hint, <a class="link-Type type " href="Unity-6.0.html#gboolean">gboolean</a> collapsed)</span></p>
+</div>
+</div>
+</div>
+<div class="class-abstract">
+<a href="Unity-6.0.html#Unity.Filter" class="class-anchor">⚓</a><h2 class="class-abstract" id="Unity.Filter">Abstract Class: UnityFilter</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class type " href="Unity-6.0.html#Unity.RatingsFilter">UnityRatingsFilter</a>, <a class="link-Class type " href="Unity-6.0.html#Unity.OptionsFilter">UnityOptionsFilter</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"filtering"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"collapsed"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"visible"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Enumeration type " href="Unity-6.0.html#Unity.FilterRenderer">UnityFilterRenderer</a></span><span class="property-name">"renderer"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon*</a></span><span class="property-name">"icon-hint"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"display-name"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"id"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"changed"</span><span class="signal-parameters">(UnityFilter *filter)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.FilterOption" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.FilterOption">Class: UnityFilterOption</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"active"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"display-name"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"id"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon*</a></span><span class="property-name">"icon-hint"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.FilterOption">UnityFilterOption</a>*</span><span class="method-name">unity_filter_option_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *id, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *display_name, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *icon_hint, <a class="link-Type type " href="Unity-6.0.html#gboolean">gboolean</a> active)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.GenericPreview" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.GenericPreview">Class: UnityGenericPreview</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Unity-6.0.html#Unity.Preview">UnityPreview</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.GenericPreview">UnityGenericPreview</a>*</span><span class="method-name">unity_generic_preview_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *title, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *description, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *image)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.InfoHint" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.InfoHint">Class: UnityInfoHint</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.InitiallyUnowned">GInitiallyUnowned</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"display-name"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant*</a></span><span class="property-name">"data"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"id"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon*</a></span><span class="property-name">"icon-hint"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.InfoHint">UnityInfoHint</a>*</span><span class="method-name">unity_info_hint_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *id, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *display_name, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *icon_hint, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *data)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.InfoHint">UnityInfoHint</a>*</span><span class="method-name">unity_info_hint_new_with_variant</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *id, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *display_name, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *icon_hint, <a class="link-Type type " href="Unity-6.0.html#GLib.Variant">GVariant</a> *data)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.Inspector" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.Inspector">Class: UnityInspector</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"unity-running"</span><span class="property-access"> read-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"unity-bus-name"</span><span class="property-access"> read-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.Inspector">UnityInspector*</a></span><span class="method-name">unity_inspector_get_default</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.LauncherEntry" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.LauncherEntry">Class: UnityLauncherEntry</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface type " href="Dee-1.0.html#Dee.Serializable">DeeSerializable</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gint64</span></span><span class="property-name">"count"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"progress-visible"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"count-visible"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"app-uri"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem*</a></span><span class="property-name">"quicklist"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"urgent"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gdouble</span></span><span class="property-name">"progress"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.LauncherEntry">UnityLauncherEntry*</a></span><span class="method-name">unity_launcher_entry_get_for_app_uri</span><span class="method-parameters">(<span class="type-basetype type ">gchar</span> *app_uri)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.LauncherEntry">UnityLauncherEntry*</a></span><span class="method-name">unity_launcher_entry_get_for_desktop_file</span><span class="method-parameters">(<span class="type-basetype type ">gchar</span> *desktop_file)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.LauncherEntry">UnityLauncherEntry*</a></span><span class="method-name">unity_launcher_entry_get_for_desktop_id</span><span class="method-parameters">(<span class="type-basetype type ">gchar</span> *desktop_id)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.LauncherFavorites" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.LauncherFavorites">Class: UnityLauncherFavorites</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"changed"</span><span class="signal-parameters">(UnityLauncherFavorites *launcher_favorites)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">GAppInfo**</span></span><span class="method-name">unity_launcher_favorites_enumerate_app_infos</span><span class="method-parameters">(UnityLauncherFavorites *self, <span class="type-basetype type ">gint</span> *result_length1)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">gchar**</span></span><span class="method-name">unity_launcher_favorites_enumerate_ids</span><span class="method-parameters">(UnityLauncherFavorites *self, <span class="type-basetype type ">gint</span> *result_length1)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.LauncherFavorites">UnityLauncherFavorites*</a></span><span class="method-name">unity_launcher_favorites_get_default</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">unity_launcher_favorites_has_app_id</span><span class="method-parameters">(UnityLauncherFavorites *self, <span class="type-basetype type ">gchar</span> *app_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">unity_launcher_favorites_has_app_info</span><span class="method-parameters">(UnityLauncherFavorites *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AppInfo">GAppInfo</a> *appinfo)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Interface type " href="Gio-2.0.html#Gio.AppInfo">GAppInfo*</a></span><span class="method-name">unity_launcher_favorites_lookup</span><span class="method-parameters">(UnityLauncherFavorites *self, <span class="type-basetype type ">gchar</span> *app_id)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.Lens" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.Lens">Class: UnityLens</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Interface type " href="Unity-6.0.html#Unity.MergeStrategy">UnityMergeStrategy*</a></span><span class="property-name">"global-merge-strategy"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"sources-display-name"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Interface type " href="Unity-6.0.html#Unity.MergeStrategy">UnityMergeStrategy*</a></span><span class="property-name">"merge-strategy"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"searching"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"search-hint"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"visible"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"search-in-global"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"exported"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="property-name">"filters"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"active"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"dbus-path"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"id"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="property-name">"categories"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"home-lens-default-name"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.Lens">UnityLens</a>*</span><span class="method-name">unity_lens_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *dbus_path_, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *id_)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_lens_add_local_scope</span><span class="method-parameters">(UnityLens *self, <a class="link-Class type " href="Unity-6.0.html#Unity.Scope">UnityScope</a> *scope)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_lens_export</span><span class="method-parameters">(UnityLens *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.LensSearch" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.LensSearch">Class: UnityLensSearch</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.InitiallyUnowned">GInitiallyUnowned</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Record type " href="GLib-2.0.html#GLib.HashTable">GHashTable*</a></span><span class="property-name">"hints"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Dee-1.0.html#Dee.SerializableModel">DeeSerializableModel*</a></span><span class="property-name">"results-model"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"search-string"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"finished"</span><span class="signal-parameters">(UnityLensSearch *lens_search)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.LensSearch">UnityLensSearch</a>*</span><span class="method-name">unity_lens_search_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *search_string, <a class="link-Type type " href="Unity-6.0.html#GLib.HashTable">GHashTable</a> *hints, <a class="link-Type type " href="Unity-6.0.html#Dee.SerializableModel">DeeSerializableModel</a> *results_model)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">unity_lens_search_equals</span><span class="method-parameters">(UnityLensSearch *self, <a class="link-Class type " href="Unity-6.0.html#Unity.LensSearch">UnityLensSearch</a> *other)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_lens_search_finished</span><span class="method-parameters">(UnityLensSearch *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_lens_search_set_reply_hint</span><span class="method-parameters">(UnityLensSearch *self, <span class="type-basetype type ">gchar</span> *key, <a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant</a> *variant)</span></p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="Unity-6.0.html#Unity.MergeStrategy" class="class-anchor">⚓</a><h2 class="class-interface" id="Unity.MergeStrategy">Interface: UnityMergeStrategy</h2>
+<div class="relations">
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">unity_merge_strategy_merge_result</span><span class="method-parameters">(UnityMergeStrategy *self, <a class="link-Interface type " href="Dee-1.0.html#Dee.Model">DeeModel</a> *target, <span class="type ">GVariant</span> **row, <span class="type-basetype type ">gint</span> row_length1)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.MoviePreview" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.MoviePreview">Class: UnityMoviePreview</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Unity-6.0.html#Unity.Preview">UnityPreview</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"year"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.MoviePreview">UnityMoviePreview</a>*</span><span class="method-name">unity_movie_preview_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *title, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *subtitle, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *description, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *image)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_movie_preview_set_rating</span><span class="method-parameters">(UnityMoviePreview *self, <span class="type-basetype type ">gfloat</span> rating, <span class="type-basetype type ">guint</span> num_ratings)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.MultiRangeFilter" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.MultiRangeFilter">Class: UnityMultiRangeFilter</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Unity-6.0.html#Unity.OptionsFilter">UnityOptionsFilter</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.MultiRangeFilter">UnityMultiRangeFilter</a>*</span><span class="method-name">unity_multi_range_filter_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *id, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *display_name, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *icon_hint, <a class="link-Type type " href="Unity-6.0.html#gboolean">gboolean</a> collapsed)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.FilterOption">UnityFilterOption*</a></span><span class="method-name">unity_multi_range_filter_get_first_active</span><span class="method-parameters">(UnityMultiRangeFilter *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.FilterOption">UnityFilterOption*</a></span><span class="method-name">unity_multi_range_filter_get_last_active</span><span class="method-parameters">(UnityMultiRangeFilter *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.MusicPlayer" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.MusicPlayer">Class: UnityMusicPlayer</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"can-play"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Unity-6.0.html#Unity.Playlist">UnityPlaylist*</a></span><span class="property-name">"current-playlist"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Interface type " href="Gio-2.0.html#Gio.AppInfo">GAppInfo*</a></span><span class="property-name">"app-info"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"can-go-next"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"title"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"can-go-previous"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"can-pause"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"is-blacklisted"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem*</a></span><span class="property-name">"track-menu"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"desktop-file-name"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Unity-6.0.html#Unity.TrackMetadata">UnityTrackMetadata*</a></span><span class="property-name">"current-track"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Enumeration type " href="Unity-6.0.html#Unity.PlaybackState">UnityPlaybackState</a></span><span class="property-name">"playback-state"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem*</a></span><span class="property-name">"player-menu"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"next"</span><span class="signal-parameters">(UnityMusicPlayer *music_player)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"previous"</span><span class="signal-parameters">(UnityMusicPlayer *music_player)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"activate_playlist"</span><span class="signal-parameters">(UnityMusicPlayer *music_player, const char* playlist_id)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"raise"</span><span class="signal-parameters">(UnityMusicPlayer *music_player)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"play_pause"</span><span class="signal-parameters">(UnityMusicPlayer *music_player)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.MusicPlayer">UnityMusicPlayer</a>*</span><span class="method-name">unity_music_player_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *desktop)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">unity_music_player_add_playlist</span><span class="method-parameters">(UnityMusicPlayer *self, <a class="link-Class type " href="Unity-6.0.html#Unity.Playlist">UnityPlaylist</a> *p)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_music_player_edit_playlist_name</span><span class="method-parameters">(UnityMusicPlayer *self, <span class="type-basetype type ">gchar</span> *id, <span class="type-basetype type ">gchar</span> *name)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_music_player_export</span><span class="method-parameters">(UnityMusicPlayer *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">UnityPlaylist**</span></span><span class="method-name">unity_music_player_get_playlists</span><span class="method-parameters">(UnityMusicPlayer *self, <span class="type-basetype type ">gint</span> *result_length1)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">unity_music_player_remove_playlist</span><span class="method-parameters">(UnityMusicPlayer *self, <a class="link-Class type " href="Unity-6.0.html#Unity.Playlist">UnityPlaylist</a> *p)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_music_player_unexport</span><span class="method-parameters">(UnityMusicPlayer *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.MusicPreview" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.MusicPreview">Class: UnityMusicPreview</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Unity-6.0.html#Unity.Preview">UnityPreview</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"current-track-uri"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Enumeration type " href="Unity-6.0.html#Unity.MusicPreviewTrackState">UnityMusicPreviewTrackState</a></span><span class="property-name">"current-track-state"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gfloat</span></span><span class="property-name">"current-progress"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"play"</span><span class="signal-parameters">(UnityMusicPreview *music_preview, gchar* uri)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"pause"</span><span class="signal-parameters">(UnityMusicPreview *music_preview, gchar* uri)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.MusicPreview">UnityMusicPreview</a>*</span><span class="method-name">unity_music_preview_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *title, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *subtitle, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *image)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_music_preview_add_track</span><span class="method-parameters">(UnityMusicPreview *self, <a class="link-Class type " href="Unity-6.0.html#Unity.TrackMetadata">UnityTrackMetadata</a> *track)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.OptionsFilter" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.OptionsFilter">Class: UnityOptionsFilter</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class type " href="Unity-6.0.html#Unity.CheckOptionFilterCompact">UnityCheckOptionFilterCompact</a>, <a class="link-Class type " href="Unity-6.0.html#Unity.RadioOptionFilter">UnityRadioOptionFilter</a>, <a class="link-Class type " href="Unity-6.0.html#Unity.CheckOptionFilter">UnityCheckOptionFilter</a>, <a class="link-Class type " href="Unity-6.0.html#Unity.MultiRangeFilter">UnityMultiRangeFilter</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="Unity-6.0.html#Unity.Filter">UnityFilter</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Enumeration type " href="Unity-6.0.html#Unity.OptionsFilterSortType">UnityOptionsFilterSortType</a></span><span class="property-name">"sort-type"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.OptionsFilter">UnityOptionsFilter</a>*</span><span class="method-name">unity_options_filter_new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.FilterOption">UnityFilterOption*</a></span><span class="method-name">unity_options_filter_add_option</span><span class="method-parameters">(UnityOptionsFilter *self, <span class="type-basetype type ">gchar</span> *id, <span class="type-basetype type ">gchar</span> *display_name, <a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon</a> *icon_hint)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.FilterOption">UnityFilterOption*</a></span><span class="method-name">unity_options_filter_get_option</span><span class="method-parameters">(UnityOptionsFilter *self, <span class="type-basetype type ">gchar</span> *id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">unity_options_filter_remove_option</span><span class="method-parameters">(UnityOptionsFilter *self, <span class="type-basetype type ">gchar</span> *id)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.PaymentPreview" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.PaymentPreview">Class: UnityPaymentPreview</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Unity-6.0.html#Unity.Preview">UnityPreview</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"payment-method"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"purchase-type"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Enumeration type " href="Unity-6.0.html#Unity.PaymentPreviewType">UnityPaymentPreviewType</a></span><span class="property-name">"preview-type"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"header"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"purchase-prize"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"email"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.PaymentPreview">UnityPaymentPreview</a>*</span><span class="method-name">unity_payment_preview_new_for_type</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *title, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *subtitle, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *image, <a class="link-Type type " href="Unity-6.0.html#Unity.PaymentPreviewType">UnityPaymentPreviewType</a> type)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.PaymentPreview">UnityPaymentPreview</a>*</span><span class="method-name">unity_payment_preview_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *title, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *subtitle, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *image)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.PaymentPreview">UnityPaymentPreview</a>*</span><span class="method-name">unity_payment_preview_new_for_error</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *title, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *subtitle, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *image)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.PaymentPreview">UnityPaymentPreview</a>*</span><span class="method-name">unity_payment_preview_new_for_application</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *title, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *subtitle, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *image)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.PaymentPreview">UnityPaymentPreview</a>*</span><span class="method-name">unity_payment_preview_new_for_music</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *title, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *subtitle, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *image)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.Playlist" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.Playlist">Class: UnityPlaylist</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"name"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Record type " href="GLib-2.0.html#GLib.DateTime">GDateTime*</a></span><span class="property-name">"last-play-date"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Record type " href="GLib-2.0.html#GLib.DateTime">GDateTime*</a></span><span class="property-name">"creation-date"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Record type " href="GLib-2.0.html#GLib.DateTime">GDateTime*</a></span><span class="property-name">"modification-date"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"id"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon*</a></span><span class="property-name">"icon"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.Playlist">UnityPlaylist</a>*</span><span class="method-name">unity_playlist_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *id)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.PreferencesManager" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.PreferencesManager">Class: UnityPreferencesManager</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Enumeration type " href="Unity-6.0.html#Unity.PreferencesManagerRemoteContent">UnityPreferencesManagerRemoteContent</a></span><span class="property-name">"remote-content-search"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.PreferencesManager">UnityPreferencesManager*</a></span><span class="method-name">unity_preferences_manager_get_default</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-abstract">
+<a href="Unity-6.0.html#Unity.Preview" class="class-anchor">⚓</a><h2 class="class-abstract" id="Unity.Preview">Abstract Class: UnityPreview</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface type " href="Dee-1.0.html#Dee.Serializable">DeeSerializable</a></p>
+<p>
+Known subclasses: <a class="link-Class type " href="Unity-6.0.html#Unity.SocialPreview">UnitySocialPreview</a>, <a class="link-Class type " href="Unity-6.0.html#Unity.MusicPreview">UnityMusicPreview</a>, <a class="link-Class type " href="Unity-6.0.html#Unity.PaymentPreview">UnityPaymentPreview</a>, <a class="link-Class type " href="Unity-6.0.html#Unity.AsyncPreview">UnityAsyncPreview</a>, <a class="link-Class type " href="Unity-6.0.html#Unity.ApplicationPreview">UnityApplicationPreview</a>, <a class="link-Class type " href="Unity-6.0.html#Unity.GenericPreview">UnityGenericPreview</a>, <a class="link-Class type " href="Unity-6.0.html#Unity.MoviePreview">UnityMoviePreview</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon*</a></span><span class="property-name">"image"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"subtitle"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"description-markup"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"image-source-uri"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"title"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"closed"</span><span class="signal-parameters">(UnityPreview *preview)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_preview_add_action</span><span class="method-parameters">(UnityPreview *self, <a class="link-Class type " href="Unity-6.0.html#Unity.PreviewAction">UnityPreviewAction</a> *action)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_preview_add_info</span><span class="method-parameters">(UnityPreview *self, <a class="link-Class type " href="Unity-6.0.html#Unity.InfoHint">UnityInfoHint</a> *info_hint)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.PreviewAction" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.PreviewAction">Class: UnityPreviewAction</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface type " href="Dee-1.0.html#Dee.Serializable">DeeSerializable</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon*</a></span><span class="property-name">"icon-hint"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Enumeration type " href="Unity-6.0.html#Unity.LayoutHint">UnityLayoutHint</a></span><span class="property-name">"layout-hint"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"display-name"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"extra-text"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"id"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Record type " href="GLib-2.0.html#GLib.HashTable">GHashTable*</a></span><span class="property-name">"hints"</span><span class="property-access"> read-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">UnityActivationResponse</span><span class="signal-name">"activated"</span><span class="signal-parameters">(UnityPreviewAction *preview_action, gchar* uri)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.PreviewAction">UnityPreviewAction</a>*</span><span class="method-name">unity_preview_action_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *id, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *display_name, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *icon_hint)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.PreviewAction">UnityPreviewAction</a>*</span><span class="method-name">unity_preview_action_new_with_layout_hint</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *id, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *display_name, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *icon_hint, <a class="link-Type type " href="Unity-6.0.html#Unity.LayoutHint">UnityLayoutHint</a> layout)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.RadioOptionFilter" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.RadioOptionFilter">Class: UnityRadioOptionFilter</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Unity-6.0.html#Unity.OptionsFilter">UnityOptionsFilter</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.RadioOptionFilter">UnityRadioOptionFilter</a>*</span><span class="method-name">unity_radio_option_filter_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *id, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *display_name, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *icon_hint, <a class="link-Type type " href="Unity-6.0.html#gboolean">gboolean</a> collapsed)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.FilterOption">UnityFilterOption*</a></span><span class="method-name">unity_radio_option_filter_get_active_option</span><span class="method-parameters">(UnityRadioOptionFilter *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.RatingsFilter" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.RatingsFilter">Class: UnityRatingsFilter</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Unity-6.0.html#Unity.Filter">UnityFilter</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gfloat</span></span><span class="property-name">"rating"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.RatingsFilter">UnityRatingsFilter</a>*</span><span class="method-name">unity_ratings_filter_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *id, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *display_name, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *icon_hint, <a class="link-Type type " href="Unity-6.0.html#gboolean">gboolean</a> collapsed)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.Scope" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.Scope">Class: UnityScope</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"provides-personal-content"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Unity-6.0.html#Unity.OptionsFilter">UnityOptionsFilter*</a></span><span class="property-name">"sources"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"search-in-global"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"exported"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="property-name">"filters"</span><span class="property-access"> read-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Dee-1.0.html#Dee.SerializableModel">DeeSerializableModel*</a></span><span class="property-name">"results-model"</span><span class="property-access"> read-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"active"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Dee-1.0.html#Dee.SerializableModel">DeeSerializableModel*</a></span><span class="property-name">"global-results-model"</span><span class="property-access"> read-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"dbus-path"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"search_changed"</span><span class="signal-parameters">(UnityScope *scope, UnityLensSearch search, UnitySearchType search_type, GCancellable cancellable)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">UnityPreview</span><span class="signal-name">"preview_uri"</span><span class="signal-parameters">(UnityScope *scope, gchar* uri)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"active_sources_changed"</span><span class="signal-parameters">(UnityScope *scope, gchar* active_ids, gint active_ids_length1)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"filters_changed"</span><span class="signal-parameters">(UnityScope *scope)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">gchar*</span><span class="signal-name">"generate_search_key"</span><span class="signal-parameters">(UnityScope *scope, UnityLensSearch search)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">UnityActivationResponse</span><span class="signal-name">"activate_uri"</span><span class="signal-parameters">(UnityScope *scope, gchar* uri)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.Scope">UnityScope</a>*</span><span class="method-name">unity_scope_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *dbus_path_)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_scope_export</span><span class="method-parameters">(UnityScope *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.Filter">UnityFilter*</a></span><span class="method-name">unity_scope_get_filter</span><span class="method-parameters">(UnityScope *self, <span class="type-basetype type ">gchar</span> *id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_scope_invalidate_search</span><span class="method-parameters">(UnityScope *self, <a class="link-Enumeration type " href="Unity-6.0.html#Unity.SearchType">UnitySearchType</a> search_type)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_scope_queue_search_changed</span><span class="method-parameters">(UnityScope *self, <a class="link-Enumeration type " href="Unity-6.0.html#Unity.SearchType">UnitySearchType</a> search_type)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.SocialPreview" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.SocialPreview">Class: UnitySocialPreview</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Unity-6.0.html#Unity.Preview">UnityPreview</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"content"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon*</a></span><span class="property-name">"avatar"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"sender"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.SocialPreview">UnitySocialPreview</a>*</span><span class="method-name">unity_social_preview_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *sender, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *subtitle, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *content, <a class="link-Type type " href="Unity-6.0.html#Gio.Icon">GIcon</a> *avatar)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_social_preview_add_comment</span><span class="method-parameters">(UnitySocialPreview *self, <a class="link-Class type " href="Unity-6.0.html#Unity.SocialPreviewComment">UnitySocialPreviewComment</a> *comment)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.SocialPreviewComment" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.SocialPreviewComment">Class: UnitySocialPreviewComment</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.InitiallyUnowned">GInitiallyUnowned</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"text"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"time"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"id"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"name"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.SocialPreviewComment">UnitySocialPreviewComment</a>*</span><span class="method-name">unity_social_preview_comment_new</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *id, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *name, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *text, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *time)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Unity-6.0.html#Unity.TrackMetadata" class="class-anchor">⚓</a><h2 class="class-normal" id="Unity.TrackMetadata">Class: UnityTrackMetadata</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"album"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Interface type " href="Gio-2.0.html#Gio.Icon">GIcon*</a></span><span class="property-name">"art-icon"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"title"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Interface type " href="Gio-2.0.html#Gio.File">GFile*</a></span><span class="property-name">"art-location"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"artist"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"uri"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">guint</span></span><span class="property-name">"length"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gint</span></span><span class="property-name">"track-no"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.TrackMetadata">UnityTrackMetadata</a>*</span><span class="method-name">unity_track_metadata_new</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Unity-6.0.html#Unity.TrackMetadata">UnityTrackMetadata</a>*</span><span class="method-name">unity_track_metadata_new_full</span><span class="method-parameters">(<a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *uri, <a class="link-Type type " href="Unity-6.0.html#gint">gint</a> track_no, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *title, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *artist, <a class="link-Type type " href="Unity-6.0.html#utf8">const gchar</a> *album, <a class="link-Type type " href="Unity-6.0.html#guint">guint</a> length)</span></p>
+</div>
+</div>
+</div>
+</body>
+</html>
+

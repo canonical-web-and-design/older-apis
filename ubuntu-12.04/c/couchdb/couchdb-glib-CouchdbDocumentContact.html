@@ -1,0 +1,1353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CouchdbDocumentContact</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Reference Manual for CouchDB GLib Bindings">
+<link rel="up" href="ch01.html" title="Core API">
+<link rel="prev" href="couchdb-glib-CouchdbDesignDocument.html" title="CouchdbDesignDocument">
+<link rel="next" href="couchdb-glib-CouchdbDocumentTask.html" title="CouchdbDocumentTask">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="couchdb-glib-CouchdbDesignDocument.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Reference Manual for CouchDB GLib Bindings</th>
+<td><a accesskey="n" href="couchdb-glib-CouchdbDocumentTask.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="couchdb-glib-CouchdbDocumentContact.html#couchdb-glib-CouchdbDocumentContact.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="couchdb-glib-CouchdbDocumentContact.html#couchdb-glib-CouchdbDocumentContact.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="couchdb-glib-CouchdbDocumentContact"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="couchdb-glib-CouchdbDocumentContact.top_of_page"></a>CouchdbDocumentContact</span></h2>
+<p>CouchdbDocumentContact</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="couchdb-glib-CouchdbDocumentContact.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACTGET-CLASS:CAPS" title="COUCHDB_DOCUMENT_CONTACTGET_CLASS()">COUCHDB_DOCUMENT_CONTACTGET_CLASS</a>   (obj)
+                    <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact">CouchdbDocumentContact</a>;
+                    <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContactClass" title="CouchdbDocumentContactClass">CouchdbDocumentContactClass</a>;
+<a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="returnvalue">CouchdbDocumentContact</span></a> * <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-new" title="couchdb_document_contact_new ()">couchdb_document_contact_new</a>   (<em class="parameter"><code><span class="type">void</span></code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-title" title="couchdb_document_contact_get_title ()">couchdb_document_contact_get_title</a>  (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-title" title="couchdb_document_contact_set_title ()">couchdb_document_contact_set_title</a>  (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *title</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-first-name" title="couchdb_document_contact_get_first_name ()">couchdb_document_contact_get_first_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-first-name" title="couchdb_document_contact_set_first_name ()">couchdb_document_contact_set_first_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *first_name</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-middle-name" title="couchdb_document_contact_get_middle_name ()">couchdb_document_contact_get_middle_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-middle-name" title="couchdb_document_contact_set_middle_name ()">couchdb_document_contact_set_middle_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *middle_name</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-last-name" title="couchdb_document_contact_get_last_name ()">couchdb_document_contact_get_last_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-last-name" title="couchdb_document_contact_set_last_name ()">couchdb_document_contact_set_last_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *last_name</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-suffix" title="couchdb_document_contact_get_suffix ()">couchdb_document_contact_get_suffix</a> (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-suffix" title="couchdb_document_contact_set_suffix ()">couchdb_document_contact_set_suffix</a> (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *suffix</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-nick-name" title="couchdb_document_contact_get_nick_name ()">couchdb_document_contact_get_nick_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-nick-name" title="couchdb_document_contact_set_nick_name ()">couchdb_document_contact_set_nick_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *nick_name</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-spouse-name" title="couchdb_document_contact_get_spouse_name ()">couchdb_document_contact_get_spouse_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-spouse-name" title="couchdb_document_contact_set_spouse_name ()">couchdb_document_contact_set_spouse_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *spouse_name</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-birth-date" title="couchdb_document_contact_get_birth_date ()">couchdb_document_contact_get_birth_date</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-birth-date" title="couchdb_document_contact_set_birth_date ()">couchdb_document_contact_set_birth_date</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *birth_date</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-wedding-date" title="couchdb_document_contact_get_wedding_date ()">couchdb_document_contact_get_wedding_date</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-wedding-date" title="couchdb_document_contact_set_wedding_date ()">couchdb_document_contact_set_wedding_date</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *wedding_date</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-company" title="couchdb_document_contact_get_company ()">couchdb_document_contact_get_company</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-company" title="couchdb_document_contact_set_company ()">couchdb_document_contact_set_company</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *company</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-department" title="couchdb_document_contact_get_department ()">couchdb_document_contact_get_department</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-department" title="couchdb_document_contact_set_department ()">couchdb_document_contact_set_department</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *department</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-job-title" title="couchdb_document_contact_get_job_title ()">couchdb_document_contact_get_job_title</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-job-title" title="couchdb_document_contact_set_job_title ()">couchdb_document_contact_set_job_title</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *job_title</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-manager-name" title="couchdb_document_contact_get_manager_name ()">couchdb_document_contact_get_manager_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-manager-name" title="couchdb_document_contact_set_manager_name ()">couchdb_document_contact_set_manager_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *manager_name</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-assistant-name" title="couchdb_document_contact_get_assistant_name ()">couchdb_document_contact_get_assistant_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-assistant-name" title="couchdb_document_contact_set_assistant_name ()">couchdb_document_contact_set_assistant_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *assistant_name</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-office" title="couchdb_document_contact_get_office ()">couchdb_document_contact_get_office</a> (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-office" title="couchdb_document_contact_set_office ()">couchdb_document_contact_set_office</a> (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *office</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-email-addresses" title="couchdb_document_contact_get_email_addresses ()">couchdb_document_contact_get_email_addresses</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-email-addresses" title="couchdb_document_contact_set_email_addresses ()">couchdb_document_contact_set_email_addresses</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *list</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-phone-numbers" title="couchdb_document_contact_get_phone_numbers ()">couchdb_document_contact_get_phone_numbers</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-phone-numbers" title="couchdb_document_contact_set_phone_numbers ()">couchdb_document_contact_set_phone_numbers</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *list</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-addresses" title="couchdb_document_contact_get_addresses ()">couchdb_document_contact_get_addresses</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-addresses" title="couchdb_document_contact_set_addresses ()">couchdb_document_contact_set_addresses</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *list</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-im-addresses" title="couchdb_document_contact_get_im_addresses ()">couchdb_document_contact_get_im_addresses</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-im-addresses" title="couchdb_document_contact_set_im_addresses ()">couchdb_document_contact_set_im_addresses</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *list</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-urls" title="couchdb_document_contact_get_urls ()">couchdb_document_contact_get_urls</a>   (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-urls" title="couchdb_document_contact_set_urls ()">couchdb_document_contact_set_urls</a>   (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *list</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-categories" title="couchdb_document_contact_get_categories ()">couchdb_document_contact_get_categories</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-categories" title="couchdb_document_contact_set_categories ()">couchdb_document_contact_set_categories</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *categories</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-get-notes" title="couchdb_document_contact_get_notes ()">couchdb_document_contact_get_notes</a>  (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-set-notes" title="couchdb_document_contact_set_notes ()">couchdb_document_contact_set_notes</a>  (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *notes</code></em>);
+<a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-email-new" title="couchdb_document_contact_email_new ()">couchdb_document_contact_email_new</a> (<em class="parameter"><code>const <span class="type">char</span> *uuid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *address</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-email-get-address" title="couchdb_document_contact_email_get_address ()">couchdb_document_contact_email_get_address</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-email-set-address" title="couchdb_document_contact_email_set_address ()">couchdb_document_contact_email_set_address</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *email</code></em>);
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-EMAIL-DESCRIPTION-HOME:CAPS" title="COUCHDB_DOCUMENT_CONTACT_EMAIL_DESCRIPTION_HOME">COUCHDB_DOCUMENT_CONTACT_EMAIL_DESCRIPTION_HOME</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-EMAIL-DESCRIPTION-OTHER:CAPS" title="COUCHDB_DOCUMENT_CONTACT_EMAIL_DESCRIPTION_OTHER">COUCHDB_DOCUMENT_CONTACT_EMAIL_DESCRIPTION_OTHER</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-EMAIL-DESCRIPTION-WORK:CAPS" title="COUCHDB_DOCUMENT_CONTACT_EMAIL_DESCRIPTION_WORK">COUCHDB_DOCUMENT_CONTACT_EMAIL_DESCRIPTION_WORK</a>
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-email-get-description" title="couchdb_document_contact_email_get_description ()">couchdb_document_contact_email_get_description</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-email-set-description" title="couchdb_document_contact_email_set_description ()">couchdb_document_contact_email_set_description</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>);
+<a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-phone-new" title="couchdb_document_contact_phone_new ()">couchdb_document_contact_phone_new</a> (<em class="parameter"><code>const <span class="type">char</span> *uuid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *number</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> priority</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-phone-get-priority" title="couchdb_document_contact_phone_get_priority ()">couchdb_document_contact_phone_get_priority</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-phone-set-priority" title="couchdb_document_contact_phone_set_priority ()">couchdb_document_contact_phone_set_priority</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> priority</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-phone-get-number" title="couchdb_document_contact_phone_get_number ()">couchdb_document_contact_phone_get_number</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-phone-set-number" title="couchdb_document_contact_phone_set_number ()">couchdb_document_contact_phone_set_number</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *number</code></em>);
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-ASSISTANT:CAPS" title="COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_ASSISTANT">COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_ASSISTANT</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-CALLBACK:CAPS" title="COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_CALLBACK">COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_CALLBACK</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-CAR:CAPS" title="COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_CAR">COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_CAR</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-COMPANY:CAPS" title="COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_COMPANY">COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_COMPANY</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-HOME:CAPS" title="COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_HOME">COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_HOME</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-HOME-FAX:CAPS" title="COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_HOME_FAX">COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_HOME_FAX</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-MOBILE:CAPS" title="COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_MOBILE">COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_MOBILE</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-OTHER:CAPS" title="COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_OTHER">COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_OTHER</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-OTHER-FAX:CAPS" title="COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_OTHER_FAX">COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_OTHER_FAX</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-PAGER:CAPS" title="COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_PAGER">COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_PAGER</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-PRIMARY:CAPS" title="COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_PRIMARY">COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_PRIMARY</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-RADIO:CAPS" title="COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_RADIO">COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_RADIO</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-TELEX:CAPS" title="COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_TELEX">COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_TELEX</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-WORK:CAPS" title="COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_WORK">COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_WORK</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-WORK-FAX:CAPS" title="COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_WORK_FAX">COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_WORK_FAX</a>
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-phone-get-description" title="couchdb_document_contact_phone_get_description ()">couchdb_document_contact_phone_get_description</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-phone-set-description" title="couchdb_document_contact_phone_set_description ()">couchdb_document_contact_phone_set_description</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>);
+<a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-address-new" title="couchdb_document_contact_address_new ()">couchdb_document_contact_address_new</a>
+                                                        (<em class="parameter"><code>const <span class="type">char</span> *uuid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *street</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *ext_street</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *city</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *state</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *country</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *postalcode</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *pobox</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-address-get-street" title="couchdb_document_contact_address_get_street ()">couchdb_document_contact_address_get_street</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-address-set-street" title="couchdb_document_contact_address_set_street ()">couchdb_document_contact_address_set_street</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *street</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-address-get-ext-street" title="couchdb_document_contact_address_get_ext_street ()">couchdb_document_contact_address_get_ext_street</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-address-set-ext-street" title="couchdb_document_contact_address_set_ext_street ()">couchdb_document_contact_address_set_ext_street</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *ext_street</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-address-get-city" title="couchdb_document_contact_address_get_city ()">couchdb_document_contact_address_get_city</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-address-set-city" title="couchdb_document_contact_address_set_city ()">couchdb_document_contact_address_set_city</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *city</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-address-get-state" title="couchdb_document_contact_address_get_state ()">couchdb_document_contact_address_get_state</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-address-set-state" title="couchdb_document_contact_address_set_state ()">couchdb_document_contact_address_set_state</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *state</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-address-get-country" title="couchdb_document_contact_address_get_country ()">couchdb_document_contact_address_get_country</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-address-set-country" title="couchdb_document_contact_address_set_country ()">couchdb_document_contact_address_set_country</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *country</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-address-get-postalcode" title="couchdb_document_contact_address_get_postalcode ()">couchdb_document_contact_address_get_postalcode</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-address-set-postalcode" title="couchdb_document_contact_address_set_postalcode ()">couchdb_document_contact_address_set_postalcode</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *postalcode</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-address-get-pobox" title="couchdb_document_contact_address_get_pobox ()">couchdb_document_contact_address_get_pobox</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-address-set-pobox" title="couchdb_document_contact_address_set_pobox ()">couchdb_document_contact_address_set_pobox</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *pobox</code></em>);
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-ADDRESS-DESCRIPTION-HOME:CAPS" title="COUCHDB_DOCUMENT_CONTACT_ADDRESS_DESCRIPTION_HOME">COUCHDB_DOCUMENT_CONTACT_ADDRESS_DESCRIPTION_HOME</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-ADDRESS-DESCRIPTION-OTHER:CAPS" title="COUCHDB_DOCUMENT_CONTACT_ADDRESS_DESCRIPTION_OTHER">COUCHDB_DOCUMENT_CONTACT_ADDRESS_DESCRIPTION_OTHER</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-ADDRESS-DESCRIPTION-WORK:CAPS" title="COUCHDB_DOCUMENT_CONTACT_ADDRESS_DESCRIPTION_WORK">COUCHDB_DOCUMENT_CONTACT_ADDRESS_DESCRIPTION_WORK</a>
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-address-get-description" title="couchdb_document_contact_address_get_description ()">couchdb_document_contact_address_get_description</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-address-set-description" title="couchdb_document_contact_address_set_description ()">couchdb_document_contact_address_set_description</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>);
+<a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-im-new" title="couchdb_document_contact_im_new ()">couchdb_document_contact_im_new</a>    (<em class="parameter"><code>const <span class="type">char</span> *uuid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *address</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *protocol</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-im-get-address" title="couchdb_document_contact_im_get_address ()">couchdb_document_contact_im_get_address</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-im-set-address" title="couchdb_document_contact_im_set_address ()">couchdb_document_contact_im_set_address</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *address</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-im-get-description" title="couchdb_document_contact_im_get_description ()">couchdb_document_contact_im_get_description</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-im-set-description" title="couchdb_document_contact_im_set_description ()">couchdb_document_contact_im_set_description</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>);
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-IM-PROTOCOL-AIM:CAPS" title="COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_AIM">COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_AIM</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-IM-PROTOCOL-GADU-GADU:CAPS" title="COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_GADU_GADU">COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_GADU_GADU</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-IM-PROTOCOL-GROUPWISE:CAPS" title="COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_GROUPWISE">COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_GROUPWISE</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-IM-PROTOCOL-ICQ:CAPS" title="COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_ICQ">COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_ICQ</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-IM-PROTOCOL-IRC:CAPS" title="COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_IRC">COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_IRC</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-IM-PROTOCOL-JABBER:CAPS" title="COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_JABBER">COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_JABBER</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-IM-PROTOCOL-MSN:CAPS" title="COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_MSN">COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_MSN</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-IM-PROTOCOL-SKYPE:CAPS" title="COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_SKYPE">COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_SKYPE</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-IM-PROTOCOL-YAHOO:CAPS" title="COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_YAHOO">COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_YAHOO</a>
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-im-get-protocol" title="couchdb_document_contact_im_get_protocol ()">couchdb_document_contact_im_get_protocol</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-im-set-protocol" title="couchdb_document_contact_im_set_protocol ()">couchdb_document_contact_im_set_protocol</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *protocol</code></em>);
+<a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-url-new" title="couchdb_document_contact_url_new ()">couchdb_document_contact_url_new</a>   (<em class="parameter"><code>const <span class="type">char</span> *uuid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *address</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-url-get-address" title="couchdb_document_contact_url_get_address ()">couchdb_document_contact_url_get_address</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-url-set-address" title="couchdb_document_contact_url_set_address ()">couchdb_document_contact_url_set_address</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *address</code></em>);
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-URL-DESCRIPTION-BLOG:CAPS" title="COUCHDB_DOCUMENT_CONTACT_URL_DESCRIPTION_BLOG">COUCHDB_DOCUMENT_CONTACT_URL_DESCRIPTION_BLOG</a>
+#define             <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#COUCHDB-DOCUMENT-CONTACT-URL-DESCRIPTION-HOMEPAGE:CAPS" title="COUCHDB_DOCUMENT_CONTACT_URL_DESCRIPTION_HOMEPAGE">COUCHDB_DOCUMENT_CONTACT_URL_DESCRIPTION_HOMEPAGE</a>
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-url-get-description" title="couchdb_document_contact_url_get_description ()">couchdb_document_contact_url_get_description</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#couchdb-document-contact-url-set-description" title="couchdb_document_contact_url_set_description ()">couchdb_document_contact_url_set_description</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="couchdb-glib-CouchdbDocumentContact.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="couchdb-glib-CouchdbDocumentContact.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACTGET-CLASS:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACTGET_CLASS()</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACTGET_CLASS(obj)      (G_TYPE_INSTANCE_GET_CLASS ((obj), COUCHDB_TYPE_DOCUMENT_CONTACT, CouchdbDocumentContactClass))
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CouchdbDocumentContact"></a><h3>CouchdbDocumentContact</h3>
+<pre class="programlisting">typedef struct {
+	CouchdbDocument parent;
+} CouchdbDocumentContact;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CouchdbDocumentContactClass"></a><h3>CouchdbDocumentContactClass</h3>
+<pre class="programlisting">typedef struct {
+	CouchdbDocumentClass parent_class;
+} CouchdbDocumentContactClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-new"></a><h3>couchdb_document_contact_new ()</h3>
+<pre class="programlisting"><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="returnvalue">CouchdbDocumentContact</span></a> * couchdb_document_contact_new   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Create a new <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> object.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-title"></a><h3>couchdb_document_contact_get_title ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_get_title  (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-title"></a><h3>couchdb_document_contact_set_title ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_title  (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *title</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-first-name"></a><h3>couchdb_document_contact_get_first_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_get_first_name
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-first-name"></a><h3>couchdb_document_contact_set_first_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_first_name
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *first_name</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-middle-name"></a><h3>couchdb_document_contact_get_middle_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_get_middle_name
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-middle-name"></a><h3>couchdb_document_contact_set_middle_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_middle_name
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *middle_name</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-last-name"></a><h3>couchdb_document_contact_get_last_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_get_last_name
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-last-name"></a><h3>couchdb_document_contact_set_last_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_last_name
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *last_name</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-suffix"></a><h3>couchdb_document_contact_get_suffix ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_get_suffix (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-suffix"></a><h3>couchdb_document_contact_set_suffix ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_suffix (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *suffix</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-nick-name"></a><h3>couchdb_document_contact_get_nick_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_get_nick_name
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-nick-name"></a><h3>couchdb_document_contact_set_nick_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_nick_name
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *nick_name</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-spouse-name"></a><h3>couchdb_document_contact_get_spouse_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_get_spouse_name
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-spouse-name"></a><h3>couchdb_document_contact_set_spouse_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_spouse_name
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *spouse_name</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-birth-date"></a><h3>couchdb_document_contact_get_birth_date ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_get_birth_date
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-birth-date"></a><h3>couchdb_document_contact_set_birth_date ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_birth_date
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *birth_date</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-wedding-date"></a><h3>couchdb_document_contact_get_wedding_date ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_get_wedding_date
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-wedding-date"></a><h3>couchdb_document_contact_set_wedding_date ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_wedding_date
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *wedding_date</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-company"></a><h3>couchdb_document_contact_get_company ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_get_company
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-company"></a><h3>couchdb_document_contact_set_company ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_company
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *company</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-department"></a><h3>couchdb_document_contact_get_department ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_get_department
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-department"></a><h3>couchdb_document_contact_set_department ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_department
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *department</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-job-title"></a><h3>couchdb_document_contact_get_job_title ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_get_job_title
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-job-title"></a><h3>couchdb_document_contact_set_job_title ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_job_title
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *job_title</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-manager-name"></a><h3>couchdb_document_contact_get_manager_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_get_manager_name
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-manager-name"></a><h3>couchdb_document_contact_set_manager_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_manager_name
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *manager_name</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-assistant-name"></a><h3>couchdb_document_contact_get_assistant_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_get_assistant_name
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-assistant-name"></a><h3>couchdb_document_contact_set_assistant_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_assistant_name
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *assistant_name</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-office"></a><h3>couchdb_document_contact_get_office ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_get_office (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-office"></a><h3>couchdb_document_contact_set_office ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_office (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *office</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-email-addresses"></a><h3>couchdb_document_contact_get_email_addresses ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            couchdb_document_contact_get_email_addresses
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+Retrieve a list of email addresses from the specified contact document.
+Email addresses are returned in a GSList of <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> objects,
+which can be manipulated with the couchdb_document_contact_email_* functions
+and freed with:
+    g_slist_foreach (list, (GFunc) couchdb_struct_field_unref, NULL);
+    g_slist_free (list);
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> object representing a contact</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <span class="type">GSList</span> of <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> objects.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-email-addresses"></a><h3>couchdb_document_contact_set_email_addresses ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_email_addresses
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *list</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-phone-numbers"></a><h3>couchdb_document_contact_get_phone_numbers ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            couchdb_document_contact_get_phone_numbers
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-phone-numbers"></a><h3>couchdb_document_contact_set_phone_numbers ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_phone_numbers
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *list</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-addresses"></a><h3>couchdb_document_contact_get_addresses ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            couchdb_document_contact_get_addresses
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-addresses"></a><h3>couchdb_document_contact_set_addresses ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_addresses
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *list</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-im-addresses"></a><h3>couchdb_document_contact_get_im_addresses ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            couchdb_document_contact_get_im_addresses
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-im-addresses"></a><h3>couchdb_document_contact_set_im_addresses ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_im_addresses
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *list</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-urls"></a><h3>couchdb_document_contact_get_urls ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            couchdb_document_contact_get_urls   (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-urls"></a><h3>couchdb_document_contact_set_urls ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_urls   (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code><span class="type">GSList</span> *list</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-categories"></a><h3>couchdb_document_contact_get_categories ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_get_categories
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+Get the list of categories (as a string) for this contact document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A comma separated list of categories as a string.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-categories"></a><h3>couchdb_document_contact_set_categories ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_categories
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *categories</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-get-notes"></a><h3>couchdb_document_contact_get_notes ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_get_notes  (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-set-notes"></a><h3>couchdb_document_contact_set_notes ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_set_notes  (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbDocumentContact.html#CouchdbDocumentContact" title="CouchdbDocumentContact"><span class="type">CouchdbDocumentContact</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *notes</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-email-new"></a><h3>couchdb_document_contact_email_new ()</h3>
+<pre class="programlisting"><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * couchdb_document_contact_email_new (<em class="parameter"><code>const <span class="type">char</span> *uuid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *address</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-email-get-address"></a><h3>couchdb_document_contact_email_get_address ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_email_get_address
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-email-set-address"></a><h3>couchdb_document_contact_email_set_address ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_email_set_address
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *email</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-EMAIL-DESCRIPTION-HOME:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_EMAIL_DESCRIPTION_HOME</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_EMAIL_DESCRIPTION_HOME  "home"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-EMAIL-DESCRIPTION-OTHER:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_EMAIL_DESCRIPTION_OTHER</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_EMAIL_DESCRIPTION_OTHER "other"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-EMAIL-DESCRIPTION-WORK:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_EMAIL_DESCRIPTION_WORK</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_EMAIL_DESCRIPTION_WORK  "work"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-email-get-description"></a><h3>couchdb_document_contact_email_get_description ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_email_get_description
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-email-set-description"></a><h3>couchdb_document_contact_email_set_description ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_email_set_description
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-phone-new"></a><h3>couchdb_document_contact_phone_new ()</h3>
+<pre class="programlisting"><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * couchdb_document_contact_phone_new (<em class="parameter"><code>const <span class="type">char</span> *uuid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *number</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> priority</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-phone-get-priority"></a><h3>couchdb_document_contact_phone_get_priority ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                couchdb_document_contact_phone_get_priority
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-phone-set-priority"></a><h3>couchdb_document_contact_phone_set_priority ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_phone_set_priority
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> priority</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-phone-get-number"></a><h3>couchdb_document_contact_phone_get_number ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_phone_get_number
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-phone-set-number"></a><h3>couchdb_document_contact_phone_set_number ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_phone_set_number
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *number</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-ASSISTANT:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_ASSISTANT</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_ASSISTANT "assistant"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-CALLBACK:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_CALLBACK</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_CALLBACK  "callback"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-CAR:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_CAR</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_CAR       "car"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-COMPANY:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_COMPANY</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_COMPANY   "company"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-HOME:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_HOME</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_HOME      "home"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-HOME-FAX:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_HOME_FAX</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_HOME_FAX  "home fax"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-MOBILE:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_MOBILE</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_MOBILE    "mobile"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-OTHER:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_OTHER</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_OTHER     "other"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-OTHER-FAX:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_OTHER_FAX</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_OTHER_FAX "other fax"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-PAGER:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_PAGER</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_PAGER     "pager"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-PRIMARY:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_PRIMARY</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_PRIMARY   "primary"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-RADIO:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_RADIO</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_RADIO     "radio"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-TELEX:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_TELEX</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_TELEX     "telex"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-WORK:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_WORK</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_WORK      "work"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-PHONE-DESCRIPTION-WORK-FAX:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_WORK_FAX</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_PHONE_DESCRIPTION_WORK_FAX  "work fax"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-phone-get-description"></a><h3>couchdb_document_contact_phone_get_description ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_phone_get_description
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-phone-set-description"></a><h3>couchdb_document_contact_phone_set_description ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_phone_set_description
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-address-new"></a><h3>couchdb_document_contact_address_new ()</h3>
+<pre class="programlisting"><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * couchdb_document_contact_address_new
+                                                        (<em class="parameter"><code>const <span class="type">char</span> *uuid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *street</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *ext_street</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *city</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *state</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *country</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *postalcode</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *pobox</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-address-get-street"></a><h3>couchdb_document_contact_address_get_street ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_address_get_street
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-address-set-street"></a><h3>couchdb_document_contact_address_set_street ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_address_set_street
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *street</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-address-get-ext-street"></a><h3>couchdb_document_contact_address_get_ext_street ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_address_get_ext_street
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-address-set-ext-street"></a><h3>couchdb_document_contact_address_set_ext_street ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_address_set_ext_street
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *ext_street</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-address-get-city"></a><h3>couchdb_document_contact_address_get_city ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_address_get_city
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-address-set-city"></a><h3>couchdb_document_contact_address_set_city ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_address_set_city
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *city</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-address-get-state"></a><h3>couchdb_document_contact_address_get_state ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_address_get_state
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-address-set-state"></a><h3>couchdb_document_contact_address_set_state ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_address_set_state
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *state</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-address-get-country"></a><h3>couchdb_document_contact_address_get_country ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_address_get_country
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-address-set-country"></a><h3>couchdb_document_contact_address_set_country ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_address_set_country
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *country</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-address-get-postalcode"></a><h3>couchdb_document_contact_address_get_postalcode ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_address_get_postalcode
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-address-set-postalcode"></a><h3>couchdb_document_contact_address_set_postalcode ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_address_set_postalcode
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *postalcode</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-address-get-pobox"></a><h3>couchdb_document_contact_address_get_pobox ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_address_get_pobox
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-address-set-pobox"></a><h3>couchdb_document_contact_address_set_pobox ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_address_set_pobox
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *pobox</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-ADDRESS-DESCRIPTION-HOME:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_ADDRESS_DESCRIPTION_HOME</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_ADDRESS_DESCRIPTION_HOME  "home"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-ADDRESS-DESCRIPTION-OTHER:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_ADDRESS_DESCRIPTION_OTHER</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_ADDRESS_DESCRIPTION_OTHER "other"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-ADDRESS-DESCRIPTION-WORK:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_ADDRESS_DESCRIPTION_WORK</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_ADDRESS_DESCRIPTION_WORK  "work"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-address-get-description"></a><h3>couchdb_document_contact_address_get_description ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_address_get_description
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-address-set-description"></a><h3>couchdb_document_contact_address_set_description ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_address_set_description
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-im-new"></a><h3>couchdb_document_contact_im_new ()</h3>
+<pre class="programlisting"><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * couchdb_document_contact_im_new    (<em class="parameter"><code>const <span class="type">char</span> *uuid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *address</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *protocol</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-im-get-address"></a><h3>couchdb_document_contact_im_get_address ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_im_get_address
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-im-set-address"></a><h3>couchdb_document_contact_im_set_address ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_im_set_address
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *address</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-im-get-description"></a><h3>couchdb_document_contact_im_get_description ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_im_get_description
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-im-set-description"></a><h3>couchdb_document_contact_im_set_description ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_im_set_description
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-IM-PROTOCOL-AIM:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_AIM</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_AIM       "aim"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-IM-PROTOCOL-GADU-GADU:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_GADU_GADU</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_GADU_GADU "gadu-gadu"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-IM-PROTOCOL-GROUPWISE:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_GROUPWISE</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_GROUPWISE "groupwise"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-IM-PROTOCOL-ICQ:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_ICQ</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_ICQ       "icq"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-IM-PROTOCOL-IRC:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_IRC</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_IRC       "irc"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-IM-PROTOCOL-JABBER:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_JABBER</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_JABBER    "jabber"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-IM-PROTOCOL-MSN:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_MSN</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_MSN       "msn"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-IM-PROTOCOL-SKYPE:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_SKYPE</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_SKYPE     "skype"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-IM-PROTOCOL-YAHOO:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_YAHOO</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_IM_PROTOCOL_YAHOO     "yahoo"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-im-get-protocol"></a><h3>couchdb_document_contact_im_get_protocol ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_im_get_protocol
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-im-set-protocol"></a><h3>couchdb_document_contact_im_set_protocol ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_im_set_protocol
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *protocol</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-url-new"></a><h3>couchdb_document_contact_url_new ()</h3>
+<pre class="programlisting"><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * couchdb_document_contact_url_new   (<em class="parameter"><code>const <span class="type">char</span> *uuid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *address</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-url-get-address"></a><h3>couchdb_document_contact_url_get_address ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_url_get_address
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-url-set-address"></a><h3>couchdb_document_contact_url_set_address ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_url_set_address
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *address</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-URL-DESCRIPTION-BLOG:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_URL_DESCRIPTION_BLOG</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_URL_DESCRIPTION_BLOG     "blog"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-DOCUMENT-CONTACT-URL-DESCRIPTION-HOMEPAGE:CAPS"></a><h3>COUCHDB_DOCUMENT_CONTACT_URL_DESCRIPTION_HOMEPAGE</h3>
+<pre class="programlisting">#define COUCHDB_DOCUMENT_CONTACT_URL_DESCRIPTION_HOMEPAGE "home page"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-url-get-description"></a><h3>couchdb_document_contact_url_get_description ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_contact_url_get_description
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-contact-url-set-description"></a><h3>couchdb_document_contact_url_set_description ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_contact_url_set_description
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *description</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

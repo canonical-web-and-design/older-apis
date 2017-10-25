@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="C">
+    
+    <title>Friends-0.1 C API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>Friends-0.1 C API Documentation</h1>
+
+<div class="class-normal">
+<a href="Friends-0.1.html#Friends.Dispatcher" class="class-anchor">⚓</a><h2 class="class-normal" id="Friends.Dispatcher">Class: FriendsDispatcher</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Friends-0.1.html#Friends.Dispatcher">FriendsDispatcher</a>*</span><span class="method-name">friends_dispatcher_new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">friends_dispatcher_contacts</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> *account_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_contacts_async</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> *account_id, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_contacts_finish</span><span class="method-parameters">(FriendsDispatcher *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_, <span class="type-basetype type ">gchar</span> **result)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">friends_dispatcher_delete</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> account_id, <span class="type-basetype type ">gchar</span> *message_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_delete_async</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> account_id, <span class="type-basetype type ">gchar</span> *message_id, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_delete_finish</span><span class="method-parameters">(FriendsDispatcher *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_, <span class="type-basetype type ">gchar</span> **result)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">gchar**</span></span><span class="method-name">friends_dispatcher_features</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">gchar</span> *protocol, <span class="type-basetype type ">gint</span> *result_length1)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">friends_dispatcher_home</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> *account_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_home_async</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> *account_id, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_home_finish</span><span class="method-parameters">(FriendsDispatcher *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_, <span class="type-basetype type ">gchar</span> **result)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">friends_dispatcher_like</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> account_id, <span class="type-basetype type ">gchar</span> *message_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_like_async</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> account_id, <span class="type-basetype type ">gchar</span> *message_id, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_like_finish</span><span class="method-parameters">(FriendsDispatcher *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_, <span class="type-basetype type ">gchar</span> **result)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_messaging_menu_clear</span><span class="method-parameters">(FriendsDispatcher *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_refresh</span><span class="method-parameters">(FriendsDispatcher *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">friends_dispatcher_retweet</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> account_id, <span class="type-basetype type ">gchar</span> *message_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_retweet_async</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> account_id, <span class="type-basetype type ">gchar</span> *message_id, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_retweet_finish</span><span class="method-parameters">(FriendsDispatcher *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_, <span class="type-basetype type ">gchar</span> **result)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">friends_dispatcher_search</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> *account_id, <span class="type-basetype type ">gchar</span> *query)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_search_async</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> *account_id, <span class="type-basetype type ">gchar</span> *query, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_search_finish</span><span class="method-parameters">(FriendsDispatcher *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_, <span class="type-basetype type ">gchar</span> **result)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">friends_dispatcher_send_message</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> *account_id, <span class="type-basetype type ">gchar</span> *message)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_send_message_async</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> *account_id, <span class="type-basetype type ">gchar</span> *message, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_send_message_finish</span><span class="method-parameters">(FriendsDispatcher *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_, <span class="type-basetype type ">gchar</span> **result)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">friends_dispatcher_send_reply</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> account_id, <span class="type-basetype type ">gchar</span> *message_id, <span class="type-basetype type ">gchar</span> *message)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_send_reply_async</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> account_id, <span class="type-basetype type ">gchar</span> *message_id, <span class="type-basetype type ">gchar</span> *message, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_send_reply_finish</span><span class="method-parameters">(FriendsDispatcher *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_, <span class="type-basetype type ">gchar</span> **result)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">friends_dispatcher_shorten</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">gchar</span> *url)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">friends_dispatcher_unlike</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> account_id, <span class="type-basetype type ">gchar</span> *message_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_unlike_async</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> account_id, <span class="type-basetype type ">gchar</span> *message_id, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_unlike_finish</span><span class="method-parameters">(FriendsDispatcher *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_, <span class="type-basetype type ">gchar</span> **result)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">friends_dispatcher_upload</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> account_id, <span class="type-basetype type ">gchar</span> *uri, <span class="type-basetype type ">gchar</span> *description)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_upload_async</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> account_id, <span class="type-basetype type ">gchar</span> *uri, <span class="type-basetype type ">gchar</span> *description, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_upload_finish</span><span class="method-parameters">(FriendsDispatcher *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_, <span class="type-basetype type ">gchar</span> **result_url)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">friends_dispatcher_wall</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> *account_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_wall_async</span><span class="method-parameters">(FriendsDispatcher *self, <span class="type-basetype type ">guint</span> *account_id, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_dispatcher_wall_finish</span><span class="method-parameters">(FriendsDispatcher *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_, <span class="type-basetype type ">gchar</span> **result)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Friends-0.1.html#Friends.Utils" class="class-anchor">⚓</a><h2 class="class-normal" id="Friends.Utils">Class: FriendsUtils</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Friends-0.1.html#Friends.Utils">FriendsUtils</a>*</span><span class="method-name">friends_utils_new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">friends_utils_create_time_string</span><span class="method-parameters">(FriendsUtils *self, <span class="type-basetype type ">gchar</span> *t)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">friends_utils_get_avatar_path</span><span class="method-parameters">(FriendsUtils *self, <span class="type-basetype type ">gchar</span> *url)</span></p>
+</div>
+</div>
+</div>
+</body>
+</html>
+

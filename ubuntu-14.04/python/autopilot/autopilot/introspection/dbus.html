@@ -1,0 +1,964 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>autopilot.introspection.dbus &mdash; Autopilot 1.4+14.04.20140416-0 documentation</title>
+    
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/otto.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/centertext.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '1.4+14.04.20140416-0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/jquery.js"></script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/underscore.js"></script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/doctools.js"></script>
+    <link rel="shortcut icon" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/favicon.ico"/>
+    <link rel="top" title="Autopilot 1.4+14.04.20140416-0 documentation" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html" />
+    <link rel="up" title="autopilot.introspection" href="../introspection.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html">Autopilot 1.4+14.04.20140416-0 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../../autopilot.html" >autopilot</a> &raquo;</li>
+          <li><a href="../introspection.html" accesskey="U">autopilot.introspection</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for autopilot.introspection.dbus</h1><div class="highlight"><pre>
+<span class="c"># -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-</span>
+<span class="c">#</span>
+<span class="c"># Autopilot Functional Test Tool</span>
+<span class="c"># Copyright (C) 2012-2013 Canonical</span>
+<span class="c">#</span>
+<span class="c"># This program is free software: you can redistribute it and/or modify</span>
+<span class="c"># it under the terms of the GNU General Public License as published by</span>
+<span class="c"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c"># (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c"># This program is distributed in the hope that it will be useful,</span>
+<span class="c"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c"># GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c"># You should have received a copy of the GNU General Public License</span>
+<span class="c"># along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c">#</span>
+
+
+<span class="sd">&quot;&quot;&quot;This module contains the code to retrieve state via DBus calls.</span>
+
+<span class="sd">Under normal circumstances, the only thing you should need to use from this</span>
+<span class="sd">module is the DBusIntrospectableObject class.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+
+<span class="kn">from</span> <span class="nn">contextlib</span> <span class="kn">import</span> <span class="n">contextmanager</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">six</span>
+<span class="kn">from</span> <span class="nn">uuid</span> <span class="kn">import</span> <span class="n">uuid4</span>
+
+<span class="kn">from</span> <span class="nn">autopilot.introspection.types</span> <span class="kn">import</span> <span class="n">create_value_instance</span>
+<span class="kn">from</span> <span class="nn">autopilot.introspection.utilities</span> <span class="kn">import</span> <span class="n">translate_state_keys</span>
+<span class="kn">from</span> <span class="nn">autopilot.utilities</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_debug_logger</span><span class="p">,</span>
+    <span class="n">sleep</span><span class="p">,</span>
+    <span class="n">Timer</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="n">_object_registry</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">_logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="StateNotFoundError"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.StateNotFoundError">[docs]</a><span class="k">class</span> <span class="nc">StateNotFoundError</span><span class="p">(</span><span class="ne">RuntimeError</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;Raised when a piece of state information is not found.</span>
+
+<span class="sd">    This exception is commonly raised when the application has destroyed (or</span>
+<span class="sd">    not yet created) the object you are trying to access in autopilot. This</span>
+<span class="sd">    typically happens for a number of possible reasons:</span>
+
+<span class="sd">    * The UI widget you are trying to access with</span>
+<span class="sd">      :py:meth:`~DBusIntrospectionObject.select_single` or</span>
+<span class="sd">      :py:meth:`~DBusIntrospectionObject.wait_select_single` or</span>
+<span class="sd">      :py:meth:`~DBusIntrospectionObject.select_many` does not exist yet.</span>
+
+<span class="sd">    * The UI widget you are trying to access has been destroyed by the</span>
+<span class="sd">      application.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">class_name</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">filters</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Construct a StateNotFoundError.</span>
+
+<span class="sd">        :raises ValueError: if neither the class name not keyword arguments</span>
+<span class="sd">            are specified.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">class_name</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">filters</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Must specify either class name or filters.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">class_name</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_message</span> <span class="o">=</span> \
+                <span class="s">u&quot;Object not found with properties {}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="nb">repr</span><span class="p">(</span><span class="n">filters</span><span class="p">)</span>
+                <span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">filters</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_message</span> <span class="o">=</span> <span class="s">u&quot;Object not found with name &#39;{}&#39;.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                <span class="n">class_name</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_message</span> <span class="o">=</span> \
+                <span class="s">u&quot;Object not found with name &#39;{}&#39; and properties {}.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                    <span class="n">class_name</span><span class="p">,</span>
+                    <span class="nb">repr</span><span class="p">(</span><span class="n">filters</span><span class="p">)</span>
+                <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">six</span><span class="o">.</span><span class="n">PY3</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_message</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_message</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf8&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__unicode__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_message</span>
+
+</div>
+<span class="k">class</span> <span class="nc">IntrospectableObjectMetaclass</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Metaclass to insert appropriate classes into the object registry.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">classname</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">classdict</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Add class name to type registry.&quot;&quot;&quot;</span>
+        <span class="n">class_object</span> <span class="o">=</span> <span class="nb">type</span><span class="o">.</span><span class="n">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">classname</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">classdict</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">classname</span> <span class="ow">in</span> <span class="p">(</span>
+            <span class="s">&#39;ApplicationProxyObject&#39;</span><span class="p">,</span>
+            <span class="s">&#39;CustomEmulatorBase&#39;</span><span class="p">,</span>
+            <span class="s">&#39;DBusIntrospectionObject&#39;</span><span class="p">,</span>
+        <span class="p">):</span>
+            <span class="k">return</span> <span class="n">class_object</span>
+
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">class_object</span><span class="p">,</span> <span class="s">&#39;_id&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">class_object</span><span class="o">.</span><span class="n">_id</span> <span class="ow">in</span> <span class="n">_object_registry</span><span class="p">:</span>
+                <span class="n">_object_registry</span><span class="p">[</span><span class="n">class_object</span><span class="o">.</span><span class="n">_id</span><span class="p">][</span><span class="n">classname</span><span class="p">]</span> <span class="o">=</span> <span class="n">class_object</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">_object_registry</span><span class="p">[</span><span class="n">class_object</span><span class="o">.</span><span class="n">_id</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">classname</span><span class="p">:</span> <span class="n">class_object</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">class_object</span>
+
+
+<span class="k">def</span> <span class="nf">get_classname_from_path</span><span class="p">(</span><span class="n">object_path</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">object_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">_object_passes_filters</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return true if *instance* satisifies all the filters present in</span>
+<span class="sd">    kwargs.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">instance</span><span class="o">.</span><span class="n">no_automatic_refreshing</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">attr</span><span class="p">,</span> <span class="n">val</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">attr</span><span class="p">)</span> <span class="o">!=</span> <span class="n">val</span><span class="p">:</span>
+                <span class="c"># Either attribute is not present, or is present but with</span>
+                <span class="c"># the wrong value - don&#39;t add this instance to the results</span>
+                <span class="c"># list.</span>
+                <span class="k">return</span> <span class="bp">False</span>
+    <span class="k">return</span> <span class="bp">True</span>
+
+
+<span class="n">DBusIntrospectionObjectBase</span> <span class="o">=</span> <span class="n">IntrospectableObjectMetaclass</span><span class="p">(</span>
+    <span class="s">&#39;DBusIntrospectionObjectBase&#39;</span><span class="p">,</span>
+    <span class="p">(</span><span class="nb">object</span><span class="p">,),</span>
+    <span class="p">{}</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="DBusIntrospectionObject"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject">[docs]</a><span class="k">class</span> <span class="nc">DBusIntrospectionObject</span><span class="p">(</span><span class="n">DBusIntrospectionObjectBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A class that supports transparent data retrieval from the application</span>
+<span class="sd">    under test.</span>
+
+<span class="sd">    This class is the base class for all objects retrieved from the application</span>
+<span class="sd">    under test. It handles transparently refreshing attribute values when</span>
+<span class="sd">    needed, and contains many methods to select child objects in the</span>
+<span class="sd">    introspection tree.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state_dict</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">backend</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__state</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_on_attribute</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_properties</span><span class="p">(</span><span class="n">state_dict</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_poll_time</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span> <span class="o">=</span> <span class="n">backend</span>
+
+    <span class="k">def</span> <span class="nf">_set_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state_dict</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Creates and set attributes of *self* based on contents of</span>
+<span class="sd">        *state_dict*.</span>
+
+<span class="sd">        .. note:: Translates &#39;-&#39; to &#39;_&#39;, so a key of &#39;icon-type&#39; for example</span>
+<span class="sd">         becomes &#39;icon_type&#39;.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__state</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">translate_state_keys</span><span class="p">(</span><span class="n">state_dict</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c"># don&#39;t store id in state dictionary -make it a proper instance</span>
+            <span class="c"># attribute</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s">&#39;id&#39;</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">__state</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">create_value_instance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="s">&quot;While constructing attribute &#39;</span><span class="si">%s</span><span class="s">.</span><span class="si">%s</span><span class="s">&#39;: </span><span class="si">%s</span><span class="s">&quot;</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span>
+                    <span class="n">key</span><span class="p">,</span>
+                    <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+                <span class="p">)</span>
+
+<div class="viewcode-block" id="DBusIntrospectionObject.get_children_by_type"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_children_by_type">[docs]</a>    <span class="k">def</span> <span class="nf">get_children_by_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">desired_type</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a list of children of the specified type.</span>
+
+<span class="sd">        Keyword arguments can be used to restrict returned instances. For</span>
+<span class="sd">        example::</span>
+
+<span class="sd">            get_children_by_type(&#39;Launcher&#39;, monitor=1)</span>
+
+<span class="sd">        will return only Launcher instances that have an attribute &#39;monitor&#39;</span>
+<span class="sd">        that is equal to 1. The type can also be specified as a string, which</span>
+<span class="sd">        is useful if there is no emulator class specified::</span>
+
+<span class="sd">            get_children_by_type(&#39;Launcher&#39;, monitor=1)</span>
+
+<span class="sd">        Note however that if you pass a string, and there is an emulator class</span>
+<span class="sd">        defined, autopilot will not use it.</span>
+
+<span class="sd">        :param desired_type: Either a string naming the type you want, or a</span>
+<span class="sd">            class of the type you want (the latter is used when defining</span>
+<span class="sd">            custom emulators)</span>
+
+<span class="sd">        .. seealso::</span>
+<span class="sd">            Tutorial Section :ref:`custom_proxy_classes`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c">#TODO: if kwargs has exactly one item in it we should specify the</span>
+        <span class="c"># restriction in the XPath query, so it gets processed in the Unity C++</span>
+        <span class="c"># code rather than in Python.</span>
+        <span class="n">instances</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_children</span><span class="p">()</span>
+
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">instances</span><span class="p">:</span>
+            <span class="c"># Skip items that are not instances of the desired type:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">desired_type</span><span class="p">,</span> <span class="n">six</span><span class="o">.</span><span class="n">string_types</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">instance</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span> <span class="o">!=</span> <span class="n">desired_type</span><span class="p">:</span>
+                    <span class="k">continue</span>
+            <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">desired_type</span><span class="p">):</span>
+                <span class="k">continue</span>
+
+            <span class="c">#skip instances that fail attribute check:</span>
+            <span class="k">if</span> <span class="n">_object_passes_filters</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">instance</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+</div>
+<div class="viewcode-block" id="DBusIntrospectionObject.get_properties"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_properties">[docs]</a>    <span class="k">def</span> <span class="nf">get_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a dictionary of all the properties on this class.</span>
+
+<span class="sd">        This can be useful when you want to log all the properties exported</span>
+<span class="sd">        from your application for a particular object. Every property in the</span>
+<span class="sd">        returned dictionary can be accessed as attributes of the object as</span>
+<span class="sd">        well.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># Since we&#39;re grabbing __state directly there&#39;s no implied state</span>
+        <span class="c"># refresh, so do it manually:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">refresh_state</span><span class="p">()</span>
+        <span class="n">props</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__state</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">props</span><span class="p">[</span><span class="s">&#39;id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span>
+        <span class="k">return</span> <span class="n">props</span>
+</div>
+<div class="viewcode-block" id="DBusIntrospectionObject.get_children"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_children">[docs]</a>    <span class="k">def</span> <span class="nf">get_children</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns a list of all child objects.</span>
+
+<span class="sd">        This returns a list of all children. To return only children of a</span>
+<span class="sd">        specific type, use :meth:`get_children_by_type`. To get objects</span>
+<span class="sd">        further down the introspection tree (i.e.- nodes that may not</span>
+<span class="sd">        necessarily be immeadiate children), use :meth:`select_single` and</span>
+<span class="sd">        :meth:`select_many`.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c"># Thomi: 2014-03-20: There used to be a call to &#39;self.refresh_state()&#39;</span>
+        <span class="c"># here. That&#39;s not needed, since the only thing we use is the proxy</span>
+        <span class="c"># path, which isn&#39;t affected by the current state.</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_class_query_string</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;/*&quot;</span>
+        <span class="n">state_dicts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state_by_path</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="n">children</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">make_introspection_object</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">state_dicts</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">children</span>
+</div>
+<div class="viewcode-block" id="DBusIntrospectionObject.get_parent"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_parent">[docs]</a>    <span class="k">def</span> <span class="nf">get_parent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns the parent of this object.</span>
+
+<span class="sd">        If this object has no parent (i.e.- it is the root of the introspection</span>
+<span class="sd">        tree). Then it returns itself.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_class_query_string</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;/..&quot;</span>
+        <span class="n">parent_state_dicts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state_by_path</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+
+        <span class="n">parent</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_introspection_object</span><span class="p">(</span><span class="n">parent_state_dicts</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">parent</span>
+</div>
+<div class="viewcode-block" id="DBusIntrospectionObject.select_single"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.select_single">[docs]</a>    <span class="k">def</span> <span class="nf">select_single</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">type_name</span><span class="o">=</span><span class="s">&#39;*&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a single node from the introspection tree, with type equal to</span>
+<span class="sd">        *type_name* and (optionally) matching the keyword filters present in</span>
+<span class="sd">        *kwargs*.</span>
+
+<span class="sd">        You must specify either *type_name*, keyword filters or both.</span>
+
+<span class="sd">        This method searches recursively from the instance this method is</span>
+<span class="sd">        called on. Calling :meth:`select_single` on the application (root)</span>
+<span class="sd">        proxy object will search the entire tree. Calling</span>
+<span class="sd">        :meth:`select_single` on an object in the tree will only search it&#39;s</span>
+<span class="sd">        descendants.</span>
+
+<span class="sd">        Example usage::</span>
+
+<span class="sd">            app.select_single(&#39;QPushButton&#39;, objectName=&#39;clickme&#39;)</span>
+<span class="sd">            # returns a QPushButton whose &#39;objectName&#39; property is &#39;clickme&#39;.</span>
+
+<span class="sd">        If nothing is returned from the query, this method raises</span>
+<span class="sd">        StateNotFoundError.</span>
+
+<span class="sd">        :param type_name: Either a string naming the type you want, or a class</span>
+<span class="sd">            of the appropriate type (the latter case is for overridden emulator</span>
+<span class="sd">            classes).</span>
+
+<span class="sd">        :raises ValueError: if the query returns more than one item. *If</span>
+<span class="sd">            you want more than one item, use select_many instead*.</span>
+
+<span class="sd">        :raises TypeError: if neither *type_name* or keyword filters are</span>
+<span class="sd">            provided.</span>
+
+<span class="sd">        :raises StateNotFoundError: if the requested object was not found.</span>
+
+<span class="sd">        .. seealso::</span>
+<span class="sd">            Tutorial Section :ref:`custom_proxy_classes`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">instances</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">select_many</span><span class="p">(</span><span class="n">type_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">instances</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;More than one item was returned for query&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">instances</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">StateNotFoundError</span><span class="p">(</span><span class="n">type_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">instances</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="DBusIntrospectionObject.wait_select_single"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.wait_select_single">[docs]</a>    <span class="k">def</span> <span class="nf">wait_select_single</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">type_name</span><span class="o">=</span><span class="s">&#39;*&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a proxy object matching some search criteria, retrying if no</span>
+<span class="sd">        object is found until a timeout is reached.</span>
+
+<span class="sd">        This method is identical to the :meth:`select_single` method, except</span>
+<span class="sd">        that this method will poll the application under test for 10 seconds</span>
+<span class="sd">        in the event that the search criteria does not match anything.</span>
+
+<span class="sd">        This method will return single proxy object from the introspection</span>
+<span class="sd">        tree, with type equal to *type_name* and (optionally) matching the</span>
+<span class="sd">        keyword filters present in *kwargs*.</span>
+
+<span class="sd">        You must specify either *type_name*, keyword filters or both.</span>
+
+<span class="sd">        This method searches recursively from the proxy object this method is</span>
+<span class="sd">        called on. Calling :meth:`select_single` on the application (root)</span>
+<span class="sd">        proxy object will search the entire tree. Calling</span>
+<span class="sd">        :meth:`select_single` on an object in the tree will only search it&#39;s</span>
+<span class="sd">        descendants.</span>
+
+<span class="sd">        Example usage::</span>
+
+<span class="sd">            app.wait_select_single(&#39;QPushButton&#39;, objectName=&#39;clickme&#39;)</span>
+<span class="sd">            # returns a QPushButton whose &#39;objectName&#39; property is &#39;clickme&#39;.</span>
+<span class="sd">            # will poll the application until such an object exists, or will</span>
+<span class="sd">            # raise StateNotFoundError after 10 seconds.</span>
+
+<span class="sd">        If nothing is returned from the query, this method raises</span>
+<span class="sd">        StateNotFoundError after 10 seconds.</span>
+
+<span class="sd">        :param type_name: Either a string naming the type you want, or a class</span>
+<span class="sd">            of the appropriate type (the latter case is for overridden emulator</span>
+<span class="sd">            classes).</span>
+
+<span class="sd">        :raises ValueError: if the query returns more than one item. *If</span>
+<span class="sd">            you want more than one item, use select_many instead*.</span>
+
+<span class="sd">        :raises TypeError: if neither *type_name* or keyword filters are</span>
+<span class="sd">            provided.</span>
+
+<span class="sd">        :raises StateNotFoundError: if the requested object was not found.</span>
+
+<span class="sd">        .. seealso::</span>
+<span class="sd">            Tutorial Section :ref:`custom_proxy_classes`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_poll_time</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">select_single</span><span class="p">(</span><span class="n">type_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">StateNotFoundError</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">_poll_time</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                    <span class="k">raise</span>
+                <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="DBusIntrospectionObject.select_many"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.select_many">[docs]</a>    <span class="k">def</span> <span class="nf">select_many</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">type_name</span><span class="o">=</span><span class="s">&#39;*&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a list of nodes from the introspection tree, with type equal to</span>
+<span class="sd">        *type_name* and (optionally) matching the keyword filters present in</span>
+<span class="sd">        *kwargs*.</span>
+
+<span class="sd">        You must specify either *type_name*, keyword filters or both.</span>
+
+<span class="sd">        This method searches recursively from the instance this method is</span>
+<span class="sd">        called on. Calling :meth:`select_many` on the application (root) proxy</span>
+<span class="sd">        object will search the entire tree. Calling :meth:`select_many` on an</span>
+<span class="sd">        object in the tree will only search it&#39;s descendants.</span>
+
+<span class="sd">        Example Usage::</span>
+
+<span class="sd">            app.select_many(&#39;QPushButton&#39;, enabled=True)</span>
+<span class="sd">            # returns a list of QPushButtons that are enabled.</span>
+
+<span class="sd">        As mentioned above, this method searches the object tree recursively::</span>
+
+<span class="sd">            file_menu = app.select_one(&#39;QMenu&#39;, title=&#39;File&#39;)</span>
+<span class="sd">            file_menu.select_many(&#39;QAction&#39;)</span>
+<span class="sd">            # returns a list of QAction objects who appear below file_menu in</span>
+<span class="sd">            # the object tree.</span>
+
+<span class="sd">        .. warning::</span>
+<span class="sd">            The order in which objects are returned is not guaranteed. It is</span>
+<span class="sd">            bad practise to write tests that depend on the order in which</span>
+<span class="sd">            this method returns objects. (see :ref:`object_ordering` for more</span>
+<span class="sd">            information).</span>
+
+<span class="sd">        If you only want to get one item, use :meth:`select_single` instead.</span>
+
+<span class="sd">        :param type_name: Either a string naming the type you want, or a class</span>
+<span class="sd">            of the appropriate type (the latter case is for overridden emulator</span>
+<span class="sd">            classes).</span>
+
+<span class="sd">        :raises TypeError: if neither *type_name* or keyword filters are</span>
+<span class="sd">            provided.</span>
+
+<span class="sd">        .. seealso::</span>
+<span class="sd">            Tutorial Section :ref:`custom_proxy_classes`</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">type_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">issubclass</span><span class="p">(</span>
+                <span class="n">type_name</span><span class="p">,</span> <span class="n">DBusIntrospectionObject</span><span class="p">):</span>
+            <span class="n">type_name</span> <span class="o">=</span> <span class="n">type_name</span><span class="o">.</span><span class="n">__name__</span>
+
+        <span class="k">if</span> <span class="n">type_name</span> <span class="o">==</span> <span class="s">&quot;*&quot;</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s">&quot;You must specify either a type name or a filter.&quot;</span><span class="p">)</span>
+
+        <span class="n">_logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+            <span class="s">&quot;Selecting objects of </span><span class="si">%s</span><span class="s"> with attributes: </span><span class="si">%r</span><span class="s">&quot;</span><span class="p">,</span>
+            <span class="s">&#39;any type&#39;</span> <span class="k">if</span> <span class="n">type_name</span> <span class="o">==</span> <span class="s">&#39;*&#39;</span> <span class="k">else</span> <span class="s">&#39;type &#39;</span> <span class="o">+</span> <span class="n">type_name</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="n">server_side_filters</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">client_side_filters</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="c"># LP Bug 1209029: The XPathSelect protocol does not allow all valid</span>
+            <span class="c"># node names or values. We need to decide here whether the filter</span>
+            <span class="c"># parameters are going to work on the backend or not. If not, we</span>
+            <span class="c"># just do the processing client-side. See the</span>
+            <span class="c"># _is_valid_server_side_filter_param function (below) for the</span>
+            <span class="c"># specific requirements.</span>
+            <span class="k">if</span> <span class="n">_is_valid_server_side_filter_param</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">):</span>
+                <span class="n">server_side_filters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="n">_get_filter_string_for_key_value_pair</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">client_side_filters</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
+        <span class="n">filter_str</span> <span class="o">=</span> <span class="s">&#39;[{}]&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">server_side_filters</span><span class="p">))</span> \
+            <span class="k">if</span> <span class="n">server_side_filters</span> <span class="k">else</span> <span class="s">&quot;&quot;</span>
+        <span class="n">query_path</span> <span class="o">=</span> <span class="s">&quot;</span><span class="si">%s</span><span class="s">//</span><span class="si">%s%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">get_class_query_string</span><span class="p">(),</span>
+            <span class="n">type_name</span><span class="p">,</span>
+            <span class="n">filter_str</span>
+        <span class="p">)</span>
+
+        <span class="n">state_dicts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state_by_path</span><span class="p">(</span><span class="n">query_path</span><span class="p">)</span>
+        <span class="n">instances</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">make_introspection_object</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">state_dicts</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">instances</span>
+                <span class="k">if</span> <span class="n">_object_passes_filters</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="o">**</span><span class="n">client_side_filters</span><span class="p">)]</span>
+</div>
+<div class="viewcode-block" id="DBusIntrospectionObject.refresh_state"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.refresh_state">[docs]</a>    <span class="k">def</span> <span class="nf">refresh_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Refreshes the object&#39;s state.</span>
+
+<span class="sd">        You should probably never have to call this directly. Autopilot</span>
+<span class="sd">        automatically retrieves new state every time this object&#39;s attributes</span>
+<span class="sd">        are read.</span>
+
+<span class="sd">        :raises StateNotFound: if the object in the application under test</span>
+<span class="sd">            has been destroyed.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">new_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_new_state</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_properties</span><span class="p">(</span><span class="n">new_state</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="DBusIntrospectionObject.get_all_instances"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_all_instances">[docs]</a>    <span class="k">def</span> <span class="nf">get_all_instances</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get all instances of this class that exist within the Application</span>
+<span class="sd">        state tree.</span>
+
+<span class="sd">        For example, to get all the LauncherIcon instances::</span>
+
+<span class="sd">            icons = LauncherIcon.get_all_instances()</span>
+
+<span class="sd">        .. warning::</span>
+<span class="sd">            Using this method is slow - it requires a complete scan of the</span>
+<span class="sd">            introspection tree. You should only use this when you&#39;re not sure</span>
+<span class="sd">            where the objects you are looking for are located. Depending on</span>
+<span class="sd">            the application you are testing, you may get duplicate results</span>
+<span class="sd">            using this method.</span>
+
+<span class="sd">        :return: List (possibly empty) of class instances.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cls_name</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">__name__</span>
+        <span class="n">instances</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state_by_path</span><span class="p">(</span><span class="s">&quot;//</span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">cls_name</span><span class="p">))</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">make_introspection_object</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">instances</span><span class="p">]</span>
+</div>
+<div class="viewcode-block" id="DBusIntrospectionObject.get_root_instance"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_root_instance">[docs]</a>    <span class="k">def</span> <span class="nf">get_root_instance</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the object at the root of this tree.</span>
+
+<span class="sd">        This will return an object that represents the root of the</span>
+<span class="sd">        introspection tree.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">instances</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state_by_path</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">instances</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">_logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Could not retrieve root object.&quot;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">make_introspection_object</span><span class="p">(</span><span class="n">instances</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</div>
+    <span class="k">def</span> <span class="nf">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="c"># avoid recursion if for some reason we have no state set (should never</span>
+        <span class="c"># happen).</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s">&#39;__state&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">__state</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_on_attribute</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">refresh_state</span><span class="p">()</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__state</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="c"># attribute not found.</span>
+        <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
+            <span class="s">&quot;Class &#39;</span><span class="si">%s</span><span class="s">&#39; has no attribute &#39;</span><span class="si">%s</span><span class="s">&#39;.&quot;</span> <span class="o">%</span>
+            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
+
+<div class="viewcode-block" id="DBusIntrospectionObject.get_state_by_path"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_state_by_path">[docs]</a>    <span class="k">def</span> <span class="nf">get_state_by_path</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">piece</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get state for a particular piece of the state tree.</span>
+
+<span class="sd">        You should probably never need to call this directly.</span>
+
+<span class="sd">        :param piece: an XPath-like query that specifies which bit of the tree</span>
+<span class="sd">            you want to look at.</span>
+<span class="sd">        :raises TypeError: on invalid *piece* parameter.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">piece</span><span class="p">,</span> <span class="n">six</span><span class="o">.</span><span class="n">string_types</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                <span class="s">&quot;XPath query must be a string, not </span><span class="si">%r</span><span class="s">&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">piece</span><span class="p">))</span>
+
+        <span class="k">with</span> <span class="n">Timer</span><span class="p">(</span><span class="s">&quot;GetState </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">piece</span><span class="p">):</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">introspection_iface</span><span class="o">.</span><span class="n">GetState</span><span class="p">(</span><span class="n">piece</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">15</span><span class="p">:</span>
+                <span class="n">_logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="s">&quot;Your query &#39;</span><span class="si">%s</span><span class="s">&#39; returned a lot of data (</span><span class="si">%d</span><span class="s"> items). This &quot;</span>
+                    <span class="s">&quot;is likely to be slow. You may want to consider optimising&quot;</span>
+                    <span class="s">&quot; your query to return fewer items.&quot;</span><span class="p">,</span>
+                    <span class="n">piece</span><span class="p">,</span>
+                    <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">return</span> <span class="n">data</span>
+</div>
+<div class="viewcode-block" id="DBusIntrospectionObject.get_new_state"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_new_state">[docs]</a>    <span class="k">def</span> <span class="nf">get_new_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Retrieve a new state dictionary for this class instance.</span>
+
+<span class="sd">        You should probably never need to call this directly.</span>
+
+<span class="sd">        .. note:: The state keys in the returned dictionary are not translated.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_state_by_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_class_query_string</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">StateNotFoundError</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__class__</span><span class="o">.</span><span class="n">__name__</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="DBusIntrospectionObject.wait_until_destroyed"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.wait_until_destroyed">[docs]</a>    <span class="k">def</span> <span class="nf">wait_until_destroyed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Block until this object is destroyed in the application.</span>
+
+<span class="sd">        Block until the object this instance is a proxy for has been destroyed</span>
+<span class="sd">        in the applicaiton under test. This is commonly used to wait until a</span>
+<span class="sd">        UI component has been destroyed.</span>
+
+<span class="sd">        :param timeout: The number of seconds to wait for the object to be</span>
+<span class="sd">            destroyed. If not specified, defaults to 10 seconds.</span>
+<span class="sd">        :raises RuntimeError: if the method timed out.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">timeout</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">get_new_state</span><span class="p">()</span>
+                <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">StateNotFoundError</span><span class="p">:</span>
+                <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="s">&quot;Object was not destroyed after </span><span class="si">%d</span><span class="s"> seconds&quot;</span> <span class="o">%</span> <span class="n">timeout</span>
+            <span class="p">)</span>
+</div>
+<div class="viewcode-block" id="DBusIntrospectionObject.get_class_query_string"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_class_query_string">[docs]</a>    <span class="k">def</span> <span class="nf">get_class_query_string</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the XPath query string required to refresh this class&#39;s</span>
+<span class="sd">        state.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s">&quot;//&quot;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path</span> <span class="o">+</span> <span class="s">&quot;[id=</span><span class="si">%d</span><span class="s">]&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path</span> <span class="o">+</span> <span class="s">&quot;[id=</span><span class="si">%d</span><span class="s">]&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">id</span>
+</div>
+<div class="viewcode-block" id="DBusIntrospectionObject.make_introspection_object"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.make_introspection_object">[docs]</a>    <span class="k">def</span> <span class="nf">make_introspection_object</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dbus_tuple</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Make an introspection object given a DBus tuple of</span>
+<span class="sd">        (path, state_dict).</span>
+
+<span class="sd">        This only works for classes that derive from DBusIntrospectionObject.</span>
+
+<span class="sd">        :returns: A proxy object that derives from DBusIntrospectionObject</span>
+<span class="sd">        :raises ValueError: if more than one class is appropriate for this</span>
+<span class="sd">                 dbus_tuple</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">path</span><span class="p">,</span> <span class="n">state</span> <span class="o">=</span> <span class="n">dbus_tuple</span>
+        <span class="n">class_object</span> <span class="o">=</span> <span class="n">_get_proxy_object_class</span><span class="p">(</span>
+            <span class="n">_object_registry</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_id</span><span class="p">],</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="n">path</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">class_object</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="DBusIntrospectionObject.print_tree"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.print_tree">[docs]</a>    <span class="k">def</span> <span class="nf">print_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">maxdepth</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">_curdepth</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Print properties of the object and its children to a stream.</span>
+
+<span class="sd">        When writing new tests, this can be called when it is too difficult to</span>
+<span class="sd">        find the widget or property that you are interested in in &quot;vis&quot;.</span>
+
+<span class="sd">        .. warning:: Do not use this in production tests, this is expensive and</span>
+<span class="sd">            not at all appropriate for actual testing. Only call this</span>
+<span class="sd">            temporarily and replace with proper select_single/select_many</span>
+<span class="sd">            calls.</span>
+
+<span class="sd">        :param output: A file object or path name where the output will be</span>
+<span class="sd">            written to. If not given, write to stdout.</span>
+
+<span class="sd">        :param maxdepth: If given, limit the maximum recursion level to that</span>
+<span class="sd">            number, i. e. only print children which have at most maxdepth-1</span>
+<span class="sd">            intermediate parents.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">maxdepth</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">_curdepth</span> <span class="o">&gt;</span> <span class="n">maxdepth</span><span class="p">:</span>
+            <span class="k">return</span>
+
+        <span class="n">indent</span> <span class="o">=</span> <span class="s">&quot;  &quot;</span> <span class="o">*</span> <span class="n">_curdepth</span>
+        <span class="k">if</span> <span class="n">output</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">six</span><span class="o">.</span><span class="n">string_types</span><span class="p">):</span>
+            <span class="n">output</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span>
+
+        <span class="c"># print path</span>
+        <span class="k">if</span> <span class="n">_curdepth</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%s</span><span class="s">== </span><span class="si">%s</span><span class="s"> ==</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">indent</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path</span><span class="p">))</span>
+        <span class="c"># Thomi 2014-03-20: For all levels other than the top level, we can</span>
+        <span class="c"># avoid an entire dbus round trip if we grab the underlying property</span>
+        <span class="c"># dictionary directly. We can do this since the print_tree function</span>
+        <span class="c"># that called us will have retrieved us via a call to get_children(),</span>
+        <span class="c"># which gets the latest state anyway.</span>
+        <span class="k">if</span> <span class="n">_curdepth</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">properties</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__state</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">properties</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_properties</span><span class="p">()</span>
+        <span class="c"># print properties</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">properties</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+                <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%s%s</span><span class="s">: </span><span class="si">%r</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">indent</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">properties</span><span class="p">[</span><span class="n">key</span><span class="p">]))</span>
+            <span class="c"># print children</span>
+            <span class="k">if</span> <span class="n">maxdepth</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">_curdepth</span> <span class="o">&lt;</span> <span class="n">maxdepth</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_children</span><span class="p">():</span>
+                    <span class="n">c</span><span class="o">.</span><span class="n">print_tree</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">maxdepth</span><span class="p">,</span> <span class="n">_curdepth</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">StateNotFoundError</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;</span><span class="si">%s</span><span class="s">Error: </span><span class="si">%s</span><span class="se">\n</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">indent</span><span class="p">,</span> <span class="n">error</span><span class="p">))</span>
+</div>
+    <span class="nd">@contextmanager</span>
+<div class="viewcode-block" id="DBusIntrospectionObject.no_automatic_refreshing"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.no_automatic_refreshing">[docs]</a>    <span class="k">def</span> <span class="nf">no_automatic_refreshing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Context manager function to disable automatic DBus refreshing when</span>
+<span class="sd">        retrieving attributes.</span>
+
+<span class="sd">        Example usage:</span>
+
+<span class="sd">            with instance.no_automatic_refreshing():</span>
+<span class="sd">                # access lots of attributes.</span>
+
+<span class="sd">        This can be useful if you need to check lots of attributes in a tight</span>
+<span class="sd">        loop, or if you want to atomicaly check several attributes at once.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_on_attribute</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="k">yield</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__refresh_on_attribute</span> <span class="o">=</span> <span class="bp">True</span>
+</div>
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="DBusIntrospectionObject.validate_dbus_object"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.validate_dbus_object">[docs]</a>    <span class="k">def</span> <span class="nf">validate_dbus_object</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">_state</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return whether this class is the appropriate proxy object class for</span>
+<span class="sd">        a given dbus path and state.</span>
+
+<span class="sd">        The default version matches the name of the dbus object and the class.</span>
+<span class="sd">        Subclasses of CustomProxyObject can override it to define a different</span>
+<span class="sd">        validation method.</span>
+
+<span class="sd">        :param path: The dbus path of the object to check</span>
+<span class="sd">        :param state: The dbus state dict of the object to check</span>
+<span class="sd">                      (ignored in default implementation)</span>
+<span class="sd">        :returns: Whether this class is appropriate for the dbus object</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">get_classname_from_path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cls</span><span class="o">.</span><span class="n">__name__</span> <span class="o">==</span> <span class="n">name</span>
+
+</div></div>
+<span class="k">def</span> <span class="nf">_is_valid_server_side_filter_param</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return True if the key and value parameters are valid for server-side</span>
+<span class="sd">    processing.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">key_is_valid</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span>
+        <span class="s">r&#39;^[a-zA-Z0-9_\-]+( [a-zA-Z0-9_\-])*$&#39;</span><span class="p">,</span>
+        <span class="n">key</span>
+    <span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+
+    <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">key_is_valid</span> <span class="ow">and</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="o">**</span><span class="mi">31</span> <span class="o">&lt;=</span> <span class="n">value</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">31</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">key_is_valid</span>
+
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="n">six</span><span class="o">.</span><span class="n">binary_type</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">key_is_valid</span>
+
+    <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">==</span> <span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">value</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;ascii&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">key_is_valid</span>
+        <span class="k">except</span> <span class="ne">UnicodeEncodeError</span><span class="p">:</span>
+            <span class="k">pass</span>
+    <span class="k">return</span> <span class="bp">False</span>
+
+
+<span class="k">def</span> <span class="nf">_get_filter_string_for_key_value_pair</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a string representing the filter query for this key/value pair.</span>
+
+<span class="sd">    The value must be suitable for server-side filtering. Raises ValueError if</span>
+<span class="sd">    this is not the case.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">six</span><span class="o">.</span><span class="n">PY3</span><span class="p">:</span>
+            <span class="n">escaped_value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;unicode_escape&quot;</span><span class="p">)</span>\
+                <span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;ASCII&#39;</span><span class="p">)</span>\
+                <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s">&quot;</span><span class="se">\\</span><span class="s">&#39;&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">escaped_value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;string_escape&quot;</span><span class="p">)</span>
+            <span class="c"># note: string_escape codec escapes &quot;&#39;&quot; but not &#39;&quot;&#39;...</span>
+            <span class="n">escaped_value</span> <span class="o">=</span> <span class="n">escaped_value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s">r&#39;\&quot;&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s">&#39;{}=&quot;{}&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">escaped_value</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">six</span><span class="o">.</span><span class="n">binary_type</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">six</span><span class="o">.</span><span class="n">PY3</span><span class="p">:</span>
+            <span class="n">escaped_value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>\
+                <span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;unicode_escape&quot;</span><span class="p">)</span>\
+                <span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;ASCII&#39;</span><span class="p">)</span>\
+                <span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;&#39;&quot;</span><span class="p">,</span> <span class="s">&quot;</span><span class="se">\\</span><span class="s">&#39;&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">escaped_value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;string_escape&quot;</span><span class="p">)</span>
+            <span class="c"># note: string_escape codec escapes &quot;&#39;&quot; but not &#39;&quot;&#39;...</span>
+            <span class="n">escaped_value</span> <span class="o">=</span> <span class="n">escaped_value</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s">r&#39;\&quot;&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s">&#39;{}=&quot;{}&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">escaped_value</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s">&quot;{}={}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="nb">repr</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;Unsupported value type: {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">value</span><span class="p">)))</span>
+
+
+<span class="k">def</span> <span class="nf">_get_proxy_object_class</span><span class="p">(</span><span class="n">proxy_class_dict</span><span class="p">,</span> <span class="n">default_class</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a custom proxy class, either from the list or the default.</span>
+
+<span class="sd">    Use helper functions to check the class list or return the default.</span>
+<span class="sd">    :param proxy_class_dict: dict of proxy classes to try</span>
+<span class="sd">    :param default_class: default class to use if nothing in dict matches</span>
+<span class="sd">    :param path: dbus path</span>
+<span class="sd">    :param state: dbus state</span>
+<span class="sd">    :returns: appropriate custom proxy class</span>
+<span class="sd">    :raises ValueError: if more than one class in the dict matches</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">class_type</span> <span class="o">=</span> <span class="n">_try_custom_proxy_classes</span><span class="p">(</span><span class="n">proxy_class_dict</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">class_type</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">class_type</span>
+    <span class="k">return</span> <span class="n">_get_default_proxy_class</span><span class="p">(</span><span class="n">default_class</span><span class="p">,</span>
+                                    <span class="n">get_classname_from_path</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">_try_custom_proxy_classes</span><span class="p">(</span><span class="n">proxy_class_dict</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Identify which custom proxy class matches the dbus path and state.</span>
+
+<span class="sd">    If more than one class in proxy_class_dict matches, raise an exception.</span>
+<span class="sd">    :param proxy_class_dict: dict of proxy classes to try</span>
+<span class="sd">    :param path: dbus path</span>
+<span class="sd">    :param state: dbus state dict</span>
+<span class="sd">    :returns: matching custom proxy class</span>
+<span class="sd">    :raises ValueError: if more than one class matches</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">possible_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">proxy_class_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span>
+                        <span class="n">c</span><span class="o">.</span><span class="n">validate_dbus_object</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">state</span><span class="p">)]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">possible_classes</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s">&#39;More than one custom proxy class matches this object: &#39;</span>
+            <span class="s">&#39;Matching classes are: </span><span class="si">%s</span><span class="s">. State is </span><span class="si">%s</span><span class="s">.  Path is </span><span class="si">%s</span><span class="s">.&#39;</span>
+            <span class="s">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">repr</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">possible_classes</span><span class="p">]),</span>
+            <span class="nb">repr</span><span class="p">(</span><span class="n">state</span><span class="p">),</span>
+            <span class="n">path</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">possible_classes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">possible_classes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="bp">None</span>
+
+
+<span class="k">def</span> <span class="nf">_get_default_proxy_class</span><span class="p">(</span><span class="n">default_class</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return a custom proxy object class of the default or a base class.</span>
+
+<span class="sd">    We want the object to inherit from CustomEmulatorBase, not the object</span>
+<span class="sd">    class that is doing the selecting.</span>
+<span class="sd">    :param default_class: default class to use if no bases match</span>
+<span class="sd">    :param name: name of new class</span>
+<span class="sd">    :returns: custom proxy object class</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">get_debug_logger</span><span class="p">()</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+        <span class="s">&quot;Generating introspection instance for type &#39;</span><span class="si">%s</span><span class="s">&#39; based on generic &quot;</span>
+        <span class="s">&quot;class.&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">default_class</span><span class="o">.</span><span class="n">__bases__</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">issubclass</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">CustomEmulatorBase</span><span class="p">):</span>
+            <span class="n">base_class</span> <span class="o">=</span> <span class="n">base</span>
+            <span class="k">break</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">base_class</span> <span class="o">=</span> <span class="n">default_class</span>
+    <span class="k">return</span> <span class="nb">type</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="p">(</span><span class="n">base_class</span><span class="p">,),</span> <span class="p">{})</span>
+
+
+<span class="k">class</span> <span class="nc">_CustomEmulatorMeta</span><span class="p">(</span><span class="n">IntrospectableObjectMetaclass</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">d</span><span class="p">):</span>
+        <span class="c"># only consider classes derived from CustomEmulatorBase</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="s">&#39;CustomEmulatorBase&#39;</span><span class="p">:</span>
+            <span class="c"># and only if they don&#39;t already have an Id set.</span>
+            <span class="n">have_id</span> <span class="o">=</span> <span class="bp">False</span>
+            <span class="k">for</span> <span class="n">base</span> <span class="ow">in</span> <span class="n">bases</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="s">&#39;_id&#39;</span><span class="p">):</span>
+                    <span class="n">have_id</span> <span class="o">=</span> <span class="bp">True</span>
+                    <span class="k">break</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">have_id</span><span class="p">:</span>
+                <span class="n">d</span><span class="p">[</span><span class="s">&#39;_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">uuid4</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">_CustomEmulatorMeta</span><span class="p">,</span> <span class="n">cls</span><span class="p">)</span><span class="o">.</span><span class="n">__new__</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span>
+
+<span class="n">CustomEmulatorBase</span> <span class="o">=</span> <span class="n">_CustomEmulatorMeta</span><span class="p">(</span><span class="s">&#39;CustomEmulatorBase&#39;</span><span class="p">,</span>
+                                         <span class="p">(</span><span class="n">DBusIntrospectionObject</span><span class="p">,</span> <span class="p">),</span>
+                                         <span class="p">{})</span>
+<span class="n">CustomEmulatorBase</span><span class="o">.</span><span class="n">__doc__</span> <span class="o">=</span> \
+    <span class="sd">&quot;&quot;&quot;This class must be used as a base class for any custom emulators defined</span>
+<span class="sd">    within a test case.</span>
+
+<span class="sd">    .. seealso::</span>
+<span class="sd">        Tutorial Section :ref:`custom_proxy_classes`</span>
+<span class="sd">            Information on how to write custom emulators.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html">
+              <img class="logo" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/otto-64.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html">Autopilot 1.4+14.04.20140416-0 documentation</a> &raquo;</li>
+          <li><a href="../../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../../autopilot.html" >autopilot</a> &raquo;</li>
+          <li><a href="../introspection.html" >autopilot.introspection</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      <div class=center_text>
+        <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/faq/contribute.html">Learn how you can contribute!</a> / <a href="https://bugs.launchpad.net/autopilot/+filebug">File a bug</a>
+     <br/>
+      </div>
+        &copy; Copyright 2012-2013, Canonical.
+    </div>
+
+
+  </body>
+</html>

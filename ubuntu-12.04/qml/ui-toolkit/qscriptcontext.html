@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qscriptcontext.html -->
+  <title>UbuntuUserInterfaceToolkit 0.1: QScriptContext Class</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="all-modules.html">Modules</a></li>
+<li>qtscript</li>
+<li>QScriptContext</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qscriptcontext.html#public-types">Public Types</a></li>
+<li class="level1"><a href="qscriptcontext.html#public-functions">Public Functions</a></li>
+<li class="level1"><a href="qscriptcontext.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">QScriptContext Class</h1>
+<p>This class was introduced in UbuntuUserInterfaceToolkit 4.3.</p>
+<ul>
+<li><a href="qscriptcontext-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="public-types"></a>
+<h2>Public Types</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#Error-enum">Error</a></b> { UnknownError, ReferenceError, SyntaxError, TypeError, RangeError, URIError }</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> enum </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#ExecutionState-enum">ExecutionState</a></b> { NormalState, ExceptionState }</td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#dtor.QScriptContext">~QScriptContext</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#activationObject">activationObject</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#argument">argument</a></b>(int<i> index</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#argumentCount">argumentCount</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#argumentsObject">argumentsObject</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#backtrace">backtrace</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#callee">callee</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#engine">engine</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#isCalledAsConstructor">isCalledAsConstructor</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#parentContext">parentContext</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#setActivationObject">setActivationObject</a></b>(const QScriptValue &amp;<i> activation</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#setThisObject">setThisObject</a></b>(const QScriptValue &amp;<i> thisObject</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#state">state</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#thisObject">thisObject</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#throwError">throwError</a></b>(Error<i> error</i>, const QString &amp;<i> text</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#throwError-2">throwError</a></b>(const QString &amp;<i> text</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#throwValue">throwValue</a></b>(const QScriptValue &amp;<i> value</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qscriptcontext.html#toString">toString</a></b>() const</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QScriptContext-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+</div>
+<!-- @@@QScriptContext -->
+<div class="types">
+<h2>Member Type Documentation</h2>
+<!-- $$$Error$$$UnknownError$$$ReferenceError$$$SyntaxError$$$TypeError$$$RangeError$$$URIError -->
+<h3 class="fn"><a name="Error-enum"></a>enum QScriptContext::<span class="name">Error</span></h3>
+<!-- @@@Error -->
+<!-- $$$ExecutionState$$$NormalState$$$ExceptionState -->
+<h3 class="fn"><a name="ExecutionState-enum"></a>enum QScriptContext::<span class="name">ExecutionState</span></h3>
+<!-- @@@ExecutionState -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$~QScriptContext[overload1]$$$~QScriptContext -->
+<h3 class="fn"><a name="dtor.QScriptContext"></a>QScriptContext::<span class="name">~QScriptContext</span>()</h3>
+<!-- @@@~QScriptContext -->
+<!-- $$$activationObject[overload1]$$$activationObject -->
+<h3 class="fn"><a name="activationObject"></a>QScriptContext::<span class="name">activationObject</span>() const</h3>
+<p><b>See also </b><a href="qscriptcontext.html#setActivationObject">setActivationObject</a>().</p>
+<!-- @@@activationObject -->
+<!-- $$$argument[overload1]$$$argumentint -->
+<h3 class="fn"><a name="argument"></a>QScriptContext::<span class="name">argument</span>(<span class="type">int</span><i> index</i>) const</h3>
+<!-- @@@argument -->
+<!-- $$$argumentCount[overload1]$$$argumentCount -->
+<h3 class="fn"><a name="argumentCount"></a>QScriptContext::<span class="name">argumentCount</span>() const</h3>
+<!-- @@@argumentCount -->
+<!-- $$$argumentsObject[overload1]$$$argumentsObject -->
+<h3 class="fn"><a name="argumentsObject"></a>QScriptContext::<span class="name">argumentsObject</span>() const</h3>
+<!-- @@@argumentsObject -->
+<!-- $$$backtrace[overload1]$$$backtrace -->
+<h3 class="fn"><a name="backtrace"></a>QScriptContext::<span class="name">backtrace</span>() const</h3>
+<!-- @@@backtrace -->
+<!-- $$$callee[overload1]$$$callee -->
+<h3 class="fn"><a name="callee"></a>QScriptContext::<span class="name">callee</span>() const</h3>
+<!-- @@@callee -->
+<!-- $$$engine[overload1]$$$engine -->
+<h3 class="fn"><a name="engine"></a>QScriptContext::<span class="name">engine</span>() const</h3>
+<!-- @@@engine -->
+<!-- $$$isCalledAsConstructor[overload1]$$$isCalledAsConstructor -->
+<h3 class="fn"><a name="isCalledAsConstructor"></a>QScriptContext::<span class="name">isCalledAsConstructor</span>() const</h3>
+<!-- @@@isCalledAsConstructor -->
+<!-- $$$parentContext[overload1]$$$parentContext -->
+<h3 class="fn"><a name="parentContext"></a>QScriptContext::<span class="name">parentContext</span>() const</h3>
+<!-- @@@parentContext -->
+<!-- $$$setActivationObject[overload1]$$$setActivationObjectconstQScriptValue& -->
+<h3 class="fn"><a name="setActivationObject"></a>QScriptContext::<span class="name">setActivationObject</span>(const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> activation</i>)</h3>
+<p><b>See also </b><a href="qscriptcontext.html#activationObject">activationObject</a>().</p>
+<!-- @@@setActivationObject -->
+<!-- $$$setThisObject[overload1]$$$setThisObjectconstQScriptValue& -->
+<h3 class="fn"><a name="setThisObject"></a>QScriptContext::<span class="name">setThisObject</span>(const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> thisObject</i>)</h3>
+<p><b>See also </b><a href="qscriptcontext.html#thisObject">thisObject</a>().</p>
+<!-- @@@setThisObject -->
+<!-- $$$state[overload1]$$$state -->
+<h3 class="fn"><a name="state"></a>QScriptContext::<span class="name">state</span>() const</h3>
+<!-- @@@state -->
+<!-- $$$thisObject[overload1]$$$thisObject -->
+<h3 class="fn"><a name="thisObject"></a>QScriptContext::<span class="name">thisObject</span>() const</h3>
+<p><b>See also </b><a href="qscriptcontext.html#setThisObject">setThisObject</a>().</p>
+<!-- @@@thisObject -->
+<!-- $$$throwError[overload1]$$$throwErrorErrorconstQString& -->
+<h3 class="fn"><a name="throwError"></a>QScriptContext::<span class="name">throwError</span>(<span class="type"><a href="qscriptcontext.html#Error-enum">Error</a></span><i> error</i>, const <span class="type">QString</span> &amp;<i> text</i>)</h3>
+<!-- @@@throwError -->
+<!-- $$$throwError$$$throwErrorconstQString& -->
+<h3 class="fn"><a name="throwError-2"></a>QScriptContext::<span class="name">throwError</span>(const <span class="type">QString</span> &amp;<i> text</i>)</h3>
+<!-- @@@throwError -->
+<!-- $$$throwValue[overload1]$$$throwValueconstQScriptValue& -->
+<h3 class="fn"><a name="throwValue"></a>QScriptContext::<span class="name">throwValue</span>(const <span class="type"><a href="qscriptvalue.html">QScriptValue</a></span> &amp;<i> value</i>)</h3>
+<!-- @@@throwValue -->
+<!-- $$$toString[overload1]$$$toString -->
+<h3 class="fn"><a name="toString"></a>QScriptContext::<span class="name">toString</span>() const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<!-- @@@toString -->
+</div>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

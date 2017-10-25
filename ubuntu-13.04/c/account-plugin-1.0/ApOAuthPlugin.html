@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ApOAuthPlugin</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="account-plugin Reference Manual">
+<link rel="up" href="account-plugin.html" title="account-plugin">
+<link rel="prev" href="account-plugin-ApClient.html" title="ApClient">
+<link rel="next" href="ApPlugin.html" title="ApPlugin">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="account-plugin-ApClient.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="account-plugin.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">account-plugin Reference Manual</th>
+<td><a accesskey="n" href="ApPlugin.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="ApOAuthPlugin.html#ApOAuthPlugin.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="ApOAuthPlugin.html#ApOAuthPlugin.description" class="shortcut">Description</a>
+                   | 
+                  <a href="ApOAuthPlugin.html#ApOAuthPlugin.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="ApOAuthPlugin.html#ApOAuthPlugin.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="ApOAuthPlugin"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ApOAuthPlugin.top_of_page"></a>ApOAuthPlugin</span></h2>
+<p>ApOAuthPlugin — Base class for account plugins using OAuth
+authentication.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="ApOAuthPlugin.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libaccount-plugin/oauth-plugin.h&gt;
+
+                    <a class="link" href="ApOAuthPlugin.html#ApOAuthPlugin-struct" title="ApOAuthPlugin">ApOAuthPlugin</a>;
+enum                <a class="link" href="ApOAuthPlugin.html#ApOAuthMechanism" title="enum ApOAuthMechanism">ApOAuthMechanism</a>;
+<span class="returnvalue">void</span>                <a class="link" href="ApOAuthPlugin.html#ap-oauth-plugin-set-mechanism" title="ap_oauth_plugin_set_mechanism ()">ap_oauth_plugin_set_mechanism</a>       (<em class="parameter"><code><a class="link" href="ApOAuthPlugin.html" title="ApOAuthPlugin"><span class="type">ApOAuthPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ApOAuthPlugin.html#ApOAuthMechanism" title="enum ApOAuthMechanism"><span class="type">ApOAuthMechanism</span></a> mechanism</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ApOAuthPlugin.html#ap-oauth-plugin-set-oauth-parameters" title="ap_oauth_plugin_set_oauth_parameters ()">ap_oauth_plugin_set_oauth_parameters</a>
+                                                        (<em class="parameter"><code><a class="link" href="ApOAuthPlugin.html" title="ApOAuthPlugin"><span class="type">ApOAuthPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *oauth_params</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ApOAuthPlugin.html#ap-oauth-plugin-set-account-oauth-parameters" title="ap_oauth_plugin_set_account_oauth_parameters ()">ap_oauth_plugin_set_account_oauth_parameters</a>
+                                                        (<em class="parameter"><code><a class="link" href="ApOAuthPlugin.html" title="ApOAuthPlugin"><span class="type">ApOAuthPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *oauth_params</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ApOAuthPlugin.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----<a class="link" href="ApPlugin.html" title="ApPlugin">ApPlugin</a>
+         +----ApOAuthPlugin
+</pre>
+</div>
+<div class="refsect1">
+<a name="ApOAuthPlugin.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="ApOAuthPlugin.html#ApOAuthPlugin--oauth-params" title='The "oauth-params" property'>oauth-params</a>"             <span class="type">GHashTable</span>*           : Read / Write / Construct Only
+</pre>
+</div>
+<div class="refsect1">
+<a name="ApOAuthPlugin.description"></a><h2>Description</h2>
+<p>
+This class helps creating account plugins which use the OAuth authentication
+method.
+</p>
+</div>
+<div class="refsect1">
+<a name="ApOAuthPlugin.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ApOAuthPlugin-struct"></a><h3>ApOAuthPlugin</h3>
+<pre class="programlisting">typedef struct _ApOAuthPlugin ApOAuthPlugin;</pre>
+<p>
+Use the accessor functions below.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ApOAuthMechanism"></a><h3>enum ApOAuthMechanism</h3>
+<pre class="programlisting">typedef enum {
+    AP_OAUTH_MECHANISM_USER_AGENT = 0,
+    AP_OAUTH_MECHANISM_WEB_SERVER,
+    AP_OAUTH_MECHANISM_HMAC_SHA1,
+    AP_OAUTH_MECHANISM_PLAINTEXT,
+    AP_OAUTH_MECHANISM_RSA_SHA1,
+} ApOAuthMechanism;
+</pre>
+<p>
+The authentication mechanism to be used.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><a name="AP-OAUTH-MECHANISM-USER-AGENT:CAPS"></a><span class="term"><code class="literal">AP_OAUTH_MECHANISM_USER_AGENT</code></span></p></td>
+<td>OAuth 2.0, user-agent flow (default)
+</td>
+</tr>
+<tr>
+<td><p><a name="AP-OAUTH-MECHANISM-WEB-SERVER:CAPS"></a><span class="term"><code class="literal">AP_OAUTH_MECHANISM_WEB_SERVER</code></span></p></td>
+<td>OAuth 2.0, web-server flow
+</td>
+</tr>
+<tr>
+<td><p><a name="AP-OAUTH-MECHANISM-HMAC-SHA1:CAPS"></a><span class="term"><code class="literal">AP_OAUTH_MECHANISM_HMAC_SHA1</code></span></p></td>
+<td>OAuth 1.0a, signing type: HMAC-SHA1
+</td>
+</tr>
+<tr>
+<td><p><a name="AP-OAUTH-MECHANISM-PLAINTEXT:CAPS"></a><span class="term"><code class="literal">AP_OAUTH_MECHANISM_PLAINTEXT</code></span></p></td>
+<td>OAuth 1.0a, signing type: PLAINTEXT
+</td>
+</tr>
+<tr>
+<td><p><a name="AP-OAUTH-MECHANISM-RSA-SHA1:CAPS"></a><span class="term"><code class="literal">AP_OAUTH_MECHANISM_RSA_SHA1</code></span></p></td>
+<td>OAuth 1.0a, signing type: RSA-SHA1
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-oauth-plugin-set-mechanism"></a><h3>ap_oauth_plugin_set_mechanism ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ap_oauth_plugin_set_mechanism       (<em class="parameter"><code><a class="link" href="ApOAuthPlugin.html" title="ApOAuthPlugin"><span class="type">ApOAuthPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="ApOAuthPlugin.html#ApOAuthMechanism" title="enum ApOAuthMechanism"><span class="type">ApOAuthMechanism</span></a> mechanism</code></em>);</pre>
+<p>
+Set the OAuth mechanism to be used when authenticating the account.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApOAuthPlugin.html" title="ApOAuthPlugin"><span class="type">ApOAuthPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mechanism</code></em> :</span></p></td>
+<td>the desired OAuth mechanism.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-oauth-plugin-set-oauth-parameters"></a><h3>ap_oauth_plugin_set_oauth_parameters ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ap_oauth_plugin_set_oauth_parameters
+                                                        (<em class="parameter"><code><a class="link" href="ApOAuthPlugin.html" title="ApOAuthPlugin"><span class="type">ApOAuthPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *oauth_params</code></em>);</pre>
+<p>
+Sets the dictionary of OAuth parameters to be used when authenticating the
+account. Note that these parameters are not stored in the account and will
+be used only by the account plugin.
+To set the authentication parameters used by applications, use
+<a class="link" href="ApOAuthPlugin.html#ap-oauth-plugin-set-account-oauth-parameters" title="ap_oauth_plugin_set_account_oauth_parameters ()"><code class="function">ap_oauth_plugin_set_account_oauth_parameters()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApOAuthPlugin.html" title="ApOAuthPlugin"><span class="type">ApOAuthPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>oauth_params</code></em> :</span></p></td>
+<td>a dictionary of OAuth parameters. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8 GValue]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-oauth-plugin-set-account-oauth-parameters"></a><h3>ap_oauth_plugin_set_account_oauth_parameters ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ap_oauth_plugin_set_account_oauth_parameters
+                                                        (<em class="parameter"><code><a class="link" href="ApOAuthPlugin.html" title="ApOAuthPlugin"><span class="type">ApOAuthPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *oauth_params</code></em>);</pre>
+<p>
+Sets the dictionary of OAuth parameters to be used by client applications
+when authenticating the account. These are the parameters which will be
+stored into the account configuration (those used by the plugin itself when
+authenticating are those set with <a class="link" href="ApOAuthPlugin.html#ap-oauth-plugin-set-oauth-parameters" title="ap_oauth_plugin_set_oauth_parameters ()"><code class="function">ap_oauth_plugin_set_oauth_parameters()</code></a>).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApOAuthPlugin.html" title="ApOAuthPlugin"><span class="type">ApOAuthPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>oauth_params</code></em> :</span></p></td>
+<td>a dictionary of OAuth parameters. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8 GValue]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="ApOAuthPlugin.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="ApOAuthPlugin--oauth-params"></a><h3>The <code class="literal">"oauth-params"</code> property</h3>
+<pre class="programlisting">  "oauth-params"             <span class="type">GHashTable</span>*           : Read / Write / Construct Only</pre>
+<p>
+A dictionary of OAuth parameters, to be used when authenticating an
+account.
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

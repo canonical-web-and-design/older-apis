@@ -1,0 +1,991 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="Python">
+    
+    <title>Couchdb-1.0 Python API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>Couchdb-1.0 Python API Documentation</h1>
+
+<div class="class-normal">
+<a href="Couchdb-1.0.html#Couchdb.ArrayField" class="class-anchor">⚓</a><h2 class="class-normal" id="Couchdb.ArrayField">Class: Couchdb.ArrayField</h2>
+<div class="relations">
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.ArrayField.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.ArrayField.add_array_element">add_array_element</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.ArrayField">value</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.ArrayField.add_boolean_element">add_boolean_element</span><span class="method-parameters">(<span class="type-basetype ">value</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.ArrayField.add_double_element">add_double_element</span><span class="method-parameters">(<span class="type-basetype ">value</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.ArrayField.add_int_element">add_int_element</span><span class="method-parameters">(<span class="type-basetype ">value</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.ArrayField.add_string_element">add_string_element</span><span class="method-parameters">(<span class="type-basetype ">value</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.ArrayField.add_struct_element">add_struct_element</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">value</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Couchdb.ArrayField.get_boolean_element">get_boolean_element</span><span class="method-parameters">(<span class="type-basetype ">index</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">float</span></span><span class="method-name" id="Couchdb.ArrayField.get_double_element">get_double_element</span><span class="method-parameters">(<span class="type-basetype ">index</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Couchdb.ArrayField.get_int_element">get_int_element</span><span class="method-parameters">(<span class="type-basetype ">index</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Couchdb.ArrayField.get_length">get_length</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.ArrayField.get_string_element">get_string_element</span><span class="method-parameters">(<span class="type-basetype ">index</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.ArrayField.remove_element">remove_element</span><span class="method-parameters">(<span class="type-basetype ">index</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Couchdb-1.0.html#Couchdb.Credentials" class="class-anchor">⚓</a><h2 class="class-normal" id="Couchdb.Credentials">Class: Couchdb.Credentials</h2>
+<div class="relations">
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.Credentials.new_with_username_and_password">new_with_username_and_password</span><span class="method-parameters">(<a class="link-Type " href="Couchdb-1.0.html#utf8">username</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">password</a>)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.Credentials.new_with_oauth">new_with_oauth</span><span class="method-parameters">(<a class="link-Type " href="Couchdb-1.0.html#utf8">consumer_key</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">consumer_secret</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">token_key</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">token_secret</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Couchdb-1.0.html#Couchdb.CredentialsType">Couchdb.CredentialsType</a></span><span class="method-name" id="Couchdb.Credentials.get_auth_type">get_auth_type</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.Credentials.get_item">get_item</span><span class="method-parameters">(<span class="type-basetype ">item</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Credentials.set_item">set_item</span><span class="method-parameters">(<span class="type-basetype ">item</span>, <span class="type-basetype ">value</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Couchdb-1.0.html#Couchdb.Database" class="class-anchor">⚓</a><h2 class="class-normal" id="Couchdb.Database">Class: Couchdb.Database</h2>
+<div class="relations">
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Couchdb-1.0.html#Couchdb.Session">Couchdb.Session</a><span class="property-name" id="Couchdb.Database.session">"session"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Couchdb.Database.database-name">"database-name"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Couchdb.Database.document-updated">"document-updated"</span><span class="signal-parameters">(self, <a class="link-Class " href="Couchdb-1.0.html#Couchdb.Database">database</a>, <a class="link-Class " href="Couchdb-1.0.html#Couchdb.Document">object</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Couchdb.Database.document-deleted">"document-deleted"</span><span class="signal-parameters">(self, <a class="link-Class " href="Couchdb-1.0.html#Couchdb.Database">database</a>, <span class="type-basetype ">object</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Couchdb.Database.document-created">"document-created"</span><span class="signal-parameters">(self, <a class="link-Class " href="Couchdb-1.0.html#Couchdb.Database">database</a>, <a class="link-Class " href="Couchdb-1.0.html#Couchdb.Document">object</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.Database.new">new</span><span class="method-parameters">(<a class="link-Type " href="Couchdb-1.0.html#Couchdb.Session">session</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">dbname</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Couchdb.Database.delete_document">delete_document</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.Document">document</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Database.document_created">document_created</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.Document">document</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Database.document_deleted">document_deleted</span><span class="method-parameters">(<span class="type-basetype ">docid</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Database.document_updated">document_updated</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.Document">document</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.Database.get_name">get_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Database.listen_for_changes">listen_for_changes</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Couchdb.Database.put_document">put_document</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.Document">document</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Couchdb-1.0.html#Couchdb.DesignDocument" class="class-anchor">⚓</a><h2 class="class-normal" id="Couchdb.DesignDocument">Class: Couchdb.DesignDocument</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="Couchdb-1.0.html#Couchdb.Document">Couchdb.Document</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.DesignDocument.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DesignDocument.add_view">add_view</span><span class="method-parameters">(<span class="type-basetype ">name</span>, <span class="type-basetype ">map_function</span>, <span class="type-basetype ">reduce_function</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DesignDocument.delete_view">delete_view</span><span class="method-parameters">(<span class="type-basetype ">name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Couchdb-1.0.html#Couchdb.DesignDocumentLanguage">Couchdb.DesignDocumentLanguage</a></span><span class="method-name" id="Couchdb.DesignDocument.get_language">get_language</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DesignDocument.set_language">set_language</span><span class="method-parameters">(<a class="link-Enumeration " href="Couchdb-1.0.html#Couchdb.DesignDocumentLanguage">language</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Couchdb-1.0.html#Couchdb.Document" class="class-anchor">⚓</a><h2 class="class-normal" id="Couchdb.Document">Class: Couchdb.Document</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class " href="Couchdb-1.0.html#Couchdb.DesignDocument">Couchdb.DesignDocument</a>, <a class="link-Class " href="Couchdb-1.0.html#Couchdb.DocumentContact">Couchdb.DocumentContact</a>, <a class="link-Class " href="Couchdb-1.0.html#Couchdb.DocumentTask">Couchdb.DocumentTask</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Couchdb-1.0.html#Couchdb.Database">Couchdb.Database</a><span class="property-name" id="Couchdb.Document.database">"database"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.Document.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Couchdb.Document.get_boolean_field">get_boolean_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">float</span></span><span class="method-name" id="Couchdb.Document.get_double_field">get_double_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">GType</span></span><span class="method-name" id="Couchdb.Document.get_field_type">get_field_type</span><span class="method-parameters">(<span class="type-basetype ">field</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.Document.get_id">get_id</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Couchdb.Document.get_int_field">get_int_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.Document.get_record_type">get_record_type</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.Document.get_revision">get_revision</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.Document.get_string_field">get_string_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Couchdb.Document.has_field">has_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Couchdb.Document.is_contact">is_contact</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Couchdb.Document.is_task">is_task</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Document.remove_field">remove_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Document.set_application_annotations">set_application_annotations</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">annotations</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Document.set_array_field">set_array_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>, <a class="link-Class " href="Couchdb-1.0.html#Couchdb.ArrayField">value</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Document.set_boolean_field">set_boolean_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>, <span class="type-basetype ">value</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Document.set_double_field">set_double_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>, <span class="type-basetype ">value</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Document.set_id">set_id</span><span class="method-parameters">(<span class="type-basetype ">id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Document.set_int_field">set_int_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>, <span class="type-basetype ">value</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Document.set_record_type">set_record_type</span><span class="method-parameters">(<span class="type-basetype ">record_type</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Document.set_revision">set_revision</span><span class="method-parameters">(<span class="type-basetype ">revision</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Document.set_string_field">set_string_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>, <span class="type-basetype ">value</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Document.set_struct_field">set_struct_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>, <a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">value</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.Document.to_string">to_string</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Couchdb-1.0.html#Couchdb.DocumentContact" class="class-anchor">⚓</a><h2 class="class-normal" id="Couchdb.DocumentContact">Class: Couchdb.DocumentContact</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="Couchdb-1.0.html#Couchdb.Document">Couchdb.Document</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.DocumentContact.url_new">url_new</span><span class="method-parameters">(<a class="link-Type " href="Couchdb-1.0.html#utf8">uuid</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">address</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">description</a>)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.DocumentContact.phone_new">phone_new</span><span class="method-parameters">(<a class="link-Type " href="Couchdb-1.0.html#utf8">uuid</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">number</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">description</a>, <a class="link-Type " href="Couchdb-1.0.html#gint">priority</a>)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.DocumentContact.email_new">email_new</span><span class="method-parameters">(<a class="link-Type " href="Couchdb-1.0.html#utf8">uuid</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">address</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">description</a>)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.DocumentContact.address_new">address_new</span><span class="method-parameters">(<a class="link-Type " href="Couchdb-1.0.html#utf8">uuid</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">street</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">ext_street</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">city</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">state</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">country</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">postalcode</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">pobox</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">description</a>)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.DocumentContact.new">new</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.DocumentContact.im_new">im_new</span><span class="method-parameters">(<a class="link-Type " href="Couchdb-1.0.html#utf8">uuid</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">address</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">description</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">protocol</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.address_get_city">address_get_city</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.address_get_country">address_get_country</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.address_get_description">address_get_description</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.address_get_ext_street">address_get_ext_street</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.address_get_pobox">address_get_pobox</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.address_get_postalcode">address_get_postalcode</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.address_get_state">address_get_state</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.address_get_street">address_get_street</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.address_set_city">address_set_city</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>, <span class="type-basetype ">city</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.address_set_country">address_set_country</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>, <span class="type-basetype ">country</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.address_set_description">address_set_description</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>, <span class="type-basetype ">description</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.address_set_ext_street">address_set_ext_street</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>, <span class="type-basetype ">ext_street</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.address_set_pobox">address_set_pobox</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>, <span class="type-basetype ">pobox</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.address_set_postalcode">address_set_postalcode</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>, <span class="type-basetype ">postalcode</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.address_set_state">address_set_state</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>, <span class="type-basetype ">state</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.address_set_street">address_set_street</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>, <span class="type-basetype ">street</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.email_get_address">email_get_address</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.email_get_description">email_get_description</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.email_set_address">email_set_address</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>, <span class="type-basetype ">email</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.email_set_description">email_set_description</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>, <span class="type-basetype ">description</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.get_assistant_name">get_assistant_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.get_birth_date">get_birth_date</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.get_categories">get_categories</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.get_company">get_company</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.get_department">get_department</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.get_first_name">get_first_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.get_job_title">get_job_title</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.get_last_name">get_last_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.get_manager_name">get_manager_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.get_middle_name">get_middle_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.get_nick_name">get_nick_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.get_notes">get_notes</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.get_office">get_office</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.get_spouse_name">get_spouse_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.get_suffix">get_suffix</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.get_title">get_title</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.get_wedding_date">get_wedding_date</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.im_get_address">im_get_address</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.im_get_description">im_get_description</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.im_get_protocol">im_get_protocol</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.im_set_address">im_set_address</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>, <span class="type-basetype ">address</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.im_set_description">im_set_description</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>, <span class="type-basetype ">description</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.im_set_protocol">im_set_protocol</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>, <span class="type-basetype ">protocol</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.phone_get_description">phone_get_description</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.phone_get_number">phone_get_number</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Couchdb.DocumentContact.phone_get_priority">phone_get_priority</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.phone_set_description">phone_set_description</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>, <span class="type-basetype ">description</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.phone_set_number">phone_set_number</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>, <span class="type-basetype ">number</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.phone_set_priority">phone_set_priority</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>, <span class="type-basetype ">priority</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.set_assistant_name">set_assistant_name</span><span class="method-parameters">(<span class="type-basetype ">assistant_name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.set_birth_date">set_birth_date</span><span class="method-parameters">(<span class="type-basetype ">birth_date</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.set_categories">set_categories</span><span class="method-parameters">(<span class="type-basetype ">categories</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.set_company">set_company</span><span class="method-parameters">(<span class="type-basetype ">company</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.set_department">set_department</span><span class="method-parameters">(<span class="type-basetype ">department</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.set_first_name">set_first_name</span><span class="method-parameters">(<span class="type-basetype ">first_name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.set_job_title">set_job_title</span><span class="method-parameters">(<span class="type-basetype ">job_title</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.set_last_name">set_last_name</span><span class="method-parameters">(<span class="type-basetype ">last_name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.set_manager_name">set_manager_name</span><span class="method-parameters">(<span class="type-basetype ">manager_name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.set_middle_name">set_middle_name</span><span class="method-parameters">(<span class="type-basetype ">middle_name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.set_nick_name">set_nick_name</span><span class="method-parameters">(<span class="type-basetype ">nick_name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.set_notes">set_notes</span><span class="method-parameters">(<span class="type-basetype ">notes</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.set_office">set_office</span><span class="method-parameters">(<span class="type-basetype ">office</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.set_spouse_name">set_spouse_name</span><span class="method-parameters">(<span class="type-basetype ">spouse_name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.set_suffix">set_suffix</span><span class="method-parameters">(<span class="type-basetype ">suffix</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.set_title">set_title</span><span class="method-parameters">(<span class="type-basetype ">title</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.set_wedding_date">set_wedding_date</span><span class="method-parameters">(<span class="type-basetype ">wedding_date</span>)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.url_get_address">url_get_address</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentContact.url_get_description">url_get_description</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.url_set_address">url_set_address</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>, <span class="type-basetype ">address</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentContact.url_set_description">url_set_description</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">sf</a>, <span class="type-basetype ">description</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Couchdb-1.0.html#Couchdb.DocumentTask" class="class-anchor">⚓</a><h2 class="class-normal" id="Couchdb.DocumentTask">Class: Couchdb.DocumentTask</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="Couchdb-1.0.html#Couchdb.Document">Couchdb.Document</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.DocumentTask.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentTask.get_description">get_description</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.DocumentTask.get_summary">get_summary</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentTask.set_description">set_description</span><span class="method-parameters">(<span class="type-basetype ">description</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.DocumentTask.set_summary">set_summary</span><span class="method-parameters">(<span class="type-basetype ">summary</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Couchdb-1.0.html#Couchdb.Query" class="class-anchor">⚓</a><h2 class="class-normal" id="Couchdb.Query">Class: Couchdb.Query</h2>
+<div class="relations">
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type property-type">GLib.HashTable</span><span class="property-name" id="Couchdb.Query.query-options">"query-options"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Couchdb.Query.path">"path"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.Query.new_for_path">new_for_path</span><span class="method-parameters">(<a class="link-Type " href="Couchdb-1.0.html#utf8">path</a>)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.Query.new">new</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.Query.new_for_view">new_for_view</span><span class="method-parameters">(<a class="link-Type " href="Couchdb-1.0.html#utf8">design_doc</a>, <a class="link-Type " href="Couchdb-1.0.html#utf8">view_name</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Json.Object</span></span><span class="method-name" id="Couchdb.Query.get_json_object">get_json_object</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.Query.get_method">get_method</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.Query.get_option">get_option</span><span class="method-parameters">(<span class="type-basetype ">name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.Query.get_path">get_path</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.Query.get_query_options_string">get_query_options_string</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Query.set_json_object">set_json_object</span><span class="method-parameters">(object)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Query.set_method">set_method</span><span class="method-parameters">(<span class="type-basetype ">method</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Query.set_option">set_option</span><span class="method-parameters">(<span class="type-basetype ">name</span>, <span class="type-basetype ">value</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Query.set_path">set_path</span><span class="method-parameters">(<span class="type-basetype ">path</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Couchdb-1.0.html#Couchdb.Response" class="class-anchor">⚓</a><h2 class="class-normal" id="Couchdb.Response">Class: Couchdb.Response</h2>
+<div class="relations">
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">int</span><span class="property-name" id="Couchdb.Response.content-length">"content-length"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Couchdb.Response.etag">"etag"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Couchdb.Response.content-type">"content-type"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type property-type">Json.Object</span><span class="property-name" id="Couchdb.Response.response">"response"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">int</span><span class="property-name" id="Couchdb.Response.status-code">"status-code"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.Response.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Couchdb.gsize</span></span><span class="method-name" id="Couchdb.Response.get_content_length">get_content_length</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.Response.get_content_type">get_content_type</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.Response.get_etag">get_etag</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Json.Object</span></span><span class="method-name" id="Couchdb.Response.get_json_object">get_json_object</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">GLib.List</span></span><span class="method-name" id="Couchdb.Response.get_rows">get_rows</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Couchdb.Response.get_status_code">get_status_code</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Couchdb-1.0.html#Couchdb.Session" class="class-anchor">⚓</a><h2 class="class-normal" id="Couchdb.Session">Class: Couchdb.Session</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class " href="Desktopcouch-1.0.html#Desktopcouch.Session">Desktopcouch.Session</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Couchdb.Session.uri">"uri"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Couchdb.Session.database-created">"database-created"</span><span class="signal-parameters">(self, <a class="link-Class " href="Couchdb-1.0.html#Couchdb.Session">session</a>, <span class="type-basetype ">object</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Couchdb.Session.database-deleted">"database-deleted"</span><span class="signal-parameters">(self, <a class="link-Class " href="Couchdb-1.0.html#Couchdb.Session">session</a>, <span class="type-basetype ">object</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Couchdb.Session.authentication-failed">"authentication-failed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Couchdb-1.0.html#Couchdb.Session">session</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.Session.new">new</span><span class="method-parameters">(<a class="link-Type " href="Couchdb-1.0.html#utf8">uri</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Session.authentication_failed">authentication_failed</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Couchdb.Session.compact_database">compact_database</span><span class="method-parameters">(<span class="type-basetype ">dbname</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Couchdb.Session.create_database">create_database</span><span class="method-parameters">(<span class="type-basetype ">dbname</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Session.database_created">database_created</span><span class="method-parameters">(<span class="type-basetype ">dbname</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Session.database_deleted">database_deleted</span><span class="method-parameters">(<span class="type-basetype ">dbname</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Couchdb.Session.delete_database">delete_database</span><span class="method-parameters">(<span class="type-basetype ">dbname</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Session.disable_authentication">disable_authentication</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.Session.enable_authentication">enable_authentication</span><span class="method-parameters">(<a class="link-Class " href="Couchdb-1.0.html#Couchdb.Credentials">credentials</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Couchdb-1.0.html#Couchdb.DatabaseInfo">Couchdb.DatabaseInfo</a></span><span class="method-name" id="Couchdb.Session.get_database_info">get_database_info</span><span class="method-parameters">(<span class="type-basetype ">dbname</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.Session.get_uri">get_uri</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Couchdb.Session.is_authentication_enabled">is_authentication_enabled</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Couchdb.Session.replicate">replicate</span><span class="method-parameters">(<span class="type-basetype ">source</span>, <span class="type-basetype ">target</span>, <span class="type-basetype ">continous</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Couchdb-1.0.html#Couchdb.StructField" class="class-anchor">⚓</a><h2 class="class-normal" id="Couchdb.StructField">Class: Couchdb.StructField</h2>
+<div class="relations">
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.StructField.new">new</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Couchdb.StructField.new_from_string">new_from_string</span><span class="method-parameters">(<a class="link-Type " href="Couchdb-1.0.html#utf8">str</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Couchdb.StructField.get_boolean_field">get_boolean_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">float</span></span><span class="method-name" id="Couchdb.StructField.get_double_field">get_double_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">GType</span></span><span class="method-name" id="Couchdb.StructField.get_field_type">get_field_type</span><span class="method-parameters">(<span class="type-basetype ">field</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Couchdb.StructField.get_int_field">get_int_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.StructField.get_string_field">get_string_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.StructField.get_uuid">get_uuid</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Couchdb.StructField.has_field">has_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.StructField.remove_field">remove_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.StructField.set_array_field">set_array_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>, <a class="link-Class " href="Couchdb-1.0.html#Couchdb.ArrayField">value</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.StructField.set_boolean_field">set_boolean_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>, <span class="type-basetype ">value</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.StructField.set_double_field">set_double_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>, <span class="type-basetype ">value</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.StructField.set_int_field">set_int_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>, <span class="type-basetype ">value</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.StructField.set_string_field">set_string_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>, <span class="type-basetype ">value</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.StructField.set_struct_field">set_struct_field</span><span class="method-parameters">(<span class="type-basetype ">field</span>, <a class="link-Class " href="Couchdb-1.0.html#Couchdb.StructField">value</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Couchdb.StructField.set_uuid">set_uuid</span><span class="method-parameters">(<span class="type-basetype ">uuid</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Couchdb.StructField.to_string">to_string</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-enum">
+<a href="Couchdb-1.0.html#Couchdb.DesignDocumentLanguage" class="class-anchor">⚓</a><h2 class="class-enum" id="Couchdb.DesignDocumentLanguage">Enum: Couchdb.DesignDocumentLanguage</h2>
+<div class="enum-members">
+<span class="enum-member">UNKNOWN</span><span class="enum-value">0</span><span class="enum-member">JAVASCRIPT</span><span class="enum-value">1</span><span class="enum-member">PYTHON</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="Couchdb-1.0.html#Couchdb.CredentialsType" class="class-anchor">⚓</a><h2 class="class-enum" id="Couchdb.CredentialsType">Enum: Couchdb.CredentialsType</h2>
+<div class="enum-members">
+<span class="enum-member">UNKNOWN</span><span class="enum-value">-1</span><span class="enum-member">OAUTH</span><span class="enum-value">0</span><span class="enum-member">USERNAME_AND_PASSWORD</span><span class="enum-value">1</span></div>
+</div>
+</body>
+</html>
+

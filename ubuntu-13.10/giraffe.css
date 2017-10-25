@@ -1,0 +1,127 @@
+body {
+	color: black;
+	margin: 2%;
+}
+
+div.class-interface,
+div.class-abstract,
+div.class-normal,
+div.class-enum {
+	background-color: #eeeeee;
+	padding-top: 0em;
+	padding-bottom: 0.5em;
+	padding-left: 0em;
+	padding-right: 0em;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	margin-left: 1em;
+	margin-right: 1em;
+	float: left;
+	clear: left;
+	width: 96%;
+}
+
+h2.class-interface,
+h2.class-abstract,
+h2.class-normal,
+h2.class-enum {
+	background-color: #eeddee;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+	padding-left: 0.3em;
+	padding-right: 0.3em;
+	margin-top: 0em;
+	margin-bottom: 0em;
+	margin-left: 0em;
+	margin-right: 0em;
+}
+
+div.relations,
+div.properties,
+div.signals,
+div.methods,
+div.enum-members {
+	background-color: #eeeeee;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
+	padding-left: 1em;
+	padding-right: 1em;
+	margin-top: 0em;
+	margin-bottom: 0em;
+	margin-left: 0em;
+	margin-right: 0em;
+	clear: left;
+}
+
+div.property
+div.signal,
+div.method {
+	clear: left;
+}
+
+.class-anchor {
+	float: right;
+	padding: 0.8em;
+	text-decoration: none;
+	font-weight: bold;
+	color: black;
+}
+
+.method-return-type,
+.signal-return-type,
+.property-type {
+	float: left;
+	width: 16em;
+	clear: left;
+	font-family: monospace;
+}
+
+.method-name,
+.signal-name,
+.property-name {
+	float: left;
+	width: 24em;
+	font-weight: bold;
+	font-family: monospace;
+}
+
+.method-parameters,
+.signal-parameters {
+	font-family: monospace;
+	float: left;
+}
+
+.enum-member {
+	float: left;
+	width: 16em;
+	clear: left;
+	font-family: monospace;
+}
+
+.enum-value {
+	font-family: monospace;
+	width: 4em;
+	float: left;
+}
+
+.method-remark {
+	float: left;
+	font-style: italic;
+	padding-left: 2em;
+}
+
+.method-static {
+	font-style: italic;
+}
+
+
+.property-access {
+	float: left;
+	font-style: italic;
+}
+
+.signal-doc,
+.property-doc {
+	float: left;
+	clear: left;
+}

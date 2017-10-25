@@ -1,0 +1,876 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CouchdbDocument</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Reference Manual for CouchDB GLib Bindings">
+<link rel="up" href="ch01.html" title="Core API">
+<link rel="prev" href="CouchdbCredentials.html" title="CouchdbCredentials">
+<link rel="next" href="couchdb-glib-CouchdbDesignDocument.html" title="CouchdbDesignDocument">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="CouchdbCredentials.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Reference Manual for CouchDB GLib Bindings</th>
+<td><a accesskey="n" href="couchdb-glib-CouchdbDesignDocument.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="CouchdbDocument.html#CouchdbDocument.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="CouchdbDocument.html#CouchdbDocument.description" class="shortcut">Description</a>
+                   | 
+                  <a href="CouchdbDocument.html#CouchdbDocument.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="CouchdbDocument.html#CouchdbDocument.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="CouchdbDocument"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="CouchdbDocument.top_of_page"></a>CouchdbDocument</span></h2>
+<p>CouchdbDocument</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="CouchdbDocument.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="CouchdbDocument.html#CouchdbDocument-struct" title="CouchdbDocument">CouchdbDocument</a>;
+                    <a class="link" href="CouchdbDocument.html#CouchdbDocumentClass" title="CouchdbDocumentClass">CouchdbDocumentClass</a>;
+<a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="returnvalue">CouchdbDocument</span></a> *   <a class="link" href="CouchdbDocument.html#couchdb-document-new" title="couchdb_document_new ()">couchdb_document_new</a>                (<em class="parameter"><code><span class="type">void</span></code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="CouchdbDocument.html#couchdb-document-get-id" title="couchdb_document_get_id ()">couchdb_document_get_id</a>             (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbDocument.html#couchdb-document-set-id" title="couchdb_document_set_id ()">couchdb_document_set_id</a>             (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *id</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="CouchdbDocument.html#couchdb-document-get-revision" title="couchdb_document_get_revision ()">couchdb_document_get_revision</a>       (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbDocument.html#couchdb-document-set-revision" title="couchdb_document_set_revision ()">couchdb_document_set_revision</a>       (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *revision</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="CouchdbDocument.html#couchdb-document-has-field" title="couchdb_document_has_field ()">couchdb_document_has_field</a>          (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbDocument.html#couchdb-document-remove-field" title="couchdb_document_remove_field ()">couchdb_document_remove_field</a>       (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="CouchdbDocument.html#couchdb-document-get-field-names" title="couchdb_document_get_field_names ()">couchdb_document_get_field_names</a>    (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>);
+<span class="returnvalue">GType</span>               <a class="link" href="CouchdbDocument.html#couchdb-document-get-field-type" title="couchdb_document_get_field_type ()">couchdb_document_get_field_type</a>     (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);
+<span class="returnvalue">CouchdbArrayField</span> * <a class="link" href="CouchdbDocument.html#couchdb-document-get-array-field" title="couchdb_document_get_array_field ()">couchdb_document_get_array_field</a>    (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbDocument.html#couchdb-document-set-array-field" title="couchdb_document_set_array_field ()">couchdb_document_set_array_field</a>    (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><span class="type">CouchdbArrayField</span> *value</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="CouchdbDocument.html#couchdb-document-get-boolean-field" title="couchdb_document_get_boolean_field ()">couchdb_document_get_boolean_field</a>  (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbDocument.html#couchdb-document-set-boolean-field" title="couchdb_document_set_boolean_field ()">couchdb_document_set_boolean_field</a>  (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> value</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="CouchdbDocument.html#couchdb-document-get-int-field" title="couchdb_document_get_int_field ()">couchdb_document_get_int_field</a>      (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbDocument.html#couchdb-document-set-int-field" title="couchdb_document_set_int_field ()">couchdb_document_set_int_field</a>      (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> value</code></em>);
+<span class="returnvalue">gdouble</span>             <a class="link" href="CouchdbDocument.html#couchdb-document-get-double-field" title="couchdb_document_get_double_field ()">couchdb_document_get_double_field</a>   (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbDocument.html#couchdb-document-set-double-field" title="couchdb_document_set_double_field ()">couchdb_document_set_double_field</a>   (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><span class="type">gdouble</span> value</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="CouchdbDocument.html#couchdb-document-get-string-field" title="couchdb_document_get_string_field ()">couchdb_document_get_string_field</a>   (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbDocument.html#couchdb-document-set-string-field" title="couchdb_document_set_string_field ()">couchdb_document_set_string_field</a>   (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *value</code></em>);
+<a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * <a class="link" href="CouchdbDocument.html#couchdb-document-get-struct-field" title="couchdb_document_get_struct_field ()">couchdb_document_get_struct_field</a>  (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbDocument.html#couchdb-document-set-struct-field" title="couchdb_document_set_struct_field ()">couchdb_document_set_struct_field</a>   (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *value</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="CouchdbDocument.html#couchdb-document-to-string" title="couchdb_document_to_string ()">couchdb_document_to_string</a>          (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="CouchdbDocument.html#couchdb-document-get-record-type" title="couchdb_document_get_record_type ()">couchdb_document_get_record_type</a>    (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbDocument.html#couchdb-document-set-record-type" title="couchdb_document_set_record_type ()">couchdb_document_set_record_type</a>    (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *record_type</code></em>);
+<a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * <a class="link" href="CouchdbDocument.html#couchdb-document-get-application-annotations" title="couchdb_document_get_application_annotations ()">couchdb_document_get_application_annotations</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbDocument.html#couchdb-document-set-application-annotations" title="couchdb_document_set_application_annotations ()">couchdb_document_set_application_annotations</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *annotations</code></em>);
+#define             <a class="link" href="CouchdbDocument.html#COUCHDB-RECORD-TYPE-CONTACT:CAPS" title="COUCHDB_RECORD_TYPE_CONTACT">COUCHDB_RECORD_TYPE_CONTACT</a>
+#define             <a class="link" href="CouchdbDocument.html#COUCHDB-RECORD-TYPE-TASK:CAPS" title="COUCHDB_RECORD_TYPE_TASK">COUCHDB_RECORD_TYPE_TASK</a>
+<span class="returnvalue">gboolean</span>            <a class="link" href="CouchdbDocument.html#couchdb-document-is-contact" title="couchdb_document_is_contact ()">couchdb_document_is_contact</a>         (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="CouchdbDocument.html#couchdb-document-is-task" title="couchdb_document_is_task ()">couchdb_document_is_task</a>            (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>);
+                    <a class="link" href="CouchdbDocument.html#CouchdbDocumentPrivate" title="CouchdbDocumentPrivate">CouchdbDocumentPrivate</a>;
+</pre>
+</div>
+<div class="refsect1">
+<a name="CouchdbDocument.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----CouchdbDocument
+</pre>
+</div>
+<div class="refsect1">
+<a name="CouchdbDocument.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="CouchdbDocument.html#CouchdbDocument--database" title='The "database" property'>database</a>"                 <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a>*      : Read / Write / Construct
+</pre>
+</div>
+<div class="refsect1">
+<a name="CouchdbDocument.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="CouchdbDocument.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="CouchdbDocument-struct"></a><h3>CouchdbDocument</h3>
+<pre class="programlisting">typedef struct _CouchdbDocument CouchdbDocument;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CouchdbDocumentClass"></a><h3>CouchdbDocumentClass</h3>
+<pre class="programlisting">typedef struct {
+	GObjectClass parent_class;
+} CouchdbDocumentClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-new"></a><h3>couchdb_document_new ()</h3>
+<pre class="programlisting"><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="returnvalue">CouchdbDocument</span></a> *   couchdb_document_new                (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Create an empty <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object, which can then be populated with data
+and added to a database.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly-created <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object, with no data on it.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-get-id"></a><h3>couchdb_document_get_id ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_get_id             (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>);</pre>
+<p>
+Retrieve the unique ID of the given document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The unique ID of the given document.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-set-id"></a><h3>couchdb_document_set_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_set_id             (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *id</code></em>);</pre>
+<p>
+Set the unique ID for a given document.
+</p>
+<p>
+This usually is not needed by calling applications, unless they want to
+force IDs on the CouchDB documents created/updated for some reason, like
+compatibility with 3rd party applications. In most cases, the autogenerated
+IDs from CouchDB when new documents are created (see <span class="type">couchdb_document_put</span>)
+should be ok for most applications.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>id</code></em> :</span></p></td>
+<td>New unique ID for the given document.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-get-revision"></a><h3>couchdb_document_get_revision ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_get_revision       (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>);</pre>
+<p>
+Retrieve the revision of a given document.
+</p>
+<p>
+CouchDB does not overwrite updated documents in place, instead it creates a
+new document at the end of the database file, with the same ID but a new revision.
+</p>
+<p>
+Document revisions are used for optimistic concurrency control and applications
+should not rely on document revisions for any other purpose than concurrency control.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Revision of the given document.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-set-revision"></a><h3>couchdb_document_set_revision ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_set_revision       (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *revision</code></em>);</pre>
+<p>
+Set the revision of the given document. This should never be used by applications,
+unless they really know what they are doing, since using a wrong revision string
+will confuse CouchDB when doing updates to the document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>revision</code></em> :</span></p></td>
+<td>String specifying the revision to set the document to</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-has-field"></a><h3>couchdb_document_has_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            couchdb_document_has_field          (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);</pre>
+<p>
+Check whether the given document has a field with a specific name.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field to check existence for in the document</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if the field exists in the document, FALSE if not.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-remove-field"></a><h3>couchdb_document_remove_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_remove_field       (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);</pre>
+<p>
+Remove a field from the given document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field to remove from the document</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-get-field-names"></a><h3>couchdb_document_get_field_names ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            couchdb_document_get_field_names    (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>);</pre>
+<p>
+Retrieve the list of fields contained in the given <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A list of strings containing the names of all the fields contained
+in the given <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object. When no longer needed, the list should
+be freed by calling <span class="type">g_slist_free</span>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-get-field-type"></a><h3>couchdb_document_get_field_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">GType</span>               couchdb_document_get_field_type     (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);</pre>
+<p>
+Get the value type of the given <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a>'s field.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field to get type</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Type of the field.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-get-array-field"></a><h3>couchdb_document_get_array_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">CouchdbArrayField</span> * couchdb_document_get_array_field    (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);</pre>
+<p>
+Retrieve the value of an array field from the given document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field to retrieve</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The value of the given array field.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-set-array-field"></a><h3>couchdb_document_set_array_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_set_array_field    (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><span class="type">CouchdbArrayField</span> *value</code></em>);</pre>
+<p>
+Set the value of an array field in the given document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field to set</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>Value to set the field to</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-get-boolean-field"></a><h3>couchdb_document_get_boolean_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            couchdb_document_get_boolean_field  (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);</pre>
+<p>
+Retrieve the value of a boolean field from the given document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field to retrieve</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The value of the given boolean field.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-set-boolean-field"></a><h3>couchdb_document_set_boolean_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_set_boolean_field  (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> value</code></em>);</pre>
+<p>
+Set the value of a boolean field in the given document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field to set</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>Value to set the field to</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-get-int-field"></a><h3>couchdb_document_get_int_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                couchdb_document_get_int_field      (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);</pre>
+<p>
+Retrieve the value of an integer field from the given document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field to retrieve</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The value of the given integer field.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-set-int-field"></a><h3>couchdb_document_set_int_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_set_int_field      (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> value</code></em>);</pre>
+<p>
+Set the value of an integer field in the given document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field to set</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>Value to set the field to</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-get-double-field"></a><h3>couchdb_document_get_double_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">gdouble</span>             couchdb_document_get_double_field   (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);</pre>
+<p>
+Retrieve the value of a decimal number field from the given document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field to retrieve</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The value of the given decimal number field.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-set-double-field"></a><h3>couchdb_document_set_double_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_set_double_field   (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><span class="type">gdouble</span> value</code></em>);</pre>
+<p>
+Set the value of a decimal number field in the given document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field to set</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>Value to set the field to</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-get-string-field"></a><h3>couchdb_document_get_string_field ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_get_string_field   (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);</pre>
+<p>
+Retrieve the value of a string field from the given document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field to retrieve</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The value of the given string field.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-set-string-field"></a><h3>couchdb_document_set_string_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_set_string_field   (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *value</code></em>);</pre>
+<p>
+Set the value of a string field in the given document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field to set</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>Value to set the field to</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-get-struct-field"></a><h3>couchdb_document_get_struct_field ()</h3>
+<pre class="programlisting"><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * couchdb_document_get_struct_field  (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);</pre>
+<p>
+Retrieve the value of a struct field from the given document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field to retrieve</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The value of the given struct field.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-set-struct-field"></a><h3>couchdb_document_set_struct_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_set_struct_field   (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *value</code></em>);</pre>
+<p>
+Set the value of a struct field in the given document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field to set</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>Value to set the field to</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-to-string"></a><h3>couchdb_document_to_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              couchdb_document_to_string          (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>);</pre>
+<p>
+Convert the given <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> to a JSON string.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A string containing the given document in JSON format.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-get-record-type"></a><h3>couchdb_document_get_record_type ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_get_record_type    (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>);</pre>
+<p>
+Retrieve the record type of the given document. Record types are special
+fields in the CouchDB documents, used in Desktopcouch, to identify
+standard records. All supported record types are listed at
+http://www.freedesktop.org/wiki/Specifications/desktopcouch<span class="type">Formats</span>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The record type of the given document.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-set-record-type"></a><h3>couchdb_document_set_record_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_set_record_type    (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *record_type</code></em>);</pre>
+<p>
+Set the record type of the given document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>record_type</code></em> :</span></p></td>
+<td>Record type to set the document to</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-get-application-annotations"></a><h3>couchdb_document_get_application_annotations ()</h3>
+<pre class="programlisting"><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * couchdb_document_get_application_annotations
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>);</pre>
+<p>
+Retrieve the application annotations for the given document.
+</p>
+<p>
+Application annotations is a special field (named "application_annotations"), used
+in Desktopcouch to allow applications to set values on standard documents (as defined
+at http://www.freedesktop.org/wiki/Specifications/desktopcouch<span class="type">Formats</span>) that are
+not part of the standard, but still needed by the application.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> containing the value of the application
+annotations for the given document.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-set-application-annotations"></a><h3>couchdb_document_set_application_annotations ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_set_application_annotations
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *annotations</code></em>);</pre>
+<p>
+Set the application annotations for the given document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>annotations</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> with the contents of the application_annotations field.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-RECORD-TYPE-CONTACT:CAPS"></a><h3>COUCHDB_RECORD_TYPE_CONTACT</h3>
+<pre class="programlisting">#define COUCHDB_RECORD_TYPE_CONTACT "http://www.freedesktop.org/wiki/Specifications/desktopcouch/contact"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="COUCHDB-RECORD-TYPE-TASK:CAPS"></a><h3>COUCHDB_RECORD_TYPE_TASK</h3>
+<pre class="programlisting">#define COUCHDB_RECORD_TYPE_TASK "http://www.freedesktop.org/wiki/Specifications/desktopcouch/task"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-is-contact"></a><h3>couchdb_document_is_contact ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            couchdb_document_is_contact         (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>);</pre>
+<p>
+Check whether the given document represents a contact record, as specified
+at http://www.freedesktop.org/wiki/Specifications/desktopcouch/contact
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if the document represents a contact, FALSE otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-is-task"></a><h3>couchdb_document_is_task ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            couchdb_document_is_task            (<em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>);</pre>
+<p>
+Check whether the given document represents a contact record, as specified
+at http://www.freedesktop.org/wiki/Specifications/desktopcouch/task
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if the document represents a task, FALSE otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CouchdbDocumentPrivate"></a><h3>CouchdbDocumentPrivate</h3>
+<pre class="programlisting">typedef struct _CouchdbDocumentPrivate CouchdbDocumentPrivate;</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="CouchdbDocument.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="CouchdbDocument--database"></a><h3>The <code class="literal">"database"</code> property</h3>
+<pre class="programlisting">  "database"                 <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a>*      : Read / Write / Construct</pre>
+<p>Database from which this document was retrieved/saved.</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

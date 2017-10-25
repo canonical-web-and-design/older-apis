@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Autopilot Tutorial &mdash; Autopilot 1.4+14.04.20140213-0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/otto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/centertext.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.4+14.04.20140213-0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="Autopilot 1.4+14.04.20140213-0 documentation" href="../index.html" />
+    <link rel="next" title="What is Autopilot, and what can it do?" href="what_is_autopilot.html" />
+    <link rel="prev" title="Autopilot Documentation Front Page" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="what_is_autopilot.html" title="What is Autopilot, and what can it do?"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Autopilot Documentation Front Page"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Autopilot 1.4+14.04.20140213-0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="autopilot-tutorial">
+<h1>Autopilot Tutorial<a class="headerlink" href="tutorial.html#autopilot-tutorial" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial will guide users new to Autopilot through creating a minimal autopilot test.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="what_is_autopilot.html">What is Autopilot, and what can it do?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what_is_autopilot.html#where-is-autopilot-used">Where is Autopilot used?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what_is_autopilot.html#how-does-autopilot-fit-with-other-test-frameworks">How does Autopilot fit with other test frameworks?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="what_is_autopilot.html#what-do-autopilot-tests-contain">What do Autopilot Tests Contain?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Writing Your First Test</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#files-and-directories">Files and Directories</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#a-minimal-test-case">A Minimal Test Case</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#the-setup-phase">The Setup Phase</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#starting-the-application">Starting the Application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#a-simple-test">A Simple Test</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="getting_started.html#running-autopilot">Running Autopilot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#a-test-with-interaction">A Test with Interaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#the-eventually-matcher">The Eventually Matcher</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="advanced_autopilot.html">Advanced Autopilot Features</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced_autopilot.html#cleaning-up">Cleaning Up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_autopilot.html#test-scenarios">Test Scenarios</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_autopilot.html#test-logging">Test Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_autopilot.html#environment-patching">Environment Patching</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_autopilot.html#custom-assertions">Custom Assertions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_autopilot.html#platform-selection">Platform Selection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_autopilot.html#gestures-and-multitouch">Gestures and Multitouch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_autopilot.html#advanced-backend-picking">Advanced Backend Picking</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="advanced_autopilot.html#default-creation">Default Creation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced_autopilot.html#picking-a-backend">Picking a Backend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced_autopilot.html#possible-errors-when-creating-backends">Possible Errors when Creating Backends</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_autopilot.html#keyboard-backends">Keyboard Backends</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="advanced_autopilot.html#a-quick-introduction-to-the-keyboard-backends">A quick introduction to the Keyboard backends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="advanced_autopilot.html#limitations-of-the-different-keyboard-backends">Limitations of the different Keyboard backends</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_autopilot.html#process-control">Process Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_autopilot.html#display-information">Display Information</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_autopilot.html#writing-custom-emulators">Writing Custom Emulators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="good_tests.html">Writing Good Autopilot Tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="good_tests.html#write-expressive-tests">Write Expressive Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="good_tests.html#test-one-thing-only">Test One Thing Only</a></li>
+<li class="toctree-l2"><a class="reference internal" href="good_tests.html#fail-well">Fail Well</a></li>
+<li class="toctree-l2"><a class="reference internal" href="good_tests.html#test-length">Test Length</a></li>
+<li class="toctree-l2"><a class="reference internal" href="good_tests.html#good-docstrings">Good docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="good_tests.html#test-readability">Test Readability</a></li>
+<li class="toctree-l2"><a class="reference internal" href="good_tests.html#prefer-wait-for-and-eventually-to-sleep">Prefer <tt class="docutils literal"><span class="pre">wait_for</span></tt> and <tt class="docutils literal"><span class="pre">Eventually</span></tt> to <tt class="docutils literal"><span class="pre">sleep</span></tt></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="good_tests.html#in-tests">In Tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="good_tests.html#in-emulators">In Emulators</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="good_tests.html#scenarios">Scenarios</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="good_tests.html#multiplying-scenarios">Multiplying Scenarios</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="good_tests.html#do-not-depend-on-object-ordering">Do Not Depend on Object Ordering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="running_ap.html">Running Autopilot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="running_ap.html#list-tests">List Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running_ap.html#run-tests">Run Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="running_ap.html#common-use-cases">Common use cases</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="running_ap.html#visualise-introspection-tree">Visualise Introspection Tree</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/otto-64.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://developer.ubuntu.com/api/devel/ubuntu-14.04/autopilot/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../index.html"
+                        title="previous chapter">Autopilot Documentation Front Page</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="what_is_autopilot.html"
+                        title="next chapter">What is Autopilot, and what can it do?</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="what_is_autopilot.html" title="What is Autopilot, and what can it do?"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="Autopilot Documentation Front Page"
+             >previous</a> |</li>
+        <li><a href="../index.html">Autopilot 1.4+14.04.20140213-0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      <div class=center_text>
+        <a href="../faq/contribute.html">Learn how you can contribute!</a> / <a href="https://bugs.launchpad.net/autopilot/+filebug">File a bug</a>
+     <br/>
+      </div>
+        &copy; Copyright 2012-2013, Canonical.
+    </div>
+
+
+  </body>
+</html>

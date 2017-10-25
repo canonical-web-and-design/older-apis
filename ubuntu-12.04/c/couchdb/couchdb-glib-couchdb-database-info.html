@@ -1,0 +1,378 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>couchdb-database-info</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Reference Manual for CouchDB GLib Bindings">
+<link rel="up" href="ch01.html" title="Core API">
+<link rel="prev" href="CouchdbDatabase.html" title="CouchdbDatabase">
+<link rel="next" href="CouchdbCredentials.html" title="CouchdbCredentials">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="CouchdbDatabase.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Reference Manual for CouchDB GLib Bindings</th>
+<td><a accesskey="n" href="CouchdbCredentials.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="couchdb-glib-couchdb-database-info.html#couchdb-glib-couchdb-database-info.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="couchdb-glib-couchdb-database-info.html#couchdb-glib-couchdb-database-info.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="couchdb-glib-couchdb-database-info"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="couchdb-glib-couchdb-database-info.top_of_page"></a>couchdb-database-info</span></h2>
+<p>couchdb-database-info</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="couchdb-glib-couchdb-database-info.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="couchdb-glib-couchdb-database-info.html#COUCHDB-TYPE-DATABASE-INFO:CAPS" title="COUCHDB_TYPE_DATABASE_INFO">COUCHDB_TYPE_DATABASE_INFO</a>
+<span class="returnvalue">GType</span>               <a class="link" href="couchdb-glib-couchdb-database-info.html#couchdb-database-info-get-type" title="couchdb_database_info_get_type ()">couchdb_database_info_get_type</a>      (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">CouchdbDatabaseInfo</span> * <a class="link" href="couchdb-glib-couchdb-database-info.html#couchdb-database-info-ref" title="couchdb_database_info_ref ()">couchdb_database_info_ref</a>         (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-couchdb-database-info.html#couchdb-database-info-unref" title="couchdb_database_info_unref ()">couchdb_database_info_unref</a>         (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-couchdb-database-info.html#couchdb-database-info-get-dbname" title="couchdb_database_info_get_dbname ()">couchdb_database_info_get_dbname</a>    (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="couchdb-glib-couchdb-database-info.html#couchdb-database-info-get-deleted-documents-count" title="couchdb_database_info_get_deleted_documents_count ()">couchdb_database_info_get_deleted_documents_count</a>
+                                                        (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="couchdb-glib-couchdb-database-info.html#couchdb-database-info-get-disk-format-version" title="couchdb_database_info_get_disk_format_version ()">couchdb_database_info_get_disk_format_version</a>
+                                                        (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="couchdb-glib-couchdb-database-info.html#couchdb-database-info-get-disk-size" title="couchdb_database_info_get_disk_size ()">couchdb_database_info_get_disk_size</a> (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="couchdb-glib-couchdb-database-info.html#couchdb-database-info-get-documents-count" title="couchdb_database_info_get_documents_count ()">couchdb_database_info_get_documents_count</a>
+                                                        (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="couchdb-glib-couchdb-database-info.html#couchdb-database-info-get-instance-start-time" title="couchdb_database_info_get_instance_start_time ()">couchdb_database_info_get_instance_start_time</a>
+                                                        (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="couchdb-glib-couchdb-database-info.html#couchdb-database-info-get-purge-sequence" title="couchdb_database_info_get_purge_sequence ()">couchdb_database_info_get_purge_sequence</a>
+                                                        (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="couchdb-glib-couchdb-database-info.html#couchdb-database-info-get-update-sequence" title="couchdb_database_info_get_update_sequence ()">couchdb_database_info_get_update_sequence</a>
+                                                        (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="couchdb-glib-couchdb-database-info.html#couchdb-database-info-is-compact-running" title="couchdb_database_info_is_compact_running ()">couchdb_database_info_is_compact_running</a>
+                                                        (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);
+<span class="returnvalue">CouchdbDatabaseInfo</span> * <a class="link" href="couchdb-glib-couchdb-database-info.html#couchdb-database-info-new" title="couchdb_database_info_new ()">couchdb_database_info_new</a>         (<em class="parameter"><code>const <span class="type">char</span> *dbname</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> doc_count</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> doc_del_count</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> update_seq</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> purse_seq</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> compact_running</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> disk_size</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> disk_format_version</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> instance_start_time</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="couchdb-glib-couchdb-database-info.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="couchdb-glib-couchdb-database-info.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="COUCHDB-TYPE-DATABASE-INFO:CAPS"></a><h3>COUCHDB_TYPE_DATABASE_INFO</h3>
+<pre class="programlisting">#define COUCHDB_TYPE_DATABASE_INFO (couchdb_database_info_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-info-get-type"></a><h3>couchdb_database_info_get_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">GType</span>               couchdb_database_info_get_type      (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-info-ref"></a><h3>couchdb_database_info_ref ()</h3>
+<pre class="programlisting"><span class="returnvalue">CouchdbDatabaseInfo</span> * couchdb_database_info_ref         (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);</pre>
+<p>
+Increments reference counting of the given <span class="type">CouchdbDatabaseInfo</span> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A pointer to the object being referenced.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-info-unref"></a><h3>couchdb_database_info_unref ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_database_info_unref         (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);</pre>
+<p>
+Decrements reference counting of the given <span class="type">CouchdbDatabaseInfo</span> object.
+When the reference count is equal to 0, the object will be destroyed.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-info-get-dbname"></a><h3>couchdb_database_info_get_dbname ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_database_info_get_dbname    (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);</pre>
+<p>
+Get the database name stored in the <span class="type">CouchdbDatabaseInfo</span> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbinfo</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbDatabaseInfo</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Name of the database.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-info-get-deleted-documents-count"></a><h3>couchdb_database_info_get_deleted_documents_count ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                couchdb_database_info_get_deleted_documents_count
+                                                        (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);</pre>
+<p>
+Get the number of deleted documents stored in the <span class="type">CouchdbDatabaseInfo</span> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbinfo</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbDatabaseInfo</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Number of deleted documents.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-info-get-disk-format-version"></a><h3>couchdb_database_info_get_disk_format_version ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                couchdb_database_info_get_disk_format_version
+                                                        (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);</pre>
+<p>
+Get the current version of the internal database format on disk.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbinfo</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbDatabaseInfo</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Current version of the internal database format on disk.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-info-get-disk-size"></a><h3>couchdb_database_info_get_disk_size ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                couchdb_database_info_get_disk_size (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);</pre>
+<p>
+Get the size of database on disk stored in the <span class="type">CouchdbDatabaseInfo</span> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbinfo</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbDatabaseInfo</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Size of the database on disk.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-info-get-documents-count"></a><h3>couchdb_database_info_get_documents_count ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                couchdb_database_info_get_documents_count
+                                                        (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);</pre>
+<p>
+Get the number of documents stored in the <span class="type">CouchdbDatabaseInfo</span> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbinfo</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbDatabaseInfo</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Number of documents in the database.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-info-get-instance-start-time"></a><h3>couchdb_database_info_get_instance_start_time ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                couchdb_database_info_get_instance_start_time
+                                                        (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);</pre>
+<p>
+Get the timestamp of CouchDBs start time.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbinfo</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbDatabaseInfo</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Timestamp of CouchDBs start time.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-info-get-purge-sequence"></a><h3>couchdb_database_info_get_purge_sequence ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                couchdb_database_info_get_purge_sequence
+                                                        (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);</pre>
+<p>
+Get the number of purge operations.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbinfo</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbDatabaseInfo</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Number of purge operations.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-info-get-update-sequence"></a><h3>couchdb_database_info_get_update_sequence ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                couchdb_database_info_get_update_sequence
+                                                        (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);</pre>
+<p>
+Get the last update sequence stored in the <span class="type">CouchdbDatabaseInfo</span> object.
+This sequence is incremented with each change done to the database.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbinfo</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbDatabaseInfo</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Last update sequence.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-info-is-compact-running"></a><h3>couchdb_database_info_is_compact_running ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            couchdb_database_info_is_compact_running
+                                                        (<em class="parameter"><code><span class="type">CouchdbDatabaseInfo</span> *dbinfo</code></em>);</pre>
+<p>
+Get whether compacting is running on the database at the time the information
+was retrieved.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbinfo</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbDatabaseInfo</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Whether compacting is running or not.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-info-new"></a><h3>couchdb_database_info_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">CouchdbDatabaseInfo</span> * couchdb_database_info_new         (<em class="parameter"><code>const <span class="type">char</span> *dbname</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> doc_count</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> doc_del_count</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> update_seq</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> purse_seq</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> compact_running</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> disk_size</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> disk_format_version</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> instance_start_time</code></em>);</pre>
+<p>
+Create a new <em class="parameter"><code>CouchdbDatabaseInfo</code></em> object, which is used to store information
+(name, number of documents, etc) of a database in CouchDB.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbname</code></em> :</span></p></td>
+<td>Database name</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc_count</code></em> :</span></p></td>
+<td>Number of documents in the database</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc_del_count</code></em> :</span></p></td>
+<td>Number of deleted documents in the database</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>update_seq</code></em> :</span></p></td>
+<td>Last update sequence</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>compact_running</code></em> :</span></p></td>
+<td>Whether compacting is in progress</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>disk_size</code></em> :</span></p></td>
+<td>Size of database on disk</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>disk_format_version</code></em> :</span></p></td>
+<td>Current version of the internal database format on disk</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>instance_start_time</code></em> :</span></p></td>
+<td>Timestamp of CouchDBs start time</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly-created <span class="type">CouchdbDatabaseInfo</span> object.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

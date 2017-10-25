@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>unity-webapps-indicator-context</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="libunity-webapps Reference Manual">
+<link rel="up" href="desktopapis.html" title="Desktop integration APIs bindings of the Context Daemon">
+<link rel="prev" href="libunity-webapps-unity-webapps-notification-context.html" title="unity-webapps-notification-context">
+<link rel="next" href="libunity-webapps-unity-webapps-music-player-context.html" title="unity-webapps-music-player-context">
+<meta name="generator" content="GTK-Doc V1.19 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libunity-webapps-unity-webapps-notification-context.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="desktopapis.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libunity-webapps Reference Manual</th>
+<td><a accesskey="n" href="libunity-webapps-unity-webapps-music-player-context.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="libunity-webapps-unity-webapps-indicator-context.html#libunity-webapps-unity-webapps-indicator-context.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="libunity-webapps-unity-webapps-indicator-context.html#libunity-webapps-unity-webapps-indicator-context.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libunity-webapps-unity-webapps-indicator-context"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libunity-webapps-unity-webapps-indicator-context.top_of_page"></a>unity-webapps-indicator-context</span></h2>
+<p>unity-webapps-indicator-context</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libunity-webapps-unity-webapps-indicator-context.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><span class="returnvalue">void</span>                (<a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#UnityWebappsIndicatorCallback" title="UnityWebappsIndicatorCallback ()">*UnityWebappsIndicatorCallback</a>)    (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+                    <a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#UnityWebappsIndicatorContext" title="UnityWebappsIndicatorContext">UnityWebappsIndicatorContext</a>;
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#unity-webapps-indicator-add-action" title="unity_webapps_indicator_add_action ()">unity_webapps_indicator_add_action</a>  (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#UnityWebappsIndicatorCallback" title="UnityWebappsIndicatorCallback ()"><span class="type">UnityWebappsIndicatorCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#unity-webapps-indicator-clear-indicator" title="unity_webapps_indicator_clear_indicator ()">unity_webapps_indicator_clear_indicator</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#unity-webapps-indicator-context-free" title="unity_webapps_indicator_context_free ()">unity_webapps_indicator_context_free</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#UnityWebappsIndicatorContext" title="UnityWebappsIndicatorContext"><span class="type">UnityWebappsIndicatorContext</span></a> *context</code></em>);
+<a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#UnityWebappsIndicatorContext" title="UnityWebappsIndicatorContext"><span class="returnvalue">UnityWebappsIndicatorContext</span></a> * <a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#unity-webapps-indicator-context-new" title="unity_webapps_indicator_context_new ()">unity_webapps_indicator_context_new</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *main_context</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#unity-webapps-indicator-get-presence" title="unity_webapps_indicator_get_presence ()">unity_webapps_indicator_get_presence</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#unity-webapps-indicator-on-presence-changed-callback" title="unity_webapps_indicator_on_presence_changed_callback ()">unity_webapps_indicator_on_presence_changed_callback</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#UnityWebappsIndicatorCallback" title="UnityWebappsIndicatorCallback ()"><span class="type">UnityWebappsIndicatorCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#unity-webapps-indicator-set-callback" title="unity_webapps_indicator_set_callback ()">unity_webapps_indicator_set_callback</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#UnityWebappsIndicatorCallback" title="UnityWebappsIndicatorCallback ()"><span class="type">UnityWebappsIndicatorCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#unity-webapps-indicator-set-property" title="unity_webapps_indicator_set_property ()">unity_webapps_indicator_set_property</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#unity-webapps-indicator-set-property-icon" title="unity_webapps_indicator_set_property_icon ()">unity_webapps_indicator_set_property_icon</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *icon_url</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#unity-webapps-indicator-show-indicator" title="unity_webapps_indicator_show_indicator ()">unity_webapps_indicator_show_indicator</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libunity-webapps-unity-webapps-indicator-context.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="libunity-webapps-unity-webapps-indicator-context.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="UnityWebappsIndicatorCallback"></a><h3>UnityWebappsIndicatorCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*UnityWebappsIndicatorCallback)    (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="UnityWebappsIndicatorContext"></a><h3>UnityWebappsIndicatorContext</h3>
+<pre class="programlisting">typedef struct {
+  UnityWebappsContext *context;
+
+  UnityWebappsGenIndicator *indicator_proxy;
+	
+  GHashTable *menu_callbacks_by_name;
+  GHashTable *indicator_callbacks_by_name;
+
+  guint indicator_rate;
+} UnityWebappsIndicatorContext;
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-indicator-add-action"></a><h3>unity_webapps_indicator_add_action ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_indicator_add_action  (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *label</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#UnityWebappsIndicatorCallback" title="UnityWebappsIndicatorCallback ()"><span class="type">UnityWebappsIndicatorCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-indicator-clear-indicator"></a><h3>unity_webapps_indicator_clear_indicator ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_indicator_clear_indicator
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-indicator-context-free"></a><h3>unity_webapps_indicator_context_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_indicator_context_free
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#UnityWebappsIndicatorContext" title="UnityWebappsIndicatorContext"><span class="type">UnityWebappsIndicatorContext</span></a> *context</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-indicator-context-new"></a><h3>unity_webapps_indicator_context_new ()</h3>
+<pre class="programlisting"><a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#UnityWebappsIndicatorContext" title="UnityWebappsIndicatorContext"><span class="returnvalue">UnityWebappsIndicatorContext</span></a> * unity_webapps_indicator_context_new
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *main_context</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-indicator-get-presence"></a><h3>unity_webapps_indicator_get_presence ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             unity_webapps_indicator_get_presence
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-indicator-on-presence-changed-callback"></a><h3>unity_webapps_indicator_on_presence_changed_callback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_indicator_on_presence_changed_callback
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#UnityWebappsIndicatorCallback" title="UnityWebappsIndicatorCallback ()"><span class="type">UnityWebappsIndicatorCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-indicator-set-callback"></a><h3>unity_webapps_indicator_set_callback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_indicator_set_callback
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-unity-webapps-indicator-context.html#UnityWebappsIndicatorCallback" title="UnityWebappsIndicatorCallback ()"><span class="type">UnityWebappsIndicatorCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-indicator-set-property"></a><h3>unity_webapps_indicator_set_property ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_indicator_set_property
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-indicator-set-property-icon"></a><h3>unity_webapps_indicator_set_property_icon ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_indicator_set_property_icon
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *property</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *icon_url</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-indicator-show-indicator"></a><h3>unity_webapps_indicator_show_indicator ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_indicator_show_indicator
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.19</div>
+</body>
+</html>

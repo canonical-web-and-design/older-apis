@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ActionContext.qml -->
+  <title>Unity Action QML API : ActionContext</title>
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<body>
+   <div class="wrapper">
+   <div class="main-content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-unity-action1-actioncontext.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-unity-action1-actioncontext.html#methods">Methods</a></li>
+<li class="level1"><a href="qml-ubuntu-unity-action1-actioncontext.html#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">ActionContext</h1>
+<span class="subtitle"></span>
+<p>This type was introduced in Unity Action QML API 1.0.</p>
+<ul>
+<li><a href="qml-ubuntu-unity-action1-actioncontext-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-actioncontext.html#actions-prop">actions</a></b></b> : list&lt;Action&gt;</li>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-actioncontext.html#active-prop">active</a></b></b> : bool</li>
+</ul>
+<a name="methods"></a>
+<h2>Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-actioncontext.html#addAction-method">addAction</a></b></b>(<i>action</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-actioncontext.html#removeAction-method">removeAction</a></b></b>(<i>action</i>)</li>
+</ul>
+<!-- $$$ActionContext-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>ActionContext groups actions together and by providing multiple contexts the developer is able to control the visibility of the actions. The <a href="qml-ubuntu-unity-action1-actionmanager.html">ActionManager</a> then exposes the actions from these different contexts. See <a href="contexts.html">Action Contexts</a> for more details.</p>
+<!-- @@@ActionContext -->
+<h2>Property Documentation</h2>
+<!-- $$$actions -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="actions-prop"></a><span class="name">actions</span> : <span class="type">list</span>&lt;<span class="type"><a href="qml-ubuntu-unity-action1-action.html">Action</a></span>&gt;</p></td></tr></table></div><div class="qmldoc"><p>List of Actions in this <a href="qml-ubuntu-unity-action1-actioncontext.html">ActionContext</a>.</p>
+<p>This is the default property of <a href="qml-ubuntu-unity-action1-actioncontext.html">ActionContext</a>.</p>
+</div></div><!-- @@@actions -->
+<br/>
+<!-- $$$active -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="active-prop"></a><span class="name">active</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>If true the context is active. If false the context is inactive.</p>
+<p>When context has been added to the <a href="qml-ubuntu-unity-action1-actionmanager.html">ActionManager</a> setting this value controls whether or not the actions in a context are available to external components.</p>
+<p>The <a href="qml-ubuntu-unity-action1-actionmanager.html">ActionManager</a> monitors the active property of each of the local contexts that has been added to it. There can be only one active local context at a time. When one of the local contexts sets itself active the manager will notice this, export the actions from that given context and set the previously active local context as inactive. This way setting active to true on a local context is sufficient to manage the active local context of the manager and no additional calls are necessary to manually inactivate the other contexts.</p>
+</div></div><!-- @@@active -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$addAction -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="addAction-method"></a>ActionContext::<span class="name">addAction</span>(<i> action</i>)</p></td></tr></table></div><div class="qmldoc"><p>Adds an action to the context.</p>
+<p>Calling this function multiple times with the same action does not have any side effects; the action gets added only once.</p>
+</div></div><!-- @@@addAction -->
+<br/>
+<!-- $$$removeAction -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="removeAction-method"></a>ActionContext::<span class="name">removeAction</span>(<i> action</i>)</p></td></tr></table></div><div class="qmldoc"><p>Removes an action from the context.</p>
+<p>Calling this function multiple times with the same action does not have any side effects; the action gets removed only if it was first added to the context with <a href="qml-ubuntu-unity-action1-actioncontext.html#addAction-method">addAction()</a>.</p>
+</div></div><!-- @@@removeAction -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+	</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="C">
+    
+    <title>FriendsGtk-0.1 C API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>FriendsGtk-0.1 C API Documentation</h1>
+
+<div class="class-normal">
+<a href="FriendsGtk-0.1.html#FriendsGtk.AccountTargetBar" class="class-anchor">⚓</a><h2 class="class-normal" id="FriendsGtk.AccountTargetBar">Class: FriendsGtkAccountTargetBar</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Gtk-2.0.html#Gtk.Box">GtkBox</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">guint*</span></span><span class="property-name">"selected"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"submit"</span><span class="signal-parameters">(FriendsGtkAccountTargetBar *account_target_bar)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="FriendsGtk-0.1.html#FriendsGtk.AccountTargetBar">FriendsGtkAccountTargetBar</a>*</span><span class="method-name">friends_gtk_account_target_bar_new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_gtk_account_target_bar_set_counter</span><span class="method-parameters">(FriendsGtkAccountTargetBar *self, <span class="type-basetype type ">gint</span> chars)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="FriendsGtk-0.1.html#FriendsGtk.AccountToggleButton" class="class-anchor">⚓</a><h2 class="class-normal" id="FriendsGtk.AccountToggleButton">Class: FriendsGtkAccountToggleButton</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Gtk-2.0.html#Gtk.ToggleButton">GtkToggleButton</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"color"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="FriendsGtk-0.1.html#FriendsGtk.AccountToggleButton">FriendsGtkAccountToggleButton</a>*</span><span class="method-name">friends_gtk_account_toggle_button_new</span><span class="method-parameters">(<a class="link-Type type " href="FriendsGtk-0.1.html#utf8">const gchar</a> *color)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="FriendsGtk-0.1.html#FriendsGtk.Entry" class="class-anchor">⚓</a><h2 class="class-normal" id="FriendsGtk.Entry">Class: FriendsGtkEntry</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Gtk-2.0.html#Gtk.Box">GtkBox</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="FriendsGtk-0.1.html#FriendsGtk.Entry">FriendsGtkEntry</a>*</span><span class="method-name">friends_gtk_entry_new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="FriendsGtk-0.1.html#FriendsGtk.InputTextView" class="class-anchor">⚓</a><h2 class="class-normal" id="FriendsGtk.InputTextView">Class: FriendsGtkInputTextView</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Gtk-2.0.html#Gtk.TextView">GtkTextView</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"action"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"mid"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"clear"</span><span class="signal-parameters">(FriendsGtkInputTextView *input_text_view)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"submit"</span><span class="signal-parameters">(FriendsGtkInputTextView *input_text_view)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="FriendsGtk-0.1.html#FriendsGtk.InputTextView">FriendsGtkInputTextView</a>*</span><span class="method-name">friends_gtk_input_text_view_new</span><span class="method-parameters">(<a class="link-Type type " href="FriendsGtk-0.1.html#Friends.Dispatcher">FriendsDispatcher</a> *dispatcher)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">friends_gtk_input_text_view_reset</span><span class="method-parameters">(FriendsGtkInputTextView *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="FriendsGtk-0.1.html#FriendsGtk.SendBar" class="class-anchor">⚓</a><h2 class="class-normal" id="FriendsGtk.SendBar">Class: FriendsGtkSendBar</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Gtk-2.0.html#Gtk.Box">GtkBox</a></p>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"submit"</span><span class="signal-parameters">(FriendsGtkSendBar *send_bar)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="FriendsGtk-0.1.html#FriendsGtk.SendBar">FriendsGtkSendBar</a>*</span><span class="method-name">friends_gtk_send_bar_new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="FriendsGtk-0.1.html#FriendsGtk.SimpleEntry" class="class-anchor">⚓</a><h2 class="class-normal" id="FriendsGtk.SimpleEntry">Class: FriendsGtkSimpleEntry</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Gtk-2.0.html#Gtk.Box">GtkBox</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="FriendsGtk-0.1.html#FriendsGtk.SimpleEntry">FriendsGtkSimpleEntry</a>*</span><span class="method-name">friends_gtk_simple_entry_new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+</body>
+</html>
+

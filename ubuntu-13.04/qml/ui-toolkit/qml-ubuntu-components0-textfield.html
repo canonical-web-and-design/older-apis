@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- TextField.qml -->
+  <title>UbuntuUserInterfaceToolkit 0.1: TextField</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="overview-ubuntu-sdk.html">Ubuntu User Interface Toolkit</a></li>
+<li>TextField</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-components0-textfield.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-textfield.html#signals">Signals</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-textfield.html#methods">Methods</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-textfield.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">TextField</h1>
+<span class="subtitle"></span>
+<!-- $$$TextField-brief -->
+<p>The TextField element displays a single line of editable plain text. Input constraints can be set through validator or <a href="qml-ubuntu-components0-textfield.html#inputMask-prop">inputMask</a>. Setting <a href="qml-ubuntu-components0-textfield.html#echoMode-prop">echoMode</a> to an appropriate value enables TextField to be used as password input field. <a href="qml-ubuntu-components0-textfield.html#details">More...</a></p>
+<!-- @@@TextField -->
+<p>Inherits <a href="qml-ubuntu-components0-actionitem.html">ActionItem</a></p>
+<ul>
+<li><a href="qml-ubuntu-components0-textfield-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#acceptableInput-prop">acceptableInput</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#action-prop">action</a></b></b> : Action</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#activeFocusOnPress-prop">activeFocusOnPress</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#autoScroll-prop">autoScroll</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#canPaste-prop">canPaste</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#canRedo-prop">canRedo</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#canUndo-prop">canUndo</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#color-prop">color</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#contentHeight-prop">contentHeight</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#contentWidth-prop">contentWidth</a></b></b> : real</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#cursorDelegate-prop">cursorDelegate</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#cursorPosition-prop">cursorPosition</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#cursorRectangle-prop">cursorRectangle</a></b></b> : rectangle</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#cursorVisible-prop">cursorVisible</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#customSoftwareInputPanel-prop">customSoftwareInputPanel</a></b></b> : Component<tt> (preliminary)</tt></li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#displayText-prop">displayText</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#echoMode-prop">echoMode</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#effectiveHorizontalAlignment-prop">effectiveHorizontalAlignment</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#errorHighlight-prop">errorHighlight</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#font-prop">font</a></b></b> : font</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#hasClearButton-prop">hasClearButton</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#highlighted-prop">highlighted</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#horizontalAlignment-prop">horizontalAlignment</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#iconSource-prop">iconSource</a></b></b> : url</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#inputMask-prop">inputMask</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#inputMethodComposing-prop">inputMethodComposing</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#inputMethodHints-prop">inputMethodHints</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#length-prop">length</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#maximumLength-prop">maximumLength</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#mouseSelectionMode-prop">mouseSelectionMode</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#passwordCharacter-prop">passwordCharacter</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#persistentSelection-prop">persistentSelection</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#placeholderText-prop">placeholderText</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#popover-prop">popover</a></b></b> : var</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#primaryItem-prop">primaryItem</a></b></b> : list&lt;Object&gt;</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#readOnly-prop">readOnly</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#renderType-prop">renderType</a></b></b> : enumeration</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#secondaryItem-prop">secondaryItem</a></b></b> : list&lt;Object&gt;</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#selctedTextColor-prop">selctedTextColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#selectByMouse-prop">selectByMouse</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#selectedText-prop">selectedText</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#selectionColor-prop">selectionColor</a></b></b> : color</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#selectionEnd-prop">selectionEnd</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#selectionStart-prop">selectionStart</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#style-prop">style</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#text-prop">text</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#validator-prop">validator</a></b></b> : Validator</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#verticalAlignment-prop">verticalAlignment</a></b></b> : enumeration</li>
+</ul>
+<a name="signals"></a>
+<h2>Signals</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#accepted-signal">accepted</a></b></b>()</li>
+</ul>
+<a name="methods"></a>
+<h2>Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#copy-method">copy</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#cut-method">cut</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#deselect-method">deselect</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#getText-method">getText</a></b></b>(<i>start</i>,  <i>end</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#insert-method">insert</a></b></b>(<i>position</i>,  <i>text</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#isRightToLeft-method">isRightToLeft</a></b></b>(<i>start</i>,  <i>end</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#moveCursorSelection-method">moveCursorSelection</a></b></b>(<i>position</i>,  <i>mode</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#paste-method">paste</a></b></b>(<i>data</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#positionAt-method">positionAt</a></b></b>(<i>x</i>,  <i>position</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#positionToRectangle-method">positionToRectangle</a></b></b>(<i>pos</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#redo-method">redo</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#remove-method">remove</a></b></b>(<i>start</i>,  <i>end</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#select-method">select</a></b></b>(<i>start</i>,  <i>end</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#selectAll-method">selectAll</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#selectWord-method">selectWord</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-textfield.html#undo-method">undo</a></b></b>()</li>
+</ul>
+<!-- $$$TextField-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p><b>This component is under heavy development.</b></p>
+<p><a href="http://design.ubuntu.com/apps/building-blocks/text-field">See also the Design Guidelines on the Text Field</a>.</p>
+<p>Example:</p>
+<pre class="qml"><span class="type">Item</span> {
+    <span class="type">TextField</span> {
+        <span class="name">placeholderText</span>: <span class="string">&quot;hint text&quot;</span>
+    }
+
+    <span class="type">TextField</span> {
+        <span class="name">placeholderText</span>: <span class="string">&quot;without clear sign&quot;</span>
+        <span class="name">hasClearButton</span>: <span class="number">false</span>
+    }
+
+    <span class="type">TextField</span> {
+        <span class="name">placeholderText</span>: <span class="string">&quot;password&quot;</span>
+        <span class="name">echoMode</span>: <span class="name">TextInput</span>.<span class="name">Password</span>
+    }
+
+    <span class="type">TextField</span> {
+        <span class="name">placeholderText</span>: <span class="string">&quot;overlaid in front&quot;</span>
+        <span class="name">primaryItem</span>: <span class="name">Image</span> {
+            <span class="name">height</span>: <span class="name">parent</span>.<span class="name">height</span>
+            <span class="name">width</span>: <span class="name">height</span>
+            <span class="name">source</span>: <span class="string">&quot;magnifier.png&quot;</span>
+        }
+        <span class="name">secondaryItem</span>: <span class="name">Row</span> {
+            <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+                <span class="name">height</span>: <span class="name">parent</span>.<span class="name">height</span>
+                <span class="name">width</span>: <span class="name">height</span>
+                <span class="name">iconSource</span>: <span class="string">&quot;caps-lock.png&quot;</span>
+                <span class="name">onClicked</span>: <span class="name">doSomething</span>()
+            }
+            <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+                <span class="name">height</span>: <span class="name">parent</span>.<span class="name">height</span>
+                <span class="name">width</span>: <span class="name">height</span>
+                <span class="name">iconSource</span>: <span class="string">&quot;num-lock.png&quot;</span>
+                <span class="name">onClicked</span>: <span class="name">doSomething</span>()
+            }
+        }
+    }
+}</pre>
+<!-- @@@TextField -->
+<h2>Property Documentation</h2>
+<!-- $$$acceptableInput -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="acceptableInput-prop"></a><span class="name">acceptableInput</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>This property is always true unless a validator or input mask has been set. If a validator or input mask has been set, this property will only be true if the current text is acceptable to the validator or input mask as a final string (not as an intermediate string).</p>
+</div></div><!-- @@@acceptableInput -->
+<br/>
+<!-- $$$action -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="action-prop"></a><span class="name">action</span> : <span class="type"><a href="qml-ubuntu-components0-action.html">Action</a></span></p></td></tr></table></div><div class="qmldoc"><p>The <a href="qml-ubuntu-components0-action.html">Action</a> associated with this <a href="qml-ubuntu-components0-actionitem.html">ActionItem</a>. If action is set, the values of the Action properties are copied to the values of the <a href="qml-ubuntu-components0-actionitem.html">ActionItem</a> properties.</p>
+</div></div><!-- @@@action -->
+<br/>
+<!-- $$$activeFocusOnPress -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="activeFocusOnPress-prop"></a><span class="name">activeFocusOnPress</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>Whether the <a href="qml-ubuntu-components0-textfield.html">TextField</a> should gain active focus on a mouse press. By default this is set to true.</p>
+</div></div><!-- @@@activeFocusOnPress -->
+<br/>
+<!-- $$$autoScroll -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="autoScroll-prop"></a><span class="name">autoScroll</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>Whether the <a href="qml-ubuntu-components0-textfield.html">TextField</a> should scroll when the text is longer than the width. By default this is set to true.</p>
+</div></div><!-- @@@autoScroll -->
+<br/>
+<!-- $$$canPaste -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="canPaste-prop"></a><span class="name">canPaste</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>Returns true if the <a href="qml-ubuntu-components0-textfield.html">TextField</a> is writable and the content of the clipboard is suitable for pasting into the <a href="qml-ubuntu-components0-textfield.html">TextField</a>.</p>
+</div></div><!-- @@@canPaste -->
+<br/>
+<!-- $$$canRedo -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="canRedo-prop"></a><span class="name">canRedo</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>Returns true if the <a href="qml-ubuntu-components0-textfield.html">TextField</a> is writable and there are undone operations that can be redone.</p>
+</div></div><!-- @@@canRedo -->
+<br/>
+<!-- $$$canUndo -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="canUndo-prop"></a><span class="name">canUndo</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>Returns true if the <a href="qml-ubuntu-components0-textfield.html">TextField</a> is writable and there are previous operations that can be undone.</p>
+</div></div><!-- @@@canUndo -->
+<br/>
+<!-- $$$color -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="color-prop"></a><span class="name">color</span> : <span class="type"><a href="qml-ubuntu-components0-textfield.html#color-prop">color</a></span></p></td></tr></table></div><div class="qmldoc"><p>The text color.</p>
+</div></div><!-- @@@color -->
+<br/>
+<!-- $$$contentHeight -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="contentHeight-prop"></a><span class="name">contentHeight</span> : <span class="type">real</span></p></td></tr></table></div><div class="qmldoc"><p>Returns the height of the text, including the height past the height that is covered if the text does not fit within the set height.</p>
+</div></div><!-- @@@contentHeight -->
+<br/>
+<!-- $$$contentWidth -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="contentWidth-prop"></a><span class="name">contentWidth</span> : <span class="type">real</span></p></td></tr></table></div><div class="qmldoc"><p>Returns the width of the text, including the width past the width which is covered due to insufficient wrapping if wrapMode is set.</p>
+</div></div><!-- @@@contentWidth -->
+<br/>
+<!-- $$$cursorDelegate -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="cursorDelegate-prop"></a><span class="name">cursorDelegate</span> : <span class="type">Component</span></p></td></tr></table></div><div class="qmldoc"><p>The delegate for the cursor in the <a href="qml-ubuntu-components0-textfield.html">TextField</a>.</p>
+<p>If you set a cursorDelegate for a <a href="qml-ubuntu-components0-textfield.html">TextField</a>, this delegate will be used for drawing the cursor instead of the standard cursor. An instance of the delegate will be created and managed by the <a href="qml-ubuntu-components0-textfield.html">TextField</a> when a cursor is needed, and the x property of delegate instance will be set so as to be one pixel before the top left of the current character.</p>
+<p>Note that the root item of the delegate component must be a QQuickItem or QQuickItem derived item.</p>
+</div></div><!-- @@@cursorDelegate -->
+<br/>
+<!-- $$$cursorPosition -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="cursorPosition-prop"></a><span class="name">cursorPosition</span> : <span class="type">int</span></p></td></tr></table></div><div class="qmldoc"><p>The position of the cursor in the <a href="qml-ubuntu-components0-textfield.html">TextField</a>.</p>
+</div></div><!-- @@@cursorPosition -->
+<br/>
+<!-- $$$cursorRectangle -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="cursorRectangle-prop"></a><span class="name">cursorRectangle</span> : <span class="type">rectangle</span></p></td></tr></table></div><div class="qmldoc"><p>The rectangle where the standard text cursor is rendered within the text input. Read only.</p>
+<p>The position and height of a custom <a href="qml-ubuntu-components0-textfield.html#cursorDelegate-prop">cursorDelegate</a> are updated to follow the cursorRectangle automatically when it changes. The width of the delegate is unaffected by changes in the cursor rectangle.</p>
+</div></div><!-- @@@cursorRectangle -->
+<br/>
+<!-- $$$cursorVisible -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="cursorVisible-prop"></a><span class="name">cursorVisible</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>Set to true when the <a href="qml-ubuntu-components0-textfield.html">TextField</a> shows a cursor.</p>
+<p>This property is set and unset when the <a href="qml-ubuntu-components0-textfield.html">TextField</a> gets active focus, so that other properties can be bound to whether the cursor is currently showing. As it gets set and unset automatically, when you set the value yourself you must keep in mind that your value may be overwritten.</p>
+<p>It can be set directly in script, for example if a KeyProxy might forward keys to it and you desire it to look active when this happens (but without actually giving it active focus).</p>
+<p>It should not be set directly on the item, like in the below QML, as the specified value will be overridden an lost on focus changes.</p>
+<pre class="qml"><span class="type"><a href="qml-ubuntu-components0-textfield.html">TextField</a></span> {
+    <span class="name">text</span>: <span class="string">&quot;Text&quot;</span>
+    <span class="name">cursorVisible</span>: <span class="number">false</span>
+}</pre>
+<p>In the above snippet the cursor will still become visible when the <a href="qml-ubuntu-components0-textfield.html">TextField</a> gains active focus.</p>
+</div></div><!-- @@@cursorVisible -->
+<br/>
+<!-- $$$customSoftwareInputPanel -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="customSoftwareInputPanel-prop"></a><span class="name">customSoftwareInputPanel</span> : <span class="type">Component</span></p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>Component to be shown and used instead of the default On Screen Keyboard.</p>
+</div></div><!-- @@@customSoftwareInputPanel -->
+<br/>
+<!-- $$$displayText -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="displayText-prop"></a><span class="name">displayText</span> : <span class="type">string</span></p></td></tr></table></div><div class="qmldoc"><p>This is the text displayed in the <a href="qml-ubuntu-components0-textfield.html">TextField</a>.</p>
+<p>If <a href="qml-ubuntu-components0-textfield.html#echoMode-prop">echoMode</a> is set to TextInput::Normal, this holds the same value as the <a href="qml-ubuntu-components0-textfield.html#text-prop">text</a> property. Otherwise, this property holds the text visible to the user, while the text property holds the actual entered text.</p>
+</div></div><!-- @@@displayText -->
+<br/>
+<!-- $$$echoMode -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="echoMode-prop"></a><span class="name">echoMode</span> : <span class="type">enumeration</span></p></td></tr></table></div><div class="qmldoc"><p>Specifies how the text should be displayed in the <a href="qml-ubuntu-components0-textfield.html">TextField</a>.</p>
+<ul>
+<li>- TextInput.Normal - Displays the text as it is. (Default)</li>
+<li>- TextInput.Password - Displays asterixes instead of characters.</li>
+<li>- TextInput.NoEcho - Displays nothing.</li>
+<li>- TextInput.PasswordEchoOnEdit - Displays characters as they are entered while editing, otherwise displays asterisks.</li>
+</ul>
+</div></div><!-- @@@echoMode -->
+<br/>
+<!-- $$$errorHighlight -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="errorHighlight-prop"></a><span class="name">errorHighlight</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>Allows highlighting errors in the <a href="qml-ubuntu-components0-textfield.html">TextField</a>.</p>
+</div></div><!-- @@@errorHighlight -->
+<br/>
+<!-- $$$font -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="font-prop"></a><span class="name">font</span> : <span class="type"><a href="qml-ubuntu-components0-textfield.html#font-prop">font</a></span></p></td></tr></table></div><div class="qmldoc"><p>Font used in the <a href="qml-ubuntu-components0-textfield.html">TextField</a>.</p>
+</div></div><!-- @@@font -->
+<br/>
+<!-- $$$hasClearButton -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="hasClearButton-prop"></a><span class="name">hasClearButton</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>Specifies whether the control has a clear button or not.</p>
+</div></div><!-- @@@hasClearButton -->
+<br/>
+<!-- $$$highlighted -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="highlighted-prop"></a><span class="name">highlighted</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>The property presents whether the <a href="qml-ubuntu-components0-textfield.html">TextField</a> is highlighted or not. By default the <a href="qml-ubuntu-components0-textfield.html">TextField</a> gets highlighted when gets the focus, so can accept text input. This property allows to control the highlight separately from the focused behavior.</p>
+</div></div><!-- @@@highlighted -->
+<br/>
+<!-- $$$horizontalAlignment -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="horizontalAlignment-prop"></a><span class="name">horizontalAlignment</span> : <span class="type">enumeration</span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="effectiveHorizontalAlignment-prop"></a><span class="name">effectiveHorizontalAlignment</span> : <span class="type">enumeration</span></p></td></tr><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="verticalAlignment-prop"></a><span class="name">verticalAlignment</span> : <span class="type">enumeration</span></p></td></tr></table></div><div class="qmldoc"><p>Sets the horizontal alignment of the text within the item's width and height. By default, the text alignment follows the natural alignment of the text, for example text that is read from left to right will be aligned to the left.</p>
+<p><a href="qml-ubuntu-components0-textfield.html">TextField</a> does not have vertical alignment, as the natural height is exactly the height of the single line of text. If you set the height manually to something larger, TextInput will always be top aligned vertically. You can use anchors to align it however you want within another item.</p>
+<p>The valid values for horizontalAlignment are TextInput.AlignLeft, TextInput.AlignRight and TextInput.AlignHCenter.</p>
+<p>Valid values for verticalAlignment are TextInput.AlignTop (default), TextInput.AlignBottom TextInput.AlignVCenter.</p>
+<p>When using the attached property LayoutMirroring::enabled to mirror application layouts, the horizontal alignment of text will also be mirrored. However, the property horizontalAlignment will remain unchanged. To query the effective horizontal alignment of <a href="qml-ubuntu-components0-textfield.html">TextField</a>, use the read-only property effectiveHorizontalAlignment.</p>
+</div></div><!-- @@@horizontalAlignment -->
+<br/>
+<!-- $$$iconSource -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="iconSource-prop"></a><span class="name">iconSource</span> : <span class="type">url</span></p></td></tr></table></div><div class="qmldoc"><p>The image associated with the <a href="qml-ubuntu-components0-actionitem.html">actionItem</a>. Default value: action.iconSource.</p>
+</div></div><!-- @@@iconSource -->
+<br/>
+<!-- $$$inputMask -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="inputMask-prop"></a><span class="name">inputMask</span> : <span class="type">string</span></p></td></tr></table></div><div class="qmldoc"><p>Allows you to set an input mask on the <a href="qml-ubuntu-components0-textfield.html">TextField</a>, restricting the text inputs. See QLineEdit::inputMask for further details, as the exact same mask strings are used by <a href="qml-ubuntu-components0-textfield.html">TextField</a>.</p>
+</div></div><!-- @@@inputMask -->
+<br/>
+<!-- $$$inputMethodComposing -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="inputMethodComposing-prop"></a><span class="name">inputMethodComposing</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>This property holds whether the TextInput has partial text input from an input method.</p>
+<p>While it is composing an input method may rely on mouse or key events from the <a href="qml-ubuntu-components0-textfield.html">TextField</a> to edit or commit the partial text. This property can be used to determine when to disable events handlers that may interfere with the correct operation of an input method.</p>
+</div></div><!-- @@@inputMethodComposing -->
+<br/>
+<!-- $$$inputMethodHints -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="inputMethodHints-prop"></a><span class="name">inputMethodHints</span> : <span class="type">enumeration</span></p></td></tr></table></div><div class="qmldoc"><p>Provides hints to the input method about the expected content of the text input and how it should operate.</p>
+<p>The value is a bit-wise combination of flags, or Qt.ImhNone if no hints are set.</p>
+<p>Flags that alter behaviour are:</p>
+<ul>
+<li>- Qt.ImhHiddenText - Characters should be hidden, as is typically used when entering passwords. This is automatically set when setting <a href="qml-ubuntu-components0-textfield.html#echoMode-prop">echoMode</a> to <tt>TextInput.Password</tt>.</li>
+<li>- Qt.ImhSensitiveData - Typed text should not be stored by the active input method in any persistent storage like predictive user dictionary.</li>
+<li>- Qt.ImhNoAutoUppercase - The input method should not try to automatically switch to upper case when a sentence ends.</li>
+<li>- Qt.ImhPreferNumbers - Numbers are preferred (but not required).</li>
+<li>- Qt.ImhPreferUppercase - Upper case letters are preferred (but not required).</li>
+<li>- Qt.ImhPreferLowercase - Lower case letters are preferred (but not required).</li>
+<li>- Qt.ImhNoPredictiveText - Do not use predictive text (i.e&#x2e; dictionary lookup) while typing.</li>
+<li>- Qt.ImhDate - The text editor functions as a date field.</li>
+<li>- Qt.ImhTime - The text editor functions as a time field.</li>
+</ul>
+<p>Flags that restrict input (exclusive flags) are:</p>
+<ul>
+<li>- Qt.ImhDigitsOnly - Only digits are allowed.</li>
+<li>- Qt.ImhFormattedNumbersOnly - Only number input is allowed. This includes decimal point and minus sign.</li>
+<li>- Qt.ImhUppercaseOnly - Only upper case letter input is allowed.</li>
+<li>- Qt.ImhLowercaseOnly - Only lower case letter input is allowed.</li>
+<li>- Qt.ImhDialableCharactersOnly - Only characters suitable for phone dialing are allowed.</li>
+<li>- Qt.ImhEmailCharactersOnly - Only characters suitable for email addresses are allowed.</li>
+<li>- Qt.ImhUrlCharactersOnly - Only characters suitable for URLs are allowed.</li>
+</ul>
+<p>Masks:</p>
+<ul>
+<li>- Qt.ImhExclusiveInputMask - This mask yields nonzero if any of the exclusive flags are used.</li>
+</ul>
+</div></div><!-- @@@inputMethodHints -->
+<br/>
+<!-- $$$length -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="length-prop"></a><span class="name">length</span> : <span class="type">int</span></p></td></tr></table></div><div class="qmldoc"><p>Returns the total number of characters in the <a href="qml-ubuntu-components0-textfield.html">TextField</a> item.</p>
+<p>If the <a href="qml-ubuntu-components0-textfield.html">TextField</a> has an <a href="qml-ubuntu-components0-textfield.html#inputMask-prop">inputMask</a> the length will include mask characters and may differ from the length of the string returned by the text property.</p>
+<p>This property can be faster than querying the length the text property as it doesn't require any copying or conversion of the <a href="qml-ubuntu-components0-textfield.html">TextField</a>'s internal string data.</p>
+</div></div><!-- @@@length -->
+<br/>
+<!-- $$$maximumLength -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="maximumLength-prop"></a><span class="name">maximumLength</span> : <span class="type">int</span></p></td></tr></table></div><div class="qmldoc"><p>The maximum permitted length of the text in the <a href="qml-ubuntu-components0-textfield.html">TextField</a>.</p>
+<p>If the text is too long, it is truncated at the limit.</p>
+<p>By default, this property contains a value of 32767.</p>
+</div></div><!-- @@@maximumLength -->
+<br/>
+<!-- $$$mouseSelectionMode -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="mouseSelectionMode-prop"></a><span class="name">mouseSelectionMode</span> : <span class="type">enumeration</span></p></td></tr></table></div><div class="qmldoc"><p>Specifies how text should be selected using a mouse.</p>
+<ul>
+<li>-TextInput.SelectCharacters - The selection is updated with individual characters. (Default)</li>
+<li>-TextInput.SelectWords - The selection is updated with whole words.</li>
+</ul>
+<p>This property only applies when <a href="qml-ubuntu-components0-textfield.html#selectByMouse-prop">selectByMouse</a> is true.</p>
+</div></div><!-- @@@mouseSelectionMode -->
+<br/>
+<!-- $$$passwordCharacter -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="passwordCharacter-prop"></a><span class="name">passwordCharacter</span> : <span class="type">string</span></p></td></tr></table></div><div class="qmldoc"><p>This is the character displayed when <a href="qml-ubuntu-components0-textfield.html#echoMode-prop">echoMode</a> is set to Password or PasswordEchoOnEdit. By default it is the unicode character 2022.</p>
+<p>If this property is set to a string with more than one character, the first character is used. If the string is empty, the value is ignored and the property is not set.</p>
+</div></div><!-- @@@passwordCharacter -->
+<br/>
+<!-- $$$persistentSelection -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="persistentSelection-prop"></a><span class="name">persistentSelection</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>Whether the <a href="qml-ubuntu-components0-textfield.html">TextField</a> should keep its selection when it loses active focus to another item in the scene. By default this is set to false.</p>
+</div></div><!-- @@@persistentSelection -->
+<br/>
+<!-- $$$placeholderText -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="placeholderText-prop"></a><span class="name">placeholderText</span> : <span class="type">string</span></p></td></tr></table></div><div class="qmldoc"><p>Text that appears when there is no focus and no content in the component.</p>
+</div></div><!-- @@@placeholderText -->
+<br/>
+<!-- $$$popover -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="popover-prop"></a><span class="name">popover</span> : <span class="type">var</span></p></td></tr></table></div><div class="qmldoc"><p>The property overrides the default popover of the <a href="qml-ubuntu-components0-textfield.html">TextField</a>. When set, the <a href="qml-ubuntu-components0-textfield.html">TextField</a> will open the given popover instead of the defaul tone defined. The popover can either be a component or a URL to be loaded.</p>
+</div></div><!-- @@@popover -->
+<br/>
+<!-- $$$primaryItem -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="primaryItem-prop"></a><span class="name">primaryItem</span> : <span class="type">list</span>&lt;<span class="type">Object</span>&gt;</p></td></tr></table></div><div class="qmldoc"><p>Overlaid component that can be set for the fore side of the <a href="qml-ubuntu-components0-textfield.html">TextField</a>, e.g&#x2e;showing a magnifier to implement search functionality.</p>
+</div></div><!-- @@@primaryItem -->
+<br/>
+<!-- $$$readOnly -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="readOnly-prop"></a><span class="name">readOnly</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>Sets whether user input can modify the contents of the <a href="qml-ubuntu-components0-textfield.html">TextField</a>.</p>
+<p>If readOnly is set to true, then user input will not affect the text property. Any bindings or attempts to set the text property will still work.</p>
+</div></div><!-- @@@readOnly -->
+<br/>
+<!-- $$$renderType -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="renderType-prop"></a><span class="name">renderType</span> : <span class="type">enumeration</span></p></td></tr></table></div><div class="qmldoc"><p>Override the default rendering type for this component.</p>
+<p>Supported render types are:</p>
+<ul>
+<li>- Text.QtRendering - (default)</li>
+<li>- Text.NativeRendering</li>
+</ul>
+<p>Select Text.NativeRendering if you prefer text to look native on the target platform and do not require advanced features such as transformation of the text. Using such features in combination with the NativeRendering render type will lend poor and sometimes pixelated results.</p>
+</div></div><!-- @@@renderType -->
+<br/>
+<!-- $$$secondaryItem -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="secondaryItem-prop"></a><span class="name">secondaryItem</span> : <span class="type">list</span>&lt;<span class="type">Object</span>&gt;</p></td></tr></table></div><div class="qmldoc"><p>Overlaid component that can be set for the rear side of the <a href="qml-ubuntu-components0-textfield.html">TextField</a>, e.g&#x2e;showing a CAPS LOCK or NUM LOCK indication. The overlaid components will be placed right after the clear button.</p>
+</div></div><!-- @@@secondaryItem -->
+<br/>
+<!-- $$$selectByMouse -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectByMouse-prop"></a><span class="name">selectByMouse</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>Defaults to true.</p>
+<p>If false, the user cannot use the mouse to select text, only can use it to focus the input.</p>
+</div></div><!-- @@@selectByMouse -->
+<br/>
+<!-- $$$selectedText -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectedText-prop"></a><span class="qmlreadonly">read-only</span><span class="name">selectedText</span> : <span class="type">string</span></p></td></tr></table></div><div class="qmldoc"><p>This read-only property provides the text currently selected in the text input.</p>
+<p>It is equivalent to the following snippet, but is faster and easier to use.</p>
+<pre class="cpp">myTextInput<span class="operator">.</span>text<span class="operator">.</span>toString()<span class="operator">.</span>substring(myTextInput<span class="operator">.</span>selectionStart<span class="operator">,</span>
+          myTextInput<span class="operator">.</span>selectionEnd);</pre>
+</div></div><!-- @@@selectedText -->
+<br/>
+<!-- $$$selectedTextColor -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selctedTextColor-prop"></a><span class="name">selctedTextColor</span> : <span class="type"><a href="qml-ubuntu-components0-textfield.html#color-prop">color</a></span></p></td></tr></table></div><div class="qmldoc"><p>The highlighted text color, used in selections.</p>
+</div></div><!-- @@@selectedTextColor -->
+<br/>
+<!-- $$$selectionColor -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectionColor-prop"></a><span class="name">selectionColor</span> : <span class="type"><a href="qml-ubuntu-components0-textfield.html#color-prop">color</a></span></p></td></tr></table></div><div class="qmldoc"><p>The text highlight color, used behind selections.</p>
+</div></div><!-- @@@selectionColor -->
+<br/>
+<!-- $$$selectionEnd -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectionEnd-prop"></a><span class="name">selectionEnd</span> : <span class="type">int</span></p></td></tr></table></div><div class="qmldoc"><p>The cursor position after the last character in the current selection.</p>
+<p>This property is read-only. To change the selection, use select(start,end), <a href="qml-ubuntu-components0-textfield.html#selectAll-method">selectAll()</a>, or <a href="qml-ubuntu-components0-textfield.html#selectWord-method">selectWord()</a>.</p>
+</div></div><!-- @@@selectionEnd -->
+<br/>
+<!-- $$$selectionStart -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectionStart-prop"></a><span class="name">selectionStart</span> : <span class="type">int</span></p></td></tr></table></div><div class="qmldoc"><p>The cursor position before the first character in the current selection.</p>
+<p>This property is read-only. To change the selection, use select(start,end), <a href="qml-ubuntu-components0-textfield.html#selectAll-method">selectAll()</a>, or <a href="qml-ubuntu-components0-textfield.html#selectWord-method">selectWord()</a>.</p>
+</div></div><!-- @@@selectionStart -->
+<br/>
+<!-- $$$style -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="style-prop"></a><span class="name">style</span> : <span class="type">Component</span></p></td></tr></table></div><div class="qmldoc"><p>Component instantiated immediately and placed below everything else.</p>
+</div></div><!-- @@@style -->
+<br/>
+<!-- $$$text -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="text-prop"></a><span class="name">text</span> : <span class="type">string</span></p></td></tr></table></div><div class="qmldoc"><p>The text in the <a href="qml-ubuntu-components0-textfield.html">TextField</a>.</p>
+</div></div><!-- @@@text -->
+<br/>
+<!-- $$$validator -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="validator-prop"></a><span class="name">validator</span> : <span class="type">Validator</span></p></td></tr></table></div><div class="qmldoc"><p>Allows you to set a validator on the TextInput. When a validator is set the <a href="qml-ubuntu-components0-textfield.html">TextField</a> will only accept input which leaves the text property in an acceptable or intermediate state. The accepted signal will only be sent if the text is in an acceptable state when enter is pressed.</p>
+<p>Currently supported validators are IntValidator, DoubleValidator and RegExpValidator. An example of using validators is shown below, which allows input of integers between 11 and 31 into the text input:</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+<span class="type"><a href="qml-ubuntu-components0-textfield.html">TextField</a></span>{
+    <span class="name">validator</span>: <span class="name">IntValidator</span>{<span class="name">bottom</span>: <span class="number">11</span>; <span class="name">top</span>: <span class="number">31</span>;}
+    <span class="name">focus</span>: <span class="number">true</span>
+}</pre>
+<p><b>See also </b><a href="qml-ubuntu-components0-textfield.html#acceptableInput-prop">acceptableInput</a> and <a href="qml-ubuntu-components0-textfield.html#inputMask-prop">inputMask</a>.</p>
+</div></div><!-- @@@validator -->
+<br/>
+<h2>Signal Documentation</h2>
+<!-- $$$accepted -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="accepted-signal"></a>TextField::<span class="name">accepted</span>()</p></td></tr></table></div><div class="qmldoc"><p>This handler is called when the Return or Enter key is pressed. Note that if there is a validator or <a href="qml-ubuntu-components0-textfield.html#inputMask-prop">inputMask</a> set on the text input, the handler will only be emitted if the input is in an acceptable state.</p>
+</div></div><!-- @@@accepted -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$copy -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="copy-method"></a>TextField::<span class="name">copy</span>()</p></td></tr></table></div><div class="qmldoc"><p>Copies the currently selected text to the system clipboard.</p>
+</div></div><!-- @@@copy -->
+<br/>
+<!-- $$$cut -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="cut-method"></a>TextField::<span class="name">cut</span>()</p></td></tr></table></div><div class="qmldoc"><p>Moves the currently selected text to the system clipboard.</p>
+</div></div><!-- @@@cut -->
+<br/>
+<!-- $$$deselect -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="deselect-method"></a>TextField::<span class="name">deselect</span>()</p></td></tr></table></div><div class="qmldoc"><p>Removes active text selection.</p>
+</div></div><!-- @@@deselect -->
+<br/>
+<!-- $$$getText -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="getText-method"></a>TextField::<span class="name">getText</span>(<i> start</i>, <i> end</i>)</p></td></tr></table></div><div class="qmldoc"><p>Returns the section of text that is between the start and end positions.</p>
+<p>If the <a href="qml-ubuntu-components0-textfield.html">TextField</a> has an <a href="qml-ubuntu-components0-textfield.html#inputMask-prop">inputMask</a> the length will include mask characters.</p>
+</div></div><!-- @@@getText -->
+<br/>
+<!-- $$$insert -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="insert-method"></a>TextField::<span class="name">insert</span>(<i> position</i>, <i> text</i>)</p></td></tr></table></div><div class="qmldoc"><p>Inserts <i>text</i> into the <a href="qml-ubuntu-components0-textfield.html">TextField</a> at <i>position</i>.</p>
+</div></div><!-- @@@insert -->
+<br/>
+<!-- $$$isRightToLeft -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="isRightToLeft-method"></a>TextField::<span class="name">isRightToLeft</span>(<i> start</i>, <i> end</i>)</p></td></tr></table></div><div class="qmldoc"><p>Returns true if the natural reading direction of the editor text found between positions start and end is right to left.</p>
+</div></div><!-- @@@isRightToLeft -->
+<br/>
+<!-- $$$moveCursorSelection -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="moveCursorSelection-method"></a>TextField::<span class="name">moveCursorSelection</span>(<i> position</i>, <i> mode</i>)</p></td></tr></table></div><div class="qmldoc"><p>Moves the cursor to position and updates the selection according to the optional mode parameter. (To only move the cursor, set the <a href="qml-ubuntu-components0-textfield.html#cursorPosition-prop">cursorPosition</a> property.)</p>
+<p>When this method is called it additionally sets either the <a href="qml-ubuntu-components0-textfield.html#selectionStart-prop">selectionStart</a> or the <a href="qml-ubuntu-components0-textfield.html#selectionEnd-prop">selectionEnd</a> (whichever was at the previous cursor position) to the specified position. This allows you to easily extend and contract the selected text range.</p>
+<p>The selection mode specifies whether the selection is updated on a per character or a per word basis. If not specified the selection mode will default to TextInput.SelectCharacters.</p>
+<ul>
+<li>- TextInput.SelectCharacters - Sets either the <a href="qml-ubuntu-components0-textfield.html#selectionStart-prop">selectionStart</a> or <a href="qml-ubuntu-components0-textfield.html#selectionEnd-prop">selectionEnd</a> (whichever was at the previous cursor position) to the specified position.</li>
+<li>- TextInput.SelectWords - Sets the <a href="qml-ubuntu-components0-textfield.html#selectionStart-prop">selectionStart</a> and <a href="qml-ubuntu-components0-textfield.html#selectionEnd-prop">selectionEnd</a> to include all words between the specified position and the previous cursor position. Words partially in the range are included.</li>
+</ul>
+<p>For example, take this sequence of calls:</p>
+<pre class="cpp">cursorPosition <span class="operator">=</span> <span class="number">5</span>
+moveCursorSelection(<span class="number">9</span><span class="operator">,</span> TextInput<span class="operator">.</span>SelectCharacters)
+moveCursorSelection(<span class="number">7</span><span class="operator">,</span> TextInput<span class="operator">.</span>SelectCharacters)</pre>
+<p>This moves the cursor to position 5, extend the selection end from 5 to 9 and then retract the selection end from 9 to 7, leaving the text from position 5 to 7 selected (the 6th and 7th characters).</p>
+<p>The same sequence with TextInput.SelectWords will extend the selection start to a word boundary before or on position 5 and extend the selection end to a word boundary on or past position 9.</p>
+</div></div><!-- @@@moveCursorSelection -->
+<br/>
+<!-- $$$paste -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="paste-method"></a>TextField::<span class="name">paste</span>(<i> data</i>)</p></td></tr></table></div><div class="qmldoc"><p>Places the clipboard or the data given as parameter into the text input. The selected text will be replaces with the data.</p>
+</div></div><!-- @@@paste -->
+<br/>
+<!-- $$$positionAt -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="positionAt-method"></a>TextField::<span class="name">positionAt</span>(<i> x</i>, <i> position</i>)</p></td></tr></table></div><div class="qmldoc"><p>This function returns the character position at x pixels from the left of the <a href="qml-ubuntu-components0-textfield.html">TextField</a>. Position 0 is before the first character, position 1 is after the first character but before the second, and so on until position text.length, which is after all characters.</p>
+<p>This means that for all x values before the first character this function returns 0, and for all x values after the last character this function returns text.length.</p>
+<p>The cursor position type specifies how the cursor position should be resolved.</p>
+<ul>
+<li>- TextInput.CursorBetweenCharacters - Returns the position between characters that is nearest x.</li>
+<li>- TextInput.CursorOnCharacter - Returns the position before the character that is nearest x.</li>
+</ul>
+</div></div><!-- @@@positionAt -->
+<br/>
+<!-- $$$positionToRectangle -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="positionToRectangle-method"></a>TextField::<span class="name">positionToRectangle</span>(<i> pos</i>)</p></td></tr></table></div><div class="qmldoc"><p>This function takes a character position and returns the rectangle that the cursor would occupy, if it was placed at that character position.</p>
+<p>This is similar to setting the <a href="qml-ubuntu-components0-textfield.html#cursorPosition-prop">cursorPosition</a>, and then querying the cursor rectangle, but the <a href="qml-ubuntu-components0-textfield.html#cursorPosition-prop">cursorPosition</a> is not changed.</p>
+</div></div><!-- @@@positionToRectangle -->
+<br/>
+<!-- $$$redo -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="redo-method"></a>TextField::<span class="name">redo</span>()</p></td></tr></table></div><div class="qmldoc"><p>Redoes the last operation if redo is <a href="qml-ubuntu-components0-textfield.html#canRedo-prop">available</a>.</p>
+</div></div><!-- @@@redo -->
+<br/>
+<!-- $$$remove -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="remove-method"></a>TextField::<span class="name">remove</span>(<i> start</i>, <i> end</i>)</p></td></tr></table></div><div class="qmldoc"><p>Removes the section of text that is between the start and end positions from the <a href="qml-ubuntu-components0-textfield.html">TextField</a>.</p>
+</div></div><!-- @@@remove -->
+<br/>
+<!-- $$$select -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="select-method"></a>TextField::<span class="name">select</span>(<i> start</i>, <i> end</i>)</p></td></tr></table></div><div class="qmldoc"><p>Causes the text from start to end to be selected.</p>
+<p>If either start or end is out of range, the selection is not changed.</p>
+<p>After calling this, <a href="qml-ubuntu-components0-textfield.html#selectionStart-prop">selectionStart</a> will become the lesser and <a href="qml-ubuntu-components0-textfield.html#selectionEnd-prop">selectionEnd</a> will become the greater (regardless of the order passed to this method).</p>
+</div></div><!-- @@@select -->
+<br/>
+<!-- $$$selectAll -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="selectAll-method"></a>TextField::<span class="name">selectAll</span>()</p></td></tr></table></div><div class="qmldoc"><p>Causes all text to be selected.</p>
+</div></div><!-- @@@selectAll -->
+<br/>
+<!-- $$$selectWord -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="selectWord-method"></a>TextField::<span class="name">selectWord</span>()</p></td></tr></table></div><div class="qmldoc"><p>Causes the word closest to the current cursor position to be selected.</p>
+</div></div><!-- @@@selectWord -->
+<br/>
+<!-- $$$undo -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="undo-method"></a>TextField::<span class="name">undo</span>()</p></td></tr></table></div><div class="qmldoc"><p>Undoes the last operation if undo is <a href="qml-ubuntu-components0-textfield.html#canUndo-prop">available</a>. Deselects any current selection, and updates the selection start to the current cursor position.</p>
+</div></div><!-- @@@undo -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

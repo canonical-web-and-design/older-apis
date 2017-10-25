@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- context.qdoc -->
+  <title>Unity Action QML API : Action Contexts</title>
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<body>
+   <div class="wrapper">
+   <div class="main-content">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="contexts.html#overview">Overview</a></li>
+<li class="level1"><a href="contexts.html#applications-with-single-context">Applications with Single Context</a></li>
+<li class="level1"><a href="contexts.html#applications-with-multiple-contexts">Applications with Multiple Contexts</a></li>
+</ul>
+</div>
+<h1 class="title">Action Contexts</h1>
+<span class="subtitle"></span>
+<!-- $$$contexts.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="overview"></a>
+<h0>Overview</h0>
+<p>Application which has different views needs to manage it actions based on the currently active view; not all of the actions supported by the application might be relevant or applicable on all of the views.</p>
+<p>Therefore Unity Action API provides action contexts; a context groups actions together and by providing multiple contexts the developer is able to control the visibility of the actions. The <a href="qml-ubuntu-unity-action1-actionmanager.html">ActionManager</a> then exposes the actions from these different contexts.</p>
+<p class="centerAlign"><img src="images/context_overview.png" alt="" /></p><p>Each application has one global context; the actions in this context are always available. The application may have one or more additional local context of which only one can be active at a time. The <a href="qml-ubuntu-unity-action1-actionmanager.html">ActionManager</a> merges the global context and the active local context together; the actions available at any given time is the union of the global context and the active local context.</p>
+<p class="centerAlign"><img src="images/multiple_contexts.png" alt="" /></p><a name="applications-with-single-context"></a>
+<h0>Applications with Single Context</h0>
+<p>For applications that do not require multiple contexts using the API is straight forward as the <a href="qml-ubuntu-unity-action1-actionmanager.html">ActionManager</a> provides the global context automatically.</p>
+<pre class="cpp">import <span class="type">QtQuick</span> <span class="number">2.0</span>
+import Ubuntu<span class="operator">.</span>Unity<span class="operator">.</span>Action <span class="number">1.0</span>
+
+Item {
+    ActionManager {
+        Action {
+            id: globalAction
+            text: <span class="string">&quot;My Global Action&quot;</span>
+        }
+    }
+}</pre>
+<p>globalAction is now added to the global context.</p>
+<a name="applications-with-multiple-contexts"></a>
+<h0>Applications with Multiple Contexts</h0>
+<p>When multiple contexts are needed the developer creates suitable number of <a href="qml-ubuntu-unity-action1-actioncontext.html">ActionContext</a> objects, adds the actions to the contexts, adds the contexts to the manager and sets the active one.</p>
+<p>Setting the active context must be managed by the developer. The can only be one active local context at a time.</p>
+<pre class="cpp">import <span class="type">QtQuick</span> <span class="number">2.0</span>
+import Ubuntu<span class="operator">.</span>Unity<span class="operator">.</span>Action <span class="number">1.0</span>
+
+Item {
+    ActionManager {
+        localContexts: <span class="operator">[</span>ctx1<span class="operator">,</span> ctx2<span class="operator">]</span>
+        Action {
+            id:   globalAction
+            text: <span class="string">&quot;My Global Action&quot;</span>
+        }
+    }
+
+    ActionContext {
+        id: ctx1
+        Action {
+            id:   ctx1Action1
+            text: <span class="string">&quot;Context1, Action 1&quot;</span>
+        }
+        Action {
+            id:   ctx1Action2
+            text: <span class="string">&quot;Context1, Action 2&quot;</span>
+        }
+    }
+
+    ActionContext {
+        id: ctx2
+        Action {
+            id:   ctx2Action1
+            text: <span class="string">&quot;Context2, Action 1&quot;</span>
+        }
+        Action {
+            id:   ctx2Action2
+            text: <span class="string">&quot;Context2, Action 2&quot;</span>
+        }
+    }
+
+    Component<span class="operator">.</span>onCompleted: {
+        ctx2<span class="operator">.</span>active <span class="operator">=</span> <span class="keyword">true</span>;
+        <span class="comment">// now the ActionManager has exported</span>
+        <span class="comment">// globalAction, ctx2Action1 and ctx2Action2</span>
+    }
+}</pre>
+</div>
+<!-- @@@contexts.html -->
+<p class="naviNextPrevious footerNavi">
+</p>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+	</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="Python">
+    
+    <title>MessagingMenu-1.0 Python API Documentation</title>
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-12.10/giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>MessagingMenu-1.0 Python API Documentation</h1>
+
+<div class="class-normal">
+<a href="MessagingMenu-1.0.html#MessagingMenu.App" class="class-anchor">⚓</a><h2 class="class-normal" id="MessagingMenu.App">Class: MessagingMenu.App</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+<p>
+#MessagingMenuApp is an opaque structure.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="MessagingMenu.App.desktop-id">"desktop-id"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The desktop id of the application associated with this application
+section.  Must be given when the #MessagingMenuApp is created.</p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="MessagingMenu.App.activate-source">"activate-source"</span><span class="signal-parameters">(self, <a class="link-Class " href="MessagingMenu-1.0.html#MessagingMenu.App">app</a>, <span class="type-basetype ">source_id</span>)</span><p class="signal-doc">
+Emitted when the user has activated the message source with id
+@source_id.  The source is immediately removed from the menu,
+handlers of this signal do not need to call
+messaging_menu_app_remove_source().</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="MessagingMenu.App.status-changed">"status-changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="MessagingMenu-1.0.html#MessagingMenu.App">app</a>, <span class="type-basetype ">status</span>)</span><p class="signal-doc">
+Emitted when the chat status is changed through the messaging menu.
+
+Applications which are registered to use the chat status should
+change their status to @status upon receiving this signal.  Call
+messaging_menu_app_set_status() to acknowledge that the application
+changed its status.</p>
+</p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="MessagingMenu.App.new">new</span><span class="method-parameters">(<a class="link-Type " href="MessagingMenu-1.0.html#utf8">desktop_id</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.append_source">append_source</span><span class="method-parameters">(<span class="type-basetype ">id</span>, <a class="link-Interface " href="Gio-2.0.html#Gio.Icon">icon</a>, <span class="type-basetype ">label</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.append_source_with_count">append_source_with_count</span><span class="method-parameters">(<span class="type-basetype ">id</span>, <a class="link-Interface " href="Gio-2.0.html#Gio.Icon">icon</a>, <span class="type-basetype ">label</span>, <span class="type-basetype ">count</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.append_source_with_string">append_source_with_string</span><span class="method-parameters">(<span class="type-basetype ">id</span>, <a class="link-Interface " href="Gio-2.0.html#Gio.Icon">icon</a>, <span class="type-basetype ">label</span>, <span class="type-basetype ">str</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.append_source_with_time">append_source_with_time</span><span class="method-parameters">(<span class="type-basetype ">id</span>, <a class="link-Interface " href="Gio-2.0.html#Gio.Icon">icon</a>, <span class="type-basetype ">label</span>, <span class="type-basetype ">time</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.draw_attention">draw_attention</span><span class="method-parameters">(<span class="type-basetype ">source_id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="MessagingMenu.App.has_source">has_source</span><span class="method-parameters">(<span class="type-basetype ">source_id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.insert_source">insert_source</span><span class="method-parameters">(<span class="type-basetype ">position</span>, <span class="type-basetype ">id</span>, <a class="link-Interface " href="Gio-2.0.html#Gio.Icon">icon</a>, <span class="type-basetype ">label</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.insert_source_with_count">insert_source_with_count</span><span class="method-parameters">(<span class="type-basetype ">position</span>, <span class="type-basetype ">id</span>, <a class="link-Interface " href="Gio-2.0.html#Gio.Icon">icon</a>, <span class="type-basetype ">label</span>, <span class="type-basetype ">count</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.insert_source_with_string">insert_source_with_string</span><span class="method-parameters">(<span class="type-basetype ">position</span>, <span class="type-basetype ">id</span>, <a class="link-Interface " href="Gio-2.0.html#Gio.Icon">icon</a>, <span class="type-basetype ">label</span>, <span class="type-basetype ">str</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.insert_source_with_time">insert_source_with_time</span><span class="method-parameters">(<span class="type-basetype ">position</span>, <span class="type-basetype ">id</span>, <a class="link-Interface " href="Gio-2.0.html#Gio.Icon">icon</a>, <span class="type-basetype ">label</span>, <span class="type-basetype ">time</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.register">register</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.remove_attention">remove_attention</span><span class="method-parameters">(<span class="type-basetype ">source_id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.remove_source">remove_source</span><span class="method-parameters">(<span class="type-basetype ">source_id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.set_source_count">set_source_count</span><span class="method-parameters">(<span class="type-basetype ">source_id</span>, <span class="type-basetype ">count</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.set_source_icon">set_source_icon</span><span class="method-parameters">(<span class="type-basetype ">source_id</span>, <a class="link-Interface " href="Gio-2.0.html#Gio.Icon">icon</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.set_source_label">set_source_label</span><span class="method-parameters">(<span class="type-basetype ">source_id</span>, <span class="type-basetype ">label</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.set_source_string">set_source_string</span><span class="method-parameters">(<span class="type-basetype ">source_id</span>, <span class="type-basetype ">str</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.set_source_time">set_source_time</span><span class="method-parameters">(<span class="type-basetype ">source_id</span>, <span class="type-basetype ">time</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.set_status">set_status</span><span class="method-parameters">(<a class="link-Enumeration " href="MessagingMenu-1.0.html#MessagingMenu.Status">status</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="MessagingMenu.App.unregister">unregister</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-enum">
+<a href="MessagingMenu-1.0.html#MessagingMenu.Status" class="class-anchor">⚓</a><h2 class="class-enum" id="MessagingMenu.Status">Enum: MessagingMenu.Status</h2>
+<div class="enum-members">
+<span class="enum-member">AVAILABLE</span><span class="enum-value">0</span><span class="enum-member">AWAY</span><span class="enum-value">1</span><span class="enum-member">BUSY</span><span class="enum-value">2</span><span class="enum-member">INVISIBLE</span><span class="enum-value">3</span><span class="enum-member">OFFLINE</span><span class="enum-value">4</span></div>
+</div>
+</body>
+</html>
+

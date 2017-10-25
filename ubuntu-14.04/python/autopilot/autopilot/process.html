@@ -1,0 +1,530 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>autopilot.process &mdash; Autopilot 1.4+14.04.20140416-0 documentation</title>
+    
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/otto.css" type="text/css" />
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/centertext.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '1.4+14.04.20140416-0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/jquery.js"></script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/underscore.js"></script>
+    <script type="text/javascript" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/doctools.js"></script>
+    <link rel="shortcut icon" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/favicon.ico"/>
+    <link rel="top" title="Autopilot 1.4+14.04.20140416-0 documentation" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html" />
+    <link rel="up" title="autopilot" href="../autopilot.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html">Autopilot 1.4+14.04.20140416-0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../autopilot.html" accesskey="U">autopilot</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <h1>Source code for autopilot.process</h1><div class="highlight"><pre>
+<span class="c"># -*- Mode: Python; coding: utf-8; indent-tabs-mode: nil; tab-width: 4 -*-</span>
+<span class="c">#</span>
+<span class="c"># Autopilot Functional Test Tool</span>
+<span class="c"># Copyright (C) 2012-2013 Canonical</span>
+<span class="c">#</span>
+<span class="c"># This program is free software: you can redistribute it and/or modify</span>
+<span class="c"># it under the terms of the GNU General Public License as published by</span>
+<span class="c"># the Free Software Foundation, either version 3 of the License, or</span>
+<span class="c"># (at your option) any later version.</span>
+<span class="c">#</span>
+<span class="c"># This program is distributed in the hope that it will be useful,</span>
+<span class="c"># but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="c"># MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="c"># GNU General Public License for more details.</span>
+<span class="c">#</span>
+<span class="c"># You should have received a copy of the GNU General Public License</span>
+<span class="c"># along with this program.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+<span class="c">#</span>
+
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+
+<span class="kn">from</span> <span class="nn">autopilot.utilities</span> <span class="kn">import</span> <span class="n">_pick_backend</span>
+
+
+<div class="viewcode-block" id="ProcessManager"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.ProcessManager">[docs]</a><span class="k">class</span> <span class="nc">ProcessManager</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="sd">&quot;&quot;&quot;A simple process manager class.</span>
+
+<span class="sd">    The process manager is used to handle processes, windows and applications.</span>
+<span class="sd">    This class should not be instantiated directly however. To get an instance</span>
+<span class="sd">    of the keyboard class, call :py:meth:`create` instead.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">KNOWN_APPS</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">&#39;Character Map&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;desktop-file&#39;</span><span class="p">:</span> <span class="s">&#39;gucharmap.desktop&#39;</span><span class="p">,</span>
+            <span class="s">&#39;process-name&#39;</span><span class="p">:</span> <span class="s">&#39;gucharmap&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s">&#39;Calculator&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;desktop-file&#39;</span><span class="p">:</span> <span class="s">&#39;gcalctool.desktop&#39;</span><span class="p">,</span>
+            <span class="s">&#39;process-name&#39;</span><span class="p">:</span> <span class="s">&#39;gnome-calculator&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s">&#39;Mahjongg&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;desktop-file&#39;</span><span class="p">:</span> <span class="s">&#39;mahjongg.desktop&#39;</span><span class="p">,</span>
+            <span class="s">&#39;process-name&#39;</span><span class="p">:</span> <span class="s">&#39;gnome-mahjongg&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s">&#39;Remmina&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;desktop-file&#39;</span><span class="p">:</span> <span class="s">&#39;remmina.desktop&#39;</span><span class="p">,</span>
+            <span class="s">&#39;process-name&#39;</span><span class="p">:</span> <span class="s">&#39;remmina&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s">&#39;System Settings&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;desktop-file&#39;</span><span class="p">:</span> <span class="s">&#39;gnome-control-center.desktop&#39;</span><span class="p">,</span>
+            <span class="s">&#39;process-name&#39;</span><span class="p">:</span> <span class="s">&#39;gnome-control-center&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s">&#39;Text Editor&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;desktop-file&#39;</span><span class="p">:</span> <span class="s">&#39;gedit.desktop&#39;</span><span class="p">,</span>
+            <span class="s">&#39;process-name&#39;</span><span class="p">:</span> <span class="s">&#39;gedit&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s">&#39;Terminal&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s">&#39;desktop-file&#39;</span><span class="p">:</span> <span class="s">&#39;gnome-terminal.desktop&#39;</span><span class="p">,</span>
+            <span class="s">&#39;process-name&#39;</span><span class="p">:</span> <span class="s">&#39;gnome-terminal&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+
+    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ProcessManager.create"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.ProcessManager.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span><span class="n">preferred_backend</span><span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get an instance of the :py:class:`ProcessManager` class.</span>
+
+<span class="sd">        For more infomration on picking specific backends, see</span>
+<span class="sd">        :ref:`tut-picking-backends`</span>
+
+<span class="sd">        :param preferred_backend: A string containing a hint as to which</span>
+<span class="sd">            backend you would like. Possible backends are:</span>
+
+<span class="sd">            * ``BAMF`` - Get process information using the BAMF Application</span>
+<span class="sd">                Matching Framework.</span>
+
+<span class="sd">        :raises: RuntimeError if autopilot cannot instantate any of the</span>
+<span class="sd">            possible backends.</span>
+<span class="sd">        :raises: RuntimeError if the preferred_backend is specified and is not</span>
+<span class="sd">            one of the possible backends for this device class.</span>
+<span class="sd">        :raises: :class:`~autopilot.BackendException` if the preferred_backend</span>
+<span class="sd">            is set, but that backend could not be instantiated.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">def</span> <span class="nf">get_bamf_pm</span><span class="p">():</span>
+            <span class="kn">from</span> <span class="nn">autopilot.process._bamf</span> <span class="kn">import</span> <span class="n">ProcessManager</span>
+            <span class="k">return</span> <span class="n">ProcessManager</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">get_upa_pm</span><span class="p">():</span>
+            <span class="kn">from</span> <span class="nn">autopilot.process._upa</span> <span class="kn">import</span> <span class="n">ProcessManager</span>
+            <span class="k">return</span> <span class="n">ProcessManager</span><span class="p">()</span>
+
+        <span class="n">backends</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">()</span>
+        <span class="n">backends</span><span class="p">[</span><span class="s">&#39;BAMF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_bamf_pm</span>
+        <span class="k">return</span> <span class="n">_pick_backend</span><span class="p">(</span><span class="n">backends</span><span class="p">,</span> <span class="n">preferred_backend</span><span class="p">)</span>
+</div>
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="ProcessManager.register_known_application"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.ProcessManager.register_known_application">[docs]</a>    <span class="k">def</span> <span class="nf">register_known_application</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">desktop_file</span><span class="p">,</span> <span class="n">process_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Register an application with autopilot.</span>
+
+<span class="sd">        After calling this method, you may call :meth:`start_app` or</span>
+<span class="sd">        :meth:`start_app_window` with the `name` parameter to start this</span>
+<span class="sd">        application.</span>
+<span class="sd">        You need only call this once within a test run - the application will</span>
+<span class="sd">        remain registerred until the test run ends.</span>
+
+<span class="sd">        :param name: The name to be used when launching the application.</span>
+<span class="sd">        :param desktop_file: The filename (without path component) of the</span>
+<span class="sd">         desktop file used to launch the application.</span>
+<span class="sd">        :param process_name: The name of the executable process that gets run.</span>
+<span class="sd">        :raises: **KeyError** if application has been registered already</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">cls</span><span class="o">.</span><span class="n">KNOWN_APPS</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s">&quot;Application has been registered already&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">cls</span><span class="o">.</span><span class="n">KNOWN_APPS</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s">&quot;desktop-file&quot;</span><span class="p">:</span> <span class="n">desktop_file</span><span class="p">,</span>
+                <span class="s">&quot;process-name&quot;</span><span class="p">:</span> <span class="n">process_name</span>
+            <span class="p">}</span>
+</div>
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="ProcessManager.unregister_known_application"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.ProcessManager.unregister_known_application">[docs]</a>    <span class="k">def</span> <span class="nf">unregister_known_application</span><span class="p">(</span><span class="n">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Unregister an application with the known_apps dictionary.</span>
+
+<span class="sd">        :param name: The name to be used when launching the application.</span>
+<span class="sd">        :raises: **KeyError** if the application has not been registered.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">cls</span><span class="o">.</span><span class="n">KNOWN_APPS</span><span class="p">:</span>
+            <span class="k">del</span> <span class="n">cls</span><span class="o">.</span><span class="n">KNOWN_APPS</span><span class="p">[</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s">&quot;Application has not been registered&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ProcessManager.start_app"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.ProcessManager.start_app">[docs]</a>    <span class="k">def</span> <span class="nf">start_app</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app_name</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="p">[],</span> <span class="n">locale</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Start one of the known applications, and kill it on tear down.</span>
+
+<span class="sd">        .. warning:: This method will clear all instances of this application</span>
+<span class="sd">         on tearDown, not just the one opened by this method! We recommend that</span>
+<span class="sd">         you use the :meth:`start_app_window` method instead, as it is</span>
+<span class="sd">         generally safer.</span>
+
+<span class="sd">        :param app_name: The application name. *This name must either already</span>
+<span class="sd">         be registered as one of the built-in applications that are supported</span>
+<span class="sd">         by autopilot, or must have been registered using*</span>
+<span class="sd">         :meth:`register_known_application` *beforehand.*</span>
+<span class="sd">        :param files: (Optional) A list of paths to open with the</span>
+<span class="sd">         given application. *Not all applications support opening files in this</span>
+<span class="sd">         way.*</span>
+<span class="sd">        :param locale: (Optional) The locale will to set when the application</span>
+<span class="sd">         is launched. *If you want to launch an application without any</span>
+<span class="sd">         localisation being applied, set this parameter to &#39;C&#39;.*</span>
+<span class="sd">        :returns: A :class:`~autopilot.process.Application` instance.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ProcessManager.start_app_window"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.ProcessManager.start_app_window">[docs]</a>    <span class="k">def</span> <span class="nf">start_app_window</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app_name</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="p">[],</span> <span class="n">locale</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Open a single window for one of the known applications, and close it</span>
+<span class="sd">        at the end of the test.</span>
+
+<span class="sd">        :param app_name: The application name. *This name must either already</span>
+<span class="sd">         be registered as one of the built-in applications that are supported</span>
+<span class="sd">         by autopilot, or must have been registered with*</span>
+<span class="sd">         :meth:`register_known_application` *beforehand.*</span>
+<span class="sd">        :param files: (Optional) Should be a list of paths to open with the</span>
+<span class="sd">         given application. *Not all applications support opening files in this</span>
+<span class="sd">         way.*</span>
+<span class="sd">        :param locale: (Optional) The locale will to set when the application</span>
+<span class="sd">         is launched. *If you want to launch an application without any</span>
+<span class="sd">         localisation being applied, set this parameter to &#39;C&#39;.*</span>
+<span class="sd">        :raises: **AssertionError** if no window was opened, or more than one</span>
+<span class="sd">         window was opened.</span>
+<span class="sd">        :returns: A :class:`~autopilot.process.Window` instance.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ProcessManager.get_open_windows_by_application"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.ProcessManager.get_open_windows_by_application">[docs]</a>    <span class="k">def</span> <span class="nf">get_open_windows_by_application</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app_name</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a list of ~autopilot.process.Window` instances</span>
+<span class="sd">        for the given application name.</span>
+
+<span class="sd">        :param app_name: The name of one of the well-known applications.</span>
+<span class="sd">        :returns: A list of :class:`~autopilot.process.Window`</span>
+<span class="sd">         instances.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ProcessManager.close_all_app"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.ProcessManager.close_all_app">[docs]</a>    <span class="k">def</span> <span class="nf">close_all_app</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app_name</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ProcessManager.get_app_instances"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.ProcessManager.get_app_instances">[docs]</a>    <span class="k">def</span> <span class="nf">get_app_instances</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app_name</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ProcessManager.app_is_running"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.ProcessManager.app_is_running">[docs]</a>    <span class="k">def</span> <span class="nf">app_is_running</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app_name</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ProcessManager.get_running_applications"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.ProcessManager.get_running_applications">[docs]</a>    <span class="k">def</span> <span class="nf">get_running_applications</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_visible_only</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a list of the currently running applications.</span>
+
+<span class="sd">        If user_visible_only is True (the default), only applications</span>
+<span class="sd">        visible to the user in the switcher will be returned.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ProcessManager.get_running_applications_by_desktop_file"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.ProcessManager.get_running_applications_by_desktop_file">[docs]</a>    <span class="k">def</span> <span class="nf">get_running_applications_by_desktop_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">desktop_file</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Return a list of applications with the desktop file *desktop_file*.</span>
+
+<span class="sd">        This method will return an empty list if no applications</span>
+<span class="sd">        are found with the specified desktop file.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ProcessManager.get_open_windows"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.ProcessManager.get_open_windows">[docs]</a>    <span class="k">def</span> <span class="nf">get_open_windows</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user_visible_only</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a list of currently open windows.</span>
+
+<span class="sd">        If *user_visible_only* is True (the default), only applications visible</span>
+<span class="sd">        to the user in the switcher will be returned.</span>
+
+<span class="sd">        The result is sorted to be in stacking order.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ProcessManager.wait_until_application_is_running"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.ProcessManager.wait_until_application_is_running">[docs]</a>    <span class="k">def</span> <span class="nf">wait_until_application_is_running</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">desktop_file</span><span class="p">,</span> <span class="n">timeout</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Wait until a given application is running.</span>
+
+<span class="sd">        :param string desktop_file: The name of the application desktop file.</span>
+<span class="sd">        :param integer timeout: The maximum time to wait, in seconds. *If set</span>
+<span class="sd">         to something less than 0, this method will wait forever.*</span>
+
+<span class="sd">        :return: true once the application is found, or false if the</span>
+<span class="sd">         application was not found until the timeout was reached.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="ProcessManager.launch_application"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.ProcessManager.launch_application">[docs]</a>    <span class="k">def</span> <span class="nf">launch_application</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">desktop_file</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="p">[],</span> <span class="n">wait</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Launch an application by specifying a desktop file.</span>
+
+<span class="sd">        :param files: List of files to pass to the application. *Not all</span>
+<span class="sd">         apps support this.*</span>
+<span class="sd">        :type files: List of strings</span>
+
+<span class="sd">        .. note:: If `wait` is True, this method will wait up to 10 seconds for</span>
+<span class="sd">         the application to appear.</span>
+
+<span class="sd">        :raises: **TypeError** on invalid *files* parameter.</span>
+<span class="sd">        :return: The Gobject process object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="Application"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Application">[docs]</a><span class="k">class</span> <span class="nc">Application</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Application.desktop_file"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Application.desktop_file">[docs]</a>    <span class="k">def</span> <span class="nf">desktop_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the application desktop file.</span>
+
+<span class="sd">        This returns just the filename, not the full path.</span>
+<span class="sd">        If the application no longer exists, this returns an empty string.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Application.name"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Application.name">[docs]</a>    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the application name.</span>
+
+<span class="sd">        .. note:: This may change according to the current locale. If you want</span>
+<span class="sd">         a unique string to match applications against, use desktop_file</span>
+<span class="sd">         instead.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Application.icon"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Application.icon">[docs]</a>    <span class="k">def</span> <span class="nf">icon</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the application icon.</span>
+
+<span class="sd">        :return: The name of the icon.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Application.is_active"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Application.is_active">[docs]</a>    <span class="k">def</span> <span class="nf">is_active</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Is the application active (i.e. has keyboard focus)?&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Application.is_urgent"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Application.is_urgent">[docs]</a>    <span class="k">def</span> <span class="nf">is_urgent</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Is the application currently signalling urgency?&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Application.user_visible"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Application.user_visible">[docs]</a>    <span class="k">def</span> <span class="nf">user_visible</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Is this application visible to the user?</span>
+
+<span class="sd">        .. note:: Some applications (such as the panel) are hidden to the user</span>
+<span class="sd">         but may still be returned.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Application.get_windows"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Application.get_windows">[docs]</a>    <span class="k">def</span> <span class="nf">get_windows</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get a list of the application windows.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+
+</div></div>
+<div class="viewcode-block" id="Window"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Window">[docs]</a><span class="k">class</span> <span class="nc">Window</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Window.x_id"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Window.x_id">[docs]</a>    <span class="k">def</span> <span class="nf">x_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the X11 Window Id.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Window.x_win"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Window.x_win">[docs]</a>    <span class="k">def</span> <span class="nf">x_win</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the X11 window object of the underlying window.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Window.get_wm_state"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Window.get_wm_state">[docs]</a>    <span class="k">def</span> <span class="nf">get_wm_state</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the state of the underlying window.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Window.name"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Window.name">[docs]</a>    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the window name.</span>
+
+<span class="sd">        .. note:: This may change according to the current locale. If you want</span>
+<span class="sd">         a unique string to match windows against, use the x_id instead.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Window.title"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Window.title">[docs]</a>    <span class="k">def</span> <span class="nf">title</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the window title.</span>
+
+<span class="sd">        This may be different from the application name.</span>
+
+<span class="sd">        .. note:: This may change depending on the current locale.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Window.geometry"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Window.geometry">[docs]</a>    <span class="k">def</span> <span class="nf">geometry</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the geometry for this window.</span>
+
+<span class="sd">        :return: Tuple containing (x, y, width, height).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Window.is_maximized"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Window.is_maximized">[docs]</a>    <span class="k">def</span> <span class="nf">is_maximized</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Is the window maximized?</span>
+
+<span class="sd">        Maximized in this case means both maximized vertically and</span>
+<span class="sd">        horizontally. If a window is only maximized in one direction it is not</span>
+<span class="sd">        considered maximized.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Window.application"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Window.application">[docs]</a>    <span class="k">def</span> <span class="nf">application</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the application that owns this window.</span>
+
+<span class="sd">        This method may return None if the window does not have an associated</span>
+<span class="sd">        application. The &#39;desktop&#39; window is one such example.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Window.user_visible"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Window.user_visible">[docs]</a>    <span class="k">def</span> <span class="nf">user_visible</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Is this window visible to the user in the switcher?&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Window.is_hidden"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Window.is_hidden">[docs]</a>    <span class="k">def</span> <span class="nf">is_hidden</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Is this window hidden?</span>
+
+<span class="sd">        Windows are hidden when the &#39;Show Desktop&#39; mode is activated.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Window.is_focused"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Window.is_focused">[docs]</a>    <span class="k">def</span> <span class="nf">is_focused</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Is this window focused?&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Window.is_valid"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Window.is_valid">[docs]</a>    <span class="k">def</span> <span class="nf">is_valid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Is this window object valid?</span>
+
+<span class="sd">        Invalid windows are caused by windows closing during the construction</span>
+<span class="sd">        of this object instance.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Window.monitor"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Window.monitor">[docs]</a>    <span class="k">def</span> <span class="nf">monitor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns the monitor to which the windows belongs to&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="Window.closed"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Window.closed">[docs]</a>    <span class="k">def</span> <span class="nf">closed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Returns True if the window has been closed&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Window.close"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Window.close">[docs]</a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Close the window.&quot;&quot;&quot;</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span>
+</div>
+<div class="viewcode-block" id="Window.set_focus"><a class="viewcode-back" href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/api/process.html#autopilot.process.Window.set_focus">[docs]</a>    <span class="k">def</span> <span class="nf">set_focus</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s">&quot;You cannot use this class directly.&quot;</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html">
+              <img class="logo" src="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/_static/otto-64.png" alt="Logo"/>
+            </a></p>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li><a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/index.html">Autopilot 1.4+14.04.20140416-0 documentation</a> &raquo;</li>
+          <li><a href="../index.html" >Module code</a> &raquo;</li>
+          <li><a href="../autopilot.html" >autopilot</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      <div class=center_text>
+        <a href="https://developer.ubuntu.com/api/devel/ubuntu-14.04/python/faq/contribute.html">Learn how you can contribute!</a> / <a href="https://bugs.launchpad.net/autopilot/+filebug">File a bug</a>
+     <br/>
+      </div>
+        &copy; Copyright 2012-2013, Canonical.
+    </div>
+
+
+  </body>
+</html>

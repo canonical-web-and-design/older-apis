@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>UnityWebappsService</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="libunity-webapps Reference Manual">
+<link rel="up" href="coreapi.html" title="Interacting with the Service and Contexts">
+<link rel="prev" href="coreapi.html" title="Interacting with the Service and Contexts">
+<link rel="next" href="libunity-webapps-UnityWebappsContext.html" title="UnityWebappsContext">
+<meta name="generator" content="GTK-Doc V1.19 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="coreapi.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="coreapi.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libunity-webapps Reference Manual</th>
+<td><a accesskey="n" href="libunity-webapps-UnityWebappsContext.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="libunity-webapps-UnityWebappsService.html#libunity-webapps-UnityWebappsService.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="libunity-webapps-UnityWebappsService.html#libunity-webapps-UnityWebappsService.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libunity-webapps-UnityWebappsService"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libunity-webapps-UnityWebappsService.top_of_page"></a>UnityWebappsService</span></h2>
+<p>UnityWebappsService — Unity Webapps Service client bindings.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libunity-webapps-UnityWebappsService.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService">UnityWebappsService</a>;
+struct              <a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsServiceClass" title="struct UnityWebappsServiceClass">UnityWebappsServiceClass</a>;
+<a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="returnvalue">UnityWebappsService</span></a> * <a class="link" href="libunity-webapps-UnityWebappsService.html#unity-webapps-service-new" title="unity_webapps_service_new ()">unity_webapps_service_new</a>         ();
+<span class="returnvalue">GDBusConnection</span> *   <a class="link" href="libunity-webapps-UnityWebappsService.html#unity-webapps-service-get-connection" title="unity_webapps_service_get_connection ()">unity_webapps_service_get_connection</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>);
+<span class="returnvalue">GDBusProxy</span> *        <a class="link" href="libunity-webapps-UnityWebappsService.html#unity-webapps-service-get-proxy" title="unity_webapps_service_get_proxy ()">unity_webapps_service_get_proxy</a>     (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsServiceContextNotifyCallback" title="UnityWebappsServiceContextNotifyCallback ()">*UnityWebappsServiceContextNotifyCallback</a>)
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsService.html#unity-webapps-service-on-context-appeared" title="unity_webapps_service_on_context_appeared ()">unity_webapps_service_on_context_appeared</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsServiceContextNotifyCallback" title="UnityWebappsServiceContextNotifyCallback ()"><span class="type">UnityWebappsServiceContextNotifyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsService.html#unity-webapps-service-on-context-vanished" title="unity_webapps_service_on_context_vanished ()">unity_webapps_service_on_context_vanished</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsServiceContextNotifyCallback" title="UnityWebappsServiceContextNotifyCallback ()"><span class="type">UnityWebappsServiceContextNotifyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gchar</span> **            <a class="link" href="libunity-webapps-UnityWebappsService.html#unity-webapps-service-list-contexts" title="unity_webapps_service_list_contexts ()">unity_webapps_service_list_contexts</a> (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsService.html#unity-webapps-service-activate-application" title="unity_webapps_service_activate_application ()">unity_webapps_service_activate_application</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *domain</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *const *files</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libunity-webapps-UnityWebappsService.description"></a><h2>Description</h2>
+<p>
+Client bindings for the Unity Webapps Service daemon.
+</p>
+</div>
+<div class="refsect1">
+<a name="libunity-webapps-UnityWebappsService.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="UnityWebappsService"></a><h3>struct UnityWebappsService</h3>
+<pre class="programlisting">struct UnityWebappsService {
+	GObject object;
+
+	UnityWebappsServicePrivate *priv;
+};
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="UnityWebappsServiceClass"></a><h3>struct UnityWebappsServiceClass</h3>
+<pre class="programlisting">struct UnityWebappsServiceClass {
+	GObjectClass parent_class;
+};
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-service-new"></a><h3>unity_webapps_service_new ()</h3>
+<pre class="programlisting"><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="returnvalue">UnityWebappsService</span></a> * unity_webapps_service_new         ();</pre>
+<p>
+Creates a new <a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> proxy object. If 'com.canonical.Unity.Webapps.Service'
+is unowned, the daemon will be started following method invocation by this proxy.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The newly constructed <a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> objec,tg. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-service-get-connection"></a><h3>unity_webapps_service_get_connection ()</h3>
+<pre class="programlisting"><span class="returnvalue">GDBusConnection</span> *   unity_webapps_service_get_connection
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>);</pre>
+<p>
+Returns the <span class="type">GDBusConnection</span> used by <em class="parameter"><code>service</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
+<td>A <a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The <span class="type">GDBusConnection</span> used by <em class="parameter"><code>service</code></em>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-service-get-proxy"></a><h3>unity_webapps_service_get_proxy ()</h3>
+<pre class="programlisting"><span class="returnvalue">GDBusProxy</span> *        unity_webapps_service_get_proxy     (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>);</pre>
+<p>
+Returns the internal <span class="type">GDBusProxy</span> used by <em class="parameter"><code>service</code></em>.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
+<td>A <a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The <span class="type">GDBusProxy</span> used by <em class="parameter"><code>service</code></em>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="UnityWebappsServiceContextNotifyCallback"></a><h3>UnityWebappsServiceContextNotifyCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*UnityWebappsServiceContextNotifyCallback)
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-service-on-context-appeared"></a><h3>unity_webapps_service_on_context_appeared ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_service_on_context_appeared
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsServiceContextNotifyCallback" title="UnityWebappsServiceContextNotifyCallback ()"><span class="type">UnityWebappsServiceContextNotifyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+Registers <em class="parameter"><code>callback</code></em> to be invoked when the "ContextAppeared" signal is emitted from the 
+remote service instance. This indicates a new application context has come online.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
+<td>A <a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>A callback to be invoked when a new context is registered with <em class="parameter"><code>service</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>User supplied data to be passed to <em class="parameter"><code>callback</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-service-on-context-vanished"></a><h3>unity_webapps_service_on_context_vanished ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_service_on_context_vanished
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsServiceContextNotifyCallback" title="UnityWebappsServiceContextNotifyCallback ()"><span class="type">UnityWebappsServiceContextNotifyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+Registers <em class="parameter"><code>callback</code></em> to be invoked when the "ContextVanished" signal is emitted from the 
+remote service instance. This indicates an application context has gone offline.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
+<td>A <a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>A callback to be invoked when a new context is registered with <em class="parameter"><code>service</code></em>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>User supplied data to be passed to <em class="parameter"><code>callback</code></em>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-service-list-contexts"></a><h3>unity_webapps_service_list_contexts ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> **            unity_webapps_service_list_contexts (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>);</pre>
+<p>
+Returns a list of context names (unique DBus names), registered with the remote
+service.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
+<td>A <a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A list of context names. <span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-service-activate-application"></a><h3>unity_webapps_service_activate_application ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_service_activate_application
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *domain</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *const *files</code></em>);</pre>
+<p>
+Invokes the ActivateApplication method of the UnityWebappsService object. This will
+activate the application uniquely idenfied by the pair (<em class="parameter"><code>name</code></em>, <em class="parameter"><code>domain</code></em>).
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>service</code></em> :</span></p></td>
+<td>A <a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> object.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>Application name.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>domain</code></em> :</span></p></td>
+<td>Applicatoin domain.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.19</div>
+</body>
+</html>

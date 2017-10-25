@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>couchdb-document-info</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Reference Manual for CouchDB GLib Bindings">
+<link rel="up" href="ch01.html" title="Core API">
+<link rel="prev" href="couchdb-glib-CouchdbDocumentTask.html" title="CouchdbDocumentTask">
+<link rel="next" href="couchdb-glib-CouchdbArrayField.html" title="couchdb-array-field">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="couchdb-glib-CouchdbDocumentTask.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Reference Manual for CouchDB GLib Bindings</th>
+<td><a accesskey="n" href="couchdb-glib-CouchdbArrayField.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="couchdb-glib-couchdb-document-info.html#couchdb-glib-couchdb-document-info.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="couchdb-glib-couchdb-document-info.html#couchdb-glib-couchdb-document-info.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="couchdb-glib-couchdb-document-info"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="couchdb-glib-couchdb-document-info.top_of_page"></a>couchdb-document-info</span></h2>
+<p>couchdb-document-info</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="couchdb-glib-couchdb-document-info.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="couchdb-glib-couchdb-document-info.html#COUCHDB-TYPE-DOCUMENT-INFO:CAPS" title="COUCHDB_TYPE_DOCUMENT_INFO">COUCHDB_TYPE_DOCUMENT_INFO</a>
+<span class="returnvalue">GType</span>               <a class="link" href="couchdb-glib-couchdb-document-info.html#couchdb-document-info-get-type" title="couchdb_document_info_get_type ()">couchdb_document_info_get_type</a>      (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">CouchdbDocumentInfo</span> * <a class="link" href="couchdb-glib-couchdb-document-info.html#couchdb-document-info-new" title="couchdb_document_info_new ()">couchdb_document_info_new</a>         (<em class="parameter"><code>const <span class="type">char</span> *docid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *revision</code></em>);
+<span class="returnvalue">CouchdbDocumentInfo</span> * <a class="link" href="couchdb-glib-couchdb-document-info.html#couchdb-document-info-ref" title="couchdb_document_info_ref ()">couchdb_document_info_ref</a>         (<em class="parameter"><code><span class="type">CouchdbDocumentInfo</span> *dbinfo</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-couchdb-document-info.html#couchdb-document-info-unref" title="couchdb_document_info_unref ()">couchdb_document_info_unref</a>         (<em class="parameter"><code><span class="type">CouchdbDocumentInfo</span> *dbinfo</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-couchdb-document-info.html#couchdb-document-info-get-docid" title="couchdb_document_info_get_docid ()">couchdb_document_info_get_docid</a>     (<em class="parameter"><code><span class="type">CouchdbDocumentInfo</span> *doc_info</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-couchdb-document-info.html#couchdb-document-info-get-revision" title="couchdb_document_info_get_revision ()">couchdb_document_info_get_revision</a>  (<em class="parameter"><code><span class="type">CouchdbDocumentInfo</span> *doc_info</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="couchdb-glib-couchdb-document-info.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="couchdb-glib-couchdb-document-info.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="COUCHDB-TYPE-DOCUMENT-INFO:CAPS"></a><h3>COUCHDB_TYPE_DOCUMENT_INFO</h3>
+<pre class="programlisting">#define COUCHDB_TYPE_DOCUMENT_INFO (couchdb_document_info_get_type ())
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-info-get-type"></a><h3>couchdb_document_info_get_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">GType</span>               couchdb_document_info_get_type      (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-info-new"></a><h3>couchdb_document_info_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">CouchdbDocumentInfo</span> * couchdb_document_info_new         (<em class="parameter"><code>const <span class="type">char</span> *docid</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *revision</code></em>);</pre>
+<p>
+Create a new <span class="type">CouchdbDocumentInfo</span> object, which is used to store information
+about a document on a CouchDB database. It contains information like the
+Unique ID and revision of the document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>docid</code></em> :</span></p></td>
+<td>Unique ID of the document</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>revision</code></em> :</span></p></td>
+<td>Current revision of the document</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly-created <span class="type">CouchDocumentInfo</span> object.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-info-ref"></a><h3>couchdb_document_info_ref ()</h3>
+<pre class="programlisting"><span class="returnvalue">CouchdbDocumentInfo</span> * couchdb_document_info_ref         (<em class="parameter"><code><span class="type">CouchdbDocumentInfo</span> *dbinfo</code></em>);</pre>
+<p>
+Increments reference counting of the given <span class="type">CouchdbDocumentInfo</span> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A pointer to the object being referenced.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-info-unref"></a><h3>couchdb_document_info_unref ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_document_info_unref         (<em class="parameter"><code><span class="type">CouchdbDocumentInfo</span> *dbinfo</code></em>);</pre>
+<p>
+Decrements reference counting of the given <span class="type">CouchdbDocumentInfo</span> object.
+When the reference count is equal to 0, the object will be destroyed.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-info-get-docid"></a><h3>couchdb_document_info_get_docid ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_info_get_docid     (<em class="parameter"><code><span class="type">CouchdbDocumentInfo</span> *doc_info</code></em>);</pre>
+<p>
+Get the unique ID stored in the <span class="type">CouchdbDocumentInfo</span> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc_info</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbDocumentInfo</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Unique ID.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-document-info-get-revision"></a><h3>couchdb_document_info_get_revision ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_document_info_get_revision  (<em class="parameter"><code><span class="type">CouchdbDocumentInfo</span> *doc_info</code></em>);</pre>
+<p>
+Get the revision stored in the <span class="type">CouchdbDocumentInfo</span> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>doc_info</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbDocumentInfo</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Revision number.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

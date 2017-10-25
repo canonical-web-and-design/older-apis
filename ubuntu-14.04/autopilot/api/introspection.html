@@ -1,0 +1,862 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>autopilot.introspection - Autopilot introspection internals &mdash; Autopilot 1.4+14.04.20140213-0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/otto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/centertext.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.4+14.04.20140213-0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="Autopilot 1.4+14.04.20140213-0 documentation" href="../index.html" />
+    <link rel="up" title="Autopilot API Documentation" href="index.html" />
+    <link rel="next" title="autopilot.matchers - Custom matchers for test assertions" href="matchers.html" />
+    <link rel="prev" title="autopilot.input - Generate keyboard, mouse, and touch input events" href="input.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="matchers.html" title="autopilot.matchers - Custom matchers for test assertions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="input.html" title="autopilot.input - Generate keyboard, mouse, and touch input events"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Autopilot 1.4+14.04.20140213-0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Autopilot API Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-autopilot.introspection">
+<span id="autopilot-introspection-autopilot-introspection-internals"></span><h1><tt class="docutils literal"><span class="pre">autopilot.introspection</span></tt> - Autopilot introspection internals<a class="headerlink" href="introspection.html#module-autopilot.introspection" title="Permalink to this headline">¶</a></h1>
+<p>Package for introspection support.</p>
+<p>This package contains the internal implementation of the autopilot
+introspection mechanism, and probably isn&#8217;t useful to most test authors.</p>
+<dl class="function">
+<dt id="autopilot.introspection.get_proxy_object_for_existing_process">
+<tt class="descclassname">autopilot.introspection.</tt><tt class="descname">get_proxy_object_for_existing_process</tt><big>(</big><em>pid=None</em>, <em>dbus_bus='session'</em>, <em>connection_name=None</em>, <em>process=None</em>, <em>object_path='/com/canonical/Autopilot/Introspection'</em>, <em>application_name=None</em>, <em>emulator_base=None</em><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection.html#get_proxy_object_for_existing_process"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.get_proxy_object_for_existing_process" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a single proxy object for an application that is already running
+(i.e. launched outside of Autopilot).</p>
+<p>Searches on the given bus (supplied by <strong>dbus_bus</strong>) for an application
+matching the search criteria, creating the proxy object using the supplied
+custom emulator <strong>emulator_base</strong> (defaults to None).</p>
+<p>For example for an application on the system bus where the applications
+PID is known:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">app_proxy</span> <span class="o">=</span> <span class="n">get_proxy_object_for_existing_process</span><span class="p">(</span><span class="n">pid</span><span class="o">=</span><span class="n">app_pid</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Multiple criteria are allowed, for instance you could search on <strong>pid</strong>
+and <strong>connection_name</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">app_proxy</span> <span class="o">=</span> <span class="n">get_proxy_object_for_existing_process</span><span class="p">(</span>
+    <span class="n">pid</span><span class="o">=</span><span class="n">app_pid</span><span class="p">,</span> <span class="n">connection_name</span><span class="o">=</span><span class="s">&#39;org.gnome.gedit&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If the application from the previous example was on the system bus:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">app_proxy</span> <span class="o">=</span> <span class="n">get_proxy_object_for_existing_process</span><span class="p">(</span>
+    <span class="n">dbus_bus</span><span class="o">=</span><span class="s">&#39;system&#39;</span><span class="p">,</span> <span class="n">pid</span><span class="o">=</span><span class="n">app_pid</span><span class="p">,</span> <span class="n">connection_name</span><span class="o">=</span><span class="s">&#39;org.gnome.gedit&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>It is possible to search for the application given just the applications
+name.
+An example for an application running on a custom bus searching using the
+applications name:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">app_proxy</span> <span class="o">=</span> <span class="n">get_proxy_object_for_existing_process</span><span class="p">(</span>
+    <span class="n">application_name</span><span class="o">=</span><span class="s">&#39;qmlscene&#39;</span><span class="p">,</span>
+    <span class="n">dbus_bus</span><span class="o">=</span><span class="s">&#39;unix:abstract=/tmp/dbus-IgothuMHNk&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pid</strong> &#8211; The PID of the application to search for.</li>
+<li><strong>dbus_bus</strong> &#8211; A string containing either &#8216;session&#8217;, &#8216;system&#8217; or the
+custom buses name (i.e. &#8216;unix:abstract=/tmp/dbus-IgothuMHNk&#8217;).</li>
+<li><strong>connection_name</strong> &#8211; A string containing the DBus connection name to
+use with the search criteria.</li>
+<li><strong>object_path</strong> &#8211; A string containing the object path to use as the
+search criteria. Defaults to
+<tt class="xref py py-data docutils literal"><span class="pre">autopilot.introspection.constants.AUTOPILOT_PATH</span></tt>.</li>
+<li><strong>application_name</strong> &#8211; A string containing the applications name to
+search for.</li>
+<li><strong>emulator_base</strong> &#8211; The custom emulator to create the resulting proxy
+object with.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ProcessSearchError</strong> &#8211; if no search criteria match.</li>
+<li><strong>RuntimeError</strong> &#8211; if the search criteria results in many matches.</li>
+<li><strong>RuntimeError</strong> &#8211; if both <tt class="docutils literal"><span class="pre">process</span></tt> and <tt class="docutils literal"><span class="pre">pid</span></tt> are supplied, but
+<tt class="docutils literal"><span class="pre">process.pid</span> <span class="pre">!=</span> <span class="pre">pid</span></tt>.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<span class="target" id="module-autopilot.introspection.dbus"></span><p>This module contains the code to retrieve state via DBus calls.</p>
+<p>Under normal circumstances, the only thing you should need to use from this
+module is the DBusIntrospectableObject class.</p>
+<dl class="exception">
+<dt id="autopilot.introspection.dbus.StateNotFoundError">
+<em class="property">exception </em><tt class="descclassname">autopilot.introspection.dbus.</tt><tt class="descname">StateNotFoundError</tt><big>(</big><em>class_name=None</em>, <em>**filters</em><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#StateNotFoundError"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.StateNotFoundError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raised when a piece of state information is not found.</p>
+<p>This exception is commonly raised when the application has destroyed (or
+not yet created) the object you are trying to access in autopilot. This
+typically happens for a number of possible reasons:</p>
+<ul class="simple">
+<li>The UI widget you are trying to access with
+<a class="reference internal" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.select_single" title="autopilot.introspection.dbus.DBusIntrospectionObject.select_single"><tt class="xref py py-meth docutils literal"><span class="pre">select_single</span></tt></a> or
+<a class="reference internal" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.wait_select_single" title="autopilot.introspection.dbus.DBusIntrospectionObject.wait_select_single"><tt class="xref py py-meth docutils literal"><span class="pre">wait_select_single</span></tt></a> or
+<a class="reference internal" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.select_many" title="autopilot.introspection.dbus.DBusIntrospectionObject.select_many"><tt class="xref py py-meth docutils literal"><span class="pre">select_many</span></tt></a> does not exist yet.</li>
+<li>The UI widget you are trying to access has been destroyed by the
+application.</li>
+</ul>
+</dd></dl>
+
+<dl class="class">
+<dt id="autopilot.introspection.dbus.DBusIntrospectionObject">
+<em class="property">class </em><tt class="descclassname">autopilot.introspection.dbus.</tt><tt class="descname">DBusIntrospectionObject</tt><big>(</big><em>state_dict</em>, <em>path</em>, <em>backend</em><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#DBusIntrospectionObject"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class that supports transparent data retrieval from the application
+under test.</p>
+<p>This class is the base class for all objects retrieved from the application
+under test. It handles transparently refreshing attribute values when
+needed, and contains many methods to select child objects in the
+introspection tree.</p>
+<dl class="method">
+<dt id="autopilot.introspection.dbus.DBusIntrospectionObject.get_children_by_type">
+<tt class="descname">get_children_by_type</tt><big>(</big><em>desired_type</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#DBusIntrospectionObject.get_children_by_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_children_by_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of children of the specified type.</p>
+<p>Keyword arguments can be used to restrict returned instances. For
+example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">get_children_by_type</span><span class="p">(</span><span class="s">&#39;Launcher&#39;</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>will return only Launcher instances that have an attribute &#8216;monitor&#8217;
+that is equal to 1. The type can also be specified as a string, which
+is useful if there is no emulator class specified:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">get_children_by_type</span><span class="p">(</span><span class="s">&#39;Launcher&#39;</span><span class="p">,</span> <span class="n">monitor</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note however that if you pass a string, and there is an emulator class
+defined, autopilot will not use it.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>desired_type</strong> &#8211; Either a string naming the type you want, or a
+class of the type you want (the latter is used when defining
+custom emulators)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Tutorial Section <a class="reference internal" href="../tutorial/advanced_autopilot.html#custom-emulators"><em>Writing Custom Emulators</em></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.introspection.dbus.DBusIntrospectionObject.get_properties">
+<tt class="descname">get_properties</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#DBusIntrospectionObject.get_properties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_properties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dictionary of all the properties on this class.</p>
+<p>This can be useful when you want to log all the properties exported
+from your application for a particular object. Every property in the
+returned dictionary can be accessed as attributes of the object as
+well.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.introspection.dbus.DBusIntrospectionObject.get_children">
+<tt class="descname">get_children</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#DBusIntrospectionObject.get_children"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_children" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of all child objects.</p>
+<p>This returns a list of all children. To return only children of a
+specific type, use <a class="reference internal" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_children_by_type" title="autopilot.introspection.dbus.DBusIntrospectionObject.get_children_by_type"><tt class="xref py py-meth docutils literal"><span class="pre">get_children_by_type</span></tt></a>. To get objects
+further down the introspection tree (i.e.- nodes that may not
+necessarily be immeadiate children), use <a class="reference internal" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.select_single" title="autopilot.introspection.dbus.DBusIntrospectionObject.select_single"><tt class="xref py py-meth docutils literal"><span class="pre">select_single</span></tt></a> and
+<a class="reference internal" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.select_many" title="autopilot.introspection.dbus.DBusIntrospectionObject.select_many"><tt class="xref py py-meth docutils literal"><span class="pre">select_many</span></tt></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.introspection.dbus.DBusIntrospectionObject.get_parent">
+<tt class="descname">get_parent</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#DBusIntrospectionObject.get_parent"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the parent of this object.</p>
+<p>If this object has no parent (i.e.- it is the root of the introspection
+tree). Then it returns itself.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.introspection.dbus.DBusIntrospectionObject.select_single">
+<tt class="descname">select_single</tt><big>(</big><em>type_name='*'</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#DBusIntrospectionObject.select_single"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.select_single" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a single node from the introspection tree, with type equal to
+<em>type_name</em> and (optionally) matching the keyword filters present in
+<em>kwargs</em>.</p>
+<p>You must specify either <em>type_name</em>, keyword filters or both.</p>
+<p>This method searches recursively from the instance this method is
+called on. Calling <a class="reference internal" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.select_single" title="autopilot.introspection.dbus.DBusIntrospectionObject.select_single"><tt class="xref py py-meth docutils literal"><span class="pre">select_single</span></tt></a> on the application (root)
+proxy object will search the entire tree. Calling
+<a class="reference internal" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.select_single" title="autopilot.introspection.dbus.DBusIntrospectionObject.select_single"><tt class="xref py py-meth docutils literal"><span class="pre">select_single</span></tt></a> on an object in the tree will only search it&#8217;s
+descendants.</p>
+<p>Example usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">app</span><span class="o">.</span><span class="n">select_single</span><span class="p">(</span><span class="s">&#39;QPushButton&#39;</span><span class="p">,</span> <span class="n">objectName</span><span class="o">=</span><span class="s">&#39;clickme&#39;</span><span class="p">)</span>
+<span class="c"># returns a QPushButton whose &#39;objectName&#39; property is &#39;clickme&#39;.</span>
+</pre></div>
+</div>
+<p>If nothing is returned from the query, this method raises
+StateNotFoundError.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>type_name</strong> &#8211; Either a string naming the type you want, or a class
+of the appropriate type (the latter case is for overridden emulator
+classes).</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ValueError</strong> &#8211; if the query returns more than one item. <em>If
+you want more than one item, use select_many instead</em>.</li>
+<li><strong>TypeError</strong> &#8211; if neither <em>type_name</em> or keyword filters are
+provided.</li>
+<li><strong>StateNotFoundError</strong> &#8211; if the requested object was not found.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Tutorial Section <a class="reference internal" href="../tutorial/advanced_autopilot.html#custom-emulators"><em>Writing Custom Emulators</em></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.introspection.dbus.DBusIntrospectionObject.wait_select_single">
+<tt class="descname">wait_select_single</tt><big>(</big><em>type_name='*'</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#DBusIntrospectionObject.wait_select_single"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.wait_select_single" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a proxy object matching some search criteria, retrying if no
+object is found until a timeout is reached.</p>
+<p>This method is identical to the <a class="reference internal" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.select_single" title="autopilot.introspection.dbus.DBusIntrospectionObject.select_single"><tt class="xref py py-meth docutils literal"><span class="pre">select_single</span></tt></a> method, except
+that this method will poll the application under test for 10 seconds
+in the event that the search criteria does not match anything.</p>
+<p>This method will return single proxy object from the introspection
+tree, with type equal to <em>type_name</em> and (optionally) matching the
+keyword filters present in <em>kwargs</em>.</p>
+<p>You must specify either <em>type_name</em>, keyword filters or both.</p>
+<p>This method searches recursively from the proxy object this method is
+called on. Calling <a class="reference internal" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.select_single" title="autopilot.introspection.dbus.DBusIntrospectionObject.select_single"><tt class="xref py py-meth docutils literal"><span class="pre">select_single</span></tt></a> on the application (root)
+proxy object will search the entire tree. Calling
+<a class="reference internal" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.select_single" title="autopilot.introspection.dbus.DBusIntrospectionObject.select_single"><tt class="xref py py-meth docutils literal"><span class="pre">select_single</span></tt></a> on an object in the tree will only search it&#8217;s
+descendants.</p>
+<p>Example usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">app</span><span class="o">.</span><span class="n">wait_select_single</span><span class="p">(</span><span class="s">&#39;QPushButton&#39;</span><span class="p">,</span> <span class="n">objectName</span><span class="o">=</span><span class="s">&#39;clickme&#39;</span><span class="p">)</span>
+<span class="c"># returns a QPushButton whose &#39;objectName&#39; property is &#39;clickme&#39;.</span>
+<span class="c"># will poll the application until such an object exists, or will</span>
+<span class="c"># raise StateNotFoundError after 10 seconds.</span>
+</pre></div>
+</div>
+<p>If nothing is returned from the query, this method raises
+StateNotFoundError after 10 seconds.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><strong>type_name</strong> &#8211; Either a string naming the type you want, or a class
+of the appropriate type (the latter case is for overridden emulator
+classes).</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>ValueError</strong> &#8211; if the query returns more than one item. <em>If
+you want more than one item, use select_many instead</em>.</li>
+<li><strong>TypeError</strong> &#8211; if neither <em>type_name</em> or keyword filters are
+provided.</li>
+<li><strong>StateNotFoundError</strong> &#8211; if the requested object was not found.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Tutorial Section <a class="reference internal" href="../tutorial/advanced_autopilot.html#custom-emulators"><em>Writing Custom Emulators</em></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.introspection.dbus.DBusIntrospectionObject.select_many">
+<tt class="descname">select_many</tt><big>(</big><em>type_name='*'</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#DBusIntrospectionObject.select_many"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.select_many" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of nodes from the introspection tree, with type equal to
+<em>type_name</em> and (optionally) matching the keyword filters present in
+<em>kwargs</em>.</p>
+<p>You must specify either <em>type_name</em>, keyword filters or both.</p>
+<p>This method searches recursively from the instance this method is
+called on. Calling <a class="reference internal" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.select_many" title="autopilot.introspection.dbus.DBusIntrospectionObject.select_many"><tt class="xref py py-meth docutils literal"><span class="pre">select_many</span></tt></a> on the application (root) proxy
+object will search the entire tree. Calling <a class="reference internal" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.select_many" title="autopilot.introspection.dbus.DBusIntrospectionObject.select_many"><tt class="xref py py-meth docutils literal"><span class="pre">select_many</span></tt></a> on an
+object in the tree will only search it&#8217;s descendants.</p>
+<p>Example Usage:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">app</span><span class="o">.</span><span class="n">select_many</span><span class="p">(</span><span class="s">&#39;QPushButton&#39;</span><span class="p">,</span> <span class="n">enabled</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="c"># returns a list of QPushButtons that are enabled.</span>
+</pre></div>
+</div>
+<p>As mentioned above, this method searches the object tree recursively:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">file_menu</span> <span class="o">=</span> <span class="n">app</span><span class="o">.</span><span class="n">select_one</span><span class="p">(</span><span class="s">&#39;QMenu&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&#39;File&#39;</span><span class="p">)</span>
+<span class="n">file_menu</span><span class="o">.</span><span class="n">select_many</span><span class="p">(</span><span class="s">&#39;QAction&#39;</span><span class="p">)</span>
+<span class="c"># returns a list of QAction objects who appear below file_menu in</span>
+<span class="c"># the object tree.</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The order in which objects are returned is not guaranteed. It is
+bad practise to write tests that depend on the order in which
+this method returns objects. (see <a class="reference internal" href="../tutorial/good_tests.html#object-ordering"><em>Do Not Depend on Object Ordering</em></a> for more
+information).</p>
+</div>
+<p>If you only want to get one item, use <a class="reference internal" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.select_single" title="autopilot.introspection.dbus.DBusIntrospectionObject.select_single"><tt class="xref py py-meth docutils literal"><span class="pre">select_single</span></tt></a> instead.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>type_name</strong> &#8211; Either a string naming the type you want, or a class
+of the appropriate type (the latter case is for overridden emulator
+classes).</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>TypeError</strong> if neither <em>type_name</em> or keyword filters are
+provided.</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last">Tutorial Section <a class="reference internal" href="../tutorial/advanced_autopilot.html#custom-emulators"><em>Writing Custom Emulators</em></a></p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.introspection.dbus.DBusIntrospectionObject.refresh_state">
+<tt class="descname">refresh_state</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#DBusIntrospectionObject.refresh_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.refresh_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Refreshes the object&#8217;s state.</p>
+<p>You should probably never have to call this directly. Autopilot
+automatically retrieves new state every time this object&#8217;s attributes
+are read.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><strong>StateNotFound</strong> if the object in the application under test
+has been destroyed.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.introspection.dbus.DBusIntrospectionObject.get_all_instances">
+<tt class="descname">get_all_instances</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#DBusIntrospectionObject.get_all_instances"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_all_instances" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get all instances of this class that exist within the Application
+state tree.</p>
+<p>For example, to get all the LauncherIcon instances:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">icons</span> <span class="o">=</span> <span class="n">LauncherIcon</span><span class="o">.</span><span class="n">get_all_instances</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Using this method is slow - it requires a complete scan of the
+introspection tree. You should only use this when you&#8217;re not sure
+where the objects you are looking for are located. Depending on
+the application you are testing, you may get duplicate results
+using this method.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">List (possibly empty) of class instances.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.introspection.dbus.DBusIntrospectionObject.get_root_instance">
+<tt class="descname">get_root_instance</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#DBusIntrospectionObject.get_root_instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_root_instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the object at the root of this tree.</p>
+<p>This will return an object that represents the root of the
+introspection tree.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.introspection.dbus.DBusIntrospectionObject.get_state_by_path">
+<tt class="descname">get_state_by_path</tt><big>(</big><em>piece</em><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#DBusIntrospectionObject.get_state_by_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_state_by_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get state for a particular piece of the state tree.</p>
+<p>You should probably never need to call this directly.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>piece</strong> &#8211; an XPath-like query that specifies which bit of the tree
+you want to look at.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>TypeError</strong> on invalid <em>piece</em> parameter.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.introspection.dbus.DBusIntrospectionObject.get_new_state">
+<tt class="descname">get_new_state</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#DBusIntrospectionObject.get_new_state"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_new_state" title="Permalink to this definition">¶</a></dt>
+<dd><p>Retrieve a new state dictionary for this class instance.</p>
+<p>You should probably never need to call this directly.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The state keys in the returned dictionary are not translated.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.introspection.dbus.DBusIntrospectionObject.wait_until_destroyed">
+<tt class="descname">wait_until_destroyed</tt><big>(</big><em>timeout=10</em><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#DBusIntrospectionObject.wait_until_destroyed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.wait_until_destroyed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Block until this object is destroyed in the application.</p>
+<p>Block until the object this instance is a proxy for has been destroyed
+in the applicaiton under test. This is commonly used to wait until a
+UI component has been destroyed.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>timeout</strong> &#8211; The number of seconds to wait for the object to be
+destroyed. If not specified, defaults to 10 seconds.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Raises RuntimeError:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">if the method timed out.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.introspection.dbus.DBusIntrospectionObject.get_class_query_string">
+<tt class="descname">get_class_query_string</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#DBusIntrospectionObject.get_class_query_string"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.get_class_query_string" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the XPath query string required to refresh this class&#8217;s
+state.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.introspection.dbus.DBusIntrospectionObject.make_introspection_object">
+<tt class="descname">make_introspection_object</tt><big>(</big><em>dbus_tuple</em><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#DBusIntrospectionObject.make_introspection_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.make_introspection_object" title="Permalink to this definition">¶</a></dt>
+<dd><p>Make an introspection object given a DBus tuple of
+(path, state_dict).</p>
+<p>This only works for classes that derive from DBusIntrospectionObject.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.introspection.dbus.DBusIntrospectionObject.print_tree">
+<tt class="descname">print_tree</tt><big>(</big><em>output=None</em>, <em>maxdepth=None</em>, <em>_curdepth=0</em><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#DBusIntrospectionObject.print_tree"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.print_tree" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print properties of the object and its children to a stream.</p>
+<p>When writing new tests, this can be called when it is too difficult to
+find the widget or property that you are interested in in &#8220;vis&#8221;.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Do not use this in production tests, this is expensive and
+not at all appropriate for actual testing. Only call this
+temporarily and replace with proper select_single/select_many
+calls.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>output</strong> &#8211; A file object or path name where the output will be
+written to. If not given, write to stdout.</li>
+<li><strong>maxdepth</strong> &#8211; If given, limit the maximum recursion level to that
+number, i. e. only print children which have at most maxdepth-1
+intermediate parents.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.introspection.dbus.DBusIntrospectionObject.no_automatic_refreshing">
+<tt class="descname">no_automatic_refreshing</tt><big>(</big><em>*args</em>, <em>**kwds</em><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/dbus.html#DBusIntrospectionObject.no_automatic_refreshing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.no_automatic_refreshing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Context manager function to disable automatic DBus refreshing when
+retrieving attributes.</p>
+<p>Example usage:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>with instance.no_automatic_refreshing():</dt>
+<dd># access lots of attributes.</dd>
+</dl>
+</div></blockquote>
+<p>This can be useful if you need to check lots of attributes in a tight
+loop, or if you want to atomicaly check several attributes at once.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="autopilot.introspection.dbus.CustomEmulatorBase">
+<em class="property">class </em><tt class="descclassname">autopilot.introspection.dbus.</tt><tt class="descname">CustomEmulatorBase</tt><big>(</big><em>state_dict</em>, <em>path</em>, <em>backend</em><big>)</big><a class="headerlink" href="introspection.html#autopilot.introspection.dbus.CustomEmulatorBase" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class must be used as a base class for any custom emulators defined
+within a test case.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt>Tutorial Section <a class="reference internal" href="../tutorial/advanced_autopilot.html#custom-emulators"><em>Writing Custom Emulators</em></a></dt>
+<dd>Information on how to write custom emulators.</dd>
+</dl>
+</div>
+</dd></dl>
+
+<span class="target" id="module-autopilot.introspection.types"></span><div class="section" id="autopilot-proxy-type-support">
+<h2>Autopilot proxy type support.<a class="headerlink" href="introspection.html#autopilot-proxy-type-support" title="Permalink to this headline">¶</a></h2>
+<p>This module defines the classes that are used for all attributes on proxy
+objects. All proxy objects contain attributes that transparently mirror the
+values present in the application under test. Autopilot takes care of keeping
+these values up to date.</p>
+<p>Object attributes fall into two categories. Attributes that are a single
+string, boolean, or integer property are sent directly across DBus. These are
+called &#8220;plain&#8221; types, and are stored in autopilot as instnaces of the
+<a class="reference internal" href="introspection.html#autopilot.introspection.types.PlainType" title="autopilot.introspection.types.PlainType"><tt class="xref py py-class docutils literal"><span class="pre">PlainType</span></tt></a> class. Attributes that are more complex (a rectangle, for
+example) are called &#8220;complex&#8221; types, and are split into several component
+values, sent across dbus, and are then reconstituted in autopilot into useful
+objects.</p>
+<dl class="class">
+<dt id="autopilot.introspection.types.PlainType">
+<em class="property">class </em><tt class="descclassname">autopilot.introspection.types.</tt><tt class="descname">PlainType</tt><a class="reference internal" href="../_modules/autopilot/introspection/types.html#PlainType"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.types.PlainType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plain type support in autopilot proxy objects.</p>
+<p>Instances of this class will be used for all plain attrubites. The word
+&#8220;plain&#8221; in this context means anything that&#8217;s marshalled as a string,
+boolean or integer type across dbus.</p>
+<p>Instances of these classes can be used just like the underlying type. For
+example, given an object property called &#8216;length&#8217; that is marshalled over
+dbus as an integer value, the following will be true:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="nb">object</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="n">PlainType</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="nb">object</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="nb">object</span><span class="o">.</span><span class="n">length</span><span class="p">)</span>
+<span class="go">123</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="nb">object</span><span class="o">.</span><span class="n">length</span> <span class="o">+</span> <span class="mi">32</span><span class="p">)</span>
+<span class="go">155</span>
+</pre></div>
+</div>
+<p>However, a special case exists for boolean values: because you cannot
+subclass from the &#8216;bool&#8217; type, the following check will fail (
+<tt class="docutils literal"><span class="pre">object.visible</span></tt> is a boolean property):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="nb">object</span><span class="o">.</span><span class="n">visible</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+<p>However boolean values will behave exactly as you expect them to.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="autopilot.introspection.types.Rectangle">
+<em class="property">class </em><tt class="descclassname">autopilot.introspection.types.</tt><tt class="descname">Rectangle</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/types.html#Rectangle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.types.Rectangle" title="Permalink to this definition">¶</a></dt>
+<dd><p>The RectangleType class represents a rectangle in cartesian space.</p>
+<p>To construct a rectangle, pass the x, y, width and height parameters in to
+the class constructor:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">my_rect</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">150</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>These attributes can be accessed either using named attributes, or via
+sequence indexes:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="go">&gt;&gt;&gt;my_rect = Rectangle(12,13,100,150)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_rect</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">my_rect</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">12</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_rect</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="n">my_rect</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">13</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_rect</span><span class="o">.</span><span class="n">w</span> <span class="o">==</span> <span class="n">my_rect</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">100</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_rect</span><span class="o">.</span><span class="n">h</span> <span class="o">==</span> <span class="n">my_rect</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">150</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>You may also access the width and height values using the <tt class="docutils literal"><span class="pre">width</span></tt> and
+<tt class="docutils literal"><span class="pre">height</span></tt> properties:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_rect</span><span class="o">.</span><span class="n">width</span> <span class="o">==</span> <span class="n">my_rect</span><span class="o">.</span><span class="n">w</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_rect</span><span class="o">.</span><span class="n">height</span> <span class="o">==</span> <span class="n">my_rect</span><span class="o">.</span><span class="n">h</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Rectangles can be compared using <tt class="docutils literal"><span class="pre">==</span></tt> and <tt class="docutils literal"><span class="pre">!=</span></tt>, either to another
+Rectangle instance, or to any mutable sequence type:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_rect</span> <span class="o">==</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">]</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_rect</span> <span class="o">!=</span> <span class="n">Rectangle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="autopilot.introspection.types.Point">
+<em class="property">class </em><tt class="descclassname">autopilot.introspection.types.</tt><tt class="descname">Point</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/types.html#Point"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.types.Point" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Point class represents a 2D point in cartesian space.</p>
+<p>To construct a Point, pass in the x, y parameters to the class
+constructor:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_point</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>These attributes can be accessed either using named attributes, or via
+sequence indexes:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_point</span><span class="o">.</span><span class="n">x</span> <span class="o">==</span> <span class="n">my_point</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">50</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_point</span><span class="o">.</span><span class="n">y</span> <span class="o">==</span> <span class="n">my_point</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">100</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Point instances can be compared using <tt class="docutils literal"><span class="pre">==</span></tt> and <tt class="docutils literal"><span class="pre">!=</span></tt>, either to another
+Point instance, or to any mutable sequence type with the correct number of
+items:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_point</span> <span class="o">==</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_point</span> <span class="o">!=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="autopilot.introspection.types.Size">
+<em class="property">class </em><tt class="descclassname">autopilot.introspection.types.</tt><tt class="descname">Size</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/types.html#Size"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.types.Size" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Size class represents a 2D size in cartesian space.</p>
+<p>To construct a Size, pass in the width, height parameters to the class
+constructor:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_size</span> <span class="o">=</span> <span class="n">Size</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>These attributes can be accessed either using named attributes, or via
+sequence indexes:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_size</span><span class="o">.</span><span class="n">width</span> <span class="o">==</span> <span class="n">my_size</span><span class="o">.</span><span class="n">w</span> <span class="o">==</span> <span class="n">my_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">50</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_size</span><span class="o">.</span><span class="n">height</span> <span class="o">==</span> <span class="n">my_size</span><span class="o">.</span><span class="n">h</span> <span class="o">==</span> <span class="n">my_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">100</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Size instances can be compared using <tt class="docutils literal"><span class="pre">==</span></tt> and <tt class="docutils literal"><span class="pre">!=</span></tt>, either to another
+Size instance, or to any mutable sequence type with the correct number of
+items:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_size</span> <span class="o">==</span> <span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_size</span> <span class="o">!=</span> <span class="n">Size</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="autopilot.introspection.types.DateTime">
+<em class="property">class </em><tt class="descclassname">autopilot.introspection.types.</tt><tt class="descname">DateTime</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/types.html#DateTime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.types.DateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>The DateTime class represents a date and time in the UTC timezone.</p>
+<p>DateTime is constructed by passing a unix timestamp in to the constructor.
+Timestamps are expressed as the number of seconds since 1970-01-01T00:00:00
+in the UTC timezone:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_dt</span> <span class="o">=</span> <span class="n">DateTime</span><span class="p">(</span><span class="mi">1377209927</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This timestamp can always be accessed either using index access or via a
+named property:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_dt</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">my_dt</span><span class="o">.</span><span class="n">timestamp</span> <span class="o">==</span> <span class="mi">1377209927</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>DateTime objects also expose the usual named properties you would expect on
+a date/time object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_dt</span><span class="o">.</span><span class="n">year</span>
+<span class="go">2013</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_dt</span><span class="o">.</span><span class="n">month</span>
+<span class="go">8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_dt</span><span class="o">.</span><span class="n">day</span>
+<span class="go">22</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_dt</span><span class="o">.</span><span class="n">hour</span>
+<span class="go">22</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_dt</span><span class="o">.</span><span class="n">minute</span>
+<span class="go">18</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_dt</span><span class="o">.</span><span class="n">second</span>
+<span class="go">47</span>
+</pre></div>
+</div>
+<p>Two DateTime objects can be compared for equality:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_dt</span> <span class="o">==</span> <span class="n">DateTime</span><span class="p">(</span><span class="mi">1377209927</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>You can also compare a DateTime with any mutable sequence type containing
+the timestamp (although this probably isn&#8217;t very useful for test authors):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_dt</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1377209927</span><span class="p">]</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Finally, you can also compare a DateTime instance with a python datetime
+instance:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromutctimestamp</span><span class="p">(</span><span class="mi">1377209927</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>DateTime instances can be converted to datetime instances:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">my_dt</span><span class="o">.</span><span class="n">datetime</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="autopilot.introspection.types.Time">
+<em class="property">class </em><tt class="descclassname">autopilot.introspection.types.</tt><tt class="descname">Time</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/autopilot/introspection/types.html#Time"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="introspection.html#autopilot.introspection.types.Time" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Time class represents a time, without a date component.</p>
+<p>You can construct a Time instnace by passing the hours, minutes, seconds,
+and milliseconds to the class constructor:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_time</span> <span class="o">=</span> <span class="n">Time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mo">01</span><span class="p">,</span> <span class="mi">23</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The values passed in must be valid for their positions (ie..- 0-23 for
+hours, 0-59 for minutes and seconds, and 0-999 for milliseconds). Passing
+invalid values will cause a ValueError to be raised.</p>
+<p>The hours, minutes, seconds, and milliseconds can be accessed using either
+index access or named properties:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_time</span><span class="o">.</span><span class="n">hours</span> <span class="o">==</span> <span class="n">my_time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">12</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_time</span><span class="o">.</span><span class="n">minutes</span> <span class="o">==</span> <span class="n">my_time</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">34</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_time</span><span class="o">.</span><span class="n">seconds</span> <span class="o">==</span> <span class="n">my_time</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mo">01</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_time</span><span class="o">.</span><span class="n">milliseconds</span> <span class="o">==</span> <span class="n">my_time</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="mi">23</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Time instances can be compared to other time instances, any mutable
+sequence containing four integers, or datetime.time instances:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">my_time</span> <span class="o">==</span> <span class="n">Time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mo">01</span><span class="p">,</span> <span class="mi">23</span><span class="p">)</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_time</span> <span class="o">==</span> <span class="n">Time</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="go">False</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_time</span> <span class="o">==</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mo">01</span><span class="p">,</span> <span class="mi">23</span><span class="p">]</span>
+<span class="go">True</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">my_time</span> <span class="o">==</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mo">01</span><span class="p">,</span> <span class="mi">23000</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>Note that the Time class stores milliseconds, while the <tt class="docutils literal"><span class="pre">datettime.time</span></tt>
+class stores microseconds.</p>
+<p>Finally, you can get a <tt class="docutils literal"><span class="pre">datetime.time</span></tt> instance from a Time instance:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">my_time</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/otto-64.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="introspection.html#"><tt class="docutils literal"><span class="pre">autopilot.introspection</span></tt> - Autopilot introspection internals</a><ul>
+<li><a class="reference internal" href="introspection.html#autopilot-proxy-type-support">Autopilot proxy type support.</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://developer.ubuntu.com/api/devel/ubuntu-14.04/autopilot/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="input.html"
+                        title="previous chapter"><tt class="docutils literal"><span class="pre">autopilot.input</span></tt> - Generate keyboard, mouse, and touch input events</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="matchers.html"
+                        title="next chapter"><tt class="docutils literal"><span class="pre">autopilot.matchers</span></tt> - Custom matchers for test assertions</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="matchers.html" title="autopilot.matchers - Custom matchers for test assertions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="input.html" title="autopilot.input - Generate keyboard, mouse, and touch input events"
+             >previous</a> |</li>
+        <li><a href="../index.html">Autopilot 1.4+14.04.20140213-0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Autopilot API Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      <div class=center_text>
+        <a href="../faq/contribute.html">Learn how you can contribute!</a> / <a href="https://bugs.launchpad.net/autopilot/+filebug">File a bug</a>
+     <br/>
+      </div>
+        &copy; Copyright 2012-2013, Canonical.
+    </div>
+
+
+  </body>
+</html>

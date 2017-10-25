@@ -1,0 +1,882 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>IndicateServer</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="libindicate Reference Manual">
+<link rel="up" href="base.html" title="Part I. Base Classes for Applications">
+<link rel="prev" href="IndicateIndicator.html" title="IndicateIndicator">
+<link rel="next" href="subclass.html" title="Part II. Subclasses for specific indicators">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="IndicateIndicator.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="base.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libindicate Reference Manual</th>
+<td><a accesskey="n" href="subclass.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="IndicateServer.html#IndicateServer.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="IndicateServer.html#IndicateServer.description" class="shortcut">Description</a>
+                   | 
+                  <a href="IndicateServer.html#IndicateServer.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="IndicateServer.html#IndicateServer.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="IndicateServer.html#IndicateServer.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="IndicateServer"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="IndicateServer.top_of_page"></a>IndicateServer</span></h2>
+<p>IndicateServer — The representation of the application on DBus.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsect1">
+<a name="IndicateServer.stability-level"></a><h2>Stability Level</h2>
+Unstable, unless otherwise indicated
+</div>
+<div class="refsynopsisdiv">
+<a name="IndicateServer.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libindicate/server.h&gt;
+
+struct              <a class="link" href="IndicateServer.html#IndicateServer-struct" title="struct IndicateServer">IndicateServer</a>;
+struct              <a class="link" href="IndicateServer.html#IndicateServerClass" title="struct IndicateServerClass">IndicateServerClass</a>;
+<span class="returnvalue">void</span>                <a class="link" href="IndicateServer.html#indicate-server-add-indicator" title="indicate_server_add_indicator ()">indicate_server_add_indicator</a>       (<em class="parameter"><code><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="IndicateServer.html#indicate-server-check-interest" title="indicate_server_check_interest ()">indicate_server_check_interest</a>      (<em class="parameter"><code><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><span class="type">IndicateInterests</span> interest</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="IndicateServer.html#indicate-server-get-next-id" title="indicate_server_get_next_id ()">indicate_server_get_next_id</a>         (<em class="parameter"><code><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *server</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="IndicateServer.html#indicate-server-hide" title="indicate_server_hide ()">indicate_server_hide</a>                (<em class="parameter"><code><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *server</code></em>);
+<a class="link" href="IndicateServer.html" title="IndicateServer"><span class="returnvalue">IndicateServer</span></a> *    <a class="link" href="IndicateServer.html#indicate-server-ref-default" title="indicate_server_ref_default ()">indicate_server_ref_default</a>         (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="IndicateServer.html#indicate-server-remove-indicator" title="indicate_server_remove_indicator ()">indicate_server_remove_indicator</a>    (<em class="parameter"><code><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="IndicateServer.html#indicate-server-set-default" title="indicate_server_set_default ()">indicate_server_set_default</a>         (<em class="parameter"><code><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *server</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="IndicateServer.html#indicate-server-set-desktop-file" title="indicate_server_set_desktop_file ()">indicate_server_set_desktop_file</a>    (<em class="parameter"><code><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="IndicateServer.html#indicate-server-set-type" title="indicate_server_set_type ()">indicate_server_set_type</a>            (<em class="parameter"><code><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *type</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="IndicateServer.html#indicate-server-show" title="indicate_server_show ()">indicate_server_show</a>                (<em class="parameter"><code><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *server</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="IndicateServer.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----IndicateServer
+</pre>
+</div>
+<div class="refsect1">
+<a name="IndicateServer.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="IndicateServer.html#IndicateServer--count" title='The "count" property'>count</a>"                    <span class="type">guint</span>                 : Read / Write
+  "<a class="link" href="IndicateServer.html#IndicateServer--desktop" title='The "desktop" property'>desktop</a>"                  <span class="type">gchar</span>*                : Read / Write
+  "<a class="link" href="IndicateServer.html#IndicateServer--icon-theme" title='The "icon-theme" property'>icon-theme</a>"               <span class="type">gchar</span>*                : Read / Write
+  "<a class="link" href="IndicateServer.html#IndicateServer--menu" title='The "menu" property'>menu</a>"                     <span class="type">gchar</span>*                : Read
+  "<a class="link" href="IndicateServer.html#IndicateServer--path" title='The "path" property'>path</a>"                     <span class="type">gchar</span>*                : Read / Write / Construct Only
+  "<a class="link" href="IndicateServer.html#IndicateServer--type" title='The "type" property'>type</a>"                     <span class="type">gchar</span>*                : Read / Write
+</pre>
+</div>
+<div class="refsect1">
+<a name="IndicateServer.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="IndicateServer.html#IndicateServer-indicator-delete" title='The "indicator-delete" signal'>indicator-delete</a>"                               : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateServer.html#IndicateServer-indicator-modified" title='The "indicator-modified" signal'>indicator-modified</a>"                             : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateServer.html#IndicateServer-indicator-new" title='The "indicator-new" signal'>indicator-new</a>"                                  : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateServer.html#IndicateServer-interest-added" title='The "interest-added" signal'>interest-added</a>"                                 : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateServer.html#IndicateServer-interest-removed" title='The "interest-removed" signal'>interest-removed</a>"                               : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateServer.html#IndicateServer-max-indicators-changed" title='The "max-indicators-changed" signal'>max-indicators-changed</a>"                         : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateServer.html#IndicateServer-server-count-changed" title='The "server-count-changed" signal'>server-count-changed</a>"                           : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateServer.html#IndicateServer-server-display" title='The "server-display" signal'>server-display</a>"                                 : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateServer.html#IndicateServer-server-hide" title='The "server-hide" signal'>server-hide</a>"                                    : <code class="literal">Run Last</code>
+  "<a class="link" href="IndicateServer.html#IndicateServer-server-show" title='The "server-show" signal'>server-show</a>"                                    : <code class="literal">Run Last</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="IndicateServer.description"></a><h2>Description</h2>
+<p>
+The server object is the object that provides the functions on
+	to DBus for other applications to call.  It does this by implementing
+	the DBus indicator spec, but it also allows for subclassing so that
+	subclasses don't have to worry about the DBus-isms as much as
+	the functionality that they're trying to express.
+</p>
+<p>
+	For simple applications there is limited need to set anything
+	more than the desktop file and the type of the server using
+	<a class="link" href="IndicateServer.html#indicate-server-set-desktop-file" title="indicate_server_set_desktop_file ()"><code class="function">indicate_server_set_desktop_file()</code></a> and <a class="link" href="IndicateServer.html#indicate-server-set-type" title="indicate_server_set_type ()"><code class="function">indicate_server_set_type()</code></a>.
+	Each of these function sets the respective value and expresses
+	it in a way that other applications on the bus can read it.
+</p>
+<p>
+	More advanced applications might find the need to subclass the
+	<a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> object and make their own.  This is likely the
+	case where applications have complex data stores that they don't
+	want to turn into a large set of <span class="type">GObjects</span> that can take up a
+	significant amount of memory in the program.
+</p>
+<p>
+	In general, it is recommended that application authors go with
+	the high memory path first, and then optimize by implementing
+	their server on a second pass.
+</p>
+</div>
+<div class="refsect1">
+<a name="IndicateServer.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="IndicateServer-struct"></a><h3>struct IndicateServer</h3>
+<pre class="programlisting">struct IndicateServer;</pre>
+<p>
+This is the object that represents the overall connection
+	between this application and DBus.  It acts as the proxy for
+	incomming DBus calls and also sends the appropriate signals
+	on DBus for events happening on other objects locally.  It
+	provides some settings that effection how the application as
+	a whole is perceived by listeners of the indicator protocol.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateServerClass"></a><h3>struct IndicateServerClass</h3>
+<pre class="programlisting">struct IndicateServerClass {
+	GObjectClass parent;
+
+	/* Signals */
+	void (* indicator_added) (IndicateServer * server, guint id);
+	void (* indicator_removed) (IndicateServer * server, guint id);
+	void (* indicator_modified) (IndicateServer * server, guint id, gchar * property);
+	void (* server_show) (IndicateServer * server, gchar * type);
+	void (* server_hide) (IndicateServer * server, gchar * type);
+	void (* server_display) (IndicateServer * server, guint timestamp);
+	void (* interest_added) (IndicateServer * server, IndicateInterests interest);
+	void (* interest_removed) (IndicateServer * server, IndicateInterests interest);
+	void (* max_indicators_changed) (IndicateServer * server, gint max);
+	void (* server_count_changed) (IndicateServer * server, guint count);
+
+	/* Virtual Functions */
+	gboolean (*get_indicator_count) (IndicateServer * server, guint * count, GError **error);
+	indicate_server_get_indicator_list_slot_t get_indicator_list;
+	gboolean (*get_indicator_property) (IndicateServer * server, guint id, gchar * property, GVariant ** value, GError **error);
+	indicate_server_get_indicator_property_group_slot_t get_indicator_property_group;
+	indicate_server_get_indicator_properties_slot_t get_indicator_properties;
+	gboolean (*show_indicator_to_user) (IndicateServer * server, guint id, guint timestamp, GError ** error);
+	gboolean (*indicator_displayed) (IndicateServer * server, const gchar * sender, guint id, gboolean displayed, GError ** error);
+	guint    (*get_next_id) (IndicateServer * server);
+	gboolean (*show_interest) (IndicateServer * server, const gchar * sender, IndicateInterests interest);
+	gboolean (*remove_interest) (IndicateServer * server, const gchar * sender, IndicateInterests interest);
+	gboolean (*check_interest) (IndicateServer * server, IndicateInterests interest);
+	gboolean (*max_indicators_set) (IndicateServer * server, const gchar * sender, gint max);
+	gint     (*max_indicators_get) (IndicateServer * server);
+
+	/* Reserver for future use */
+	void (*indicate_server_reserved1)(void);
+	void (*indicate_server_reserved2)(void);
+	void (*indicate_server_reserved3)(void);
+	void (*indicate_server_reserved4)(void);
+};
+</pre>
+<p>
+All of the functions and signals that make up the server class
+	including those that are public API to the application and those
+	that are public API to all of DBus.  Subclasses may need to
+	implement a large portion of these.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><span class="type">GObjectClass</span> <em class="structfield"><code><a name="IndicateServerClass.parent"></a>parent</code></em>;</span></p></td>
+<td>Parent Class</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.indicator-added"></a>indicator_added</code></em> ()</span></p></td>
+<td>Slot for <span class="type">"indicator-added"</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.indicator-removed"></a>indicator_removed</code></em> ()</span></p></td>
+<td>Slot for <span class="type">"indicator-removed"</span>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.indicator-modified"></a>indicator_modified</code></em> ()</span></p></td>
+<td>Slot for <a class="link" href="IndicateServer.html#IndicateServer-indicator-modified" title='The "indicator-modified" signal'><span class="type">"indicator-modified"</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.server-show"></a>server_show</code></em> ()</span></p></td>
+<td>Slot for <a class="link" href="IndicateServer.html#IndicateServer-server-show" title='The "server-show" signal'><span class="type">"server-show"</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.server-hide"></a>server_hide</code></em> ()</span></p></td>
+<td>Slot for <a class="link" href="IndicateServer.html#IndicateServer-server-hide" title='The "server-hide" signal'><span class="type">"server-hide"</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.server-display"></a>server_display</code></em> ()</span></p></td>
+<td>Slot for <a class="link" href="IndicateServer.html#IndicateServer-server-display" title='The "server-display" signal'><span class="type">"server-display"</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.interest-added"></a>interest_added</code></em> ()</span></p></td>
+<td>Slot for <a class="link" href="IndicateServer.html#IndicateServer-interest-added" title='The "interest-added" signal'><span class="type">"interest-added"</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.interest-removed"></a>interest_removed</code></em> ()</span></p></td>
+<td>Slot for <a class="link" href="IndicateServer.html#IndicateServer-interest-removed" title='The "interest-removed" signal'><span class="type">"interest-removed"</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.max-indicators-changed"></a>max_indicators_changed</code></em> ()</span></p></td>
+<td>Slot for <a class="link" href="IndicateServer.html#IndicateServer-max-indicators-changed" title='The "max-indicators-changed" signal'><span class="type">"max-indicators-changed"</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.server-count-changed"></a>server_count_changed</code></em> ()</span></p></td>
+<td>Slot for <a class="link" href="IndicateServer.html#IndicateServer-server-count-changed" title='The "server-count-changed" signal'><span class="type">"server-count-changed"</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.get-indicator-count"></a>get_indicator_count</code></em> ()</span></p></td>
+<td>Returns the number of indicators that are visible
+on the bus.  Hidden indicators should not be counted.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">indicate_server_get_indicator_list_slot_t</span> <em class="structfield"><code><a name="IndicateServerClass.get-indicator-list"></a>get_indicator_list</code></em>;</span></p></td>
+<td>List all of the indicators that are visible.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.get-indicator-property"></a>get_indicator_property</code></em> ()</span></p></td>
+<td>Get a property from a particular indicator.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">indicate_server_get_indicator_property_group_slot_t</span> <em class="structfield"><code><a name="IndicateServerClass.get-indicator-property-group"></a>get_indicator_property_group</code></em>;</span></p></td>
+<td>Get the values for a set of properties
+as an array of entries, returning an array as well.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="type">indicate_server_get_indicator_properties_slot_t</span> <em class="structfield"><code><a name="IndicateServerClass.get-indicator-properties"></a>get_indicator_properties</code></em>;</span></p></td>
+<td>Get a list of all the properties that are
+on a particular indicator.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.show-indicator-to-user"></a>show_indicator_to_user</code></em> ()</span></p></td>
+<td>Respond to someone on the bus asking to show
+a particular indicator to the user.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.indicator-displayed"></a>indicator_displayed</code></em> ()</span></p></td>
+<td>An indicator has been visualized by the listener
+or it hasn't.  This function tracks that.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.get-next-id"></a>get_next_id</code></em> ()</span></p></td>
+<td>Get the next unused indicator ID.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.show-interest"></a>show_interest</code></em> ()</span></p></td>
+<td>React to someone signifying that they are interested
+in this server.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.remove-interest"></a>remove_interest</code></em> ()</span></p></td>
+<td>Someone on the bus is no longer interest in this
+server, remove it's interest.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.check-interest"></a>check_interest</code></em> ()</span></p></td>
+<td>Check to see if anyone on the bus is interested in this
+server for a particular feature.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.max-indicators-set"></a>max_indicators_set</code></em> ()</span></p></td>
+<td>Set the maximum number of indicators that a
+given listener can display.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.max-indicators-get"></a>max_indicators_get</code></em> ()</span></p></td>
+<td>Gets the maximum number of indicators from all
+listeners that care about this server.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.indicate-server-reserved1"></a>indicate_server_reserved1</code></em> ()</span></p></td>
+<td>Reserved for future use</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.indicate-server-reserved2"></a>indicate_server_reserved2</code></em> ()</span></p></td>
+<td>Reserved for future use</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.indicate-server-reserved3"></a>indicate_server_reserved3</code></em> ()</span></p></td>
+<td>Reserved for future use</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="structfield"><code><a name="IndicateServerClass.indicate-server-reserved4"></a>indicate_server_reserved4</code></em> ()</span></p></td>
+<td>Reserved for future use</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-server-add-indicator"></a><h3>indicate_server_add_indicator ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                indicate_server_add_indicator       (<em class="parameter"><code><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>);</pre>
+<p>
+This function adds an indicator <em class="parameter"><code>indicator</code></em> to the list that are
+watched by the server <em class="parameter"><code>server</code></em>.  This means that signals that are
+emitted by the indicator will be picked up and passed via DBus onto
+listeners of the application.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> to add the <span class="type">IndicateIndictor</span> to.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicator</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> to add.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-server-check-interest"></a><h3>indicate_server_check_interest ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            indicate_server_check_interest      (<em class="parameter"><code><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><span class="type">IndicateInterests</span> interest</code></em>);</pre>
+<p>
+This function looks at all the interest that various listeners
+have specified that they have for this server and returns whether
+there is a listener that has the interest specified in <em class="parameter"><code>interest</code></em>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> being checked</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>interest</code></em> :</span></p></td>
+<td>Which interest type we're checking for</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if a listener as the interest otherwise <code class="literal">FALSE</code>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-server-get-next-id"></a><h3>indicate_server_get_next_id ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               indicate_server_get_next_id         (<em class="parameter"><code><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *server</code></em>);</pre>
+<p>
+Returns the next available unused ID that an indicator
+can have.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> the ID will be on</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A valid indicator ID.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-server-hide"></a><h3>indicate_server_hide ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                indicate_server_hide                (<em class="parameter"><code><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *server</code></em>);</pre>
+<p>
+This function hides the server from DBus so that it does
+not get signals anymore.  This causes the signal <a class="link" href="IndicateServer.html#IndicateServer-server-hide" title='The "server-hide" signal'><span class="type">"server-hide"</span></a>
+to be sent across the bus for all listeners.  Also internally
+it will signal <a class="link" href="IndicateServer.html#IndicateServer-interest-removed" title='The "interest-removed" signal'><span class="type">"interest-removed"</span></a> for all the
+interests that were currently set for this server.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> to hide.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-server-ref-default"></a><h3>indicate_server_ref_default ()</h3>
+<pre class="programlisting"><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="returnvalue">IndicateServer</span></a> *    indicate_server_ref_default         (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+This function will return a reference to the default <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a>
+reference if there is one, or it will create one if one had not
+previously been created.  It is recommended that all applications
+use this function to create a <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> as it ensure that there
+is only one per application.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A reference to the default <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> instance. <span class="annotation">[<a href="http://foldoc.org/transfer%20full"><span class="acronym">transfer full</span></a>]</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-server-remove-indicator"></a><h3>indicate_server_remove_indicator ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                indicate_server_remove_indicator    (<em class="parameter"><code><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> *indicator</code></em>);</pre>
+<p>
+Removes an indicator <em class="parameter"><code>indicator</code></em> from being watched by the server <em class="parameter"><code>server</code></em>
+so it's signals are no longer watched and set over DBus.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> to remove the <span class="type">IndicateIndictor</span> from.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicator</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> to remove.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-server-set-default"></a><h3>indicate_server_set_default ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                indicate_server_set_default         (<em class="parameter"><code><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *server</code></em>);</pre>
+<p>
+This function is used to set the default <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> that will
+be used when creating <a href="https://developer.ubuntu.com/api/devel/ubuntu-12.04/c/libindicate/IndicateIndicator.html"><span class="type">IndicateIndicators</span></a> or for anyone else that
+calls <a class="link" href="IndicateServer.html#indicate-server-ref-default" title="indicate_server_ref_default ()"><code class="function">indicate_server_ref_default()</code></a>.  Typically this is just an
+instance of <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> but applications that create a subclass
+of <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> should set this as well.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> that should be used</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-server-set-desktop-file"></a><h3>indicate_server_set_desktop_file ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                indicate_server_set_desktop_file    (<em class="parameter"><code><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *path</code></em>);</pre>
+<p>
+This is a convience function to set the <a class="link" href="IndicateServer.html#IndicateServer--desktop" title='The "desktop" property'><span class="type">"desktop"</span></a>
+property of the <em class="parameter"><code>server</code></em> object.  The property can also be set
+via traditional means, but this one is easier to read.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> to set the type of</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>path</code></em> :</span></p></td>
+<td>The new desktop file representing the server</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-server-set-type"></a><h3>indicate_server_set_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                indicate_server_set_type            (<em class="parameter"><code><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *server</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *type</code></em>);</pre>
+<p>
+This is a convience function to set the <a class="link" href="IndicateServer.html#IndicateServer--type" title='The "type" property'><span class="type">"type"</span></a>
+property of the <em class="parameter"><code>server</code></em> object.  The property can also be set
+via traditional means, but this one is easier to read.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> to set the type of</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>The new type of the server</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="indicate-server-show"></a><h3>indicate_server_show ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                indicate_server_show                (<em class="parameter"><code><a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *server</code></em>);</pre>
+<p>
+This function exports the object onto DBus and shows it
+to the world.  This will be the start of it receiving external
+signals from DBus.  It is likely that, if there are listeners
+running, there will several <a class="link" href="IndicateServer.html#IndicateServer-interest-added" title='The "interest-added" signal'><span class="type">"interest-added"</span></a>
+signals coming shortly after this function.  This function
+emits the <span class="type">"server-added"</span> signal across the bus.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>server</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> to be shown</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="IndicateServer.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="IndicateServer--count"></a><h3>The <code class="literal">"count"</code> property</h3>
+<pre class="programlisting">  "count"                    <span class="type">guint</span>                 : Read / Write</pre>
+<p>A number reprsenting the number of items in a server.</p>
+<p>Default value: 0</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateServer--desktop"></a><h3>The <code class="literal">"desktop"</code> property</h3>
+<pre class="programlisting">  "desktop"                  <span class="type">gchar</span>*                : Read / Write</pre>
+<p>The desktop file representing this server.</p>
+<p>Default value: ""</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateServer--icon-theme"></a><h3>The <code class="literal">"icon-theme"</code> property</h3>
+<pre class="programlisting">  "icon-theme"               <span class="type">gchar</span>*                : Read / Write</pre>
+<p>The Custom Icon Theme Name to use when displaying this Server.</p>
+<p>Default value: ""</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateServer--menu"></a><h3>The <code class="literal">"menu"</code> property</h3>
+<pre class="programlisting">  "menu"                     <span class="type">gchar</span>*                : Read</pre>
+<p>The DBus Object path to an object with a dbusmenu interface on it.</p>
+<p>Default value: ""</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateServer--path"></a><h3>The <code class="literal">"path"</code> property</h3>
+<pre class="programlisting">  "path"                     <span class="type">gchar</span>*                : Read / Write / Construct Only</pre>
+<p>DBus path for the server object.</p>
+<p>Default value: "/com/canonical/indicate"</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateServer--type"></a><h3>The <code class="literal">"type"</code> property</h3>
+<pre class="programlisting">  "type"                     <span class="type">gchar</span>*                : Read / Write</pre>
+<p>The type of indicators that this server will provide.</p>
+<p>Default value: ""</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="IndicateServer.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="IndicateServer-indicator-delete"></a><h3>The <code class="literal">"indicator-delete"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *indicateserver,
+                                                        <span class="type">guint</span>           arg1,
+                                                        <span class="type">gpointer</span>        user_data)           : <code class="literal">Run Last</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicateserver</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateServer-indicator-modified"></a><h3>The <code class="literal">"indicator-modified"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *arg0,
+                                                        <span class="type">guint</span>           arg1,
+                                                        <span class="type">gchar</span>          *arg2,
+                                                        <span class="type">gpointer</span>        user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+Emitted every time that a property on an indicator changes
+and it is visible to the world.  This results in a signal on DBus.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg0</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateIndicator.html" title="IndicateIndicator"><span class="type">IndicateIndicator</span></a> ID number</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg2</code></em> :</span></p></td>
+<td>The name of the property modified</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateServer-indicator-new"></a><h3>The <code class="literal">"indicator-new"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *indicateserver,
+                                                        <span class="type">guint</span>           arg1,
+                                                        <span class="type">gpointer</span>        user_data)           : <code class="literal">Run Last</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>indicateserver</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateServer-interest-added"></a><h3>The <code class="literal">"interest-added"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *arg0,
+                                                        <span class="type">guint</span>           arg1,
+                                                        <span class="type">gpointer</span>        user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+Emitted when a listener signals that they are interested in
+this server for a particular reason.  This signal is emitted by DBus.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg0</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>The interest that was added from <span class="type">IndicateInterests</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateServer-interest-removed"></a><h3>The <code class="literal">"interest-removed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *arg0,
+                                                        <span class="type">guint</span>           arg1,
+                                                        <span class="type">gpointer</span>        user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+Emitted when a listener signals that they are no longer interested in
+this server for a particular reason.  This signal is emitted by DBus.
+</p>
+<p>
+<em class="parameter"><code>note</code></em> This signal is also emitted after a timeout when the object
+is created with <em class="parameter"><code>arg1</code></em> set to <span class="type">INDICATOR_INTREST_NONE</span> if no one has
+shown any interest in the server.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg0</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>The interest that was removed from <span class="type">IndicateInterests</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateServer-max-indicators-changed"></a><h3>The <code class="literal">"max-indicators-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *arg0,
+                                                        <span class="type">gint</span>            arg1,
+                                                        <span class="type">gpointer</span>        user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+Emitted when a listener either specifies their max number
+to be higher, or at all.  The default is -1 or infinite.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg0</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>The new max number of indicators</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateServer-server-count-changed"></a><h3>The <code class="literal">"server-count-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *arg0,
+                                                        <span class="type">guint</span>           arg1,
+                                                        <span class="type">gpointer</span>        user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+Emitted when the count property of the server changes
+to a new value.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg0</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>The count variable on the server changed.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateServer-server-display"></a><h3>The <code class="literal">"server-display"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *arg0,
+                                                        <span class="type">guint</span>           arg1,
+                                                        <span class="type">gpointer</span>        user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+Emitted when a listener signals that the server itself should be
+displayed.  This signal is caused by a user clicking on the application
+item in the Messaging Menu.  This signal is emitted by DBus.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg0</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>Timestamp of the show event</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateServer-server-hide"></a><h3>The <code class="literal">"server-hide"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *arg0,
+                                                        <span class="type">gchar</span>          *arg1,
+                                                        <span class="type">gpointer</span>        user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+Emitted when a server removes itself from DBus.  This results
+in a signal on DBus.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg0</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>The type of the server</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="IndicateServer-server-show"></a><h3>The <code class="literal">"server-show"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> *arg0,
+                                                        <span class="type">gchar</span>          *arg1,
+                                                        <span class="type">gpointer</span>        user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+Emitted when a server comes onto DBus by being shown.  This
+is typically when listeners start reacting to the application's
+indicators.  This results in a signal on DBus.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg0</code></em> :</span></p></td>
+<td>The <a class="link" href="IndicateServer.html" title="IndicateServer"><span class="type">IndicateServer</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>The type of the server</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,459 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>couchdb-array-field</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Reference Manual for CouchDB GLib Bindings">
+<link rel="up" href="ch01.html" title="Core API">
+<link rel="prev" href="couchdb-glib-couchdb-document-info.html" title="couchdb-document-info">
+<link rel="next" href="CouchdbStructField.html" title="couchdb-struct-field">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="couchdb-glib-couchdb-document-info.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Reference Manual for CouchDB GLib Bindings</th>
+<td><a accesskey="n" href="CouchdbStructField.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="couchdb-glib-CouchdbArrayField.html#couchdb-glib-CouchdbArrayField.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="couchdb-glib-CouchdbArrayField.html#couchdb-glib-CouchdbArrayField.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="couchdb-glib-CouchdbArrayField"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="couchdb-glib-CouchdbArrayField.top_of_page"></a>couchdb-array-field</span></h2>
+<p>couchdb-array-field</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="couchdb-glib-CouchdbArrayField.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="couchdb-glib-CouchdbArrayField.html#CouchdbArrayFieldClass" title="CouchdbArrayFieldClass">CouchdbArrayFieldClass</a>;
+<span class="returnvalue">CouchdbArrayField</span> * <a class="link" href="couchdb-glib-CouchdbArrayField.html#couchdb-array-field-new" title="couchdb_array_field_new ()">couchdb_array_field_new</a>             (<em class="parameter"><code><span class="type">void</span></code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="couchdb-glib-CouchdbArrayField.html#couchdb-array-field-get-length" title="couchdb_array_field_get_length ()">couchdb_array_field_get_length</a>      (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbArrayField.html#couchdb-array-field-add-array-element" title="couchdb_array_field_add_array_element ()">couchdb_array_field_add_array_element</a>
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">CouchdbArrayField</span> *value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbArrayField.html#couchdb-array-field-add-boolean-element" title="couchdb_array_field_add_boolean_element ()">couchdb_array_field_add_boolean_element</a>
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbArrayField.html#couchdb-array-field-add-double-element" title="couchdb_array_field_add_double_element ()">couchdb_array_field_add_double_element</a>
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">gdouble</span> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbArrayField.html#couchdb-array-field-add-int-element" title="couchdb_array_field_add_int_element ()">couchdb_array_field_add_int_element</a> (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbArrayField.html#couchdb-array-field-add-string-element" title="couchdb_array_field_add_string_element ()">couchdb_array_field_add_string_element</a>
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbArrayField.html#couchdb-array-field-add-struct-element" title="couchdb_array_field_add_struct_element ()">couchdb_array_field_add_struct_element</a>
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *value</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbArrayField.html#couchdb-array-field-remove-element" title="couchdb_array_field_remove_element ()">couchdb_array_field_remove_element</a>  (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> index</code></em>);
+<span class="returnvalue">CouchdbArrayField</span> * <a class="link" href="couchdb-glib-CouchdbArrayField.html#couchdb-array-field-get-array-element" title="couchdb_array_field_get_array_element ()">couchdb_array_field_get_array_element</a>
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> index</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="couchdb-glib-CouchdbArrayField.html#couchdb-array-field-get-boolean-element" title="couchdb_array_field_get_boolean_element ()">couchdb_array_field_get_boolean_element</a>
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> index</code></em>);
+<span class="returnvalue">gdouble</span>             <a class="link" href="couchdb-glib-CouchdbArrayField.html#couchdb-array-field-get-double-element" title="couchdb_array_field_get_double_element ()">couchdb_array_field_get_double_element</a>
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> index</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="couchdb-glib-CouchdbArrayField.html#couchdb-array-field-get-int-element" title="couchdb_array_field_get_int_element ()">couchdb_array_field_get_int_element</a> (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> index</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="couchdb-glib-CouchdbArrayField.html#couchdb-array-field-get-string-element" title="couchdb_array_field_get_string_element ()">couchdb_array_field_get_string_element</a>
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> index</code></em>);
+<a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * <a class="link" href="couchdb-glib-CouchdbArrayField.html#couchdb-array-field-get-struct-element" title="couchdb_array_field_get_struct_element ()">couchdb_array_field_get_struct_element</a>
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> index</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="couchdb-glib-CouchdbArrayField.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="couchdb-glib-CouchdbArrayField.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="CouchdbArrayFieldClass"></a><h3>CouchdbArrayFieldClass</h3>
+<pre class="programlisting">typedef struct {
+	GObjectClass parent_class;
+} CouchdbArrayFieldClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-array-field-new"></a><h3>couchdb_array_field_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">CouchdbArrayField</span> * couchdb_array_field_new             (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Create a new array field object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly-created <span class="type">CouchdbArrayField</span> object.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-array-field-get-length"></a><h3>couchdb_array_field_get_length ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               couchdb_array_field_get_length      (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>);</pre>
+<p>
+Get the number of elements on the given <span class="type">CouchdbArrayField</span> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbArrayField</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Number of elements in the given array.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-array-field-add-array-element"></a><h3>couchdb_array_field_add_array_element ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_array_field_add_array_element
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">CouchdbArrayField</span> *value</code></em>);</pre>
+<p>
+Add a new element of type array to the given array.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbArrayField</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>Value to be added</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-array-field-add-boolean-element"></a><h3>couchdb_array_field_add_boolean_element ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_array_field_add_boolean_element
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> value</code></em>);</pre>
+<p>
+Add a new element of type boolean to the given array.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbArrayField</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>Value to be added</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-array-field-add-double-element"></a><h3>couchdb_array_field_add_double_element ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_array_field_add_double_element
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">gdouble</span> value</code></em>);</pre>
+<p>
+Add a new element of type double to the given array.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbArrayField</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>Value to be added</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-array-field-add-int-element"></a><h3>couchdb_array_field_add_int_element ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_array_field_add_int_element (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> value</code></em>);</pre>
+<p>
+Add a new element of type integer to the given array.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbArrayField</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>Value to be added</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-array-field-add-string-element"></a><h3>couchdb_array_field_add_string_element ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_array_field_add_string_element
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *value</code></em>);</pre>
+<p>
+Add a new element of type string to the given array.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbArrayField</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>Value to be added</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-array-field-add-struct-element"></a><h3>couchdb_array_field_add_struct_element ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_array_field_add_struct_element
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code>const <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *value</code></em>);</pre>
+<p>
+Add a new element of type struct to the given array.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbArrayField</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>value</code></em> :</span></p></td>
+<td>Value to be added</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-array-field-remove-element"></a><h3>couchdb_array_field_remove_element ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_array_field_remove_element  (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> index</code></em>);</pre>
+<p>
+Remove an element from the given <span class="type">CouchdbArrayField</span> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbArrayField</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>Position of the element to remove</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-array-field-get-array-element"></a><h3>couchdb_array_field_get_array_element ()</h3>
+<pre class="programlisting"><span class="returnvalue">CouchdbArrayField</span> * couchdb_array_field_get_array_element
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> index</code></em>);</pre>
+<p>
+Retrieve an array value on the given position of the array.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbArrayField</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>Position of the element to retrieve</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Value of the element stored in the given position of the array.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-array-field-get-boolean-element"></a><h3>couchdb_array_field_get_boolean_element ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            couchdb_array_field_get_boolean_element
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> index</code></em>);</pre>
+<p>
+Retrieve a boolean value on the given position of the array.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbArrayField</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>Position of the element to retrieve</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Value of the element stored in the given position of the array.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-array-field-get-double-element"></a><h3>couchdb_array_field_get_double_element ()</h3>
+<pre class="programlisting"><span class="returnvalue">gdouble</span>             couchdb_array_field_get_double_element
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> index</code></em>);</pre>
+<p>
+Retrieve a double value on the given position of the array.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbArrayField</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>Position of the element to retrieve</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Value of the element stored in the given position of the array.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-array-field-get-int-element"></a><h3>couchdb_array_field_get_int_element ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                couchdb_array_field_get_int_element (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> index</code></em>);</pre>
+<p>
+Retrieve an integer value on the given position of the array.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbArrayField</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>Position of the element to retrieve</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Value of the element stored in the given position of the array.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-array-field-get-string-element"></a><h3>couchdb_array_field_get_string_element ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       couchdb_array_field_get_string_element
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> index</code></em>);</pre>
+<p>
+Retrieve a string value on the given position of the array.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbArrayField</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>Position of the element to retrieve</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Value of the element stored in the given position of the array.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-array-field-get-struct-element"></a><h3>couchdb_array_field_get_struct_element ()</h3>
+<pre class="programlisting"><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * couchdb_array_field_get_struct_element
+                                                        (<em class="parameter"><code><span class="type">CouchdbArrayField</span> *array</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint</span> index</code></em>);</pre>
+<p>
+Retrieve a struct value on the given position of the array.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>array</code></em> :</span></p></td>
+<td>A <span class="type">CouchdbArrayField</span> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>index</code></em> :</span></p></td>
+<td>Position of the element to retrieve</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Value of the element stored in the given position of the array.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

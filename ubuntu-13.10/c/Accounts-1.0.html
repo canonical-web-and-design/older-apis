@@ -1,0 +1,490 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="C">
+    
+    <title>Accounts-1.0 C API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>Accounts-1.0 C API Documentation</h1>
+
+<div class="class-normal">
+<a href="Accounts-1.0.html#Accounts.Account" class="class-anchor">⚓</a><h2 class="class-normal" id="Accounts.Account">Class: AgAccount</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface type " href="Gio-2.0.html#Gio.Initable">GInitable</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+Opaque structure. Use related accessor functions.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"enabled"</span><span class="property-access"> read-only</span></p>
+<p class="property-doc">
+Whether the account is currently enabled.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"foreign"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Accounts-1.0.html#Accounts.Manager">AgManager</a></span><span class="property-name">"manager"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The #AgManager from which the account was instantiated.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"provider"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The ID of the provider for the account.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"display-name"</span><span class="property-access"> read-only</span></p>
+<p class="property-doc">
+The display name of the account.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">guint</span></span><span class="property-name">"id"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The AgAccountId for the account.</p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"deleted"</span><span class="signal-parameters">(AgAccount *account)</span></p>
+<p class="signal-doc">
+Emitted when the account has been deleted.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"enabled"</span><span class="signal-parameters">(AgAccount *account, gchar* service, gboolean enabled)</span></p>
+<p class="signal-doc">
+Emitted when the account "enabled" status was changed for one of its
+services, or for the account globally.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"display-name-changed"</span><span class="signal-parameters">(AgAccount *account)</span></p>
+<p class="signal-doc">
+Emitted when the account display name has changed.</p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">ag_account_delete</span><span class="method-parameters">(AgAccount *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">ag_account_get_display_name</span><span class="method-parameters">(AgAccount *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">ag_account_get_enabled</span><span class="method-parameters">(AgAccount *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Accounts-1.0.html#Accounts.Manager">AgManager*</a></span><span class="method-name">ag_account_get_manager</span><span class="method-parameters">(AgAccount *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">ag_account_get_provider_name</span><span class="method-parameters">(AgAccount *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.Service">AgService*</a></span><span class="method-name">ag_account_get_selected_service</span><span class="method-parameters">(AgAccount *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.AccountSettingIter">AgAccountSettingIter*</a></span><span class="method-name">ag_account_get_settings_iter</span><span class="method-parameters">(AgAccount *self, <span class="type-basetype type ">gchar</span> *key_prefix)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Accounts-1.0.html#Accounts.SettingSource">AgSettingSource</a></span><span class="method-name">ag_account_get_value</span><span class="method-parameters">(AgAccount *self, <span class="type-basetype type ">gchar</span> *key, <a class="link-Record type " href="GObject-2.0.html#GObject.Value">GValue</a> *value)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant*</a></span><span class="method-name">ag_account_get_variant</span><span class="method-parameters">(AgAccount *self, <span class="type-basetype type ">gchar</span> *key, <a class="link-Enumeration type " href="Accounts-1.0.html#Accounts.SettingSource">AgSettingSource</a> **source)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">ag_account_list_enabled_services</span><span class="method-parameters">(AgAccount *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">ag_account_list_services</span><span class="method-parameters">(AgAccount *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">ag_account_list_services_by_type</span><span class="method-parameters">(AgAccount *self, <span class="type-basetype type ">gchar</span> *service_type)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">ag_account_remove_watch</span><span class="method-parameters">(AgAccount *self, <a class="link-Record type " href="Accounts-1.0.html#Accounts.AccountWatch">AgAccountWatch</a> watch)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">ag_account_select_service</span><span class="method-parameters">(AgAccount *self, <a class="link-Record type " href="Accounts-1.0.html#Accounts.Service">AgService</a> *service)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">ag_account_set_display_name</span><span class="method-parameters">(AgAccount *self, <span class="type-basetype type ">gchar</span> *display_name)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">ag_account_set_enabled</span><span class="method-parameters">(AgAccount *self, <span class="type-basetype type ">gboolean</span> enabled)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">ag_account_set_value</span><span class="method-parameters">(AgAccount *self, <span class="type-basetype type ">gchar</span> *key, <a class="link-Record type " href="GObject-2.0.html#GObject.Value">GValue</a> *value)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">ag_account_set_variant</span><span class="method-parameters">(AgAccount *self, <span class="type-basetype type ">gchar</span> *key, <a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant</a> *value)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">ag_account_settings_iter_init</span><span class="method-parameters">(AgAccount *self, <a class="link-Record type " href="Accounts-1.0.html#Accounts.AccountSettingIter">AgAccountSettingIter</a> *iter, <span class="type-basetype type ">gchar</span> *key_prefix)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">ag_account_sign</span><span class="method-parameters">(AgAccount *self, <span class="type-basetype type ">gchar</span> *key, <span class="type-basetype type ">gchar</span> *token)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">ag_account_store</span><span class="method-parameters">(AgAccount *self, <a class="link-Callback type " href="Accounts-1.0.html#Accounts.AccountStoreCb">AgAccountStoreCb</a> callback, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">ag_account_store_async</span><span class="method-parameters">(AgAccount *self, <a class="link-Class type " href="Gio-2.0.html#Gio.Cancellable">GCancellable</a> *cancellable, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> callback, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">ag_account_store_blocking</span><span class="method-parameters">(AgAccount *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">ag_account_store_finish</span><span class="method-parameters">(AgAccount *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *res)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">ag_account_supports_service</span><span class="method-parameters">(AgAccount *self, <span class="type-basetype type ">gchar</span> *service_type)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">ag_account_verify</span><span class="method-parameters">(AgAccount *self, <span class="type-basetype type ">gchar</span> *key, <span class="type-basetype type ">gchar</span> *token)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">ag_account_verify_with_tokens</span><span class="method-parameters">(AgAccount *self, <span class="type-basetype type ">gchar</span> *key, <span class="type-basetype type ">gchar</span> *tokens)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.AccountWatch">AgAccountWatch</a></span><span class="method-name">ag_account_watch_dir</span><span class="method-parameters">(AgAccount *self, <span class="type-basetype type ">gchar</span> *key_prefix, <a class="link-Callback type " href="Accounts-1.0.html#Accounts.AccountNotifyCb">AgAccountNotifyCb</a> callback, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.AccountWatch">AgAccountWatch</a></span><span class="method-name">ag_account_watch_key</span><span class="method-parameters">(AgAccount *self, <span class="type-basetype type ">gchar</span> *key, <a class="link-Callback type " href="Accounts-1.0.html#Accounts.AccountNotifyCb">AgAccountNotifyCb</a> callback, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Accounts-1.0.html#Accounts.AccountService" class="class-anchor">⚓</a><h2 class="class-normal" id="Accounts.AccountService">Class: AgAccountService</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+Opaque structure. Use related accessor functions.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Accounts-1.0.html#Accounts.Account">AgAccount</a></span><span class="property-name">"account"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The #AgAccount used by the account service.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"enabled"</span><span class="property-access"> read-only</span></p>
+<p class="property-doc">
+Whether the account service is currently enabled. The value of
+this property is %TRUE if and only if the underlying #AgAccount
+is enabled and the selected #AgService is enabled on it. If this
+property is %FALSE, applications should not try to use this
+object.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.Service">AgService</a></span><span class="property-name">"service"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The #AgService used by the account service.</p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"changed"</span><span class="signal-parameters">(AgAccountService *account_service)</span></p>
+<p class="signal-doc">
+Emitted when some setting has changed on the account service. You can
+use the ag_account_service_get_changed_fields() method to retrieve the
+list of the settings which have changed.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"enabled"</span><span class="signal-parameters">(AgAccountService *account_service, gboolean enabled)</span></p>
+<p class="signal-doc">
+Emitted when the service enabled state changes.</p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Accounts-1.0.html#Accounts.AccountService">AgAccountService</a>*</span><span class="method-name">ag_account_service_new</span><span class="method-parameters">(<a class="link-Type type " href="Accounts-1.0.html#Accounts.Account">AgAccount</a> *account, <a class="link-Type type " href="Accounts-1.0.html#Accounts.Service">AgService</a> *service)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Accounts-1.0.html#Accounts.Account">AgAccount*</a></span><span class="method-name">ag_account_service_get_account</span><span class="method-parameters">(AgAccountService *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.AuthData">AgAuthData*</a></span><span class="method-name">ag_account_service_get_auth_data</span><span class="method-parameters">(AgAccountService *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">gchar**</span></span><span class="method-name">ag_account_service_get_changed_fields</span><span class="method-parameters">(AgAccountService *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">ag_account_service_get_enabled</span><span class="method-parameters">(AgAccountService *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.Service">AgService*</a></span><span class="method-name">ag_account_service_get_service</span><span class="method-parameters">(AgAccountService *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.AccountSettingIter">AgAccountSettingIter*</a></span><span class="method-name">ag_account_service_get_settings_iter</span><span class="method-parameters">(AgAccountService *self, <span class="type-basetype type ">gchar</span> *key_prefix)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Accounts-1.0.html#Accounts.SettingSource">AgSettingSource</a></span><span class="method-name">ag_account_service_get_value</span><span class="method-parameters">(AgAccountService *self, <span class="type-basetype type ">gchar</span> *key, <a class="link-Record type " href="GObject-2.0.html#GObject.Value">GValue</a> *value)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant*</a></span><span class="method-name">ag_account_service_get_variant</span><span class="method-parameters">(AgAccountService *self, <span class="type-basetype type ">gchar</span> *key, <a class="link-Enumeration type " href="Accounts-1.0.html#Accounts.SettingSource">AgSettingSource</a> **source)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">ag_account_service_set_value</span><span class="method-parameters">(AgAccountService *self, <span class="type-basetype type ">gchar</span> *key, <a class="link-Record type " href="GObject-2.0.html#GObject.Value">GValue</a> *value)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">ag_account_service_set_variant</span><span class="method-parameters">(AgAccountService *self, <span class="type-basetype type ">gchar</span> *key, <a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant</a> *value)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">ag_account_service_settings_iter_init</span><span class="method-parameters">(AgAccountService *self, <a class="link-Record type " href="Accounts-1.0.html#Accounts.AccountSettingIter">AgAccountSettingIter</a> *iter, <span class="type-basetype type ">gchar</span> *key_prefix)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">ag_account_service_settings_iter_next</span><span class="method-parameters">(<a class="link-Record type " href="Accounts-1.0.html#Accounts.AccountSettingIter">AgAccountSettingIter</a> *iter, <span class="type-basetype type ">gchar</span> **key, <a class="link-Record type " href="GObject-2.0.html#GObject.Value">GValue</a> **value)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Accounts-1.0.html#Accounts.Manager" class="class-anchor">⚓</a><h2 class="class-normal" id="Accounts.Manager">Class: AgManager</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+Opaque structure. Use related accessor functions.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"service-type"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+If the service type is set, certain operations on the #AgManager, such
+as ag_manager_list() and ag_manager_list_services(), will be restricted
+to only affect accounts or services with that service type.</p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"account-created"</span><span class="signal-parameters">(AgManager *manager, guint account_id)</span></p>
+<p class="signal-doc">
+Emitted when a new account has been created; note that the account must
+have been stored in the database: the signal is not emitted just in
+response to ag_manager_create_account().</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"account-deleted"</span><span class="signal-parameters">(AgManager *manager, guint account_id)</span></p>
+<p class="signal-doc">
+Emitted when an account has been deleted.
+This signal is redundant with #AgAccount::deleted, but it is convenient
+to provide full change notification with #AgManager.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"account-updated"</span><span class="signal-parameters">(AgManager *manager, guint account_id)</span></p>
+<p class="signal-doc">
+Emitted when particular service of an account has been updated.
+This signal is redundant with #AgAccount::deleted, but it is convenient
+to provide full change notification with #AgManager.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"enabled-event"</span><span class="signal-parameters">(AgManager *manager, guint account_id)</span></p>
+<p class="signal-doc">
+If the manager has been created with ag_manager_new_for_service_type(),
+this signal will be emitted when an account (identified by @account_id)
+has been modified in such a way that the application might be interested
+to start or stop using it: the "enabled" flag on the account or in some
+service supported by the account and matching the
+#AgManager:service-type have changed.
+In practice, this signal might be emitted more often than when strictly
+needed; applications must call ag_account_list_enabled_services() or
+ag_manager_list_enabled() to get the current state.</p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Accounts-1.0.html#Accounts.Manager">AgManager</a>*</span><span class="method-name">ag_manager_new</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Accounts-1.0.html#Accounts.Manager">AgManager</a>*</span><span class="method-name">ag_manager_new_for_service_type</span><span class="method-parameters">(<a class="link-Type type " href="Accounts-1.0.html#utf8">const gchar</a> *service_type)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">ag_manager_account_deleted</span><span class="method-parameters">(AgManager *self, <span class="type ">AgAccountId</span> id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Accounts-1.0.html#Accounts.Account">AgAccount*</a></span><span class="method-name">ag_manager_create_account</span><span class="method-parameters">(AgManager *self, <span class="type-basetype type ">gchar</span> *provider_name)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">ag_manager_get_abort_on_db_timeout</span><span class="method-parameters">(AgManager *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Accounts-1.0.html#Accounts.Account">AgAccount*</a></span><span class="method-name">ag_manager_get_account</span><span class="method-parameters">(AgManager *self, <span class="type ">AgAccountId</span> account_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">ag_manager_get_account_services</span><span class="method-parameters">(AgManager *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.Application">AgApplication*</a></span><span class="method-name">ag_manager_get_application</span><span class="method-parameters">(AgManager *self, <span class="type-basetype type ">gchar</span> *application_name)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">ag_manager_get_db_timeout</span><span class="method-parameters">(AgManager *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">ag_manager_get_enabled_account_services</span><span class="method-parameters">(AgManager *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.Provider">AgProvider*</a></span><span class="method-name">ag_manager_get_provider</span><span class="method-parameters">(AgManager *self, <span class="type-basetype type ">gchar</span> *provider_name)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.Service">AgService*</a></span><span class="method-name">ag_manager_get_service</span><span class="method-parameters">(AgManager *self, <span class="type-basetype type ">gchar</span> *service_name)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">ag_manager_get_service_type</span><span class="method-parameters">(AgManager *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">ag_manager_list</span><span class="method-parameters">(AgManager *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">ag_manager_list_applications_by_service</span><span class="method-parameters">(AgManager *self, <a class="link-Record type " href="Accounts-1.0.html#Accounts.Service">AgService</a> *service)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">ag_manager_list_by_service_type</span><span class="method-parameters">(AgManager *self, <span class="type-basetype type ">gchar</span> *service_type)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">ag_manager_list_enabled</span><span class="method-parameters">(AgManager *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">ag_manager_list_enabled_by_service_type</span><span class="method-parameters">(AgManager *self, <span class="type-basetype type ">gchar</span> *service_type)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">ag_manager_list_free</span><span class="method-parameters">(<a class="link-Record type " href="GLib-2.0.html#GLib.List">GList</a> *list)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">ag_manager_list_providers</span><span class="method-parameters">(AgManager *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">ag_manager_list_service_types</span><span class="method-parameters">(AgManager *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">ag_manager_list_services</span><span class="method-parameters">(AgManager *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">ag_manager_list_services_by_type</span><span class="method-parameters">(AgManager *self, <span class="type-basetype type ">gchar</span> *service_type)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Accounts-1.0.html#Accounts.Account">AgAccount*</a></span><span class="method-name">ag_manager_load_account</span><span class="method-parameters">(AgManager *self, <span class="type ">AgAccountId</span> account_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Accounts-1.0.html#Accounts.ServiceType">AgServiceType*</a></span><span class="method-name">ag_manager_load_service_type</span><span class="method-parameters">(AgManager *self, <span class="type-basetype type ">gchar</span> *service_type)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">ag_manager_set_abort_on_db_timeout</span><span class="method-parameters">(AgManager *self, <span class="type-basetype type ">gboolean</span> abort)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">ag_manager_set_db_timeout</span><span class="method-parameters">(AgManager *self, <span class="type-basetype type ">guint</span> timeout_ms)</span></p>
+</div>
+</div>
+</div>
+</body>
+</html>
+

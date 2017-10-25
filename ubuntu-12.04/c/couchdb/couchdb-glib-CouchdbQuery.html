@@ -1,0 +1,316 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CouchdbQuery</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Reference Manual for CouchDB GLib Bindings">
+<link rel="up" href="ch01.html" title="Core API">
+<link rel="prev" href="CouchdbSession.html" title="CouchdbSession">
+<link rel="next" href="couchdb-glib-CouchdbResponse.html" title="CouchdbResponse">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="CouchdbSession.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Reference Manual for CouchDB GLib Bindings</th>
+<td><a accesskey="n" href="couchdb-glib-CouchdbResponse.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="couchdb-glib-CouchdbQuery.html#couchdb-glib-CouchdbQuery.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="couchdb-glib-CouchdbQuery.html#couchdb-glib-CouchdbQuery.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="couchdb-glib-CouchdbQuery"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="couchdb-glib-CouchdbQuery.top_of_page"></a>CouchdbQuery</span></h2>
+<p>CouchdbQuery</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="couchdb-glib-CouchdbQuery.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery">CouchdbQuery</a>;
+                    <a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQueryClass" title="CouchdbQueryClass">CouchdbQueryClass</a>;
+<a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="returnvalue">CouchdbQuery</span></a> *      <a class="link" href="couchdb-glib-CouchdbQuery.html#couchdb-query-new" title="couchdb_query_new ()">couchdb_query_new</a>                   (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="returnvalue">CouchdbQuery</span></a> *      <a class="link" href="couchdb-glib-CouchdbQuery.html#couchdb-query-new-for-path" title="couchdb_query_new_for_path ()">couchdb_query_new_for_path</a>          (<em class="parameter"><code>const <span class="type">char</span> *path</code></em>);
+<a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="returnvalue">CouchdbQuery</span></a> *      <a class="link" href="couchdb-glib-CouchdbQuery.html#couchdb-query-new-for-view" title="couchdb_query_new_for_view ()">couchdb_query_new_for_view</a>          (<em class="parameter"><code>const <span class="type">char</span> *design_doc</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *view_name</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbQuery.html#couchdb-query-get-path" title="couchdb_query_get_path ()">couchdb_query_get_path</a>              (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbQuery.html#couchdb-query-set-path" title="couchdb_query_set_path ()">couchdb_query_set_path</a>              (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbQuery.html#couchdb-query-get-method" title="couchdb_query_get_method ()">couchdb_query_get_method</a>            (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbQuery.html#couchdb-query-set-method" title="couchdb_query_set_method ()">couchdb_query_set_method</a>            (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *method</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbQuery.html#couchdb-query-get-option" title="couchdb_query_get_option ()">couchdb_query_get_option</a>            (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbQuery.html#couchdb-query-set-option" title="couchdb_query_set_option ()">couchdb_query_set_option</a>            (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *value</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbQuery.html#couchdb-query-get-query-options-string" title="couchdb_query_get_query_options_string ()">couchdb_query_get_query_options_string</a>
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> *self</code></em>);
+<span class="returnvalue">JsonObject</span> *        <a class="link" href="couchdb-glib-CouchdbQuery.html#couchdb-query-get-json-object" title="couchdb_query_get_json_object ()">couchdb_query_get_json_object</a>       (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="couchdb-glib-CouchdbQuery.html#couchdb-query-set-json-object" title="couchdb_query_set_json_object ()">couchdb_query_set_json_object</a>       (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">JsonObject</span> *object</code></em>);
+                    <a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQueryPrivate" title="CouchdbQueryPrivate">CouchdbQueryPrivate</a>;
+</pre>
+</div>
+<div class="refsect1">
+<a name="couchdb-glib-CouchdbQuery.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="couchdb-glib-CouchdbQuery.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="CouchdbQuery"></a><h3>CouchdbQuery</h3>
+<pre class="programlisting">typedef struct {
+	GObject parent;
+	CouchdbQueryPrivate *priv;
+} CouchdbQuery;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CouchdbQueryClass"></a><h3>CouchdbQueryClass</h3>
+<pre class="programlisting">typedef struct {
+	GObjectClass parent_class;
+} CouchdbQueryClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-query-new"></a><h3>couchdb_query_new ()</h3>
+<pre class="programlisting"><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="returnvalue">CouchdbQuery</span></a> *      couchdb_query_new                   (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Creates and returns a new <a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> object
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A new <a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> object, to be unreferenced
+when no longer needed.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-query-new-for-path"></a><h3>couchdb_query_new_for_path ()</h3>
+<pre class="programlisting"><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="returnvalue">CouchdbQuery</span></a> *      couchdb_query_new_for_path          (<em class="parameter"><code>const <span class="type">char</span> *path</code></em>);</pre>
+<p>
+Creates and returns a new <a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> object for a give design document
+and view. It's a shortcut for this code:
+[[[
+const gchar *design_doc, *view_name;
+CouchdbQuery *query;
+</p>
+<p>
+design_doc = "document";
+view_name = "view";
+path = g_str_concat ("_design/", design_doc, "_view", view_name);
+query = <a class="link" href="couchdb-glib-CouchdbQuery.html#couchdb-query-new" title="couchdb_query_new ()"><code class="function">couchdb_query_new()</code></a>;
+couchdb_query_set_path (query, path);
+g_free (path);
+]]]
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A new <a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> object, to be unreferenced
+when no longer needed.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-query-new-for-view"></a><h3>couchdb_query_new_for_view ()</h3>
+<pre class="programlisting"><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="returnvalue">CouchdbQuery</span></a> *      couchdb_query_new_for_view          (<em class="parameter"><code>const <span class="type">char</span> *design_doc</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *view_name</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-query-get-path"></a><h3>couchdb_query_get_path ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_query_get_path              (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> *self</code></em>);</pre>
+<p>
+Returns path set for the query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>string containing path set for the query.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-query-set-path"></a><h3>couchdb_query_set_path ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_query_set_path              (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *path</code></em>);</pre>
+<p>
+Sets path for the Query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> object</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-query-get-method"></a><h3>couchdb_query_get_method ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_query_get_method            (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> *self</code></em>);</pre>
+<p>
+Returns method set for the query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>string containing method set for the query.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-query-set-method"></a><h3>couchdb_query_set_method ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_query_set_method            (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *method</code></em>);</pre>
+<p>
+Sets method for the Query.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>method</code></em> :</span></p></td>
+<td>A method for query.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-query-get-option"></a><h3>couchdb_query_get_option ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_query_get_option            (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>);</pre>
+<p>
+Returns the value of the given key, or <code class="literal">NULL</code> if it wasn't set
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the value of the given key,
+or <code class="literal">NULL</code> if it hasn't been set. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>][<a href="http://foldoc.org/allow-none"><span class="acronym">allow-none</span></a>]</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-query-set-option"></a><h3>couchdb_query_set_option ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_query_set_option            (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *value</code></em>);</pre>
+<p>
+Set's the value of the given key, overwriting the current one if it's
+already set
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-query-get-query-options-string"></a><h3>couchdb_query_get_query_options_string ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_query_get_query_options_string
+                                                        (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> *self</code></em>);</pre>
+<p>
+Returns options as a query string that can be used to create
+a complete uri for querying server.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A string containing all query options.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-query-get-json-object"></a><h3>couchdb_query_get_json_object ()</h3>
+<pre class="programlisting"><span class="returnvalue">JsonObject</span> *        couchdb_query_get_json_object       (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> *self</code></em>);</pre>
+<p>
+Sets the given Json object as a body of the query that is going to be
+send to the CouchDB server. It doesn't change the query's method so it has
+to be set to either PUT or POST by calling <a class="link" href="couchdb-glib-CouchdbQuery.html#couchdb-query-set-method" title="couchdb_query_set_method ()"><span class="type">couchdb_query_set_method</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A JsonObject to be set as a Query's body. <span class="annotation">[<a href="http://foldoc.org/transfer%20full"><span class="acronym">transfer full</span></a>]</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-query-set-json-object"></a><h3>couchdb_query_set_json_object ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_query_set_json_object       (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbQuery.html#CouchdbQuery" title="CouchdbQuery"><span class="type">CouchdbQuery</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">JsonObject</span> *object</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CouchdbQueryPrivate"></a><h3>CouchdbQueryPrivate</h3>
+<pre class="programlisting">typedef struct _CouchdbQueryPrivate CouchdbQueryPrivate;</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

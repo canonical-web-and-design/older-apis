@@ -1,0 +1,308 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>GripGestureManager</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="libgrip Reference Manual">
+<link rel="up" href="libgrip-api.html" title="Programming Interface">
+<link rel="prev" href="libgrip-api.html" title="Programming Interface">
+<link rel="next" href="libgrip-Gesture-Events.html" title="Gesture Events">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libgrip-api.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="libgrip-api.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libgrip Reference Manual</th>
+<td><a accesskey="n" href="libgrip-Gesture-Events.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="GripGestureManager.html#GripGestureManager.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="GripGestureManager.html#GripGestureManager.description" class="shortcut">Description</a>
+                   | 
+                  <a href="GripGestureManager.html#GripGestureManager.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="GripGestureManager.html#GripGestureManager.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="GripGestureManager"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="GripGestureManager.top_of_page"></a>GripGestureManager</span></h2>
+<p>GripGestureManager</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="GripGestureManager.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="GripGestureManager.html#GripGestureManager-struct" title="struct GripGestureManager">GripGestureManager</a>;
+struct              <a class="link" href="GripGestureManager.html#GripGestureManagerClass" title="struct GripGestureManagerClass">GripGestureManagerClass</a>;
+<a class="link" href="GripGestureManager.html" title="GripGestureManager"><span class="returnvalue">GripGestureManager</span></a> * <a class="link" href="GripGestureManager.html#grip-gesture-manager-get" title="grip_gesture_manager_get ()">grip_gesture_manager_get</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+
+<span class="returnvalue">void</span>                (<a class="link" href="GripGestureManager.html#GripGestureCallback" title="GripGestureCallback ()">*GripGestureCallback</a>)              (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libgrip-Gesture-Events.html#GripTimeType"><span class="type">GripTimeType</span></a> time</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libgrip-Gesture-Events.html#GripGestureEvent"><span class="type">GripGestureEvent</span></a> *gesture</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GripGestureManager.html#grip-gesture-manager-register-window" title="grip_gesture_manager_register_window ()">grip_gesture_manager_register_window</a>
+                                                        (<em class="parameter"><code><a class="link" href="GripGestureManager.html" title="GripGestureManager"><span class="type">GripGestureManager</span></a> *manager</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libgrip-Gesture-Events.html#GripGestureType"><span class="type">GripGestureType</span></a> gesture_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libgrip-Gesture-Events.html#GripDeviceType" title="enum GripDeviceType"><span class="type">GripDeviceType</span></a> device_type</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> touch_points</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GripGestureManager.html#GripGestureCallback" title="GripGestureCallback ()"><span class="type">GripGestureCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDestroyNotify</span> destroy</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="GripGestureManager.html#grip-gesture-manager-unregister-window" title="grip_gesture_manager_unregister_window ()">grip_gesture_manager_unregister_window</a>
+                                                        (<em class="parameter"><code><a class="link" href="GripGestureManager.html" title="GripGestureManager"><span class="type">GripGestureManager</span></a> *manager</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="GripGestureManager.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----GripGestureManager
+</pre>
+</div>
+<div class="refsect1">
+<a name="GripGestureManager.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="GripGestureManager.html#GripGestureManager-device-available" title='The "device-available" signal'>device-available</a>"                               : <code class="literal">Run Last</code>
+  "<a class="link" href="GripGestureManager.html#GripGestureManager-device-unavailable" title='The "device-unavailable" signal'>device-unavailable</a>"                             : <code class="literal">Run Last</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="GripGestureManager.description"></a><h2>Description</h2>
+<p>
+The Grip gesture managre is a singleton object that connections to the
+gesture recognition engine and manages gesture subscriptions for GTK widgets.
+</p>
+</div>
+<div class="refsect1">
+<a name="GripGestureManager.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="GripGestureManager-struct"></a><h3>struct GripGestureManager</h3>
+<pre class="programlisting">struct GripGestureManager;</pre>
+<p>
+A singleton manager into which a window may be registered to receive
+multitouch gesture events.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GripGestureManagerClass"></a><h3>struct GripGestureManagerClass</h3>
+<pre class="programlisting">struct GripGestureManagerClass {
+  GObjectClass parent_class;
+};
+</pre>
+<p>
+The class object for a <a class="link" href="GripGestureManager.html" title="GripGestureManager"><span class="type">GripGestureManager</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="type">GObjectClass</span> <em class="structfield"><code><a name="GripGestureManagerClass.parent-class"></a>parent_class</code></em>;</span></p></td>
+<td>the base <span class="type">GObjectClass</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grip-gesture-manager-get"></a><h3>grip_gesture_manager_get ()</h3>
+<pre class="programlisting"><a class="link" href="GripGestureManager.html" title="GripGestureManager"><span class="returnvalue">GripGestureManager</span></a> * grip_gesture_manager_get           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Retrieves a <a class="link" href="GripGestureManager.html" title="GripGestureManager"><span class="type">GripGestureManager</span></a> pointer.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a class="link" href="GripGestureManager.html" title="GripGestureManager"><span class="type">GripGestureManager</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GripGestureCallback"></a><h3>GripGestureCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*GripGestureCallback)              (<em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libgrip-Gesture-Events.html#GripTimeType"><span class="type">GripTimeType</span></a> time</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libgrip-Gesture-Events.html#GripGestureEvent"><span class="type">GripGestureEvent</span></a> *gesture</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+The gesture callback function is registered by the
+<a class="link" href="GripGestureManager.html#grip-gesture-manager-register-window" title="grip_gesture_manager_register_window ()"><code class="function">grip_gesture_manager_register_window()</code></a> function and gets called whenever a
+new gesture event has been received.  The same function may be registered for
+more than one gesture type.
+</p>
+<p>
+The <span class="type">GripGestureCallback</span> function is the main customization point
+for application response to gestural input.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>A <span class="type">GtkWidget</span> pointer. <span class="annotation">[<acronym title="Parameter for input. Default is transfer none."><span class="acronym">in</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>time</code></em> :</span></p></td>
+<td>A <a class="link" href="libgrip-Gesture-Events.html#GripTimeType"><span class="type">GripTimeType</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gesture</code></em> :</span></p></td>
+<td>A <a class="link" href="libgrip-Gesture-Events.html#GripGestureEvent"><span class="type">GripGestureEvent</span></a> pointer. <span class="annotation">[<acronym title="Parameter for input. Default is transfer none."><span class="acronym">in</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grip-gesture-manager-register-window"></a><h3>grip_gesture_manager_register_window ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grip_gesture_manager_register_window
+                                                        (<em class="parameter"><code><a class="link" href="GripGestureManager.html" title="GripGestureManager"><span class="type">GripGestureManager</span></a> *manager</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libgrip-Gesture-Events.html#GripGestureType"><span class="type">GripGestureType</span></a> gesture_type</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libgrip-Gesture-Events.html#GripDeviceType" title="enum GripDeviceType"><span class="type">GripDeviceType</span></a> device_type</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> touch_points</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="GripGestureManager.html#GripGestureCallback" title="GripGestureCallback ()"><span class="type">GripGestureCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>,
+                                                         <em class="parameter"><code><span class="type">GDestroyNotify</span> destroy</code></em>);</pre>
+<p>
+Registers a widget to receive gesture events.
+</p>
+<p>
+The callback parameters provided will be called by the
+<a class="link" href="GripGestureManager.html" title="GripGestureManager"><span class="type">GripGestureManager</span></a> whenever the user initiates a gesture
+on the specified window.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>manager</code></em> :</span></p></td>
+<td>A <a class="link" href="GripGestureManager.html" title="GripGestureManager"><span class="type">GripGestureManager</span></a> instance.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>widget</code></em> :</span></p></td>
+<td>A <span class="type">GtkWidget</span> to register the gesture event for.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gesture_type</code></em> :</span></p></td>
+<td>The type of gesture event to register.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>device_type</code></em> :</span></p></td>
+<td>The type of the device use to create the gesture.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>touch_points</code></em> :</span></p></td>
+<td>Number of touch points for this gesture.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>Called when a gesture starts, updates, or ends.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>User data</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>destroy</code></em> :</span></p></td>
+<td>Destroy callback for user data.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="grip-gesture-manager-unregister-window"></a><h3>grip_gesture_manager_unregister_window ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                grip_gesture_manager_unregister_window
+                                                        (<em class="parameter"><code><a class="link" href="GripGestureManager.html" title="GripGestureManager"><span class="type">GripGestureManager</span></a> *manager</code></em>,
+                                                         <em class="parameter"><code><span class="type">GtkWidget</span> *widget</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="GripGestureManager.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="GripGestureManager-device-available"></a><h3>The <code class="literal">"device-available"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GripGestureManager.html" title="GripGestureManager"><span class="type">GripGestureManager</span></a> *gesture_manager,
+                                                        <a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a>    *input_device,
+                                                        <span class="type">gpointer</span>            user_data)            : <code class="literal">Run Last</code></pre>
+<p>
+Signals the availability of a new gesture-capable input device.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gesture_manager</code></em> :</span></p></td>
+<td>the <a class="link" href="GripGestureManager.html" title="GripGestureManager"><span class="type">GripGestureManager</span></a> sending the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>input_device</code></em> :</span></p></td>
+<td>the new <a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> just added.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="GripGestureManager-device-unavailable"></a><h3>The <code class="literal">"device-unavailable"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="GripGestureManager.html" title="GripGestureManager"><span class="type">GripGestureManager</span></a> *gesture_manager,
+                                                        <a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a>    *input_device,
+                                                        <span class="type">gpointer</span>            user_data)            : <code class="literal">Run Last</code></pre>
+<p>
+Signals the unavailability of a gesture-capable input device.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>gesture_manager</code></em> :</span></p></td>
+<td>the <a class="link" href="GripGestureManager.html" title="GripGestureManager"><span class="type">GripGestureManager</span></a> sending the signal</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>input_device</code></em> :</span></p></td>
+<td>the new <a class="link" href="libgrip-Input-Devices.html#GripInputDevice"><span class="type">GripInputDevice</span></a> just added.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

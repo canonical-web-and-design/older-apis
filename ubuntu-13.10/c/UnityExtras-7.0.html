@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="C">
+    
+    <title>UnityExtras-7.0 C API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>UnityExtras-7.0 C API Documentation</h1>
+
+<div class="class-normal">
+<a href="UnityExtras-7.0.html#UnityExtras.PreviewPlayer" class="class-anchor">⚓</a><h2 class="class-normal" id="UnityExtras.PreviewPlayer">Class: UnityExtrasPreviewPlayer</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"progress"</span><span class="signal-parameters">(UnityExtrasPreviewPlayer *preview_player, gchar* uri, UnityMusicPreviewTrackState state, gdouble progress)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="UnityExtras-7.0.html#UnityExtras.PreviewPlayer">UnityExtrasPreviewPlayer</a>*</span><span class="method-name">unity_extras_preview_player_new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_extras_preview_player_close</span><span class="method-parameters">(UnityExtrasPreviewPlayer *self, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_extras_preview_player_close_finish</span><span class="method-parameters">(UnityExtrasPreviewPlayer *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_extras_preview_player_pause</span><span class="method-parameters">(UnityExtrasPreviewPlayer *self, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_extras_preview_player_pause_finish</span><span class="method-parameters">(UnityExtrasPreviewPlayer *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_extras_preview_player_pause_resume</span><span class="method-parameters">(UnityExtrasPreviewPlayer *self, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_extras_preview_player_pause_resume_finish</span><span class="method-parameters">(UnityExtrasPreviewPlayer *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_extras_preview_player_play</span><span class="method-parameters">(UnityExtrasPreviewPlayer *self, <span class="type-basetype type ">gchar</span> *uri, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_extras_preview_player_play_finish</span><span class="method-parameters">(UnityExtrasPreviewPlayer *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_extras_preview_player_resume</span><span class="method-parameters">(UnityExtrasPreviewPlayer *self, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_extras_preview_player_resume_finish</span><span class="method-parameters">(UnityExtrasPreviewPlayer *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_extras_preview_player_stop</span><span class="method-parameters">(UnityExtrasPreviewPlayer *self, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_extras_preview_player_stop_finish</span><span class="method-parameters">(UnityExtrasPreviewPlayer *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_extras_preview_player_video_properties</span><span class="method-parameters">(UnityExtrasPreviewPlayer *self, <span class="type-basetype type ">gchar</span> *uri, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> _callback_, <span class="type-basetype type ">gpointer</span> *_callback__target)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.HashTable">GHashTable*</a></span><span class="method-name">unity_extras_preview_player_video_properties_finish</span><span class="method-parameters">(UnityExtrasPreviewPlayer *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *_res_)</span></p>
+</div>
+</div>
+</div>
+</body>
+</html>
+

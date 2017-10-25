@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- inversemouseareatype.cpp -->
+  <title>UbuntuUserInterfaceToolkit 0.1: InverseMouseArea</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="overview-ubuntu-sdk.html">Ubuntu User Interface Toolkit</a></li>
+<li>InverseMouseArea</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-components0-inversemousearea.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-inversemousearea.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">InverseMouseArea</h1>
+<span class="subtitle"></span>
+<!-- $$$InverseMouseArea-brief -->
+<p>The InverseMouseArea captures mouse events happening outside of a given area. <a href="qml-ubuntu-components0-inversemousearea.html#details">More...</a></p>
+<!-- @@@InverseMouseArea -->
+<ul>
+<li><a href="qml-ubuntu-components0-inversemousearea-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-inversemousearea.html#sensingArea-prop">sensingArea</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-inversemousearea.html#topmostItem-prop">topmostItem</a></b></b> : bool</li>
+</ul>
+<!-- $$$InverseMouseArea-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>A typical use case is hiding of a popup or tooltip when the user presses or taps outside of the popup or tooltip area. The following example illustrates the use of InverseMouseArea in a Popup.</p>
+<p>Popup.qml</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+
+<span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-rectangle.html">Rectangle</a></span> {
+    <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+    <span class="name">width</span>: <span class="number">200</span>; <span class="name">height</span>: <span class="number">200</span>
+    <span class="name">color</span>: <span class="string">&quot;darkgray&quot;</span>
+    <span class="name">radius</span>: <span class="number">10</span>
+    <span class="type">InverseMouseArea</span> {
+       <span class="name">anchors</span>.fill: <span class="name">parent</span>
+       <span class="name">acceptedButtons</span>: <span class="name">Qt</span>.<span class="name">LeftButton</span>
+       <span class="name">onPressed</span>: <span class="name">parent</span>.<span class="name">destroy</span>()
+    }
+}</pre>
+<p>In the Popup above the mouse presses happening outside the area will cause closing and destroying the popup.</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+
+<span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-item.html">Item</a></span> {
+    <span class="name">width</span>: <span class="number">640</span>
+    <span class="name">height</span>: <span class="number">480</span>
+    <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+        <span class="name">id</span>: <span class="name">button</span>
+        <span class="name">text</span>: <span class="string">&quot;Press me&quot;</span>
+        <span class="name">onClicked</span>: {
+            var <span class="name">component</span> = <span class="name">Qt</span>.<span class="name">createComponent</span>(<span class="string">&quot;Popup.qml&quot;</span>);
+            var <span class="name">obj</span> = <span class="name">component</span>.<span class="name">create</span>(<span class="name">parent</span>);
+            <span class="name">obj</span>.<span class="name">visible</span> <span class="operator">=</span> <span class="number">true</span>;
+        }
+    }
+}</pre>
+<p>By default the InverseMouseArea sensing area (the area from which the mouse clicks will be taken) is the application's root component, or the Window in which the topmost parent component of the mouse area resides. This area can be however altered to a different area by setting the <a href="qml-ubuntu-components0-inversemousearea.html#sensingArea-prop">sensingArea</a> property to a component which is either a parent of the mouse area or a sibling of it.</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+
+<span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-item.html">Item</a></span> {
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">40</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">71</span>)
+
+    <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-mousearea.html">MouseArea</a></span> {
+        <span class="name">anchors</span>.fill: <span class="name">parent</span>
+        <span class="name">onClicked</span>: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;clicked on the root component&quot;</span>)
+    }
+
+    <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-rectangle.html">Rectangle</a></span> {
+        <span class="name">id</span>: <span class="name">blueRect</span>
+        <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">30</span>)
+        <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">51</span>)
+        <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+        <span class="name">color</span>: <span class="string">&quot;blue&quot;</span>
+
+        <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-rectangle.html">Rectangle</a></span> {
+            <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">20</span>)
+            <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">20</span>)
+            <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+            <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
+
+            <span class="type">InverseMouseArea</span> {
+                <span class="name">anchors</span>.fill: <span class="name">parent</span>
+                <span class="name">sensingArea</span>: <span class="name">blueRect</span>
+                <span class="name">onClicked</span>: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;clicked on the blue rect&quot;</span>)
+            }
+        }
+    }
+}</pre>
+<p>In this example the inverse mouse area will get mouse presses only when those happen on the blue rectangle area. When clicked outside of the blue rectangle or inside the red rectangle, the mouse area covering the root item will get click signals.</p>
+<p>InverseMouseArea, being derived from <a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-mousearea.html">MouseArea</a> respects the stacking and z-order of the components. This should be taken into account when combining it with MouseAreas within the same level of the component hierarchy or when combined with <a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-mousearea.html">MouseArea</a> siblings. In these cases it is recommended to have the InverseMouseArea declared as last component, having it in this way as last one oin the component stack.</p>
+<pre class="qml"> <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-item.html">Item</a></span> {
+    <span class="name">id</span>: <span class="name">page</span>
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">40</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">71</span>)
+
+    <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-rectangle.html">Rectangle</a></span> {
+        <span class="name">id</span>: <span class="name">label</span>
+        <span class="type">anchors</span> {
+            <span class="name">horizontalCenter</span>: <span class="name">parent</span>.<span class="name">horizontalCenter</span>
+            <span class="name">top</span>: <span class="name">parent</span>.<span class="name">top</span>
+        }
+        <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">5</span>)
+        <span class="name">width</span>: <span class="name">parent</span>.<span class="name">width</span>
+        <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
+
+        <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-mousearea.html">MouseArea</a></span> {
+            <span class="name">anchors</span>.fill: <span class="name">parent</span>
+            <span class="name">z</span>: <span class="number">1</span>
+            <span class="name">onPressed</span>: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;red band&quot;</span>)
+        }
+    }
+
+    <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-rectangle.html">Rectangle</a></span> {
+        <span class="type">anchors</span> {
+            <span class="name">top</span>: <span class="name">label</span>.<span class="name">bottom</span>
+            <span class="name">topMargin</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">2</span>)
+            <span class="name">horizontalCenter</span>: <span class="name">parent</span>.<span class="name">horizontalCenter</span>
+        }
+        <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">10</span>)
+        <span class="name">width</span>: <span class="name">parent</span>.<span class="name">width</span>
+        <span class="name">color</span>: <span class="string">&quot;green&quot;</span>
+
+        <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+            <span class="name">id</span>: <span class="name">button</span>
+            <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+            <span class="name">text</span>: <span class="string">&quot;I'm a button, I do nothing.&quot;</span>
+        }
+
+        <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-mousearea.html">MouseArea</a></span> {
+            <span class="name">anchors</span>.fill: <span class="name">parent</span>
+            <span class="name">onPressed</span>: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;green band&quot;</span>)
+        }
+
+        <span class="type">InverseMouseArea</span> {
+            <span class="name">anchors</span>.fill: <span class="name">button</span>
+            <span class="name">onPressed</span>: <span class="name">console</span>.<span class="name">log</span>(<span class="string">&quot;all over except button&quot;</span>)
+        }
+    }
+}</pre>
+<p>When this is not enough, and you want to grab all the mouse events that have been sent to the <a href="qml-ubuntu-components0-inversemousearea.html#sensingArea-prop">sensingArea</a>, you can use <a href="qml-ubuntu-components0-inversemousearea.html#topmostItem-prop">topmostItem</a> to place the mouse area above all the components that were instantiated under the sensing area. Beware that setting this property will no longer consider neither the z-order nor the component stack order anymore, as it will steal all the mouse events from the component set as <a href="qml-ubuntu-components0-inversemousearea.html#sensingArea-prop">sensingArea</a>.</p>
+<pre class="qml"><span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-item.html">Item</a></span> {
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">40</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">71</span>)
+
+    <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-rectangle.html">Rectangle</a></span> {
+        <span class="name">id</span>: <span class="name">firstRect</span>
+        <span class="type">anchors</span> {
+            <span class="name">left</span>: <span class="name">parent</span>.<span class="name">left</span>
+            <span class="name">top</span>: <span class="name">parent</span>.<span class="name">top</span>
+            <span class="name">leftMargin</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">10</span>)
+            <span class="name">topMargin</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">10</span>)
+        }
+        <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">15</span>)
+        <span class="name">height</span>: <span class="name">width</span>
+
+        <span class="name">color</span>: <span class="string">&quot;blue&quot;</span>
+        <span class="type">InverseMouseArea</span> {
+            <span class="name">anchors</span>.fill: <span class="name">parent</span>
+            <span class="name">objectName</span>: <span class="string">&quot;IMA&quot;</span>
+            <span class="name">topmostItem</span>: <span class="number">true</span>
+            <span class="name">onPressed</span>: <span class="name">print</span>(<span class="string">&quot;IMA&quot;</span>)
+        }
+    }
+
+    <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-rectangle.html">Rectangle</a></span> {
+        <span class="type">anchors</span> {
+            <span class="name">left</span>: <span class="name">firstRect</span>.<span class="name">right</span>
+            <span class="name">top</span>: <span class="name">firstRect</span>.<span class="name">bottom</span>
+        }
+
+        <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">10</span>)
+        <span class="name">height</span>: <span class="name">width</span>
+        <span class="name">color</span>: <span class="string">&quot;red&quot;</span>
+        <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-mousearea.html">MouseArea</a></span> {
+            <span class="name">anchors</span>.fill: <span class="name">parent</span>
+            <span class="name">objectName</span>: <span class="string">&quot;MA&quot;</span>
+            <span class="name">onPressed</span>: <span class="name">print</span>(<span class="string">&quot;MA&quot;</span>)
+        }
+    }
+}</pre>
+<!-- @@@InverseMouseArea -->
+<h2>Property Documentation</h2>
+<!-- $$$sensingArea -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="sensingArea-prop"></a><span class="name">sensingArea</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-item.html">Item</a></span></p></td></tr></table></div><div class="qmldoc"><p>This property holds the sensing area of the inverse mouse area. By default it is the root item but it can be set to any other area. The area can be reset to the root item by setting null to the property.</p>
+</div></div><!-- @@@sensingArea -->
+<br/>
+<!-- $$$topmostItem -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="topmostItem-prop"></a><span class="name">topmostItem</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>The property specifies whether the <a href="qml-ubuntu-components0-inversemousearea.html">InverseMouseArea</a> should be above all components taking all mouse, wheel and hover events from the application's or from the area specified by the <a href="qml-ubuntu-components0-inversemousearea.html#sensingArea-prop">sensingArea</a> (true), or only from the siblings (false). The default value is false.</p>
+</div></div><!-- @@@topmostItem -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

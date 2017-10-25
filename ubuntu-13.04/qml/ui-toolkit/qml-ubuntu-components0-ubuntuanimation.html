@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ucubuntuanimation.cpp -->
+  <title>UbuntuUserInterfaceToolkit 0.1: UbuntuAnimation</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="overview-ubuntu-sdk.html">Ubuntu User Interface Toolkit</a></li>
+<li>UbuntuAnimation</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-components0-ubuntuanimation.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-ubuntuanimation.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">UbuntuAnimation</h1>
+<span class="subtitle"></span>
+<!-- $$$UbuntuAnimation-brief -->
+<p>Singleton defining standard Ubuntu durations and easing for animations that should be used to ensure that Ubuntu applications are consistent in their animations. <a href="qml-ubuntu-components0-ubuntuanimation.html#details">More...</a></p>
+<!-- @@@UbuntuAnimation -->
+<ul>
+<li><a href="qml-ubuntu-components0-ubuntuanimation-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-ubuntuanimation.html#BriskDuration-prop">BriskDuration</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-ubuntuanimation.html#FastDuration-prop">FastDuration</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-ubuntuanimation.html#SleepyDuration-prop">SleepyDuration</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-ubuntuanimation.html#SlowDuration-prop">SlowDuration</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-ubuntuanimation.html#SnapDuration-prop">SnapDuration</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-ubuntuanimation.html#StandardEasing-prop">StandardEasing</a></b></b> : QEasingCurve</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-ubuntuanimation.html#StandardEasingReverse-prop">StandardEasingReverse</a></b></b> : QEasingCurve</li>
+</ul>
+<!-- $$$UbuntuAnimation-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>Example of use:</p>
+<pre class="qml"><span class="type">RotationAnimation</span> {
+   <span class="name">duration</span>: <span class="name">UbuntuAnimation</span>.<span class="name">SlowDuration</span>
+   <span class="name">easing</span>: <span class="name">UbuntuAnimation</span>.<span class="name">StandardEasing</span>
+}</pre>
+<p>Animation durations should be selected depending on the frequency and disruptiveness of the animation. The more frequent an animation is, the faster it should be. The more disruptive an animation is, the slower it should be. Rule of thumb to select durations:</p>
+<ul>
+<li><a href="qml-ubuntu-components0-ubuntuanimation.html#SnapDuration-prop">SnapDuration</a>: very frequent, non-disruptive.</li>
+<li><a href="qml-ubuntu-components0-ubuntuanimation.html#FastDuration-prop">FastDuration</a>: frequent, non-disruptive.</li>
+<li><a href="qml-ubuntu-components0-ubuntuanimation.html#SlowDuration-prop">SlowDuration</a>: less frequent, non-disruptive.</li>
+<li><a href="qml-ubuntu-components0-ubuntuanimation.html#SleepyDuration-prop">SleepyDuration</a>: disruptive.</li>
+</ul>
+<p>Note that <a href="qml-ubuntu-components0-ubuntunumberanimation.html">UbuntuNumberAnimation</a> provides a standard NumberAnimation for Ubuntu applications.</p>
+<!-- @@@UbuntuAnimation -->
+<h2>Property Documentation</h2>
+<!-- $$$BriskDuration -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="BriskDuration-prop"></a><span class="name">BriskDuration</span> : <span class="type">int</span></p></td></tr></table></div><div class="qmldoc"><p>Used for frequent and non-disruptive transitions. Used when objects have more distance to travel or when they are larger in size.</p>
+<p>The value is 333ms.</p>
+</div></div><!-- @@@BriskDuration -->
+<br/>
+<!-- $$$FastDuration -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="FastDuration-prop"></a><span class="name">FastDuration</span> : <span class="type">int</span></p></td></tr></table></div><div class="qmldoc"><p>Used for frequent and non-disruptive transitions.</p>
+<p>The value is 165ms.</p>
+</div></div><!-- @@@FastDuration -->
+<br/>
+<!-- $$$SleepyDuration -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="SleepyDuration-prop"></a><span class="name">SleepyDuration</span> : <span class="type">int</span></p></td></tr></table></div><div class="qmldoc"><p>Used for disruptive transitions.</p>
+<p>The value is 1000ms.</p>
+</div></div><!-- @@@SleepyDuration -->
+<br/>
+<!-- $$$SlowDuration -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="SlowDuration-prop"></a><span class="name">SlowDuration</span> : <span class="type">int</span></p></td></tr></table></div><div class="qmldoc"><p>Used for delay after key press and for less frequent and non-disruptive transitions.</p>
+<p>The value is 500ms.</p>
+</div></div><!-- @@@SlowDuration -->
+<br/>
+<!-- $$$SnapDuration -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="SnapDuration-prop"></a><span class="name">SnapDuration</span> : <span class="type">int</span></p></td></tr></table></div><div class="qmldoc"><p>Used for very frequent and non-disruptive transitions on small objects. The user would perceive the change as instant but smooth.</p>
+<p>The value is 100ms.</p>
+</div></div><!-- @@@SnapDuration -->
+<br/>
+<!-- $$$StandardEasing -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="StandardEasing-prop"></a><span class="name">StandardEasing</span> : <span class="type">QEasingCurve</span></p></td></tr></table></div><div class="qmldoc"><p>Used for animations trigerred by user actions.</p>
+</div></div><!-- @@@StandardEasing -->
+<br/>
+<!-- $$$StandardEasingReverse -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="StandardEasingReverse-prop"></a><span class="name">StandardEasingReverse</span> : <span class="type">QEasingCurve</span></p></td></tr></table></div><div class="qmldoc"><p>StandardEasingReverse is mainly used in combination with <a href="qml-ubuntu-components0-ubuntuanimation.html#StandardEasing-prop">StandardEasing</a>. For example, if animating an object that bounces, you will want the object to slow down as it reaches the apex of its bounce and slowly speed back up as it descends.</p>
+<p>StandardEasingReverse should not be used to introduce a new object or screen to the user. In general, it should only be used if <a href="qml-ubuntu-components0-ubuntuanimation.html#StandardEasing-prop">StandardEasing</a> is visually inappropriate and even so, will usually be proceeded by <a href="qml-ubuntu-components0-ubuntuanimation.html#StandardEasing-prop">StandardEasing</a>.</p>
+</div></div><!-- @@@StandardEasingReverse -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

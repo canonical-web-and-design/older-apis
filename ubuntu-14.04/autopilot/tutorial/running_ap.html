@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Running Autopilot &mdash; Autopilot 1.4+14.04.20140213-0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/otto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/centertext.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.4+14.04.20140213-0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="Autopilot 1.4+14.04.20140213-0 documentation" href="../index.html" />
+    <link rel="up" title="Autopilot Tutorial" href="tutorial.html" />
+    <link rel="next" title="Autopilot API Documentation" href="../api/index.html" />
+    <link rel="prev" title="Writing Good Autopilot Tests" href="good_tests.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../api/index.html" title="Autopilot API Documentation"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="good_tests.html" title="Writing Good Autopilot Tests"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Autopilot 1.4+14.04.20140213-0 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Autopilot Tutorial</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="running-autopilot">
+<h1>Running Autopilot<a class="headerlink" href="running_ap.html#running-autopilot" title="Permalink to this headline">¶</a></h1>
+<p>Autopilot test suites can be run with any python test runner (for example, the built-in testtools runner). However, several autopilot features are only available if you use the autopilot runner.</p>
+<div class="section" id="list-tests">
+<h2>List Tests<a class="headerlink" href="running_ap.html#list-tests" title="Permalink to this headline">¶</a></h2>
+<p>Autopilot can list all tests found within a particular module:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ autopilot list &lt;modulename&gt;
+</pre></div>
+</div>
+<p>where <em>&lt;modulename&gt;</em> is the base name of the module you want to look at. The module must either be in the current working directory, or be importable by python. For example, to list the tests inside autopilot itself, you can run:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ autopilot list autopilot
+   autopilot.tests.test_ap_apps.GtkTests.test_can_launch_qt_app
+   autopilot.tests.test_ap_apps.QtTests.test_can_launch_qt_app
+   autopilot.tests.test_application_mixin.ApplicationSupportTests.test_can_create
+   autopilot.tests.test_application_mixin.ApplicationSupportTests.test_launch_raises_ValueError_on_unknown_kwargs
+   autopilot.tests.test_application_mixin.ApplicationSupportTests.test_launch_raises_ValueError_on_unknown_kwargs_with_known
+   autopilot.tests.test_application_mixin.ApplicationSupportTests.test_launch_with_bad_types_raises_typeerror
+   autopilot.tests.test_application_registration.ApplicationRegistrationTests.test_can_register_new_application
+   autopilot.tests.test_application_registration.ApplicationRegistrationTests.test_can_unregister_application
+   autopilot.tests.test_application_registration.ApplicationRegistrationTests.test_registering_app_twice_raises_KeyError
+   autopilot.tests.test_application_registration.ApplicationRegistrationTests.test_unregistering_unknown_application_raises_KeyError
+   ...
+
+    81 total tests.
+</pre></div>
+</div>
+<p>Some results have been omitted for clarity.</p>
+<p>The list command takes only one option:</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-r<var>o</var></span>, <span class="option">--run-order</span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Display tests in the order in which they will be run,
+rather than alphabetical order (which is the default).</td></tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="run-tests">
+<h2>Run Tests<a class="headerlink" href="running_ap.html#run-tests" title="Permalink to this headline">¶</a></h2>
+<p>Running autopilot tests is very similar to listing tests:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ autopilot run &lt;modulename&gt;
+</pre></div>
+</div>
+<p>However, the run command has many more options to customize the run behavior:</p>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-h</span>, <span class="option">--help</span></kbd></td>
+<td>show this help message and exit</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-o <var>OUTPUT</var></span>, <span class="option">--output <var>OUTPUT</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Write test result report to file. Defaults to stdout.
+If given a directory instead of a file will write to a
+file in that directory named:
+&lt;hostname&gt;_&lt;dd.mm.yyy_HHMMSS&gt;.log</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-f <var>FORMAT</var></span>, <span class="option">--format <var>FORMAT</var></span></kbd></td>
+</tr>
+<tr><td>&nbsp;</td><td>Specify desired output format. Default is &#8220;text&#8221;.
+Other option is &#8216;xml&#8217; to produce junit xml format.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r</span>, <span class="option">--record</span></kbd></td>
+<td>Record failing tests. Required &#8216;recordmydesktop&#8217; app
+to be installed. Videos are stored in /tmp/autopilot.</td></tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>-rd PATH, &#8211;record-directory PATH</dt>
+<dd>Directory to put recorded tests (only if -r)
+specified.</dd>
+</dl>
+<table class="docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-v</span>, <span class="option">--verbose</span></kbd></td>
+<td>If set, autopilot will output test log data to stderr
+during a test run.</td></tr>
+</tbody>
+</table>
+<div class="section" id="common-use-cases">
+<h3>Common use cases<a class="headerlink" href="running_ap.html#common-use-cases" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first"><strong>Run autopilot and save the test log</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ autopilot run -o . &lt;modulename&gt;
+</pre></div>
+</div>
+</li>
+</ol>
+<blockquote>
+<div>Autopilot will create a text log file named &lt;hostname&gt;_&lt;dd.mm.yyy_HHMMSS&gt;.log with the contents of the test log.</div></blockquote>
+<ol class="arabic" start="2">
+<li><p class="first"><strong>Run autopilot and record failing tests</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ autopilot run -r --rd . &lt;modulename&gt;
+</pre></div>
+</div>
+</li>
+</ol>
+<blockquote>
+<div>Videos are recorded as <em>ogg-vorbis</em> files, with an .ogv extension. They will be named with the test id that failed. All videos will be placed in the directory specified by the <tt class="docutils literal"><span class="pre">-rd</span></tt> option - in this case the currect directory. If this option is omitted, videos will be placed in <tt class="docutils literal"><span class="pre">/tmp/autopilot/</span></tt>.</div></blockquote>
+<ol class="arabic" start="3">
+<li><p class="first"><strong>Save the test log as jUnitXml format</strong>:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ autopilot run -o results.xml -f xml &lt;modulename&gt;
+</pre></div>
+</div>
+</li>
+</ol>
+<blockquote>
+<div>The file &#8216;results.xml&#8217; will be created when all the tests have completed, and will be in the jUnitXml file format. This is useful when running the autopilot tests within a jenkins environment.</div></blockquote>
+</div>
+</div>
+<div class="section" id="visualise-introspection-tree">
+<span id="id1"></span><h2>Visualise Introspection Tree<a class="headerlink" href="running_ap.html#visualise-introspection-tree" title="Permalink to this headline">¶</a></h2>
+<p>A very common thing to want to do while writing autopilot tests is see the structure of the application being tested. To support this, autopilot includes a simple application to help visualize the introspection tree. To start it, make sure the application you wish to test is running, and then run:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ autopilot vis
+</pre></div>
+</div>
+<p>The result should be a window similar to below:</p>
+<img alt="../_images/ap_vis_front_page.png" src="../_images/ap_vis_front_page.png" />
+<p>Selecting a connection from the drop-down box allows you to inspect different autopilot-supporting applications. If Unity is running, the Unity connection should always be present. If other applications have been started with the autopilot support enabled, they should appear in this list as well. Once a connection is selected, the introspection tree is rendered in the left-hand pane, and the details of each object appear in the right-hand pane.</p>
+<img alt="../_images/ap_vis_object.png" src="../_images/ap_vis_object.png" />
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/otto-64.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="running_ap.html#">Running Autopilot</a><ul>
+<li><a class="reference internal" href="running_ap.html#list-tests">List Tests</a></li>
+<li><a class="reference internal" href="running_ap.html#run-tests">Run Tests</a><ul>
+<li><a class="reference internal" href="running_ap.html#common-use-cases">Common use cases</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="running_ap.html#visualise-introspection-tree">Visualise Introspection Tree</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://developer.ubuntu.com/api/devel/ubuntu-14.04/autopilot/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="good_tests.html"
+                        title="previous chapter">Writing Good Autopilot Tests</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../api/index.html"
+                        title="next chapter">Autopilot API Documentation</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../api/index.html" title="Autopilot API Documentation"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="good_tests.html" title="Writing Good Autopilot Tests"
+             >previous</a> |</li>
+        <li><a href="../index.html">Autopilot 1.4+14.04.20140213-0 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Autopilot Tutorial</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      <div class=center_text>
+        <a href="../faq/contribute.html">Learn how you can contribute!</a> / <a href="https://bugs.launchpad.net/autopilot/+filebug">File a bug</a>
+     <br/>
+      </div>
+        &copy; Copyright 2012-2013, Canonical.
+    </div>
+
+
+  </body>
+</html>

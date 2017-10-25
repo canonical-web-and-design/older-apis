@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="C">
+    
+    <title>UnityWebapps-0.2 C API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>UnityWebapps-0.2 C API Documentation</h1>
+
+<div class="class-normal">
+<a href="UnityWebapps-0.2.html#UnityWebapps.Context" class="class-anchor">⚓</a><h2 class="class-normal" id="UnityWebapps.Context">Class: UnityWebappsContext</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncInitable">GAsyncInitable</a>, <a class="link-Interface type " href="Gio-2.0.html#Gio.Initable">GInitable</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"domain"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"name"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="UnityWebapps-0.2.html#UnityWebapps.Service">UnityWebappsService</a></span><span class="property-name">"service"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"context-name"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"mime-types"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"icon-url"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"accept-data-changed"</span><span class="signal-parameters">(UnityWebappsContext *context, gchar* object)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="UnityWebapps-0.2.html#UnityWebapps.Context">UnityWebappsContext</a>*</span><span class="method-name">unity_webapps_context_new_for_context_name</span><span class="method-parameters">(<a class="link-Type type " href="UnityWebapps-0.2.html#UnityWebapps.Service">UnityWebappsService</a> *service, <a class="link-Type type " href="UnityWebapps-0.2.html#utf8">const gchar</a> *context_name)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="UnityWebapps-0.2.html#UnityWebapps.Context">UnityWebappsContext</a>*</span><span class="method-name">unity_webapps_context_new_lazy</span><span class="method-parameters">(<a class="link-Type type " href="UnityWebapps-0.2.html#UnityWebapps.Service">UnityWebappsService</a> *service, <a class="link-Type type " href="UnityWebapps-0.2.html#utf8">const gchar</a> *name, <a class="link-Type type " href="UnityWebapps-0.2.html#utf8">const gchar</a> *domain, <a class="link-Type type " href="UnityWebapps-0.2.html#utf8">const gchar</a> *icon_url, <a class="link-Type type " href="UnityWebapps-0.2.html#utf8">const gchar</a> *mime_types)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="UnityWebapps-0.2.html#UnityWebapps.Context">UnityWebappsContext</a>*</span><span class="method-name">unity_webapps_context_new_sync</span><span class="method-parameters">(<a class="link-Type type " href="UnityWebapps-0.2.html#UnityWebapps.Service">UnityWebappsService</a> *service, <a class="link-Type type " href="UnityWebapps-0.2.html#utf8">const gchar</a> *name, <a class="link-Type type " href="UnityWebapps-0.2.html#utf8">const gchar</a> *domain, <a class="link-Type type " href="UnityWebapps-0.2.html#utf8">const gchar</a> *icon_url, <a class="link-Type type " href="UnityWebapps-0.2.html#utf8">const gchar</a> *mime_types)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_add_application_actions</span><span class="method-parameters">(UnityWebappsContext *self, <a class="link-Record type " href="UnityWebapps-0.2.html#UnityWebapps.ApplicationActionDesc">UnityWebappsApplicationActionDesc</a> *actions, <span class="type-basetype type ">gint</span> len)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_add_icon</span><span class="method-parameters">(UnityWebappsContext *self, <span class="type-basetype type ">gchar</span> *url, <span class="type-basetype type ">gint</span> size)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_close</span><span class="method-parameters">(UnityWebappsContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_close_interest</span><span class="method-parameters">(UnityWebappsContext *self, <span class="type-basetype type ">gint</span> interest_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_destroy</span><span class="method-parameters">(UnityWebappsContext *self, <span class="type-basetype type ">gboolean</span> user_abandoned)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">gchar**</span></span><span class="method-name">unity_webapps_context_get_application_accept_data</span><span class="method-parameters">(UnityWebappsContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">unity_webapps_context_get_context_name</span><span class="method-parameters">(UnityWebappsContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">unity_webapps_context_get_desktop_name</span><span class="method-parameters">(UnityWebappsContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">unity_webapps_context_get_domain</span><span class="method-parameters">(UnityWebappsContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">unity_webapps_context_get_focus_interest</span><span class="method-parameters">(UnityWebappsContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">unity_webapps_context_get_icon_name</span><span class="method-parameters">(UnityWebappsContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">unity_webapps_context_get_interest_id</span><span class="method-parameters">(UnityWebappsContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">unity_webapps_context_get_interest_owner</span><span class="method-parameters">(UnityWebappsContext *self, <span class="type-basetype type ">gint</span> interest_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">unity_webapps_context_get_name</span><span class="method-parameters">(UnityWebappsContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="UnityWebapps-0.2.html#UnityWebapps.Service">UnityWebappsService*</a></span><span class="method-name">unity_webapps_context_get_service</span><span class="method-parameters">(UnityWebappsContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">unity_webapps_context_get_view_is_active</span><span class="method-parameters">(UnityWebappsContext *self, <span class="type-basetype type ">gint</span> interest_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">unity_webapps_context_get_view_location</span><span class="method-parameters">(UnityWebappsContext *self, <span class="type-basetype type ">gint</span> interest_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint64</span></span><span class="method-name">unity_webapps_context_get_view_window</span><span class="method-parameters">(UnityWebappsContext *self, <span class="type-basetype type ">gint</span> interest_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant*</a></span><span class="method-name">unity_webapps_context_list_interests</span><span class="method-parameters">(UnityWebappsContext *self)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_new</span><span class="method-parameters">(<a class="link-Class type " href="UnityWebapps-0.2.html#UnityWebapps.Service">UnityWebappsService</a> *service, <span class="type-basetype type ">gchar</span> *name, <span class="type-basetype type ">gchar</span> *domain, <span class="type-basetype type ">gchar</span> *icon_url, <span class="type-basetype type ">gchar</span> *mime_types, <a class="link-Callback type " href="UnityWebapps-0.2.html#UnityWebapps.ContextReadyCallback">UnityWebappsContextReadyCallback</a> callback, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_on_close_callback</span><span class="method-parameters">(UnityWebappsContext *self, <a class="link-Callback type " href="UnityWebapps-0.2.html#UnityWebapps.ContextCloseCallback">UnityWebappsContextCloseCallback</a> callback, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_on_interest_appeared</span><span class="method-parameters">(UnityWebappsContext *self, <a class="link-Callback type " href="UnityWebapps-0.2.html#UnityWebapps.ContextNotifyCallback">UnityWebappsContextNotifyCallback</a> callback, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_on_interest_vanished</span><span class="method-parameters">(UnityWebappsContext *self, <a class="link-Callback type " href="UnityWebapps-0.2.html#UnityWebapps.ContextNotifyCallback">UnityWebappsContextNotifyCallback</a> callback, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_on_raise_callback</span><span class="method-parameters">(UnityWebappsContext *self, <a class="link-Callback type " href="UnityWebapps-0.2.html#UnityWebapps.ContextRaiseCallback">UnityWebappsContextRaiseCallback</a> callback, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_on_view_is_active_changed</span><span class="method-parameters">(UnityWebappsContext *self, <a class="link-Callback type " href="UnityWebapps-0.2.html#UnityWebapps.ContextViewNotifyCallback">UnityWebappsContextViewNotifyCallback</a> callback, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_on_view_location_changed</span><span class="method-parameters">(UnityWebappsContext *self, <a class="link-Callback type " href="UnityWebapps-0.2.html#UnityWebapps.ContextLocationNotifyCallback">UnityWebappsContextLocationNotifyCallback</a> callback, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_on_view_window_changed</span><span class="method-parameters">(UnityWebappsContext *self, <a class="link-Callback type " href="UnityWebapps-0.2.html#UnityWebapps.ContextWindowNotifyCallback">UnityWebappsContextWindowNotifyCallback</a> callback, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_prepare</span><span class="method-parameters">(UnityWebappsContext *self, <a class="link-Callback type " href="UnityWebapps-0.2.html#UnityWebapps.ContextReadyCallback">UnityWebappsContextReadyCallback</a> callback, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_raise</span><span class="method-parameters">(UnityWebappsContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_raise_interest</span><span class="method-parameters">(UnityWebappsContext *self, <span class="type-basetype type ">gint</span> interest_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_remove_application_action</span><span class="method-parameters">(UnityWebappsContext *self, <span class="type-basetype type ">gchar</span> *label)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_remove_application_actions</span><span class="method-parameters">(UnityWebappsContext *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_request_preview</span><span class="method-parameters">(UnityWebappsContext *self, <span class="type-basetype type ">gint</span> interest_id, <a class="link-Callback type " href="UnityWebapps-0.2.html#UnityWebapps.ContextPreviewReadyCallback">UnityWebappsContextPreviewReadyCallback</a> callback, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_set_application_accept_data</span><span class="method-parameters">(UnityWebappsContext *self, <a class="link-Record type " href="UnityWebapps-0.2.html#UnityWebapps.StrWrapperDesc">UnityWebappsStrWrapperDesc</a> *mimes, <span class="type-basetype type ">gint</span> len)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_set_homepage</span><span class="method-parameters">(UnityWebappsContext *self, <span class="type-basetype type ">gchar</span> *homepage)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_set_preview_requested_callback</span><span class="method-parameters">(UnityWebappsContext *self, <a class="link-Callback type " href="UnityWebapps-0.2.html#UnityWebapps.ContextPreviewCallback">UnityWebappsContextPreviewCallback</a> callback, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_set_view_is_active</span><span class="method-parameters">(UnityWebappsContext *self, <span class="type-basetype type ">gboolean</span> active)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_set_view_location</span><span class="method-parameters">(UnityWebappsContext *self, <span class="type-basetype type ">gchar</span> *location)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_context_set_view_window</span><span class="method-parameters">(UnityWebappsContext *self, <span class="type-basetype type ">guint64</span> window)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">unity_webapps_context_shutdown</span><span class="method-parameters">(UnityWebappsContext *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="UnityWebapps-0.2.html#UnityWebapps.Service" class="class-anchor">⚓</a><h2 class="class-normal" id="UnityWebapps.Service">Class: UnityWebappsService</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="UnityWebapps-0.2.html#UnityWebapps.Service">UnityWebappsService</a>*</span><span class="method-name">unity_webapps_service_new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_service_activate_application</span><span class="method-parameters">(UnityWebappsService *self, <span class="type-basetype type ">gchar</span> *name, <span class="type-basetype type ">gchar</span> *domain, <span class="type-basetype type ">gchar</span> *files)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_service_destroy_interest_for_context</span><span class="method-parameters">(UnityWebappsService *self, <span class="type-basetype type ">gchar</span> *name, <span class="type-basetype type ">gchar</span> *domain, <span class="type-basetype type ">gint</span> interest_id, <span class="type-basetype type ">gboolean</span> abandoned)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gio-2.0.html#Gio.DBusConnection">GDBusConnection*</a></span><span class="method-name">unity_webapps_service_get_connection</span><span class="method-parameters">(UnityWebappsService *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gio-2.0.html#Gio.DBusProxy">GDBusProxy*</a></span><span class="method-name">unity_webapps_service_get_proxy</span><span class="method-parameters">(UnityWebappsService *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">gchar**</span></span><span class="method-name">unity_webapps_service_list_contexts</span><span class="method-parameters">(UnityWebappsService *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_service_on_context_appeared</span><span class="method-parameters">(UnityWebappsService *self, <a class="link-Callback type " href="UnityWebapps-0.2.html#UnityWebapps.ServiceContextNotifyCallback">UnityWebappsServiceContextNotifyCallback</a> callback, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_service_on_context_vanished</span><span class="method-parameters">(UnityWebappsService *self, <a class="link-Callback type " href="UnityWebapps-0.2.html#UnityWebapps.ServiceContextNotifyCallback">UnityWebappsServiceContextNotifyCallback</a> callback, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_service_open_homepage_sync</span><span class="method-parameters">(UnityWebappsService *self, <span class="type-basetype type ">gchar</span> *homepage)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_service_set_xid_for_browser_window_id</span><span class="method-parameters">(UnityWebappsService *self, <a class="link-Class type " href="UnityWebapps-0.2.html#UnityWebapps.Context">UnityWebappsContext</a> *context, <span class="type-basetype type ">gint</span> window_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">unity_webapps_service_shutdown</span><span class="method-parameters">(UnityWebappsService *self)</span></p>
+</div>
+</div>
+</div>
+</body>
+</html>
+

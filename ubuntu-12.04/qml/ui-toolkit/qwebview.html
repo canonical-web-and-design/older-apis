@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- qwebview.html -->
+  <title>UbuntuUserInterfaceToolkit 0.1: QWebView Class</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="all-modules.html">Modules</a></li>
+<li><a href="qtwebkit-module.html">QtWebKit</a></li>
+<li>QWebView</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qwebview.html#properties">Properties</a></li>
+<li class="level1"><a href="qwebview.html#public-functions">Public Functions</a></li>
+<li class="level1"><a href="qwebview.html#public-slots">Public Slots</a></li>
+<li class="level1"><a href="qwebview.html#signals">Signals</a></li>
+<li class="level1"><a href="qwebview.html#protected-functions">Protected Functions</a></li>
+<li class="level1"><a href="qwebview.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">QWebView Class</h1>
+<p>This class was introduced in UbuntuUserInterfaceToolkit 4.4.</p>
+<ul>
+<li><a href="qwebview-members.html">List of all members, including inherited members</a></li>
+<li><a href="qwebview-obsolete.html">Obsolete members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<table class="propsummary">
+<tr><td class="topAlign"><ul>
+<li class="fn"><b><a href="qwebview.html#hasSelection-prop">hasSelection</a></b> : const </li>
+<li class="fn"><b><a href="qwebview.html#icon-prop">icon</a></b> : const </li>
+<li class="fn"><b><a href="qwebview.html#modified-prop">modified</a></b> : const </li>
+<li class="fn"><b><a href="qwebview.html#renderHints-prop">renderHints</a></b> : const </li>
+<li class="fn"><b><a href="qwebview.html#selectedHtml-prop">selectedHtml</a></b> : const </li>
+</ul></td><td class="topAlign"><ul>
+<li class="fn"><b><a href="qwebview.html#selectedText-prop">selectedText</a></b> : const </li>
+<li class="fn"><b><a href="qwebview.html#title-prop">title</a></b> : const </li>
+<li class="fn"><b><a href="qwebview.html#url-prop">url</a></b> : const </li>
+<li class="fn"><b><a href="qwebview.html#zoomFactor-prop">zoomFactor</a></b> : const </li>
+</ul>
+</td></tr>
+</table>
+<a name="public-functions"></a>
+<h2>Public Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#QWebView">QWebView</a></b>(QWidget *<i> parent</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#dtor.QWebView">~QWebView</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#event">event</a></b>(QEvent *<i> e</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#findText">findText</a></b>(const QString &amp;<i> subString</i>, QFlags&lt;QWebPage::FindFlag&gt;<i> options</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#hasSelection">hasSelection</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#history">history</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#icon">icon</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#inputMethodQuery">inputMethodQuery</a></b>(Qt::InputMethodQuery<i> property</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#isModified">isModified</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#load">load</a></b>(const QUrl &amp;<i> url</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#load-2">load</a></b>(const QNetworkRequest &amp;<i> request</i>, QNetworkAccessManager::Operation<i> operation</i>, const QByteArray &amp;<i> body</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#page">page</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#pageAction">pageAction</a></b>(QWebPage::WebAction<i> action</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#renderHints">renderHints</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#selectedHtml">selectedHtml</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#selectedText">selectedText</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#setContent">setContent</a></b>(const QByteArray &amp;<i> data</i>, const QString &amp;<i> mimeType</i>, const QUrl &amp;<i> baseUrl</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#setHtml">setHtml</a></b>(const QString &amp;<i> html</i>, const QUrl &amp;<i> baseUrl</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#setPage">setPage</a></b>(QWebPage *<i> page</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#setRenderHint">setRenderHint</a></b>(QPainter::RenderHint<i> hint</i>, bool<i> enabled</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#setRenderHints">setRenderHints</a></b>(QPainter::RenderHints<i> hints</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#setTextSizeMultiplier">setTextSizeMultiplier</a></b>(qreal<i> factor</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#setUrl">setUrl</a></b>(const QUrl &amp;<i> url</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#setZoomFactor">setZoomFactor</a></b>(qreal<i> factor</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#settings">settings</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#sizeHint">sizeHint</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#textSizeMultiplier">textSizeMultiplier</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#title">title</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#triggerPageAction">triggerPageAction</a></b>(QWebPage::WebAction<i> action</i>, bool<i> checked</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#url">url</a></b>() const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#zoomFactor">zoomFactor</a></b>() const</td></tr>
+</table>
+<a name="public-slots"></a>
+<h2>Public Slots</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#back">back</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#forward">forward</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#print">print</a></b>(QPrinter *<i> printer</i>) const</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#reload">reload</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#stop">stop</a></b>()</td></tr>
+</table>
+<a name="signals"></a>
+<h2>Signals</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#iconChanged">iconChanged</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#linkClicked">linkClicked</a></b>(const QUrl &amp;<i> url</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#loadFinished">loadFinished</a></b>(bool<i> ok</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#loadProgress">loadProgress</a></b>(int<i> progress</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#loadStarted">loadStarted</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#selectionChanged">selectionChanged</a></b>()</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#statusBarMessage">statusBarMessage</a></b>(const QString &amp;<i> text</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#titleChanged">titleChanged</a></b>(const QString &amp;<i> title</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#urlChanged">urlChanged</a></b>(const QUrl &amp;<i> url</i>)</td></tr>
+</table>
+<a name="protected-functions"></a>
+<h2>Protected Functions</h2>
+<table class="alignedsummary">
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#changeEvent">changeEvent</a></b>(QEvent *<i> e</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#contextMenuEvent">contextMenuEvent</a></b>(QContextMenuEvent *<i> ev</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#createWindow">createWindow</a></b>(QWebPage::WebWindowType<i> type</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#dragEnterEvent">dragEnterEvent</a></b>(QDragEnterEvent *<i> ev</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#dragLeaveEvent">dragLeaveEvent</a></b>(QDragLeaveEvent *<i> ev</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#dragMoveEvent">dragMoveEvent</a></b>(QDragMoveEvent *<i> ev</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#dropEvent">dropEvent</a></b>(QDropEvent *<i> ev</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#focusInEvent">focusInEvent</a></b>(QFocusEvent *<i> ev</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#focusNextPrevChild">focusNextPrevChild</a></b>(bool<i> next</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#focusOutEvent">focusOutEvent</a></b>(QFocusEvent *<i> ev</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#inputMethodEvent">inputMethodEvent</a></b>(QInputMethodEvent *<i> e</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#keyPressEvent">keyPressEvent</a></b>(QKeyEvent *<i> ev</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#keyReleaseEvent">keyReleaseEvent</a></b>(QKeyEvent *<i> ev</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#mouseDoubleClickEvent">mouseDoubleClickEvent</a></b>(QMouseEvent *<i> ev</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#mouseMoveEvent">mouseMoveEvent</a></b>(QMouseEvent *<i> ev</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#mousePressEvent">mousePressEvent</a></b>(QMouseEvent *<i> ev</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#mouseReleaseEvent">mouseReleaseEvent</a></b>(QMouseEvent *<i> ev</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#paintEvent">paintEvent</a></b>(QPaintEvent *<i> ev</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#resizeEvent">resizeEvent</a></b>(QResizeEvent *<i> e</i>)</td></tr>
+<tr><td class="memItemLeft rightAlign topAlign"> virtual </td><td class="memItemRight bottomAlign"><b><a href="qwebview.html#wheelEvent">wheelEvent</a></b>(QWheelEvent *<i> ev</i>)</td></tr>
+</table>
+<a name="details"></a>
+<!-- $$$QWebView-description -->
+<div class="descr">
+<h2>Detailed Description</h2>
+</div>
+<!-- @@@QWebView -->
+<div class="prop">
+<h2>Property Documentation</h2>
+<!-- $$$hasSelection-prop -->
+<h3 class="fn"><a name="hasSelection-prop"></a><span class="name">hasSelection</span> : const </h3>
+<!-- @@@hasSelection -->
+<!-- $$$icon-prop -->
+<h3 class="fn"><a name="icon-prop"></a><span class="name">icon</span> : const </h3>
+<!-- @@@icon -->
+<!-- $$$modified-prop -->
+<h3 class="fn"><a name="modified-prop"></a><span class="name">modified</span> : const </h3>
+<!-- @@@modified -->
+<!-- $$$renderHints-prop -->
+<h3 class="fn"><a name="renderHints-prop"></a><span class="name">renderHints</span> : const </h3>
+<p>This property was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@renderHints -->
+<!-- $$$selectedHtml-prop -->
+<h3 class="fn"><a name="selectedHtml-prop"></a><span class="name">selectedHtml</span> : const </h3>
+<p>This property was introduced in UbuntuUserInterfaceToolkit 4.8.</p>
+<!-- @@@selectedHtml -->
+<!-- $$$selectedText-prop -->
+<h3 class="fn"><a name="selectedText-prop"></a><span class="name">selectedText</span> : const </h3>
+<!-- @@@selectedText -->
+<!-- $$$title-prop -->
+<h3 class="fn"><a name="title-prop"></a><span class="name">title</span> : const </h3>
+<!-- @@@title -->
+<!-- $$$url-prop -->
+<h3 class="fn"><a name="url-prop"></a><span class="name">url</span> : const </h3>
+<!-- @@@url -->
+<!-- $$$zoomFactor-prop -->
+<h3 class="fn"><a name="zoomFactor-prop"></a><span class="name">zoomFactor</span> : const </h3>
+<p>This property was introduced in UbuntuUserInterfaceToolkit 4.5.</p>
+<!-- @@@zoomFactor -->
+</div>
+<div class="func">
+<h2>Member Function Documentation</h2>
+<!-- $$$QWebView[overload1]$$$QWebViewQWidget* -->
+<h3 class="fn"><a name="QWebView"></a>QWebView::<span class="name">QWebView</span>(<span class="type">QWidget</span> *<i> parent</i>)</h3>
+<!-- @@@QWebView -->
+<!-- $$$~QWebView[overload1]$$$~QWebView -->
+<h3 class="fn"><a name="dtor.QWebView"></a>QWebView::<span class="name">~QWebView</span>()<tt> [virtual]</tt></h3>
+<!-- @@@~QWebView -->
+<!-- $$$back[overload1]$$$back -->
+<h3 class="fn"><a name="back"></a>QWebView::<span class="name">back</span>()<tt> [slot]</tt></h3>
+<!-- @@@back -->
+<!-- $$$changeEvent[overload1]$$$changeEventQEvent* -->
+<h3 class="fn"><a name="changeEvent"></a>QWebView::<span class="name">changeEvent</span>(<span class="type">QEvent</span> *<i> e</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@changeEvent -->
+<!-- $$$contextMenuEvent[overload1]$$$contextMenuEventQContextMenuEvent* -->
+<h3 class="fn"><a name="contextMenuEvent"></a>QWebView::<span class="name">contextMenuEvent</span>(<span class="type">QContextMenuEvent</span> *<i> ev</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@contextMenuEvent -->
+<!-- $$$createWindow[overload1]$$$createWindowQWebPage::WebWindowType -->
+<h3 class="fn"><a name="createWindow"></a>QWebView::<span class="name">createWindow</span>(<span class="type"><a href="qwebpage.html#WebWindowType-enum">QWebPage::WebWindowType</a></span><i> type</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@createWindow -->
+<!-- $$$dragEnterEvent[overload1]$$$dragEnterEventQDragEnterEvent* -->
+<h3 class="fn"><a name="dragEnterEvent"></a>QWebView::<span class="name">dragEnterEvent</span>(<span class="type">QDragEnterEvent</span> *<i> ev</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@dragEnterEvent -->
+<!-- $$$dragLeaveEvent[overload1]$$$dragLeaveEventQDragLeaveEvent* -->
+<h3 class="fn"><a name="dragLeaveEvent"></a>QWebView::<span class="name">dragLeaveEvent</span>(<span class="type">QDragLeaveEvent</span> *<i> ev</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@dragLeaveEvent -->
+<!-- $$$dragMoveEvent[overload1]$$$dragMoveEventQDragMoveEvent* -->
+<h3 class="fn"><a name="dragMoveEvent"></a>QWebView::<span class="name">dragMoveEvent</span>(<span class="type">QDragMoveEvent</span> *<i> ev</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@dragMoveEvent -->
+<!-- $$$dropEvent[overload1]$$$dropEventQDropEvent* -->
+<h3 class="fn"><a name="dropEvent"></a>QWebView::<span class="name">dropEvent</span>(<span class="type">QDropEvent</span> *<i> ev</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@dropEvent -->
+<!-- $$$event[overload1]$$$eventQEvent* -->
+<h3 class="fn"><a name="event"></a>QWebView::<span class="name">event</span>(<span class="type">QEvent</span> *<i> e</i>)<tt> [virtual]</tt></h3>
+<!-- @@@event -->
+<!-- $$$findText[overload1]$$$findTextconstQString&QFlags<QWebPage::FindFlag> -->
+<h3 class="fn"><a name="findText"></a>QWebView::<span class="name">findText</span>(const <span class="type">QString</span> &amp;<i> subString</i>, <span class="type">QFlags</span>&lt;<span class="type"><a href="qwebpage.html#FindFlag-enum">QWebPage::FindFlag</a></span>&gt;<i> options</i>)</h3>
+<!-- @@@findText -->
+<!-- $$$focusInEvent[overload1]$$$focusInEventQFocusEvent* -->
+<h3 class="fn"><a name="focusInEvent"></a>QWebView::<span class="name">focusInEvent</span>(<span class="type">QFocusEvent</span> *<i> ev</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@focusInEvent -->
+<!-- $$$focusNextPrevChild[overload1]$$$focusNextPrevChildbool -->
+<h3 class="fn"><a name="focusNextPrevChild"></a>QWebView::<span class="name">focusNextPrevChild</span>(<span class="type">bool</span><i> next</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@focusNextPrevChild -->
+<!-- $$$focusOutEvent[overload1]$$$focusOutEventQFocusEvent* -->
+<h3 class="fn"><a name="focusOutEvent"></a>QWebView::<span class="name">focusOutEvent</span>(<span class="type">QFocusEvent</span> *<i> ev</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@focusOutEvent -->
+<!-- $$$forward[overload1]$$$forward -->
+<h3 class="fn"><a name="forward"></a>QWebView::<span class="name">forward</span>()<tt> [slot]</tt></h3>
+<!-- @@@forward -->
+<!-- $$$hasSelection[overload1]$$$hasSelection -->
+<h3 class="fn"><a name="hasSelection"></a>QWebView::<span class="name">hasSelection</span>() const</h3>
+<!-- @@@hasSelection -->
+<!-- $$$history[overload1]$$$history -->
+<h3 class="fn"><a name="history"></a>QWebView::<span class="name">history</span>() const</h3>
+<!-- @@@history -->
+<!-- $$$icon[overload1]$$$icon -->
+<h3 class="fn"><a name="icon"></a>QWebView::<span class="name">icon</span>() const</h3>
+<!-- @@@icon -->
+<!-- $$$iconChanged[overload1]$$$iconChanged -->
+<h3 class="fn"><a name="iconChanged"></a>QWebView::<span class="name">iconChanged</span>()<tt> [signal]</tt></h3>
+<!-- @@@iconChanged -->
+<!-- $$$inputMethodEvent[overload1]$$$inputMethodEventQInputMethodEvent* -->
+<h3 class="fn"><a name="inputMethodEvent"></a>QWebView::<span class="name">inputMethodEvent</span>(<span class="type">QInputMethodEvent</span> *<i> e</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@inputMethodEvent -->
+<!-- $$$inputMethodQuery[overload1]$$$inputMethodQueryQt::InputMethodQuery -->
+<h3 class="fn"><a name="inputMethodQuery"></a>QWebView::<span class="name">inputMethodQuery</span>(<span class="type">Qt::InputMethodQuery</span><i> property</i>) const</h3>
+<!-- @@@inputMethodQuery -->
+<!-- $$$isModified[overload1]$$$isModified -->
+<h3 class="fn"><a name="isModified"></a>QWebView::<span class="name">isModified</span>() const</h3>
+<!-- @@@isModified -->
+<!-- $$$keyPressEvent[overload1]$$$keyPressEventQKeyEvent* -->
+<h3 class="fn"><a name="keyPressEvent"></a>QWebView::<span class="name">keyPressEvent</span>(<span class="type">QKeyEvent</span> *<i> ev</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@keyPressEvent -->
+<!-- $$$keyReleaseEvent[overload1]$$$keyReleaseEventQKeyEvent* -->
+<h3 class="fn"><a name="keyReleaseEvent"></a>QWebView::<span class="name">keyReleaseEvent</span>(<span class="type">QKeyEvent</span> *<i> ev</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@keyReleaseEvent -->
+<!-- $$$linkClicked[overload1]$$$linkClickedconstQUrl& -->
+<h3 class="fn"><a name="linkClicked"></a>QWebView::<span class="name">linkClicked</span>(const <span class="type">QUrl</span> &amp;<i> url</i>)<tt> [signal]</tt></h3>
+<!-- @@@linkClicked -->
+<!-- $$$load[overload1]$$$loadconstQUrl& -->
+<h3 class="fn"><a name="load"></a>QWebView::<span class="name">load</span>(const <span class="type">QUrl</span> &amp;<i> url</i>)</h3>
+<!-- @@@load -->
+<!-- $$$load$$$loadconstQNetworkRequest&QNetworkAccessManager::OperationconstQByteArray& -->
+<h3 class="fn"><a name="load-2"></a>QWebView::<span class="name">load</span>(const <span class="type">QNetworkRequest</span> &amp;<i> request</i>, <span class="type">QNetworkAccessManager::Operation</span><i> operation</i>, const <span class="type">QByteArray</span> &amp;<i> body</i>)</h3>
+<!-- @@@load -->
+<!-- $$$loadFinished[overload1]$$$loadFinishedbool -->
+<h3 class="fn"><a name="loadFinished"></a>QWebView::<span class="name">loadFinished</span>(<span class="type">bool</span><i> ok</i>)<tt> [signal]</tt></h3>
+<!-- @@@loadFinished -->
+<!-- $$$loadProgress[overload1]$$$loadProgressint -->
+<h3 class="fn"><a name="loadProgress"></a>QWebView::<span class="name">loadProgress</span>(<span class="type">int</span><i> progress</i>)<tt> [signal]</tt></h3>
+<!-- @@@loadProgress -->
+<!-- $$$loadStarted[overload1]$$$loadStarted -->
+<h3 class="fn"><a name="loadStarted"></a>QWebView::<span class="name">loadStarted</span>()<tt> [signal]</tt></h3>
+<!-- @@@loadStarted -->
+<!-- $$$mouseDoubleClickEvent[overload1]$$$mouseDoubleClickEventQMouseEvent* -->
+<h3 class="fn"><a name="mouseDoubleClickEvent"></a>QWebView::<span class="name">mouseDoubleClickEvent</span>(<span class="type">QMouseEvent</span> *<i> ev</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@mouseDoubleClickEvent -->
+<!-- $$$mouseMoveEvent[overload1]$$$mouseMoveEventQMouseEvent* -->
+<h3 class="fn"><a name="mouseMoveEvent"></a>QWebView::<span class="name">mouseMoveEvent</span>(<span class="type">QMouseEvent</span> *<i> ev</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@mouseMoveEvent -->
+<!-- $$$mousePressEvent[overload1]$$$mousePressEventQMouseEvent* -->
+<h3 class="fn"><a name="mousePressEvent"></a>QWebView::<span class="name">mousePressEvent</span>(<span class="type">QMouseEvent</span> *<i> ev</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@mousePressEvent -->
+<!-- $$$mouseReleaseEvent[overload1]$$$mouseReleaseEventQMouseEvent* -->
+<h3 class="fn"><a name="mouseReleaseEvent"></a>QWebView::<span class="name">mouseReleaseEvent</span>(<span class="type">QMouseEvent</span> *<i> ev</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@mouseReleaseEvent -->
+<!-- $$$page[overload1]$$$page -->
+<h3 class="fn"><a name="page"></a>QWebView::<span class="name">page</span>() const</h3>
+<p><b>See also </b><a href="qwebview.html#setPage">setPage</a>().</p>
+<!-- @@@page -->
+<!-- $$$pageAction[overload1]$$$pageActionQWebPage::WebAction -->
+<h3 class="fn"><a name="pageAction"></a>QWebView::<span class="name">pageAction</span>(<span class="type"><a href="qwebpage.html#WebAction-enum">QWebPage::WebAction</a></span><i> action</i>) const</h3>
+<!-- @@@pageAction -->
+<!-- $$$paintEvent[overload1]$$$paintEventQPaintEvent* -->
+<h3 class="fn"><a name="paintEvent"></a>QWebView::<span class="name">paintEvent</span>(<span class="type">QPaintEvent</span> *<i> ev</i>)<tt> [protected]</tt></h3>
+<!-- @@@paintEvent -->
+<!-- $$$print[overload1]$$$printQPrinter* -->
+<h3 class="fn"><a name="print"></a>QWebView::<span class="name">print</span>(<span class="type">QPrinter</span> *<i> printer</i>) const<tt> [slot]</tt></h3>
+<!-- @@@print -->
+<!-- $$$reload[overload1]$$$reload -->
+<h3 class="fn"><a name="reload"></a>QWebView::<span class="name">reload</span>()<tt> [slot]</tt></h3>
+<!-- @@@reload -->
+<!-- $$$renderHints[overload1]$$$renderHints -->
+<h3 class="fn"><a name="renderHints"></a>QWebView::<span class="name">renderHints</span>() const</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<p><b>See also </b><a href="qwebview.html#setRenderHints">setRenderHints</a>().</p>
+<!-- @@@renderHints -->
+<!-- $$$resizeEvent[overload1]$$$resizeEventQResizeEvent* -->
+<h3 class="fn"><a name="resizeEvent"></a>QWebView::<span class="name">resizeEvent</span>(<span class="type">QResizeEvent</span> *<i> e</i>)<tt> [protected]</tt></h3>
+<!-- @@@resizeEvent -->
+<!-- $$$selectedHtml[overload1]$$$selectedHtml -->
+<h3 class="fn"><a name="selectedHtml"></a>QWebView::<span class="name">selectedHtml</span>() const</h3>
+<!-- @@@selectedHtml -->
+<!-- $$$selectedText[overload1]$$$selectedText -->
+<h3 class="fn"><a name="selectedText"></a>QWebView::<span class="name">selectedText</span>() const</h3>
+<!-- @@@selectedText -->
+<!-- $$$selectionChanged[overload1]$$$selectionChanged -->
+<h3 class="fn"><a name="selectionChanged"></a>QWebView::<span class="name">selectionChanged</span>()<tt> [signal]</tt></h3>
+<!-- @@@selectionChanged -->
+<!-- $$$setContent[overload1]$$$setContentconstQByteArray&constQString&constQUrl& -->
+<h3 class="fn"><a name="setContent"></a>QWebView::<span class="name">setContent</span>(const <span class="type">QByteArray</span> &amp;<i> data</i>, const <span class="type">QString</span> &amp;<i> mimeType</i>, const <span class="type">QUrl</span> &amp;<i> baseUrl</i>)</h3>
+<!-- @@@setContent -->
+<!-- $$$setHtml[overload1]$$$setHtmlconstQString&constQUrl& -->
+<h3 class="fn"><a name="setHtml"></a>QWebView::<span class="name">setHtml</span>(const <span class="type">QString</span> &amp;<i> html</i>, const <span class="type">QUrl</span> &amp;<i> baseUrl</i>)</h3>
+<!-- @@@setHtml -->
+<!-- $$$setPage[overload1]$$$setPageQWebPage* -->
+<h3 class="fn"><a name="setPage"></a>QWebView::<span class="name">setPage</span>(<span class="type"><a href="qwebpage.html">QWebPage</a></span> *<i> page</i>)</h3>
+<p><b>See also </b><a href="qwebview.html#page">page</a>().</p>
+<!-- @@@setPage -->
+<!-- $$$setRenderHint[overload1]$$$setRenderHintQPainter::RenderHintbool -->
+<h3 class="fn"><a name="setRenderHint"></a>QWebView::<span class="name">setRenderHint</span>(<span class="type">QPainter::RenderHint</span><i> hint</i>, <span class="type">bool</span><i> enabled</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<!-- @@@setRenderHint -->
+<!-- $$$setRenderHints[overload1]$$$setRenderHintsQPainter::RenderHints -->
+<h3 class="fn"><a name="setRenderHints"></a>QWebView::<span class="name">setRenderHints</span>(<span class="type">QPainter::RenderHints</span><i> hints</i>)</h3>
+<p>This function was introduced in UbuntuUserInterfaceToolkit 4.6.</p>
+<p><b>See also </b><a href="qwebview.html#renderHints">renderHints</a>().</p>
+<!-- @@@setRenderHints -->
+<!-- $$$setTextSizeMultiplier[overload1]$$$setTextSizeMultiplierqreal -->
+<h3 class="fn"><a name="setTextSizeMultiplier"></a>QWebView::<span class="name">setTextSizeMultiplier</span>(<span class="type">qreal</span><i> factor</i>)</h3>
+<p><b>See also </b><a href="qwebview.html#textSizeMultiplier">textSizeMultiplier</a>().</p>
+<!-- @@@setTextSizeMultiplier -->
+<!-- $$$setUrl[overload1]$$$setUrlconstQUrl& -->
+<h3 class="fn"><a name="setUrl"></a>QWebView::<span class="name">setUrl</span>(const <span class="type">QUrl</span> &amp;<i> url</i>)</h3>
+<p><b>See also </b><a href="qwebview.html#url">url</a>().</p>
+<!-- @@@setUrl -->
+<!-- $$$setZoomFactor[overload1]$$$setZoomFactorqreal -->
+<h3 class="fn"><a name="setZoomFactor"></a>QWebView::<span class="name">setZoomFactor</span>(<span class="type">qreal</span><i> factor</i>)</h3>
+<p><b>See also </b><a href="qwebview.html#zoomFactor">zoomFactor</a>().</p>
+<!-- @@@setZoomFactor -->
+<!-- $$$settings[overload1]$$$settings -->
+<h3 class="fn"><a name="settings"></a>QWebView::<span class="name">settings</span>() const</h3>
+<!-- @@@settings -->
+<!-- $$$sizeHint[overload1]$$$sizeHint -->
+<h3 class="fn"><a name="sizeHint"></a>QWebView::<span class="name">sizeHint</span>() const</h3>
+<!-- @@@sizeHint -->
+<!-- $$$statusBarMessage[overload1]$$$statusBarMessageconstQString& -->
+<h3 class="fn"><a name="statusBarMessage"></a>QWebView::<span class="name">statusBarMessage</span>(const <span class="type">QString</span> &amp;<i> text</i>)<tt> [signal]</tt></h3>
+<!-- @@@statusBarMessage -->
+<!-- $$$stop[overload1]$$$stop -->
+<h3 class="fn"><a name="stop"></a>QWebView::<span class="name">stop</span>()<tt> [slot]</tt></h3>
+<!-- @@@stop -->
+<!-- $$$textSizeMultiplier[overload1]$$$textSizeMultiplier -->
+<h3 class="fn"><a name="textSizeMultiplier"></a>QWebView::<span class="name">textSizeMultiplier</span>() const</h3>
+<p><b>See also </b><a href="qwebview.html#setTextSizeMultiplier">setTextSizeMultiplier</a>().</p>
+<!-- @@@textSizeMultiplier -->
+<!-- $$$title[overload1]$$$title -->
+<h3 class="fn"><a name="title"></a>QWebView::<span class="name">title</span>() const</h3>
+<!-- @@@title -->
+<!-- $$$titleChanged[overload1]$$$titleChangedconstQString& -->
+<h3 class="fn"><a name="titleChanged"></a>QWebView::<span class="name">titleChanged</span>(const <span class="type">QString</span> &amp;<i> title</i>)<tt> [signal]</tt></h3>
+<!-- @@@titleChanged -->
+<!-- $$$triggerPageAction[overload1]$$$triggerPageActionQWebPage::WebActionbool -->
+<h3 class="fn"><a name="triggerPageAction"></a>QWebView::<span class="name">triggerPageAction</span>(<span class="type"><a href="qwebpage.html#WebAction-enum">QWebPage::WebAction</a></span><i> action</i>, <span class="type">bool</span><i> checked</i>)</h3>
+<!-- @@@triggerPageAction -->
+<!-- $$$url[overload1]$$$url -->
+<h3 class="fn"><a name="url"></a>QWebView::<span class="name">url</span>() const</h3>
+<p><b>See also </b><a href="qwebview.html#setUrl">setUrl</a>().</p>
+<!-- @@@url -->
+<!-- $$$urlChanged[overload1]$$$urlChangedconstQUrl& -->
+<h3 class="fn"><a name="urlChanged"></a>QWebView::<span class="name">urlChanged</span>(const <span class="type">QUrl</span> &amp;<i> url</i>)<tt> [signal]</tt></h3>
+<!-- @@@urlChanged -->
+<!-- $$$wheelEvent[overload1]$$$wheelEventQWheelEvent* -->
+<h3 class="fn"><a name="wheelEvent"></a>QWebView::<span class="name">wheelEvent</span>(<span class="type">QWheelEvent</span> *<i> ev</i>)<tt> [virtual protected]</tt></h3>
+<!-- @@@wheelEvent -->
+<!-- $$$zoomFactor[overload1]$$$zoomFactor -->
+<h3 class="fn"><a name="zoomFactor"></a>QWebView::<span class="name">zoomFactor</span>() const</h3>
+<p><b>See also </b><a href="qwebview.html#setZoomFactor">setZoomFactor</a>().</p>
+<!-- @@@zoomFactor -->
+</div>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

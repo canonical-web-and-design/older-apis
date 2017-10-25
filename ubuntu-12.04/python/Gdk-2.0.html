@@ -1,0 +1,1929 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="Python">
+    
+    <title>Gdk-2.0 Python API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>Gdk-2.0 Python API Documentation</h1>
+
+<div class="class-normal">
+<a href="Gdk-2.0.html#Gdk.AppLaunchContext" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.AppLaunchContext">Class: Gdk.AppLaunchContext</h2>
+<div class="relations">
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gdk.AppLaunchContext.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.AppLaunchContext.set_desktop">set_desktop</span><span class="method-parameters">(<span class="type-basetype ">desktop</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.AppLaunchContext.set_display">set_display</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Display">display</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.AppLaunchContext.set_icon">set_icon</span><span class="method-parameters">(icon)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.AppLaunchContext.set_icon_name">set_icon_name</span><span class="method-parameters">(<span class="type-basetype ">icon_name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.AppLaunchContext.set_screen">set_screen</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Screen">screen</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.AppLaunchContext.set_timestamp">set_timestamp</span><span class="method-parameters">(<span class="type-basetype ">timestamp</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-2.0.html#Gdk.Colormap" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.Colormap">Class: Gdk.Colormap</h2>
+<div class="relations">
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gdk.Colormap.new">new</span><span class="method-parameters">(<a class="link-Type " href="Gdk-2.0.html#Gdk.Visual">visual</a>, <a class="link-Type " href="Gdk-2.0.html#gboolean">allocate</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Colormap.alloc_color">alloc_color</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Color">color</a>, <span class="type-basetype ">writeable</span>, <span class="type-basetype ">best_match</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Colormap.alloc_colors">alloc_colors</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Color">colors</a>, <span class="type-basetype ">n_colors</span>, <span class="type-basetype ">writeable</span>, <span class="type-basetype ">best_match</span>, <span class="type-basetype ">success</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Colormap.change">change</span><span class="method-parameters">(<span class="type-basetype ">ncolors</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Colormap.free_colors">free_colors</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Color">colors</a>, <span class="type-basetype ">n_colors</span>)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Colormap.get_system_size">get_system_size</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Colormap.query_color">query_color</span><span class="method-parameters">(<span class="type-basetype ">pixel</span>, <a class="link-Record " href="Gdk-2.0.html#Gdk.Color">result</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Colormap.unref">unref</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-2.0.html#Gdk.Device" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.Device">Class: Gdk.Device</h2>
+<div class="relations">
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Device.free_history">free_history</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.TimeCoord">events</a>, <span class="type-basetype ">n_events</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Device.get_axis">get_axis</span><span class="method-parameters">(<span class="type-basetype ">axes</span>, <a class="link-Enumeration " href="Gdk-2.0.html#Gdk.AxisUse">use</a>, <span class="type-basetype ">value</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-2.0.html#Gdk.AxisUse">Gdk.AxisUse</a></span><span class="method-name" id="Gdk.Device.get_axis_use">get_axis_use</span><span class="method-parameters">(<span class="type-basetype ">index</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Device.get_has_cursor">get_has_cursor</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span>, <span class="type ">Array&lt;Gdk.TimeCoord&gt;</span>, <span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Device.get_history">get_history</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Window">window</a>, <span class="type-basetype ">start</span>, <span class="type-basetype ">stop</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Device.get_key">get_key</span><span class="method-parameters">(<span class="type-basetype ">index</span>, <span class="type-basetype ">keyval</span>, <a class="link-BitField " href="Gdk-2.0.html#Gdk.ModifierType">modifiers</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-2.0.html#Gdk.InputMode">Gdk.InputMode</a></span><span class="method-name" id="Gdk.Device.get_mode">get_mode</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Device.get_n_axes">get_n_axes</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Device.get_n_keys">get_n_keys</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Gdk.Device.get_name">get_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-2.0.html#Gdk.InputSource">Gdk.InputSource</a></span><span class="method-name" id="Gdk.Device.get_source">get_source</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Device.get_state">get_state</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Window">window</a>, <span class="type-basetype ">axes</span>, <a class="link-BitField " href="Gdk-2.0.html#Gdk.ModifierType">mask</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Device.set_axis_use">set_axis_use</span><span class="method-parameters">(<span class="type-basetype ">index_</span>, <a class="link-Enumeration " href="Gdk-2.0.html#Gdk.AxisUse">use</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Device.set_key">set_key</span><span class="method-parameters">(<span class="type-basetype ">index_</span>, <span class="type-basetype ">keyval</span>, <a class="link-BitField " href="Gdk-2.0.html#Gdk.ModifierType">modifiers</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Device.set_mode">set_mode</span><span class="method-parameters">(<a class="link-Enumeration " href="Gdk-2.0.html#Gdk.InputMode">mode</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Device.set_source">set_source</span><span class="method-parameters">(<a class="link-Enumeration " href="Gdk-2.0.html#Gdk.InputSource">source</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-2.0.html#Gdk.Display" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.Display">Class: Gdk.Display</h2>
+<div class="relations">
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gdk.Display.closed">"closed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gdk-2.0.html#Gdk.Display">display</a>, <span class="type-basetype ">is_error</span>)</span><p class="signal-doc">
+The ::closed signal is emitted when the connection to the windowing
+system for @display is closed.</p>
+</p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Display.beep">beep</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Display.close">close</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Display.closed">closed</span><span class="method-parameters">(<span class="type-basetype ">is_error</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Display.flush">flush</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Display">Gdk.Display</a></span><span class="method-name" id="Gdk.Display.get_default">get_default</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Display.get_default_cursor_size">get_default_cursor_size</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Gdk.Display.get_display_name">get_display_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Gdk.Event</span></span><span class="method-name" id="Gdk.Display.get_event">get_event</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span>, <span class="type-basetype type ">int</span>, <span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Display.get_maximal_cursor_size">get_maximal_cursor_size</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Display.get_n_screens">get_n_screens</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Gdk.Display.get_name">get_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span>, <a class="link-Class type " href="Gdk-2.0.html#Gdk.Screen">Gdk.Screen</a>, <span class="type-basetype type ">int</span>, <span class="type-basetype type ">int</span>, <a class="link-BitField type " href="Gdk-2.0.html#Gdk.ModifierType">Gdk.ModifierType</a></span><span class="method-name" id="Gdk.Display.get_pointer">get_pointer</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Window">Gdk.Window</a>, <span class="type-basetype type ">int</span>, <span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Display.get_window_at_pointer">get_window_at_pointer</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Display.is_closed">is_closed</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Display.keyboard_ungrab">keyboard_ungrab</span><span class="method-parameters">(<span class="type-basetype ">time_</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Gdk.Event</span></span><span class="method-name" id="Gdk.Display.peek_event">peek_event</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Display.pointer_is_grabbed">pointer_is_grabbed</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Display.pointer_ungrab">pointer_ungrab</span><span class="method-parameters">(<span class="type-basetype ">time_</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Display.put_event">put_event</span><span class="method-parameters">(event)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Display.request_selection_notification">request_selection_notification</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Atom">selection</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Display.set_double_click_distance">set_double_click_distance</span><span class="method-parameters">(<span class="type-basetype ">distance</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Display.set_double_click_time">set_double_click_time</span><span class="method-parameters">(<span class="type-basetype ">msec</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Display.store_clipboard">store_clipboard</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Window">clipboard_window</a>, <span class="type-basetype ">time_</span>, <a class="link-Record " href="Gdk-2.0.html#Gdk.Atom">targets</a>, <span class="type-basetype ">n_targets</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Display.supports_clipboard_persistence">supports_clipboard_persistence</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Display.supports_composite">supports_composite</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Display.supports_cursor_alpha">supports_cursor_alpha</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Display.supports_cursor_color">supports_cursor_color</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Display.supports_input_shapes">supports_input_shapes</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Display.supports_selection_notification">supports_selection_notification</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Display.supports_shapes">supports_shapes</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Display.sync">sync</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Display.warp_pointer">warp_pointer</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Screen">screen</a>, <span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-2.0.html#Gdk.DisplayManager" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.DisplayManager">Class: Gdk.DisplayManager</h2>
+<div class="relations">
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Gdk-2.0.html#Gdk.Display">Gdk.Display</a><span class="property-name" id="Gdk.DisplayManager.default-display">"default-display"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gdk.DisplayManager.display-opened">"display-opened"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gdk-2.0.html#Gdk.DisplayManager">display_manager</a>, <a class="link-Class " href="Gdk-2.0.html#Gdk.Display">display</a>)</span><p class="signal-doc">
+The ::display_opened signal is emitted when a display is opened.</p>
+</p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.DisplayManager.display_opened">display_opened</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Display">display</a>)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.DisplayManager">Gdk.DisplayManager</a></span><span class="method-name" id="Gdk.DisplayManager.get">get</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Display">Gdk.Display</a></span><span class="method-name" id="Gdk.DisplayManager.get_default_display">get_default_display</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">GLib.SList</span></span><span class="method-name" id="Gdk.DisplayManager.list_displays">list_displays</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.DisplayManager.set_default_display">set_default_display</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Display">display</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-2.0.html#Gdk.DragContext" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.DragContext">Class: Gdk.DragContext</h2>
+<div class="relations">
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gdk.DragContext.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-BitField type " href="Gdk-2.0.html#Gdk.DragAction">Gdk.DragAction</a></span><span class="method-name" id="Gdk.DragContext.get_actions">get_actions</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Window">Gdk.Window</a></span><span class="method-name" id="Gdk.DragContext.get_dest_window">get_dest_window</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-2.0.html#Gdk.DragProtocol">Gdk.DragProtocol</a></span><span class="method-name" id="Gdk.DragContext.get_protocol">get_protocol</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-BitField type " href="Gdk-2.0.html#Gdk.DragAction">Gdk.DragAction</a></span><span class="method-name" id="Gdk.DragContext.get_selected_action">get_selected_action</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Window">Gdk.Window</a></span><span class="method-name" id="Gdk.DragContext.get_source_window">get_source_window</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-BitField type " href="Gdk-2.0.html#Gdk.DragAction">Gdk.DragAction</a></span><span class="method-name" id="Gdk.DragContext.get_suggested_action">get_suggested_action</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">GLib.List</span></span><span class="method-name" id="Gdk.DragContext.list_targets">list_targets</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.DragContext.ref">ref</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.DragContext.unref">unref</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-abstract">
+<a href="Gdk-2.0.html#Gdk.Drawable" class="class-anchor">⚓</a><h2 class="class-abstract" id="Gdk.Drawable">Abstract Class: Gdk.Drawable</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class " href="Gdk-2.0.html#Gdk.Window">Gdk.Window</a>, <a class="link-Class " href="Gdk-2.0.html#Gdk.Pixmap">Gdk.Pixmap</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type ">cairo.Surface</span></span><span class="method-name" id="Gdk.Drawable.create_cairo_surface">create_cairo_surface</span><span class="method-parameters">(<span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.draw_arc">draw_arc</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.GC">gc</a>, <span class="type-basetype ">filled</span>, <span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, <span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>, <span class="type-basetype ">angle1</span>, <span class="type-basetype ">angle2</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.draw_drawable">draw_drawable</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.GC">gc</a>, <a class="link-Class " href="Gdk-2.0.html#Gdk.Drawable">src</a>, <span class="type-basetype ">xsrc</span>, <span class="type-basetype ">ysrc</span>, <span class="type-basetype ">xdest</span>, <span class="type-basetype ">ydest</span>, <span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.draw_drawable_with_src">draw_drawable_with_src</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.GC">gc</a>, <a class="link-Class " href="Gdk-2.0.html#Gdk.Drawable">src</a>, <span class="type-basetype ">xsrc</span>, <span class="type-basetype ">ysrc</span>, <span class="type-basetype ">xdest</span>, <span class="type-basetype ">ydest</span>, <span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>, <a class="link-Class " href="Gdk-2.0.html#Gdk.Drawable">original_src</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.draw_glyphs">draw_glyphs</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.GC">gc</a>, font, <span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, glyphs)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.draw_glyphs_transformed">draw_glyphs_transformed</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.GC">gc</a>, matrix, font, <span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, glyphs)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.draw_image">draw_image</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.GC">gc</a>, <a class="link-Class " href="Gdk-2.0.html#Gdk.Image">image</a>, <span class="type-basetype ">xsrc</span>, <span class="type-basetype ">ysrc</span>, <span class="type-basetype ">xdest</span>, <span class="type-basetype ">ydest</span>, <span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.draw_lines">draw_lines</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.GC">gc</a>, <a class="link-Record " href="Gdk-2.0.html#Gdk.Point">points</a>, <span class="type-basetype ">npoints</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.draw_pixbuf">draw_pixbuf</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.GC">gc</a>, pixbuf, <span class="type-basetype ">src_x</span>, <span class="type-basetype ">src_y</span>, <span class="type-basetype ">dest_x</span>, <span class="type-basetype ">dest_y</span>, <span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>, <a class="link-Enumeration " href="Gdk-2.0.html#Gdk.RgbDither">dither</a>, <span class="type-basetype ">x_dither</span>, <span class="type-basetype ">y_dither</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.draw_points">draw_points</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.GC">gc</a>, <a class="link-Record " href="Gdk-2.0.html#Gdk.Point">points</a>, <span class="type-basetype ">npoints</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.draw_polygon">draw_polygon</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.GC">gc</a>, <span class="type-basetype ">filled</span>, <a class="link-Record " href="Gdk-2.0.html#Gdk.Point">points</a>, <span class="type-basetype ">npoints</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.draw_rectangle">draw_rectangle</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.GC">gc</a>, <span class="type-basetype ">filled</span>, <span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, <span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.draw_segments">draw_segments</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.GC">gc</a>, <a class="link-Record " href="Gdk-2.0.html#Gdk.Segment">segs</a>, <span class="type-basetype ">nsegs</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.draw_text">draw_text</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Font">font</a>, <a class="link-Class " href="Gdk-2.0.html#Gdk.GC">gc</a>, <span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, <span class="type-basetype ">text</span>, <span class="type-basetype ">text_length</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.draw_text_wc">draw_text_wc</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Font">font</a>, <a class="link-Class " href="Gdk-2.0.html#Gdk.GC">gc</a>, <span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, text, <span class="type-basetype ">text_length</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.draw_trapezoids">draw_trapezoids</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.GC">gc</a>, <a class="link-Record " href="Gdk-2.0.html#Gdk.Trapezoid">trapezoids</a>, <span class="type-basetype ">n_trapezoids</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Drawable.get_depth">get_depth</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span>, <span class="type-basetype type ">int</span>, <span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Drawable.get_size">get_size</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type ">cairo.Surface</span></span><span class="method-name" id="Gdk.Drawable.ref_cairo_surface">ref_cairo_surface</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.set_cairo_clip">set_cairo_clip</span><span class="method-parameters">(cr)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.set_colormap">set_colormap</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Colormap">cmap</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.set_data">set_data</span><span class="method-parameters">(<span class="type-basetype ">key</span>, <span class="type-basetype ">data</span>, destroy_func)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Drawable.unref">unref</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-2.0.html#Gdk.GC" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.GC">Class: Gdk.GC</h2>
+<div class="relations">
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gdk.GC.new">new</span><span class="method-parameters">(<a class="link-Type " href="Gdk-2.0.html#Gdk.Drawable">drawable</a>)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gdk.GC.new_with_values">new_with_values</span><span class="method-parameters">(<a class="link-Type " href="Gdk-2.0.html#Gdk.Drawable">drawable</a>, <a class="link-Type " href="Gdk-2.0.html#Gdk.GCValues">values</a>, <a class="link-Type " href="Gdk-2.0.html#Gdk.GCValuesMask">values_mask</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.copy">copy</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.GC">src_gc</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.get_values">get_values</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.GCValues">values</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.offset">offset</span><span class="method-parameters">(<span class="type-basetype ">x_offset</span>, <span class="type-basetype ">y_offset</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_background">set_background</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Color">color</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_clip_mask">set_clip_mask</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Bitmap">mask</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_clip_origin">set_clip_origin</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_clip_rectangle">set_clip_rectangle</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Rectangle">rectangle</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_clip_region">set_clip_region</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Region">region</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_colormap">set_colormap</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Colormap">colormap</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_dashes">set_dashes</span><span class="method-parameters">(<span class="type-basetype ">dash_offset</span>, <span class="type-basetype ">dash_list</span>, <span class="type-basetype ">n</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_exposures">set_exposures</span><span class="method-parameters">(<span class="type-basetype ">exposures</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_fill">set_fill</span><span class="method-parameters">(<a class="link-Enumeration " href="Gdk-2.0.html#Gdk.Fill">fill</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_font">set_font</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Font">font</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_foreground">set_foreground</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Color">color</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_function">set_function</span><span class="method-parameters">(<a class="link-Enumeration " href="Gdk-2.0.html#Gdk.Function">function</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_line_attributes">set_line_attributes</span><span class="method-parameters">(<span class="type-basetype ">line_width</span>, <a class="link-Enumeration " href="Gdk-2.0.html#Gdk.LineStyle">line_style</a>, <a class="link-Enumeration " href="Gdk-2.0.html#Gdk.CapStyle">cap_style</a>, <a class="link-Enumeration " href="Gdk-2.0.html#Gdk.JoinStyle">join_style</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_rgb_bg_color">set_rgb_bg_color</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Color">color</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_rgb_fg_color">set_rgb_fg_color</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Color">color</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_stipple">set_stipple</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Pixmap">stipple</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_subwindow">set_subwindow</span><span class="method-parameters">(<a class="link-Enumeration " href="Gdk-2.0.html#Gdk.SubwindowMode">mode</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_tile">set_tile</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Pixmap">tile</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_ts_origin">set_ts_origin</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.set_values">set_values</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.GCValues">values</a>, <a class="link-BitField " href="Gdk-2.0.html#Gdk.GCValuesMask">mask</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.GC.unref">unref</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-2.0.html#Gdk.Image" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.Image">Class: Gdk.Image</h2>
+<div class="relations">
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gdk.Image.new">new</span><span class="method-parameters">(<a class="link-Type " href="Gdk-2.0.html#Gdk.ImageType">type</a>, <a class="link-Type " href="Gdk-2.0.html#Gdk.Visual">visual</a>, <a class="link-Type " href="Gdk-2.0.html#gint">width</a>, <a class="link-Type " href="Gdk-2.0.html#gint">height</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Image.get_bits_per_pixel">get_bits_per_pixel</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-2.0.html#Gdk.ByteOrder">Gdk.ByteOrder</a></span><span class="method-name" id="Gdk.Image.get_byte_order">get_byte_order</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Image.get_bytes_per_line">get_bytes_per_line</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Image.get_bytes_per_pixel">get_bytes_per_pixel</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Image.get_depth">get_depth</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Image.get_height">get_height</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-2.0.html#Gdk.ImageType">Gdk.ImageType</a></span><span class="method-name" id="Gdk.Image.get_image_type">get_image_type</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Image.get_pixel">get_pixel</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Image.get_width">get_width</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Image.put_pixel">put_pixel</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, <span class="type-basetype ">pixel</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Image.set_colormap">set_colormap</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Colormap">colormap</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Image.unref">unref</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-2.0.html#Gdk.Keymap" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.Keymap">Class: Gdk.Keymap</h2>
+<div class="relations">
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gdk.Keymap.direction-changed">"direction-changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gdk-2.0.html#Gdk.Keymap">keymap</a>)</span><p class="signal-doc">
+The ::direction-changed signal gets emitted when the direction of
+the keymap changes.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gdk.Keymap.state-changed">"state-changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gdk-2.0.html#Gdk.Keymap">keymap</a>)</span><p class="signal-doc">
+The ::state-changed signal is emitted when the state of the
+keyboard changes, e.g when Caps Lock is turned on or off.
+See gdk_keymap_get_caps_lock_state().</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gdk.Keymap.keys-changed">"keys-changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gdk-2.0.html#Gdk.Keymap">keymap</a>)</span><p class="signal-doc">
+The ::keys-changed signal is emitted when the mapping represented by
+@keymap changes.</p>
+</p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Keymap.add_virtual_modifiers">add_virtual_modifiers</span><span class="method-parameters">(<a class="link-BitField " href="Gdk-2.0.html#Gdk.ModifierType">state</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Keymap.direction_changed">direction_changed</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Keymap.get_caps_lock_state">get_caps_lock_state</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Pango.Direction</span></span><span class="method-name" id="Gdk.Keymap.get_direction">get_direction</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span>, <a class="link-Record type " href="Gdk-2.0.html#Gdk.KeymapKey">Gdk.KeymapKey</a>, <span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Keymap.get_entries_for_keycode">get_entries_for_keycode</span><span class="method-parameters">(<span class="type-basetype ">hardware_keycode</span>, <span class="type-basetype ">n_entries</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span>, <a class="link-Record type " href="Gdk-2.0.html#Gdk.KeymapKey">Gdk.KeymapKey</a>, <span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Keymap.get_entries_for_keyval">get_entries_for_keyval</span><span class="method-parameters">(<span class="type-basetype ">keyval</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Keymap.have_bidi_layouts">have_bidi_layouts</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Keymap.keys_changed">keys_changed</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Keymap.lookup_key">lookup_key</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.KeymapKey">key</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Keymap.map_virtual_modifiers">map_virtual_modifiers</span><span class="method-parameters">(<a class="link-BitField " href="Gdk-2.0.html#Gdk.ModifierType">state</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Keymap.state_changed">state_changed</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span>, <span class="type-basetype type ">int</span>, <span class="type-basetype type ">int</span>, <span class="type-basetype type ">int</span>, <a class="link-BitField type " href="Gdk-2.0.html#Gdk.ModifierType">Gdk.ModifierType</a></span><span class="method-name" id="Gdk.Keymap.translate_keyboard_state">translate_keyboard_state</span><span class="method-parameters">(<span class="type-basetype ">hardware_keycode</span>, <a class="link-BitField " href="Gdk-2.0.html#Gdk.ModifierType">state</a>, <span class="type-basetype ">group</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-2.0.html#Gdk.PangoRenderer" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.PangoRenderer">Class: Gdk.PangoRenderer</h2>
+<div class="relations">
+<p>
+#GdkPangoRenderer is a subclass of #PangoRenderer used for rendering
+Pango objects into GDK drawables. The default renderer for a particular
+screen is obtained with gdk_pango_renderer_get_default(); Pango
+functions like pango_renderer_draw_layout() and
+pango_renderer_draw_layout_line() are then used to draw objects with
+the renderer.
+
+In most simple cases, applications can just use gdk_draw_layout(), and
+don't need to directly use #GdkPangoRenderer at all. Using the
+#GdkPangoRenderer directly is most useful when working with a
+transformation such as a rotation, because the Pango drawing functions
+take user space coordinates (coordinates before the transformation)
+instead of device coordinates.
+
+In certain cases it can be useful to subclass #GdkPangoRenderer. Examples
+of reasons to do this are to add handling of custom attributes by
+overriding 'prepare_run' or to do custom drawing of embedded objects
+by overriding 'draw_shape'.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="Gdk-2.0.html#Gdk.Screen">Gdk.Screen</a><span class="property-name" id="Gdk.PangoRenderer.screen">"screen"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gdk.PangoRenderer.new">new</span><span class="method-parameters">(<a class="link-Type " href="Gdk-2.0.html#Gdk.Screen">screen</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.PangoRenderer.set_drawable">set_drawable</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Drawable">drawable</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.PangoRenderer.set_gc">set_gc</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.GC">gc</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.PangoRenderer.set_override_color">set_override_color</span><span class="method-parameters">(part, <a class="link-Record " href="Gdk-2.0.html#Gdk.Color">color</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.PangoRenderer.set_stipple">set_stipple</span><span class="method-parameters">(part, <a class="link-Record " href="Gdk-2.0.html#Gdk.Bitmap">stipple</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-2.0.html#Gdk.Pixmap" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.Pixmap">Class: Gdk.Pixmap</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="Gdk-2.0.html#Gdk.Drawable">Gdk.Drawable</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gdk.Pixmap.foreign_new">foreign_new</span><span class="method-parameters">(anid)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gdk.Pixmap.new">new</span><span class="method-parameters">(<a class="link-Type " href="Gdk-2.0.html#Gdk.Drawable">drawable</a>, <a class="link-Type " href="Gdk-2.0.html#gint">width</a>, <a class="link-Type " href="Gdk-2.0.html#gint">height</a>, <a class="link-Type " href="Gdk-2.0.html#gint">depth</a>)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gdk.Pixmap.foreign_new_for_screen">foreign_new_for_screen</span><span class="method-parameters">(<a class="link-Type " href="Gdk-2.0.html#Gdk.Screen">screen</a>, anid, <a class="link-Type " href="Gdk-2.0.html#gint">width</a>, <a class="link-Type " href="Gdk-2.0.html#gint">height</a>, <a class="link-Type " href="Gdk-2.0.html#gint">depth</a>)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gdk.Pixmap.foreign_new_for_display">foreign_new_for_display</span><span class="method-parameters">(<a class="link-Type " href="Gdk-2.0.html#Gdk.Display">display</a>, anid)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Pixmap">Gdk.Pixmap</a></span><span class="method-name" id="Gdk.Pixmap.colormap_create_from_xpm">colormap_create_from_xpm</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Drawable">drawable</a>, <a class="link-Class " href="Gdk-2.0.html#Gdk.Colormap">colormap</a>, <a class="link-Record " href="Gdk-2.0.html#Gdk.Bitmap">mask</a>, <a class="link-Record " href="Gdk-2.0.html#Gdk.Color">transparent_color</a>, <span class="type-basetype ">filename</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Pixmap">Gdk.Pixmap</a></span><span class="method-name" id="Gdk.Pixmap.colormap_create_from_xpm_d">colormap_create_from_xpm_d</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Drawable">drawable</a>, <a class="link-Class " href="Gdk-2.0.html#Gdk.Colormap">colormap</a>, <a class="link-Record " href="Gdk-2.0.html#Gdk.Bitmap">mask</a>, <a class="link-Record " href="Gdk-2.0.html#Gdk.Color">transparent_color</a>, <span class="type-basetype ">data</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Pixmap">Gdk.Pixmap</a></span><span class="method-name" id="Gdk.Pixmap.create_from_xpm">create_from_xpm</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Drawable">drawable</a>, <a class="link-Record " href="Gdk-2.0.html#Gdk.Bitmap">mask</a>, <a class="link-Record " href="Gdk-2.0.html#Gdk.Color">transparent_color</a>, <span class="type-basetype ">filename</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Pixmap">Gdk.Pixmap</a>, <a class="link-Record type " href="Gdk-2.0.html#Gdk.Bitmap">Gdk.Bitmap</a></span><span class="method-name" id="Gdk.Pixmap.create_from_xpm_d">create_from_xpm_d</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Drawable">drawable</a>, <a class="link-Record " href="Gdk-2.0.html#Gdk.Color">transparent_color</a>, <span class="type-basetype ">data</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span>, <span class="type-basetype type ">int</span>, <span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Pixmap.get_size">get_size</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-2.0.html#Gdk.Screen" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.Screen">Class: Gdk.Screen</h2>
+<div class="relations">
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">float</span><span class="property-name" id="Gdk.Screen.resolution">"resolution"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">gpointer</span><span class="property-name" id="Gdk.Screen.font-options">"font-options"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gdk.Screen.size-changed">"size-changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gdk-2.0.html#Gdk.Screen">screen</a>)</span><p class="signal-doc">
+The ::size-changed signal is emitted when the pixel width or 
+height of a screen changes.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gdk.Screen.monitors-changed">"monitors-changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gdk-2.0.html#Gdk.Screen">screen</a>)</span><p class="signal-doc">
+The ::monitors-changed signal is emitted when the number, size
+or position of the monitors attached to the screen change. 
+
+Only for X11 and OS X for now. A future implementation for Win32
+may be a possibility.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gdk.Screen.composited-changed">"composited-changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gdk-2.0.html#Gdk.Screen">screen</a>)</span><p class="signal-doc">
+The ::composited-changed signal is emitted when the composited
+status of the screen changes</p>
+</p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Screen.broadcast_client_message">broadcast_client_message</span><span class="method-parameters">(event)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Screen.composited_changed">composited_changed</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Screen">Gdk.Screen</a></span><span class="method-name" id="Gdk.Screen.get_default">get_default</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Colormap">Gdk.Colormap</a></span><span class="method-name" id="Gdk.Screen.get_default_colormap">get_default_colormap</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">cairo.FontOptions</span></span><span class="method-name" id="Gdk.Screen.get_font_options">get_font_options</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Screen.get_height">get_height</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Screen.get_height_mm">get_height_mm</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Screen.get_monitor_at_point">get_monitor_at_point</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Screen.get_monitor_at_window">get_monitor_at_window</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Window">window</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Screen.get_monitor_geometry">get_monitor_geometry</span><span class="method-parameters">(<span class="type-basetype ">monitor_num</span>, <a class="link-Record " href="Gdk-2.0.html#Gdk.Rectangle">dest</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Screen.get_monitor_height_mm">get_monitor_height_mm</span><span class="method-parameters">(<span class="type-basetype ">monitor_num</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Gdk.Screen.get_monitor_plug_name">get_monitor_plug_name</span><span class="method-parameters">(<span class="type-basetype ">monitor_num</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Screen.get_monitor_width_mm">get_monitor_width_mm</span><span class="method-parameters">(<span class="type-basetype ">monitor_num</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Screen.get_n_monitors">get_n_monitors</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Screen.get_number">get_number</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Screen.get_primary_monitor">get_primary_monitor</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">float</span></span><span class="method-name" id="Gdk.Screen.get_resolution">get_resolution</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Colormap">Gdk.Colormap</a></span><span class="method-name" id="Gdk.Screen.get_rgb_colormap">get_rgb_colormap</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Visual">Gdk.Visual</a></span><span class="method-name" id="Gdk.Screen.get_rgb_visual">get_rgb_visual</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Colormap">Gdk.Colormap</a></span><span class="method-name" id="Gdk.Screen.get_rgba_colormap">get_rgba_colormap</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Visual">Gdk.Visual</a></span><span class="method-name" id="Gdk.Screen.get_rgba_visual">get_rgba_visual</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Window">Gdk.Window</a></span><span class="method-name" id="Gdk.Screen.get_root_window">get_root_window</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Screen.get_setting">get_setting</span><span class="method-parameters">(<span class="type-basetype ">name</span>, value)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Colormap">Gdk.Colormap</a></span><span class="method-name" id="Gdk.Screen.get_system_colormap">get_system_colormap</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Visual">Gdk.Visual</a></span><span class="method-name" id="Gdk.Screen.get_system_visual">get_system_visual</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">GLib.List</span></span><span class="method-name" id="Gdk.Screen.get_toplevel_windows">get_toplevel_windows</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Screen.get_width">get_width</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Screen.get_width_mm">get_width_mm</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">GLib.List</span></span><span class="method-name" id="Gdk.Screen.get_window_stack">get_window_stack</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Screen.height">height</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Screen.height_mm">height_mm</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Screen.is_composited">is_composited</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">GLib.List</span></span><span class="method-name" id="Gdk.Screen.list_visuals">list_visuals</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Gdk.Screen.make_display_name">make_display_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Screen.monitors_changed">monitors_changed</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Screen.set_default_colormap">set_default_colormap</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Colormap">colormap</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Screen.set_font_options">set_font_options</span><span class="method-parameters">(options)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Screen.set_resolution">set_resolution</span><span class="method-parameters">(<span class="type-basetype ">dpi</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Screen.size_changed">size_changed</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Screen.width">width</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Screen.width_mm">width_mm</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-2.0.html#Gdk.Visual" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.Visual">Class: Gdk.Visual</h2>
+<div class="relations">
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Visual">Gdk.Visual</a></span><span class="method-name" id="Gdk.Visual.get_best">get_best</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Visual.get_best_depth">get_best_depth</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-2.0.html#Gdk.VisualType">Gdk.VisualType</a></span><span class="method-name" id="Gdk.Visual.get_best_type">get_best_type</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Visual">Gdk.Visual</a></span><span class="method-name" id="Gdk.Visual.get_best_with_both">get_best_with_both</span><span class="method-parameters">(<span class="type-basetype ">depth</span>, <a class="link-Enumeration " href="Gdk-2.0.html#Gdk.VisualType">visual_type</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Visual">Gdk.Visual</a></span><span class="method-name" id="Gdk.Visual.get_best_with_depth">get_best_with_depth</span><span class="method-parameters">(<span class="type-basetype ">depth</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Visual">Gdk.Visual</a></span><span class="method-name" id="Gdk.Visual.get_best_with_type">get_best_with_type</span><span class="method-parameters">(<a class="link-Enumeration " href="Gdk-2.0.html#Gdk.VisualType">visual_type</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Visual.get_bits_per_rgb">get_bits_per_rgb</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span>, <span class="type-basetype type ">int</span>, <span class="type-basetype type ">int</span>, <span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Visual.get_blue_pixel_details">get_blue_pixel_details</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-2.0.html#Gdk.ByteOrder">Gdk.ByteOrder</a></span><span class="method-name" id="Gdk.Visual.get_byte_order">get_byte_order</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Visual.get_colormap_size">get_colormap_size</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Visual.get_depth">get_depth</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span>, <span class="type-basetype type ">int</span>, <span class="type-basetype type ">int</span>, <span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Visual.get_green_pixel_details">get_green_pixel_details</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span>, <span class="type-basetype type ">int</span>, <span class="type-basetype type ">int</span>, <span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Visual.get_red_pixel_details">get_red_pixel_details</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Screen">Gdk.Screen</a></span><span class="method-name" id="Gdk.Visual.get_screen">get_screen</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Visual">Gdk.Visual</a></span><span class="method-name" id="Gdk.Visual.get_system">get_system</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-2.0.html#Gdk.VisualType">Gdk.VisualType</a></span><span class="method-name" id="Gdk.Visual.get_visual_type">get_visual_type</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gdk-2.0.html#Gdk.Window" class="class-anchor">⚓</a><h2 class="class-normal" id="Gdk.Window">Class: Gdk.Window</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="Gdk-2.0.html#Gdk.Drawable">Gdk.Drawable</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<a class="link-Record type property-type" href="Gdk-2.0.html#Gdk.Cursor">Gdk.Cursor</a><span class="property-name" id="Gdk.Window.cursor">"cursor"</span><span class="property-access">read/write</span></p>
+<p class="property-doc">
+The mouse pointer for a #GdkWindow. See gdk_window_set_cursor() and
+gdk_window_get_cursor() for details.</p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Window">Gdk.Window</a></span><span class="signal-name" id="Gdk.Window.pick-embedded-child">"pick-embedded-child"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gdk-2.0.html#Gdk.Window">window</a>, <span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>)</span><p class="signal-doc">
+The ::pick-embedded-child signal is emitted to find an embedded
+child at the given position.
+
+@x, @y, or %NULL</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gdk.Window.from-embedder">"from-embedder"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gdk-2.0.html#Gdk.Window">window</a>, <span class="type-basetype ">embedder-x</span>, <span class="type-basetype ">embedder-y</span>, <span class="type-basetype ">offscreen-x</span>, <span class="type-basetype ">offscreen-y</span>)</span><p class="signal-doc">
+The ::from-embedder signal is emitted to translate coordinates
+in the embedder of an offscreen window to the offscreen window.
+
+See also #GtkWindow::to-embedder.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gdk.Window.to-embedder">"to-embedder"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gdk-2.0.html#Gdk.Window">window</a>, <span class="type-basetype ">offscreen-x</span>, <span class="type-basetype ">offscreen-y</span>, <span class="type-basetype ">embedder-x</span>, <span class="type-basetype ">embedder-y</span>)</span><p class="signal-doc">
+The ::to-embedder signal is emitted to translate coordinates
+in an offscreen window to its embedder.
+
+See also #GtkWindow::from-embedder.</p>
+</p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.beep">beep</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.begin_move_drag">begin_move_drag</span><span class="method-parameters">(<span class="type-basetype ">button</span>, <span class="type-basetype ">root_x</span>, <span class="type-basetype ">root_y</span>, <span class="type-basetype ">timestamp</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.begin_paint_rect">begin_paint_rect</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Rectangle">rectangle</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.begin_paint_region">begin_paint_region</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Region">region</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.begin_resize_drag">begin_resize_drag</span><span class="method-parameters">(<a class="link-Enumeration " href="Gdk-2.0.html#Gdk.WindowEdge">edge</a>, <span class="type-basetype ">button</span>, <span class="type-basetype ">root_x</span>, <span class="type-basetype ">root_y</span>, <span class="type-basetype ">timestamp</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.clear">clear</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.clear_area">clear_area</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, <span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.clear_area_e">clear_area_e</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, <span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.configure_finished">configure_finished</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span>, <span class="type-basetype type ">float</span>, <span class="type-basetype type ">float</span></span><span class="method-name" id="Gdk.Window.coords_from_parent">coords_from_parent</span><span class="method-parameters">(<span class="type-basetype ">parent_x</span>, <span class="type-basetype ">parent_y</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span>, <span class="type-basetype type ">float</span>, <span class="type-basetype type ">float</span></span><span class="method-name" id="Gdk.Window.coords_to_parent">coords_to_parent</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">cairo.Surface</span></span><span class="method-name" id="Gdk.Window.create_similar_surface">create_similar_surface</span><span class="method-parameters">(content, <span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.deiconify">deiconify</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.destroy">destroy</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.destroy_notify">destroy_notify</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.enable_synchronized_configure">enable_synchronized_configure</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.end_paint">end_paint</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Window.ensure_native">ensure_native</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.flush">flush</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.focus">focus</span><span class="method-parameters">(<span class="type-basetype ">timestamp</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.freeze_toplevel_updates_libgtk_only">freeze_toplevel_updates_libgtk_only</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.freeze_updates">freeze_updates</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.fullscreen">fullscreen</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.geometry_changed">geometry_changed</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Window.get_accept_focus">get_accept_focus</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">cairo.Pattern</span></span><span class="method-name" id="Gdk.Window.get_background_pattern">get_background_pattern</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">GLib.List</span></span><span class="method-name" id="Gdk.Window.get_children">get_children</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Window.get_composited">get_composited</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Gdk-2.0.html#Gdk.Cursor">Gdk.Cursor</a></span><span class="method-name" id="Gdk.Window.get_cursor">get_cursor</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Window.get_decorations">get_decorations</span><span class="method-parameters">(<a class="link-BitField " href="Gdk-2.0.html#Gdk.WMDecoration">decorations</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Window.get_deskrelative_origin">get_deskrelative_origin</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-BitField type " href="Gdk-2.0.html#Gdk.EventMask">Gdk.EventMask</a></span><span class="method-name" id="Gdk.Window.get_events">get_events</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Window.get_focus_on_map">get_focus_on_map</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.get_frame_extents">get_frame_extents</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Rectangle">rect</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.get_geometry">get_geometry</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, <span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>, <span class="type-basetype ">depth</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Window.get_height">get_height</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span>, <a class="link-Class type " href="Gdk-2.0.html#Gdk.Drawable">Gdk.Drawable</a>, <span class="type-basetype type ">int</span>, <span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Window.get_internal_paint_info">get_internal_paint_info</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Window.get_modal_hint">get_modal_hint</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Window.get_origin">get_origin</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Window">Gdk.Window</a>, <span class="type-basetype type ">int</span>, <span class="type-basetype type ">int</span>, <a class="link-BitField type " href="Gdk-2.0.html#Gdk.ModifierType">Gdk.ModifierType</a></span><span class="method-name" id="Gdk.Window.get_pointer">get_pointer</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span>, <span class="type-basetype type ">int</span>, <span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Window.get_position">get_position</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span>, <span class="type-basetype type ">int</span>, <span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Window.get_root_coords">get_root_coords</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.get_root_origin">get_root_origin</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-BitField type " href="Gdk-2.0.html#Gdk.WindowState">Gdk.WindowState</a></span><span class="method-name" id="Gdk.Window.get_state">get_state</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-2.0.html#Gdk.WindowTypeHint">Gdk.WindowTypeHint</a></span><span class="method-name" id="Gdk.Window.get_type_hint">get_type_hint</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span>, <span class="type-basetype type ">gpointer</span></span><span class="method-name" id="Gdk.Window.get_user_data">get_user_data</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Gdk.Window.get_width">get_width</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Gdk-2.0.html#Gdk.WindowType">Gdk.WindowType</a></span><span class="method-name" id="Gdk.Window.get_window_type">get_window_type</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Window.has_native">has_native</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.hide">hide</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.iconify">iconify</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.input_shape_combine_mask">input_shape_combine_mask</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Bitmap">mask</a>, <span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.input_shape_combine_region">input_shape_combine_region</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Region">shape_region</a>, <span class="type-basetype ">offset_x</span>, <span class="type-basetype ">offset_y</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.invalidate_maybe_recurse">invalidate_maybe_recurse</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Region">region</a>, <span class="type-basetype ">child_func</span>, <span class="type-basetype ">user_data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.invalidate_rect">invalidate_rect</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Rectangle">rect</a>, <span class="type-basetype ">invalidate_children</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.invalidate_region">invalidate_region</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Region">region</a>, <span class="type-basetype ">invalidate_children</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Window.is_destroyed">is_destroyed</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Window.is_input_only">is_input_only</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Window.is_shaped">is_shaped</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Window.is_viewable">is_viewable</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Window.is_visible">is_visible</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.lower">lower</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.maximize">maximize</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.merge_child_input_shapes">merge_child_input_shapes</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.merge_child_shapes">merge_child_shapes</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.move">move</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.move_region">move_region</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Region">region</a>, <span class="type-basetype ">dx</span>, <span class="type-basetype ">dy</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.move_resize">move_resize</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, <span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-2.0.html#Gdk.Window">Gdk.Window</a></span><span class="method-name" id="Gdk.Window.new">new</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.WindowAttr">attributes</a>, <span class="type-basetype ">attributes_mask</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">GLib.List</span></span><span class="method-name" id="Gdk.Window.peek_children">peek_children</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.process_updates">process_updates</span><span class="method-parameters">(<span class="type-basetype ">update_children</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.raise">raise</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.redirect_to_drawable">redirect_to_drawable</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Drawable">drawable</a>, <span class="type-basetype ">src_x</span>, <span class="type-basetype ">src_y</span>, <span class="type-basetype ">dest_x</span>, <span class="type-basetype ">dest_y</span>, <span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.register_dnd">register_dnd</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.remove_redirection">remove_redirection</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.reparent">reparent</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Window">new_parent</a>, <span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.resize">resize</span><span class="method-parameters">(<span class="type-basetype ">width</span>, <span class="type-basetype ">height</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.restack">restack</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Window">sibling</a>, <span class="type-basetype ">above</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.scroll">scroll</span><span class="method-parameters">(<span class="type-basetype ">dx</span>, <span class="type-basetype ">dy</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_accept_focus">set_accept_focus</span><span class="method-parameters">(<span class="type-basetype ">accept_focus</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_back_pixmap">set_back_pixmap</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Pixmap">pixmap</a>, <span class="type-basetype ">parent_relative</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_background">set_background</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Color">color</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_child_input_shapes">set_child_input_shapes</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_child_shapes">set_child_shapes</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_composited">set_composited</span><span class="method-parameters">(<span class="type-basetype ">composited</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_cursor">set_cursor</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Cursor">cursor</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_decorations">set_decorations</span><span class="method-parameters">(<a class="link-BitField " href="Gdk-2.0.html#Gdk.WMDecoration">decorations</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_events">set_events</span><span class="method-parameters">(<a class="link-BitField " href="Gdk-2.0.html#Gdk.EventMask">event_mask</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_focus_on_map">set_focus_on_map</span><span class="method-parameters">(<span class="type-basetype ">focus_on_map</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_functions">set_functions</span><span class="method-parameters">(<a class="link-BitField " href="Gdk-2.0.html#Gdk.WMFunction">functions</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_geometry_hints">set_geometry_hints</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Geometry">geometry</a>, <a class="link-BitField " href="Gdk-2.0.html#Gdk.WindowHints">geom_mask</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_group">set_group</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Window">leader</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_hints">set_hints</span><span class="method-parameters">(<span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>, <span class="type-basetype ">min_width</span>, <span class="type-basetype ">min_height</span>, <span class="type-basetype ">max_width</span>, <span class="type-basetype ">max_height</span>, <span class="type-basetype ">flags</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_icon">set_icon</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Window">icon_window</a>, <a class="link-Class " href="Gdk-2.0.html#Gdk.Pixmap">pixmap</a>, <a class="link-Record " href="Gdk-2.0.html#Gdk.Bitmap">mask</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_icon_list">set_icon_list</span><span class="method-parameters">(pixbufs)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_icon_name">set_icon_name</span><span class="method-parameters">(<span class="type-basetype ">name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_keep_above">set_keep_above</span><span class="method-parameters">(<span class="type-basetype ">setting</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_keep_below">set_keep_below</span><span class="method-parameters">(<span class="type-basetype ">setting</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_modal_hint">set_modal_hint</span><span class="method-parameters">(<span class="type-basetype ">modal</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_opacity">set_opacity</span><span class="method-parameters">(<span class="type-basetype ">opacity</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_override_redirect">set_override_redirect</span><span class="method-parameters">(<span class="type-basetype ">override_redirect</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_role">set_role</span><span class="method-parameters">(<span class="type-basetype ">role</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_skip_pager_hint">set_skip_pager_hint</span><span class="method-parameters">(<span class="type-basetype ">skips_pager</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_skip_taskbar_hint">set_skip_taskbar_hint</span><span class="method-parameters">(<span class="type-basetype ">skips_taskbar</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_startup_id">set_startup_id</span><span class="method-parameters">(<span class="type-basetype ">startup_id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gdk.Window.set_static_gravities">set_static_gravities</span><span class="method-parameters">(<span class="type-basetype ">use_static</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_title">set_title</span><span class="method-parameters">(<span class="type-basetype ">title</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_transient_for">set_transient_for</span><span class="method-parameters">(<a class="link-Class " href="Gdk-2.0.html#Gdk.Window">parent</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_type_hint">set_type_hint</span><span class="method-parameters">(<a class="link-Enumeration " href="Gdk-2.0.html#Gdk.WindowTypeHint">hint</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_urgency_hint">set_urgency_hint</span><span class="method-parameters">(<span class="type-basetype ">urgent</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.set_user_data">set_user_data</span><span class="method-parameters">(<span class="type-basetype ">user_data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.shape_combine_mask">shape_combine_mask</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Bitmap">mask</a>, <span class="type-basetype ">x</span>, <span class="type-basetype ">y</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.shape_combine_region">shape_combine_region</span><span class="method-parameters">(<a class="link-Record " href="Gdk-2.0.html#Gdk.Region">shape_region</a>, <span class="type-basetype ">offset_x</span>, <span class="type-basetype ">offset_y</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.show">show</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.show_unraised">show_unraised</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.stick">stick</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.thaw_toplevel_updates_libgtk_only">thaw_toplevel_updates_libgtk_only</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.thaw_updates">thaw_updates</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.unfullscreen">unfullscreen</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.unmaximize">unmaximize</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.unstick">unstick</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gdk.Window.withdraw">withdraw</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.PropMode" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.PropMode">Enum: Gdk.PropMode</h2>
+<div class="enum-members">
+<span class="enum-member">REPLACE</span><span class="enum-value">0</span><span class="enum-member">PREPEND</span><span class="enum-value">1</span><span class="enum-member">APPEND</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.InputCondition" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.InputCondition">Enum: Gdk.InputCondition</h2>
+<div class="enum-members">
+<span class="enum-member">READ</span><span class="enum-value">1</span><span class="enum-member">WRITE</span><span class="enum-value">2</span><span class="enum-member">EXCEPTION</span><span class="enum-value">4</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.FilterReturn" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.FilterReturn">Enum: Gdk.FilterReturn</h2>
+<div class="enum-members">
+<span class="enum-member">CONTINUE</span><span class="enum-value">0</span><span class="enum-member">TRANSLATE</span><span class="enum-value">1</span><span class="enum-member">REMOVE</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.OverlapType" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.OverlapType">Enum: Gdk.OverlapType</h2>
+<div class="enum-members">
+<span class="enum-member">IN</span><span class="enum-value">0</span><span class="enum-member">OUT</span><span class="enum-value">1</span><span class="enum-member">PART</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.SettingAction" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.SettingAction">Enum: Gdk.SettingAction</h2>
+<div class="enum-members">
+<span class="enum-member">NEW</span><span class="enum-value">0</span><span class="enum-member">CHANGED</span><span class="enum-value">1</span><span class="enum-member">DELETED</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.Gravity" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.Gravity">Enum: Gdk.Gravity</h2>
+<div class="enum-members">
+<span class="enum-member">NORTH_WEST</span><span class="enum-value">1</span><span class="enum-member">NORTH</span><span class="enum-value">2</span><span class="enum-member">NORTH_EAST</span><span class="enum-value">3</span><span class="enum-member">WEST</span><span class="enum-value">4</span><span class="enum-member">CENTER</span><span class="enum-value">5</span><span class="enum-member">EAST</span><span class="enum-value">6</span><span class="enum-member">SOUTH_WEST</span><span class="enum-value">7</span><span class="enum-member">SOUTH</span><span class="enum-value">8</span><span class="enum-member">SOUTH_EAST</span><span class="enum-value">9</span><span class="enum-member">STATIC</span><span class="enum-value">10</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.FontType" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.FontType">Enum: Gdk.FontType</h2>
+<div class="enum-members">
+<span class="enum-member">FONT</span><span class="enum-value">0</span><span class="enum-member">FONTSET</span><span class="enum-value">1</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.WindowState" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.WindowState">Enum: Gdk.WindowState</h2>
+<div class="enum-members">
+<span class="enum-member">WITHDRAWN</span><span class="enum-value">1</span><span class="enum-member">ICONIFIED</span><span class="enum-value">2</span><span class="enum-member">MAXIMIZED</span><span class="enum-value">4</span><span class="enum-member">STICKY</span><span class="enum-value">8</span><span class="enum-member">FULLSCREEN</span><span class="enum-value">16</span><span class="enum-member">ABOVE</span><span class="enum-value">32</span><span class="enum-member">BELOW</span><span class="enum-value">64</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.WindowTypeHint" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.WindowTypeHint">Enum: Gdk.WindowTypeHint</h2>
+<div class="enum-members">
+<span class="enum-member">NORMAL</span><span class="enum-value">0</span><span class="enum-member">DIALOG</span><span class="enum-value">1</span><span class="enum-member">MENU</span><span class="enum-value">2</span><span class="enum-member">TOOLBAR</span><span class="enum-value">3</span><span class="enum-member">SPLASHSCREEN</span><span class="enum-value">4</span><span class="enum-member">UTILITY</span><span class="enum-value">5</span><span class="enum-member">DOCK</span><span class="enum-value">6</span><span class="enum-member">DESKTOP</span><span class="enum-value">7</span><span class="enum-member">DROPDOWN_MENU</span><span class="enum-value">8</span><span class="enum-member">POPUP_MENU</span><span class="enum-value">9</span><span class="enum-member">TOOLTIP</span><span class="enum-value">10</span><span class="enum-member">NOTIFICATION</span><span class="enum-value">11</span><span class="enum-member">COMBO</span><span class="enum-value">12</span><span class="enum-member">DND</span><span class="enum-value">13</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.GrabStatus" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.GrabStatus">Enum: Gdk.GrabStatus</h2>
+<div class="enum-members">
+<span class="enum-member">SUCCESS</span><span class="enum-value">0</span><span class="enum-member">ALREADY_GRABBED</span><span class="enum-value">1</span><span class="enum-member">INVALID_TIME</span><span class="enum-value">2</span><span class="enum-member">NOT_VIEWABLE</span><span class="enum-value">3</span><span class="enum-member">FROZEN</span><span class="enum-value">4</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.CapStyle" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.CapStyle">Enum: Gdk.CapStyle</h2>
+<div class="enum-members">
+<span class="enum-member">NOT_LAST</span><span class="enum-value">0</span><span class="enum-member">BUTT</span><span class="enum-value">1</span><span class="enum-member">ROUND</span><span class="enum-value">2</span><span class="enum-member">PROJECTING</span><span class="enum-value">3</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.DragAction" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.DragAction">Enum: Gdk.DragAction</h2>
+<div class="enum-members">
+<span class="enum-member">DEFAULT</span><span class="enum-value">1</span><span class="enum-member">COPY</span><span class="enum-value">2</span><span class="enum-member">MOVE</span><span class="enum-value">4</span><span class="enum-member">LINK</span><span class="enum-value">8</span><span class="enum-member">PRIVATE</span><span class="enum-value">16</span><span class="enum-member">ASK</span><span class="enum-value">32</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.LineStyle" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.LineStyle">Enum: Gdk.LineStyle</h2>
+<div class="enum-members">
+<span class="enum-member">SOLID</span><span class="enum-value">0</span><span class="enum-member">ON_OFF_DASH</span><span class="enum-value">1</span><span class="enum-member">DOUBLE_DASH</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.WMFunction" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.WMFunction">Enum: Gdk.WMFunction</h2>
+<div class="enum-members">
+<span class="enum-member">ALL</span><span class="enum-value">1</span><span class="enum-member">RESIZE</span><span class="enum-value">2</span><span class="enum-member">MOVE</span><span class="enum-value">4</span><span class="enum-member">MINIMIZE</span><span class="enum-value">8</span><span class="enum-member">MAXIMIZE</span><span class="enum-value">16</span><span class="enum-member">CLOSE</span><span class="enum-value">32</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.Function" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.Function">Enum: Gdk.Function</h2>
+<div class="enum-members">
+<span class="enum-member">COPY</span><span class="enum-value">0</span><span class="enum-member">INVERT</span><span class="enum-value">1</span><span class="enum-member">XOR</span><span class="enum-value">2</span><span class="enum-member">CLEAR</span><span class="enum-value">3</span><span class="enum-member">AND</span><span class="enum-value">4</span><span class="enum-member">AND_REVERSE</span><span class="enum-value">5</span><span class="enum-member">AND_INVERT</span><span class="enum-value">6</span><span class="enum-member">NOOP</span><span class="enum-value">7</span><span class="enum-member">OR</span><span class="enum-value">8</span><span class="enum-member">EQUIV</span><span class="enum-value">9</span><span class="enum-member">OR_REVERSE</span><span class="enum-value">10</span><span class="enum-member">COPY_INVERT</span><span class="enum-value">11</span><span class="enum-member">OR_INVERT</span><span class="enum-value">12</span><span class="enum-member">NAND</span><span class="enum-value">13</span><span class="enum-member">NOR</span><span class="enum-value">14</span><span class="enum-member">SET</span><span class="enum-value">15</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.EventType" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.EventType">Enum: Gdk.EventType</h2>
+<div class="enum-members">
+<span class="enum-member">NOTHING</span><span class="enum-value">-1</span><span class="enum-member">DELETE</span><span class="enum-value">0</span><span class="enum-member">DESTROY</span><span class="enum-value">1</span><span class="enum-member">EXPOSE</span><span class="enum-value">2</span><span class="enum-member">MOTION_NOTIFY</span><span class="enum-value">3</span><span class="enum-member">BUTTON_PRESS</span><span class="enum-value">4</span><span class="enum-member">2BUTTON_PRESS</span><span class="enum-value">5</span><span class="enum-member">3BUTTON_PRESS</span><span class="enum-value">6</span><span class="enum-member">BUTTON_RELEASE</span><span class="enum-value">7</span><span class="enum-member">KEY_PRESS</span><span class="enum-value">8</span><span class="enum-member">KEY_RELEASE</span><span class="enum-value">9</span><span class="enum-member">ENTER_NOTIFY</span><span class="enum-value">10</span><span class="enum-member">LEAVE_NOTIFY</span><span class="enum-value">11</span><span class="enum-member">FOCUS_CHANGE</span><span class="enum-value">12</span><span class="enum-member">CONFIGURE</span><span class="enum-value">13</span><span class="enum-member">MAP</span><span class="enum-value">14</span><span class="enum-member">UNMAP</span><span class="enum-value">15</span><span class="enum-member">PROPERTY_NOTIFY</span><span class="enum-value">16</span><span class="enum-member">SELECTION_CLEAR</span><span class="enum-value">17</span><span class="enum-member">SELECTION_REQUEST</span><span class="enum-value">18</span><span class="enum-member">SELECTION_NOTIFY</span><span class="enum-value">19</span><span class="enum-member">PROXIMITY_IN</span><span class="enum-value">20</span><span class="enum-member">PROXIMITY_OUT</span><span class="enum-value">21</span><span class="enum-member">DRAG_ENTER</span><span class="enum-value">22</span><span class="enum-member">DRAG_LEAVE</span><span class="enum-value">23</span><span class="enum-member">DRAG_MOTION</span><span class="enum-value">24</span><span class="enum-member">DRAG_STATUS</span><span class="enum-value">25</span><span class="enum-member">DROP_START</span><span class="enum-value">26</span><span class="enum-member">DROP_FINISHED</span><span class="enum-value">27</span><span class="enum-member">CLIENT_EVENT</span><span class="enum-value">28</span><span class="enum-member">VISIBILITY_NOTIFY</span><span class="enum-value">29</span><span class="enum-member">NO_EXPOSE</span><span class="enum-value">30</span><span class="enum-member">SCROLL</span><span class="enum-value">31</span><span class="enum-member">WINDOW_STATE</span><span class="enum-value">32</span><span class="enum-member">SETTING</span><span class="enum-value">33</span><span class="enum-member">OWNER_CHANGE</span><span class="enum-value">34</span><span class="enum-member">GRAB_BROKEN</span><span class="enum-value">35</span><span class="enum-member">DAMAGE</span><span class="enum-value">36</span><span class="enum-member">EVENT_LAST</span><span class="enum-value">37</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.InputSource" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.InputSource">Enum: Gdk.InputSource</h2>
+<div class="enum-members">
+<span class="enum-member">MOUSE</span><span class="enum-value">0</span><span class="enum-member">PEN</span><span class="enum-value">1</span><span class="enum-member">ERASER</span><span class="enum-value">2</span><span class="enum-member">CURSOR</span><span class="enum-value">3</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.WindowEdge" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.WindowEdge">Enum: Gdk.WindowEdge</h2>
+<div class="enum-members">
+<span class="enum-member">NORTH_WEST</span><span class="enum-value">0</span><span class="enum-member">NORTH</span><span class="enum-value">1</span><span class="enum-member">NORTH_EAST</span><span class="enum-value">2</span><span class="enum-member">WEST</span><span class="enum-value">3</span><span class="enum-member">EAST</span><span class="enum-value">4</span><span class="enum-member">SOUTH_WEST</span><span class="enum-value">5</span><span class="enum-member">SOUTH</span><span class="enum-value">6</span><span class="enum-member">SOUTH_EAST</span><span class="enum-value">7</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.PropertyState" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.PropertyState">Enum: Gdk.PropertyState</h2>
+<div class="enum-members">
+<span class="enum-member">NEW_VALUE</span><span class="enum-value">0</span><span class="enum-member">DELETE</span><span class="enum-value">1</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.InputMode" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.InputMode">Enum: Gdk.InputMode</h2>
+<div class="enum-members">
+<span class="enum-member">DISABLED</span><span class="enum-value">0</span><span class="enum-member">SCREEN</span><span class="enum-value">1</span><span class="enum-member">WINDOW</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.WindowClass" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.WindowClass">Enum: Gdk.WindowClass</h2>
+<div class="enum-members">
+<span class="enum-member">OUTPUT</span><span class="enum-value">0</span><span class="enum-member">ONLY</span><span class="enum-value">1</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.SubwindowMode" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.SubwindowMode">Enum: Gdk.SubwindowMode</h2>
+<div class="enum-members">
+<span class="enum-member">CLIP_BY_CHILDREN</span><span class="enum-value">0</span><span class="enum-member">INCLUDE_INFERIORS</span><span class="enum-value">1</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.RgbDither" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.RgbDither">Enum: Gdk.RgbDither</h2>
+<div class="enum-members">
+<span class="enum-member">NONE</span><span class="enum-value">0</span><span class="enum-member">NORMAL</span><span class="enum-value">1</span><span class="enum-member">MAX</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.AxisUse" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.AxisUse">Enum: Gdk.AxisUse</h2>
+<div class="enum-members">
+<span class="enum-member">IGNORE</span><span class="enum-value">0</span><span class="enum-member">X</span><span class="enum-value">1</span><span class="enum-member">Y</span><span class="enum-value">2</span><span class="enum-member">PRESSURE</span><span class="enum-value">3</span><span class="enum-member">XTILT</span><span class="enum-value">4</span><span class="enum-member">YTILT</span><span class="enum-value">5</span><span class="enum-member">WHEEL</span><span class="enum-value">6</span><span class="enum-member">LAST</span><span class="enum-value">7</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.Status" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.Status">Enum: Gdk.Status</h2>
+<div class="enum-members">
+<span class="enum-member">OK</span><span class="enum-value">0</span><span class="enum-member">ERROR</span><span class="enum-value">-1</span><span class="enum-member">ERROR_PARAM</span><span class="enum-value">-2</span><span class="enum-member">ERROR_FILE</span><span class="enum-value">-3</span><span class="enum-member">ERROR_MEM</span><span class="enum-value">-4</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.FillRule" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.FillRule">Enum: Gdk.FillRule</h2>
+<div class="enum-members">
+<span class="enum-member">EVEN_ODD_RULE</span><span class="enum-value">0</span><span class="enum-member">WINDING_RULE</span><span class="enum-value">1</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.WindowHints" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.WindowHints">Enum: Gdk.WindowHints</h2>
+<div class="enum-members">
+<span class="enum-member">POS</span><span class="enum-value">1</span><span class="enum-member">MIN_SIZE</span><span class="enum-value">2</span><span class="enum-member">MAX_SIZE</span><span class="enum-value">4</span><span class="enum-member">BASE_SIZE</span><span class="enum-value">8</span><span class="enum-member">ASPECT</span><span class="enum-value">16</span><span class="enum-member">RESIZE_INC</span><span class="enum-value">32</span><span class="enum-member">WIN_GRAVITY</span><span class="enum-value">64</span><span class="enum-member">USER_POS</span><span class="enum-value">128</span><span class="enum-member">USER_SIZE</span><span class="enum-value">256</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.JoinStyle" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.JoinStyle">Enum: Gdk.JoinStyle</h2>
+<div class="enum-members">
+<span class="enum-member">MITER</span><span class="enum-value">0</span><span class="enum-member">ROUND</span><span class="enum-value">1</span><span class="enum-member">BEVEL</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.NotifyType" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.NotifyType">Enum: Gdk.NotifyType</h2>
+<div class="enum-members">
+<span class="enum-member">ANCESTOR</span><span class="enum-value">0</span><span class="enum-member">VIRTUAL</span><span class="enum-value">1</span><span class="enum-member">INFERIOR</span><span class="enum-value">2</span><span class="enum-member">NONLINEAR</span><span class="enum-value">3</span><span class="enum-member">NONLINEAR_VIRTUAL</span><span class="enum-value">4</span><span class="enum-member">UNKNOWN</span><span class="enum-value">5</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.WMDecoration" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.WMDecoration">Enum: Gdk.WMDecoration</h2>
+<div class="enum-members">
+<span class="enum-member">ALL</span><span class="enum-value">1</span><span class="enum-member">BORDER</span><span class="enum-value">2</span><span class="enum-member">RESIZEH</span><span class="enum-value">4</span><span class="enum-member">TITLE</span><span class="enum-value">8</span><span class="enum-member">MENU</span><span class="enum-value">16</span><span class="enum-member">MINIMIZE</span><span class="enum-value">32</span><span class="enum-member">MAXIMIZE</span><span class="enum-value">64</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.VisualType" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.VisualType">Enum: Gdk.VisualType</h2>
+<div class="enum-members">
+<span class="enum-member">STATIC_GRAY</span><span class="enum-value">0</span><span class="enum-member">GRAYSCALE</span><span class="enum-value">1</span><span class="enum-member">STATIC_COLOR</span><span class="enum-value">2</span><span class="enum-member">PSEUDO_COLOR</span><span class="enum-value">3</span><span class="enum-member">TRUE_COLOR</span><span class="enum-value">4</span><span class="enum-member">DIRECT_COLOR</span><span class="enum-value">5</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.GCValuesMask" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.GCValuesMask">Enum: Gdk.GCValuesMask</h2>
+<div class="enum-members">
+<span class="enum-member">FOREGROUND</span><span class="enum-value">1</span><span class="enum-member">BACKGROUND</span><span class="enum-value">2</span><span class="enum-member">FONT</span><span class="enum-value">4</span><span class="enum-member">FUNCTION</span><span class="enum-value">8</span><span class="enum-member">FILL</span><span class="enum-value">16</span><span class="enum-member">TILE</span><span class="enum-value">32</span><span class="enum-member">STIPPLE</span><span class="enum-value">64</span><span class="enum-member">CLIP_MASK</span><span class="enum-value">128</span><span class="enum-member">SUBWINDOW</span><span class="enum-value">256</span><span class="enum-member">TS_X_ORIGIN</span><span class="enum-value">512</span><span class="enum-member">TS_Y_ORIGIN</span><span class="enum-value">1024</span><span class="enum-member">CLIP_X_ORIGIN</span><span class="enum-value">2048</span><span class="enum-member">CLIP_Y_ORIGIN</span><span class="enum-value">4096</span><span class="enum-member">EXPOSURES</span><span class="enum-value">8192</span><span class="enum-member">LINE_WIDTH</span><span class="enum-value">16384</span><span class="enum-member">LINE_STYLE</span><span class="enum-value">32768</span><span class="enum-member">CAP_STYLE</span><span class="enum-value">65536</span><span class="enum-member">JOIN_STYLE</span><span class="enum-value">131072</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.ScrollDirection" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.ScrollDirection">Enum: Gdk.ScrollDirection</h2>
+<div class="enum-members">
+<span class="enum-member">UP</span><span class="enum-value">0</span><span class="enum-member">DOWN</span><span class="enum-value">1</span><span class="enum-member">LEFT</span><span class="enum-value">2</span><span class="enum-member">RIGHT</span><span class="enum-value">3</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.ImageType" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.ImageType">Enum: Gdk.ImageType</h2>
+<div class="enum-members">
+<span class="enum-member">NORMAL</span><span class="enum-value">0</span><span class="enum-member">SHARED</span><span class="enum-value">1</span><span class="enum-member">FASTEST</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.ByteOrder" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.ByteOrder">Enum: Gdk.ByteOrder</h2>
+<div class="enum-members">
+<span class="enum-member">LSB_FIRST</span><span class="enum-value">0</span><span class="enum-member">MSB_FIRST</span><span class="enum-value">1</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.WindowAttributesType" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.WindowAttributesType">Enum: Gdk.WindowAttributesType</h2>
+<div class="enum-members">
+<span class="enum-member">TITLE</span><span class="enum-value">2</span><span class="enum-member">X</span><span class="enum-value">4</span><span class="enum-member">Y</span><span class="enum-value">8</span><span class="enum-member">CURSOR</span><span class="enum-value">16</span><span class="enum-member">COLORMAP</span><span class="enum-value">32</span><span class="enum-member">VISUAL</span><span class="enum-value">64</span><span class="enum-member">WMCLASS</span><span class="enum-value">128</span><span class="enum-member">NOREDIR</span><span class="enum-value">256</span><span class="enum-member">TYPE_HINT</span><span class="enum-value">512</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.VisibilityState" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.VisibilityState">Enum: Gdk.VisibilityState</h2>
+<div class="enum-members">
+<span class="enum-member">UNOBSCURED</span><span class="enum-value">0</span><span class="enum-member">PARTIAL</span><span class="enum-value">1</span><span class="enum-member">FULLY_OBSCURED</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.EventMask" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.EventMask">Enum: Gdk.EventMask</h2>
+<div class="enum-members">
+<span class="enum-member">EXPOSURE_MASK</span><span class="enum-value">2</span><span class="enum-member">POINTER_MOTION_MASK</span><span class="enum-value">4</span><span class="enum-member">POINTER_MOTION_HINT_MASK</span><span class="enum-value">8</span><span class="enum-member">BUTTON_MOTION_MASK</span><span class="enum-value">16</span><span class="enum-member">BUTTON1_MOTION_MASK</span><span class="enum-value">32</span><span class="enum-member">BUTTON2_MOTION_MASK</span><span class="enum-value">64</span><span class="enum-member">BUTTON3_MOTION_MASK</span><span class="enum-value">128</span><span class="enum-member">BUTTON_PRESS_MASK</span><span class="enum-value">256</span><span class="enum-member">BUTTON_RELEASE_MASK</span><span class="enum-value">512</span><span class="enum-member">KEY_PRESS_MASK</span><span class="enum-value">1024</span><span class="enum-member">KEY_RELEASE_MASK</span><span class="enum-value">2048</span><span class="enum-member">ENTER_NOTIFY_MASK</span><span class="enum-value">4096</span><span class="enum-member">LEAVE_NOTIFY_MASK</span><span class="enum-value">8192</span><span class="enum-member">FOCUS_CHANGE_MASK</span><span class="enum-value">16384</span><span class="enum-member">STRUCTURE_MASK</span><span class="enum-value">32768</span><span class="enum-member">PROPERTY_CHANGE_MASK</span><span class="enum-value">65536</span><span class="enum-member">VISIBILITY_NOTIFY_MASK</span><span class="enum-value">131072</span><span class="enum-member">PROXIMITY_IN_MASK</span><span class="enum-value">262144</span><span class="enum-member">PROXIMITY_OUT_MASK</span><span class="enum-value">524288</span><span class="enum-member">SUBSTRUCTURE_MASK</span><span class="enum-value">1048576</span><span class="enum-member">SCROLL_MASK</span><span class="enum-value">2097152</span><span class="enum-member">ALL_EVENTS_MASK</span><span class="enum-value">4194302</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.DragProtocol" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.DragProtocol">Enum: Gdk.DragProtocol</h2>
+<div class="enum-members">
+<span class="enum-member">MOTIF</span><span class="enum-value">0</span><span class="enum-member">XDND</span><span class="enum-value">1</span><span class="enum-member">ROOTWIN</span><span class="enum-value">2</span><span class="enum-member">NONE</span><span class="enum-value">3</span><span class="enum-member">WIN32_DROPFILES</span><span class="enum-value">4</span><span class="enum-member">OLE2</span><span class="enum-value">5</span><span class="enum-member">LOCAL</span><span class="enum-value">6</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.CursorType" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.CursorType">Enum: Gdk.CursorType</h2>
+<div class="enum-members">
+<span class="enum-member">X_CURSOR</span><span class="enum-value">0</span><span class="enum-member">ARROW</span><span class="enum-value">2</span><span class="enum-member">BASED_ARROW_DOWN</span><span class="enum-value">4</span><span class="enum-member">BASED_ARROW_UP</span><span class="enum-value">6</span><span class="enum-member">BOAT</span><span class="enum-value">8</span><span class="enum-member">BOGOSITY</span><span class="enum-value">10</span><span class="enum-member">BOTTOM_LEFT_CORNER</span><span class="enum-value">12</span><span class="enum-member">BOTTOM_RIGHT_CORNER</span><span class="enum-value">14</span><span class="enum-member">BOTTOM_SIDE</span><span class="enum-value">16</span><span class="enum-member">BOTTOM_TEE</span><span class="enum-value">18</span><span class="enum-member">BOX_SPIRAL</span><span class="enum-value">20</span><span class="enum-member">CENTER_PTR</span><span class="enum-value">22</span><span class="enum-member">CIRCLE</span><span class="enum-value">24</span><span class="enum-member">CLOCK</span><span class="enum-value">26</span><span class="enum-member">COFFEE_MUG</span><span class="enum-value">28</span><span class="enum-member">CROSS</span><span class="enum-value">30</span><span class="enum-member">CROSS_REVERSE</span><span class="enum-value">32</span><span class="enum-member">CROSSHAIR</span><span class="enum-value">34</span><span class="enum-member">DIAMOND_CROSS</span><span class="enum-value">36</span><span class="enum-member">DOT</span><span class="enum-value">38</span><span class="enum-member">DOTBOX</span><span class="enum-value">40</span><span class="enum-member">DOUBLE_ARROW</span><span class="enum-value">42</span><span class="enum-member">DRAFT_LARGE</span><span class="enum-value">44</span><span class="enum-member">DRAFT_SMALL</span><span class="enum-value">46</span><span class="enum-member">DRAPED_BOX</span><span class="enum-value">48</span><span class="enum-member">EXCHANGE</span><span class="enum-value">50</span><span class="enum-member">FLEUR</span><span class="enum-value">52</span><span class="enum-member">GOBBLER</span><span class="enum-value">54</span><span class="enum-member">GUMBY</span><span class="enum-value">56</span><span class="enum-member">HAND1</span><span class="enum-value">58</span><span class="enum-member">HAND2</span><span class="enum-value">60</span><span class="enum-member">HEART</span><span class="enum-value">62</span><span class="enum-member">ICON</span><span class="enum-value">64</span><span class="enum-member">IRON_CROSS</span><span class="enum-value">66</span><span class="enum-member">LEFT_PTR</span><span class="enum-value">68</span><span class="enum-member">LEFT_SIDE</span><span class="enum-value">70</span><span class="enum-member">LEFT_TEE</span><span class="enum-value">72</span><span class="enum-member">LEFTBUTTON</span><span class="enum-value">74</span><span class="enum-member">LL_ANGLE</span><span class="enum-value">76</span><span class="enum-member">LR_ANGLE</span><span class="enum-value">78</span><span class="enum-member">MAN</span><span class="enum-value">80</span><span class="enum-member">MIDDLEBUTTON</span><span class="enum-value">82</span><span class="enum-member">MOUSE</span><span class="enum-value">84</span><span class="enum-member">PENCIL</span><span class="enum-value">86</span><span class="enum-member">PIRATE</span><span class="enum-value">88</span><span class="enum-member">PLUS</span><span class="enum-value">90</span><span class="enum-member">QUESTION_ARROW</span><span class="enum-value">92</span><span class="enum-member">RIGHT_PTR</span><span class="enum-value">94</span><span class="enum-member">RIGHT_SIDE</span><span class="enum-value">96</span><span class="enum-member">RIGHT_TEE</span><span class="enum-value">98</span><span class="enum-member">RIGHTBUTTON</span><span class="enum-value">100</span><span class="enum-member">RTL_LOGO</span><span class="enum-value">102</span><span class="enum-member">SAILBOAT</span><span class="enum-value">104</span><span class="enum-member">SB_DOWN_ARROW</span><span class="enum-value">106</span><span class="enum-member">SB_H_DOUBLE_ARROW</span><span class="enum-value">108</span><span class="enum-member">SB_LEFT_ARROW</span><span class="enum-value">110</span><span class="enum-member">SB_RIGHT_ARROW</span><span class="enum-value">112</span><span class="enum-member">SB_UP_ARROW</span><span class="enum-value">114</span><span class="enum-member">SB_V_DOUBLE_ARROW</span><span class="enum-value">116</span><span class="enum-member">SHUTTLE</span><span class="enum-value">118</span><span class="enum-member">SIZING</span><span class="enum-value">120</span><span class="enum-member">SPIDER</span><span class="enum-value">122</span><span class="enum-member">SPRAYCAN</span><span class="enum-value">124</span><span class="enum-member">STAR</span><span class="enum-value">126</span><span class="enum-member">TARGET</span><span class="enum-value">128</span><span class="enum-member">TCROSS</span><span class="enum-value">130</span><span class="enum-member">TOP_LEFT_ARROW</span><span class="enum-value">132</span><span class="enum-member">TOP_LEFT_CORNER</span><span class="enum-value">134</span><span class="enum-member">TOP_RIGHT_CORNER</span><span class="enum-value">136</span><span class="enum-member">TOP_SIDE</span><span class="enum-value">138</span><span class="enum-member">TOP_TEE</span><span class="enum-value">140</span><span class="enum-member">TREK</span><span class="enum-value">142</span><span class="enum-member">UL_ANGLE</span><span class="enum-value">144</span><span class="enum-member">UMBRELLA</span><span class="enum-value">146</span><span class="enum-member">UR_ANGLE</span><span class="enum-value">148</span><span class="enum-member">WATCH</span><span class="enum-value">150</span><span class="enum-member">XTERM</span><span class="enum-value">152</span><span class="enum-member">LAST_CURSOR</span><span class="enum-value">153</span><span class="enum-member">BLANK_CURSOR</span><span class="enum-value">-2</span><span class="enum-member">CURSOR_IS_PIXMAP</span><span class="enum-value">-1</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.CrossingMode" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.CrossingMode">Enum: Gdk.CrossingMode</h2>
+<div class="enum-members">
+<span class="enum-member">NORMAL</span><span class="enum-value">0</span><span class="enum-member">GRAB</span><span class="enum-value">1</span><span class="enum-member">UNGRAB</span><span class="enum-value">2</span><span class="enum-member">GTK_GRAB</span><span class="enum-value">3</span><span class="enum-member">GTK_UNGRAB</span><span class="enum-value">4</span><span class="enum-member">STATE_CHANGED</span><span class="enum-value">5</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.ExtensionMode" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.ExtensionMode">Enum: Gdk.ExtensionMode</h2>
+<div class="enum-members">
+<span class="enum-member">NONE</span><span class="enum-value">0</span><span class="enum-member">ALL</span><span class="enum-value">1</span><span class="enum-member">CURSOR</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.WindowType" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.WindowType">Enum: Gdk.WindowType</h2>
+<div class="enum-members">
+<span class="enum-member">ROOT</span><span class="enum-value">0</span><span class="enum-member">TOPLEVEL</span><span class="enum-value">1</span><span class="enum-member">CHILD</span><span class="enum-value">2</span><span class="enum-member">DIALOG</span><span class="enum-value">3</span><span class="enum-member">TEMP</span><span class="enum-value">4</span><span class="enum-member">FOREIGN</span><span class="enum-value">5</span><span class="enum-member">OFFSCREEN</span><span class="enum-value">6</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.ModifierType" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.ModifierType">Enum: Gdk.ModifierType</h2>
+<div class="enum-members">
+<span class="enum-member">SHIFT_MASK</span><span class="enum-value">1</span><span class="enum-member">LOCK_MASK</span><span class="enum-value">2</span><span class="enum-member">CONTROL_MASK</span><span class="enum-value">4</span><span class="enum-member">MOD1_MASK</span><span class="enum-value">8</span><span class="enum-member">MOD2_MASK</span><span class="enum-value">16</span><span class="enum-member">MOD3_MASK</span><span class="enum-value">32</span><span class="enum-member">MOD4_MASK</span><span class="enum-value">64</span><span class="enum-member">MOD5_MASK</span><span class="enum-value">128</span><span class="enum-member">BUTTON1_MASK</span><span class="enum-value">256</span><span class="enum-member">BUTTON2_MASK</span><span class="enum-value">512</span><span class="enum-member">BUTTON3_MASK</span><span class="enum-value">1024</span><span class="enum-member">BUTTON4_MASK</span><span class="enum-value">2048</span><span class="enum-member">BUTTON5_MASK</span><span class="enum-value">4096</span><span class="enum-member">SUPER_MASK</span><span class="enum-value">67108864</span><span class="enum-member">HYPER_MASK</span><span class="enum-value">134217728</span><span class="enum-member">META_MASK</span><span class="enum-value">268435456</span><span class="enum-member">RELEASE_MASK</span><span class="enum-value">1073741824</span><span class="enum-member">MODIFIER_MASK</span><span class="enum-value">1543512063</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.OwnerChange" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.OwnerChange">Enum: Gdk.OwnerChange</h2>
+<div class="enum-members">
+<span class="enum-member">NEW_OWNER</span><span class="enum-value">0</span><span class="enum-member">DESTROY</span><span class="enum-value">1</span><span class="enum-member">CLOSE</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="Gdk-2.0.html#Gdk.Fill" class="class-anchor">⚓</a><h2 class="class-enum" id="Gdk.Fill">Enum: Gdk.Fill</h2>
+<div class="enum-members">
+<span class="enum-member">SOLID</span><span class="enum-value">0</span><span class="enum-member">TILED</span><span class="enum-value">1</span><span class="enum-member">STIPPLED</span><span class="enum-value">2</span><span class="enum-member">OPAQUE_STIPPLED</span><span class="enum-value">3</span></div>
+</div>
+</body>
+</html>
+

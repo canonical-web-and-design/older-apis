@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Advanced Autopilot Features &mdash; Autopilot 1.4+14.04.20140213-0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/otto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/centertext.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.4+14.04.20140213-0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="Autopilot 1.4+14.04.20140213-0 documentation" href="../index.html" />
+    <link rel="up" title="Autopilot Tutorial" href="tutorial.html" />
+    <link rel="next" title="Writing Good Autopilot Tests" href="good_tests.html" />
+    <link rel="prev" title="Writing Your First Test" href="getting_started.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="good_tests.html" title="Writing Good Autopilot Tests"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="getting_started.html" title="Writing Your First Test"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Autopilot 1.4+14.04.20140213-0 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" accesskey="U">Autopilot Tutorial</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="advanced-autopilot-features">
+<h1>Advanced Autopilot Features<a class="headerlink" href="advanced_autopilot.html#advanced-autopilot-features" title="Permalink to this headline">¶</a></h1>
+<p>This document covers advanced features in autopilot.</p>
+<div class="section" id="cleaning-up">
+<span id="id1"></span><h2>Cleaning Up<a class="headerlink" href="advanced_autopilot.html#cleaning-up" title="Permalink to this headline">¶</a></h2>
+<p>It is vitally important that every test you run leaves the system in exactly the same state as it found it. This means that:</p>
+<ul class="simple">
+<li>Any files written to disk need to be removed.</li>
+<li>Any environment variables set during the test run need to be un-set.</li>
+<li>Any applications opened during the test run need to be closed again.</li>
+<li>Any <a class="reference internal" href="../api/input.html#autopilot.input.Keyboard" title="autopilot.input.Keyboard"><tt class="xref py py-class docutils literal"><span class="pre">Keyboard</span></tt></a> keys pressed during the test need to be released again.</li>
+</ul>
+<p>All of the methods on <a class="reference internal" href="../api/testcase.html#autopilot.testcase.AutopilotTestCase" title="autopilot.testcase.AutopilotTestCase"><tt class="xref py py-class docutils literal"><span class="pre">AutopilotTestCase</span></tt></a> that alter the system state will automatically revert those changes at the end of the test. Similarly, the various input devices will release any buttons or keys that were pressed during the test. However, for all other changes, it is the responsibility of the test author to clean up those changes.</p>
+<p>For example, a test might require that a file with certain content be written to disk at the start of the test. The test case might look something like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">MyTests</span><span class="p">(</span><span class="n">AutopilotTestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">make_data_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">open</span><span class="p">(</span><span class="s">&#39;/tmp/datafile&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;Some data...&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_application_opens_data_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Our application must be able to open a data file from disk.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">make_data_file</span><span class="p">()</span>
+        <span class="c"># rest of the test code goes here</span>
+</pre></div>
+</div>
+<p>However this will leave the <tt class="file docutils literal"><span class="pre">/tmp/datafile</span></tt> on disk after the test has finished. To combat this, use the <tt class="xref py py-meth docutils literal"><span class="pre">addCleanup</span></tt> method. The arguments to <tt class="xref py py-meth docutils literal"><span class="pre">addCleanup</span></tt> are a callable, and then zero or more positional or keyword arguments. The Callable will be called with the positional and keyword arguments after the test has ended.</p>
+<p>Cleanup actions are called in the reverse order in which they are added, and are called regardless of whether the test passed, failed, or raised an uncaught exception. To fix the above test, we might write something similar to:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">os</span>
+
+
+<span class="k">class</span> <span class="nc">MyTests</span><span class="p">(</span><span class="n">AutopilotTestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">make_data_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">open</span><span class="p">(</span><span class="s">&#39;/tmp/datafile&#39;</span><span class="p">,</span> <span class="s">&#39;w&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s">&quot;Some data...&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">addCleanup</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">,</span> <span class="s">&#39;/tmp/datafile&#39;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">test_application_opens_data_file</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Our application must be able to open a data file from disk.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">make_data_file</span><span class="p">()</span>
+        <span class="c"># rest of the test code goes here</span>
+</pre></div>
+</div>
+<p>Note that by having the code to generate the <tt class="docutils literal"><span class="pre">/tmp/datafile</span></tt> file on disk in a separate method, the test itself can ignore the fact that these resources need to be cleaned up. This makes the tests cleaner and easier to read.</p>
+</div>
+<div class="section" id="test-scenarios">
+<h2>Test Scenarios<a class="headerlink" href="advanced_autopilot.html#test-scenarios" title="Permalink to this headline">¶</a></h2>
+<p>Occasionally test authors will find themselves writing multiple tests that differ in one or two subtle ways. For example, imagine a hypothetical test case that tests a dictionary application. The author wants to test that certain words return no results. Without using test scenarios, there are two basic approaches to this problem. The first is to create many test cases, one for each specific scenario (<em>don&#8217;t do this</em>):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">DictionaryResultsTests</span><span class="p">(</span><span class="n">AutopilotTestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">test_empty_string_returns_no_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dictionary_app</span><span class="o">.</span><span class="n">enter_search_term</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertThat</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dictionary_app</span><span class="o">.</span><span class="n">results</span><span class="p">),</span> <span class="n">Equals</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">test_whitespace_string_returns_no_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dictionary_app</span><span class="o">.</span><span class="n">enter_search_term</span><span class="p">(</span><span class="s">&quot; </span><span class="se">\t</span><span class="s"> &quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertThat</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dictionary_app</span><span class="o">.</span><span class="n">results</span><span class="p">),</span> <span class="n">Equals</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">test_punctuation_string_returns_no_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dictionary_app</span><span class="o">.</span><span class="n">enter_search_term</span><span class="p">(</span><span class="s">&quot;.-?&lt;&gt;{}[]&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertThat</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dictionary_app</span><span class="o">.</span><span class="n">results</span><span class="p">),</span> <span class="n">Equals</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">test_garbage_string_returns_no_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dictionary_app</span><span class="o">.</span><span class="n">enter_search_term</span><span class="p">(</span><span class="s">&quot;ljdzgfhdsgjfhdgjh&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertThat</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dictionary_app</span><span class="o">.</span><span class="n">results</span><span class="p">),</span> <span class="n">Equals</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The main problem here is that there&#8217;s a lot of typing in order to change exactly one thing (and this hypothetical test is deliberately short, to ease clarity. Imagine a 100 line test case!). Another approach is to make the entire thing one large test (<em>don&#8217;t do this either</em>):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">DictionaryResultsTests</span><span class="p">(</span><span class="n">AutopilotTestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">test_bad_strings_returns_no_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">bad_strings</span> <span class="o">=</span> <span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">,</span>
+            <span class="s">&quot; </span><span class="se">\t</span><span class="s"> &quot;</span><span class="p">,</span>
+            <span class="s">&quot;.-?&lt;&gt;{}[]&quot;</span><span class="p">,</span>
+            <span class="s">&quot;ljdzgfhdsgjfhdgjh&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">for</span> <span class="nb">input</span> <span class="ow">in</span> <span class="n">bad_strings</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dictionary_app</span><span class="o">.</span><span class="n">enter_search_term</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">assertThat</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dictionary_app</span><span class="o">.</span><span class="n">results</span><span class="p">),</span> <span class="n">Equals</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This approach makes it easier to add new input strings, but what happens when just one of the input strings stops working? It becomes very hard to find out which input string is broken, and the first string that breaks will prevent the rest of the test from running, since tests stop running when the first assertion fails.</p>
+<p>The solution is to use test scenarios. A scenario is a class attribute that specifies one or more scenarios to run on each of the tests. This is best demonstrated with an example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">DictionaryResultsTests</span><span class="p">(</span><span class="n">AutopilotTestCase</span><span class="p">):</span>
+
+    <span class="n">scenarios</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">(</span><span class="s">&#39;empty string&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;input&#39;</span><span class="p">:</span> <span class="s">&quot;&quot;</span><span class="p">}),</span>
+        <span class="p">(</span><span class="s">&#39;whitespace&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;input&#39;</span><span class="p">:</span> <span class="s">&quot; </span><span class="se">\t</span><span class="s"> &quot;</span><span class="p">}),</span>
+        <span class="p">(</span><span class="s">&#39;punctuation&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;input&#39;</span><span class="p">:</span> <span class="s">&quot;.-?&lt;&gt;{}[]&quot;</span><span class="p">}),</span>
+        <span class="p">(</span><span class="s">&#39;garbage&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s">&#39;input&#39;</span><span class="p">:</span> <span class="s">&quot;ljdzgfhdsgjfhdgjh&quot;</span><span class="p">}),</span>
+        <span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">test_bad_strings_return_no_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dictionary_app</span><span class="o">.</span><span class="n">enter_search_term</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertThat</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dictionary_app</span><span class="o">.</span><span class="n">results</span><span class="p">),</span> <span class="n">Equals</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Autopilot will run the <tt class="docutils literal"><span class="pre">test_bad_strings_return_no_results</span></tt> once for each scenario. On each test, the values from the scenario dictionary will be mapped to attributes of the test case class. In this example, that means that the &#8216;input&#8217; dictionary item will be mapped to <tt class="docutils literal"><span class="pre">self.input</span></tt>. Using scenarios has several benefits over either of the other strategies outlined above:</p>
+<ul>
+<li><p class="first">Tests that use strategies will appear as separate tests in the test output. The test id will be the normal test id, followed by the strategy name in parenthesis. So in the example above, the list of test ids will be:</p>
+<div class="highlight-python"><div class="highlight"><pre>DictionaryResultsTests.test_bad_strings_return_no_results(empty string)
+DictionaryResultsTests.test_bad_strings_return_no_results(whitespace)
+DictionaryResultsTests.test_bad_strings_return_no_results(punctuation)
+DictionaryResultsTests.test_bad_strings_return_no_results(garbage)
+</pre></div>
+</div>
+</li>
+<li><p class="first">Since scenarios are treated as separate tests, it&#8217;s easier to debug which scenario has broken, and re-run just that one scenario.</p>
+</li>
+<li><p class="first">Scenarios get applied before the <tt class="docutils literal"><span class="pre">setUp</span></tt> method, which means you can use scenario values in the <tt class="docutils literal"><span class="pre">setUp</span></tt> and <tt class="docutils literal"><span class="pre">tearDown</span></tt> methods. This makes them more flexible than either of the approaches listed above.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="test-logging">
+<h2>Test Logging<a class="headerlink" href="advanced_autopilot.html#test-logging" title="Permalink to this headline">¶</a></h2>
+<p>Autopilot integrates the <a class="reference external" href="http://docs.python.org/2/library/logging.html">python logging framework</a> into the <a class="reference internal" href="../api/testcase.html#autopilot.testcase.AutopilotTestCase" title="autopilot.testcase.AutopilotTestCase"><tt class="xref py py-class docutils literal"><span class="pre">AutopilotTestCase</span></tt></a> class. Various autopilot components write log messages to the logging framework, and all these log messages are attached to each test result when the test completes. By default, these log messages are shown when a test fails, or if autopilot is run with the <tt class="docutils literal"><span class="pre">-v</span></tt> option.</p>
+<p>Test authors are encouraged to write to the python logging framework whenever doing so would make failing tests clearer. To do this, there are a few simple steps to follow:</p>
+<ol class="arabic">
+<li><p class="first">Import the logging module:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Create a <tt class="docutils literal"><span class="pre">logger</span></tt> object. You can either do this at the file level scope, or within a test case class:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Log some messages. You may choose which level the messages should be logged at. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&quot;This is some information&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&quot;This is a warning&quot;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;This is an error&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>For more information on the various logging levels, see the <a class="reference external" href="http://docs.python.org/2/library/logging.html#logger-objects">python documentation on Logger objects</a>. All messages logged in this way will be picked up by the autopilot test runner. This is a valuable tool when debugging failing tests.</p>
+</div>
+<div class="section" id="environment-patching">
+<h2>Environment Patching<a class="headerlink" href="advanced_autopilot.html#environment-patching" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes you need to change the value of an environment variable for the duration of a single test. It is important that the variable is changed back to it&#8217;s original value when the test has ended, so future tests are run in a pristine environment. The <a class="reference internal" href="../api/testcase.html#autopilot.testcase.AutopilotTestCase" title="autopilot.testcase.AutopilotTestCase"><tt class="xref py py-class docutils literal"><span class="pre">AutopilotTestCase</span></tt></a> class includes a <a class="reference internal" href="../api/testcase.html#autopilot.testcase.AutopilotTestCase.patch_environment" title="autopilot.testcase.AutopilotTestCase.patch_environment"><tt class="xref py py-meth docutils literal"><span class="pre">patch_environment</span></tt></a> method which takes care of this for you. For example, to set the <tt class="docutils literal"><span class="pre">FOO</span></tt> environment variable to <tt class="docutils literal"><span class="pre">&quot;Hello</span> <span class="pre">World&quot;</span></tt> for the duration of a single test, the code would look something like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">autopilot.testcase</span> <span class="kn">import</span> <span class="n">AutopilotTestCase</span>
+
+
+<span class="k">class</span> <span class="nc">MyTests</span><span class="p">(</span><span class="n">AutopilotTestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">test_that_needs_custom_environment</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">patch_environment</span><span class="p">(</span><span class="s">&quot;FOO&quot;</span><span class="p">,</span> <span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
+        <span class="c"># Test code goes here.</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="../api/testcase.html#autopilot.testcase.AutopilotTestCase.patch_environment" title="autopilot.testcase.AutopilotTestCase.patch_environment"><tt class="xref py py-meth docutils literal"><span class="pre">patch_environment</span></tt></a> method will revert the value of the environment variable to it&#8217;s initial value, or will delete it altogether if the environment variable did not exist when <a class="reference internal" href="../api/testcase.html#autopilot.testcase.AutopilotTestCase.patch_environment" title="autopilot.testcase.AutopilotTestCase.patch_environment"><tt class="xref py py-meth docutils literal"><span class="pre">patch_environment</span></tt></a> was called. This happens in the cleanup phase of the test execution.</p>
+</div>
+<div class="section" id="custom-assertions">
+<h2>Custom Assertions<a class="headerlink" href="advanced_autopilot.html#custom-assertions" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="platform-selection">
+<h2>Platform Selection<a class="headerlink" href="advanced_autopilot.html#platform-selection" title="Permalink to this headline">¶</a></h2>
+<p>Autopilot provides functionality that allows the test author to determine which
+platform a test is running on so that they may either change behaviour within
+the test or skipping the test all together.</p>
+<p>For examples and API documentaion please see <a class="reference internal" href="../api/platform.html#module-autopilot.platform" title="autopilot.platform"><tt class="xref py py-mod docutils literal"><span class="pre">autopilot.platform</span></tt></a>.</p>
+</div>
+<div class="section" id="gestures-and-multitouch">
+<h2>Gestures and Multitouch<a class="headerlink" href="advanced_autopilot.html#gestures-and-multitouch" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="advanced-backend-picking">
+<span id="tut-picking-backends"></span><h2>Advanced Backend Picking<a class="headerlink" href="advanced_autopilot.html#advanced-backend-picking" title="Permalink to this headline">¶</a></h2>
+<p>Several features in autopilot are provided by more than one backend. For example, the <a class="reference internal" href="../api/input.html#module-autopilot.input" title="autopilot.input"><tt class="xref py py-mod docutils literal"><span class="pre">autopilot.input</span></tt></a> module contains the <a class="reference internal" href="../api/input.html#autopilot.input.Keyboard" title="autopilot.input.Keyboard"><tt class="xref py py-class docutils literal"><span class="pre">Keyboard</span></tt></a>, <a class="reference internal" href="../api/input.html#autopilot.input.Mouse" title="autopilot.input.Mouse"><tt class="xref py py-class docutils literal"><span class="pre">Mouse</span></tt></a> and <a class="reference internal" href="../api/input.html#autopilot.input.Touch" title="autopilot.input.Touch"><tt class="xref py py-class docutils literal"><span class="pre">Touch</span></tt></a> classes, each of which can use more than one implementation depending on the platform the tests are being run on.</p>
+<p>For example, when running autopilot on a traditional ubuntu desktop platform, <a class="reference internal" href="../api/input.html#autopilot.input.Keyboard" title="autopilot.input.Keyboard"><tt class="xref py py-class docutils literal"><span class="pre">Keyboard</span></tt></a> input events are probably created using the X11 client libraries. On a phone platform, X11 is not present, so autopilot will instead choose to generate events using the kernel UInput device driver instead.</p>
+<p>Other autopilot systems that make use of multiple backends include the <a class="reference internal" href="../api/display.html#module-autopilot.display" title="autopilot.display"><tt class="xref py py-mod docutils literal"><span class="pre">autopilot.display</span></tt></a> and <a class="reference internal" href="../api/process.html#module-autopilot.process" title="autopilot.process"><tt class="xref py py-mod docutils literal"><span class="pre">autopilot.process</span></tt></a> modules. Every class in these modules follows the same construction pattern:</p>
+<div class="section" id="default-creation">
+<h3>Default Creation<a class="headerlink" href="advanced_autopilot.html#default-creation" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>By default, calling the <tt class="docutils literal"><span class="pre">create()</span></tt> method with no arguments will return an instance of the class that is appropriate to the current platform. For example::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autopilot.input</span> <span class="kn">import</span> <span class="n">Keyboard</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kbd</span> <span class="o">=</span> <span class="n">Keyboard</span><span class="o">.</span><span class="n">create</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>The code snippet above will create an instance of the Keyboard class that uses X11 on Desktop systems, and UInput on other systems. On the rare occaison when test authors need to construct these objects themselves, we expect that the default creation pattern to be used.</p>
+</div>
+<div class="section" id="picking-a-backend">
+<span id="adv-picking-backend"></span><h3>Picking a Backend<a class="headerlink" href="advanced_autopilot.html#picking-a-backend" title="Permalink to this headline">¶</a></h3>
+<p>Test authors may sometimes want to pick a specific backend. The possible backends are documented in the API documentation for each class. For example, the documentation for the <a class="reference internal" href="../api/input.html#autopilot.input.Keyboard.create" title="autopilot.input.Keyboard.create"><tt class="xref py py-meth docutils literal"><span class="pre">autopilot.input.Keyboard.create</span></tt></a> method says there are three backends available: the <tt class="docutils literal"><span class="pre">X11</span></tt> backend, the <tt class="docutils literal"><span class="pre">UInput</span></tt> backend, and the <tt class="docutils literal"><span class="pre">OSK</span></tt> backend. These backends can be specified in the create method. For example, to specify that you want a Keyboard that uses X11 to generate it&#8217;s input events:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autopilot.input</span> <span class="kn">import</span> <span class="n">Keyboard</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kbd</span> <span class="o">=</span> <span class="n">Keyboard</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s">&quot;X11&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Similarly, to specify that a UInput keyboard should be created:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autopilot.input</span> <span class="kn">import</span> <span class="n">Keyboard</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kbd</span> <span class="o">=</span> <span class="n">Keyboard</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s">&quot;UInput&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, for the Onscreen Keyboard:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autopilot.input</span> <span class="kn">import</span> <span class="n">Keyboard</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kbd</span> <span class="o">=</span> <span class="n">Keyboard</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s">&quot;OSK&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Care must be taken when specifying specific backends. There is no guarantee that the backend you ask for is going to be available across all platforms. For that reason, using the default creation method is encouraged.</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">The <strong>OSK</strong> backend has some known implementation limitations, please see <a class="reference internal" href="../api/input.html#autopilot.input.Keyboard.create" title="autopilot.input.Keyboard.create"><tt class="xref py py-meth docutils literal"><span class="pre">autopilot.input.Keyboard.create</span></tt></a> method documenation for further details.</p>
+</div>
+</div>
+<div class="section" id="possible-errors-when-creating-backends">
+<h3>Possible Errors when Creating Backends<a class="headerlink" href="advanced_autopilot.html#possible-errors-when-creating-backends" title="Permalink to this headline">¶</a></h3>
+<p>Lots of things can go wrong when creating backends with the <tt class="docutils literal"><span class="pre">create</span></tt> method.</p>
+<p>If autopilot is unable to create any backends for your current platform, a <tt class="xref py py-exc docutils literal"><span class="pre">RuntimeError</span></tt> exception will be raised. It&#8217;s <tt class="docutils literal"><span class="pre">message</span></tt> attribute will contain the error message from each backend that autopilot tried to create.</p>
+<p>If a preferred backend was specified, but that backend doesn&#8217;t exist (probably the test author mis-spelled it), a <tt class="xref py py-exc docutils literal"><span class="pre">RuntimeError</span></tt> will be raised:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autopilot.input</span> <span class="kn">import</span> <span class="n">Keyboard</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">kbd</span> <span class="o">=</span> <span class="n">Keyboard</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s">&quot;uinput&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Unable to create keyboard: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+<span class="gp">...</span>
+<span class="go">Unable to create keyboard: Unknown backend &#39;uinput&#39;</span>
+</pre></div>
+</div>
+<p>In this example, <tt class="docutils literal"><span class="pre">uinput</span></tt> was mis-spelled (backend names are case sensitive). Specifying the correct backend name works as expected:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autopilot.input</span> <span class="kn">import</span> <span class="n">Keyboard</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kbd</span> <span class="o">=</span> <span class="n">Keyboard</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s">&quot;UInput&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Finally, if the test author specifies a preferred backend, but that backend could not be created, a <tt class="xref py py-exc docutils literal"><span class="pre">autopilot.BackendException</span></tt> will be raised. This is an important distinction to understand: While calling <tt class="docutils literal"><span class="pre">create()</span></tt> with no arguments will try more than one backend, specifying a backend to create will only try and create that one backend type. The BackendException instance will contain the original exception raised by the backed in it&#8217;s <tt class="docutils literal"><span class="pre">original_exception</span></tt> attribute. In this example, we try and create a UInput keyboard, which fails because we don&#8217;t have the correct permissions (this is something that autopilot usually handles for you):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autopilot.input</span> <span class="kn">import</span> <span class="n">Keyboard</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">autopilot</span> <span class="kn">import</span> <span class="n">BackendException</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">kbd</span> <span class="o">=</span> <span class="n">Keyboard</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="s">&quot;UInput&quot;</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">except</span> <span class="n">BackendException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="nb">repr</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">original_exception</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="nb">repr</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">&#39;UInputError(\&#39;&quot;/dev/uinput&quot; cannot be opened for writing\&#39;,)&#39;</span>
+<span class="go">&#39;BackendException(\&#39;Error while initialising backend. Original exception was: &quot;/dev/uinput&quot; cannot be opened for writing\&#39;,)&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="keyboard-backends">
+<h2>Keyboard Backends<a class="headerlink" href="advanced_autopilot.html#keyboard-backends" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="a-quick-introduction-to-the-keyboard-backends">
+<h3>A quick introduction to the Keyboard backends<a class="headerlink" href="advanced_autopilot.html#a-quick-introduction-to-the-keyboard-backends" title="Permalink to this headline">¶</a></h3>
+<p>Each backend has a different method of operating behind the scenes to provide
+the Keyboard interface.</p>
+<p>Here is a quick overview of how each backend works.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="85%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Backend</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>X11</td>
+<td>The X11 backend generates X11 events using a mock input device which it
+then syncs with X to actually action the input.</td>
+</tr>
+<tr class="row-odd"><td>Uinput</td>
+<td>The UInput backend injects events directly in to the kernel using the
+UInput device driver to produce input.</td>
+</tr>
+<tr class="row-even"><td>OSK</td>
+<td>The Onscreen Keyboard backend uses the GUI pop-up keyboard to enter
+input. Using a pointer object it taps on the required keys to get the
+expected output.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="limitations-of-the-different-keyboard-backends">
+<span id="keyboard-backend-limitations"></span><h3>Limitations of the different Keyboard backends<a class="headerlink" href="advanced_autopilot.html#limitations-of-the-different-keyboard-backends" title="Permalink to this headline">¶</a></h3>
+<p>While every effort has been made so that the Keyboard devices act the same
+regardless of which backend or platform is in use, the simple fact is that
+there can be some technical limitations for some backends.</p>
+<p>Some of these limitations are hidden when using the &#8220;create&#8221; method and won&#8217;t
+cause any concern (i.e. X11 backend on desktop, UInput on an Ubuntu Touch device.)
+while others will raise exceptions (that are fully documented in the API docs).</p>
+<p>Here is a list of known limitations:</p>
+<p><strong>X11</strong></p>
+<ul class="simple">
+<li>Only available on desktop platforms<ul>
+<li>X11 isn&#8217;t available on Ubuntu Touch devices</li>
+</ul>
+</li>
+</ul>
+<p><strong>UInput</strong></p>
+<ul class="simple">
+<li>Requires correct device access permissions<ul>
+<li>The user (or group) that are running the autopilot tests need read/write
+access to the UInput device (usually /dev/uinput).</li>
+</ul>
+</li>
+<li>Specific kernel support is required<ul>
+<li>The kernel on the system running the tests must be running a kernel that
+includes UInput support (as well as have the module loaded.</li>
+</ul>
+</li>
+</ul>
+<p><strong>OSK</strong></p>
+<ul class="simple">
+<li>Currently only available on Ubuntu Touch devices<ul>
+<li>At the time of writing this the OSK/Ubuntu Keyboard is only
+supported/available on the Ubuntu Touch devices. It is possible that it
+will be available on the desktop in the near future.</li>
+</ul>
+</li>
+<li>Unable to type &#8216;special&#8217; keys i.e. Alt<ul>
+<li>This shouldn&#8217;t be an issue as applications running on Ubuntu Touch devices
+will be using the expected patterns of use on these platforms.</li>
+</ul>
+</li>
+<li>The following methods have limitations or are not implemented:<ul>
+<li><a class="reference internal" href="../api/input.html#autopilot.input.Keyboard.press" title="autopilot.input.Keyboard.press"><tt class="xref py py-meth docutils literal"><span class="pre">autopilot.input.Keyboard.press</span></tt></a>: Raises NotImplementedError if
+called.</li>
+<li><a class="reference internal" href="../api/input.html#autopilot.input.Keyboard.release" title="autopilot.input.Keyboard.release"><tt class="xref py py-meth docutils literal"><span class="pre">autopilot.input.Keyboard.release</span></tt></a>: Raises NotImplementedError if
+called.</li>
+<li><a class="reference internal" href="../api/input.html#autopilot.input.Keyboard.press_and_release" title="autopilot.input.Keyboard.press_and_release"><tt class="xref py py-meth docutils literal"><span class="pre">autopilot.input.Keyboard.press_and_release</span></tt></a>: can can only handle
+single keys/characters. Raises either ValueError if passed more than a
+single character key or UnsupportedKey if passed a key that is not
+supported by the OSK backend (or the current language layout).</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="process-control">
+<h2>Process Control<a class="headerlink" href="advanced_autopilot.html#process-control" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="display-information">
+<h2>Display Information<a class="headerlink" href="advanced_autopilot.html#display-information" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="writing-custom-emulators">
+<span id="custom-emulators"></span><h2>Writing Custom Emulators<a class="headerlink" href="advanced_autopilot.html#writing-custom-emulators" title="Permalink to this headline">¶</a></h2>
+<p>By default, autopilot will generate an object for every introspectable item in your application under test. These are generated on the fly, and derive from
+<a class="reference internal" href="../api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject" title="autopilot.introspection.dbus.DBusIntrospectionObject"><tt class="xref py py-class docutils literal"><span class="pre">DBusIntrospectionObject</span></tt></a>. This gives you the usual methods of selecting other nodes in the object tree, as well the the means to inspect all the properties in that class.</p>
+<p>However, sometimes you want to customize the class used to create these objects. The most common reason to want to do this is to provide methods that make it easier to inspect these objects. Autopilot allows test authors to provide their own custom classes, through a couple of simple steps:</p>
+<ol class="arabic">
+<li><p class="first">First, you must define your own base class, to be used by all emulators in your test suite. This base class can be empty, but must derive from <a class="reference internal" href="../api/introspection.html#autopilot.introspection.dbus.CustomEmulatorBase" title="autopilot.introspection.dbus.CustomEmulatorBase"><tt class="xref py py-class docutils literal"><span class="pre">CustomEmulatorBase</span></tt></a>. An example class might look like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">autopilot.introspection.dbus</span> <span class="kn">import</span> <span class="n">CustomEmulatorBase</span>
+
+
+<span class="k">class</span> <span class="nc">EmulatorBase</span><span class="p">(</span><span class="n">CustomEmulatorBase</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A base class for all emulators within this test suite.&quot;&quot;&quot;</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Define the classes you want autopilot to use, instead of the default. The class name must be the same as the type you wish to override. For example, if you want to define your own custom class to be used every time autopilot generates an instance of a &#8216;QLabel&#8217; object, the class definition would look like this:</p>
+<div class="highlight-python"><div class="highlight"><pre>class QLabel(EmulatorBase):
+
+    # Add custom methods here...
+</pre></div>
+</div>
+</li>
+<li><p class="first">Pass the emulator base as an argument to the launch_test_application method on your test class. Something like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">autopilot.testcase</span> <span class="kn">import</span> <span class="n">AutopilotTestCase</span>
+
+<span class="k">class</span> <span class="nc">TestCase</span><span class="p">(</span><span class="n">AutopilotTestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">TestCase</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">setUp</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">app</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">launch_test_application</span><span class="p">(</span>
+            <span class="s">&#39;/path/to/the/application&#39;</span><span class="p">,</span>
+            <span class="n">emulator_base</span><span class="o">=</span><span class="n">EmulatorBase</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">You can pass the emulator class to methods like <a class="reference internal" href="../api/introspection.html#autopilot.introspection.dbus.DBusIntrospectionObject.select_single" title="autopilot.introspection.dbus.DBusIntrospectionObject.select_single"><tt class="xref py py-meth docutils literal"><span class="pre">select_single</span></tt></a> instead of a string. So, for example, the following is a valid way of selecting the QLabel instances in an application:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="c"># Get all QLabels in the applicaton:</span>
+<span class="n">labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">select_many</span><span class="p">(</span><span class="n">QLabel</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/otto-64.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="advanced_autopilot.html#">Advanced Autopilot Features</a><ul>
+<li><a class="reference internal" href="advanced_autopilot.html#cleaning-up">Cleaning Up</a></li>
+<li><a class="reference internal" href="advanced_autopilot.html#test-scenarios">Test Scenarios</a></li>
+<li><a class="reference internal" href="advanced_autopilot.html#test-logging">Test Logging</a></li>
+<li><a class="reference internal" href="advanced_autopilot.html#environment-patching">Environment Patching</a></li>
+<li><a class="reference internal" href="advanced_autopilot.html#custom-assertions">Custom Assertions</a></li>
+<li><a class="reference internal" href="advanced_autopilot.html#platform-selection">Platform Selection</a></li>
+<li><a class="reference internal" href="advanced_autopilot.html#gestures-and-multitouch">Gestures and Multitouch</a></li>
+<li><a class="reference internal" href="advanced_autopilot.html#advanced-backend-picking">Advanced Backend Picking</a><ul>
+<li><a class="reference internal" href="advanced_autopilot.html#default-creation">Default Creation</a></li>
+<li><a class="reference internal" href="advanced_autopilot.html#picking-a-backend">Picking a Backend</a></li>
+<li><a class="reference internal" href="advanced_autopilot.html#possible-errors-when-creating-backends">Possible Errors when Creating Backends</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="advanced_autopilot.html#keyboard-backends">Keyboard Backends</a><ul>
+<li><a class="reference internal" href="advanced_autopilot.html#a-quick-introduction-to-the-keyboard-backends">A quick introduction to the Keyboard backends</a></li>
+<li><a class="reference internal" href="advanced_autopilot.html#limitations-of-the-different-keyboard-backends">Limitations of the different Keyboard backends</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="advanced_autopilot.html#process-control">Process Control</a></li>
+<li><a class="reference internal" href="advanced_autopilot.html#display-information">Display Information</a></li>
+<li><a class="reference internal" href="advanced_autopilot.html#writing-custom-emulators">Writing Custom Emulators</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://developer.ubuntu.com/api/devel/ubuntu-14.04/autopilot/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="getting_started.html"
+                        title="previous chapter">Writing Your First Test</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="good_tests.html"
+                        title="next chapter">Writing Good Autopilot Tests</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="good_tests.html" title="Writing Good Autopilot Tests"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="getting_started.html" title="Writing Your First Test"
+             >previous</a> |</li>
+        <li><a href="../index.html">Autopilot 1.4+14.04.20140213-0 documentation</a> &raquo;</li>
+          <li><a href="tutorial.html" >Autopilot Tutorial</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      <div class=center_text>
+        <a href="../faq/contribute.html">Learn how you can contribute!</a> / <a href="https://bugs.launchpad.net/autopilot/+filebug">File a bug</a>
+     <br/>
+      </div>
+        &copy; Copyright 2012-2013, Canonical.
+    </div>
+
+
+  </body>
+</html>

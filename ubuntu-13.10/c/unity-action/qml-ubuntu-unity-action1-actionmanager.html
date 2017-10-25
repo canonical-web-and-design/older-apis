@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ActionManager.qml -->
+  <title>Unity Action QML API : ActionManager</title>
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<body>
+   <div class="wrapper">
+   <div class="main-content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-unity-action1-actionmanager.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-unity-action1-actionmanager.html#methods">Methods</a></li>
+<li class="level1"><a href="qml-ubuntu-unity-action1-actionmanager.html#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">ActionManager</h1>
+<span class="subtitle"></span>
+<p>This type was introduced in Unity Action QML API 1.0.</p>
+<ul>
+<li><a href="qml-ubuntu-unity-action1-actionmanager-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-actionmanager.html#actions-prop">actions</a></b></b> : list&lt;Action&gt;</li>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-actionmanager.html#globalContext-prop">globalContext</a></b></b> : ActionContext</li>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-actionmanager.html#localContexts-prop">localContexts</a></b></b> : list&lt;ActionContext&gt;</li>
+</ul>
+<a name="methods"></a>
+<h2>Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-actionmanager.html#addAction-method">addAction</a></b></b>(<i>action</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-actionmanager.html#addLocalContext-method">addLocalContext</a></b></b>(<i>context</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-actionmanager.html#removeAction-method">removeAction</a></b></b>(<i>action</i>)</li>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-actionmanager.html#removeLocalContext-method">removeLocalContext</a></b></b>(<i>context</i>)</li>
+</ul>
+<!-- $$$ActionManager-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>ActionManager exports the application actions to the external components. See <a href="platform-integration.html">Platform Integration</a> and <a href="contexts.html">Action Contexts</a> for more details.</p>
+<!-- @@@ActionManager -->
+<h2>Property Documentation</h2>
+<!-- $$$actions -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="actions-prop"></a><span class="name">actions</span> : <span class="type">list</span>&lt;<span class="type"><a href="qml-ubuntu-unity-action1-action.html">Action</a></span>&gt;</p></td></tr></table></div><div class="qmldoc"><p>List of Actions in manager's <a href="qml-ubuntu-unity-action1-actionmanager.html#globalContext-prop">globalContext</a>.</p>
+<p>This is the default property of <a href="qml-ubuntu-unity-action1-actionmanager.html">ActionManager</a>.</p>
+</div></div><!-- @@@actions -->
+<br/>
+<!-- $$$globalContext -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="globalContext-prop"></a><span class="name">globalContext</span> : <span class="type"><a href="qml-ubuntu-unity-action1-actioncontext.html">ActionContext</a></span></p></td></tr></table></div><div class="qmldoc"><p>The globalContext of the Application.</p>
+<p><b>Note: </b>Setting the <a href="qml-ubuntu-unity-action1-actioncontext.html#active-prop">ActionContext::active</a> on the global context has no effect;</p></div></div><!-- @@@globalContext -->
+<br/>
+<!-- $$$localContexts -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="localContexts-prop"></a><span class="name">localContexts</span> : <span class="type">list</span>&lt;<span class="type"><a href="qml-ubuntu-unity-action1-actioncontext.html">ActionContext</a></span>&gt;</p></td></tr></table></div><div class="qmldoc"><p>List of localContexts.</p>
+</div></div><!-- @@@localContexts -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$addAction -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="addAction-method"></a>ActionManager::<span class="name">addAction</span>(<i> action</i>)</p></td></tr></table></div><div class="qmldoc"><p>this is a shorthand for</p>
+<pre class="qml">manager.globalContext.addAction(action);</pre>
+<p><b>See also </b><a href="qml-ubuntu-unity-action1-actioncontext.html#addAction-method">ActionContext::addAction()</a>.</p>
+</div></div><!-- @@@addAction -->
+<br/>
+<!-- $$$addLocalContext -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="addLocalContext-method"></a>ActionManager::<span class="name">addLocalContext</span>(<i> context</i>)</p></td></tr></table></div><div class="qmldoc"><p>Adds a local context.</p>
+<p>Calling this function multiple times with the same context does not have any side effects; the context gets added only once.</p>
+</div></div><!-- @@@addLocalContext -->
+<br/>
+<!-- $$$removeAction -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="removeAction-method"></a>ActionManager::<span class="name">removeAction</span>(<i> action</i>)</p></td></tr></table></div><div class="qmldoc"><p>this is a shorthand for</p>
+<pre class="qml">manager.globalContext.removeAction(action);</pre>
+<p><b>See also </b><a href="qml-ubuntu-unity-action1-actioncontext.html#removeAction-method">ActionContext::removeAction()</a>.</p>
+</div></div><!-- @@@removeAction -->
+<br/>
+<!-- $$$removeLocalContext -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="removeLocalContext-method"></a>ActionManager::<span class="name">removeLocalContext</span>(<i> context</i>)</p></td></tr></table></div><div class="qmldoc"><p>Removes a local context.</p>
+<p>Calling this function multiple times with the same context does not have any side effects; the context gets removed only if it was previously added with <a href="qml-ubuntu-unity-action1-actionmanager.html#addLocalContext-method">addLocalContext()</a>.</p>
+</div></div><!-- @@@removeLocalContext -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+	</div>
+</footer>
+</body>
+</html>

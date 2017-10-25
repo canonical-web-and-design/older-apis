@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>unity-webapps-music-player-context</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="libunity-webapps Reference Manual">
+<link rel="up" href="desktopapis.html" title="Desktop integration APIs bindings of the Context Daemon">
+<link rel="prev" href="libunity-webapps-unity-webapps-indicator-context.html" title="unity-webapps-indicator-context">
+<link rel="next" href="libunity-webapps-unity-webapps-launcher-context.html" title="unity-webapps-launcher-context">
+<meta name="generator" content="GTK-Doc V1.19 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libunity-webapps-unity-webapps-indicator-context.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="desktopapis.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libunity-webapps Reference Manual</th>
+<td><a accesskey="n" href="libunity-webapps-unity-webapps-launcher-context.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="libunity-webapps-unity-webapps-music-player-context.html#libunity-webapps-unity-webapps-music-player-context.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="libunity-webapps-unity-webapps-music-player-context.html#libunity-webapps-unity-webapps-music-player-context.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libunity-webapps-unity-webapps-music-player-context"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libunity-webapps-unity-webapps-music-player-context.top_of_page"></a>unity-webapps-music-player-context</span></h2>
+<p>unity-webapps-music-player-context</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libunity-webapps-unity-webapps-music-player-context.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis"><span class="returnvalue">void</span>                (<a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#UnityWebappsMusicPlayerCallback" title="UnityWebappsMusicPlayerCallback ()">*UnityWebappsMusicPlayerCallback</a>)  (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+                    <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#UnityWebappsMusicPlayerContext" title="UnityWebappsMusicPlayerContext">UnityWebappsMusicPlayerContext</a>;
+enum                <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#UnityWebappsMusicPlayerPlaybackState" title="enum UnityWebappsMusicPlayerPlaybackState">UnityWebappsMusicPlayerPlaybackState</a>;
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#unity-webapps-music-player-context-free" title="unity_webapps_music_player_context_free ()">unity_webapps_music_player_context_free</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#UnityWebappsMusicPlayerContext" title="UnityWebappsMusicPlayerContext"><span class="type">UnityWebappsMusicPlayerContext</span></a> *context</code></em>);
+<a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#UnityWebappsMusicPlayerContext" title="UnityWebappsMusicPlayerContext"><span class="returnvalue">UnityWebappsMusicPlayerContext</span></a> * <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#unity-webapps-music-player-context-new" title="unity_webapps_music_player_context_new ()">unity_webapps_music_player_context_new</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *main_context</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#unity-webapps-music-player-get-can-go-next" title="unity_webapps_music_player_get_can_go_next ()">unity_webapps_music_player_get_can_go_next</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#unity-webapps-music-player-get-can-go-previous" title="unity_webapps_music_player_get_can_go_previous ()">unity_webapps_music_player_get_can_go_previous</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#unity-webapps-music-player-get-can-pause" title="unity_webapps_music_player_get_can_pause ()">unity_webapps_music_player_get_can_pause</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#unity-webapps-music-player-get-can-play" title="unity_webapps_music_player_get_can_play ()">unity_webapps_music_player_get_can_play</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);
+<a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#UnityWebappsMusicPlayerPlaybackState" title="enum UnityWebappsMusicPlayerPlaybackState"><span class="returnvalue">UnityWebappsMusicPlayerPlaybackState</span></a> <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#unity-webapps-music-player-get-playback-state" title="unity_webapps_music_player_get_playback_state ()">unity_webapps_music_player_get_playback_state</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#unity-webapps-music-player-init" title="unity_webapps_music_player_init ()">unity_webapps_music_player_init</a>     (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *title</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#unity-webapps-music-player-on-next-callback" title="unity_webapps_music_player_on_next_callback ()">unity_webapps_music_player_on_next_callback</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#UnityWebappsMusicPlayerCallback" title="UnityWebappsMusicPlayerCallback ()"><span class="type">UnityWebappsMusicPlayerCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#unity-webapps-music-player-on-play-pause-callback" title="unity_webapps_music_player_on_play_pause_callback ()">unity_webapps_music_player_on_play_pause_callback</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#UnityWebappsMusicPlayerCallback" title="UnityWebappsMusicPlayerCallback ()"><span class="type">UnityWebappsMusicPlayerCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#unity-webapps-music-player-on-previous-callback" title="unity_webapps_music_player_on_previous_callback ()">unity_webapps_music_player_on_previous_callback</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#UnityWebappsMusicPlayerCallback" title="UnityWebappsMusicPlayerCallback ()"><span class="type">UnityWebappsMusicPlayerCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#unity-webapps-music-player-set-can-go-next" title="unity_webapps_music_player_set_can_go_next ()">unity_webapps_music_player_set_can_go_next</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> can_go_next</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#unity-webapps-music-player-set-can-go-previous" title="unity_webapps_music_player_set_can_go_previous ()">unity_webapps_music_player_set_can_go_previous</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> can_go_previous</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#unity-webapps-music-player-set-can-pause" title="unity_webapps_music_player_set_can_pause ()">unity_webapps_music_player_set_can_pause</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> can_go_pause</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#unity-webapps-music-player-set-can-play" title="unity_webapps_music_player_set_can_play ()">unity_webapps_music_player_set_can_play</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> can_go_play</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#unity-webapps-music-player-set-playback-state" title="unity_webapps_music_player_set_playback_state ()">unity_webapps_music_player_set_playback_state</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#UnityWebappsMusicPlayerPlaybackState" title="enum UnityWebappsMusicPlayerPlaybackState"><span class="type">UnityWebappsMusicPlayerPlaybackState</span></a> state</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#unity-webapps-music-player-set-track" title="unity_webapps_music_player_set_track ()">unity_webapps_music_player_set_track</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *artist</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *album</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *title</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *icon_url</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libunity-webapps-unity-webapps-music-player-context.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="libunity-webapps-unity-webapps-music-player-context.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="UnityWebappsMusicPlayerCallback"></a><h3>UnityWebappsMusicPlayerCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*UnityWebappsMusicPlayerCallback)  (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="UnityWebappsMusicPlayerContext"></a><h3>UnityWebappsMusicPlayerContext</h3>
+<pre class="programlisting">typedef struct {
+  UnityWebappsContext *context;
+ 
+  UnityWebappsGenMusicPlayer *music_player_proxy;
+  guint music_player_rate;
+} UnityWebappsMusicPlayerContext;
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="UnityWebappsMusicPlayerPlaybackState"></a><h3>enum UnityWebappsMusicPlayerPlaybackState</h3>
+<pre class="programlisting">typedef enum {
+	UNITY_WEBAPPS_MUSIC_PLAYER_PLAYBACK_STATE_PLAYING,
+	UNITY_WEBAPPS_MUSIC_PLAYER_PLAYBACK_STATE_PAUSED
+} UnityWebappsMusicPlayerPlaybackState;
+</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><a name="UNITY-WEBAPPS-MUSIC-PLAYER-PLAYBACK-STATE-PLAYING:CAPS"></a><span class="term"><code class="literal">UNITY_WEBAPPS_MUSIC_PLAYER_PLAYBACK_STATE_PLAYING</code></span></p></td>
+<td></td>
+</tr>
+<tr>
+<td><p><a name="UNITY-WEBAPPS-MUSIC-PLAYER-PLAYBACK-STATE-PAUSED:CAPS"></a><span class="term"><code class="literal">UNITY_WEBAPPS_MUSIC_PLAYER_PLAYBACK_STATE_PAUSED</code></span></p></td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-music-player-context-free"></a><h3>unity_webapps_music_player_context_free ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_music_player_context_free
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#UnityWebappsMusicPlayerContext" title="UnityWebappsMusicPlayerContext"><span class="type">UnityWebappsMusicPlayerContext</span></a> *context</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-music-player-context-new"></a><h3>unity_webapps_music_player_context_new ()</h3>
+<pre class="programlisting"><a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#UnityWebappsMusicPlayerContext" title="UnityWebappsMusicPlayerContext"><span class="returnvalue">UnityWebappsMusicPlayerContext</span></a> * unity_webapps_music_player_context_new
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *main_context</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-music-player-get-can-go-next"></a><h3>unity_webapps_music_player_get_can_go_next ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            unity_webapps_music_player_get_can_go_next
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-music-player-get-can-go-previous"></a><h3>unity_webapps_music_player_get_can_go_previous ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            unity_webapps_music_player_get_can_go_previous
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-music-player-get-can-pause"></a><h3>unity_webapps_music_player_get_can_pause ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            unity_webapps_music_player_get_can_pause
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-music-player-get-can-play"></a><h3>unity_webapps_music_player_get_can_play ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            unity_webapps_music_player_get_can_play
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-music-player-get-playback-state"></a><h3>unity_webapps_music_player_get_playback_state ()</h3>
+<pre class="programlisting"><a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#UnityWebappsMusicPlayerPlaybackState" title="enum UnityWebappsMusicPlayerPlaybackState"><span class="returnvalue">UnityWebappsMusicPlayerPlaybackState</span></a> unity_webapps_music_player_get_playback_state
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-music-player-init"></a><h3>unity_webapps_music_player_init ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_music_player_init     (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *title</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-music-player-on-next-callback"></a><h3>unity_webapps_music_player_on_next_callback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_music_player_on_next_callback
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#UnityWebappsMusicPlayerCallback" title="UnityWebappsMusicPlayerCallback ()"><span class="type">UnityWebappsMusicPlayerCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-music-player-on-play-pause-callback"></a><h3>unity_webapps_music_player_on_play_pause_callback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_music_player_on_play_pause_callback
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#UnityWebappsMusicPlayerCallback" title="UnityWebappsMusicPlayerCallback ()"><span class="type">UnityWebappsMusicPlayerCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-music-player-on-previous-callback"></a><h3>unity_webapps_music_player_on_previous_callback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_music_player_on_previous_callback
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#UnityWebappsMusicPlayerCallback" title="UnityWebappsMusicPlayerCallback ()"><span class="type">UnityWebappsMusicPlayerCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-music-player-set-can-go-next"></a><h3>unity_webapps_music_player_set_can_go_next ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_music_player_set_can_go_next
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> can_go_next</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-music-player-set-can-go-previous"></a><h3>unity_webapps_music_player_set_can_go_previous ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_music_player_set_can_go_previous
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> can_go_previous</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-music-player-set-can-pause"></a><h3>unity_webapps_music_player_set_can_pause ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_music_player_set_can_pause
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> can_go_pause</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-music-player-set-can-play"></a><h3>unity_webapps_music_player_set_can_play ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_music_player_set_can_play
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> can_go_play</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-music-player-set-playback-state"></a><h3>unity_webapps_music_player_set_playback_state ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_music_player_set_playback_state
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-unity-webapps-music-player-context.html#UnityWebappsMusicPlayerPlaybackState" title="enum UnityWebappsMusicPlayerPlaybackState"><span class="type">UnityWebappsMusicPlayerPlaybackState</span></a> state</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-music-player-set-track"></a><h3>unity_webapps_music_player_set_track ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_music_player_set_track
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *artist</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *album</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *title</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *icon_url</code></em>);</pre>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.19</div>
+</body>
+</html>

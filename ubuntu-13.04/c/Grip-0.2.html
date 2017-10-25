@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="C">
+    
+    <title>Grip-0.2 C API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>Grip-0.2 C API Documentation</h1>
+
+<div class="class-normal">
+<a href="Grip-0.2.html#Grip.GestureManager" class="class-anchor">⚓</a><h2 class="class-normal" id="Grip.GestureManager">Class: GripGestureManager</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+A singleton manager into which a window may be registered to receive
+multitouch gesture events.</p>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"device-available"</span><span class="signal-parameters">(GripGestureManager *gesture_manager, GripInputDevice object)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"device-unavailable"</span><span class="signal-parameters">(GripGestureManager *gesture_manager, GripInputDevice object)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Grip-0.2.html#Grip.GestureManager">GripGestureManager*</a></span><span class="method-name">grip_gesture_manager_get</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">grip_gesture_manager_register_window</span><span class="method-parameters">(GripGestureManager *self, <a class="link-Class type " href="Gtk-3.0.html#Gtk.Widget">GtkWidget</a> *widget, <a class="link-Enumeration type " href="Grip-0.2.html#Grip.GestureType">GripGestureType</a> gesture_type, <a class="link-Enumeration type " href="Grip-0.2.html#Grip.DeviceType">GripDeviceType</a> device_type, <span class="type-basetype type ">gint</span> touch_points, <a class="link-Callback type " href="Grip-0.2.html#Grip.GestureCallback">GripGestureCallback</a> callback, <span class="type-basetype type ">gpointer</span> user_data, <a class="link-Callback type " href="GLib-2.0.html#GLib.DestroyNotify">GDestroyNotify</a> destroy)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">grip_gesture_manager_unregister_window</span><span class="method-parameters">(GripGestureManager *self, <a class="link-Class type " href="Gtk-3.0.html#Gtk.Widget">GtkWidget</a> *widget)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Grip-0.2.html#Grip.InputDevice" class="class-anchor">⚓</a><h2 class="class-normal" id="Grip.InputDevice">Class: GripInputDevice</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+This struct contains private data only, and should be accessed using the
+functions below.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gpointer</span></span><span class="property-name">"geis-device"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gpointer</span></span><span class="property-name">"device-attrs"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">grip_input_device_get_id</span><span class="method-parameters">(GripInputDevice *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">grip_input_device_get_name</span><span class="method-parameters">(GripInputDevice *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Grip-0.2.html#Grip.AxisExtents">GripAxisExtents*</a></span><span class="method-name">grip_input_device_get_x_extents</span><span class="method-parameters">(GripInputDevice *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Grip-0.2.html#Grip.AxisExtents">GripAxisExtents*</a></span><span class="method-name">grip_input_device_get_y_extents</span><span class="method-parameters">(GripInputDevice *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">grip_input_device_is_direct</span><span class="method-parameters">(GripInputDevice *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">grip_input_device_is_independent</span><span class="method-parameters">(GripInputDevice *self)</span></p>
+</div>
+</div>
+</div>
+</body>
+</html>
+

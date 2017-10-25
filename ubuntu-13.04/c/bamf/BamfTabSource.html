@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>BamfTabSource</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="libbamf Reference Manual">
+<link rel="up" href="ch01.html" title="Classes">
+<link rel="prev" href="BamfControl.html" title="BamfControl">
+<link rel="next" href="BamfView.html" title="BamfView">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="BamfControl.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libbamf Reference Manual</th>
+<td><a accesskey="n" href="BamfView.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="BamfTabSource.html#BamfTabSource.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="BamfTabSource.html#BamfTabSource.description" class="shortcut">Description</a>
+                   | 
+                  <a href="BamfTabSource.html#BamfTabSource.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="BamfTabSource.html#BamfTabSource.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="BamfTabSource.html#BamfTabSource.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="BamfTabSource"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="BamfTabSource.top_of_page"></a>BamfTabSource</span></h2>
+<p>BamfTabSource</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="BamfTabSource.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="BamfTabSource.html#BAMF-TAB-SOURCE-CONST:CAPS" title="BAMF_TAB_SOURCE_CONST()">BAMF_TAB_SOURCE_CONST</a>               (obj)
+struct              <a class="link" href="BamfTabSource.html#BamfTabSource-struct" title="struct BamfTabSource">BamfTabSource</a>;
+struct              <a class="link" href="BamfTabSource.html#BamfTabSourceClass" title="struct BamfTabSourceClass">BamfTabSourceClass</a>;
+<span class="returnvalue">char</span> **             <a class="link" href="BamfTabSource.html#bamf-tab-source-get-tab-ids" title="bamf_tab_source_get_tab_ids ()">bamf_tab_source_get_tab_ids</a>         (<em class="parameter"><code><a class="link" href="BamfTabSource.html" title="BamfTabSource"><span class="type">BamfTabSource</span></a> *source</code></em>);
+<span class="returnvalue">GArray</span> *            <a class="link" href="BamfTabSource.html#bamf-tab-source-get-tab-preview" title="bamf_tab_source_get_tab_preview ()">bamf_tab_source_get_tab_preview</a>     (<em class="parameter"><code><a class="link" href="BamfTabSource.html" title="BamfTabSource"><span class="type">BamfTabSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *tab_id</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="BamfTabSource.html#bamf-tab-source-get-tab-uri" title="bamf_tab_source_get_tab_uri ()">bamf_tab_source_get_tab_uri</a>         (<em class="parameter"><code><a class="link" href="BamfTabSource.html" title="BamfTabSource"><span class="type">BamfTabSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *tab_id</code></em>);
+<span class="returnvalue">guint32</span>             <a class="link" href="BamfTabSource.html#bamf-tab-source-get-tab-xid" title="bamf_tab_source_get_tab_xid ()">bamf_tab_source_get_tab_xid</a>         (<em class="parameter"><code><a class="link" href="BamfTabSource.html" title="BamfTabSource"><span class="type">BamfTabSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *tab_id</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="BamfTabSource.html#bamf-tab-source-show-tab" title="bamf_tab_source_show_tab ()">bamf_tab_source_show_tab</a>            (<em class="parameter"><code><a class="link" href="BamfTabSource.html" title="BamfTabSource"><span class="type">BamfTabSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *tab_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> *error</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="BamfTabSource.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----BamfTabSource
+</pre>
+</div>
+<div class="refsect1">
+<a name="BamfTabSource.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="BamfTabSource.html#BamfTabSource--id" title='The "id" property'>id</a>"                       <span class="type">gchar</span>*                : Read / Write / Construct
+</pre>
+</div>
+<div class="refsect1">
+<a name="BamfTabSource.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="BamfTabSource.html#BamfTabSource-tab-closed" title='The "tab-closed" signal'>tab-closed</a>"                                     : <code class="literal">Run First</code>
+  "<a class="link" href="BamfTabSource.html#BamfTabSource-tab-opened" title='The "tab-opened" signal'>tab-opened</a>"                                     : <code class="literal">Run First</code>
+  "<a class="link" href="BamfTabSource.html#BamfTabSource-tab-uri-changed" title='The "tab-uri-changed" signal'>tab-uri-changed</a>"                                : <code class="literal">Run First</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="BamfTabSource.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="BamfTabSource.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="BAMF-TAB-SOURCE-CONST:CAPS"></a><h3>BAMF_TAB_SOURCE_CONST()</h3>
+<pre class="programlisting">#define BAMF_TAB_SOURCE_CONST(obj)      (G_TYPE_CHECK_INSTANCE_CAST ((obj), BAMF_TYPE_TAB_SOURCE, BamfTabSource const))
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfTabSource-struct"></a><h3>struct BamfTabSource</h3>
+<pre class="programlisting">struct BamfTabSource;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfTabSourceClass"></a><h3>struct BamfTabSourceClass</h3>
+<pre class="programlisting">struct BamfTabSourceClass {
+        GObjectClass parent_class;
+
+        /*&lt; methods &gt;*/
+        void      (*show_tab)      (BamfTabSource *source, char *tab_id);
+        char   ** (*tab_ids)       (BamfTabSource *source);
+        GArray  * (*tab_preview)   (BamfTabSource *source, char *tab_id);
+        char    * (*tab_uri)       (BamfTabSource *source, char *tab_id);
+        guint32   (*tab_xid)       (BamfTabSource *source, char *tab_id);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-tab-source-get-tab-ids"></a><h3>bamf_tab_source_get_tab_ids ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> **             bamf_tab_source_get_tab_ids         (<em class="parameter"><code><a class="link" href="BamfTabSource.html" title="BamfTabSource"><span class="type">BamfTabSource</span></a> *source</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfTabSource.html" title="BamfTabSource"><span class="type">BamfTabSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A string array containing the IDs of this <a class="link" href="BamfTabSource.html" title="BamfTabSource"><span class="type">BamfTabSource</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>][<acronym title="Parameter points to an array of items."><span class="acronym">array</span></acronym> zero-terminated=1]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-tab-source-get-tab-preview"></a><h3>bamf_tab_source_get_tab_preview ()</h3>
+<pre class="programlisting"><span class="returnvalue">GArray</span> *            bamf_tab_source_get_tab_preview     (<em class="parameter"><code><a class="link" href="BamfTabSource.html" title="BamfTabSource"><span class="type">BamfTabSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *tab_id</code></em>);</pre>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfTabSource.html" title="BamfTabSource"><span class="type">BamfTabSource</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>tab_id</code></em> :</span></p></td>
+<td>an ID</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <span class="type">GArray</span> containing the preview for the given ID of this <a class="link" href="BamfTabSource.html" title="BamfTabSource"><span class="type">BamfTabSource</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-tab-source-get-tab-uri"></a><h3>bamf_tab_source_get_tab_uri ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              bamf_tab_source_get_tab_uri         (<em class="parameter"><code><a class="link" href="BamfTabSource.html" title="BamfTabSource"><span class="type">BamfTabSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *tab_id</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-tab-source-get-tab-xid"></a><h3>bamf_tab_source_get_tab_xid ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint32</span>             bamf_tab_source_get_tab_xid         (<em class="parameter"><code><a class="link" href="BamfTabSource.html" title="BamfTabSource"><span class="type">BamfTabSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *tab_id</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-tab-source-show-tab"></a><h3>bamf_tab_source_show_tab ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            bamf_tab_source_show_tab            (<em class="parameter"><code><a class="link" href="BamfTabSource.html" title="BamfTabSource"><span class="type">BamfTabSource</span></a> *source</code></em>,
+                                                         <em class="parameter"><code><span class="type">char</span> *tab_id</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> *error</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="BamfTabSource.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="BamfTabSource--id"></a><h3>The <code class="literal">"id"</code> property</h3>
+<pre class="programlisting">  "id"                       <span class="type">gchar</span>*                : Read / Write / Construct</pre>
+<p>id.</p>
+<p>Default value: NULL</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="BamfTabSource.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="BamfTabSource-tab-closed"></a><h3>The <code class="literal">"tab-closed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="BamfTabSource.html" title="BamfTabSource"><span class="type">BamfTabSource</span></a> *bamftabsource,
+                                                        <span class="type">gchar</span>         *arg1,
+                                                        <span class="type">gpointer</span>       user_data)          : <code class="literal">Run First</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bamftabsource</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfTabSource-tab-opened"></a><h3>The <code class="literal">"tab-opened"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="BamfTabSource.html" title="BamfTabSource"><span class="type">BamfTabSource</span></a> *bamftabsource,
+                                                        <span class="type">gchar</span>         *arg1,
+                                                        <span class="type">gpointer</span>       user_data)          : <code class="literal">Run First</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bamftabsource</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfTabSource-tab-uri-changed"></a><h3>The <code class="literal">"tab-uri-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="BamfTabSource.html" title="BamfTabSource"><span class="type">BamfTabSource</span></a> *bamftabsource,
+                                                        <span class="type">gchar</span>         *arg1,
+                                                        <span class="type">gchar</span>         *arg2,
+                                                        <span class="type">gchar</span>         *arg3,
+                                                        <span class="type">gpointer</span>       user_data)          : <code class="literal">Run First</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bamftabsource</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ullayouts.cpp -->
+  <title>UbuntuUserInterfaceToolkit 0.1: Layouts</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="overview-ubuntu-sdk.html">Ubuntu User Interface Toolkit</a></li>
+<li>Layouts</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-layouts0-layouts.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-layouts0-layouts.html#properties">Attached Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-layouts0-layouts.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">Layouts</h1>
+<span class="subtitle"></span>
+<!-- $$$Layouts-brief -->
+<p>The Layouts component allows one to specify multiple different layouts for a fixed set of Items, and applies the desired layout to those Items. <a href="qml-ubuntu-layouts0-layouts.html#details">More...</a></p>
+<!-- @@@Layouts -->
+<ul>
+<li><a href="qml-ubuntu-layouts0-layouts-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-layouts0-layouts.html#currentLayout-prop">currentLayout</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-layouts0-layouts.html#layouts-prop">layouts</a></b></b> : list&lt;ConditionalLayout&gt;</li>
+</ul>
+<a name="attached-properties"></a>
+<h2>Attached Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-layouts0-layouts.html#item-prop">item</a></b></b> : string</li>
+</ul>
+<!-- $$$Layouts-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>Layouts is a layout block component incorporating layout definitions and components to lay out. The layouts are defined in the <a href="qml-ubuntu-layouts0-layouts.html#layouts-prop">layouts</a> property, which is a list of <a href="qml-ubuntu-layouts0-conditionallayout.html">ConditionalLayout</a> components, each declaring the sizes and positions of the components specified to be laid out.</p>
+<pre class="qml"><span class="type">Layouts</span> {
+    <span class="name">id</span>: <span class="name">layouts</span>
+    <span class="name">layouts</span>: [
+        <span class="type"><a href="qml-ubuntu-layouts0-conditionallayout.html">ConditionalLayout</a></span> {
+            <span class="name">name</span>: <span class="string">&quot;flow&quot;</span>
+            <span class="name">when</span>: <span class="name">layouts</span>.<span class="name">width</span> <span class="operator">&gt;</span> <span class="name">units</span>.<span class="name">gu</span>(<span class="number">60</span>) <span class="operator">&amp;&amp;</span> <span class="name">layouts</span>.<span class="name">width</span> <span class="operator">&lt;=</span> <span class="name">units</span>.<span class="name">gu</span>(<span class="number">100</span>)
+            <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-flow.html">Flow</a></span> {
+                <span class="name">anchors</span>.fill: <span class="name">parent</span>
+                <span class="comment">//[...]</span>
+            }
+        },
+        <span class="type"><a href="qml-ubuntu-layouts0-conditionallayout.html">ConditionalLayout</a></span> {
+            <span class="name">name</span>: <span class="string">&quot;column&quot;</span>
+            <span class="name">when</span>: <span class="name">layouts</span>.<span class="name">width</span> <span class="operator">&gt;</span> <span class="name">units</span>.<span class="name">gu</span>(<span class="number">100</span>)
+            <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-flickable.html">Flickable</a></span> {
+                <span class="name">anchors</span>.fill: <span class="name">parent</span>
+                <span class="name">contentHeight</span>: <span class="name">column</span>.<span class="name">childrenRect</span>.<span class="name">height</span>
+                <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-column.html">Column</a></span> {
+                    <span class="name">id</span>: <span class="name">column</span>
+                    <span class="comment">//[...]</span>
+                }
+            }
+        }
+    ]
+}</pre>
+<p>The components to be laid out must be declared as children of the Layouts component, each set an attached property &quot;Layouts.item&quot; to be a unique string.</p>
+<pre class="qml"><span class="type">Layouts</span> {
+    <span class="name">id</span>: <span class="name">layouts</span>
+    <span class="name">layouts</span>: [
+        <span class="type"><a href="qml-ubuntu-layouts0-conditionallayout.html">ConditionalLayout</a></span> {
+            <span class="name">name</span>: <span class="string">&quot;flow&quot;</span>
+            <span class="name">when</span>: <span class="name">layouts</span>.<span class="name">width</span> <span class="operator">&gt;</span> <span class="name">units</span>.<span class="name">gu</span>(<span class="number">60</span>) <span class="operator">&amp;&amp;</span> <span class="name">layouts</span>.<span class="name">width</span> <span class="operator">&lt;=</span> <span class="name">units</span>.<span class="name">gu</span>(<span class="number">100</span>)
+            <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-flow.html">Flow</a></span> {
+                <span class="name">anchors</span>.fill: <span class="name">parent</span>
+                <span class="comment">//[...]</span>
+            }
+        },
+        <span class="type"><a href="qml-ubuntu-layouts0-conditionallayout.html">ConditionalLayout</a></span> {
+            <span class="name">name</span>: <span class="string">&quot;column&quot;</span>
+            <span class="name">when</span>: <span class="name">layouts</span>.<span class="name">width</span> <span class="operator">&gt;</span> <span class="name">units</span>.<span class="name">gu</span>(<span class="number">100</span>)
+            <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-flickable.html">Flickable</a></span> {
+                <span class="name">anchors</span>.fill: <span class="name">parent</span>
+                <span class="name">contentHeight</span>: <span class="name">column</span>.<span class="name">childrenRect</span>.<span class="name">height</span>
+                <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-column.html">Column</a></span> {
+                    <span class="name">id</span>: <span class="name">column</span>
+                    <span class="comment">//[...]</span>
+                }
+            }
+        }
+    ]
+
+    <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-row.html">Row</a></span> {
+        <span class="name">anchors</span>.fill: <span class="name">parent</span>
+        <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+            <span class="name">text</span>: <span class="string">&quot;Press me&quot;</span>
+            <span class="name">Layouts</span>.item: <span class="string">&quot;item1&quot;</span>
+        }
+        <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+            <span class="name">text</span>: <span class="string">&quot;Cancel&quot;</span>
+            <span class="name">Layouts</span>.item: <span class="string">&quot;item2&quot;</span>
+        }
+    }
+}</pre>
+<p>The layout of the children of Layouts is considered the default layout, i.e&#x2e; <a href="qml-ubuntu-layouts0-layouts.html#currentLayout-prop">currentLayout</a> is an empty string. So in the above example, the buttons arranged in a row is the default layout.</p>
+<p>The layouts defined by <a href="qml-ubuntu-layouts0-conditionallayout.html">ConditionalLayout</a> components are created and activated when at least one of the layout's condition is evaluated to true. In which case components marked for layout are re-parented to the components defined to lay out those defined in the <a href="qml-ubuntu-layouts0-conditionallayout.html">ConditionalLayout</a>. In case multiple conditions are evaluated to true, the first one in the list will be activated. The deactivated layout is destroyed, exception being the default layout, which is kept in memory for the entire lifetime of the Layouts component.</p>
+<p>Upon activation, the created component fills in the entire layout block.</p>
+<pre class="qml"><span class="type">Layouts</span> {
+    <span class="name">id</span>: <span class="name">layouts</span>
+    <span class="name">layouts</span>: [
+        <span class="type"><a href="qml-ubuntu-layouts0-conditionallayout.html">ConditionalLayout</a></span> {
+            <span class="name">name</span>: <span class="string">&quot;flow&quot;</span>
+            <span class="name">when</span>: <span class="name">layouts</span>.<span class="name">width</span> <span class="operator">&gt;</span> <span class="name">units</span>.<span class="name">gu</span>(<span class="number">60</span>) <span class="operator">&amp;&amp;</span> <span class="name">layouts</span>.<span class="name">width</span> <span class="operator">&lt;=</span> <span class="name">units</span>.<span class="name">gu</span>(<span class="number">100</span>)
+            <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-flow.html">Flow</a></span> {
+                <span class="name">anchors</span>.fill: <span class="name">parent</span>
+                <span class="type"><a href="qml-ubuntu-layouts0-itemlayout.html">ItemLayout</a></span> {
+                    <span class="name">item</span>: <span class="string">&quot;item1&quot;</span>
+                }
+                <span class="type"><a href="qml-ubuntu-layouts0-itemlayout.html">ItemLayout</a></span> {
+                    <span class="name">item</span>: <span class="string">&quot;item2&quot;</span>
+                }
+            }
+        },
+        <span class="type"><a href="qml-ubuntu-layouts0-conditionallayout.html">ConditionalLayout</a></span> {
+            <span class="name">name</span>: <span class="string">&quot;column&quot;</span>
+            <span class="name">when</span>: <span class="name">layouts</span>.<span class="name">width</span> <span class="operator">&gt;</span> <span class="name">units</span>.<span class="name">gu</span>(<span class="number">100</span>)
+            <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-flickable.html">Flickable</a></span> {
+                <span class="name">anchors</span>.fill: <span class="name">parent</span>
+                <span class="name">contentHeight</span>: <span class="name">column</span>.<span class="name">childrenRect</span>.<span class="name">height</span>
+                <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-column.html">Column</a></span> {
+                    <span class="name">id</span>: <span class="name">column</span>
+                    <span class="type"><a href="qml-ubuntu-layouts0-itemlayout.html">ItemLayout</a></span> {
+                        <span class="name">item</span>: <span class="string">&quot;item1&quot;</span>
+                    }
+                    <span class="type"><a href="qml-ubuntu-layouts0-itemlayout.html">ItemLayout</a></span> {
+                        <span class="name">item</span>: <span class="string">&quot;item2&quot;</span>
+                    }
+                }
+            }
+        }
+    ]
+
+    <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-row.html">Row</a></span> {
+        <span class="name">anchors</span>.fill: <span class="name">parent</span>
+        <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+            <span class="name">text</span>: <span class="string">&quot;Press me&quot;</span>
+            <span class="name">Layouts</span>.item: <span class="string">&quot;item1&quot;</span>
+        }
+        <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+            <span class="name">text</span>: <span class="string">&quot;Cancel&quot;</span>
+            <span class="name">Layouts</span>.item: <span class="string">&quot;item2&quot;</span>
+        }
+    }
+}</pre>
+<p>Conditional layouts must be named in order to be activatable. These names (strings) should be unique within a Layouts item and can be used to identify changes in between layouts in scripts, so additional layout specific customization on laid out items can be done. The current layout is presented by the <a href="qml-ubuntu-layouts0-layouts.html#currentLayout-prop">currentLayout</a> property.</p>
+<p>Extending the previous example by changing the button color to green when the current layout is &quot;column&quot;, the code would look as follows:</p>
+<pre class="qml"><span class="type">Layouts</span> {
+    <span class="name">id</span>: <span class="name">layouts</span>
+    <span class="name">layouts</span>: [
+        <span class="type"><a href="qml-ubuntu-layouts0-conditionallayout.html">ConditionalLayout</a></span> {
+            <span class="name">name</span>: <span class="string">&quot;flow&quot;</span>
+            <span class="name">when</span>: <span class="name">layouts</span>.<span class="name">width</span> <span class="operator">&gt;</span> <span class="name">units</span>.<span class="name">gu</span>(<span class="number">60</span>) <span class="operator">&amp;&amp;</span> <span class="name">layouts</span>.<span class="name">width</span> <span class="operator">&lt;=</span> <span class="name">units</span>.<span class="name">gu</span>(<span class="number">100</span>)
+            <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-flow.html">Flow</a></span> {
+                <span class="name">anchors</span>.fill: <span class="name">parent</span>
+                <span class="type"><a href="qml-ubuntu-layouts0-itemlayout.html">ItemLayout</a></span> {
+                    <span class="name">item</span>: <span class="string">&quot;item1&quot;</span>
+                }
+                <span class="type"><a href="qml-ubuntu-layouts0-itemlayout.html">ItemLayout</a></span> {
+                    <span class="name">item</span>: <span class="string">&quot;item2&quot;</span>
+                }
+            }
+        },
+        <span class="type"><a href="qml-ubuntu-layouts0-conditionallayout.html">ConditionalLayout</a></span> {
+            <span class="name">name</span>: <span class="string">&quot;column&quot;</span>
+            <span class="name">when</span>: <span class="name">layouts</span>.<span class="name">width</span> <span class="operator">&gt;</span> <span class="name">units</span>.<span class="name">gu</span>(<span class="number">100</span>)
+            <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-flickable.html">Flickable</a></span> {
+                <span class="name">anchors</span>.fill: <span class="name">parent</span>
+                <span class="name">contentHeight</span>: <span class="name">column</span>.<span class="name">childrenRect</span>.<span class="name">height</span>
+                <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-column.html">Column</a></span> {
+                    <span class="name">id</span>: <span class="name">column</span>
+                    <span class="type"><a href="qml-ubuntu-layouts0-itemlayout.html">ItemLayout</a></span> {
+                        <span class="name">item</span>: <span class="string">&quot;item1&quot;</span>
+                    }
+                    <span class="type"><a href="qml-ubuntu-layouts0-itemlayout.html">ItemLayout</a></span> {
+                        <span class="name">item</span>: <span class="string">&quot;item2&quot;</span>
+                    }
+                }
+            }
+        }
+    ]
+
+    <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-row.html">Row</a></span> {
+        <span class="name">anchors</span>.fill: <span class="name">parent</span>
+        <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+            <span class="name">text</span>: <span class="string">&quot;Press me&quot;</span>
+            <span class="name">Layouts</span>.item: <span class="string">&quot;item1&quot;</span>
+            <span class="name">color</span>: (<span class="name">layouts</span>.<span class="name">currentLayout</span> <span class="operator">===</span> <span class="string">&quot;column&quot;</span>) ? <span class="string">&quot;green&quot;</span> : <span class="string">&quot;gray&quot;</span>
+        }
+        <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+            <span class="name">text</span>: <span class="string">&quot;Cancel&quot;</span>
+            <span class="name">Layouts</span>.item: <span class="string">&quot;item2&quot;</span>
+            <span class="name">color</span>: (<span class="name">layouts</span>.<span class="name">currentLayout</span> <span class="operator">===</span> <span class="string">&quot;column&quot;</span>) ? <span class="string">&quot;green&quot;</span> : <span class="string">&quot;gray&quot;</span>
+        }
+    }
+}</pre>
+<!-- @@@Layouts -->
+<h2>Property Documentation</h2>
+<!-- $$$currentLayout -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="currentLayout-prop"></a><span class="name">currentLayout</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>The property holds the active layout name. The default layout is identified by an empty string. This property can be used for additional customization of the components which are not supported by the layouting.</p>
+</div></div><!-- @@@currentLayout -->
+<br/>
+<!-- $$$layouts -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="layouts-prop"></a><span class="name">layouts</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-list.html">list</a></span>&lt;<span class="type"><a href="qml-ubuntu-layouts0-conditionallayout.html">ConditionalLayout</a></span>&gt;</p></td></tr></table></div><div class="qmldoc"><p>The property holds the list of different <a href="qml-ubuntu-layouts0-conditionallayout.html">ConditionalLayout</a> elements.</p>
+</div></div><!-- @@@layouts -->
+<br/>
+<h2>Attached Property Documentation</h2>
+<!-- $$$item -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="item-prop"></a><span class="name">Layouts.item</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>This attached property identifies a component to be laid out. It is the unique identifier of the component within a layout block. The property can be attached to components to be laid out and has no effect when applied on layout containers.</p>
+<p><b>See also </b><a href="qml-ubuntu-layouts0-itemlayout.html">ItemLayout</a>.</p>
+</div></div><!-- @@@item -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

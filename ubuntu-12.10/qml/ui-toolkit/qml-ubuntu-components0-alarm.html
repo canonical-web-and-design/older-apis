@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ucalarm.cpp -->
+  <title>UbuntuUserInterfaceToolkit 0.1: Alarm</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="overview-ubuntu-sdk.html">Ubuntu User Interface Toolkit</a></li>
+<li>Alarm</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-components0-alarm.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-alarm.html#methods">Methods</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-alarm.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">Alarm</h1>
+<span class="subtitle"></span>
+<!-- $$$Alarm-brief -->
+<p>Alarm component is a representation of an alarm event. <a href="qml-ubuntu-components0-alarm.html#details">More...</a></p>
+<!-- @@@Alarm -->
+<ul>
+<li><a href="qml-ubuntu-components0-alarm-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-alarm.html#date-prop">date</a></b></b> : Date</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-alarm.html#daysOfWeek-prop">daysOfWeek</a></b></b> : DaysOfWeek</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-alarm.html#enabled-prop">enabled</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-alarm.html#error-prop">error</a></b></b> : Error</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-alarm.html#message-prop">message</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-alarm.html#sound-prop">sound</a></b></b> : url</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-alarm.html#status-prop">status</a></b></b> : Status</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-alarm.html#type-prop">type</a></b></b> : AlarmType</li>
+</ul>
+<a name="methods"></a>
+<h2>Methods</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-alarm.html#cancel-method">cancel</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-alarm.html#reset-method">reset</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-alarm.html#save-method">save</a></b></b>()</li>
+</ul>
+<!-- $$$Alarm-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>The Alarm element encapsulates alarm event data. Supports one time and repeating alarms, where repeating can be either daily or weekly on one or several selected days.</p>
+<p>The alarm data is validated upon <a href="qml-ubuntu-components0-alarm.html#save-method">save</a> operation, which can be used to save a new alarm or update existing alarm's properties.</p>
+<p>During data validation the alarm properties may suffer changes. These changes will be reported back to each changed property. See what changes can occurr at <a href="qml-ubuntu-components0-alarm.html#save-method">save</a> function documentation.</p>
+<p>Example usage:</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+
+<span class="type">Rectangle</span> {
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">40</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">20</span>)
+
+    <span class="type">Alarm</span>{
+        <span class="name">id</span>: <span class="name">alarm</span>
+    }
+    <span class="type">Column</span> {
+        <span class="name">spacing</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">1</span>)
+        <span class="type">Row</span> {
+            <span class="name">spacing</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">1</span>)
+            <span class="type"><a href="qml-ubuntu-components0-label.html">Label</a></span> {
+                <span class="name">id</span>: <span class="name">date</span>
+                <span class="name">text</span>: <span class="string">&quot;Date:&quot;</span>
+                <span class="name">anchors</span>.verticalCenter: <span class="name">parent</span>.<span class="name">verticalCenter</span>
+            }
+            <span class="type"><a href="qml-ubuntu-components0-textfield.html">TextField</a></span> {
+                <span class="name">text</span>: <span class="name">alarm</span>.<span class="name">date</span>.<span class="name">toString</span>()
+                <span class="name">onAccepted</span>: <span class="name">alarm</span>.<span class="name">date</span> <span class="operator">=</span> new <span class="name">Date</span>(<span class="name">text</span>)
+            }
+        }
+        <span class="type">Row</span> {
+            <span class="name">spacing</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">1</span>)
+            <span class="type"><a href="qml-ubuntu-components0-label.html">Label</a></span> {
+                <span class="name">id</span>: <span class="name">msg</span>
+                <span class="name">text</span>: <span class="string">&quot;Message:&quot;</span>
+                <span class="name">anchors</span>.verticalCenter: <span class="name">parent</span>.<span class="name">verticalCenter</span>
+            }
+            <span class="type"><a href="qml-ubuntu-components0-textfield.html">TextField</a></span> {
+                <span class="name">text</span>: <span class="name">alarm</span>.<span class="name">message</span>
+                <span class="name">onAccepted</span>: <span class="name">alarm</span>.<span class="name">message</span> <span class="operator">=</span> <span class="name">text</span>
+            }
+        }
+        <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+            <span class="name">text</span>: <span class="string">&quot;Save&quot;</span>
+            <span class="name">onClicked</span>: {
+                <span class="name">alarm</span>.<span class="name">save</span>();
+                <span class="keyword">if</span> (<span class="name">alarm</span>.<span class="name">error</span> <span class="operator">!=</span> <span class="name">Alarm</span>.<span class="name">NoError</span>)
+                    <span class="name">print</span>(<span class="string">&quot;Error saving alarm, code: &quot;</span> <span class="operator">+</span> <span class="name">alarm</span>.<span class="name">error</span>);
+            }
+        }
+    }
+}</pre>
+<p>An alarm can be cancelled using <a href="qml-ubuntu-components0-alarm.html#cancel-method">cancel</a> function but only if the event has previously been stored in the alarm collection.</p>
+<p>The <a href="qml-ubuntu-components0-alarm.html#reset-method">reset</a> function clears the properties of the alarm bringing them to the default values. In this way the same alarm component can be used to save several alarms at the same time.</p>
+<!-- @@@Alarm -->
+<h2>Property Documentation</h2>
+<!-- $$$date -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="date-prop"></a><span class="name">date</span> : <span class="type">Date</span></p></td></tr></table></div><div class="qmldoc"><p>The property holds the date the alarm will be triggered. The default value is the current date and time the alarm object was created. Further <a href="qml-ubuntu-components0-alarm.html#reset-method">reset</a> calls will bring the value back to the time the <a href="qml-ubuntu-components0-alarm.html#reset-method">reset</a> was called.</p>
+</div></div><!-- @@@date -->
+<br/>
+<!-- $$$daysOfWeek -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="daysOfWeek-prop"></a><span class="name">daysOfWeek</span> : <span class="type">DaysOfWeek</span></p></td></tr></table></div><div class="qmldoc"><p>The property holds the days of the week the alarm is scheduled. This property can have only one day set for one time alarms and multiple days for repeating alarms. The following flags can be set:</p>
+<table class="generic">
+ <thead><tr class="qt-style"><th  colspan="3" rowspan=" 1">Alarm.DayOfWeek enum:</th></tr>
+<tr class="qt-style"><th >Type</th><th >Value</th><th >Description</th></tr></thead>
+<tr valign="top" class="odd"><td >Alarm.Monday</td><td >0x01</td><td >The alarm will kick on Mondays.</td></tr>
+<tr valign="top" class="even"><td >Alarm.Tuesday</td><td >0x02</td><td >The alarm will kick on Tuesdays.</td></tr>
+<tr valign="top" class="odd"><td >Alarm.Wednesday</td><td >0x04</td><td >The alarm will kick on Wednesdays.</td></tr>
+<tr valign="top" class="even"><td >Alarm.Thursday</td><td >0x08</td><td >The alarm will kick on Thursdays.</td></tr>
+<tr valign="top" class="odd"><td >Alarm.Friday</td><td >0x10</td><td >The alarm will kick on Fridays.</td></tr>
+<tr valign="top" class="even"><td >Alarm.Saturday</td><td >0x20</td><td >The alarm will kick on Saturdays.</td></tr>
+<tr valign="top" class="odd"><td >Alarm.Sunday</td><td >0x40</td><td >The alarm will kick on Sundays.</td></tr>
+<tr valign="top" class="even"><td >Alarm.AutoDetect</td><td >0x80</td><td >The alarm day will be detected from the alarm date.</td></tr>
+</table>
+<p>The default value is Alarm.AutoDetect.</p>
+</div></div><!-- @@@daysOfWeek -->
+<br/>
+<!-- $$$enabled -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="enabled-prop"></a><span class="name">enabled</span> : <span class="type">bool</span></p></td></tr></table></div><div class="qmldoc"><p>The property specifies whether the alarm is enabled or not. Disable dalarms are not scheduled. The default value is true;</p>
+</div></div><!-- @@@enabled -->
+<br/>
+<!-- $$$error -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="error-prop"></a><span class="name">error</span> : <span class="type">Error</span></p></td></tr></table></div><div class="qmldoc"><p>The property holds the error code occurred during the last performed operation.</p>
+<table class="generic">
+ <thead><tr class="qt-style"><th >Error code</th><th >Value</th><th >Description</th></tr></thead>
+<tr valign="top" class="odd"><td >NoError</td><td >0</td><td >Successful operation completion.</td></tr>
+<tr valign="top" class="even"><td >InvalidDate</td><td >1</td><td >The date specified for the alarm was invalid.</td></tr>
+<tr valign="top" class="odd"><td >EarlyDate</td><td >2</td><td >The date specified for the alarm is an earlier date than the current one.</td></tr>
+<tr valign="top" class="even"><td >NoDaysOfWeek</td><td >3</td><td >The <a href="qml-ubuntu-components0-alarm.html#daysOfWeek-prop">daysOfWeek</a> parameter of the alarm was not specified.</td></tr>
+<tr valign="top" class="odd"><td >OneTimeOnMoreDays</td><td >4</td><td >The one-time alarm was set to be kicked in several days.</td></tr>
+<tr valign="top" class="even"><td >InvalidEvent</td><td >5</td><td >The alarm event is invalid.</td></tr>
+<tr valign="top" class="odd"><td >AdaptationError</td><td >100</td><td >The error occurred in alarm adaptation layer. Adaptations may define additional behind this value.</td></tr>
+</table>
+</div></div><!-- @@@error -->
+<br/>
+<!-- $$$message -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="message-prop"></a><span class="name">message</span> : <span class="type">string</span></p></td></tr></table></div><div class="qmldoc"><p>The property holds the message string which will be displayed when the alarm is triggered. The default value is the localized &quot;Alarm&quot; text.</p>
+</div></div><!-- @@@message -->
+<br/>
+<!-- $$$sound -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="sound-prop"></a><span class="name">sound</span> : <span class="type">url</span></p></td></tr></table></div><div class="qmldoc"><p>The property holds the alarm's sound to be played when the alarm is triggered. An empty url will mean to play the default sound.</p>
+<p>The defaul tvalue is an empty url.</p>
+</div></div><!-- @@@sound -->
+<br/>
+<!-- $$$status -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="status-prop"></a><span class="name">status</span> : <span class="type">Status</span></p></td></tr></table></div><div class="qmldoc"><p>The property holds the status of the last performed operation. It can take one of the following values:</p>
+<table class="generic">
+ <thead><tr class="qt-style"><th >Status code</th><th >Value</th><th >Description</th></tr></thead>
+<tr valign="top" class="odd"><td >Ready</td><td >1</td><td >Specifies either that the Alarm object is ready to perform any operation or that the previous operation has been successfully completed.</td></tr>
+<tr valign="top" class="even"><td >InProgress</td><td >2</td><td >Specifies that there is an operation pending on Alarm object.</td></tr>
+<tr valign="top" class="odd"><td >Fail</td><td >3</td><td >Specifies that the last alarm operation has failed. The failure code is set in <a href="qml-ubuntu-components0-alarm.html#error-prop">error</a> property.</td></tr>
+</table>
+<p>The notification signal has a parameter specifying the <i>operation</i> the status refers to. The operation can take the following values:</p>
+<table class="generic">
+ <thead><tr class="qt-style"><th >Operation code</th><th >Description</th></tr></thead>
+<tr valign="top" class="odd"><td >NoOperation</td><td >There is no operation pending. This may be set when an error occured in the alarm adapters and the operation cannot be determined.</td></tr>
+<tr valign="top" class="even"><td >Saving</td><td >The status reported refers to an operation requested through <a href="qml-ubuntu-components0-alarm.html#save-method">save()</a>.</td></tr>
+<tr valign="top" class="odd"><td >Canceling</td><td >The status reported refers to an operation requested through <a href="qml-ubuntu-components0-alarm.html#cancel-method">cancel()</a>.</td></tr>
+<tr valign="top" class="even"><td >Reseting</td><td >The status reported refers to an operation requested through <a href="qml-ubuntu-components0-alarm.html#reset-method">reset()</a>.</td></tr>
+</table>
+<p>For example an implementation which resets the alarm data whenever the save or cancel operations succeed would look as follows:</p>
+<pre class="qml"><span class="type"><a href="qml-ubuntu-components0-alarm.html">Alarm</a></span> {
+    <span class="name">onStatusChanged</span>: {
+        <span class="keyword">if</span> (<span class="name">status</span> <span class="operator">!==</span> <span class="name">Alarm</span>.<span class="name">Ready</span>)
+            <span class="keyword">return</span>;
+        <span class="keyword">if</span> ((<span class="name">operation</span> <span class="operator">&gt;</span> <span class="name">Alarm</span>.<span class="name">NoOperation</span>) <span class="operator">&amp;&amp;</span> (<span class="name">operation</span> <span class="operator">&lt;</span> <span class="name">Alarm</span>.<span class="name">Reseting</span>)) {
+            <span class="name">reset</span>();
+        }
+    }
+}</pre>
+</div></div><!-- @@@status -->
+<br/>
+<!-- $$$type -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="type-prop"></a><span class="name">type</span> : <span class="type">AlarmType</span></p></td></tr></table></div><div class="qmldoc"><p>The property holds the type of the alarm, which can have one of the following values:</p>
+<table class="generic">
+ <thead><tr class="qt-style"><th  colspan="2" rowspan=" 1">Alarm.AlarmType enum:</th></tr>
+<tr class="qt-style"><th >Type</th><th >Description</th></tr></thead>
+<tr valign="top" class="odd"><td >Alarm.OneTime</td><td >The alarm occurs only once.</td></tr>
+<tr valign="top" class="even"><td >Alarm.Repeating</td><td >The alarm is a repeating one, either daily, weekly on a given day or on selected days.</td></tr>
+</table>
+<p>The default value is Alarm.OneTime.</p>
+</div></div><!-- @@@type -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$cancel -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="cancel-method"></a>Alarm::<span class="name">cancel</span>()</p></td></tr></table></div><div class="qmldoc"><p>The function removes the alarm from the collection. The function will fail for alarms which are not yet registered to the collection.</p>
+<p>The operation is asynchronous, and its status is reported through the <a href="qml-ubuntu-components0-alarm.html#status-prop">status</a> property. Further operations should wait till the previous operation is completed. The operation result is stored in the <a href="qml-ubuntu-components0-alarm.html#error-prop">error</a> property.</p>
+</div></div><!-- @@@cancel -->
+<br/>
+<!-- $$$reset -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="reset-method"></a>Alarm::<span class="name">reset</span>()</p></td></tr></table></div><div class="qmldoc"><p>The function resets the alarm properties to its defaults. After this call the object can be used to create a new alarm event.</p>
+<p><b>Note</b>: do not call this function on alarm objects retrieved from <a href="qml-ubuntu-components0-alarmmodel.html">AlarmModel</a>, as calling it will result in the model being out of sync from the alarm database.</p>
+</div></div><!-- @@@reset -->
+<br/>
+<!-- $$$save -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="save-method"></a>Alarm::<span class="name">save</span>()</p></td></tr></table></div><div class="qmldoc"><p>Updates or adds an alarm to the alarm collection. The operation aligns properties according to the following rules:</p>
+<ul>
+<li>- the <a href="qml-ubuntu-components0-alarm.html#daysOfWeek-prop">daysOfWeek</a> will be set to the alarm day if the <a href="qml-ubuntu-components0-alarm.html#daysOfWeek-prop">daysOfWeek</a> was set to Alarm.AutoDetect.</li>
+<li>- if the <a href="qml-ubuntu-components0-alarm.html#daysOfWeek-prop">daysOfWeek</a> is set to a day other than the one specified in the <a href="qml-ubuntu-components0-alarm.html#date-prop">date</a> field, the <a href="qml-ubuntu-components0-alarm.html#date-prop">date</a> will be moved ahead to match the day from the <a href="qml-ubuntu-components0-alarm.html#daysOfWeek-prop">daysOfWeek</a>.</li>
+</ul>
+<p>The function will fail if</p>
+<ul>
+<li>- the <a href="qml-ubuntu-components0-alarm.html#date-prop">date</a> property is invalid</li>
+<li>- for one time alarm, the <a href="qml-ubuntu-components0-alarm.html#date-prop">date</a> property falue is earlier than the current time</li>
+<li>- the <a href="qml-ubuntu-components0-alarm.html#daysOfWeek-prop">daysOfWeek</a> property is set to multiple days for one time alarm</li>
+</ul>
+<p>The operation is asynchronous, and its status is reported through the <a href="qml-ubuntu-components0-alarm.html#status-prop">status</a> property. Further operations should wait till the previous operation is completed. The operation result is stored in the <a href="qml-ubuntu-components0-alarm.html#error-prop">error</a> property.</p>
+</div></div><!-- @@@save -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

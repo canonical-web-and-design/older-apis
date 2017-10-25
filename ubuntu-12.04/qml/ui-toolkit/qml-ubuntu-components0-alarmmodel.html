@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ucalarmmodel.cpp -->
+  <title>UbuntuUserInterfaceToolkit 0.1: AlarmModel</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="overview-ubuntu-sdk.html">Ubuntu User Interface Toolkit</a></li>
+<li>AlarmModel</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-components0-alarmmodel.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-alarmmodel.html#methods">Methods</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-alarmmodel.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">AlarmModel</h1>
+<span class="subtitle"></span>
+<!-- $$$AlarmModel-brief -->
+<p>AlarmModel holds the list of alarms defined. <a href="qml-ubuntu-components0-alarmmodel.html#details">More...</a></p>
+<!-- @@@AlarmModel -->
+<ul>
+<li><a href="qml-ubuntu-components0-alarmmodel-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-alarmmodel.html#count-prop">count</a></b></b> : int</li>
+</ul>
+<a name="methods"></a>
+<h2>Methods</h2>
+<ul>
+<li class="fn">Alarm <b><b><a href="qml-ubuntu-components0-alarmmodel.html#get-method">get</a></b></b>(int <i>index</i>)</li>
+</ul>
+<!-- $$$AlarmModel-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>The AlarmModel is a simple container of <a href="qml-ubuntu-components0-alarm.html">Alarm</a> definitions stored in the alarm collection. The data provided by the model are read only, adding, modifying or removing data is only possible through <a href="qml-ubuntu-components0-alarm.html">Alarm</a> functions. Any modification on the alarms or any new alarm added to the collection will refresh all the model instances. This also means that the delegates visualizing the model elements will also be re-created.</p>
+<p>Example usage:</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+import Ubuntu.Components.ListItems 0.1
+<span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-listview.html">ListView</a></span> {
+    <span class="name">model</span>: <span class="name">AlarmModel</span> {}
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">80</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">100</span>)
+    <span class="name">delegate</span>: <span class="name">Subtitled</span> {
+        <span class="name">text</span>: <span class="name">message</span>
+        <span class="name">subText</span>: <span class="name">Qt</span>.<span class="name">formatDateTime</span>(<span class="name">date</span>)
+    }
+}</pre>
+<p>The model defines the same roles as the <a href="qml-ubuntu-components0-alarm.html">Alarm</a> properties. Note that the use of <i>enabled</i> role in delegates may be ambiguous. Therefore the model defines the additional role called <i>model</i>, which represents the <a href="qml-ubuntu-components0-alarm.html">Alarm</a> object from the index the delegate is showing the data, so the <i>enabled</i> role can then be accessed by simply dereferencing the model i.e&#x2e; model.enabled.</p>
+<p>Example:</p>
+<pre class="qml"><span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-listview.html">ListView</a></span> {
+    <span class="name">model</span>: <span class="name">AlarmModel</span>{}
+    <span class="name">delegate</span>: <span class="name">Standard</span> {
+        <span class="name">text</span>: <span class="name">message</span>
+        <span class="name">control</span>: <span class="name">Switch</span> {
+            <span class="name">checked</span>: <span class="name">model</span>.<span class="name">enabled</span>
+        }
+    }
+}</pre>
+<p>The number of alarm events can be obtained from the <a href="qml-ubuntu-components0-alarmmodel.html#count-prop">count</a> property. To get a specific alarm event data from the model, use the <a href="qml-ubuntu-components0-alarmmodel.html#get-method">get()</a> function.</p>
+<p>As the <a href="qml-ubuntu-components0-alarmmodel.html#get-method">get()</a> function returns the alarm object from the given index. Combined with the alarm functions the alarms can be updated in place.</p>
+<p>Example:</p>
+<pre class="qml"><span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-listview.html">ListView</a></span> {
+    <span class="name">model</span>: <span class="name">AlarmModel</span>{
+        <span class="name">id</span>: <span class="name">alarmModel</span>
+    }
+    <span class="name">delegate</span>: <span class="name">Standard</span> {
+        <span class="name">text</span>: <span class="name">message</span>
+        <span class="name">control</span>: <span class="name">Switch</span> {
+            <span class="name">checked</span>: <span class="name">model</span>.<span class="name">enabled</span>
+            <span class="name">onCheckedChanged</span>: {
+                <span class="keyword">if</span> (<span class="name">checked</span> <span class="operator">!=</span> <span class="name">model</span>.<span class="name">enabled</span>) {
+                    var <span class="name">data</span> = <span class="name">alarmModel</span>.<span class="name">get</span>(<span class="name">index</span>);
+                    <span class="name">data</span>.<span class="name">enabled</span> <span class="operator">=</span> <span class="name">checked</span>;
+                    <span class="name">data</span>.<span class="name">save</span>();
+                }
+            }
+        }
+    }
+}</pre>
+<p>In this kind of &quot;in place&quot; updates using the <i>model</i> role would give the same result:</p>
+<pre class="qml"><span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-listview.html">ListView</a></span> {
+    <span class="name">model</span>: <span class="name">AlarmModel</span>{
+        <span class="name">id</span>: <span class="name">alarmModel</span>
+    }
+    <span class="name">delegate</span>: <span class="name">Standard</span> {
+        <span class="name">text</span>: <span class="name">message</span>
+        <span class="name">control</span>: <span class="name">Switch</span> {
+            <span class="name">checked</span>: <span class="name">model</span>.<span class="name">enabled</span>
+            <span class="name">onCheckedChanged</span>: {
+                <span class="keyword">if</span> (<span class="name">checked</span> <span class="operator">!=</span> <span class="name">model</span>.<span class="name">enabled</span>) {
+                    <span class="name">model</span>.<span class="name">enabled</span> <span class="operator">=</span> <span class="name">checked</span>;
+                    <span class="name">model</span>.<span class="name">save</span>();
+                }
+            }
+        }
+    }
+}</pre>
+<!-- @@@AlarmModel -->
+<h2>Property Documentation</h2>
+<!-- $$$count -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="count-prop"></a><span class="name">count</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>The number of data entries in the model.</p>
+</div></div><!-- @@@count -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$get -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="get-method"></a><span class="type"><a href="qml-ubuntu-components0-alarm.html">Alarm</a></span> AlarmModel::<span class="name">get</span>(<span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span><i> index</i>)</p></td></tr></table></div><div class="qmldoc"><p>Returns the copy of the alarm event at <i>index</i> in the model. This allows the alarm data to be modified and updated either through normal component binding or in Javascript functions.</p>
+<pre class="cpp">Component<span class="operator">.</span>onCompleted: {
+    var alarm <span class="operator">=</span> alarmModel<span class="operator">.</span>get(<span class="number">0</span>);
+    alarm<span class="operator">.</span>message <span class="operator">+</span><span class="operator">=</span> <span class="string">&quot; updated&quot;</span>;
+    alarm<span class="operator">.</span>save();
+}</pre>
+<p>This Javascript code returns the alarm properties from the first index of the model, updates its message and updates the alarm. Note that the alarm must be saved in order to have the changes visible. The follwoing code will not update the alarm in the model/collection:</p>
+<pre class="cpp">Component<span class="operator">.</span>onCompleted: {
+    alarmModel<span class="operator">.</span>get(<span class="number">0</span>)<span class="operator">.</span>message <span class="operator">+</span><span class="operator">=</span> <span class="string">&quot; updated&quot;</span>;
+    alarm<span class="operator">.</span>message <span class="operator">+</span><span class="operator">=</span> <span class="string">&quot; updated&quot;</span>;
+}</pre>
+<p><b>Warning</b>: The returned object is not guarantied to remain valid, it should not be used in property bindings.</p>
+<p><b>See also </b><a href="qml-ubuntu-components0-alarm.html">Alarm</a>.</p>
+</div></div><!-- @@@get -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

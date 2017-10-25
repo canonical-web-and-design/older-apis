@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ubuntu-layouts.qdoc -->
+  <title>UbuntuUserInterfaceToolkit 0.1: Layouts - Terminology</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li>Layouts - Terminology</li>
+  <link rel="next" href="ubuntu-layouts2.html" />
+<p class="naviNextPrevious headerNavi">
+<li><a class="nextPage" href="ubuntu-layouts2.html">Layouts - The first conditional layout</a></li>
+</p>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level3"><a href="ubuntu-layouts1.html#layout-block-container-and-item-holder">Layout Block, Container and Item holder</a></li>
+</ul>
+</div>
+</ul><h1 class="title">Layouts - Terminology</h1>
+<span class="subtitle"></span>
+<!-- $$$ubuntu-layouts1.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>First let's introduce the terminology we are going to use across this tutorial.</p>
+<a name="layout-block-container-and-item-holder"></a>
+<h4>Layout Block, Container and Item holder</h4>
+<p>A layout block is a component embedding several layout definitions and items to be laid out. It is typically defined by the <a href="qml-ubuntu-layouts0-layouts.html">Layouts</a> component.</p>
+<p>Each layout defined in the block is compound of containers, which can host laid out items hosted by item holders.</p>
+<p>An item holder is a pseudo-item which can host only one item, where the item is anchored to the item holder's edges, therefore the item holder has control over the componet's size, scale and rotation.</p>
+<p>To understand this let's take the following layout structure:</p>
+<p class="centerAlign"><img src="images/sample-layout.png" alt="" /></p><p>In this layout all three buttons are laid out in the same container, but green button was required to take the height of the window, whereas the red and blue buttons were required to have the same width and height.</p>
+<p>Illustrating the layout on the image with code:</p>
+<pre class="qml"><span class="type"><a href="qml-ubuntu-layouts0-layouts.html">Layouts</a></span> { <span class="comment">// &lt;-- layout block</span>
+    <span class="name">id</span>: <span class="name">layouts</span>
+    <span class="name">layouts</span>: [
+        <span class="comment">// [...]</span>
+        <span class="type"><a href="qml-ubuntu-layouts0-conditionallayout.html">ConditionalLayout</a></span> { <span class="comment">// &lt;-- layout</span>
+            <span class="name">name</span>: <span class="string">&quot;composit&quot;</span>
+            <span class="type">Row</span> { <span class="comment">// &lt;-- layout container</span>
+                <span class="comment">// [...]</span>
+                <span class="type"><a href="qml-ubuntu-layouts0-itemlayout.html">ItemLayout</a></span> { <span class="comment">// &lt;-- item holder</span>
+                    <span class="name">item</span>: <span class="string">&quot;item2&quot;</span>
+                    <span class="comment">// [...]</span>
+                }
+                <span class="type"><a href="qml-ubuntu-layouts0-itemlayout.html">ItemLayout</a></span> { <span class="comment">// &lt;-- item holder</span>
+                    <span class="name">item</span>: <span class="string">&quot;item1&quot;</span>
+                    <span class="comment">// [...]</span>
+                }
+                <span class="type"><a href="qml-ubuntu-layouts0-itemlayout.html">ItemLayout</a></span> { <span class="comment">// &lt;-- item holder</span>
+                    <span class="name">item</span>: <span class="string">&quot;item3&quot;</span>
+                    <span class="comment">// [...]</span>
+                }
+            }
+        }
+    ]
+
+    <span class="comment">// the items to lay outitem3</span>
+    <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+        <span class="name">Layouts</span>.item: <span class="string">&quot;item1&quot;</span>
+        <span class="comment">// [...]</span>
+    }
+    <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+        <span class="name">Layouts</span>.item: <span class="string">&quot;item2&quot;</span>
+        <span class="comment">// [...]</span>
+    }
+    <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+        <span class="name">Layouts</span>.item: <span class="string">&quot;item3&quot;</span>
+        <span class="comment">// [...]</span>
+    }
+}</pre>
+<p>A container can be any item, however it is preferable to use positioners or QtQuick layout elements whenever possible.</p>
+<p>As next step let's create some layouts.</p>
+</div>
+<!-- @@@ubuntu-layouts1.html -->
+<p class="naviNextPrevious footerNavi">
+<li><a class="nextPage" href="ubuntu-layouts2.html">Layouts - The first conditional layout</a></li>
+</p>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

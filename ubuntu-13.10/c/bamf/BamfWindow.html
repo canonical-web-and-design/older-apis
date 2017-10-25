@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>BamfWindow</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="libbamf Reference Manual">
+<link rel="up" href="ch01.html" title="Classes">
+<link rel="prev" href="BamfMatcher.html" title="BamfMatcher">
+<link rel="next" href="BamfFactory.html" title="BamfFactory">
+<meta name="generator" content="GTK-Doc V1.19 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="BamfMatcher.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libbamf Reference Manual</th>
+<td><a accesskey="n" href="BamfFactory.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="BamfWindow.html#BamfWindow.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="BamfWindow.html#BamfWindow.description" class="shortcut">Description</a>
+                   | 
+                  <a href="BamfWindow.html#BamfWindow.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="BamfWindow.html#BamfWindow.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="BamfWindow"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="BamfWindow.top_of_page"></a>BamfWindow</span></h2>
+<p>BamfWindow — The base class for all windows</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="BamfWindow.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="BamfWindow.html#BAMF-WINDOW-SIGNAL-MONITOR-CHANGED:CAPS" title="BAMF_WINDOW_SIGNAL_MONITOR_CHANGED">BAMF_WINDOW_SIGNAL_MONITOR_CHANGED</a>
+#define             <a class="link" href="BamfWindow.html#BAMF-WINDOW-SIGNAL-MAXIMIZED-CHANGED:CAPS" title="BAMF_WINDOW_SIGNAL_MAXIMIZED_CHANGED">BAMF_WINDOW_SIGNAL_MAXIMIZED_CHANGED</a>
+struct              <a class="link" href="BamfWindow.html#BamfWindow-struct" title="struct BamfWindow">BamfWindow</a>;
+enum                <a class="link" href="BamfWindow.html#BamfWindowType" title="enum BamfWindowType">BamfWindowType</a>;
+enum                <a class="link" href="BamfWindow.html#BamfWindowMaximizationType" title="enum BamfWindowMaximizationType">BamfWindowMaximizationType</a>;
+struct              <a class="link" href="BamfWindow.html#BamfWindowClass" title="struct BamfWindowClass">BamfWindowClass</a>;
+<a class="link" href="BamfWindow.html" title="BamfWindow"><span class="returnvalue">BamfWindow</span></a> *        <a class="link" href="BamfWindow.html#bamf-window-get-transient" title="bamf_window_get_transient ()">bamf_window_get_transient</a>           (<em class="parameter"><code><a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> *self</code></em>);
+<a class="link" href="BamfWindow.html#BamfWindowType" title="enum BamfWindowType"><span class="returnvalue">BamfWindowType</span></a>      <a class="link" href="BamfWindow.html#bamf-window-get-window-type" title="bamf_window_get_window_type ()">bamf_window_get_window_type</a>         (<em class="parameter"><code><a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> *self</code></em>);
+<span class="returnvalue">guint32</span>             <a class="link" href="BamfWindow.html#bamf-window-get-xid" title="bamf_window_get_xid ()">bamf_window_get_xid</a>                 (<em class="parameter"><code><a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> *self</code></em>);
+<span class="returnvalue">guint32</span>             <a class="link" href="BamfWindow.html#bamf-window-get-pid" title="bamf_window_get_pid ()">bamf_window_get_pid</a>                 (<em class="parameter"><code><a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> *self</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="BamfWindow.html#bamf-window-get-monitor" title="bamf_window_get_monitor ()">bamf_window_get_monitor</a>             (<em class="parameter"><code><a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> *self</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="BamfWindow.html#bamf-window-get-utf8-prop" title="bamf_window_get_utf8_prop ()">bamf_window_get_utf8_prop</a>           (<em class="parameter"><code><a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *prop</code></em>);
+<a class="link" href="BamfWindow.html#BamfWindowMaximizationType" title="enum BamfWindowMaximizationType"><span class="returnvalue">BamfWindowMaximizationType</span></a> <a class="link" href="BamfWindow.html#bamf-window-maximized" title="bamf_window_maximized ()">bamf_window_maximized</a>        (<em class="parameter"><code><a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> *self</code></em>);
+<span class="returnvalue">time_t</span>              <a class="link" href="BamfWindow.html#bamf-window-last-active" title="bamf_window_last_active ()">bamf_window_last_active</a>             (<em class="parameter"><code><a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> *self</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="BamfWindow.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----GInitiallyUnowned
+         +----<a class="link" href="BamfView.html" title="BamfView">BamfView</a>
+               +----BamfWindow
+</pre>
+</div>
+<div class="refsect1">
+<a name="BamfWindow.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="BamfWindow.html#BamfWindow-maximized-changed" title='The "maximized-changed" signal'>maximized-changed</a>"                              : <code class="literal">Run First</code>
+  "<a class="link" href="BamfWindow.html#BamfWindow-monitor-changed" title='The "monitor-changed" signal'>monitor-changed</a>"                                : <code class="literal">Run First</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="BamfWindow.description"></a><h2>Description</h2>
+<p>
+<a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> is the base class that all windows need to derive from.
+</p>
+</div>
+<div class="refsect1">
+<a name="BamfWindow.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="BAMF-WINDOW-SIGNAL-MONITOR-CHANGED:CAPS"></a><h3>BAMF_WINDOW_SIGNAL_MONITOR_CHANGED</h3>
+<pre class="programlisting">#define BAMF_WINDOW_SIGNAL_MONITOR_CHANGED   "monitor-changed"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BAMF-WINDOW-SIGNAL-MAXIMIZED-CHANGED:CAPS"></a><h3>BAMF_WINDOW_SIGNAL_MAXIMIZED_CHANGED</h3>
+<pre class="programlisting">#define BAMF_WINDOW_SIGNAL_MAXIMIZED_CHANGED "maximized-changed"
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfWindow-struct"></a><h3>struct BamfWindow</h3>
+<pre class="programlisting">struct BamfWindow;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfWindowType"></a><h3>enum BamfWindowType</h3>
+<pre class="programlisting">typedef enum {
+  BAMF_WINDOW_NORMAL,       /* document/app window */
+  BAMF_WINDOW_DESKTOP,      /* desktop background */
+  BAMF_WINDOW_DOCK,         /* panel */
+  BAMF_WINDOW_DIALOG,       /* dialog */
+  BAMF_WINDOW_TOOLBAR,      /* tearoff toolbar */
+  BAMF_WINDOW_MENU,         /* tearoff menu */
+  BAMF_WINDOW_UTILITY,      /* palette/toolbox window */
+  BAMF_WINDOW_SPLASHSCREEN, /* splash screen */
+  BAMF_WINDOW_UNKNOWN
+} BamfWindowType;
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><a name="BAMF-WINDOW-NORMAL:CAPS"></a><span class="term"><code class="literal">BAMF_WINDOW_NORMAL</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="BAMF-WINDOW-DESKTOP:CAPS"></a><span class="term"><code class="literal">BAMF_WINDOW_DESKTOP</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="BAMF-WINDOW-DOCK:CAPS"></a><span class="term"><code class="literal">BAMF_WINDOW_DOCK</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="BAMF-WINDOW-DIALOG:CAPS"></a><span class="term"><code class="literal">BAMF_WINDOW_DIALOG</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="BAMF-WINDOW-TOOLBAR:CAPS"></a><span class="term"><code class="literal">BAMF_WINDOW_TOOLBAR</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="BAMF-WINDOW-MENU:CAPS"></a><span class="term"><code class="literal">BAMF_WINDOW_MENU</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="BAMF-WINDOW-UTILITY:CAPS"></a><span class="term"><code class="literal">BAMF_WINDOW_UTILITY</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="BAMF-WINDOW-SPLASHSCREEN:CAPS"></a><span class="term"><code class="literal">BAMF_WINDOW_SPLASHSCREEN</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="BAMF-WINDOW-UNKNOWN:CAPS"></a><span class="term"><code class="literal">BAMF_WINDOW_UNKNOWN</code></span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfWindowMaximizationType"></a><h3>enum BamfWindowMaximizationType</h3>
+<pre class="programlisting">typedef enum {
+  BAMF_WINDOW_FLOATING,              /* Floating window */
+  BAMF_WINDOW_HORIZONTAL_MAXIMIZED,  /* Horizontally maximized window */
+  BAMF_WINDOW_VERTICAL_MAXIMIZED,    /* Vertically maximized window */
+  BAMF_WINDOW_MAXIMIZED              /* Maximized window */
+} BamfWindowMaximizationType;
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><a name="BAMF-WINDOW-FLOATING:CAPS"></a><span class="term"><code class="literal">BAMF_WINDOW_FLOATING</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="BAMF-WINDOW-HORIZONTAL-MAXIMIZED:CAPS"></a><span class="term"><code class="literal">BAMF_WINDOW_HORIZONTAL_MAXIMIZED</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="BAMF-WINDOW-VERTICAL-MAXIMIZED:CAPS"></a><span class="term"><code class="literal">BAMF_WINDOW_VERTICAL_MAXIMIZED</code></span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><a name="BAMF-WINDOW-MAXIMIZED:CAPS"></a><span class="term"><code class="literal">BAMF_WINDOW_MAXIMIZED</code></span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfWindowClass"></a><h3>struct BamfWindowClass</h3>
+<pre class="programlisting">struct BamfWindowClass {
+  BamfViewClass parent_class;
+
+  BamfWindow               * (*get_transient)      (BamfWindow *self);
+  BamfWindowType             (*get_window_type)    (BamfWindow *self);
+  guint32                    (*get_xid)            (BamfWindow *self);
+  guint32                    (*get_pid)            (BamfWindow *self);
+  gint                       (*get_monitor)        (BamfWindow *self);
+  gchar                    * (*get_utf8_prop)      (BamfWindow *self, const char* prop);
+  BamfWindowMaximizationType (*maximized)          (BamfWindow *self);
+  time_t                     (*last_active)        (BamfWindow *self);
+
+  /*&lt; signals &gt;*/
+  void (*monitor_changed)   (BamfWindow *window, gint old_value, gint new_value);
+  void (*maximized_changed) (BamfWindow *window, gint old_value, gint new_value);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-window-get-transient"></a><h3>bamf_window_get_transient ()</h3>
+<pre class="programlisting"><a class="link" href="BamfWindow.html" title="BamfWindow"><span class="returnvalue">BamfWindow</span></a> *        bamf_window_get_transient           (<em class="parameter"><code><a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> *self</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A transient for this <a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-window-get-window-type"></a><h3>bamf_window_get_window_type ()</h3>
+<pre class="programlisting"><a class="link" href="BamfWindow.html#BamfWindowType" title="enum BamfWindowType"><span class="returnvalue">BamfWindowType</span></a>      bamf_window_get_window_type         (<em class="parameter"><code><a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-window-get-xid"></a><h3>bamf_window_get_xid ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint32</span>             bamf_window_get_xid                 (<em class="parameter"><code><a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-window-get-pid"></a><h3>bamf_window_get_pid ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint32</span>             bamf_window_get_pid                 (<em class="parameter"><code><a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-window-get-monitor"></a><h3>bamf_window_get_monitor ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                bamf_window_get_monitor             (<em class="parameter"><code><a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-window-get-utf8-prop"></a><h3>bamf_window_get_utf8_prop ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             bamf_window_get_utf8_prop           (<em class="parameter"><code><a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *prop</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-window-maximized"></a><h3>bamf_window_maximized ()</h3>
+<pre class="programlisting"><a class="link" href="BamfWindow.html#BamfWindowMaximizationType" title="enum BamfWindowMaximizationType"><span class="returnvalue">BamfWindowMaximizationType</span></a> bamf_window_maximized        (<em class="parameter"><code><a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-window-last-active"></a><h3>bamf_window_last_active ()</h3>
+<pre class="programlisting"><span class="returnvalue">time_t</span>              bamf_window_last_active             (<em class="parameter"><code><a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="BamfWindow.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="BamfWindow-maximized-changed"></a><h3>The <code class="literal">"maximized-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> *bamfwindow,
+                                                        <span class="type">gint</span>        arg1,
+                                                        <span class="type">gint</span>        arg2,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run First</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bamfwindow</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfWindow-monitor-changed"></a><h3>The <code class="literal">"monitor-changed"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="BamfWindow.html" title="BamfWindow"><span class="type">BamfWindow</span></a> *bamfwindow,
+                                                        <span class="type">gint</span>        arg1,
+                                                        <span class="type">gint</span>        arg2,
+                                                        <span class="type">gpointer</span>    user_data)       : <code class="literal">Run First</code></pre>
+<p>
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>bamfwindow</code></em> :</span></p></td>
+<td>the object which received the signal.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.19</div>
+</body>
+</html>

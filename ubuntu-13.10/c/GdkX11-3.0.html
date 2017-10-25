@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="C">
+    
+    <title>GdkX11-3.0 C API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>GdkX11-3.0 C API Documentation</h1>
+
+<div class="class-normal">
+<a href="GdkX11-3.0.html#GdkX11.X11Cursor" class="class-anchor">⚓</a><h2 class="class-normal" id="GdkX11.X11Cursor">Class: GdkX11Cursor</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Gdk-3.0.html#Gdk.Cursor">GdkCursor</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Cursor</span></span><span class="method-name">gdk_x11_cursor_get_xcursor</span><span class="method-parameters">(GdkX11Cursor *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="xlib-2.0.html#xlib.Display">Display*</a></span><span class="method-name">gdk_x11_cursor_get_xdisplay</span><span class="method-parameters">(GdkX11Cursor *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="GdkX11-3.0.html#GdkX11.X11Display" class="class-anchor">⚓</a><h2 class="class-normal" id="GdkX11.X11Display">Class: GdkX11Display</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Gdk-3.0.html#Gdk.Display">GdkDisplay</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_x11_display_broadcast_startup_message</span><span class="method-parameters">(GdkX11Display *self, <span class="type-basetype type ">gchar</span> *message_type, <span class="type ">...</span> arg2)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_x11_display_error_trap_pop</span><span class="method-parameters">(GdkX11Display *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_x11_display_error_trap_pop_ignored</span><span class="method-parameters">(GdkX11Display *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_x11_display_error_trap_push</span><span class="method-parameters">(GdkX11Display *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">gdk_x11_display_get_startup_notification_id</span><span class="method-parameters">(GdkX11Display *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint32</span></span><span class="method-name">gdk_x11_display_get_user_time</span><span class="method-parameters">(GdkX11Display *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="xlib-2.0.html#xlib.Display">Display*</a></span><span class="method-name">gdk_x11_display_get_xdisplay</span><span class="method-parameters">(GdkX11Display *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_x11_display_grab</span><span class="method-parameters">(GdkX11Display *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_x11_display_set_cursor_theme</span><span class="method-parameters">(GdkX11Display *self, <span class="type-basetype type ">gchar</span> *theme, <span class="type-basetype type ">gint</span> size)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_x11_display_set_startup_notification_id</span><span class="method-parameters">(GdkX11Display *self, <span class="type-basetype type ">gchar</span> *startup_id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_x11_display_string_to_compound_text</span><span class="method-parameters">(GdkX11Display *self, <span class="type-basetype type ">gchar</span> *str, <a class="link-Record type " href="Gdk-3.0.html#Gdk.Atom">GdkAtom</a> **encoding, <span class="type-basetype type ">gint</span> **format, <span class="type ">guchar</span> **ctext, <span class="type-basetype type ">gint</span> **length)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_x11_display_text_property_to_text_list</span><span class="method-parameters">(GdkX11Display *self, <a class="link-Record type " href="Gdk-3.0.html#Gdk.Atom">GdkAtom</a> encoding, <span class="type-basetype type ">gint</span> format, <span class="type-basetype type ">guint8</span> *text, <span class="type-basetype type ">gint</span> length, <span class="type-basetype type ">gchar</span> *list)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_x11_display_ungrab</span><span class="method-parameters">(GdkX11Display *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_x11_display_utf8_to_compound_text</span><span class="method-parameters">(GdkX11Display *self, <span class="type-basetype type ">gchar</span> *str, <a class="link-Record type " href="Gdk-3.0.html#Gdk.Atom">GdkAtom</a> **encoding, <span class="type-basetype type ">gint</span> **format, <span class="type ">guchar</span> **ctext, <span class="type-basetype type ">gint</span> **length)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="GdkX11-3.0.html#GdkX11.X11Screen" class="class-anchor">⚓</a><h2 class="class-normal" id="GdkX11.X11Screen">Class: GdkX11Screen</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Gdk-3.0.html#Gdk.Screen">GdkScreen</a></p>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"window-manager-changed"</span><span class="signal-parameters">(GdkX11Screen *x11screen)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">XID</span></span><span class="method-name">gdk_x11_screen_get_monitor_output</span><span class="method-parameters">(GdkX11Screen *self, <span class="type-basetype type ">gint</span> monitor_num)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">gdk_x11_screen_get_screen_number</span><span class="method-parameters">(GdkX11Screen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">gdk_x11_screen_get_window_manager_name</span><span class="method-parameters">(GdkX11Screen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="xlib-2.0.html#xlib.Screen">Screen*</a></span><span class="method-name">gdk_x11_screen_get_xscreen</span><span class="method-parameters">(GdkX11Screen *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Visual">GdkVisual*</a></span><span class="method-name">gdk_x11_screen_lookup_visual</span><span class="method-parameters">(GdkX11Screen *self, <span class="type ">VisualID</span> xvisualid)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">gdk_x11_screen_supports_net_wm_hint</span><span class="method-parameters">(GdkX11Screen *self, <a class="link-Record type " href="Gdk-3.0.html#Gdk.Atom">GdkAtom</a> property)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="GdkX11-3.0.html#GdkX11.X11Visual" class="class-anchor">⚓</a><h2 class="class-normal" id="GdkX11.X11Visual">Class: GdkX11Visual</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Gdk-3.0.html#Gdk.Visual">GdkVisual</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="xlib-2.0.html#xlib.Visual">Visual*</a></span><span class="method-name">gdk_x11_visual_get_xvisual</span><span class="method-parameters">(<a class="link-Class type " href="Gdk-3.0.html#Gdk.Visual">GdkVisual</a> *visual)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="GdkX11-3.0.html#GdkX11.X11Window" class="class-anchor">⚓</a><h2 class="class-normal" id="GdkX11.X11Window">Class: GdkX11Window</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="GdkX11-3.0.html#GdkX11.X11Window">GdkX11Window</a>*</span><span class="method-name">gdk_x11_window_foreign_new_for_display</span><span class="method-parameters">(<a class="link-Type type " href="GdkX11-3.0.html#Gdk.Display">GdkDisplay</a> *display, <span class="type ">Window</span> window)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Window</span></span><span class="method-name">gdk_x11_window_get_xid</span><span class="method-parameters">(GdkX11Window *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gdk-3.0.html#Gdk.Window">GdkWindow*</a></span><span class="method-name">gdk_x11_window_lookup_for_display</span><span class="method-parameters">(GdkX11Window *self, <span class="type ">Window</span> window)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_x11_window_move_to_current_desktop</span><span class="method-parameters">(GdkX11Window *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_x11_window_set_frame_sync_enabled</span><span class="method-parameters">(GdkX11Window *self, <span class="type-basetype type ">gboolean</span> frame_sync_enabled)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_x11_window_set_hide_titlebar_when_maximized</span><span class="method-parameters">(GdkX11Window *self, <span class="type-basetype type ">gboolean</span> hide_titlebar_when_maximized)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_x11_window_set_theme_variant</span><span class="method-parameters">(GdkX11Window *self, <span class="type-basetype type ">gchar</span> *variant)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_x11_window_set_user_time</span><span class="method-parameters">(GdkX11Window *self, <span class="type-basetype type ">guint32</span> timestamp)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">gdk_x11_window_set_utf8_property</span><span class="method-parameters">(GdkX11Window *self, <span class="type-basetype type ">gchar</span> *name, <span class="type-basetype type ">gchar</span> *value)</span></p>
+</div>
+</div>
+</div>
+</body>
+</html>
+

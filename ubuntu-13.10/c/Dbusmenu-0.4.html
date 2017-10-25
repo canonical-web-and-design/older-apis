@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="C">
+    
+    <title>Dbusmenu-0.4 C API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>Dbusmenu-0.4 C API Documentation</h1>
+
+<div class="class-normal">
+<a href="Dbusmenu-0.4.html#Dbusmenu.Client" class="class-anchor">⚓</a><h2 class="class-normal" id="Dbusmenu.Client">Class: DbusmenuClient</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class type " href="DbusmenuGtk-0.4.html#DbusmenuGtk.Client">DbusmenuGtkClient</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+The client for a #DbusmenuServer creating a shared
+	object set of #DbusmenuMenuitem objects.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type ">unknown_{http://wwwgtkorg/introspection/core/10}type</span></span><span class="property-name">"status"</span><span class="property-access"> read-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"group-events"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"dbus-name"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"dbus-object"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type ">unknown_{http://wwwgtkorg/introspection/core/10}type</span></span><span class="property-name">"text-direction"</span><span class="property-access"> read-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"new-menuitem"</span><span class="signal-parameters">(DbusmenuClient *client, GObject arg1)</span></p>
+<p class="signal-doc">
+Signaled when the client creates a new menuitem.  This
+		doesn't mean that it's placed anywhere.  The parent that
+		it's applied to will signal #DbusmenuMenuitem::child-added
+		when it gets parented.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"layout-updated"</span><span class="signal-parameters">(DbusmenuClient *client)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"item-activate"</span><span class="signal-parameters">(DbusmenuClient *client, GObject arg1, guint arg2)</span></p>
+<p class="signal-doc">
+Signaled when the server wants to activate an item in
+		order to display the menu.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"root-changed"</span><span class="signal-parameters">(DbusmenuClient *client, GObject arg1)</span></p>
+<p class="signal-doc">
+The layout has changed in a way that can not be
+		represented by the individual items changing as the
+		root of this client has changed.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"icon-theme-dirs-changed"</span><span class="signal-parameters">(DbusmenuClient *client, gpointer arg1)</span></p>
+<p class="signal-doc">
+Signaled when the theme directories are changed by the server.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"event-result"</span><span class="signal-parameters">(DbusmenuClient *client, GObject object, gchar* p0, GVariant p1, guint p2, gpointer p3)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Client">DbusmenuClient</a>*</span><span class="method-name">dbusmenu_client_new</span><span class="method-parameters">(<a class="link-Type type " href="Dbusmenu-0.4.html#utf8">const gchar</a> *name, <a class="link-Type type " href="Dbusmenu-0.4.html#utf8">const gchar</a> *object)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dbusmenu_client_add_type_handler</span><span class="method-parameters">(DbusmenuClient *self, <span class="type-basetype type ">gchar</span> *type, <a class="link-Callback type " href="Dbusmenu-0.4.html#Dbusmenu.ClientTypeHandler">DbusmenuClientTypeHandler</a> newfunc)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dbusmenu_client_add_type_handler_full</span><span class="method-parameters">(DbusmenuClient *self, <span class="type-basetype type ">gchar</span> *type, <a class="link-Callback type " href="Dbusmenu-0.4.html#Dbusmenu.ClientTypeHandler">DbusmenuClientTypeHandler</a> newfunc, <span class="type-basetype type ">gpointer</span> user_data, <a class="link-Callback type " href="GLib-2.0.html#GLib.DestroyNotify">GDestroyNotify</a> destroy_func)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">gchar**</span></span><span class="method-name">dbusmenu_client_get_icon_paths</span><span class="method-parameters">(DbusmenuClient *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem*</a></span><span class="method-name">dbusmenu_client_get_root</span><span class="method-parameters">(DbusmenuClient *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Dbusmenu-0.4.html#Dbusmenu.Status">DbusmenuStatus</a></span><span class="method-name">dbusmenu_client_get_status</span><span class="method-parameters">(DbusmenuClient *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Dbusmenu-0.4.html#Dbusmenu.TextDirection">DbusmenuTextDirection</a></span><span class="method-name">dbusmenu_client_get_text_direction</span><span class="method-parameters">(DbusmenuClient *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Dbusmenu-0.4.html#Dbusmenu.Menuitem" class="class-anchor">⚓</a><h2 class="class-normal" id="Dbusmenu.Menuitem">Class: DbusmenuMenuitem</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.MenuitemProxy">DbusmenuMenuitemProxy</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+This is the #GObject based object that represents a menu
+item.  It gets created the same on both the client and
+the server side and libdbusmenu-glib does the work of making
+this object model appear on both sides of DBus.  Simple
+really, though through updates and people coming on and off
+the bus it can lead to lots of fun complex scenarios.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gint</span></span><span class="property-name">"id"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"realized"</span><span class="signal-parameters">(DbusmenuMenuitem *menuitem)</span></p>
+<p class="signal-doc">
+Emitted when the initial request for properties
+		is complete on the item.  If there is a type
+		handler configured for the "type" parameter
+		that will be executed before this is signaled.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"show-to-user"</span><span class="signal-parameters">(DbusmenuMenuitem *menuitem, guint arg1)</span></p>
+<p class="signal-doc">
+Signaled when the application would like the visualization
+		of this menu item shown to the user.  This usually requires
+		going over the bus to get it done.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"child-added"</span><span class="signal-parameters">(DbusmenuMenuitem *menuitem, GObject arg1, guint arg2)</span></p>
+<p class="signal-doc">
+Signaled when the child menuitem has been added to
+		the parent.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">gboolean</span><span class="signal-name">"event"</span><span class="signal-parameters">(DbusmenuMenuitem *menuitem, gchar* arg1, GVariant arg2, guint arg3)</span></p>
+<p class="signal-doc">
+Emitted when an event is passed through.  The event is signalled
+		after handle_event is called.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"property-changed"</span><span class="signal-parameters">(DbusmenuMenuitem *menuitem, gchar* arg1, GVariant arg2)</span></p>
+<p class="signal-doc">
+Emitted everytime a property on a menuitem is either
+		updated or added.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">gboolean</span><span class="signal-name">"about-to-show"</span><span class="signal-parameters">(DbusmenuMenuitem *menuitem)</span></p>
+<p class="signal-doc">
+Emitted when the submenu for this item
+		is about to be shown</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"child-removed"</span><span class="signal-parameters">(DbusmenuMenuitem *menuitem, GObject arg1)</span></p>
+<p class="signal-doc">
+Signaled when the child menuitem has been requested to
+		be removed from the parent.  This signal is called when
+		it has been removed from the list but not yet had
+		#g_object_unref called on it.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"item-activated"</span><span class="signal-parameters">(DbusmenuMenuitem *menuitem, guint arg1)</span></p>
+<p class="signal-doc">
+Emitted on the objects on the server side when
+		they are signaled on the client side.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"child-moved"</span><span class="signal-parameters">(DbusmenuMenuitem *menuitem, GObject arg1, guint arg2, guint arg3)</span></p>
+<p class="signal-doc">
+Signaled when the child menuitem has had its location
+		in the list change.</p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem</a>*</span><span class="method-name">dbusmenu_menuitem_new_with_id</span><span class="method-parameters">(<a class="link-Type type " href="Dbusmenu-0.4.html#gint">gint</a> id)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem</a>*</span><span class="method-name">dbusmenu_menuitem_new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dbusmenu_menuitem_child_add_position</span><span class="method-parameters">(DbusmenuMenuitem *self, <a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem</a> *child, <span class="type-basetype type ">guint</span> position)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dbusmenu_menuitem_child_added</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">guint</span> position)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dbusmenu_menuitem_child_append</span><span class="method-parameters">(DbusmenuMenuitem *self, <a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem</a> *child)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dbusmenu_menuitem_child_delete</span><span class="method-parameters">(DbusmenuMenuitem *self, <a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem</a> *child)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem*</a></span><span class="method-name">dbusmenu_menuitem_child_find</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">gint</span> id)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dbusmenu_menuitem_child_moved</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">guint</span> newpos, <span class="type-basetype type ">guint</span> oldpos)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dbusmenu_menuitem_child_prepend</span><span class="method-parameters">(DbusmenuMenuitem *self, <a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem</a> *child)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dbusmenu_menuitem_child_removed</span><span class="method-parameters">(DbusmenuMenuitem *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dbusmenu_menuitem_child_reorder</span><span class="method-parameters">(DbusmenuMenuitem *self, <a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem</a> *child, <span class="type-basetype type ">guint</span> position)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem*</a></span><span class="method-name">dbusmenu_menuitem_find_id</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">gint</span> id)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dbusmenu_menuitem_foreach</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">gpointer</span> *func, <span class="type-basetype type ">gpointer</span> data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">dbusmenu_menuitem_get_children</span><span class="method-parameters">(DbusmenuMenuitem *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">dbusmenu_menuitem_get_id</span><span class="method-parameters">(DbusmenuMenuitem *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem*</a></span><span class="method-name">dbusmenu_menuitem_get_parent</span><span class="method-parameters">(DbusmenuMenuitem *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">dbusmenu_menuitem_get_position</span><span class="method-parameters">(DbusmenuMenuitem *self, <a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem</a> *parent)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">dbusmenu_menuitem_get_position_realized</span><span class="method-parameters">(DbusmenuMenuitem *self, <a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem</a> *parent)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dbusmenu_menuitem_get_root</span><span class="method-parameters">(DbusmenuMenuitem *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dbusmenu_menuitem_handle_event</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">gchar</span> *name, <a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant</a> *variant, <span class="type-basetype type ">guint</span> timestamp)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.HashTable">GHashTable*</a></span><span class="method-name">dbusmenu_menuitem_properties_copy</span><span class="method-parameters">(DbusmenuMenuitem *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">dbusmenu_menuitem_properties_list</span><span class="method-parameters">(DbusmenuMenuitem *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dbusmenu_menuitem_property_exist</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">gchar</span> *property)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">dbusmenu_menuitem_property_get</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">gchar</span> *property)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dbusmenu_menuitem_property_get_bool</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">gchar</span> *property)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">guint8*</span></span><span class="method-name">dbusmenu_menuitem_property_get_byte_array</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">gchar</span> *property, <span class="type ">gsize</span> **nelements)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">dbusmenu_menuitem_property_get_int</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">gchar</span> *property)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant*</a></span><span class="method-name">dbusmenu_menuitem_property_get_variant</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">gchar</span> *property)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dbusmenu_menuitem_property_remove</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">gchar</span> *property)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dbusmenu_menuitem_property_set</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">gchar</span> *property, <span class="type-basetype type ">gchar</span> *value)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dbusmenu_menuitem_property_set_bool</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">gchar</span> *property, <span class="type-basetype type ">gboolean</span> value)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dbusmenu_menuitem_property_set_byte_array</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">gchar</span> *property, <span class="type-basetype type ">guint8</span> *value, <span class="type ">gsize</span> nelements)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dbusmenu_menuitem_property_set_int</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">gchar</span> *property, <span class="type-basetype type ">gint</span> value)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dbusmenu_menuitem_property_set_variant</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">gchar</span> *property, <a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant</a> *value)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dbusmenu_menuitem_send_about_to_show</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type ">dbusmenu_menuitem_about_to_show_cb</span> cb, <span class="type-basetype type ">gpointer</span> cb_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dbusmenu_menuitem_set_parent</span><span class="method-parameters">(DbusmenuMenuitem *self, <a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem</a> *parent)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dbusmenu_menuitem_set_root</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">gboolean</span> root)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dbusmenu_menuitem_show_to_user</span><span class="method-parameters">(DbusmenuMenuitem *self, <span class="type-basetype type ">guint</span> timestamp, <span class="type-basetype type ">gpointer</span> cb_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GList*</a></span><span class="method-name">dbusmenu_menuitem_take_children</span><span class="method-parameters">(DbusmenuMenuitem *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dbusmenu_menuitem_unparent</span><span class="method-parameters">(DbusmenuMenuitem *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Dbusmenu-0.4.html#Dbusmenu.MenuitemProxy" class="class-anchor">⚓</a><h2 class="class-normal" id="Dbusmenu.MenuitemProxy">Class: DbusmenuMenuitemProxy</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem</a></p>
+<p>
+Public instance data for a #DbusmenuMenuitemProxy.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem</a></span><span class="property-name">"menu-item"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.MenuitemProxy">DbusmenuMenuitemProxy</a>*</span><span class="method-name">dbusmenu_menuitem_proxy_new</span><span class="method-parameters">(<a class="link-Type type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem</a> *mi)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem*</a></span><span class="method-name">dbusmenu_menuitem_proxy_get_wrapped</span><span class="method-parameters">(DbusmenuMenuitemProxy *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Dbusmenu-0.4.html#Dbusmenu.Server" class="class-anchor">⚓</a><h2 class="class-normal" id="Dbusmenu.Server">Class: DbusmenuServer</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+A server which represents a sharing of a set of
+	#DbusmenuMenuitems across DBus to a #DbusmenuClient.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type ">unknown_{http://wwwgtkorg/introspection/core/10}type</span></span><span class="property-name">"status"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">guint</span></span><span class="property-name">"version"</span><span class="property-access"> read-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem</a></span><span class="property-name">"root-node"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"dbus-object"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type ">unknown_{http://wwwgtkorg/introspection/core/10}type</span></span><span class="property-name">"text-direction"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"item-property-updated"</span><span class="signal-parameters">(DbusmenuServer *server, gint object, gchar* p0, GVariant p1)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"item-activation-requested"</span><span class="signal-parameters">(DbusmenuServer *server, gint arg1, guint arg2)</span></p>
+<p class="signal-doc">
+This is signaled when a menuitem under this server
+		sends its activate signal.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"layout-updated"</span><span class="signal-parameters">(DbusmenuServer *server, guint arg1, gint arg2)</span></p>
+<p class="signal-doc">
+This signal is emitted any time the layout of the
+		menuitems under this server is changed.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"item-updated"</span><span class="signal-parameters">(DbusmenuServer *server, gint object)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Server">DbusmenuServer</a>*</span><span class="method-name">dbusmenu_server_new</span><span class="method-parameters">(<a class="link-Type type " href="Dbusmenu-0.4.html#utf8">const gchar</a> *object)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">gchar**</span></span><span class="method-name">dbusmenu_server_get_icon_paths</span><span class="method-parameters">(DbusmenuServer *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Dbusmenu-0.4.html#Dbusmenu.Status">DbusmenuStatus</a></span><span class="method-name">dbusmenu_server_get_status</span><span class="method-parameters">(DbusmenuServer *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Dbusmenu-0.4.html#Dbusmenu.TextDirection">DbusmenuTextDirection</a></span><span class="method-name">dbusmenu_server_get_text_direction</span><span class="method-parameters">(DbusmenuServer *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dbusmenu_server_set_icon_paths</span><span class="method-parameters">(DbusmenuServer *self, <span class="type ">gchar</span> **icon_paths)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dbusmenu_server_set_root</span><span class="method-parameters">(DbusmenuServer *self, <a class="link-Class type " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">DbusmenuMenuitem</a> *root)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dbusmenu_server_set_status</span><span class="method-parameters">(DbusmenuServer *self, <a class="link-Enumeration type " href="Dbusmenu-0.4.html#Dbusmenu.Status">DbusmenuStatus</a> status)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dbusmenu_server_set_text_direction</span><span class="method-parameters">(DbusmenuServer *self, <a class="link-Enumeration type " href="Dbusmenu-0.4.html#Dbusmenu.TextDirection">DbusmenuTextDirection</a> dir)</span></p>
+</div>
+</div>
+</div>
+</body>
+</html>
+

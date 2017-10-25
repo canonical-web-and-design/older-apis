@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="Python">
+    
+    <title>Grip-0.2 Python API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>Grip-0.2 Python API Documentation</h1>
+
+<div class="class-normal">
+<a href="Grip-0.2.html#Grip.GestureManager" class="class-anchor">⚓</a><h2 class="class-normal" id="Grip.GestureManager">Class: Grip.GestureManager</h2>
+<div class="relations">
+<p>
+A singleton manager into which a window may be registered to receive
+multitouch gesture events.</p>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Grip.GestureManager.device-available">"device-available"</span><span class="signal-parameters">(self, <a class="link-Class " href="Grip-0.2.html#Grip.GestureManager">gesture_manager</a>, <a class="link-Class " href="Grip-0.2.html#Grip.InputDevice">object</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Grip.GestureManager.device-unavailable">"device-unavailable"</span><span class="signal-parameters">(self, <a class="link-Class " href="Grip-0.2.html#Grip.GestureManager">gesture_manager</a>, <a class="link-Class " href="Grip-0.2.html#Grip.InputDevice">object</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Grip-0.2.html#Grip.GestureManager">Grip.GestureManager</a></span><span class="method-name" id="Grip.GestureManager.get">get</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Grip.GestureManager.register_window">register_window</span><span class="method-parameters">(<a class="link-Class " href="Gtk-2.0.html#Gtk.Widget">widget</a>, <a class="link-Enumeration " href="Grip-0.2.html#Grip.GestureType">gesture_type</a>, <a class="link-Enumeration " href="Grip-0.2.html#Grip.DeviceType">device_type</a>, <span class="type-basetype ">touch_points</span>, <a class="link-Callback " href="Grip-0.2.html#Grip.GestureCallback">callback</a>, <span class="type-basetype ">user_data</span>, destroy)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Grip.GestureManager.unregister_window">unregister_window</span><span class="method-parameters">(<a class="link-Class " href="Gtk-2.0.html#Gtk.Widget">widget</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Grip-0.2.html#Grip.InputDevice" class="class-anchor">⚓</a><h2 class="class-normal" id="Grip.InputDevice">Class: Grip.InputDevice</h2>
+<div class="relations">
+<p>
+This struct contains private data only, and should be accessed using the
+functions below.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">gpointer</span><span class="property-name" id="Grip.InputDevice.geis-device">"geis-device"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">gpointer</span><span class="property-name" id="Grip.InputDevice.device-attrs">"device-attrs"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Grip.InputDevice.get_id">get_id</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Grip.InputDevice.get_name">get_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Grip-0.2.html#Grip.AxisExtents">Grip.AxisExtents</a></span><span class="method-name" id="Grip.InputDevice.get_x_extents">get_x_extents</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Grip-0.2.html#Grip.AxisExtents">Grip.AxisExtents</a></span><span class="method-name" id="Grip.InputDevice.get_y_extents">get_y_extents</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Grip.InputDevice.is_direct">is_direct</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Grip.InputDevice.is_independent">is_independent</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-enum">
+<a href="Grip-0.2.html#Grip.GestureType" class="class-anchor">⚓</a><h2 class="class-enum" id="Grip.GestureType">Enum: Grip.GestureType</h2>
+<div class="enum-members">
+<span class="enum-member">DRAG</span><span class="enum-value">0</span><span class="enum-member">PINCH</span><span class="enum-value">1</span><span class="enum-member">ROTATE</span><span class="enum-value">2</span><span class="enum-member">TAP</span><span class="enum-value">15</span></div>
+</div>
+<div class="class-enum">
+<a href="Grip-0.2.html#Grip.TimeType" class="class-anchor">⚓</a><h2 class="class-enum" id="Grip.TimeType">Enum: Grip.TimeType</h2>
+<div class="enum-members">
+<span class="enum-member">START</span><span class="enum-value">0</span><span class="enum-member">UPDATE</span><span class="enum-value">1</span><span class="enum-member">END</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="Grip-0.2.html#Grip.DeviceType" class="class-anchor">⚓</a><h2 class="class-enum" id="Grip.DeviceType">Enum: Grip.DeviceType</h2>
+<div class="enum-members">
+<span class="enum-member">TOUCHSCREEN</span><span class="enum-value">1</span><span class="enum-member">TOUCHPAD</span><span class="enum-value">2</span><span class="enum-member">INDEPENDENT</span><span class="enum-value">4</span></div>
+</div>
+</body>
+</html>
+

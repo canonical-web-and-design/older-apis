@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="Python">
+    
+    <title>Indicate-0.7 Python API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>Indicate-0.7 Python API Documentation</h1>
+
+<div class="class-normal">
+<a href="Indicate-0.7.html#Indicate.Indicator" class="class-anchor">⚓</a><h2 class="class-normal" id="Indicate.Indicator">Class: Indicate.Indicator</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+<p>
+The indicator object represents a single item that is shared over the
+indicator bus.  This could be something like one IM, one e-mail or 
+a single system update.  It should be accessed only through its
+accessors.</p>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Indicator.hide">"hide"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Indicator">indicator</a>)</span><p class="signal-doc">
+Emitted every time this indicator is hidden.  This
+is mostly used by #IndicateServer.
+
+Typically this results in an emition of #IndicateServer::indicator-removed.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Indicator.displayed">"displayed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Indicator">indicator</a>, <span class="type-basetype ">arg1</span>)</span><p class="signal-doc">
+This is the signal that the indicator has been displayed, or
+hidden by a listener.  In most cases, the signal will be that it
+has been displayed as most folks don't go hiding it later.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Indicator.modified">"modified"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Indicator">indicator</a>, <span class="type-basetype ">arg1</span>)</span><p class="signal-doc">
+Emitted every time an indicator property is changed.
+This is mostly used by #IndicateServer.
+
+Typically this results in an emition of #IndicateServer::indicator-modified.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Indicator.user-display">"user-display"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Indicator">indicator</a>, <span class="type-basetype ">object</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Indicator.show">"show"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Indicator">indicator</a>)</span><p class="signal-doc">
+Emitted every time this indicator is shown.  This
+is mostly used by #IndicateServer.
+
+Typically this results in an emition of #IndicateServer::indicator-added.</p>
+</p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Indicate.Indicator.new">new</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Indicate.Indicator.new_with_server">new_with_server</span><span class="method-parameters">(<a class="link-Type " href="Indicate-0.7.html#Indicate.Server">server</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Indicator.displayed">displayed</span><span class="method-parameters">(<span class="type-basetype ">displayed</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Indicate.Indicator.get_displayed">get_displayed</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Indicate.Indicator.get_id">get_id</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GLib.Variant</a></span><span class="method-name" id="Indicate.Indicator.get_property">get_property</span><span class="method-parameters">(<span class="type-basetype ">key</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GLib.Variant</a></span><span class="method-name" id="Indicate.Indicator.get_property_variant">get_property_variant</span><span class="method-parameters">(<span class="type-basetype ">key</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Indicate-0.7.html#Indicate.Server">Indicate.Server</a></span><span class="method-name" id="Indicate.Indicator.get_server">get_server</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Indicator.hide">hide</span><span class="method-parameters">(<span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Indicate.Indicator.is_visible">is_visible</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Array&lt;utf8&gt;</span></span><span class="method-name" id="Indicate.Indicator.list_properties">list_properties</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Indicator.modified">modified</span><span class="method-parameters">(<span class="type-basetype ">property</span>, <span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Indicator.set_displayed">set_displayed</span><span class="method-parameters">(<span class="type-basetype ">displayed</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Indicator.set_property">set_property</span><span class="method-parameters">(<span class="type-basetype ">key</span>, <a class="link-Record " href="GLib-2.0.html#GLib.Variant">data</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Indicator.set_property_bool">set_property_bool</span><span class="method-parameters">(<span class="type-basetype ">key</span>, <span class="type-basetype ">value</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Indicator.set_property_int">set_property_int</span><span class="method-parameters">(<span class="type-basetype ">key</span>, <span class="type-basetype ">value</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Indicator.set_property_time">set_property_time</span><span class="method-parameters">(<span class="type-basetype ">key</span>, <a class="link-Record " href="GLib-2.0.html#GLib.TimeVal">time</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Indicator.set_property_variant">set_property_variant</span><span class="method-parameters">(<span class="type-basetype ">key</span>, <a class="link-Record " href="GLib-2.0.html#GLib.Variant">value</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Indicator.set_server">set_server</span><span class="method-parameters">(<a class="link-Class " href="Indicate-0.7.html#Indicate.Server">server</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Indicator.show">show</span><span class="method-parameters">(<span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Indicator.user_display">user_display</span><span class="method-parameters">(<span class="type-basetype ">timestamp</span>, <span class="type-basetype ">data</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Indicate-0.7.html#Indicate.Listener" class="class-anchor">⚓</a><h2 class="class-normal" id="Indicate.Listener">Class: Indicate.Listener</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Listener.indicator-servers-report">"indicator-servers-report"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Listener">listener</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Listener.server-removed">"server-removed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Listener">listener</a>, object, <span class="type-basetype ">p0</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Listener.server-added">"server-added"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Listener">listener</a>, object, <span class="type-basetype ">p0</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Listener.indicator-removed">"indicator-removed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Listener">listener</a>, object, p0)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Listener.indicator-modified">"indicator-modified"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Listener">listener</a>, object, p0, <span class="type-basetype ">p1</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Listener.indicator-added">"indicator-added"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Listener">listener</a>, object, p0)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Listener.server-count-changed">"server-count-changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Listener">listener</a>, object, <span class="type-basetype ">p0</span>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Indicate.Listener.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Listener.display">display</span><span class="method-parameters">(<a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerServer">server</a>, <a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerIndicator">indicator</a>, <span class="type-basetype ">timestamp</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Listener.displayed">displayed</span><span class="method-parameters">(<a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerServer">server</a>, <a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerIndicator">indicator</a>, <span class="type-basetype ">displayed</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Listener.get_property">get_property</span><span class="method-parameters">(<a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerServer">server</a>, <a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerIndicator">indicator</a>, <span class="type-basetype ">property</span>, <span class="type-basetype ">callback</span>, <span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Listener.get_property_bool">get_property_bool</span><span class="method-parameters">(<a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerServer">server</a>, <a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerIndicator">indicator</a>, <span class="type-basetype ">property</span>, <span class="type-basetype ">callback</span>, <span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Listener.get_property_int">get_property_int</span><span class="method-parameters">(<a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerServer">server</a>, <a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerIndicator">indicator</a>, <span class="type-basetype ">property</span>, <span class="type-basetype ">callback</span>, <span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Listener.get_property_time">get_property_time</span><span class="method-parameters">(<a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerServer">server</a>, <a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerIndicator">indicator</a>, <span class="type-basetype ">property</span>, <span class="type-basetype ">callback</span>, <span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Listener.get_property_variant">get_property_variant</span><span class="method-parameters">(<a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerServer">server</a>, <a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerIndicator">indicator</a>, <span class="type-basetype ">property</span>, <span class="type-basetype ">callback</span>, <span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Indicate-0.7.html#Indicate.Listener">Indicate.Listener</a></span><span class="method-name" id="Indicate.Listener.ref_default">ref_default</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Indicate.Listener.server_check_interest">server_check_interest</span><span class="method-parameters">(<a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerServer">server</a>, <a class="link-Enumeration " href="Indicate-0.7.html#Indicate.Interests">interest</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Listener.server_get_count">server_get_count</span><span class="method-parameters">(<a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerServer">server</a>, <span class="type-basetype ">callback</span>, <span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Listener.server_get_desktop">server_get_desktop</span><span class="method-parameters">(<a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerServer">server</a>, <span class="type-basetype ">callback</span>, <span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Listener.server_get_icon_theme">server_get_icon_theme</span><span class="method-parameters">(<a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerServer">server</a>, <span class="type-basetype ">callback</span>, <span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="Indicate.Listener.server_get_indicators">server_get_indicators</span><span class="method-parameters">(<a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerServer">server</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Listener.server_get_menu">server_get_menu</span><span class="method-parameters">(<a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerServer">server</a>, <span class="type-basetype ">callback</span>, <span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Listener.server_get_type">server_get_type</span><span class="method-parameters">(<a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerServer">server</a>, <span class="type-basetype ">callback</span>, <span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Listener.server_remove_interest">server_remove_interest</span><span class="method-parameters">(<a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerServer">server</a>, <a class="link-Enumeration " href="Indicate-0.7.html#Indicate.Interests">interest</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Listener.server_show_interest">server_show_interest</span><span class="method-parameters">(<a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerServer">server</a>, <a class="link-Enumeration " href="Indicate-0.7.html#Indicate.Interests">interest</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Listener.set_default_max_indicators">set_default_max_indicators</span><span class="method-parameters">(<span class="type-basetype ">max</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Listener.set_server_max_indicators">set_server_max_indicators</span><span class="method-parameters">(<a class="link-Record " href="Indicate-0.7.html#Indicate.ListenerServer">server</a>, <span class="type-basetype ">max</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Indicate-0.7.html#Indicate.Server" class="class-anchor">⚓</a><h2 class="class-normal" id="Indicate.Server">Class: Indicate.Server</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+<p>
+This is the object that represents the overall connection
+	between this application and DBus.  It acts as the proxy for
+	incomming DBus calls and also sends the appropriate signals
+	on DBus for events happening on other objects locally.  It
+	provides some settings that effection how the application as
+	a whole is perceived by listeners of the indicator protocol.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">int</span><span class="property-name" id="Indicate.Server.count">"count"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Indicate.Server.icon-theme">"icon-theme"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Indicate.Server.menu">"menu"</span><span class="property-access">read-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Indicate.Server.desktop">"desktop"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Indicate.Server.path">"path"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Indicate.Server.type">"type"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Server.indicator-delete">"indicator-delete"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Server">server</a>, <span class="type-basetype ">object</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Server.server-show">"server-show"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Server">server</a>, <span class="type-basetype ">arg1</span>)</span><p class="signal-doc">
+Emitted when a server comes onto DBus by being shown.  This
+is typically when listeners start reacting to the application's
+indicators.  This results in a signal on DBus.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Server.indicator-new">"indicator-new"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Server">server</a>, <span class="type-basetype ">object</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Server.server-hide">"server-hide"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Server">server</a>, <span class="type-basetype ">arg1</span>)</span><p class="signal-doc">
+Emitted when a server removes itself from DBus.  This results
+in a signal on DBus.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Server.indicator-modified">"indicator-modified"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Server">server</a>, <span class="type-basetype ">arg1</span>, <span class="type-basetype ">arg2</span>)</span><p class="signal-doc">
+Emitted every time that a property on an indicator changes
+and it is visible to the world.  This results in a signal on DBus.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Server.max-indicators-changed">"max-indicators-changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Server">server</a>, <span class="type-basetype ">arg1</span>)</span><p class="signal-doc">
+Emitted when a listener either specifies their max number
+to be higher, or at all.  The default is -1 or infinite.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Server.server-display">"server-display"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Server">server</a>, <span class="type-basetype ">arg1</span>)</span><p class="signal-doc">
+Emitted when a listener signals that the server itself should be
+displayed.  This signal is caused by a user clicking on the application
+item in the Messaging Menu.  This signal is emitted by DBus.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Server.interest-removed">"interest-removed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Server">server</a>, <span class="type-basetype ">arg1</span>)</span><p class="signal-doc">
+Emitted when a listener signals that they are no longer interested in
+this server for a particular reason.  This signal is emitted by DBus.
+
+@note This signal is also emitted after a timeout when the object
+is created with @arg1 set to #INDICATOR_INTREST_NONE if no one has
+shown any interest in the server.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Server.interest-added">"interest-added"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Server">server</a>, <span class="type-basetype ">arg1</span>)</span><p class="signal-doc">
+Emitted when a listener signals that they are interested in
+this server for a particular reason.  This signal is emitted by DBus.</p>
+</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Indicate.Server.server-count-changed">"server-count-changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Indicate-0.7.html#Indicate.Server">server</a>, <span class="type-basetype ">arg1</span>)</span><p class="signal-doc">
+Emitted when the count property of the server changes
+to a new value.</p>
+</p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.add_indicator">add_indicator</span><span class="method-parameters">(<a class="link-Class " href="Indicate-0.7.html#Indicate.Indicator">indicator</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Indicate.Server.check_interest">check_interest</span><span class="method-parameters">(<a class="link-Enumeration " href="Indicate-0.7.html#Indicate.Interests">interest</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Indicate.Server.get_indicator_count">get_indicator_count</span><span class="method-parameters">(<span class="type-basetype ">count</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Indicate.Server.get_indicator_property">get_indicator_property</span><span class="method-parameters">(<span class="type-basetype ">id</span>, <span class="type-basetype ">property</span>, <a class="link-Record " href="GLib-2.0.html#GLib.Variant">value</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Indicate.Server.get_max_indicators">get_max_indicators</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Indicate.Server.get_next_id">get_next_id</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Indicate.Server.get_path">get_path</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.hide">hide</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.indicator_added">indicator_added</span><span class="method-parameters">(<span class="type-basetype ">id</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Indicate.Server.indicator_displayed">indicator_displayed</span><span class="method-parameters">(<span class="type-basetype ">sender</span>, <span class="type-basetype ">id</span>, <span class="type-basetype ">displayed</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.indicator_modified">indicator_modified</span><span class="method-parameters">(<span class="type-basetype ">id</span>, <span class="type-basetype ">property</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.indicator_removed">indicator_removed</span><span class="method-parameters">(<span class="type-basetype ">id</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.interest_added">interest_added</span><span class="method-parameters">(<a class="link-Enumeration " href="Indicate-0.7.html#Indicate.Interests">interest</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.interest_removed">interest_removed</span><span class="method-parameters">(<a class="link-Enumeration " href="Indicate-0.7.html#Indicate.Interests">interest</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.max_indicators_changed">max_indicators_changed</span><span class="method-parameters">(<span class="type-basetype ">max</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="Indicate.Server.max_indicators_get">max_indicators_get</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Indicate.Server.max_indicators_set">max_indicators_set</span><span class="method-parameters">(<span class="type-basetype ">sender</span>, <span class="type-basetype ">max</span>)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Indicate-0.7.html#Indicate.Server">Indicate.Server</a></span><span class="method-name" id="Indicate.Server.ref_default">ref_default</span><span class="method-parameters">()</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.remove_indicator">remove_indicator</span><span class="method-parameters">(<a class="link-Class " href="Indicate-0.7.html#Indicate.Indicator">indicator</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Indicate.Server.remove_interest">remove_interest</span><span class="method-parameters">(<span class="type-basetype ">sender</span>, <a class="link-Enumeration " href="Indicate-0.7.html#Indicate.Interests">interest</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.server_count_changed">server_count_changed</span><span class="method-parameters">(<span class="type-basetype ">count</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.server_display">server_display</span><span class="method-parameters">(<span class="type-basetype ">timestamp</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.server_hide">server_hide</span><span class="method-parameters">(<span class="type-basetype ">type</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.server_show">server_show</span><span class="method-parameters">(<span class="type-basetype ">type</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.set_count">set_count</span><span class="method-parameters">(<span class="type-basetype ">count</span>)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.set_dbus_object">set_dbus_object</span><span class="method-parameters">(<span class="type-basetype ">obj</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.set_default">set_default</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.set_desktop_file">set_desktop_file</span><span class="method-parameters">(<span class="type-basetype ">path</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.set_icon_theme">set_icon_theme</span><span class="method-parameters">(<span class="type-basetype ">name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.set_menu">set_menu</span><span class="method-parameters">(<a class="link-Class " href="Dbusmenu-0.4.html#Dbusmenu.Server">menu</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.set_type">set_type</span><span class="method-parameters">(<span class="type-basetype ">type</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Indicate.Server.show">show</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Indicate.Server.show_indicator_to_user">show_indicator_to_user</span><span class="method-parameters">(<span class="type-basetype ">id</span>, <span class="type-basetype ">timestamp</span>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Indicate.Server.show_interest">show_interest</span><span class="method-parameters">(<span class="type-basetype ">sender</span>, <a class="link-Enumeration " href="Indicate-0.7.html#Indicate.Interests">interest</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-enum">
+<a href="Indicate-0.7.html#Indicate.Interests" class="class-anchor">⚓</a><h2 class="class-enum" id="Indicate.Interests">Enum: Indicate.Interests</h2>
+<div class="enum-members">
+<span class="enum-member">NONE</span><span class="enum-value">0</span><span class="enum-member">SERVER_DISPLAY</span><span class="enum-value">1</span><span class="enum-member">SERVER_SIGNAL</span><span class="enum-value">2</span><span class="enum-member">INDICATOR_DISPLAY</span><span class="enum-value">3</span><span class="enum-member">INDICATOR_SIGNAL</span><span class="enum-value">4</span><span class="enum-member">INDICATOR_COUNT</span><span class="enum-value">5</span><span class="enum-member">LAST</span><span class="enum-value">6</span></div>
+</div>
+</body>
+</html>
+

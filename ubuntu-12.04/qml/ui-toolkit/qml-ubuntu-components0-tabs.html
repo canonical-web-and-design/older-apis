@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Tabs.qml -->
+  <title>UbuntuUserInterfaceToolkit 0.1: Tabs</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="overview-ubuntu-sdk.html">Ubuntu User Interface Toolkit</a></li>
+<li>Tabs</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-components0-tabs.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-tabs.html#signals">Signals</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-tabs.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">Tabs</h1>
+<span class="subtitle"></span>
+<!-- $$$Tabs-brief -->
+<p>The Tabs class provides an environment where multible <a href="qml-ubuntu-components0-tab.html">Tab</a> children can be added, and the user is presented with a tab bar with tab buttons to select different tab pages. <a href="qml-ubuntu-components0-tabs.html#details">More...</a></p>
+<!-- @@@Tabs -->
+<p>Inherits <a href="qml-ubuntu-components0-styleditem.html">StyledItem</a></p>
+<ul>
+<li><a href="qml-ubuntu-components0-tabs-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-tabs.html#count-prop">count</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-tabs.html#currentPage-prop">currentPage</a></b></b> : Item</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-tabs.html#selectedTab-prop">selectedTab</a></b></b> : Tab<tt> (preliminary)</tt></li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-tabs.html#selectedTabIndex-prop">selectedTabIndex</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-tabs.html#tabBar-prop">tabBar</a></b></b> : TabBar</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-tabs.html#tabChildren-prop">tabChildren</a></b></b> : list&lt;Item&gt;</li>
+</ul>
+<a name="signals"></a>
+<h2>Signals</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-tabs.html#modelChanged-signal">modelChanged</a></b></b>()<tt> (deprecated)</tt></li>
+</ul>
+<!-- $$$Tabs-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>Tabs must be placed inside a <a href="qml-ubuntu-components0-mainview.html">MainView</a> so that it will automatically have a header that shows the tabs that can be selected, and the toolbar which contains the tools of the <a href="qml-ubuntu-components0-page.html">Page</a> in the currently selected <a href="qml-ubuntu-components0-tab.html">Tab</a>.</p>
+<p><a href="http://design.ubuntu.com/apps/building-blocks/tabs">See also the Design Guidelines on Tabs</a>.</p>
+<p>Example:</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+import Ubuntu.Components.ListItems 0.1 as ListItem
+
+<span class="type"><a href="qml-ubuntu-components0-mainview.html">MainView</a></span> {
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">48</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">60</span>)
+
+    <span class="type">Tabs</span> {
+        <span class="name">id</span>: <span class="name">tabs</span>
+        <span class="type"><a href="qml-ubuntu-components0-tab.html">Tab</a></span> {
+            <span class="name">title</span>: <span class="name">i18n</span>.<span class="name">tr</span>(<span class="string">&quot;Simple page&quot;</span>)
+            <span class="name">page</span>: <span class="name">Page</span> {
+                <span class="type"><a href="qml-ubuntu-components0-label.html">Label</a></span> {
+                    <span class="name">id</span>: <span class="name">label</span>
+                    <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+                    <span class="name">text</span>: <span class="string">&quot;A centered label&quot;</span>
+                }
+                <span class="name">tools</span>: <span class="name">ToolbarItems</span> {
+                    <span class="type"><a href="qml-ubuntu-components0-toolbarbutton.html">ToolbarButton</a></span> {
+                        <span class="name">text</span>: <span class="string">&quot;action&quot;</span>
+                        <span class="name">onTriggered</span>: <span class="name">print</span>(<span class="string">&quot;action triggered&quot;</span>)
+                    }
+                }
+            }
+        }
+        <span class="type"><a href="qml-ubuntu-components0-tab.html">Tab</a></span> {
+            <span class="name">id</span>: <span class="name">externalTab</span>
+            <span class="name">title</span>: <span class="name">i18n</span>.<span class="name">tr</span>(<span class="string">&quot;External&quot;</span>)
+            <span class="name">page</span>: <span class="name">Loader</span> {
+                <span class="name">parent</span>: <span class="name">externalTab</span>
+                <span class="type">anchors</span> {
+                    <span class="name">left</span>: <span class="name">parent</span>.<span class="name">left</span>
+                    <span class="name">right</span>: <span class="name">parent</span>.<span class="name">right</span>
+                    <span class="name">bottom</span>: <span class="name">parent</span>.<span class="name">bottom</span>
+                }
+                <span class="name">source</span>: (<span class="name">tabs</span>.<span class="name">selectedTab</span> <span class="operator">===</span> <span class="name">externalTab</span>) ? <span class="name">Qt</span>.<span class="name">resolvedUrl</span>(<span class="string">&quot;MyCustomPage.qml&quot;</span>) : <span class="string">&quot;&quot;</span>
+            }
+        }
+        <span class="type"><a href="qml-ubuntu-components0-tab.html">Tab</a></span> {
+            <span class="name">title</span>: <span class="name">i18n</span>.<span class="name">tr</span>(<span class="string">&quot;List view&quot;</span>)
+            <span class="name">page</span>: <span class="name">Page</span> {
+                <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-listview.html">ListView</a></span> {
+                    <span class="name">clip</span>: <span class="number">true</span>
+                    <span class="name">anchors</span>.fill: <span class="name">parent</span>
+                    <span class="name">model</span>: <span class="number">20</span>
+                    <span class="name">delegate</span>: <span class="name">ListItem</span>.Standard {
+                        <span class="name">iconName</span>: <span class="string">&quot;compose&quot;</span>
+                        <span class="name">text</span>: <span class="string">&quot;Item &quot;</span><span class="operator">+</span><span class="name">modelData</span>
+                    }
+                }
+            }
+        }
+    }
+}</pre>
+<p>As the example above shows, an external <a href="qml-ubuntu-components0-page.html">Page</a> inside a <a href="qml-ubuntu-components0-tab.html">Tab</a> can be loaded using a Loader. Note that setting the top anchor or the height of the Loader would override the <a href="qml-ubuntu-components0-page.html">Page</a> height. We avoid this because the <a href="qml-ubuntu-components0-page.html">Page</a> automatically adapts its height to accommodate for the header.</p>
+<p>It is possible to use a Repeater to generate tabs, but when doing so, ensure that the Repeater is declared inside the Tabs at the end, because otherwise the shuffling of the order of children by the Repeater can cause incorrect ordering of the tabs.</p>
+<p>The <a href="http://design.ubuntu.com/apps/global-patterns/navigation">Navigation Patterns</a> specify that a tabs header should never be combined with the back button of a <a href="qml-ubuntu-components0-pagestack.html">PageStack</a>. The only way to combine Tabs and <a href="qml-ubuntu-components0-pagestack.html">PageStack</a> that avoids this is by pushing the Tabs as the first page on the <a href="qml-ubuntu-components0-pagestack.html">PageStack</a>, and pushing other pages on top of that, as is shown in the following example:</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+
+<span class="type"><a href="qml-ubuntu-components0-mainview.html">MainView</a></span> {
+    <span class="name">id</span>: <span class="name">mainView</span>
+    <span class="name">width</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">38</span>)
+    <span class="name">height</span>: <span class="name">units</span>.<span class="name">gu</span>(<span class="number">50</span>)
+
+    <span class="type"><a href="qml-ubuntu-components0-pagestack.html">PageStack</a></span> {
+        <span class="name">id</span>: <span class="name">pageStack</span>
+        <span class="name">Component</span>.onCompleted: <span class="name">push</span>(<span class="name">tabs</span>)
+
+        <span class="type">Tabs</span> {
+            <span class="name">id</span>: <span class="name">tabs</span>
+            <span class="type"><a href="qml-ubuntu-components0-tab.html">Tab</a></span> {
+                <span class="name">title</span>: <span class="string">&quot;Tab 1&quot;</span>
+                <span class="name">page</span>: <span class="name">Page</span> {
+                    <span class="type"><a href="qml-ubuntu-components0-button.html">Button</a></span> {
+                        <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+                        <span class="name">onClicked</span>: <span class="name">pageStack</span>.<span class="name">push</span>(<span class="name">page3</span>)
+                        <span class="name">text</span>: <span class="string">&quot;Press&quot;</span>
+                    }
+                }
+            }
+            <span class="type"><a href="qml-ubuntu-components0-tab.html">Tab</a></span> {
+                <span class="name">title</span>: <span class="string">&quot;Tab 2&quot;</span>
+                <span class="name">page</span>: <span class="name">Page</span> {
+                    <span class="type"><a href="qml-ubuntu-components0-label.html">Label</a></span> {
+                        <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+                        <span class="name">text</span>: <span class="string">&quot;Use header to navigate between tabs&quot;</span>
+                    }
+                }
+            }
+        }
+        <span class="type"><a href="qml-ubuntu-components0-page.html">Page</a></span> {
+            <span class="name">id</span>: <span class="name">page3</span>
+            <span class="name">visible</span>: <span class="number">false</span>
+            <span class="name">title</span>: <span class="string">&quot;Page on stack&quot;</span>
+            <span class="type"><a href="qml-ubuntu-components0-label.html">Label</a></span> {
+                <span class="name">anchors</span>.centerIn: <span class="name">parent</span>
+                <span class="name">text</span>: <span class="string">&quot;Press back to return to the tabs&quot;</span>
+            }
+        }
+    }
+}</pre>
+<!-- @@@Tabs -->
+<h2>Property Documentation</h2>
+<!-- $$$count -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="count-prop"></a><span class="qmlreadonly">read-only</span><span class="name">count</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>Contains the number of tabs in the Tabs component.</p>
+</div></div><!-- @@@count -->
+<br/>
+<!-- $$$currentPage -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="currentPage-prop"></a><span class="qmlreadonly">read-only</span><span class="name">currentPage</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-item.html">Item</a></span></p></td></tr></table></div><div class="qmldoc"><p>The page of the currently selected tab.</p>
+</div></div><!-- @@@currentPage -->
+<br/>
+<!-- $$$selectedTab -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectedTab-prop"></a><span class="qmlreadonly">read-only</span><span class="name">selectedTab</span> : <span class="type"><a href="qml-ubuntu-components0-tab.html">Tab</a></span></p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>The currently selected tab.</p>
+</div></div><!-- @@@selectedTab -->
+<br/>
+<!-- $$$selectedTabIndex -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectedTabIndex-prop"></a><span class="name">selectedTabIndex</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>The index of the currently selected tab. The first tab is 0, and -1 means that no tab is selected. The initial value is 0 if Tabs has contents, or -1 otherwise.</p>
+</div></div><!-- @@@selectedTabIndex -->
+<br/>
+<!-- $$$tabBar -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="tabBar-prop"></a><span class="name">tabBar</span> : <span class="type"><a href="qml-ubuntu-components0-tabbar.html">TabBar</a></span></p></td></tr></table></div><div class="qmldoc"><p>The <a href="qml-ubuntu-components0-tabbar.html">TabBar</a> that will be shown in the header and provides scrollable tab buttons.</p>
+</div></div><!-- @@@tabBar -->
+<br/>
+<!-- $$$tabChildren -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="tabChildren-prop"></a><span class="qmldefault">default</span><span class="name">tabChildren</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-list.html">list</a></span>&lt;<span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-item.html">Item</a></span>&gt;</p></td></tr></table></div><div class="qmldoc"><p>Children are placed in a separate item that has functionality to extract the Tab items.</p>
+</div></div><!-- @@@tabChildren -->
+<br/>
+<h2>Signal Documentation</h2>
+<!-- $$$modelChanged -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="modelChanged-signal"></a>Tabs::<span class="name">modelChanged</span>()</p></td></tr></table></div><div class="qmldoc"><p>This documentation is deprecated.</p>
+<p>Used by the tabs style to update the tabs header with the titles of all the tabs. This signal is used in an intermediate step in transitioning the tabs to a new implementation and may be removed in the future.</p>
+</div></div><!-- @@@modelChanged -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

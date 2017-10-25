@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="Python">
+    
+    <title>Gwibber-0.3 Python API Documentation</title>
+    <link rel="stylesheet" href="https://developer.ubuntu.com/api/devel/ubuntu-12.10/giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>Gwibber-0.3 Python API Documentation</h1>
+
+<div class="class-normal">
+<a href="Gwibber-0.3.html#Gwibber.Account" class="class-anchor">⚓</a><h2 class="class-normal" id="Gwibber.Account">Class: Gwibber.Account</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Gwibber.Account.username">"username"</span><span class="property-access">read-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Gwibber.Account.receive-enabled">"receive-enabled"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Gwibber.Account.service">"service"</span><span class="property-access">read-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Gwibber.Account.color">"color"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Gwibber.Account.send-enabled">"send-enabled"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="Gwibber.Account.id">"id"</span><span class="property-access">read-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Account.deleted">"deleted"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Account">account</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Account.updated">"updated"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Account">account</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gwibber.Account.new">new</span><span class="method-parameters">(<a class="link-Type " href="Gwibber-0.3.html#Accounts.AccountService">account_service</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Account.toggle_send_enabled">toggle_send_enabled</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gwibber-0.3.html#Gwibber.Accounts" class="class-anchor">⚓</a><h2 class="class-normal" id="Gwibber.Accounts">Class: Gwibber.Accounts</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Accounts.created">"created"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Accounts">accounts</a>, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Account">account</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gwibber.Accounts.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="Gwibber.Accounts.list">list</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gwibber-0.3.html#Gwibber.Account">Gwibber.Account</a></span><span class="method-name" id="Gwibber.Accounts.lookup_by_id">lookup_by_id</span><span class="method-parameters">(<span class="type-basetype ">id</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gwibber-0.3.html#Gwibber.Connection" class="class-anchor">⚓</a><h2 class="class-normal" id="Gwibber.Connection">Class: Gwibber.Connection</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Connection.connection_changed">"connection_changed"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Connection">connection</a>, <span class="type-basetype ">is_online</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Connection.is_available">"is_available"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Connection">connection</a>, <span class="type-basetype ">is_up</span>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gwibber.Connection.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Connection.conn_available">conn_available</span><span class="method-parameters">(<span class="type-basetype ">is_up</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gwibber.Connection.is_connected">is_connected</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gwibber-0.3.html#Gwibber.Messages" class="class-anchor">⚓</a><h2 class="class-normal" id="Gwibber.Messages">Class: Gwibber.Messages</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Messages.message">"message"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Messages">messages</a>, <span class="type-basetype ">change</span>, <span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Messages.is_available">"is_available"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Messages">messages</a>, <span class="type-basetype ">is_up</span>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gwibber.Messages.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Gwibber.Messages.get_message">get_message</span><span class="method-parameters">(<span class="type-basetype ">mid</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Messages.on_new_message">on_new_message</span><span class="method-parameters">(<span class="type-basetype ">change</span>, <span class="type-basetype ">data</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gwibber-0.3.html#Gwibber.Searches" class="class-anchor">⚓</a><h2 class="class-normal" id="Gwibber.Searches">Class: Gwibber.Searches</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Searches.deleted">"deleted"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Searches">searches</a>, <span class="type-basetype ">id</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Searches.updated">"updated"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Searches">searches</a>, <span class="type-basetype ">id</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Searches.is_available">"is_available"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Searches">searches</a>, <span class="type-basetype ">is_up</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Searches.created">"created"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Searches">searches</a>, <span class="type-basetype ">id</span>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gwibber.Searches.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Gwibber.Searches.create">create</span><span class="method-parameters">(<span class="type-basetype ">name</span>, <span class="type-basetype ">query</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Searches.delete">delete</span><span class="method-parameters">(<span class="type-basetype ">id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="Gwibber.Searches.list">list</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Gee.HashMap</span></span><span class="method-name" id="Gwibber.Searches.lookup">lookup</span><span class="method-parameters">(<span class="type-basetype ">id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Searches.search_created">search_created</span><span class="method-parameters">(<span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Searches.search_deleted">search_deleted</span><span class="method-parameters">(<span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Searches.search_updated">search_updated</span><span class="method-parameters">(<span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Searches.searches_available">searches_available</span><span class="method-parameters">(<span class="type-basetype ">is_up</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gwibber-0.3.html#Gwibber.Service" class="class-anchor">⚓</a><h2 class="class-normal" id="Gwibber.Service">Class: Gwibber.Service</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Service.loading_started">"loading_started"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Service">service</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Service.loading_complete">"loading_complete"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Service">service</a>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Service.is_available">"is_available"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Service">service</a>, <span class="type-basetype ">is_up</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Service.error">"error"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Service">service</a>, <span class="type-basetype ">id</span>, <span class="type-basetype ">type</span>, <span class="type-basetype ">message</span>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gwibber.Service.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Gwibber.Service.avatar_path">avatar_path</span><span class="method-parameters">(<span class="type-basetype ">url</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.HashTable">GLib.HashTable</a></span><span class="method-name" id="Gwibber.Service.features">features</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Service.follow">follow</span><span class="method-parameters">(<span class="type-basetype ">account</span>, <span class="type-basetype ">screen_name</span>, <span class="type-basetype ">follow</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gwibber.Service.like">like</span><span class="method-parameters">(<span class="type-basetype ">id</span>, <span class="type-basetype ">account</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Service.on_error">on_error</span><span class="method-parameters">(<span class="type-basetype ">error_str</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Service.on_loading_complete">on_loading_complete</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Service.on_loading_started">on_loading_started</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Service.perform">perform</span><span class="method-parameters">(<span class="type-basetype ">id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Service.quit">quit</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Service.refresh">refresh</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gwibber.Service.retweet">retweet</span><span class="method-parameters">(<span class="type-basetype ">id</span>, <span class="type-basetype ">account</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gwibber.Service.send_message">send_message</span><span class="method-parameters">(<span class="type-basetype ">message</span>, <span class="type-basetype ">id</span>, <span class="type-basetype ">action</span>, accounts, <span class="type-basetype ">accounts_length1</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Service.service_available">service_available</span><span class="method-parameters">(<span class="type-basetype ">is_up</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.HashTable">GLib.HashTable</a></span><span class="method-name" id="Gwibber.Service.services">services</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Service.start">start</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="Gwibber.Service.unlike">unlike</span><span class="method-parameters">(<span class="type-basetype ">id</span>, <span class="type-basetype ">account</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Service.update_indicators">update_indicators</span><span class="method-parameters">(<span class="type-basetype ">stream</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Gwibber.Service.version">version</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gwibber-0.3.html#Gwibber.Streams" class="class-anchor">⚓</a><h2 class="class-normal" id="Gwibber.Streams">Class: Gwibber.Streams</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<a class="link-Interface type property-type" href="Dee-1.0.html#Dee.Model">Dee.Model</a><span class="property-name" id="Gwibber.Streams.stream-model">"stream-model"</span><span class="property-access">read/write</span></p>
+</div>
+<div class="property">
+<p>
+<a class="link-Interface type property-type" href="Dee-1.0.html#Dee.Model">Dee.Model</a><span class="property-name" id="Gwibber.Streams.transient-model">"transient-model"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Streams.deleted">"deleted"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Streams">streams</a>, <span class="type-basetype ">id</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Streams.updated">"updated"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Streams">streams</a>, <span class="type-basetype ">id</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Streams.is_available">"is_available"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Streams">streams</a>, <span class="type-basetype ">is_up</span>)</span></p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.Streams.created">"created"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.Streams">streams</a>, <span class="type-basetype ">id</span>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gwibber.Streams.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Gwibber.Streams.create">create</span><span class="method-parameters">(<span class="type-basetype ">account</span>, <span class="type-basetype ">name</span>, <span class="type-basetype ">operation</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Streams.delete">delete</span><span class="method-parameters">(<span class="type-basetype ">id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.List">GLib.List</a></span><span class="method-name" id="Gwibber.Streams.list">list</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Gee.HashMap</span></span><span class="method-name" id="Gwibber.Streams.lookup">lookup</span><span class="method-parameters">(<span class="type-basetype ">id</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Gwibber.Streams.messages">messages</span><span class="method-parameters">(<span class="type-basetype ">stream</span>, <span class="type-basetype ">account</span>, <span class="type-basetype ">time</span>, <span class="type-basetype ">transient</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Streams.stream_created">stream_created</span><span class="method-parameters">(<span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Streams.stream_deleted">stream_deleted</span><span class="method-parameters">(<span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Interface type " href="Dee-1.0.html#Dee.Model">Dee.Model</a></span><span class="method-name" id="Gwibber.Streams.stream_filter_model">stream_filter_model</span><span class="method-parameters">(<a class="link-Interface " href="Dee-1.0.html#Dee.Model">model</a>, <span class="type-basetype ">stream</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Streams.stream_updated">stream_updated</span><span class="method-parameters">(<span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.Streams.streams_available">streams_available</span><span class="method-parameters">(<span class="type-basetype ">is_up</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Interface type " href="Dee-1.0.html#Dee.Model">Dee.Model</a></span><span class="method-name" id="Gwibber.Streams.streams_model">streams_model</span><span class="method-parameters">(<span class="type-basetype ">transients</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Interface type " href="Dee-1.0.html#Dee.Model">Dee.Model</a></span><span class="method-name" id="Gwibber.Streams.transient_filter_model">transient_filter_model</span><span class="method-parameters">(<a class="link-Interface " href="Dee-1.0.html#Dee.Model">model</a>, <span class="type-basetype ">transient</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">Gee.HashMap</span></span><span class="method-name" id="Gwibber.Streams.user_profile">user_profile</span><span class="method-parameters">(<span class="type-basetype ">id</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gwibber-0.3.html#Gwibber.URLShorten" class="class-anchor">⚓</a><h2 class="class-normal" id="Gwibber.URLShorten">Class: Gwibber.URLShorten</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="Gwibber.URLShorten.is_available">"is_available"</span><span class="signal-parameters">(self, <a class="link-Class " href="Gwibber-0.3.html#Gwibber.URLShorten">urlshorten</a>, <span class="type-basetype ">is_up</span>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gwibber.URLShorten.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Gwibber.URLShorten.shorten">shorten</span><span class="method-parameters">(<span class="type-basetype ">url</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="Gwibber.URLShorten.url_available">url_available</span><span class="method-parameters">(<span class="type-basetype ">is_up</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Gwibber-0.3.html#Gwibber.Utils" class="class-anchor">⚓</a><h2 class="class-normal" id="Gwibber.Utils">Class: Gwibber.Utils</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="Gwibber.Utils.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Gwibber.Utils.avatar_path">avatar_path</span><span class="method-parameters">(<span class="type-basetype ">url</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="Gwibber.Utils.generate_time_string">generate_time_string</span><span class="method-parameters">(<span class="type-basetype ">t</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-enum">
+<a href="Gwibber-0.3.html#Gwibber.StreamModelColumn" class="class-anchor">⚓</a><h2 class="class-enum" id="Gwibber.StreamModelColumn">Enum: Gwibber.StreamModelColumn</h2>
+<div class="enum-members">
+<span class="enum-member">ACCOUNTS</span><span class="enum-value">0</span><span class="enum-member">STREAM</span><span class="enum-value">1</span><span class="enum-member">TRANSIENT</span><span class="enum-value">2</span><span class="enum-member">SENDER</span><span class="enum-value">3</span><span class="enum-member">SENDER_NICK</span><span class="enum-value">4</span><span class="enum-member">FROM_ME</span><span class="enum-value">5</span><span class="enum-member">TIMESTAMP</span><span class="enum-value">6</span><span class="enum-member">MESSAGE</span><span class="enum-value">7</span><span class="enum-member">HTML</span><span class="enum-value">8</span><span class="enum-member">ICON_URI</span><span class="enum-value">9</span><span class="enum-member">URL</span><span class="enum-value">10</span><span class="enum-member">SOURCE</span><span class="enum-value">11</span><span class="enum-member">TIMESTRING</span><span class="enum-value">12</span><span class="enum-member">REPLY_NICK</span><span class="enum-value">13</span><span class="enum-member">REPLY_NAME</span><span class="enum-value">14</span><span class="enum-member">REPLY_URL</span><span class="enum-value">15</span><span class="enum-member">LIKES</span><span class="enum-value">16</span><span class="enum-member">LIKED</span><span class="enum-value">17</span><span class="enum-member">RETWEET_NICK</span><span class="enum-value">18</span><span class="enum-member">RETWEET_NAME</span><span class="enum-value">19</span><span class="enum-member">RETWEET_ID</span><span class="enum-value">20</span><span class="enum-member">LINK_PICTURE</span><span class="enum-value">21</span><span class="enum-member">LINK_NAME</span><span class="enum-value">22</span><span class="enum-member">LINK_URL</span><span class="enum-value">23</span><span class="enum-member">LINK_DESC</span><span class="enum-value">24</span><span class="enum-member">LINK_CAPTION</span><span class="enum-value">25</span><span class="enum-member">LINK_ICON</span><span class="enum-value">26</span><span class="enum-member">IMG_URL</span><span class="enum-value">27</span><span class="enum-member">IMG_SRC</span><span class="enum-value">28</span><span class="enum-member">IMG_THUMB</span><span class="enum-value">29</span><span class="enum-member">IMG_NAME</span><span class="enum-value">30</span><span class="enum-member">VIDEO_PIC</span><span class="enum-value">31</span><span class="enum-member">VIDEO_SRC</span><span class="enum-value">32</span><span class="enum-member">VIDEO_URL</span><span class="enum-value">33</span><span class="enum-member">VIDEO_NAME</span><span class="enum-value">34</span><span class="enum-member">COMMENTS</span><span class="enum-value">35</span><span class="enum-member">RECIPIENT</span><span class="enum-value">36</span><span class="enum-member">RECIPIENT_NICK</span><span class="enum-value">37</span><span class="enum-member">RECIPIENT_ICON</span><span class="enum-value">38</span></div>
+</div>
+</body>
+</html>
+

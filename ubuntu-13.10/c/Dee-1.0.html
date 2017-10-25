@@ -1,0 +1,1166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="C">
+    
+    <title>Dee-1.0 C API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>Dee-1.0 C API Documentation</h1>
+
+<div class="class-normal">
+<a href="Dee-1.0.html#Dee.Analyzer" class="class-anchor">⚓</a><h2 class="class-normal" id="Dee.Analyzer">Class: DeeAnalyzer</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class type " href="Dee-1.0.html#Dee.TextAnalyzer">DeeTextAnalyzer</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+All fields in the DeeAnalyzer structure are private and should never be
+accessed directly</p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.Analyzer">DeeAnalyzer</a>*</span><span class="method-name">dee_analyzer_new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_analyzer_add_term_filter</span><span class="method-parameters">(DeeAnalyzer *self, <a class="link-Callback type " href="Dee-1.0.html#Dee.TermFilterFunc">DeeTermFilterFunc</a> filter_func, <span class="type-basetype type ">gpointer</span> filter_data, <a class="link-Callback type " href="GLib-2.0.html#GLib.DestroyNotify">GDestroyNotify</a> filter_destroy)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_analyzer_analyze</span><span class="method-parameters">(DeeAnalyzer *self, <span class="type-basetype type ">gchar</span> *data, <a class="link-Class type " href="Dee-1.0.html#Dee.TermList">DeeTermList</a> *terms_out, <a class="link-Class type " href="Dee-1.0.html#Dee.TermList">DeeTermList</a> *colkeys_out)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">dee_analyzer_collate_cmp</span><span class="method-parameters">(DeeAnalyzer *self, <span class="type-basetype type ">gchar</span> *key1, <span class="type-basetype type ">gchar</span> *key2)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">dee_analyzer_collate_cmp_func</span><span class="method-parameters">(<span class="type-basetype type ">gchar</span> *key1, <span class="type-basetype type ">gchar</span> *key2, <span class="type-basetype type ">gpointer</span> analyzer)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">dee_analyzer_collate_key</span><span class="method-parameters">(DeeAnalyzer *self, <span class="type-basetype type ">gchar</span> *data)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_analyzer_tokenize</span><span class="method-parameters">(DeeAnalyzer *self, <span class="type-basetype type ">gchar</span> *data, <a class="link-Class type " href="Dee-1.0.html#Dee.TermList">DeeTermList</a> *terms_out)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Dee-1.0.html#Dee.Client" class="class-anchor">⚓</a><h2 class="class-normal" id="Dee.Client">Class: DeeClient</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Dee-1.0.html#Dee.Peer">DeePeer</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"bus-address"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.Client">DeeClient</a>*</span><span class="method-name">dee_client_new</span><span class="method-parameters">(<a class="link-Type type " href="Dee-1.0.html#utf8">const gchar</a> *swarm_name)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.Client">DeeClient</a>*</span><span class="method-name">dee_client_new_for_address</span><span class="method-parameters">(<a class="link-Type type " href="Dee-1.0.html#utf8">const gchar</a> *swarm_name, <a class="link-Type type " href="Dee-1.0.html#utf8">const gchar</a> *bus_address)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Dee-1.0.html#Dee.FileResourceManager" class="class-anchor">⚓</a><h2 class="class-normal" id="Dee.FileResourceManager">Class: DeeFileResourceManager</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface type " href="Dee-1.0.html#Dee.ResourceManager">DeeResourceManager</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"primary-path"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+Property holding the primary path used to store and load resources</p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.FileResourceManager">DeeFileResourceManager</a>*</span><span class="method-name">dee_file_resource_manager_new</span><span class="method-parameters">(<a class="link-Type type " href="Dee-1.0.html#utf8">const gchar</a> *primary_path)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_file_resource_manager_add_search_path</span><span class="method-parameters">(DeeFileResourceManager *self, <span class="type-basetype type ">gchar</span> *path)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">dee_file_resource_manager_get_primary_path</span><span class="method-parameters">(DeeFileResourceManager *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Dee-1.0.html#Dee.FilterModel" class="class-anchor">⚓</a><h2 class="class-normal" id="Dee.FilterModel">Class: DeeFilterModel</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface type " href="Dee-1.0.html#Dee.Serializable">DeeSerializable</a>, <a class="link-Interface type " href="Dee-1.0.html#Dee.Model">DeeModel</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="Dee-1.0.html#Dee.ProxyModel">DeeProxyModel</a></p>
+<p>
+All fields in the DeeFilterModel structure are private and should never be
+accessed directly</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Record type " href="Dee-1.0.html#Dee.Filter">DeeFilter</a></span><span class="property-name">"filter"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+Property holding the #DeeFilter used to filter the model
+defined in the #DeeFilterModel:back-end property.</p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.FilterModel">DeeFilterModel</a>*</span><span class="method-name">dee_filter_model_new</span><span class="method-parameters">(<a class="link-Type type " href="Dee-1.0.html#Dee.Model">DeeModel</a> *orig_model, <a class="link-Type type " href="Dee-1.0.html#Dee.Filter">DeeFilter</a> *filter)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_filter_model_append_iter</span><span class="method-parameters">(DeeFilterModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dee_filter_model_contains</span><span class="method-parameters">(DeeFilterModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_filter_model_insert_iter</span><span class="method-parameters">(DeeFilterModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <span class="type-basetype type ">guint</span> pos)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_filter_model_insert_iter_before</span><span class="method-parameters">(DeeFilterModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *pos)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_filter_model_insert_iter_with_original_order</span><span class="method-parameters">(DeeFilterModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_filter_model_prepend_iter</span><span class="method-parameters">(DeeFilterModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Dee-1.0.html#Dee.GListResultSet" class="class-anchor">⚓</a><h2 class="class-normal" id="Dee.GListResultSet">Class: DeeGListResultSet</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface type " href="Dee-1.0.html#Dee.ResultSet">DeeResultSet</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Interface type " href="Dee-1.0.html#Dee.ResultSet">DeeResultSet*</a></span><span class="method-name">dee_glist_result_set_new</span><span class="method-parameters">(<a class="link-Record type " href="GLib-2.0.html#GLib.List">GList</a> *rows, <a class="link-Interface type " href="Dee-1.0.html#Dee.Model">DeeModel</a> *model, <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a> *row_owner)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Dee-1.0.html#Dee.HashIndex" class="class-anchor">⚓</a><h2 class="class-normal" id="Dee.HashIndex">Class: DeeHashIndex</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Dee-1.0.html#Dee.Index">DeeIndex</a></p>
+<p>
+All fields in the DeeHashIndex structure are private and should never be
+accessed directly</p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.HashIndex">DeeHashIndex</a>*</span><span class="method-name">dee_hash_index_new</span><span class="method-parameters">(<a class="link-Type type " href="Dee-1.0.html#Dee.Model">DeeModel</a> *model, <a class="link-Type type " href="Dee-1.0.html#Dee.Analyzer">DeeAnalyzer</a> *analyzer, <a class="link-Type type " href="Dee-1.0.html#Dee.ModelReader">DeeModelReader</a> *reader)</span></p>
+</div>
+</div>
+</div>
+<div class="class-abstract">
+<a href="Dee-1.0.html#Dee.Index" class="class-anchor">⚓</a><h2 class="class-abstract" id="Dee.Index">Abstract Class: DeeIndex</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class type " href="Dee-1.0.html#Dee.TreeIndex">DeeTreeIndex</a>, <a class="link-Class type " href="Dee-1.0.html#Dee.HashIndex">DeeHashIndex</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+All fields in the DeeIndex structure are private and should never be
+accessed directly</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Interface type " href="Dee-1.0.html#Dee.Model">DeeModel</a></span><span class="property-name">"model"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The #DeeModel being indexed</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Dee-1.0.html#Dee.Analyzer">DeeAnalyzer</a></span><span class="property-name">"analyzer"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The #DeeAnalyzer used to analyze terms extracted by the model reader</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelReader">DeeModelReader</a></span><span class="property-name">"reader"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The #DeeModelReader used to extract terms from rows in the model</p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_index_foreach</span><span class="method-parameters">(DeeIndex *self, <span class="type-basetype type ">gchar</span> *start_term, <a class="link-Callback type " href="Dee-1.0.html#Dee.IndexIterFunc">DeeIndexIterFunc</a> func, <span class="type-basetype type ">gpointer</span> userdata)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.Analyzer">DeeAnalyzer*</a></span><span class="method-name">dee_index_get_analyzer</span><span class="method-parameters">(DeeIndex *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Interface type " href="Dee-1.0.html#Dee.Model">DeeModel*</a></span><span class="method-name">dee_index_get_model</span><span class="method-parameters">(DeeIndex *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">dee_index_get_n_rows</span><span class="method-parameters">(DeeIndex *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">dee_index_get_n_rows_for_term</span><span class="method-parameters">(DeeIndex *self, <span class="type-basetype type ">gchar</span> *term)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">dee_index_get_n_terms</span><span class="method-parameters">(DeeIndex *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelReader">DeeModelReader*</a></span><span class="method-name">dee_index_get_reader</span><span class="method-parameters">(DeeIndex *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">dee_index_get_supported_term_match_flags</span><span class="method-parameters">(DeeIndex *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Interface type " href="Dee-1.0.html#Dee.ResultSet">DeeResultSet*</a></span><span class="method-name">dee_index_lookup</span><span class="method-parameters">(DeeIndex *self, <span class="type-basetype type ">gchar</span> *term, <a class="link-BitField type " href="Dee-1.0.html#Dee.TermMatchFlag">DeeTermMatchFlag</a> flags)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_index_lookup_one</span><span class="method-parameters">(DeeIndex *self, <span class="type-basetype type ">gchar</span> *term)</span></p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="Dee-1.0.html#Dee.Model" class="class-anchor">⚓</a><h2 class="class-interface" id="Dee.Model">Interface: DeeModel</h2>
+<div class="relations">
+<p>
+Classes implementing <span class="type">DeeModel</span>: <a class="link-Class type " href="Dee-1.0.html#Dee.SharedModel">DeeSharedModel</a>, <a class="link-Class type " href="Dee-1.0.html#Dee.FilterModel">DeeFilterModel</a>, <a class="link-Class type " href="Dee-1.0.html#Dee.ProxyModel">DeeProxyModel</a>, <a class="link-Class type " href="Dee-1.0.html#Dee.SequenceModel">DeeSequenceModel</a>, <a class="link-Class type " href="Dee-1.0.html#Dee.Transaction">DeeTransaction</a>, <a class="link-Class type " href="Dee-1.0.html#Dee.SerializableModel">DeeSerializableModel</a></p>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"row-changed"</span><span class="signal-parameters">(DeeModel *model, DeeModelIter iter)</span></p>
+<p class="signal-doc">
+Connect to this signal to be notified when a row is changed.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"changeset-finished"</span><span class="signal-parameters">(DeeModel *model)</span></p>
+<p class="signal-doc">
+Connect to this signal to be notified when a changeset that can contain
+multiple row additions / changes / removals has been committed
+to the model.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"row-removed"</span><span class="signal-parameters">(DeeModel *model, DeeModelIter iter)</span></p>
+<p class="signal-doc">
+Connect to this signal to be notified when a row is removed from @self.
+  The row is still valid while the signal is being emitted.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"row-added"</span><span class="signal-parameters">(DeeModel *model, DeeModelIter iter)</span></p>
+<p class="signal-doc">
+Connect to this signal to be notified when a row is added to @self.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"changeset-started"</span><span class="signal-parameters">(DeeModel *model)</span></p>
+<p class="signal-doc">
+Connect to this signal to be notified when a changeset that can contain
+multiple row additions / changes / removals is about to be committed
+to the model.
+Note that not all model implementations use the changeset approach and
+you might still get a row change signal outside of changeset-started and
+changeset-finished signals. It also isn't guaranteed that a changeset
+would always be non-empty.</p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_append</span><span class="method-parameters">(DeeModel *self, <span class="type ">...</span> arg1)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_append_row</span><span class="method-parameters">(DeeModel *self, <span class="type ">GVariant</span> **row_members)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_begin_changeset</span><span class="method-parameters">(DeeModel *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant*</a></span><span class="method-name">dee_model_build_named_row</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant</a> *out_row_members, <span class="type-basetype type ">gchar</span> *first_column_name, <span class="type ">...</span> arg3)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type ">GVariant**</span></span><span class="method-name">dee_model_build_named_row_sunk</span><span class="method-parameters">(DeeModel *self, <span class="type ">GVariant</span> **out_row_members, <span class="type-basetype type ">guint</span> **out_array_length, <span class="type-basetype type ">gchar</span> *first_column_name, <span class="type ">...</span> arg4)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant*</a></span><span class="method-name">dee_model_build_named_row_valist</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant</a> *out_row_members, <span class="type-basetype type ">gchar</span> *first_column_name, <span class="type-basetype type ">va_list</span> *args)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant*</a></span><span class="method-name">dee_model_build_row</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant</a> *out_row_members, <span class="type ">...</span> arg2)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_changeset_finished</span><span class="method-parameters">(DeeModel *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_changeset_started</span><span class="method-parameters">(DeeModel *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_clear</span><span class="method-parameters">(DeeModel *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_clear_tag</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelTag">DeeModelTag</a> *tag)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_end_changeset</span><span class="method-parameters">(DeeModel *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_find_row_sorted</span><span class="method-parameters">(DeeModel *self, <span class="type ">GVariant</span> **row_spec, <a class="link-Callback type " href="Dee-1.0.html#Dee.CompareRowFunc">DeeCompareRowFunc</a> cmp_func, <span class="type-basetype type ">gpointer</span> user_data, <span class="type-basetype type ">gboolean</span> **out_was_found)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_find_row_sorted_with_sizes</span><span class="method-parameters">(DeeModel *self, <span class="type ">GVariant</span> **row_spec, <a class="link-Callback type " href="Dee-1.0.html#Dee.CompareRowSizedFunc">DeeCompareRowSizedFunc</a> cmp_func, <span class="type-basetype type ">gpointer</span> user_data, <span class="type-basetype type ">gboolean</span> **out_was_found)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_find_sorted</span><span class="method-parameters">(DeeModel *self, <a class="link-Callback type " href="Dee-1.0.html#Dee.CompareRowFunc">DeeCompareRowFunc</a> cmp_func, <span class="type-basetype type ">gpointer</span> user_data, <span class="type-basetype type ">gboolean</span> **out_was_found, <span class="type ">...</span> arg4)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_get</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <span class="type ">...</span> arg2)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dee_model_get_bool</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <span class="type-basetype type ">guint</span> column)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint</span></span><span class="method-name">dee_model_get_column_index</span><span class="method-parameters">(DeeModel *self, <span class="type-basetype type ">gchar</span> *column_name)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type ">gchar**</span></span><span class="method-name">dee_model_get_column_names</span><span class="method-parameters">(DeeModel *self, <span class="type-basetype type ">guint</span> **num_columns)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">dee_model_get_column_schema</span><span class="method-parameters">(DeeModel *self, <span class="type-basetype type ">guint</span> column)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gdouble</span></span><span class="method-name">dee_model_get_double</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <span class="type-basetype type ">guint</span> column)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">dee_model_get_field_schema</span><span class="method-parameters">(DeeModel *self, <span class="type-basetype type ">gchar</span> *field_name, <span class="type-basetype type ">guint</span> **out_column)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_get_first_iter</span><span class="method-parameters">(DeeModel *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint32</span></span><span class="method-name">dee_model_get_int32</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <span class="type-basetype type ">guint</span> column)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gint64</span></span><span class="method-name">dee_model_get_int64</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <span class="type-basetype type ">guint</span> column)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_get_iter_at_row</span><span class="method-parameters">(DeeModel *self, <span class="type-basetype type ">guint</span> row)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_get_last_iter</span><span class="method-parameters">(DeeModel *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">dee_model_get_n_columns</span><span class="method-parameters">(DeeModel *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">dee_model_get_n_rows</span><span class="method-parameters">(DeeModel *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">dee_model_get_position</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant*</a></span><span class="method-name">dee_model_get_row</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant</a> *out_row_members)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type ">gchar**</span></span><span class="method-name">dee_model_get_schema</span><span class="method-parameters">(DeeModel *self, <span class="type-basetype type ">guint</span> **num_columns)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">dee_model_get_string</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <span class="type-basetype type ">guint</span> column)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gpointer</span></span><span class="method-name">dee_model_get_tag</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelTag">DeeModelTag</a> *tag)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint8</span></span><span class="method-name">dee_model_get_uchar</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <span class="type-basetype type ">guint</span> column)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint32</span></span><span class="method-name">dee_model_get_uint32</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <span class="type-basetype type ">guint</span> column)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint64</span></span><span class="method-name">dee_model_get_uint64</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <span class="type-basetype type ">guint</span> column)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant*</a></span><span class="method-name">dee_model_get_value</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <span class="type-basetype type ">guint</span> column)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant*</a></span><span class="method-name">dee_model_get_value_by_name</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <span class="type-basetype type ">gchar</span> *column_name)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.HashTable">GHashTable*</a></span><span class="method-name">dee_model_get_vardict_schema</span><span class="method-parameters">(DeeModel *self, <span class="type-basetype type ">guint</span> num_column)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_insert</span><span class="method-parameters">(DeeModel *self, <span class="type-basetype type ">guint</span> pos, <span class="type ">...</span> arg2)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_insert_before</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <span class="type ">...</span> arg2)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_insert_row</span><span class="method-parameters">(DeeModel *self, <span class="type-basetype type ">guint</span> pos, <span class="type ">GVariant</span> **row_members)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_insert_row_before</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <span class="type ">GVariant</span> **row_members)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_insert_row_sorted</span><span class="method-parameters">(DeeModel *self, <span class="type ">GVariant</span> **row_members, <a class="link-Callback type " href="Dee-1.0.html#Dee.CompareRowFunc">DeeCompareRowFunc</a> cmp_func, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_insert_row_sorted_with_sizes</span><span class="method-parameters">(DeeModel *self, <span class="type ">GVariant</span> **row_members, <a class="link-Callback type " href="Dee-1.0.html#Dee.CompareRowSizedFunc">DeeCompareRowSizedFunc</a> cmp_func, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_insert_sorted</span><span class="method-parameters">(DeeModel *self, <a class="link-Callback type " href="Dee-1.0.html#Dee.CompareRowFunc">DeeCompareRowFunc</a> cmp_func, <span class="type-basetype type ">gpointer</span> user_data, <span class="type ">...</span> arg3)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dee_model_is_first</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dee_model_is_last</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_next</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_prepend</span><span class="method-parameters">(DeeModel *self, <span class="type ">...</span> arg1)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_prepend_row</span><span class="method-parameters">(DeeModel *self, <span class="type ">GVariant</span> **row_members)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_model_prev</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelTag">DeeModelTag*</a></span><span class="method-name">dee_model_register_tag</span><span class="method-parameters">(DeeModel *self, <a class="link-Callback type " href="GLib-2.0.html#GLib.DestroyNotify">GDestroyNotify</a> tag_destroy)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_register_vardict_schema</span><span class="method-parameters">(DeeModel *self, <span class="type-basetype type ">guint</span> num_column, <a class="link-Record type " href="GLib-2.0.html#GLib.HashTable">GHashTable</a> *schemas)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_remove</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_row_added</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_row_changed</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_row_removed</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_set</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <span class="type ">...</span> arg2)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_set_column_names</span><span class="method-parameters">(DeeModel *self, <span class="type-basetype type ">gchar</span> *first_column_name, <span class="type ">...</span> arg2)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_set_column_names_full</span><span class="method-parameters">(DeeModel *self, <span class="type ">gchar</span> **column_names, <span class="type-basetype type ">guint</span> num_columns)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_set_row</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <span class="type ">GVariant</span> **row_members)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_set_schema</span><span class="method-parameters">(DeeModel *self, <span class="type ">...</span> arg1)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_set_schema_full</span><span class="method-parameters">(DeeModel *self, <span class="type ">gchar</span> **column_schemas, <span class="type-basetype type ">guint</span> num_columns)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_set_tag</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelTag">DeeModelTag</a> *tag, <span class="type-basetype type ">gpointer</span> value)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_model_set_value</span><span class="method-parameters">(DeeModel *self, <a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter</a> *iter, <span class="type-basetype type ">guint</span> column, <a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant</a> *value)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Dee-1.0.html#Dee.Peer" class="class-anchor">⚓</a><h2 class="class-normal" id="Dee.Peer">Class: DeePeer</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class type " href="Dee-1.0.html#Dee.Client">DeeClient</a>, <a class="link-Class type " href="Dee-1.0.html#Dee.Server">DeeServer</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+All fields in the DeePeer structure are private and should never be
+accessed directly</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"swarm-owner"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"swarm-name"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"swarm-leader"</span><span class="property-access"> read-only</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"connection-closed"</span><span class="signal-parameters">(DeePeer *peer, GDBusConnection connection)</span></p>
+<p class="signal-doc">
+Connect to this signal to be notified when peers close
+their #GDBusConnection.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"peer-lost"</span><span class="signal-parameters">(DeePeer *peer, gchar* name)</span></p>
+<p class="signal-doc">
+Connect to this signal to be notified when peers disconnect from the swarm</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"peer-found"</span><span class="signal-parameters">(DeePeer *peer, gchar* name)</span></p>
+<p class="signal-doc">
+Connect to this signal to be notified of existing and new peers that are
+  in your swarm.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"connection-acquired"</span><span class="signal-parameters">(DeePeer *peer, GDBusConnection object)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.Peer">DeePeer</a>*</span><span class="method-name">dee_peer_new</span><span class="method-parameters">(<a class="link-Type type " href="Dee-1.0.html#utf8">const gchar</a> *swarm_name)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_peer_connection_acquired</span><span class="method-parameters">(DeePeer *self, <a class="link-Class type " href="Gio-2.0.html#Gio.DBusConnection">GDBusConnection</a> *connection)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_peer_connection_closed</span><span class="method-parameters">(DeePeer *self, <a class="link-Class type " href="Gio-2.0.html#Gio.DBusConnection">GDBusConnection</a> *connection)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.SList">GSList*</a></span><span class="method-name">dee_peer_get_connections</span><span class="method-parameters">(DeePeer *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">dee_peer_get_swarm_leader</span><span class="method-parameters">(DeePeer *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">dee_peer_get_swarm_name</span><span class="method-parameters">(DeePeer *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dee_peer_is_swarm_leader</span><span class="method-parameters">(DeePeer *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dee_peer_is_swarm_owner</span><span class="method-parameters">(DeePeer *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type ">gchar**</span></span><span class="method-name">dee_peer_list_peers</span><span class="method-parameters">(DeePeer *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_peer_peer_found</span><span class="method-parameters">(DeePeer *self, <span class="type-basetype type ">gchar</span> *name)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_peer_peer_lost</span><span class="method-parameters">(DeePeer *self, <span class="type-basetype type ">gchar</span> *name)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Dee-1.0.html#Dee.ProxyModel" class="class-anchor">⚓</a><h2 class="class-normal" id="Dee.ProxyModel">Class: DeeProxyModel</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface type " href="Dee-1.0.html#Dee.Serializable">DeeSerializable</a>, <a class="link-Interface type " href="Dee-1.0.html#Dee.Model">DeeModel</a></p>
+<p>
+Known subclasses: <a class="link-Class type " href="Dee-1.0.html#Dee.FilterModel">DeeFilterModel</a>, <a class="link-Class type " href="Dee-1.0.html#Dee.SharedModel">DeeSharedModel</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="Dee-1.0.html#Dee.SerializableModel">DeeSerializableModel</a></p>
+<p>
+All fields in the DeeProxyModel structure are private and should never be
+accessed directly</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"proxy-signals"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+Boolean property defining whether or not to automatically forward signals
+from the back end model. This is especially useful for sub classes wishing
+to do their own more advanced signal forwarding.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"inherit-seqnums"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+Boolean property defining whether sequence numbers will be inherited
+from the back end model.
+You will most likely want to set this property to false
+if the implementation manipulates with the rows in the model and keep
+track of seqnums yourself.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Interface type " href="Dee-1.0.html#Dee.Model">DeeModel</a></span><span class="property-name">"back-end"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The backend model used by this proxy model.</p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="Dee-1.0.html#Dee.ResourceManager" class="class-anchor">⚓</a><h2 class="class-interface" id="Dee.ResourceManager">Interface: DeeResourceManager</h2>
+<div class="relations">
+<p>
+Classes implementing <span class="type">DeeResourceManager</span>: <a class="link-Class type " href="Dee-1.0.html#Dee.FileResourceManager">DeeFileResourceManager</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Interface type " href="Dee-1.0.html#Dee.ResourceManager">DeeResourceManager*</a></span><span class="method-name">dee_resource_manager_get_default</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject*</a></span><span class="method-name">dee_resource_manager_load</span><span class="method-parameters">(DeeResourceManager *self, <span class="type-basetype type ">gchar</span> *resource_name)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dee_resource_manager_store</span><span class="method-parameters">(DeeResourceManager *self, <a class="link-Interface type " href="Dee-1.0.html#Dee.Serializable">DeeSerializable</a> *resource, <span class="type-basetype type ">gchar</span> *resource_name)</span></p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="Dee-1.0.html#Dee.ResultSet" class="class-anchor">⚓</a><h2 class="class-interface" id="Dee.ResultSet">Interface: DeeResultSet</h2>
+<div class="relations">
+<p>
+Classes implementing <span class="type">DeeResultSet</span>: <a class="link-Class type " href="Dee-1.0.html#Dee.GListResultSet">DeeGListResultSet</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Interface type " href="Dee-1.0.html#Dee.Model">DeeModel*</a></span><span class="method-name">dee_result_set_get_model</span><span class="method-parameters">(DeeResultSet *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">dee_result_set_get_n_rows</span><span class="method-parameters">(DeeResultSet *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dee_result_set_has_next</span><span class="method-parameters">(DeeResultSet *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_result_set_next</span><span class="method-parameters">(DeeResultSet *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="Dee-1.0.html#Dee.ModelIter">DeeModelIter*</a></span><span class="method-name">dee_result_set_peek</span><span class="method-parameters">(DeeResultSet *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_result_set_seek</span><span class="method-parameters">(DeeResultSet *self, <span class="type-basetype type ">guint</span> pos)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">dee_result_set_tell</span><span class="method-parameters">(DeeResultSet *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Dee-1.0.html#Dee.SequenceModel" class="class-anchor">⚓</a><h2 class="class-normal" id="Dee.SequenceModel">Class: DeeSequenceModel</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface type " href="Dee-1.0.html#Dee.Serializable">DeeSerializable</a>, <a class="link-Interface type " href="Dee-1.0.html#Dee.Model">DeeModel</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="Dee-1.0.html#Dee.SerializableModel">DeeSerializableModel</a></p>
+<p>
+All fields in the DeeSequenceModel structure are private and should never be
+accessed directly</p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.SequenceModel">DeeSequenceModel</a>*</span><span class="method-name">dee_sequence_model_new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="Dee-1.0.html#Dee.Serializable" class="class-anchor">⚓</a><h2 class="class-interface" id="Dee.Serializable">Interface: DeeSerializable</h2>
+<div class="relations">
+<p>
+Classes implementing <span class="type">DeeSerializable</span>: <a class="link-Class type " href="Unity-7.0.html#Unity.LauncherEntry">UnityLauncherEntry</a>, <a class="link-Class type " href="Dee-1.0.html#Dee.SharedModel">DeeSharedModel</a>, <a class="link-Class type " href="Unity-7.0.html#Unity.PreviewAction">UnityPreviewAction</a>, <a class="link-Class type " href="Dee-1.0.html#Dee.ProxyModel">DeeProxyModel</a>, <a class="link-Class type " href="Unity-7.0.html#Unity.Filter">UnityFilter</a>, <a class="link-Class type " href="Dee-1.0.html#Dee.FilterModel">DeeFilterModel</a>, <a class="link-Class type " href="Dee-1.0.html#Dee.SequenceModel">DeeSequenceModel</a>, <a class="link-Class type " href="Dee-1.0.html#Dee.Transaction">DeeTransaction</a>, <a class="link-Class type " href="Dee-1.0.html#Dee.SerializableModel">DeeSerializableModel</a>, <a class="link-Class type " href="Unity-7.0.html#Unity.Preview">UnityPreview</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant*</a></span><span class="method-name">dee_serializable_externalize</span><span class="method-parameters">(DeeSerializable *self)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject*</a></span><span class="method-name">dee_serializable_parse</span><span class="method-parameters">(<a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant</a> *data, <span class="type-basetype type ">GType</span> type)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject*</a></span><span class="method-name">dee_serializable_parse_external</span><span class="method-parameters">(<a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant</a> *data)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_serializable_register_parser</span><span class="method-parameters">(<span class="type-basetype type ">GType</span> type, <a class="link-Record type " href="GLib-2.0.html#GLib.VariantType">GVariantType</a> *vtype, <a class="link-Callback type " href="Dee-1.0.html#Dee.SerializableParseFunc">DeeSerializableParseFunc</a> parse_func)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant*</a></span><span class="method-name">dee_serializable_serialize</span><span class="method-parameters">(DeeSerializable *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-abstract">
+<a href="Dee-1.0.html#Dee.SerializableModel" class="class-anchor">⚓</a><h2 class="class-abstract" id="Dee.SerializableModel">Abstract Class: DeeSerializableModel</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface type " href="Dee-1.0.html#Dee.Serializable">DeeSerializable</a>, <a class="link-Interface type " href="Dee-1.0.html#Dee.Model">DeeModel</a></p>
+<p>
+Known subclasses: <a class="link-Class type " href="Dee-1.0.html#Dee.Transaction">DeeTransaction</a>, <a class="link-Class type " href="Dee-1.0.html#Dee.ProxyModel">DeeProxyModel</a>, <a class="link-Class type " href="Dee-1.0.html#Dee.SequenceModel">DeeSequenceModel</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+All fields in the DeeSerializableModel structure are private and should never be
+accessed directly</p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint64</span></span><span class="method-name">dee_serializable_model_get_seqnum</span><span class="method-parameters">(DeeSerializableModel *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint64</span></span><span class="method-name">dee_serializable_model_inc_seqnum</span><span class="method-parameters">(DeeSerializableModel *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_serializable_model_set_seqnum</span><span class="method-parameters">(DeeSerializableModel *self, <span class="type-basetype type ">guint64</span> seqnum)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Dee-1.0.html#Dee.Server" class="class-anchor">⚓</a><h2 class="class-normal" id="Dee.Server">Class: DeeServer</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Dee-1.0.html#Dee.Peer">DeePeer</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"bus-address"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"same-user-only"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.Server">DeeServer</a>*</span><span class="method-name">dee_server_new</span><span class="method-parameters">(<a class="link-Type type " href="Dee-1.0.html#utf8">const gchar</a> *swarm_name)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.Server">DeeServer</a>*</span><span class="method-name">dee_server_new_for_address</span><span class="method-parameters">(<a class="link-Type type " href="Dee-1.0.html#utf8">const gchar</a> *swarm_name, <a class="link-Type type " href="Dee-1.0.html#utf8">const gchar</a> *bus_address)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">dee_server_bus_address_for_name</span><span class="method-parameters">(<span class="type-basetype type ">gchar</span> *name, <span class="type-basetype type ">gboolean</span> include_username)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">dee_server_get_client_address</span><span class="method-parameters">(DeeServer *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Dee-1.0.html#Dee.SharedModel" class="class-anchor">⚓</a><h2 class="class-normal" id="Dee.SharedModel">Class: DeeSharedModel</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface type " href="Dee-1.0.html#Dee.Serializable">DeeSerializable</a>, <a class="link-Interface type " href="Dee-1.0.html#Dee.Model">DeeModel</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="Dee-1.0.html#Dee.ProxyModel">DeeProxyModel</a></p>
+<p>
+All fields in the DeeSharedModel structure are private and should never be
+accessed directly</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Enumeration type " href="Dee-1.0.html#Dee.SharedModelFlushMode">DeeSharedModelFlushMode</a></span><span class="property-name">"flush-mode"</span><span class="property-access">read/write</span></p>
+<p class="property-doc">
+Enumeration defining the flushing behavior.
+
+Setting this to #DEE_SHARED_MODEL_FLUSH_MODE_MANUAL will disable 
+automatic flushing that usually happens when the application's main event
+loop is idle. Automatic flushing should be primarily disabled when 
+a shared model is used from multiple threads, or when not using #GMainLoop.
+When disabled, dee_shared_model_flush_revision_queue() needs to be called
+explicitely.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Class type " href="Dee-1.0.html#Dee.Peer">DeePeer</a></span><span class="property-name">"peer"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The #DeePeer that this model uses to connect to the swarm</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Enumeration type " href="Dee-1.0.html#Dee.SharedModelAccessMode">DeeSharedModelAccessMode</a></span><span class="property-name">"access-mode"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+Enumeration defining behavior of this model when trying to write to it.
+
+Setting this to #DEE_SHARED_MODEL_ACCESS_MODE_LEADER_WRITABLE is useful
+when one process is considered an "owner" of a model and all the other
+peers are supposed to only synchronize it for reading.
+
+See also DeePeer:swarm-owner property to ensure ownership of a swarm.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"synchronized"</span><span class="property-access"> read-only</span></p>
+<p class="property-doc">
+Boolean property defining whether or not the model has synchronized with
+its peers (if any) yet.
+
+You should not modify a #DeeSharedModel that is not synchronized. Before
+modifying the model in any way (except calling dee_model_set_schema())
+you should wait for it to become synchronized.</p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"begin-transaction"</span><span class="signal-parameters">(DeeSharedModel *shared_model, guint64 begin_seqnum, guint64 end_seqnum)</span></p>
+<p class="signal-doc">
+Emitted right before a remote transaction will be committed to the model.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"end-transaction"</span><span class="signal-parameters">(DeeSharedModel *shared_model, guint64 begin_seqnum, guint64 end_seqnum)</span></p>
+<p class="signal-doc">
+Emitted right after a remote transaction has been committed to the model.</p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.SharedModel">DeeSharedModel</a>*</span><span class="method-name">dee_shared_model_new</span><span class="method-parameters">(<a class="link-Type type " href="Dee-1.0.html#utf8">const gchar</a> *name)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.SharedModel">DeeSharedModel</a>*</span><span class="method-name">dee_shared_model_new_for_peer</span><span class="method-parameters">(<a class="link-Type type " href="Dee-1.0.html#Dee.Peer">DeePeer</a> *peer)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.SharedModel">DeeSharedModel</a>*</span><span class="method-name">dee_shared_model_new_with_back_end</span><span class="method-parameters">(<a class="link-Type type " href="Dee-1.0.html#utf8">const gchar</a> *name, <a class="link-Type type " href="Dee-1.0.html#Dee.Model">DeeModel</a> *back_end)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">dee_shared_model_flush_revision_queue</span><span class="method-parameters">(DeeSharedModel *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">dee_shared_model_flush_revision_queue_sync</span><span class="method-parameters">(DeeSharedModel *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="Dee-1.0.html#Dee.SharedModelFlushMode">DeeSharedModelFlushMode</a></span><span class="method-name">dee_shared_model_get_flush_mode</span><span class="method-parameters">(DeeSharedModel *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.Peer">DeePeer*</a></span><span class="method-name">dee_shared_model_get_peer</span><span class="method-parameters">(DeeSharedModel *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">dee_shared_model_get_swarm_name</span><span class="method-parameters">(DeeSharedModel *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dee_shared_model_is_leader</span><span class="method-parameters">(DeeSharedModel *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dee_shared_model_is_synchronized</span><span class="method-parameters">(DeeSharedModel *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">dee_shared_model_set_flush_mode</span><span class="method-parameters">(DeeSharedModel *self, <a class="link-Enumeration type " href="Dee-1.0.html#Dee.SharedModelFlushMode">DeeSharedModelFlushMode</a> mode)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Dee-1.0.html#Dee.TermList" class="class-anchor">⚓</a><h2 class="class-normal" id="Dee.TermList">Class: DeeTermList</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+All fields in the DeeTermList structure are private and should never be
+accessed directly</p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.TermList">DeeTermList*</a></span><span class="method-name">dee_term_list_add_term</span><span class="method-parameters">(DeeTermList *self, <span class="type-basetype type ">gchar</span> *term)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.TermList">DeeTermList*</a></span><span class="method-name">dee_term_list_clear</span><span class="method-parameters">(DeeTermList *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.TermList">DeeTermList*</a></span><span class="method-name">dee_term_list_clone</span><span class="method-parameters">(DeeTermList *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">dee_term_list_get_term</span><span class="method-parameters">(DeeTermList *self, <span class="type-basetype type ">guint</span> n)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint</span></span><span class="method-name">dee_term_list_num_terms</span><span class="method-parameters">(DeeTermList *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Dee-1.0.html#Dee.TextAnalyzer" class="class-anchor">⚓</a><h2 class="class-normal" id="Dee.TextAnalyzer">Class: DeeTextAnalyzer</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Dee-1.0.html#Dee.Analyzer">DeeAnalyzer</a></p>
+<p>
+All fields in the DeeTextAnalyzer structure are private and should never be
+accessed directly</p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.TextAnalyzer">DeeTextAnalyzer</a>*</span><span class="method-name">dee_text_analyzer_new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Dee-1.0.html#Dee.Transaction" class="class-anchor">⚓</a><h2 class="class-normal" id="Dee.Transaction">Class: DeeTransaction</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface type " href="Dee-1.0.html#Dee.Serializable">DeeSerializable</a>, <a class="link-Interface type " href="Dee-1.0.html#Dee.Model">DeeModel</a></p>
+<p>
+Subclass of: <a class="link-Class type " href="Dee-1.0.html#Dee.SerializableModel">DeeSerializableModel</a></p>
+<p>
+All fields in the DeeTransaction structure are private and should never be
+accessed directly</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><a class="link-Interface type " href="Dee-1.0.html#Dee.Model">DeeModel</a></span><span class="property-name">"target"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.Transaction">DeeTransaction</a>*</span><span class="method-name">dee_transaction_new</span><span class="method-parameters">(<a class="link-Type type " href="Dee-1.0.html#Dee.Model">DeeModel</a> *target)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dee_transaction_commit</span><span class="method-parameters">(DeeTransaction *self)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type ">GQuark</span></span><span class="method-name">dee_transaction_error_quark</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Interface type " href="Dee-1.0.html#Dee.Model">DeeModel*</a></span><span class="method-name">dee_transaction_get_target</span><span class="method-parameters">(DeeTransaction *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gboolean</span></span><span class="method-name">dee_transaction_is_committed</span><span class="method-parameters">(DeeTransaction *self)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Dee-1.0.html#Dee.TreeIndex" class="class-anchor">⚓</a><h2 class="class-normal" id="Dee.TreeIndex">Class: DeeTreeIndex</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="Dee-1.0.html#Dee.Index">DeeIndex</a></p>
+<p>
+All fields in the DeeTreeIndex structure are private and should never be
+accessed directly</p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Dee-1.0.html#Dee.TreeIndex">DeeTreeIndex</a>*</span><span class="method-name">dee_tree_index_new</span><span class="method-parameters">(<a class="link-Type type " href="Dee-1.0.html#Dee.Model">DeeModel</a> *model, <a class="link-Type type " href="Dee-1.0.html#Dee.Analyzer">DeeAnalyzer</a> *analyzer, <a class="link-Type type " href="Dee-1.0.html#Dee.ModelReader">DeeModelReader</a> *reader)</span></p>
+</div>
+</div>
+</div>
+</body>
+</html>
+

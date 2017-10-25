@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- PreviewAction.qml -->
+  <title>Unity Action QML API : PreviewAction</title>
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<body>
+   <div class="wrapper">
+   <div class="main-content">
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-unity-action1-previewaction.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-unity-action1-previewaction.html#signals">Signals</a></li>
+<li class="level1"><a href="qml-ubuntu-unity-action1-previewaction.html#details">Detailed Description</a></li>
+</ul>
+</div>
+<h1 class="title">PreviewAction</h1>
+<span class="subtitle"></span>
+<!-- $$$PreviewAction-brief -->
+<p>previewable action <a href="qml-ubuntu-unity-action1-previewaction.html#details">More...</a></p>
+<!-- @@@PreviewAction -->
+<p>Inherits <a href="qml-ubuntu-unity-action1-action.html">Action</a></p>
+<p>This type was introduced in Unity Action QML API 1.0.</p>
+<ul>
+<li><a href="qml-ubuntu-unity-action1-previewaction-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-previewaction.html#commitLabel-prop">commitLabel</a></b></b> : QString</li>
+</ul>
+<a name="signals"></a>
+<h2>Signals</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-previewaction.html#cancelled-signal">cancelled</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-previewaction.html#resetted-signal">resetted</a></b></b>()</li>
+<li class="fn"><b><b><a href="qml-ubuntu-unity-action1-previewaction.html#started-signal">started</a></b></b>()</li>
+</ul>
+<!-- $$$PreviewAction-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>The preview action is an action that allows the application to generate a preview of the action before the action is applied. The preview is controlled by the HUD UI.</p>
+<p>PreviewActions contain one or more parameters which form the preview parameters of the action.</p>
+<p>For more details see <a href="preview-actions.html">Preview Actions</a></p>
+<p><b>Note: </b>Even though PreviewAction is subclass of Action not all of the properties of Action base class are supported.</p><p><b>Note: </b><a href="qml-ubuntu-unity-action1-action.html#parameterType-prop">Action::parameterType</a> must be Action::None</p><!-- @@@PreviewAction -->
+<h2>Property Documentation</h2>
+<!-- $$$commitLabel -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="commitLabel-prop"></a><span class="name">commitLabel</span> : <span class="type">QString</span></p></td></tr></table></div><div class="qmldoc"><p>User visible label shown in the HUD parameter view.</p>
+<p>This is the label shown in the HUD UI on the button that applies or commits the action after the user is happy with the parameters.</p>
+<p>If set to empty string the HUD UI will use a default commit label.</p>
+</div></div><!-- @@@commitLabel -->
+<br/>
+<h2>Signal Documentation</h2>
+<!-- $$$cancelled -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="cancelled-signal"></a>PreviewAction::<span class="name">cancelled</span>()</p></td></tr></table></div><div class="qmldoc"><p>Signal to inform that the user has cancelled the action from the HUD UI. No modifications should be done on the application and the program should return to the state it was before the action was first started.</p>
+</div></div><!-- @@@cancelled -->
+<br/>
+<!-- $$$resetted -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="resetted-signal"></a>PreviewAction::<span class="name">resetted</span>()</p></td></tr></table></div><div class="qmldoc"><p>Signal to inform that the user has clicked the &quot;reset&quot; button from the HUD UI. The action is still active on the HUD UI but the application should reset the values of the parameters to the same values they where when the action was started.</p>
+</div></div><!-- @@@resetted -->
+<br/>
+<!-- $$$started -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="started-signal"></a>PreviewAction::<span class="name">started</span>()</p></td></tr></table></div><div class="qmldoc"><p>Signal to inform that a action is selected in the HUD UI. The application should set the values of the parameters to their initial state.</p>
+</div></div><!-- @@@started -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+	</div>
+</footer>
+</body>
+</html>

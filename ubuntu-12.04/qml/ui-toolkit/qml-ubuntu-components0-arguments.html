@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ucarguments.cpp -->
+  <title>UbuntuUserInterfaceToolkit 0.1: Arguments</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="overview-ubuntu-sdk.html">Ubuntu User Interface Toolkit</a></li>
+<li>Arguments</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-components0-arguments.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-arguments.html#methods">Methods</a></li>
+<li class="level1"><a href="qml-ubuntu-components0-arguments.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">Arguments</h1>
+<span class="subtitle"></span>
+<!-- $$$Arguments-brief -->
+<p>The Arguments class provides a way to declare what command line parameters are expected by the application. <a href="qml-ubuntu-components0-arguments.html#details">More...</a></p>
+<!-- @@@Arguments -->
+<ul>
+<li><a href="qml-ubuntu-components0-arguments-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-arguments.html#arguments-prop">arguments</a></b></b> : list&lt;Argument&gt;</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-arguments.html#defaultArgument-prop">defaultArgument</a></b></b> : Argument</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-arguments.html#error-prop">error</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-arguments.html#errorMessage-prop">errorMessage</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components0-arguments.html#values-prop">values</a></b></b> : Object</li>
+</ul>
+<a name="methods"></a>
+<h2>Methods</h2>
+<ul>
+<li class="fn">void <b><b><a href="qml-ubuntu-components0-arguments.html#printUsage-method">printUsage</a></b></b>()</li>
+<li class="fn">void <b><b><a href="qml-ubuntu-components0-arguments.html#quitWithError-method">quitWithError</a></b></b>(string <i>errorMessage</i>)</li>
+</ul>
+<!-- $$$Arguments-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>Example of use:</p>
+<pre class="qml"><span class="type">Arguments</span> {
+    <span class="name">id</span>: <span class="name">args</span>
+
+    <span class="name">defaultArgument</span>.help: <span class="string">&quot;Expects URL of the media to play.&quot;</span>
+    <span class="name">defaultArgument</span>.valueNames: [<span class="string">&quot;URL&quot;</span>]
+
+    <span class="type"><a href="qml-ubuntu-components0-argument.html">Argument</a></span> {
+        <span class="name">name</span>: <span class="string">&quot;fullscreen&quot;</span>
+        <span class="name">help</span>: <span class="string">&quot;whether or not the media will be played fullscreen&quot;</span>
+        <span class="name">required</span>: <span class="number">false</span>
+    }
+
+    <span class="type"><a href="qml-ubuntu-components0-argument.html">Argument</a></span> {
+        <span class="name">name</span>: <span class="string">&quot;volume&quot;</span>
+        <span class="name">help</span>: <span class="string">&quot;level to which to set the volume&quot;</span>
+        <span class="name">required</span>: <span class="number">false</span>
+        <span class="name">valueNames</span>: [<span class="string">&quot;VOLUME_LEVEL&quot;</span>]
+    }
+}</pre>
+<p>The code above ensures that at least one argument is passed on the command line which will then be available in QML via the <a href="qml-ubuntu-components0-arguments.html#defaultArgument-prop">defaultArgument</a> property. Optionally two other arguments can be passed:</p>
+<p><i>--fullscreen</i> that will be exposed as a boolean property: <a href="qml-ubuntu-components0-arguments.html#values-prop">values</a>.fullscreen</p>
+<p><i>--volume</i> that will be exposed as a string property: <a href="qml-ubuntu-components0-arguments.html#values-prop">values</a>.volume</p>
+<pre class="qml"><span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-item.html">Item</a></span> {
+    <span class="type"><a href="qml-ubuntu-components0-label.html">Label</a></span> {
+        <span class="name">text</span>: <span class="string">&quot;volume = &quot;</span> <span class="operator">+</span> <span class="name">args</span>.<span class="name">values</span>.<span class="name">volume</span>
+    }
+
+    <span class="type"><a href="qml-ubuntu-components0-label.html">Label</a></span> {
+        <span class="name">text</span>: <span class="string">&quot;fullscreen = &quot;</span> <span class="operator">+</span> <span class="name">args</span>.<span class="name">values</span>.<span class="name">fullscreen</span>
+    }
+
+    <span class="type"><a href="qml-ubuntu-components0-label.html">Label</a></span> {
+        <span class="name">text</span>: <span class="string">&quot;URL = &quot;</span> <span class="operator">+</span> <span class="name">args</span>.<span class="name">defaultArgument</span>.<span class="name">at</span>(<span class="number">0</span>)
+    }
+}</pre>
+<p>If the application is launched with the incorrect arguments or with the <i>--usage</i> argument an help will be outputted on the command line and the application will exit:</p>
+<pre class="cpp">Usage: application <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>fullscreen<span class="operator">]</span> <span class="operator">[</span><span class="operator">-</span><span class="operator">-</span>volume<span class="operator">=</span>VOLUME_LEVEL<span class="operator">]</span> URL
+Options:
+<span class="operator">-</span><span class="operator">-</span>fullscreen         whether <span class="keyword">or</span> <span class="keyword">not</span> the media will be played fullscreen
+<span class="operator">-</span><span class="operator">-</span>volume<span class="operator">=</span>VOLUME_LEVE level to which to set the volume
+
+Expects URL of the media to play<span class="operator">.</span></pre>
+<p><b>See also </b><a href="qml-ubuntu-components0-argument.html">Argument</a>.</p>
+<!-- @@@Arguments -->
+<h2>Property Documentation</h2>
+<!-- $$$arguments -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="arguments-prop"></a><span class="qmlreadonly">read-only</span><span class="qmldefault">default</span><span class="name">arguments</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-list.html">list</a></span>&lt;<span class="type"><a href="qml-ubuntu-components0-argument.html">Argument</a></span>&gt;</p></td></tr></table></div><div class="qmldoc"><p>List of command line <a href="qml-ubuntu-components0-argument.html">arguments</a> that are expected by the application.</p>
+<p>See detailed description above for an example on how to use it.</p>
+</div></div><!-- @@@arguments -->
+<br/>
+<!-- $$$defaultArgument -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="defaultArgument-prop"></a><span class="name">defaultArgument</span> : <span class="type"><a href="qml-ubuntu-components0-argument.html">Argument</a></span></p></td></tr></table></div><div class="qmldoc"><p>The default argument corresponds to the values passed on the command line without any name.</p>
+<p>For example in:</p>
+<pre class="cpp"><span class="operator">.</span><span class="operator">/</span>application <span class="operator">-</span><span class="operator">-</span>volume<span class="operator">=</span><span class="number">42</span> http:<span class="comment">//myaddress</span></pre>
+<p><i>http://myaddress</i> is the first value of the default argument.</p>
+</div></div><!-- @@@defaultArgument -->
+<br/>
+<!-- $$$error -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="error-prop"></a><span class="qmlreadonly">read-only</span><span class="name">error</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p>Whether or not the command line arguments passed to the application correspond to the expected arguments.</p>
+<p>Also set when calling <a href="qml-ubuntu-components0-arguments.html#quitWithError-method">quitWithError</a></p>
+</div></div><!-- @@@error -->
+<br/>
+<!-- $$$errorMessage -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="errorMessage-prop"></a><span class="qmlreadonly">read-only</span><span class="name">errorMessage</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>Error message describing how the command line arguments passed to the application failed to correspond to the expected arguments.</p>
+<p>Also set when calling <a href="qml-ubuntu-components0-arguments.html#quitWithError-method">quitWithError</a></p>
+</div></div><!-- @@@errorMessage -->
+<br/>
+<!-- $$$values -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="values-prop"></a><span class="qmlreadonly">read-only</span><span class="name">values</span> : <span class="type">Object</span></p></td></tr></table></div><div class="qmldoc"><p>Object of which properties have the values of the command line arguments.</p>
+</div></div><!-- @@@values -->
+<br/>
+<h2>Method Documentation</h2>
+<!-- $$$printUsage -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="printUsage-method"></a><span class="type">void</span> Arguments::<span class="name">printUsage</span>()</p></td></tr></table></div><div class="qmldoc"><p>Outputs help to the console on how to pass arguments to the application.</p>
+</div></div><!-- @@@printUsage -->
+<br/>
+<!-- $$$quitWithError -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlFuncNode"><p><a name="quitWithError-method"></a><span class="type">void</span> Arguments::<span class="name">quitWithError</span>(<span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-string.html">string</a></span><i> errorMessage</i>)</p></td></tr></table></div><div class="qmldoc"><p>Exits the application outputting <i>errorMessage</i> to the console.</p>
+</div></div><!-- @@@quitWithError -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

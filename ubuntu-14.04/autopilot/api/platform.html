@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>autopilot.platform - Functions for platform detection &mdash; Autopilot 1.4+14.04.20140213-0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/otto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/centertext.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.4+14.04.20140213-0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="Autopilot 1.4+14.04.20140213-0 documentation" href="../index.html" />
+    <link rel="up" title="Autopilot API Documentation" href="index.html" />
+    <link rel="next" title="autopilot.process - Process Control" href="process.html" />
+    <link rel="prev" title="autopilot.matchers - Custom matchers for test assertions" href="matchers.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="process.html" title="autopilot.process - Process Control"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="matchers.html" title="autopilot.matchers - Custom matchers for test assertions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Autopilot 1.4+14.04.20140213-0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Autopilot API Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-autopilot.platform">
+<span id="autopilot-platform-functions-for-platform-detection"></span><h1><tt class="docutils literal"><span class="pre">autopilot.platform</span></tt> - Functions for platform detection<a class="headerlink" href="platform.html#module-autopilot.platform" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="platform-identification-utilities-for-autopilot">
+<h2>Platform identification utilities for Autopilot.<a class="headerlink" href="platform.html#platform-identification-utilities-for-autopilot" title="Permalink to this headline">¶</a></h2>
+<p>This module provides functions that give test authors hints as to which
+platform their tests are currently running on. This is useful when a test
+needs to test slight different behavior depending on the system it&#8217;s running
+on. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre>from autopilot import platform
+
+...
+
+def test_something(self):
+    if platform.model() == &quot;Galaxy Nexus&quot;:
+        # do something
+    elif platform.model() == &quot;Desktop&quot;:
+        # do something else
+
+def test_something_else(self):
+    if platform.is_tablet():
+        # run a tablet test
+    else:
+        # run a non-tablet test
+</pre></div>
+</div>
+<div class="section" id="skipping-tests-based-on-platform">
+<h3>Skipping tests based on Platform<a class="headerlink" href="platform.html#skipping-tests-based-on-platform" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes you want a test to not run on certain platforms, or only run on
+certain platforms. This can be easily achieved with a combination of the
+functions in this module and the <tt class="docutils literal"><span class="pre">skipIf</span></tt> and <tt class="docutils literal"><span class="pre">skipUnless</span></tt> decorators. For
+example, to define a test that only runs on the galaxy nexus device, write
+this:</p>
+<div class="highlight-python"><div class="highlight"><pre>from testtools import skipUnless
+
+...
+
+@skipUnless(
+    platform.model() == &#39;Galaxy Nexus&#39;,
+    &quot;Test is only for Galaxy Nexus&quot;
+)
+def test_something(self):
+    # test things!
+</pre></div>
+</div>
+<p>The inverse is possible as well. To define a test that will run on every device
+except the Galaxy Nexus, write this:</p>
+<div class="highlight-python"><div class="highlight"><pre>from testtools import skipIf
+
+...
+
+@skipIf(
+    platform.model() == &#39;Galaxy Nexus&#39;,
+    &quot;Test not available for Galaxy Nexus&quot;
+)
+def test_something(self):
+    # test things!
+</pre></div>
+</div>
+<p>Tuples of values can be used as well, to select more than one platform. For
+example:</p>
+<div class="highlight-python"><div class="highlight"><pre>@skipIf(
+    platform.model() in (&#39;Model One&#39;, &#39;Model Two&#39;),
+    &quot;Test not available for Models One and Two&quot;
+)
+    def test_something(self):
+        # test things!
+</pre></div>
+</div>
+<dl class="function">
+<dt id="autopilot.platform.model">
+<tt class="descclassname">autopilot.platform.</tt><tt class="descname">model</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/autopilot/platform.html#model"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="platform.html#autopilot.platform.model" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the model name of the current platform.</p>
+<p>For desktop / laptop installations, this will return &#8220;Desktop&#8221;.
+Otherwise, the current hardware model will be returned. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">platform</span><span class="o">.</span><span class="n">model</span><span class="p">()</span>
+
+<span class="o">...</span> <span class="s">&quot;Galaxy Nexus&quot;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="autopilot.platform.image_codename">
+<tt class="descclassname">autopilot.platform.</tt><tt class="descname">image_codename</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/autopilot/platform.html#image_codename"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="platform.html#autopilot.platform.image_codename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the image codename.</p>
+<p>For desktop / laptop installations this will return &#8220;Desktop&#8221;.
+Otherwise, the codename of the image that was installed will be
+returned. For example:</p>
+<p>platform.image_codename()</p>
+<p>... &#8220;maguro&#8221;</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="autopilot.platform.is_tablet">
+<tt class="descclassname">autopilot.platform.</tt><tt class="descname">is_tablet</tt><big>(</big><big>)</big><a class="reference internal" href="../_modules/autopilot/platform.html#is_tablet"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="platform.html#autopilot.platform.is_tablet" title="Permalink to this definition">¶</a></dt>
+<dd><p>Indicate whether system is a tablet.</p>
+<p>The &#8216;ro.build.characteristics&#8217; property is checked for &#8216;tablet&#8217;.
+For example:</p>
+<p>platform.tablet()</p>
+<p>... True</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/otto-64.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="platform.html#"><tt class="docutils literal"><span class="pre">autopilot.platform</span></tt> - Functions for platform detection</a><ul>
+<li><a class="reference internal" href="platform.html#platform-identification-utilities-for-autopilot">Platform identification utilities for Autopilot.</a><ul>
+<li><a class="reference internal" href="platform.html#skipping-tests-based-on-platform">Skipping tests based on Platform</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://developer.ubuntu.com/api/devel/ubuntu-14.04/autopilot/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="matchers.html"
+                        title="previous chapter"><tt class="docutils literal"><span class="pre">autopilot.matchers</span></tt> - Custom matchers for test assertions</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="process.html"
+                        title="next chapter"><tt class="docutils literal"><span class="pre">autopilot.process</span></tt> - Process Control</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="process.html" title="autopilot.process - Process Control"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="matchers.html" title="autopilot.matchers - Custom matchers for test assertions"
+             >previous</a> |</li>
+        <li><a href="../index.html">Autopilot 1.4+14.04.20140213-0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Autopilot API Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      <div class=center_text>
+        <a href="../faq/contribute.html">Learn how you can contribute!</a> / <a href="https://bugs.launchpad.net/autopilot/+filebug">File a bug</a>
+     <br/>
+      </div>
+        &copy; Copyright 2012-2013, Canonical.
+    </div>
+
+
+  </body>
+</html>

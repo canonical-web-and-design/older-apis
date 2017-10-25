@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- mainpage.qdoc -->
+  <title>Unity Action QML API : Unity Action API</title>
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<body>
+   <div class="wrapper">
+   <div class="main-content">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
+<h1 class="title">Unity Action API</h1>
+<span class="subtitle"></span>
+<!-- $$$index.html-description -->
+<div class="descr"> <a name="details"></a>
+<a name="introduction"></a>
+<h0>Introduction</h0>
+<p>Unity Action API offers a way to easily integrate with the Unity components outside of the application such as the Launcher, HUD, AppMenu and MessagingMenu.</p>
+<p>Applications have internally different types of actions with different life-cycles. Some actions are application wide that are relevant and available throughout the whole life-cycle of the application. Other actions are context specific and only available when the application is in certain visual state, such as in image editing mode. See <a href="contexts.html">Action Contexts</a> for more details.</p>
+<p>Application can define application wide actions dynamically during runtime and as offline (jumplist) actions that are available even if the application is not running. Activating an offline action will launch the application when necessary.</p>
+<p>Unity Action API can be used with three ways:</p>
+<ul>
+<li>- using the Qt C++ API (see the C++ documentation)</li>
+<li>- Using this QML API directly</li>
+<li>- Using the UI Toolkit</li>
+</ul>
+<p>UI Toolkit simplifies the <a href="qml-ubuntu-unity-action1-actioncontext.html">ActionContext</a> management and provides <a href="qml-ubuntu-unity-action1-actionmanager.html">ActionManager</a> as part of the MainView. See the UI Toolkit documentation for more details.</p>
+<a name="general-topics"></a>
+<h0>General Topics</h0>
+<ul>
+<li><a href="contexts.html">Action Contexts</a></li>
+<li><a href="preview-actions.html">Preview Actions</a></li>
+<li><a href="platform-integration.html">Platform Integration</a></li>
+<li><a href="offline-actions.html">Offline Actions</a></li>
+</ul>
+<a name="reporting-bugs"></a>
+<h0>Reporting Bugs</h0>
+<p>If you find any problems with the or this documentation, please file a bug in Unity Action API <a href="https://bugs.launchpad.net/unity-action-api">Launchpad page</a></p>
+<a name="components"></a>
+<h0>Components</h0>
+<p>Available through:</p>
+<pre class="cpp">import Ubuntu<span class="operator">.</span>Unity<span class="operator">.</span>Action <span class="number">1.0</span></pre>
+<a name="base-items"></a>
+<h0>Base Items</h0>
+<table class="annotated">
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-ubuntu-unity-action1-action.html">Action</a></p></td><td class="tblDescr"><p>The main action class.</p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-ubuntu-unity-action1-actioncontext.html">ActionContext</a></p></td><td class="tblDescr"><p></p></td></tr>
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-ubuntu-unity-action1-actionmanager.html">ActionManager</a></p></td><td class="tblDescr"><p></p></td></tr>
+<tr class="even topAlign"><td class="tblName"><p><a href="qml-ubuntu-unity-action1-previewaction.html">PreviewAction</a></p></td><td class="tblDescr"><p>previewable action</p></td></tr>
+</table>
+<a name="paramaters"></a>
+<h0>Paramaters</h0>
+<table class="annotated">
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-ubuntu-unity-action1-previewrangeparameter.html">PreviewRangeParameter</a></p></td><td class="tblDescr"><p></p></td></tr>
+</table>
+<a name="non-instantiable"></a>
+<h0>Non-Instantiable</h0>
+<table class="annotated">
+<tr class="odd topAlign"><td class="tblName"><p><a href="qml-ubuntu-unity-action1-previewparameter.html">PreviewParameter</a></p></td><td class="tblDescr"><p></p></td></tr>
+</table>
+</div>
+<!-- @@@index.html -->
+<p class="naviNextPrevious footerNavi">
+</p>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+	</div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- ValueSelector.qml -->
+  <title>UbuntuUserInterfaceToolkit 0.1: ValueSelector</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="overview-ubuntu-sdk.html">Ubuntu User Interface Toolkit</a></li>
+<li>ValueSelector</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-components-listitems0-valueselector.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-components-listitems0-valueselector.html#details">Detailed Description</a></li>
+</ul>
+</div>
+</ul><h1 class="title">ValueSelector</h1>
+<span class="subtitle"></span>
+<!-- $$$ValueSelector-brief -->
+<p>List item displaying single selected value when not expanded, where expanding it opens a listing of all the possible values for selection. <a href="qml-ubuntu-components-listitems0-valueselector.html#details">More...</a></p>
+<!-- @@@ValueSelector -->
+<p>Inherits <a href="qml-ubuntu-components-listitems0-empty.html">Empty</a></p>
+<ul>
+<li><a href="qml-ubuntu-components-listitems0-valueselector-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components-listitems0-valueselector.html#expanded-prop">expanded</a></b></b> : bool<tt> (preliminary)</tt></li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-listitems0-valueselector.html#fallbackIconName-prop">fallbackIconName</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-listitems0-valueselector.html#fallbackIconSource-prop">fallbackIconSource</a></b></b> : url</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-listitems0-valueselector.html#icon-prop">icon</a></b></b> : variant</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-listitems0-valueselector.html#iconFrame-prop">iconFrame</a></b></b> : bool</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-listitems0-valueselector.html#iconName-prop">iconName</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-listitems0-valueselector.html#iconSource-prop">iconSource</a></b></b> : url</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-listitems0-valueselector.html#selectedIndex-prop">selectedIndex</a></b></b> : int<tt> (preliminary)</tt></li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-listitems0-valueselector.html#values-prop">values</a></b></b> : variant<tt> (preliminary)</tt></li>
+</ul>
+<!-- $$$ValueSelector-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>****DEPRECATED! PLEASE USE ITEM SELECTOR OR FOR THE UBUNTU SHAPE VERSION THE OPTION SELECTOR.****</p>
+<p><b>This component is under heavy development.</b></p>
+<p>Examples:</p>
+<pre class="qml">import Ubuntu.Components.ListItems 0.1 as ListItem
+<span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-column.html">Column</a></span> {
+    <span class="name">width</span>: <span class="number">250</span>
+    <span class="type">ListItem</span>.ValueSelector {
+        <span class="name">text</span>: <span class="string">&quot;Standard&quot;</span>
+        <span class="name">values</span>: [<span class="string">&quot;Value 1&quot;</span>, <span class="string">&quot;Value 2&quot;</span>, <span class="string">&quot;Value 3&quot;</span>, <span class="string">&quot;Value 4&quot;</span>]
+    }
+    <span class="type">ListItem</span>.ValueSelector {
+        <span class="name">text</span>: <span class="string">&quot;Disabled&quot;</span>
+        <span class="name">values</span>: [<span class="string">&quot;Value 1&quot;</span>, <span class="string">&quot;Value 2&quot;</span>, <span class="string">&quot;Value 3&quot;</span>, <span class="string">&quot;Value 4&quot;</span>]
+        <span class="name">enabled</span>: <span class="number">false</span>
+    }
+    <span class="type">ListItem</span>.ValueSelector {
+        <span class="name">text</span>: <span class="string">&quot;Expanded&quot;</span>
+        <span class="name">values</span>: [<span class="string">&quot;Value 1&quot;</span>, <span class="string">&quot;Value 2&quot;</span>, <span class="string">&quot;Value 3&quot;</span>, <span class="string">&quot;Value 4&quot;</span>]
+        <span class="name">expanded</span>: <span class="number">true</span>
+    }
+    <span class="type">ListItem</span>.ValueSelector {
+        <span class="name">text</span>: <span class="string">&quot;Icon&quot;</span>
+        <span class="name">iconName</span>: <span class="string">&quot;compose&quot;</span>
+        <span class="name">values</span>: [<span class="string">&quot;Value 1&quot;</span>, <span class="string">&quot;Value 2&quot;</span>, <span class="string">&quot;Value 3&quot;</span>, <span class="string">&quot;Value 4&quot;</span>]
+        <span class="name">selectedIndex</span>: <span class="number">2</span>
+    }
+}</pre>
+<!-- @@@ValueSelector -->
+<h2>Property Documentation</h2>
+<!-- $$$expanded -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="expanded-prop"></a><span class="name">expanded</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>Specifies whether the selector is 'open' or 'closed'.</p>
+</div></div><!-- @@@expanded -->
+<br/>
+<!-- $$$fallbackIconName -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="fallbackIconName-prop"></a><span class="name">fallbackIconName</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>The icon shown in the list item if <a href="qml-ubuntu-components-listitems0-valueselector.html#iconName-prop">iconName</a> failed to load (optional).</p>
+<p>If both <a href="qml-ubuntu-components-listitems0-valueselector.html#fallbackIconSource-prop">fallbackIconSource</a> and fallbackIconName are defined, fallbackIconName will be ignored.</p>
+<p><b>Note: </b>The complete list of icons available in Ubuntu is not published yet. For now please refer to the folders where the icon themes are installed:</p><ul>
+<li>Ubuntu Touch: <a href="file:/usr/share/icons/ubuntu-mobile">/usr/share/icons/ubuntu-mobile</a></li>
+<li>Ubuntu Desktop: <a href="file:/usr/share/icons/ubuntu-mono-dark">/usr/share/icons/ubuntu-mono-dark</a></li>
+</ul>
+<p>These 2 separate icon themes will be merged soon.</p>
+</div></div><!-- @@@fallbackIconName -->
+<br/>
+<!-- $$$fallbackIconSource -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="fallbackIconSource-prop"></a><span class="name">fallbackIconSource</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-url.html">url</a></span></p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>The location of the icon to show in the list item if <a href="qml-ubuntu-components-listitems0-valueselector.html#iconSource-prop">iconSource</a> failed to load (optional).</p>
+</div></div><!-- @@@fallbackIconSource -->
+<br/>
+<!-- $$$icon -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="icon-prop"></a><span class="name">icon</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-variant.html">variant</a></span></p></td></tr></table></div><div class="qmldoc"><p>This documentation is deprecated.</p>
+<p><b>Use <a href="qml-ubuntu-components-listitems0-valueselector.html#iconName-prop">iconName</a> or <a href="qml-ubuntu-components-listitems0-valueselector.html#iconSource-prop">iconSource</a> instead.</b></p>
+<p>The location of the icon to show in the list item (optional), or an Item that is shown on the left side inside the list item. The icon will automatically be anchored to the left side of the list item, and if its height is undefined, to the top and bottom of the list item.</p>
+</div></div><!-- @@@icon -->
+<br/>
+<!-- $$$iconFrame -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="iconFrame-prop"></a><span class="name">iconFrame</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-bool.html">bool</a></span></p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>Show or hide the frame around the icon</p>
+</div></div><!-- @@@iconFrame -->
+<br/>
+<!-- $$$iconName -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="iconName-prop"></a><span class="name">iconName</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>The icon shown in the list item.</p>
+<p>If both <a href="qml-ubuntu-components-listitems0-valueselector.html#iconSource-prop">iconSource</a> and iconName are defined, iconName will be ignored.</p>
+<p><b>Note: </b>The complete list of icons available in Ubuntu is not published yet. For now please refer to the folders where the icon themes are installed:</p><ul>
+<li>Ubuntu Touch: <a href="file:/usr/share/icons/ubuntu-mobile">/usr/share/icons/ubuntu-mobile</a></li>
+<li>Ubuntu Desktop: <a href="file:/usr/share/icons/ubuntu-mono-dark">/usr/share/icons/ubuntu-mono-dark</a></li>
+</ul>
+<p>These 2 separate icon themes will be merged soon.</p>
+</div></div><!-- @@@iconName -->
+<br/>
+<!-- $$$iconSource -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="iconSource-prop"></a><span class="name">iconSource</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-url.html">url</a></span></p></td></tr></table></div><div class="qmldoc"><p>The image shown in the list item.</p>
+<p>This is a URL to any image file. In order to use an icon from the Ubuntu theme, use the <a href="qml-ubuntu-components-listitems0-valueselector.html#iconName-prop">iconName</a> property instead.</p>
+</div></div><!-- @@@iconSource -->
+<br/>
+<!-- $$$selectedIndex -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="selectedIndex-prop"></a><span class="name">selectedIndex</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>The index of the currently selected element from the <a href="qml-ubuntu-components-listitems0-valueselector.html#values-prop">values</a> array.</p>
+</div></div><!-- @@@selectedIndex -->
+<br/>
+<!-- $$$values -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="values-prop"></a><span class="name">values</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-variant.html">variant</a></span></p></td></tr></table></div><div class="qmldoc"><p><b>This documentation is under development and is subject to change.</b></p>
+<p>The list of values that will be shown under the label text</p>
+</div></div><!-- @@@values -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

@@ -1,0 +1,838 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="Python">
+    
+    <title>GObject-2.0 Python API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>GObject-2.0 Python API Documentation</h1>
+
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.Binding" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.Binding">Class: GObject.Binding</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+<p>
+#GBinding is the representation of a binding between a property on a
+#GObject instance (or source) and another property on another #GObject
+instance (or target). Whenever the source property changes, the same
+value is applied to the target property; for instance, the following
+binding:
+
+|[
+  g_object_bind_property (object1, "property-a",
+                          object2, "property-b",
+                          G_BINDING_DEFAULT);
+]|
+
+will cause &lt;emphasis&gt;object2:property-b&lt;/emphasis&gt; to be updated every
+time g_object_set() or the specific accessor changes the value of
+&lt;emphasis&gt;object1:property-a&lt;/emphasis&gt;.
+
+It is possible to create a bidirectional binding between two properties
+of two #GObject instances, so that if either property changes, the
+other is updated as well, for instance:
+
+|[
+  g_object_bind_property (object1, "property-a",
+                          object2, "property-b",
+                          G_BINDING_BIDIRECTIONAL);
+]|
+
+will keep the two properties in sync.
+
+It is also possible to set a custom transformation function (in both
+directions, in case of a bidirectional binding) to apply a custom
+transformation from the source value to the target value before
+applying it; for instance, the following binding:
+
+|[
+  g_object_bind_property_full (adjustment1, "value",
+                               adjustment2, "value",
+                               G_BINDING_BIDIRECTIONAL,
+                               celsius_to_fahrenheit,
+                               fahrenheit_to_celsius,
+                               NULL, NULL);
+]|
+
+will keep the &lt;emphasis&gt;value&lt;/emphasis&gt; property of the two adjustments
+in sync; the &lt;function&gt;celsius_to_fahrenheit&lt;/function&gt; function will be
+called whenever the &lt;emphasis&gt;adjustment1:value&lt;/emphasis&gt; property changes
+and will transform the current value of the property before applying it
+to the &lt;emphasis&gt;adjustment2:value&lt;/emphasis&gt; property; vice versa, the
+&lt;function&gt;fahrenheit_to_celsius&lt;/function&gt; function will be called whenever
+the &lt;emphasis&gt;adjustment2:value&lt;/emphasis&gt; property changes, and will
+transform the current value of the property before applying it to the
+&lt;emphasis&gt;adjustment1:value&lt;/emphasis&gt;.
+
+Note that #GBinding does not resolve cycles by itself; a cycle like
+
+|[
+  object1:propertyA -&gt; object2:propertyB
+  object2:propertyB -&gt; object3:propertyC
+  object3:propertyC -&gt; object1:propertyA
+]|
+
+might lead to an infinite loop. The loop, in this particular case,
+can be avoided if the objects emit the #GObject::notify signal only
+if the value has effectively been changed. A binding is implemented
+using the #GObject::notify signal, so it is susceptible to all the
+various ways of blocking a signal emission, like g_signal_stop_emission()
+or g_signal_handler_block().
+
+A binding will be severed, and the resources it allocates freed, whenever
+either one of the #GObject instances it refers to are finalized, or when
+the #GBinding instance loses its last reference.
+
+&lt;note&gt;&lt;para&gt;Bindings for languages with garbage collection can use
+g_binding_unbind() to explicitly release a binding between the source
+and target properties, instead of relying on the last reference on the
+binding, source, and target instances to drop.&lt;/para&gt;&lt;/note&gt;
+
+#GBinding is available since GObject 2.26</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="GObject.Binding.target-property">"target-property"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The name of the property of #GBinding:target that should be used
+as the target of the binding</p>
+</div>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="GObject-2.0.html#GObject.Object">GObject.Object</a><span class="property-name" id="GObject.Binding.source">"source"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The #GObject that should be used as the source of the binding</p>
+</div>
+<div class="property">
+<p>
+<a class="link-BitField type property-type" href="GObject-2.0.html#GObject.BindingFlags">GObject.BindingFlags</a><span class="property-name" id="GObject.Binding.flags">"flags"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+Flags to be used to control the #GBinding</p>
+</div>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="GObject-2.0.html#GObject.Object">GObject.Object</a><span class="property-name" id="GObject.Binding.target">"target"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The #GObject that should be used as the target of the binding</p>
+</div>
+<div class="property">
+<p>
+<span class="type-basetype type property-type">string</span><span class="property-name" id="GObject.Binding.source-property">"source-property"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The name of the property of #GBinding:source that should be used
+as the source of the binding</p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-BitField type " href="GObject-2.0.html#GObject.BindingFlags">GObject.BindingFlags</a></span><span class="method-name" id="GObject.Binding.get_flags">get_flags</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject.Object</a></span><span class="method-name" id="GObject.Binding.get_source">get_source</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="GObject.Binding.get_source_property">get_source_property</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject.Object</a></span><span class="method-name" id="GObject.Binding.get_target">get_target</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="GObject.Binding.get_target_property">get_target_property</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.Binding.unbind">unbind</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.InitiallyUnowned" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.InitiallyUnowned">Class: GObject.InitiallyUnowned</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class " href="Unity-7.0.html#Unity.SocialPreviewComment">Unity.SocialPreviewComment</a>, <a class="link-Class " href="Unity-7.0.html#Unity.InfoHint">Unity.InfoHint</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Object">Gtk.Object</a></p>
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+<p>
+All the fields in the &lt;structname&gt;GInitiallyUnowned&lt;/structname&gt; structure 
+are private to the #GInitiallyUnowned implementation and should never be 
+accessed directly.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.Object" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.Object">Class: GObject.Object</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class " href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.ApplicationRepository">UnityWebappsRepository.ApplicationRepository</a>, <a class="link-Class " href="Dee-1.0.html#Dee.TermList">Dee.TermList</a>, <a class="link-Class " href="Gio-2.0.html#Gio.ZlibCompressor">Gio.ZlibCompressor</a>, <a class="link-Class " href="Unity-7.0.html#Unity.AnnotatedIcon">Unity.AnnotatedIcon</a>, <a class="link-Class " href="Dee-1.0.html#Dee.Analyzer">Dee.Analyzer</a>, <a class="link-Class " href="Atk-1.0.html#Atk.Object">Atk.Object</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ActionGroup">Gtk.ActionGroup</a>, <a class="link-Class " href="Atk-1.0.html#Atk.StateSet">Atk.StateSet</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.TextLayout">Gtk.TextLayout</a>, <a class="link-Class " href="Gio-2.0.html#Gio.DesktopAppInfo">Gio.DesktopAppInfo</a>, <a class="link-Class " href="Accounts-1.0.html#Accounts.Account">Accounts.Account</a>, <a class="link-Class " href="Gio-2.0.html#Gio.SocketListener">Gio.SocketListener</a>, <a class="link-Class " href="Gio-2.0.html#Gio.PropertyAction">Gio.PropertyAction</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.TextBuffer">Gtk.TextBuffer</a>, <a class="link-Class " href="GObject-2.0.html#GObject.InitiallyUnowned">GObject.InitiallyUnowned</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.PrintSettings">Gtk.PrintSettings</a>, <a class="link-Class " href="Gdk-3.0.html#Gdk.Window">Gdk.Window</a>, <a class="link-Class " href="Atk-1.0.html#Atk.RelationSet">Atk.RelationSet</a>, <a class="link-Class " href="Signon-1.0.html#Signon.AuthService">Signon.AuthService</a>, <a class="link-Class " href="Unity-7.0.html#Unity.Category">Unity.Category</a>, <a class="link-Class " href="MessagingMenu-1.0.html#MessagingMenu.App">MessagingMenu.App</a>, <a class="link-Class " href="Gdk-3.0.html#Gdk.Device">Gdk.Device</a>, <a class="link-Class " href="GObject-2.0.html#GObject.TypeModule">GObject.TypeModule</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.EntryBuffer">Gtk.EntryBuffer</a>, <a class="link-Class " href="Gio-2.0.html#Gio.TlsCertificate">Gio.TlsCertificate</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.TextChildAnchor">Gtk.TextChildAnchor</a>, <a class="link-Class " href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.LocalUrlIndex">UnityWebappsRepository.LocalUrlIndex</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.IconFactory">Gtk.IconFactory</a>, <a class="link-Class " href="Unity-7.0.html#Unity.FilterOption">Unity.FilterOption</a>, <a class="link-Class " href="Gio-2.0.html#Gio.EmblemedIcon">Gio.EmblemedIcon</a>, <a class="link-Class " href="Gio-2.0.html#Gio.FileMonitor">Gio.FileMonitor</a>, <a class="link-Class " href="Unity-7.0.html#Unity.ScopeSearchBase">Unity.ScopeSearchBase</a>, <a class="link-Class " href="Gio-2.0.html#Gio.DBusMethodInvocation">Gio.DBusMethodInvocation</a>, <a class="link-Class " href="Gio-2.0.html#Gio.DBusObjectSkeleton">Gio.DBusObjectSkeleton</a>, <a class="link-Class " href="Gio-2.0.html#Gio.InputStream">Gio.InputStream</a>, <a class="link-Class " href="Unity-7.0.html#Unity.SearchMetadata">Unity.SearchMetadata</a>, <a class="link-Class " href="Friends-0.1.html#Friends.Dispatcher">Friends.Dispatcher</a>, <a class="link-Class " href="Gio-2.0.html#Gio.SimpleActionGroup">Gio.SimpleActionGroup</a>, <a class="link-Class " href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.PackageMechanism">UnityWebappsRepository.PackageMechanism</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.EntryCompletion">Gtk.EntryCompletion</a>, <a class="link-Class " href="Unity-7.0.html#Unity.TrackMetadata">Unity.TrackMetadata</a>, <a class="link-Class " href="Atk-1.0.html#Atk.Registry">Atk.Registry</a>, <a class="link-Class " href="Gio-2.0.html#Gio.Task">Gio.Task</a>, <a class="link-Class " href="Unity-7.0.html#Unity.MusicPlayer">Unity.MusicPlayer</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.StatusIcon">Gtk.StatusIcon</a>, <a class="link-Class " href="Dee-1.0.html#Dee.GListResultSet">Dee.GListResultSet</a>, <a class="link-Class " href="Gio-2.0.html#Gio.SocketAddress">Gio.SocketAddress</a>, <a class="link-Class " href="UnityExtras-7.0.html#UnityExtras.PreviewPlayer">UnityExtras.PreviewPlayer</a>, <a class="link-Class " href="Gio-2.0.html#Gio.ThemedIcon">Gio.ThemedIcon</a>, <a class="link-Class " href="Unity-7.0.html#Unity.ResultPreviewer">Unity.ResultPreviewer</a>, <a class="link-Class " href="Gio-2.0.html#Gio.TestDBus">Gio.TestDBus</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.TreeSelection">Gtk.TreeSelection</a>, <a class="link-Class " href="Signon-1.0.html#Signon.AuthSession">Signon.AuthSession</a>, <a class="link-Class " href="Atk-1.0.html#Atk.ObjectFactory">Atk.ObjectFactory</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Clipboard">Gtk.Clipboard</a>, <a class="link-Class " href="GObject-2.0.html#GObject.Binding">GObject.Binding</a>, <a class="link-Class " href="Gio-2.0.html#Gio.ZlibDecompressor">Gio.ZlibDecompressor</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.AccelGroup">Gtk.AccelGroup</a>, <a class="link-Class " href="Signon-1.0.html#Signon.Identity">Signon.Identity</a>, <a class="link-Class " href="Atk-1.0.html#Atk.Util">Atk.Util</a>, <a class="link-Class " href="Gio-2.0.html#Gio.InetAddressMask">Gio.InetAddressMask</a>, <a class="link-Class " href="Gdk-3.0.html#Gdk.Keymap">Gdk.Keymap</a>, <a class="link-Class " href="Gio-2.0.html#Gio.AppLaunchContext">Gio.AppLaunchContext</a>, <a class="link-Class " href="Gio-2.0.html#Gio.Permission">Gio.Permission</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.UIManager">Gtk.UIManager</a>, <a class="link-Class " href="Accounts-1.0.html#Accounts.AccountService">Accounts.AccountService</a>, <a class="link-Class " href="Gio-2.0.html#Gio.SocketControlMessage">Gio.SocketControlMessage</a>, <a class="link-Class " href="Gdk-3.0.html#Gdk.DisplayManager">Gdk.DisplayManager</a>, <a class="link-Class " href="Unity-7.0.html#Unity.Cancellable">Unity.Cancellable</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.TextTag">Gtk.TextTag</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Style">Gtk.Style</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.PageSetup">Gtk.PageSetup</a>, <a class="link-Class " href="Gio-2.0.html#Gio.FileInfo">Gio.FileInfo</a>, <a class="link-Class " href="Dee-1.0.html#Dee.FileResourceManager">Dee.FileResourceManager</a>, <a class="link-Class " href="Unity-7.0.html#Unity.Schema">Unity.Schema</a>, <a class="link-Class " href="Gio-2.0.html#Gio.DBusInterfaceSkeleton">Gio.DBusInterfaceSkeleton</a>, <a class="link-Class " href="Unity-7.0.html#Unity.FilterSet">Unity.FilterSet</a>, <a class="link-Class " href="Gio-2.0.html#Gio.MenuModel">Gio.MenuModel</a>, <a class="link-Class " href="DBusGLib-1.0.html#DBusGLib.Proxy">DBusGLib.Proxy</a>, <a class="link-Class " href="Unity-7.0.html#Unity.ActivationResponse">Unity.ActivationResponse</a>, <a class="link-Class " href="Gio-2.0.html#Gio.FilenameCompleter">Gio.FilenameCompleter</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.TextTagTable">Gtk.TextTagTable</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.RcStyle">Gtk.RcStyle</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.PrintOperation">Gtk.PrintOperation</a>, <a class="link-Class " href="Accounts-1.0.html#Accounts.Manager">Accounts.Manager</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Tooltip">Gtk.Tooltip</a>, <a class="link-Class " href="Gio-2.0.html#Gio.Application">Gio.Application</a>, <a class="link-Class " href="Dee-1.0.html#Dee.Index">Dee.Index</a>, <a class="link-Class " href="Gio-2.0.html#Gio.SocketClient">Gio.SocketClient</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.IMContext">Gtk.IMContext</a>, <a class="link-Class " href="Dee-1.0.html#Dee.SerializableModel">Dee.SerializableModel</a>, <a class="link-Class " href="Dbusmenu-0.4.html#Dbusmenu.Server">Dbusmenu.Server</a>, <a class="link-Class " href="Unity-7.0.html#Unity.PreviewAction">Unity.PreviewAction</a>, <a class="link-Class " href="Gio-2.0.html#Gio.DBusMessage">Gio.DBusMessage</a>, <a class="link-Class " href="Unity-7.0.html#Unity.GeoCoordinate">Unity.GeoCoordinate</a>, <a class="link-Class " href="Gio-2.0.html#Gio.SimpleAsyncResult">Gio.SimpleAsyncResult</a>, <a class="link-Class " href="Gio-2.0.html#Gio.Resolver">Gio.Resolver</a>, <a class="link-Class " href="Gio-2.0.html#Gio.SocketAddressEnumerator">Gio.SocketAddressEnumerator</a>, <a class="link-Class " href="Unity-7.0.html#Unity.MetadataProvider">Unity.MetadataProvider</a>, <a class="link-Class " href="Unity-7.0.html#Unity.Playlist">Unity.Playlist</a>, <a class="link-Class " href="Gdk-3.0.html#Gdk.FrameClock">Gdk.FrameClock</a>, <a class="link-Class " href="Gio-2.0.html#Gio.TlsInteraction">Gio.TlsInteraction</a>, <a class="link-Class " href="MessagingMenu-1.0.html#MessagingMenu.Message">MessagingMenu.Message</a>, <a class="link-Class " href="Atk-1.0.html#Atk.Relation">Atk.Relation</a>, <a class="link-Class " href="Gio-2.0.html#Gio.TlsPassword">Gio.TlsPassword</a>, <a class="link-Class " href="Gio-2.0.html#Gio.Vfs">Gio.Vfs</a>, <a class="link-Class " href="Gio-2.0.html#Gio.MenuItem">Gio.MenuItem</a>, <a class="link-Class " href="Grip-0.2.html#Grip.InputDevice">Grip.InputDevice</a>, <a class="link-Class " href="Unity-7.0.html#Unity.LauncherEntry">Unity.LauncherEntry</a>, <a class="link-Class " href="Gio-2.0.html#Gio.NetworkAddress">Gio.NetworkAddress</a>, <a class="link-Class " href="Gdk-3.0.html#Gdk.Screen">Gdk.Screen</a>, <a class="link-Class " href="Unity-7.0.html#Unity.Inspector">Unity.Inspector</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.ListStore">Gtk.ListStore</a>, <a class="link-Class " href="Gio-2.0.html#Gio.DBusObjectManagerClient">Gio.DBusObjectManagerClient</a>, <a class="link-Class " href="Gio-2.0.html#Gio.MountOperation">Gio.MountOperation</a>, <a class="link-Class " href="Gdk-3.0.html#Gdk.Visual">Gdk.Visual</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.IconTheme">Gtk.IconTheme</a>, <a class="link-Class " href="Unity-7.0.html#Unity.ResultSet">Unity.ResultSet</a>, <a class="link-Class " href="Gio-2.0.html#Gio.TlsDatabase">Gio.TlsDatabase</a>, <a class="link-Class " href="Gio-2.0.html#Gio.MenuLinkIter">Gio.MenuLinkIter</a>, <a class="link-Class " href="Atk-1.0.html#Atk.Misc">Atk.Misc</a>, <a class="link-Class " href="Gio-2.0.html#Gio.BytesIcon">Gio.BytesIcon</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.RecentManager">Gtk.RecentManager</a>, <a class="link-Class " href="Gio-2.0.html#Gio.UnixFDList">Gio.UnixFDList</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Builder">Gtk.Builder</a>, <a class="link-Class " href="Dbusmenu-0.4.html#Dbusmenu.Client">Dbusmenu.Client</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Action">Gtk.Action</a>, <a class="link-Class " href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.ApplicationCollector">UnityWebappsRepository.ApplicationCollector</a>, <a class="link-Class " href="Unity-7.0.html#Unity.ScopeLoader">Unity.ScopeLoader</a>, <a class="link-Class " href="Unity-7.0.html#Unity.Filter">Unity.Filter</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.Settings">Gtk.Settings</a>, <a class="link-Class " href="Unity-7.0.html#Unity.PreferencesManager">Unity.PreferencesManager</a>, <a class="link-Class " href="Friends-0.1.html#Friends.Utils">Friends.Utils</a>, <a class="link-Class " href="Unity-7.0.html#Unity.DeprecatedScopeBase">Unity.DeprecatedScopeBase</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.AccelMap">Gtk.AccelMap</a>, <a class="link-Class " href="Gio-2.0.html#Gio.CharsetConverter">Gio.CharsetConverter</a>, <a class="link-Class " href="Gio-2.0.html#Gio.FileIcon">Gio.FileIcon</a>, <a class="link-Class " href="Dee-1.0.html#Dee.Peer">Dee.Peer</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.TreeStore">Gtk.TreeStore</a>, <a class="link-Class " href="Gio-2.0.html#Gio.FileEnumerator">Gio.FileEnumerator</a>, <a class="link-Class " href="Gio-2.0.html#Gio.SimpleAction">Gio.SimpleAction</a>, <a class="link-Class " href="Indicate-0.7.html#Indicate.Listener">Indicate.Listener</a>, <a class="link-Class " href="Unity-7.0.html#Unity.ScopeDBusConnector">Unity.ScopeDBusConnector</a>, <a class="link-Class " href="Grip-0.2.html#Grip.GestureManager">Grip.GestureManager</a>, <a class="link-Class " href="Dbusmenu-0.4.html#Dbusmenu.Menuitem">Dbusmenu.Menuitem</a>, <a class="link-Class " href="UnityWebapps-0.2.html#UnityWebapps.Context">UnityWebapps.Context</a>, <a class="link-Class " href="Unity-7.0.html#Unity.CategorySet">Unity.CategorySet</a>, <a class="link-Class " href="Unity-7.0.html#Unity.LauncherFavorites">Unity.LauncherFavorites</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.TextMark">Gtk.TextMark</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.SizeGroup">Gtk.SizeGroup</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.WindowGroup">Gtk.WindowGroup</a>, <a class="link-Class " href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.ApplicationManifest">UnityWebappsRepository.ApplicationManifest</a>, <a class="link-Class " href="Gio-2.0.html#Gio.DBusProxy">Gio.DBusProxy</a>, <a class="link-Class " href="Indicate-0.7.html#Indicate.Indicator">Indicate.Indicator</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.TreeModelSort">Gtk.TreeModelSort</a>, <a class="link-Class " href="Unity-7.0.html#Unity.AggregatorActivation">Unity.AggregatorActivation</a>, <a class="link-Class " href="Gio-2.0.html#Gio.DBusAuthObserver">Gio.DBusAuthObserver</a>, <a class="link-Class " href="Unity-7.0.html#Unity.AbstractScope">Unity.AbstractScope</a>, <a class="link-Class " href="GIRepository-2.0.html#GIRepository.Repository">GIRepository.Repository</a>, <a class="link-Class " href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.PolicyAuthorizer">UnityWebappsRepository.PolicyAuthorizer</a>, <a class="link-Class " href="UnityWebapps-0.2.html#UnityWebapps.Service">UnityWebapps.Service</a>, <a class="link-Class " href="Gio-2.0.html#Gio.Cancellable">Gio.Cancellable</a>, <a class="link-Class " href="Gio-2.0.html#Gio.Emblem">Gio.Emblem</a>, <a class="link-Class " href="AppIndicator3-0.1.html#AppIndicator3.Indicator">AppIndicator3.Indicator</a>, <a class="link-Class " href="Gio-2.0.html#Gio.Settings">Gio.Settings</a>, <a class="link-Class " href="Gdk-3.0.html#Gdk.Cursor">Gdk.Cursor</a>, <a class="link-Class " href="Gio-2.0.html#Gio.SimpleProxyResolver">Gio.SimpleProxyResolver</a>, <a class="link-Class " href="Gio-2.0.html#Gio.DBusConnection">Gio.DBusConnection</a>, <a class="link-Class " href="Gio-2.0.html#Gio.UnixMountMonitor">Gio.UnixMountMonitor</a>, <a class="link-Class " href="Gio-2.0.html#Gio.Socket">Gio.Socket</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.TreeModelFilter">Gtk.TreeModelFilter</a>, <a class="link-Class " href="Gtk-2.0.html#Gtk.PrintContext">Gtk.PrintContext</a>, <a class="link-Class " href="Gio-2.0.html#Gio.DBusObjectManagerServer">Gio.DBusObjectManagerServer</a>, <a class="link-Class " href="Gdk-3.0.html#Gdk.Display">Gdk.Display</a>, <a class="link-Class " href="Indicate-0.7.html#Indicate.Server">Indicate.Server</a>, <a class="link-Class " href="Gio-2.0.html#Gio.NetworkService">Gio.NetworkService</a>, <a class="link-Class " href="Gio-2.0.html#Gio.ApplicationCommandLine">Gio.ApplicationCommandLine</a>, <a class="link-Class " href="Atk-1.0.html#Atk.Hyperlink">Atk.Hyperlink</a>, <a class="link-Class " href="Gio-2.0.html#Gio.MenuAttributeIter">Gio.MenuAttributeIter</a>, <a class="link-Class " href="Gio-2.0.html#Gio.DBusActionGroup">Gio.DBusActionGroup</a>, <a class="link-Class " href="Gdk-3.0.html#Gdk.DeviceManager">Gdk.DeviceManager</a>, <a class="link-Class " href="Gio-2.0.html#Gio.Credentials">Gio.Credentials</a>, <a class="link-Class " href="Gio-2.0.html#Gio.DBusServer">Gio.DBusServer</a>, <a class="link-Class " href="Gio-2.0.html#Gio.DBusObjectProxy">Gio.DBusObjectProxy</a>, <a class="link-Class " href="Gio-2.0.html#Gio.VolumeMonitor">Gio.VolumeMonitor</a>, <a class="link-Class " href="Gio-2.0.html#Gio.OutputStream">Gio.OutputStream</a>, <a class="link-Class " href="Gdk-3.0.html#Gdk.DragContext">Gdk.DragContext</a>, <a class="link-Class " href="Unity-7.0.html#Unity.AppInfoManager">Unity.AppInfoManager</a>, <a class="link-Class " href="Unity-7.0.html#Unity.AbstractPreview">Unity.AbstractPreview</a>, <a class="link-Class " href="Gio-2.0.html#Gio.InetAddress">Gio.InetAddress</a>, <a class="link-Class " href="Gio-2.0.html#Gio.IOStream">Gio.IOStream</a></p>
+<p>
+All the fields in the &lt;structname&gt;GObject&lt;/structname&gt; structure are private 
+to the #GObject implementation and should never be accessed directly.</p>
+</div>
+<div class="signals">
+<h4>Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type"><span class="type-basetype type ">void</span></span><span class="signal-name" id="GObject.Object.notify">"notify"</span><span class="signal-parameters">(self, <a class="link-Class " href="GObject-2.0.html#GObject.Object">object</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">pspec</a>)</span><p class="signal-doc">
+The notify signal is emitted on an object when one of its
+properties has been changed. Note that getting this signal
+doesn't guarantee that the value of the property has actually
+changed, it may also be emitted when the setter for the property
+is called to reinstate the previous value.
+
+This signal is typically used to obtain change notification for a
+single property, by specifying the property name as a detail in the
+g_signal_connect() call, like this:
+|[
+g_signal_connect (text_view-&gt;buffer, "notify::paste-target-list",
+                  G_CALLBACK (gtk_text_view_target_list_notify),
+                  text_view)
+]|
+It is important to note that you must use
+&lt;link linkend="canonical-parameter-name"&gt;canonical&lt;/link&gt; parameter names as
+detail strings for the notify signal.</p>
+</p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="GObject.Object.newv">newv</span><span class="method-parameters">(<a class="link-Type " href="GObject-2.0.html#GType">object_type</a>, <a class="link-Type " href="GObject-2.0.html#guint">n_parameters</a>, parameters)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="GObject-2.0.html#GObject.Binding">GObject.Binding</a></span><span class="method-name" id="GObject.Object.bind_property">bind_property</span><span class="method-parameters">(<span class="type-basetype ">source_property</span>, <a class="link-Class " href="GObject-2.0.html#GObject.Object">target</a>, <span class="type-basetype ">target_property</span>, <a class="link-BitField " href="GObject-2.0.html#GObject.BindingFlags">flags</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="GObject-2.0.html#GObject.Binding">GObject.Binding</a></span><span class="method-name" id="GObject.Object.bind_property_full">bind_property_full</span><span class="method-parameters">(<span class="type-basetype ">source_property</span>, <a class="link-Class " href="GObject-2.0.html#GObject.Object">target</a>, <span class="type-basetype ">target_property</span>, <a class="link-BitField " href="GObject-2.0.html#GObject.BindingFlags">flags</a>, <a class="link-Callback " href="GObject-2.0.html#GObject.BindingTransformFunc">transform_to</a>, <a class="link-Callback " href="GObject-2.0.html#GObject.BindingTransformFunc">transform_from</a>, <span class="type-basetype ">user_data</span>, <a class="link-Callback " href="GLib-2.0.html#GLib.DestroyNotify">notify</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="GObject-2.0.html#GObject.Binding">GObject.Binding</a></span><span class="method-name" id="GObject.Object.bind_property_with_closures">bind_property_with_closures</span><span class="method-parameters">(<span class="type-basetype ">source_property</span>, <a class="link-Class " href="GObject-2.0.html#GObject.Object">target</a>, <span class="type-basetype ">target_property</span>, <a class="link-BitField " href="GObject-2.0.html#GObject.BindingFlags">flags</a>, <a class="link-Record " href="GObject-2.0.html#GObject.Closure">transform_to</a>, <a class="link-Record " href="GObject-2.0.html#GObject.Closure">transform_from</a>)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type ">GObject.gsize</span></span><span class="method-name" id="GObject.Object.compat_control">compat_control</span><span class="method-parameters">(what, <span class="type-basetype ">data</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.Object.force_floating">force_floating</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.Object.freeze_notify">freeze_notify</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gpointer</span></span><span class="method-name" id="GObject.Object.get_data">get_data</span><span class="method-parameters">(<span class="type-basetype ">key</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gpointer</span></span><span class="method-name" id="GObject.Object.get_qdata">get_qdata</span><span class="method-parameters">(quark)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></span><span class="method-name" id="GObject.Object.interface_find_property">interface_find_property</span><span class="method-parameters">(<span class="type-basetype ">g_iface</span>, <span class="type-basetype ">property_name</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.Object.interface_install_property">interface_install_property</span><span class="method-parameters">(<span class="type-basetype ">g_iface</span>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">pspec</a>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type ">Array&lt;GObject.ParamSpec&gt;</span>, <span class="type-basetype type ">int</span></span><span class="method-name" id="GObject.Object.interface_list_properties">interface_list_properties</span><span class="method-parameters">(<span class="type-basetype ">g_iface</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="GObject.Object.is_floating">is_floating</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.Object.notify_by_pspec">notify_by_pspec</span><span class="method-parameters">(<a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">pspec</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject.Object</a></span><span class="method-name" id="GObject.Object.ref">ref</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject.Object</a></span><span class="method-name" id="GObject.Object.ref_sink">ref_sink</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="GObject.Object.replace_data">replace_data</span><span class="method-parameters">(<span class="type-basetype ">key</span>, <span class="type-basetype ">oldval</span>, <span class="type-basetype ">newval</span>, <a class="link-Callback " href="GLib-2.0.html#GLib.DestroyNotify">destroy</a>, <a class="link-Callback " href="GLib-2.0.html#GLib.DestroyNotify">old_destroy</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="GObject.Object.replace_qdata">replace_qdata</span><span class="method-parameters">(quark, <span class="type-basetype ">oldval</span>, <span class="type-basetype ">newval</span>, <a class="link-Callback " href="GLib-2.0.html#GLib.DestroyNotify">destroy</a>, <a class="link-Callback " href="GLib-2.0.html#GLib.DestroyNotify">old_destroy</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.Object.run_dispose">run_dispose</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.Object.set_data">set_data</span><span class="method-parameters">(<span class="type-basetype ">key</span>, <span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gpointer</span></span><span class="method-name" id="GObject.Object.steal_data">steal_data</span><span class="method-parameters">(<span class="type-basetype ">key</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gpointer</span></span><span class="method-name" id="GObject.Object.steal_qdata">steal_qdata</span><span class="method-parameters">(quark)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.Object.thaw_notify">thaw_notify</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.Object.unref">unref</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.Object.watch_closure">watch_closure</span><span class="method-parameters">(<a class="link-Record " href="GObject-2.0.html#GObject.Closure">closure</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.Object.constructed">constructed</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.Object.dispatch_properties_changed">dispatch_properties_changed</span><span class="method-parameters">(<span class="type-basetype ">n_pspecs</span>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">pspecs</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.Object.dispose">dispose</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.Object.finalize">finalize</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.Object.get_property">get_property</span><span class="method-parameters">(<span class="type-basetype ">property_id</span>, <a class="link-Record " href="GObject-2.0.html#GObject.Value">value</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">pspec</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.Object.notify">notify</span><span class="method-parameters">(<a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">pspec</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.Object.set_property">set_property</span><span class="method-parameters">(<span class="type-basetype ">property_id</span>, <a class="link-Record " href="GObject-2.0.html#GObject.Value">value</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">pspec</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-abstract">
+<a href="GObject-2.0.html#GObject.ParamSpec" class="class-anchor">⚓</a><h2 class="class-abstract" id="GObject.ParamSpec">Abstract Class: GObject.ParamSpec</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecFloat">GObject.ParamSpecFloat</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecValueArray">GObject.ParamSpecValueArray</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecBoolean">GObject.ParamSpecBoolean</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecUChar">GObject.ParamSpecUChar</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecVariant">GObject.ParamSpecVariant</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecGType">GObject.ParamSpecGType</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecEnum">GObject.ParamSpecEnum</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecString">GObject.ParamSpecString</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecObject">GObject.ParamSpecObject</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecULong">GObject.ParamSpecULong</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecInt64">GObject.ParamSpecInt64</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecOverride">GObject.ParamSpecOverride</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecInt">GObject.ParamSpecInt</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecBoxed">GObject.ParamSpecBoxed</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecFlags">GObject.ParamSpecFlags</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecLong">GObject.ParamSpecLong</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecChar">GObject.ParamSpecChar</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecDouble">GObject.ParamSpecDouble</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecParam">GObject.ParamSpecParam</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecUnichar">GObject.ParamSpecUnichar</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecUInt">GObject.ParamSpecUInt</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecUInt64">GObject.ParamSpecUInt64</a>, <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpecPointer">GObject.ParamSpecPointer</a></p>
+<p>
+#GParamSpec is an object structure that encapsulates the metadata
+required to specify parameters, such as e.g. #GObject properties.
+
+&lt;para id="canonical-parameter-name"&gt;
+Parameter names need to start with a letter (a-z or A-Z). Subsequent
+characters can be letters, numbers or a '-'.
+All other characters are replaced by a '-' during construction.
+The result of this replacement is called the canonical name of the
+parameter.
+&lt;/para&gt;</p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="GObject.ParamSpec.get_blurb">get_blurb</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GObject-2.0.html#GObject.Value">GObject.Value</a></span><span class="method-name" id="GObject.ParamSpec.get_default_value">get_default_value</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="GObject.ParamSpec.get_name">get_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="GObject.ParamSpec.get_nick">get_nick</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gpointer</span></span><span class="method-name" id="GObject.ParamSpec.get_qdata">get_qdata</span><span class="method-parameters">(quark)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></span><span class="method-name" id="GObject.ParamSpec.get_redirect_target">get_redirect_target</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.ParamSpec.set_qdata">set_qdata</span><span class="method-parameters">(quark, <span class="type-basetype ">data</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.ParamSpec.sink">sink</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gpointer</span></span><span class="method-name" id="GObject.ParamSpec.steal_qdata">steal_qdata</span><span class="method-parameters">(quark)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.ParamSpec.finalize">finalize</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.ParamSpec.value_set_default">value_set_default</span><span class="method-parameters">(<a class="link-Record " href="GObject-2.0.html#GObject.Value">value</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="GObject.ParamSpec.value_validate">value_validate</span><span class="method-parameters">(<a class="link-Record " href="GObject-2.0.html#GObject.Value">value</a>)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">int</span></span><span class="method-name" id="GObject.ParamSpec.values_cmp">values_cmp</span><span class="method-parameters">(<a class="link-Record " href="GObject-2.0.html#GObject.Value">value1</a>, <a class="link-Record " href="GObject-2.0.html#GObject.Value">value2</a>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecBoolean" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecBoolean">Class: GObject.ParamSpecBoolean</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for boolean properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecBoxed" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecBoxed">Class: GObject.ParamSpecBoxed</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for boxed properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecChar" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecChar">Class: GObject.ParamSpecChar</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for character properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecDouble" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecDouble">Class: GObject.ParamSpecDouble</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for double properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecEnum" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecEnum">Class: GObject.ParamSpecEnum</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for enum 
+properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecFlags" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecFlags">Class: GObject.ParamSpecFlags</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for flags
+properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecFloat" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecFloat">Class: GObject.ParamSpecFloat</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for float properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecGType" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecGType">Class: GObject.ParamSpecGType</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for #GType properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecInt" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecInt">Class: GObject.ParamSpecInt</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for integer properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecInt64" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecInt64">Class: GObject.ParamSpecInt64</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for 64bit integer properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecLong" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecLong">Class: GObject.ParamSpecLong</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for long integer properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecObject" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecObject">Class: GObject.ParamSpecObject</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for object properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecOverride" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecOverride">Class: GObject.ParamSpecOverride</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+This is a type of #GParamSpec type that simply redirects operations to
+another paramspec.  All operations other than getting or
+setting the value are redirected, including accessing the nick and
+blurb, validating a value, and so forth. See
+g_param_spec_get_redirect_target() for retrieving the overidden
+property. #GParamSpecOverride is used in implementing
+g_object_class_override_property(), and will not be directly useful
+unless you are implementing a new base type similar to GObject.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecParam" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecParam">Class: GObject.ParamSpecParam</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for %G_TYPE_PARAM
+properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecPointer" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecPointer">Class: GObject.ParamSpecPointer</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for pointer properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecString" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecString">Class: GObject.ParamSpecString</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for string
+properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecUChar" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecUChar">Class: GObject.ParamSpecUChar</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for unsigned character properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecUInt" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecUInt">Class: GObject.ParamSpecUInt</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for unsigned integer properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecUInt64" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecUInt64">Class: GObject.ParamSpecUInt64</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for unsigned 64bit integer properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecULong" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecULong">Class: GObject.ParamSpecULong</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for unsigned long integer properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecUnichar" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecUnichar">Class: GObject.ParamSpecUnichar</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for unichar (unsigned integer) properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecValueArray" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecValueArray">Class: GObject.ParamSpecValueArray</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for #GValueArray properties.</p>
+</div>
+</div>
+<div class="class-normal">
+<a href="GObject-2.0.html#GObject.ParamSpecVariant" class="class-anchor">⚓</a><h2 class="class-normal" id="GObject.ParamSpecVariant">Class: GObject.ParamSpecVariant</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.ParamSpec">GObject.ParamSpec</a></p>
+<p>
+A #GParamSpec derived structure that contains the meta data for #GVariant properties.</p>
+</div>
+</div>
+<div class="class-abstract">
+<a href="GObject-2.0.html#GObject.TypeModule" class="class-anchor">⚓</a><h2 class="class-abstract" id="GObject.TypeModule">Abstract Class: GObject.TypeModule</h2>
+<div class="relations">
+<p>
+Implements: <a class="link-Interface " href="GObject-2.0.html#GObject.TypePlugin">GObject.TypePlugin</a></p>
+<p>
+Known subclasses: <a class="link-Class " href="Gio-2.0.html#Gio.IOModule">Gio.IOModule</a></p>
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+<p>
+#GTypeModule provides a simple implementation of the #GTypePlugin
+interface. The model of #GTypeModule is a dynamically loaded module
+which implements some number of types and interface
+implementations. When the module is loaded, it registers its types
+and interfaces using g_type_module_register_type() and
+g_type_module_add_interface().  As long as any instances of these
+types and interface implementations are in use, the module is kept
+loaded. When the types and interfaces are gone, the module may be
+unloaded. If the types and interfaces become used again, the module
+will be reloaded. Note that the last unref cannot happen in module
+code, since that would lead to the caller's code being unloaded before
+g_object_unref() returns to it.
+
+Keeping track of whether the module should be loaded or not is done by
+using a use count - it starts at zero, and whenever it is greater than
+zero, the module is loaded. The use count is maintained internally by
+the type system, but also can be explicitly controlled by
+g_type_module_use() and g_type_module_unuse(). Typically, when loading
+a module for the first type, g_type_module_use() will be used to load
+it so that it can initialize its types. At some later point, when the
+module no longer needs to be loaded except for the type
+implementations it contains, g_type_module_unuse() is called.
+
+#GTypeModule does not actually provide any implementation of module
+loading and unloading. To create a particular module type you must
+derive from #GTypeModule and implement the load and unload functions
+in #GTypeModuleClass.</p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.TypeModule.add_interface">add_interface</span><span class="method-parameters">(<span class="type-basetype ">instance_type</span>, <span class="type-basetype ">interface_type</span>, <a class="link-Record " href="GObject-2.0.html#GObject.InterfaceInfo">interface_info</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">GType</span></span><span class="method-name" id="GObject.TypeModule.register_enum">register_enum</span><span class="method-parameters">(<span class="type-basetype ">name</span>, <a class="link-Record " href="GObject-2.0.html#GObject.EnumValue">const_static_values</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">GType</span></span><span class="method-name" id="GObject.TypeModule.register_flags">register_flags</span><span class="method-parameters">(<span class="type-basetype ">name</span>, <a class="link-Record " href="GObject-2.0.html#GObject.FlagsValue">const_static_values</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">GType</span></span><span class="method-name" id="GObject.TypeModule.register_type">register_type</span><span class="method-parameters">(<span class="type-basetype ">parent_type</span>, <span class="type-basetype ">type_name</span>, <a class="link-Record " href="GObject-2.0.html#GObject.TypeInfo">type_info</a>, <a class="link-BitField " href="GObject-2.0.html#GObject.TypeFlags">flags</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.TypeModule.set_name">set_name</span><span class="method-parameters">(<span class="type-basetype ">name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.TypeModule.unuse">unuse</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="GObject.TypeModule.use">use</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="GObject.TypeModule.load">load</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.TypeModule.unload">unload</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-interface">
+<a href="GObject-2.0.html#GObject.TypePlugin" class="class-anchor">⚓</a><h2 class="class-interface" id="GObject.TypePlugin">Interface: GObject.TypePlugin</h2>
+<div class="relations">
+<p>
+Classes implementing GObject.TypePlugin: <a class="link-Class " href="GObject-2.0.html#GObject.TypeModule">GObject.TypeModule</a>, <a class="link-Class " href="Gio-2.0.html#Gio.IOModule">Gio.IOModule</a></p>
+<p>
+The GObject type system supports dynamic loading of types. The
+#GTypePlugin interface is used to handle the lifecycle of
+dynamically loaded types.  It goes as follows:
+
+&lt;orderedlist&gt;
+&lt;listitem&gt;&lt;para&gt;
+  The type is initially introduced (usually upon loading the module
+  the first time, or by your main application that knows what modules
+  introduces what types), like this:
+  |[
+  new_type_id = g_type_register_dynamic (parent_type_id,
+                                                "TypeName",
+                                                new_type_plugin,
+                                                type_flags);
+  ]|
+  where &lt;literal&gt;new_type_plugin&lt;/literal&gt; is an implementation of the
+  #GTypePlugin interface.
+&lt;/para&gt;&lt;/listitem&gt;
+&lt;listitem&gt;&lt;para&gt;
+   The type's implementation is referenced, e.g. through
+   g_type_class_ref() or through g_type_create_instance() (this is
+   being called by g_object_new()) or through one of the above done on
+   a type derived from &lt;literal&gt;new_type_id&lt;/literal&gt;.
+&lt;/para&gt;&lt;/listitem&gt;
+&lt;listitem&gt;&lt;para&gt;
+   This causes the type system to load the type's implementation by calling
+   g_type_plugin_use() and g_type_plugin_complete_type_info() on
+   &lt;literal&gt;new_type_plugin&lt;/literal&gt;.
+&lt;/para&gt;&lt;/listitem&gt;
+&lt;listitem&gt;&lt;para&gt;
+   At some point the type's implementation isn't required anymore, e.g. after
+   g_type_class_unref() or g_type_free_instance() (called when the reference
+   count of an instance drops to zero).
+&lt;/para&gt;&lt;/listitem&gt;
+&lt;listitem&gt;&lt;para&gt;
+   This causes the type system to throw away the information retrieved from
+   g_type_plugin_complete_type_info() and then it calls
+   g_type_plugin_unuse() on &lt;literal&gt;new_type_plugin&lt;/literal&gt;.
+&lt;/para&gt;&lt;/listitem&gt;
+&lt;listitem&gt;&lt;para&gt;
+   Things may repeat from the second step.
+&lt;/para&gt;&lt;/listitem&gt;
+&lt;/orderedlist&gt;
+
+So basically, you need to implement a #GTypePlugin type that
+carries a use_count, once use_count goes from zero to one, you need
+to load the implementation to successfully handle the upcoming
+g_type_plugin_complete_type_info() call. Later, maybe after
+succeeding use/unuse calls, once use_count drops to zero, you can
+unload the implementation again. The type system makes sure to call
+g_type_plugin_use() and g_type_plugin_complete_type_info() again
+when the type is needed again.
+
+#GTypeModule is an implementation of #GTypePlugin that already
+implements most of this except for the actual module loading and
+unloading. It even handles multiple registered types per module.</p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.TypePlugin.complete_interface_info">complete_interface_info</span><span class="method-parameters">(<span class="type-basetype ">instance_type</span>, <span class="type-basetype ">interface_type</span>, <a class="link-Record " href="GObject-2.0.html#GObject.InterfaceInfo">info</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.TypePlugin.complete_type_info">complete_type_info</span><span class="method-parameters">(<span class="type-basetype ">g_type</span>, <a class="link-Record " href="GObject-2.0.html#GObject.TypeInfo">info</a>, <a class="link-Record " href="GObject-2.0.html#GObject.TypeValueTable">value_table</a>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.TypePlugin.unuse">unuse</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="GObject.TypePlugin.use">use</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-enum">
+<a href="GObject-2.0.html#GObject.TypeFlags" class="class-anchor">⚓</a><h2 class="class-enum" id="GObject.TypeFlags">Enum: GObject.TypeFlags</h2>
+<div class="enum-members">
+<span class="enum-member">ABSTRACT</span><span class="enum-value">16</span><span class="enum-member">VALUE_ABSTRACT</span><span class="enum-value">32</span></div>
+</div>
+<div class="class-enum">
+<a href="GObject-2.0.html#GObject.TypeFundamentalFlags" class="class-anchor">⚓</a><h2 class="class-enum" id="GObject.TypeFundamentalFlags">Enum: GObject.TypeFundamentalFlags</h2>
+<div class="enum-members">
+<span class="enum-member">CLASSED</span><span class="enum-value">1</span><span class="enum-member">INSTANTIATABLE</span><span class="enum-value">2</span><span class="enum-member">DERIVABLE</span><span class="enum-value">4</span><span class="enum-member">DEEP_DERIVABLE</span><span class="enum-value">8</span></div>
+</div>
+<div class="class-enum">
+<a href="GObject-2.0.html#GObject.ParamFlags" class="class-anchor">⚓</a><h2 class="class-enum" id="GObject.ParamFlags">Enum: GObject.ParamFlags</h2>
+<div class="enum-members">
+<span class="enum-member">READABLE</span><span class="enum-value">1</span><span class="enum-member">WRITABLE</span><span class="enum-value">2</span><span class="enum-member">CONSTRUCT</span><span class="enum-value">4</span><span class="enum-member">CONSTRUCT_ONLY</span><span class="enum-value">8</span><span class="enum-member">LAX_VALIDATION</span><span class="enum-value">16</span><span class="enum-member">STATIC_NAME</span><span class="enum-value">32</span><span class="enum-member">PRIVATE</span><span class="enum-value">32</span><span class="enum-member">STATIC_NICK</span><span class="enum-value">64</span><span class="enum-member">STATIC_BLURB</span><span class="enum-value">128</span><span class="enum-member">DEPRECATED</span><span class="enum-value">2147483648</span></div>
+</div>
+<div class="class-enum">
+<a href="GObject-2.0.html#GObject.BindingFlags" class="class-anchor">⚓</a><h2 class="class-enum" id="GObject.BindingFlags">Enum: GObject.BindingFlags</h2>
+<div class="enum-members">
+<span class="enum-member">DEFAULT</span><span class="enum-value">0</span><span class="enum-member">BIDIRECTIONAL</span><span class="enum-value">1</span><span class="enum-member">SYNC_CREATE</span><span class="enum-value">2</span><span class="enum-member">INVERT_BOOLEAN</span><span class="enum-value">4</span></div>
+</div>
+<div class="class-enum">
+<a href="GObject-2.0.html#GObject.SignalFlags" class="class-anchor">⚓</a><h2 class="class-enum" id="GObject.SignalFlags">Enum: GObject.SignalFlags</h2>
+<div class="enum-members">
+<span class="enum-member">RUN_FIRST</span><span class="enum-value">1</span><span class="enum-member">RUN_LAST</span><span class="enum-value">2</span><span class="enum-member">RUN_CLEANUP</span><span class="enum-value">4</span><span class="enum-member">NO_RECURSE</span><span class="enum-value">8</span><span class="enum-member">DETAILED</span><span class="enum-value">16</span><span class="enum-member">ACTION</span><span class="enum-value">32</span><span class="enum-member">NO_HOOKS</span><span class="enum-value">64</span><span class="enum-member">MUST_COLLECT</span><span class="enum-value">128</span><span class="enum-member">DEPRECATED</span><span class="enum-value">256</span></div>
+</div>
+<div class="class-enum">
+<a href="GObject-2.0.html#GObject.ConnectFlags" class="class-anchor">⚓</a><h2 class="class-enum" id="GObject.ConnectFlags">Enum: GObject.ConnectFlags</h2>
+<div class="enum-members">
+<span class="enum-member">AFTER</span><span class="enum-value">1</span><span class="enum-member">SWAPPED</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="GObject-2.0.html#GObject.SignalMatchType" class="class-anchor">⚓</a><h2 class="class-enum" id="GObject.SignalMatchType">Enum: GObject.SignalMatchType</h2>
+<div class="enum-members">
+<span class="enum-member">ID</span><span class="enum-value">1</span><span class="enum-member">DETAIL</span><span class="enum-value">2</span><span class="enum-member">CLOSURE</span><span class="enum-value">4</span><span class="enum-member">FUNC</span><span class="enum-value">8</span><span class="enum-member">DATA</span><span class="enum-value">16</span><span class="enum-member">UNBLOCKED</span><span class="enum-value">32</span></div>
+</div>
+<div class="class-enum">
+<a href="GObject-2.0.html#GObject.TypeDebugFlags" class="class-anchor">⚓</a><h2 class="class-enum" id="GObject.TypeDebugFlags">Enum: GObject.TypeDebugFlags</h2>
+<div class="enum-members">
+<span class="enum-member">NONE</span><span class="enum-value">0</span><span class="enum-member">OBJECTS</span><span class="enum-value">1</span><span class="enum-member">SIGNALS</span><span class="enum-value">2</span><span class="enum-member">MASK</span><span class="enum-value">3</span></div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,936 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <head>
+    <title>Unity Web API Documentation</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />
+    <script type="text/javascript" src="sh.js"></script>
+    <script type="text/javascript" src="sh_js.js"></script>
+    <script type="text/javascript" src="sh_webidl.js"></script>
+    <link type="text/css" rel="stylesheet" href="sh.css" />
+  </head>
+  <body onload="sh_highlightDocument();">
+    <div id="fullheader">
+      <div id="headerText">
+	<div id="header">Unity Web API</div>
+	<div id="subheader">Reference Documentation - v1.0</div>
+      </div>
+    </div>
+    <div id="maincontent">
+      <div class="section"><b>Introduction</b></div>
+      <p>
+	This is the Reference Documentation for the Unity Web API (version 1.0). This is a full API reference, a <a href="index.html">quickstart guide</a> is also available
+      </p>
+      <div class="section"><b>Requesting the Unity API object</b></div>
+      <p>
+	In order to use the Unity API it is required to first request the API object:
+      </p>
+      <pre class="sh_webidl">
+method external.getUnityObject(String version);
+</pre>
+      <div class="subsection"><code>external.getUnityObject</code> method</div>
+      <p>
+	The <code>external.getUnityObject</code> method returns the Unity API object.
+      </p>
+      <p>
+	<b>Arguments:</b>
+	<ul>
+	  <li><code>String version</code>: Version of the API to request, currently this must be "1.0".</li>
+	</ul>
+      </p>
+      <p>
+	<b>Returns:</b>
+	<ul>
+	  <li>The <code>Unity</code> API object.</li>
+	</ul>
+      </p>
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	  <li>
+	    <code>VersionException</code>: Thrown if an invalid version is specified.
+	  </li>
+	</ul>
+      </p>
+      <p>
+	<b>Example code:</b>
+      </p>
+      <pre class="sh_javascript">
+var Unity = external.getUnityObject("1.0");
+</pre>
+      <div class="section"><b>The Unity API Object</b></div>
+      <p>
+	We begin with the toplevel Unity object. If you know which interface you are interested in, jump ahead.
+	<ul>
+	  <li><a href="unity-web-api-reference.html#unity-notification">Unity.Notification interface</a></li>
+	  <li><a href="unity-web-api-reference.html#unity-media">Unity.MediaPlayer interface</a></li>
+	  <li><a href="unity-web-api-reference.html#unity-indicator">Unity.MessagingIndicator interface</a></li>
+	  <li><a href="unity-web-api-reference.html#unity-launcher">Unity.Launcher interface</a></li>
+	</ul>
+      </p>
+      
+      <pre class="sh_webidl">
+dictionary UnityInitParameters {
+   String name;
+   String iconUrl;
+   Callback onInit;
+
+   optional String homepage;
+   optional String domain;
+}
+interface Unity {
+   method init (UnityInitParameters initializationParameters);
+
+   method addAction (String actionName, Callback onActionInvoked);
+   method removeAction (String actionName);
+   method removeActions ();
+	
+   UnityNotificationInterface Notification;
+   UnityMessagingIndicatorInterface MessagingIndicator;
+   UnityMediaPlayerInterface MediaPlayer;
+   UnityLauncherInterface Launcher;
+}</pre>
+      <div class="subsection"><code>UnityInitParameters</code> dictionary</div>
+      <p><code>UnityInitParameters</code> is a specification of a dictionary containing Unity initialization data. Three parameters are required:
+	<ul>
+	  <li><code>name</code>: The application name, this should be suitable for displaying to users.</li>
+	  <li><code>iconUrl</code>: A URL to an icon which will be associated with the application. This should be at least 128x128 to appear in the Switcher without pixelation. See the appendix on URIs and Resources for details as to the format of this argument.</li>
+	  <li><code>onInit</code>: A callback invoked when initialization is complete. This will not always be immediate. Therefore usage of the Unity API before onInit is invoked will produce no results. This is guaranteed by an implementation.</li>
+	</ul>
+      </p><p>There are two optional parameters:
+	<ul>
+	  <li><code>homepage</code>: A URI containing the homepage for your application, this will be used when users launch your application from the shell. If specified this parameter follows the same semantics as assignment to <code>document.domain</code> in Mozilla. See the <a href="https://developer.mozilla.org/En/Same_origin_policy_for_javascript">Same origin policy for JavaScript</a> on MDN for details. If not specified, this will be set to the value of <code>document.location</code>. </li>
+	  <li><code>domain</code>: Specify a domain for your site. If omitted <code>document.domain</code> will be used. As applications are identified by the tuple <code>(name,domain)</code> this can be useful if you use multiple subdomains (<code>foo.myapp.com</code> and <code>bar.myapp.com</code>). This parameter follows the same semantics as assignment to <code>document.domain</code> in Mozilla. See the <a href="https://developer.mozilla.org/En/Same_origin_policy_for_JavaScript">Same origin policy for JavaScript</a> on MDN for details. </li>
+	</ul>
+      </p>
+      <div id="unityinitmethod" class="subsection"><code>Unity.init</code> method</div>
+      <p>
+	In order to initialize the interface, a client <i>must</i> call the <code>Unity.init</code> method. Usage of any methods in the Unity interface besides <code>init</code> before initialization occurs will produce no result. It is guaranteed this will not produce an error.
+      </p>
+      <p>
+	<b>Arguments:</b>
+	<ul>
+	  <li><code>UnityInitParameters initializationParameters</code>: a dictionary of initialization parameters (defined above).</li>
+	</ul>
+      </p>
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	  <li>
+	    <code>DomainException</code>: Thrown if the <code>homepage</code> or <code>domain</code> parameter of <code>UnityInitParameters</code> is specified and fails to pass the <a href="https://developer.mozilla.org/En/Same_origin_policy_for_JavaScript">same origin check</a>.
+	  </li>
+	</ul>
+      </p>
+      <p>
+	<b>Example code:</b>
+      </p>
+      <pre class="sh_javascript">
+function unityReady () {
+   // Make use of the Unity API
+}
+Unity.init ({name: "Fooapp",
+             iconUrl: "http://www.ubuntu.com/icon.png",
+             onInit: unityReady});      </pre>
+
+      <div id="unity-hud" class="subsection">
+	<code>Unity.addAction</code> method
+      </div>
+      <p>
+	The <code>Unity.addAction</code> method may be used to expose a hierarchy of application actions to the Unity HUD.
+      </p>
+      <p>
+	<b>Arguments:</b>
+	<ul>
+	  <li><code>name</code>: A string describing the action name. This must always begin with '/' and contain a list of '/' separated alphanumeric (plus whitespace) action components.</li>
+	  <li><code>onActionInvoked</code>:</li> A callback invoked when the action is externally triggered through the Unity interface.
+	</ul>
+      </p>
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	</ul>
+      </p>
+
+      <p>
+	<b>Example code:</b>
+      </p>
+
+      <pre class="sh_javascript">
+Unity.addAction("/File/Send to/Contact", onSendToContact);</pre>
+      
+      <div class="subsection">
+	<code>Unity.removeAction</code> method
+      </div>
+      <p>
+	The <code>Unity.removeAction</code> method is used to remove a previously added action by path.
+      </p>
+      <p>
+	<b>Arguments:</b>
+	<ul>
+	  <li><code>name</code>: The name of the action to remove. If no such action exists, this call has no effect.</li>
+	</ul>
+      </p>
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	</ul>
+      </p>
+      <p>
+	<b>Example code:</b>
+      </p>
+      <pre class="sh_javascript">
+Unity.removeAction("/File/Send to/Contact");</pre>
+      <div class="subsection"><code>Unity.removeActions</code> method</div>
+      <p>
+	The <code>Unity.removeActions</code> method removes all previously added actions.
+      </p>
+      <p>
+	<b>Example code:</b>
+      </p>
+      <pre class="sh_javascript">
+Unity.removeActions();</pre>
+
+      <div id="unity-notification" class="section">
+	<b>The Unity.Notification interface</b>
+      </div>
+      <p>
+	The Unity.Notification interface is used for displaying transient notifications to the user. Such notifications should not be urgent, or require user input.
+      </p>
+      <pre class="sh_webidl">
+interface UnityNotificationInterface {
+   method showNotification (String summary, String body, optional String iconUrl);
+}      </pre>
+      <div class="subsection">
+	<code>Notification.showNotification</code> method
+      </div>
+      <p> 
+	The <code>showNotification</code> method presents a single notification to the user.
+      </p>
+
+      <p>
+	<b>Arguments:</b>
+	<ul>
+	  <li><code>summary</code>: A string summarizing the content of the notification. This should be a few words at most.</li>
+	  <li><code>body</code>: The body of the notification. Note that this interface is for transient notifications. It is unlikely more than 120 characters will be displayed. </li>
+	  <li><code>iconUrl</code>: An optional parameter specifying the location of an icon to use with the notification. If this is omitted, the application icon as specified in the parameters to <code>Unity.init</code> will be used. See the appendix on URIs and resources for details, as to the format of this string.</li>
+	</ul>
+      </p>
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	</ul>
+      </p>
+
+      <p>
+	<b>Example code</b>:
+      </p>
+      <pre class="sh_javascript">
+Unity.Notification.showNotification("Just so you know", "This is a notification!");     </pre>
+
+      <div id="unity-indicator" class="section">
+	<b>
+	  The Unity.MessagingIndicator interface
+	</b>
+      </div>
+      <p>
+	The Unity.MessagingIndicator interface has three main components:
+	<ul>
+	  <li>An interface for displaying persistent messaging indicators. </li>
+	  <li>An interface to provide some messaging related shortcuts.</li>
+	  <li>An interface to read the users' messaging presence.</li>
+	</ul>
+      </p>
+      <pre class="sh_webidl">
+dictionary UnityIndicatorProperties {
+   Integer count;
+   Date time;
+   String iconURI;
+   Callback callback;
+}
+interface UnityMessagingIndicatorInterface {
+   method showIndicator (String name, optional UnityIndicatorProperties indicatorProperties);
+   method clearIndicator (String name);
+   method clearIndicators ();
+
+   method addAction (String name, Callback onActionInvoked);
+   method removeAction (String name);
+   method removeActions (String name);
+
+   method onPresenceChanged (Callback onPresenceChanged);
+   readonly attribute String presence;
+}      </pre>
+
+      <div class="subsection">
+	<code>UnityIndicatorProperties</code> dictionary
+      </div>
+      <p>
+	<code>UnityIndicatorProperties</code> is a specification of Indicator properties to be passed to <code>MessagingIndicator.showIndicator</code> method. Note, the <code>indicatorProperties</code> parameter of this method is optional, as are all of its fields:
+	<ul>
+	  <li><code>count</code>: An integer specifying a message count, to be displayed to the user.</li>
+	  <li><code>time</code>: A JavaScript date object representing the time at which a messaging event occurred.</li>
+	  <li><code>iconUrl</code>: A URL to use as a specialized icon for this indicator. This is usually not necessary. Avoid overuse of this parameter as it may create a cluttered result. See the Appendix on Resources and URIs for a full description of the format of this string.</li>
+	  <li><code>callback</code>: A callback invoked when the indicator is activated by the user. Note, even if no callback has been supplied, activating an indicator will always cause the most recent instance of your application to be raised. </li>
+	</ul>
+      </p>
+
+      <div class="subsection">
+	<code>MessagingIndicator.showIndicator</code> method
+      </div>
+      <p>
+	The <code>showIndicator</code> method is used to display a single indicator in the messaging menu. An indicator represents a persistent notification of a messaging event and provides means to follow up on this intent.
+      </p>
+      <p>
+	<b>Arguments:</b>
+	<ul>
+	  <li><code>name</code>: A name for the Indicator object. This will be displayed as the label for the indicator and should as such be a user-friendly string. </li>
+	  <li><code>indicatorProperties</code>: An optional <code>UnityIndicatorProperties</code> dictionary describing the indicator to show. If this is omitted, a default object will be used (empty, except the field <code>time: Date.now()</code>). If an indicator with <code>name</code> already exists, it's properties will be updated and the users attention will be requested again.</li>
+	</ul>
+      </p>
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	</ul>
+      </p>
+      <p>
+	<b>Example code</b>:
+      </p>
+      <pre class="sh_javascript">
+Unity.MessagingIndicator.showIndicator("Inbox", {count: 3});
+Unity.MessagingIndicator.showIndicator("Message from Matt", {time: messageTimestamp, 
+                                                             iconUrl: mattsAvatar});      </pre>
+
+      <div class="subsection">
+	<code>MessagingIndicator.clearIndicator</code> method
+      </div>
+      <p>
+	The <code>clearIndicator</code> method is used to remove a previously displayed indicator by name, for example in response to the user following up on the associated message.
+      </p>
+
+      <p>
+	<b>Arguments</b>:
+	<ul><li><code>name</code>: The name of the indicator to clear. If no such indicator exists, the interface will perform no action. In this case the implementation guarantees not to produce an error.</li></ul>
+      </p>
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	</ul>
+      </p>
+      <p>
+	<b>Example code</b>:
+      </p>
+      <pre class="sh_javascript">
+Unity.MessagingIndicator.clearIndicator("Message from Matt");</pre>
+      <div class="subsection">
+	<code>MessagingIndicator.clearIndicators</code> method
+      </div>
+      <p>
+	The <code>clearIndicators</code> method removes all previous displayed indicators.
+      </p>
+      <p>
+	<b>Example code</b>:
+      </p>
+      <pre class="sh_javascript">
+Unity.MessagingIndicator.clearIndicators();</pre>	
+      
+
+      <div class="subsection">
+	<code>MessagingIndicator.addAction</code> method
+      </div>
+      <p>
+	The <code>addAction</code> method of the <code>MessagingIndicator</code> interface is used to add an action shortcut to the applications' entry in the messaging menu. Note that unlike the <code>Unity.addAction</code> method, this interface does not deal with a hierarchy of actions.
+      </p>
+
+      <p>
+	<b>Arguments</b>:
+	<ul>
+	  <li><code>name</code>: A name for the action. This will be used as the action label in the Messaging Menu and as such it should be a user-friendly string.</li>
+	  <li><code>onActionInvoked</code>: A callback invoked when the action is activated by the user.</li>
+	</ul>
+      </p>
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	</ul>
+      </p>
+
+      <p>
+	<b>Example code</b>:
+      </p>
+
+      <pre class="sh_javascript">
+Unity.MessagingIndicator.addAction("Compose New Message", onComposeActivated);      </pre>
+      <div class="subsection"><code>MessagingIndicator.removeAction</code> method</div>
+      <p>
+	The <code>MessagingIndicator.removeAction</code>  method is used to remove a previously added action by name.
+      </p>
+      <p>
+	<b>Arguments:</b>
+	<ul>
+	  <li><code>name</code>: The name of the action to remove. If no such action exists, this call has no effect.</li>
+	</ul>
+      </p>
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	</ul>
+      </p>
+      <p>
+	<b>Example code:</b>
+      </p>
+      <pre class="sh_javascript">
+Unity.MessagingIndicator.removeAction("Compose New Message"); </pre>
+      <div class="subsection"><code>MessagingIndicator.removeActions</code> method</div>
+      <p>
+	The <code>MessagingIndicator.removeActions</code> method is used to remove all previously added actions.
+      </p>
+      <p>
+	<b>Example code:</b>
+      </p>
+      <pre class="sh_javascript">
+Unity.MessagingIndicator.removeActions(); </pre>	
+      
+
+      <div class="subsection">
+	<code>MessagingIndicator.presence</code> attribute
+      </div>
+
+      <p>
+	The <code>MessagingIndicator.presence</code> attribute is a read-only string describing the users requested messaging presence. It may take one of four values:
+	<ul>
+	  <li>"available" - The user has indicated she is available to receive messages.</li>
+	  <li>"away" - The user is away from her device, but would like to remain visible.</li>
+	  <li>"busy" - The user would like to remain visible, and is present at her device, but does not wish to be disturbed.</li>
+	  <li>"offline" - The user has indicated that she would not like to remain visible.</li>
+	</ul>
+	If your application exposes some sort of presence, respecting the value selected by the user is a courtesy.
+      </p>
+
+      <div class="subsection">
+	<code>MessagingIndicator.onPresenceChanged</code> method
+      </div>
+      <p>
+	The <code>MessagingIndicator.presenceChanged</code> method is used to receive notifications in response to the user presence status' changes.
+      </p>
+
+      <p>
+	<b>Arguments</b>:
+	<ul><li><code>onPresenceChanged</code>: A callback invoked when the user's requested presence has changed.</li></ul>
+      </p>
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	</ul>
+      </p>
+      
+      <p>
+	<b>Example code</b>:
+      </p>
+      <pre class="sh_javascript">
+function presenceChanged () {
+   if (Unity.MessagingIndicator.presence == "offline") {
+      signUserOut();
+   }
+}
+
+Unity.MessagingIndicator.onPresenceChanged(presenceChanged);    </pre>
+
+      <div id="unity-launcher" class="section">
+	<b>The Unity.Launcher interface</b>
+      </div>
+      <p>
+	The Launcher interface can be used to display small amounts of information to the user through the Launcher icon. Also actions may be added to the Launcher Quicklist, enabling the user to quickly access key application functionality.
+      </p>
+      <pre class="sh_webidl"> interface UnityLauncherInterface {
+   method setCount (Integer count);
+   method clearCount ();
+	
+   method setProgress (Number progress);
+   method clearProgress ();
+
+   method setUrgent (Boolean urgnet);
+
+   method addAction (String name, Callback onActionInvoked);
+   method removeAction (String name);
+   method removeActions ();
+}     </pre>
+      <div class="subsection">
+	<code>
+	  Launcher.setCount
+	</code> method
+      </div>
+      <p>
+	The <code>setCount</code> method is used to display an integer count on the applications'Llauncher icon. This is appropriate, to indicate a number of unhandled items, like unread messages.
+      </p>
+      <p>
+	<b>Arguments</b>:
+	<ul>
+	  <li><code>count</code> - An integer value to display on the applications Launcher icon.</li>
+	</ul>
+      </p>
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	</ul>
+      </p>
+
+      <p>
+	<b>Example code</b>:
+      </p>
+      <pre class="sh_javascript">
+Unity.Launcher.setCount(numUnreadMessages);      </pre>
+      
+      <div class="subsection">
+	<b><code>Launcher.clearCount</code> method </b>
+      </div>
+      
+      <p>
+	The <code>clearCount</code> method clears a previously set count value in the Launcher icon, causing a return to the default state.
+      </p>
+      
+      <p>
+	<b>Example code</b>:
+      </p>
+      
+      <pre class="sh_javascript">
+Unity.Launcher.clearCount();</pre>
+
+      <div class="subsection">
+	<code>
+	  Launcher.setProgress
+	</code> method
+      </div>
+      <p>
+	The <code>setProgress</code> method is used to display a progress bar on the applications' Launcher icon. This is appropriate, for example, to display progress of a lengthy file transfer.
+      </p>
+      <p>
+	<b>Arguments</b>:
+	<ul>
+	  <li><code>progress</code> - A floating point value in the range of [0,1] to display as progress on the applications launcher icon.
+	</ul>
+     </p>
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	</ul>
+      </p>
+
+      <p>
+	<b>Example code</b>:
+      </p>
+      <pre class="sh_javascript">
+Unity.Launcher.setProgress(numUnreadMessages);      </pre>
+      
+      <div class="subsection">
+	<b><code>Launcher.clearProgress</code> method </b>
+      </div>
+      
+      <p>
+	The <code>clearProgress</code> method clears a previously set launcher progress value, causing the icon to return to its default state.
+      </p>
+      
+      <p>
+	<b>Example code</b>:
+      </p>
+      
+      <pre class="sh_javascript">
+Unity.Launcher.clearProgress();</pre>
+
+      <div class="subsection">
+	<code>Launcher.setUrgent</code> method
+      </div>
+      
+      <p>
+	The <code>Launcher.setUrgent</code> method sets the urgent state of the Launcher. This is used to communicate that the application is requesting the user's attention. The urgent state will automatically be cleared by Unity when the user reponds to the application, or after a timeout.
+      </p>
+      
+      <p>
+	<b>Arguments</b>:
+	<ul>
+	  <li><code>urgent</code>: A boolean value, for the new urgent state to request.</li>
+	</ul>
+      </p>
+
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	</ul>
+      </p>
+      
+      <p>
+	<b>Example Code</b>:
+      </p>
+      
+      <pre class="sh_javascript">
+Unity.Launcher.setUrgent(true); </pre>
+      
+      <div class="subsection">
+	<code>Launcher.addAction</code> method
+      </div>
+      
+      <p>
+	The <code>Launcher.addAction</code> method may be used to add Quicklist actions to the applications' Launcher icon. The interface and functionality are similar to the <a href="unity-web-api-reference.html#foo">MessagingIndicator.addAction</a> interface, but the Launcher is suitable for more general actions. Quicklist actions may for example be useful to quickly jump to specific categories of an applications views.
+      </p>
+      
+      <p>
+	<b>Arguments</b>:
+	<ul>
+	  <li><code>name</code>: The action name. This will be used as a label in the application Quicklist, and so it should be a user-friendly string.</li>
+	  <li><code>onActionInvoked</code>: A callback to invoke when the user activates the action.</li>
+	</ul>
+      </p>
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	</ul>
+      </p>
+	
+      <p>
+	<b>Example code</b>:
+      </p>
+      
+      <pre class="sh_javascript">
+Unity.Launcher.addAction ("Science", onScienceAction);
+Unity.Launcher.addAction ("Sports", onSportsAction);
+Unity.Launcher.addAction ("Entertainment", onEntertainmentAction);</pre>
+      
+      <div class="subsection">
+	<code>Launcher.removeAction</code> method
+      </div>
+      
+      <p>
+	The <code>Launcher.removeAction</code> method is used to remove a previously added Quicklist action by name.
+      </p>
+      <p>
+	<b>Arguments:</b>
+	<ul>
+	  <li><code>name</code>: The name of the action to remove. If no such action exists, this call has no effect.</li>
+	</ul>
+      </p>
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	</ul>
+      </p>
+      <p>
+	<b>Example code:</b>
+      </p>
+      <pre class="sh_javascript">
+Unity.Launcher.removeAction("Recent Document");</pre>
+      
+      <div class="subsection">
+	<code>Launcher.removeActions</code> method
+      </div>
+      
+      <p>
+	The <code>Launcher.removeActions</code> method is used to remove all previously added quicklist actions.
+      </p>
+      <p>
+	<b>Example code:</b>
+      </p>
+      <pre class="sh_javascript">
+Unity.Launcher.removeActions();</pre>
+      
+      
+      <div id="unity-media" class="section">
+	<b>The Unity.MediaPlayer interface</b>
+      </div>
+      <p>
+	The Unity.MediaPlayer interface is suitable for applications which play back audio or video content. It is possible both to export metadata about the currently playing media (for quick viewing by the user), and hook into the Unity Media Controls: allowing your users to control the media with the same interface used for native applications.
+      </p>
+      <pre class="sh_webidl">
+enumeration UnityPlaybackState {
+   Playing,
+   Paused
+}
+
+dictionary UnityTrackMetadata {
+   String title;
+
+   optional String album;
+   optional String artist;
+
+   optional String artLocation;
+}
+
+interface UnityMediaPlayerInterface {
+   method setTrack (UnityTrackMetadata trackMetadata);
+
+   method onPrevious (Callback onPreviousCallback);
+   method onNext (Callback onNextCallback);
+   method onPlayPause (Callback onPlayPauseCallback);
+
+   method onPrevious (Callback onPreviousCallback);
+   method onNext (Callback onNextCallback);
+   method onPlayPause (Callback onPlayPauseCallback);
+
+   method getPlaybackstate (Callback response);
+   method setPlaybackstate (UnityPlaybackState state);
+
+   method setCanGoNext (boolean cangonext);
+   method setCanGoPrev (boolean cangoprev);
+   method setCanPlay (boolean canplay);
+   method setCanPause (boolean canpause);
+}	      </pre>
+
+      <div class="subsection">
+	<code>UnityPlaybackState</code> enumeration
+      </div>
+      <p>
+	The <code>UnityPlaybackState</code> enumeration is used to indicate the current status of Media playback.
+      </p>
+      <p>
+	<b>Values</b>:
+	<ul>
+	  <li><code>Playing</code>: Media is currently playing, and the PlayPause button (if any) should display a pause icon.</li>
+	  <li><code>Paused</code>: Media is currently paused (or not playing), and the PlayPause button (if any) should display a play icon.</li>
+	</ul>
+      </p>
+      
+      <div class="subsection">
+	<code>UnityTrackMetadata</code> dictionary
+      </div>
+      <p>
+	The <code>UnityTrackMetadata</code> dictionary specifies the metadata of a single track, to be displayed in the Unity Sound Menu. The following property is mandatory:
+	<ul>
+	  <li><code>title</code>: A track title. This will be displayed in the Sound Menu, and so this string should be suitable for user-friendly.</li>
+	</ul>
+      </p>
+
+      <p>
+	There are three optional properties:
+	<ul>
+	  <li><code>arist</code>: A track artist, representing the performer or creator of the media (as appropriate). This will be displayed in the Sound Menu, and so this string should be suitable for user-friendly.</li>
+	  <li><code>album</code>: A track album, representing a collection the media belongs to. In addition to Albums of music, it may be used to indicate a collection of videos.</li>
+	  <li><code>artLocation</code>: An URI to an image file representing artwork or a preview assosciated with the track. See the appendix on URIs and resources for details on the formatting of this parameter.</li>
+	</ul>
+      </p>
+
+      <div class="subsection">
+	<code>MediaPlayer.setTrack</code> method
+      </div>
+      <p>
+	The <code>setTrack</code> method is used to expose metadata of the current media associated with your application. This will be displayed in the Unity Sound menu, allowing the user to view media information at a glance.
+      </p>
+      <p>
+	<b>Arguments</b>:
+	<ul>
+	  <li><code>trackMetadata</code>: A object with <code>UnityTrackMetadata</code> properties containing information about the current media track.</li>
+	</ul>
+      </p>
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	</ul>
+      </p>
+
+      <p>
+	<b>Example code</b>:
+      </p>
+      <pre class="sh_javascript">
+var trackInfo = {title: "Synchronous Grabs on my Heart",
+                 album: "Love in the key of Compiz",
+                 artist: "Sam Spilsbury"};
+
+Unity.MediaPlayer.setTrack (trackInfo);</pre>
+
+      <div class="subsection">
+	<code>MediaPlayer.onNext</code> method
+      </div>
+      <p>
+	The <code>onNext</code> method is used to register a callback, invoked when the user activates the "Next" action in the Unity Media Controls.
+      </p>
+      <p>
+	<b>Arguments</b>:
+	<ul>
+	  <li><code>onNextCallback</code>: A callback invoked when the "Next" action is activated.</li>
+	</ul>
+      </p>
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	</ul>
+      </p>
+      <p>
+	<b>Example code</b>:
+      </p>
+      <pre class="sh_javascript">
+Unity.MediaPlayer.onNext (onNextTrack); </pre>
+
+      <div class="subsection">
+	<code>MediaPlayer.onPrevious</code> method
+      </div>
+      <p>
+	The <code>onPrevious</code> method is used to register a callback invoked when the user activates the "Previous" action in the Unity Media Controls.
+      </p>
+      <p>
+	<b>Arguments</b>:
+	<ul>
+	  <li><code>onPreviousCallback</code>: A callback invoked when the "Previous" action is activated.</li>
+	</ul>
+      </p>
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	</ul>
+      </p>
+      <p>
+	<b>Example code</b>:
+      </p>
+      <pre class="sh_javascript">
+Unity.MediaPlayer.onPrevious (onPreviousTrack);   </pre>
+      
+      <div class="subsection">
+	<code>MediaPlayer.onPlayPause</code> method
+      </div>
+      <p>
+	The <code>onPlayPause</code> method is used to register a callback invoked when the user activates the "PlayPause" action in the Unity Media Controls.
+      </p>
+      <p>
+	<b>Arguments</b>:
+	<ul>
+	  <li><code>onPlayPauseCallback</code>: A callback invoked when the "PlayPause" action is activated.</li>
+	</ul>
+      </p>
+      <p>
+	<b>Throws:</b>
+	<ul>
+	  <li>
+	    <code>ArgumentException</code>: Thrown if any input parameter is not compatible with the expected type for that parameter.
+	  </li>
+	</ul>
+      </p>
+      <p>
+	<b>Example code</b>:
+      </p>
+      <pre class="sh_javascript">
+Unity.MediaPlayer.onPlayPause (onPlayPauseTrack);      </pre>
+      
+      <div class="subsection">
+	<code>setCanGoNext</code> method
+      </div>
+      <p>
+	The <code>setCanGoNext</code> method is used to enable or disable the "Next" action. For example, to disable it when playing the last track of a media collection.
+      </p>
+      <p>
+	<b>Example code</b>:
+      </p>
+      <pre class="sh_javascript">
+Unity.MediaPlayer.setCanGoNext(false);
+      </pre>
+      
+      <div class="subsection">
+	<code>setCanGoPrevious</code> method
+      </div>
+      <p>
+	The <code>setCanGoPrevious</code> method is used to enable or disable the "Previous" action. For example to disable it when playing the first track of a media collection.
+      </p>
+      <p>
+	<b>Example code</b>:
+      </p>
+      <pre class="sh_javascript">
+Unity.MediaPlayer.setCanGoPrevious(false);
+      </pre>
+
+      <div class="subsection">
+	<code>setCanPlay</code> method
+      </div>
+      <p>
+	The <code>setCanPlay</code> method is used to enable or disable the "Play" action. For example, to disable it while media content is still buffering.
+      </p>
+      <p>
+	<b>Example code</b>:
+      </p>
+      <pre class="sh_javascript">
+Unity.MediaPlayer.setCanPlay(false);
+      </pre>
+      
+      <div class="subsection">
+	<code>setCanPause</code> method
+      </div>
+      <p>
+	The <code>setCanPause</code> method is used to enable or disable the "Pause" action. For example, to disable it while an advertisement is being displayed.
+      </p>
+      <p>
+	<b>Example code</b>:
+      </p>
+      <pre class="sh_javascript">
+Unity.MediaPlayer.setCanPause(false);
+      </pre>
+      
+      <div class="section">
+	<b>Appendix A: URI Schemes</b>
+      </div>
+      <p>
+	This appendix describes the particular format of URI parameters in the Unity Webapps API. Several URI schemes are supported:
+	<ul>
+	  <li><code>http</code> and <code>https:</code> URIs of the form <i>http(s)?://HOST(:PORT)?/PATH</i>. See the appendix on resource handling for details on size limits and caching behavior.</li>
+	  <li><code>data</code>: URIs of the form <i>data:MIMETYPE;base64,BASE64DATA</i>. This is compatible with the Data URI format from <code>canvas</code> elements and the primary use of this scheme.</li>
+	  <li><code>theme</code>: URIs of the form <i>theme://ICON-NAME</i>. These URIs are used to refer to icons by name from the users' current icon theme. For details see the <a href="http://standards.freedesktop.org/icon-naming-spec/icon-naming-spec-latest.html">freedesktop.org icon naming specification</a>, and the corresponding implementation in GTK+3. </li>
+	</ul>
+      </p>
+      
+      
+      <br/>
+      
+      </div>
+      
+      <br/>
+      
+    </body>
+  </html>
+    

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- preview-actions.qdoc -->
+  <title>Unity Action QML API : Preview Actions</title>
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<body>
+   <div class="wrapper">
+   <div class="main-content">
+<p class="naviNextPrevious headerNavi">
+</p><p/>
+<div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="preview-actions.html#control-signals">Control Signals</a></li>
+<li class="level1"><a href="preview-actions.html#example">Example</a></li>
+</ul>
+</div>
+<h1 class="title">Preview Actions</h1>
+<span class="subtitle"></span>
+<!-- $$$preview-actions.html-description -->
+<div class="descr"> <a name="details"></a>
+<p>The preview action is an action that allows the application to generate a preview of the action before the action is applied. The preview is controlled by the HUD UI.</p>
+<p>PreviewActions contain one or more parameters which form the preview parameters of the action.</p>
+<p>The <a href="qml-ubuntu-unity-action1-previewaction.html">PreviewAction</a> has additional extra requirements compared to other Actions:</p>
+<ul>
+<li>- It can have multiple parameters whose values can be seen and changed over the bus</li>
+<li>- The parameters' ordering can be specified by client code</li>
+<li>- It adds new signals to control the preview mode: started, cancelled, resetted</li>
+</ul>
+<p>The ordering of the parameters is specified by the order in which the actions are defined in the parameters list.</p>
+<p><a href="qml-ubuntu-unity-action1-previewaction.html">PreviewAction</a> does not have a value of it's own. Instead the values of the parameters provide the information on which the preview is generated.</p>
+<p class="centerAlign"><img src="images/hud_parameters.jpg" alt="" /></p><p class="figCaption">HUD UI showing Color Balance action with four slider parameters</p>
+<a name="control-signals"></a>
+<h0>Control Signals</h0>
+<p>Diagram describing when the different signals are emitted:</p>
+<p class="centerAlign"><img src="images/preview_action_signals.png" alt="" /></p><p><i>started</i> signal informs the application that it must set up a preview view and start updating the preview based on the values of the defined preview parameters.</p>
+<p><i>resetted</i> signal informs the application that it has to reset the parameter values to their original values.</p>
+<p><i>cancelled</i> signal informs the application that the user cancelled the <a href="qml-ubuntu-unity-action1-previewaction.html">PreviewAction</a>. At this point the application must return the the state it was in at the time the <i>started()</i> signal was triggered without applying any changes.</p>
+<p><i>triggered</i> signal informs the application the user wants the changes to be applied.</p>
+<a name="example"></a>
+<h0>Example</h0>
+<pre class="cpp">import <span class="type">QtQuick</span> <span class="number">2.0</span>
+import Ubuntu<span class="operator">.</span>Unity<span class="operator">.</span>Action <span class="number">1.0</span>
+
+Item {
+    ActionManager {
+
+        PreviewAction {
+            text: <span class="string">&quot;Exposure&quot;</span>
+
+            PreviewRangeParameter {
+                id: exposureParameter
+                text: <span class="string">&quot;Exposure Amount&quot;</span>
+                minimumValue: <span class="operator">-</span><span class="number">50</span>
+                maximumValue: <span class="number">50</span>
+                value: <span class="number">25</span>
+
+                onValueChanged: {
+                    <span class="comment">// gets the values from the HUD UI when user interacts with the slider</span>
+                    <span class="comment">// Application then updates the preview based on this value</span>
+                    console<span class="operator">.</span>debug(<span class="string">&quot;range value: &quot;</span> <span class="operator">+</span> value);
+                }
+            }
+
+            onStarted: {
+                <span class="comment">// action was activated in the HUD UI.</span>
+                <span class="comment">// do the necessary initialization and start providing preview</span>
+                <span class="comment">// based on the values of the parameters.</span>
+            }
+
+            onResetted: {
+                 <span class="comment">// reset the parameter values</span>
+            }
+
+            onCancelled: {
+                <span class="comment">// action was cancelled</span>
+            }
+
+            onTriggered: {
+                <span class="comment">// action was completed.</span>
+                <span class="comment">// apply the action with the values of the parameters</span>
+            }
+        }
+
+    }
+}</pre>
+</div>
+<!-- @@@preview-actions.html -->
+<p class="naviNextPrevious footerNavi">
+</p>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd.</p>
+	</div>
+</footer>
+</body>
+</html>

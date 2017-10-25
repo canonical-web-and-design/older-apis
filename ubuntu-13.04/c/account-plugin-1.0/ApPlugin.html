@@ -1,0 +1,664 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>ApPlugin</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="account-plugin Reference Manual">
+<link rel="up" href="account-plugin.html" title="account-plugin">
+<link rel="prev" href="ApOAuthPlugin.html" title="ApOAuthPlugin">
+<link rel="next" href="object-tree.html" title="Object Hierarchy">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ApOAuthPlugin.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="account-plugin.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">account-plugin Reference Manual</th>
+<td><a accesskey="n" href="object-tree.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="ApPlugin.html#ApPlugin.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="ApPlugin.html#ApPlugin.description" class="shortcut">Description</a>
+                   | 
+                  <a href="ApPlugin.html#ApPlugin.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="ApPlugin.html#ApPlugin.properties" class="shortcut">Properties</a>
+                   | 
+                  <a href="ApPlugin.html#ApPlugin.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="ApPlugin"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="ApPlugin.top_of_page"></a>ApPlugin</span></h2>
+<p>ApPlugin — Base class for account plugins.</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="ApPlugin.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+#include &lt;libaccount-plugin/plugin.h&gt;
+
+                    <a class="link" href="ApPlugin.html#ApPlugin-struct" title="ApPlugin">ApPlugin</a>;
+#define             <a class="link" href="ApPlugin.html#AP-PLUGIN-CREDENTIALS-ID-FIELD:CAPS" title="AP_PLUGIN_CREDENTIALS_ID_FIELD">AP_PLUGIN_CREDENTIALS_ID_FIELD</a>
+<span class="returnvalue">GtkWidget</span> *         <a class="link" href="ApPlugin.html#ap-plugin-build-widget" title="ap_plugin_build_widget ()">ap_plugin_build_widget</a>              (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ApPlugin.html#ap-plugin-act-headless" title="ap_plugin_act_headless ()">ap_plugin_act_headless</a>              (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ApPlugin.html#ap-plugin-delete-account" title="ap_plugin_delete_account ()">ap_plugin_delete_account</a>            (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ApPlugin.html#ap-plugin-delete-account-finish" title="ap_plugin_delete_account_finish ()">ap_plugin_delete_account_finish</a>     (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ApPlugin.html#ap-plugin-emit-finished" title="ap_plugin_emit_finished ()">ap_plugin_emit_finished</a>             (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);
+<span class="returnvalue">AgAccount</span> *         <a class="link" href="ApPlugin.html#ap-plugin-get-account" title="ap_plugin_get_account ()">ap_plugin_get_account</a>               (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);
+<span class="returnvalue">AgProvider</span> *        <a class="link" href="ApPlugin.html#ap-plugin-get-provider" title="ap_plugin_get_provider ()">ap_plugin_get_provider</a>              (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ApPlugin.html#ap-plugin-get-need-authentication" title="ap_plugin_get_need_authentication ()">ap_plugin_get_need_authentication</a>   (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ApPlugin.html#ap-plugin-set-need-authentication" title="ap_plugin_set_need_authentication ()">ap_plugin_set_need_authentication</a>   (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> need_authentication</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ApPlugin.html#ap-plugin-set-credentials" title="ap_plugin_set_credentials ()">ap_plugin_set_credentials</a>           (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *username</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *password</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="ApPlugin.html#ap-plugin-get-username" title="ap_plugin_get_username ()">ap_plugin_get_username</a>              (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="ApPlugin.html#ap-plugin-get-password" title="ap_plugin_get_password ()">ap_plugin_get_password</a>              (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);
+<span class="returnvalue">GHashTable</span> *        <a class="link" href="ApPlugin.html#ap-plugin-get-cookies" title="ap_plugin_get_cookies ()">ap_plugin_get_cookies</a>               (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ApPlugin.html#ap-plugin-set-cookies" title="ap_plugin_set_cookies ()">ap_plugin_set_cookies</a>               (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *cookies</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ApPlugin.html#ap-plugin-get-ignore-cookies" title="ap_plugin_get_ignore_cookies ()">ap_plugin_get_ignore_cookies</a>        (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ApPlugin.html#ap-plugin-set-ignore-cookies" title="ap_plugin_set_ignore_cookies ()">ap_plugin_set_ignore_cookies</a>        (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> ignore_cookies</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="ApPlugin.html#ap-plugin-get-user-cancelled" title="ap_plugin_get_user_cancelled ()">ap_plugin_get_user_cancelled</a>        (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ApPlugin.html#ap-plugin-set-user-cancelled" title="ap_plugin_set_user_cancelled ()">ap_plugin_set_user_cancelled</a>        (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> cancelled</code></em>);
+const <span class="returnvalue">GError</span> *      <a class="link" href="ApPlugin.html#ap-plugin-get-error" title="ap_plugin_get_error ()">ap_plugin_get_error</a>                 (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="ApPlugin.html#ap-plugin-set-error" title="ap_plugin_set_error ()">ap_plugin_set_error</a>                 (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GError</span> *error</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="ApPlugin.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----ApPlugin
+         +----<a class="link" href="ApOAuthPlugin.html" title="ApOAuthPlugin">ApOAuthPlugin</a>
+</pre>
+</div>
+<div class="refsect1">
+<a name="ApPlugin.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="ApPlugin.html#ApPlugin--account" title='The "account" property'>account</a>"                  <span class="type">AgAccount</span>*            : Read / Write / Construct Only
+  "<a class="link" href="ApPlugin.html#ApPlugin--need-authentication" title='The "need-authentication" property'>need-authentication</a>"      <span class="type">gboolean</span>              : Read / Write
+</pre>
+</div>
+<div class="refsect1">
+<a name="ApPlugin.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="ApPlugin.html#ApPlugin-finished" title='The "finished" signal'>finished</a>"                                       : <code class="literal">Run Last</code>
+</pre>
+</div>
+<div class="refsect1">
+<a name="ApPlugin.description"></a><h2>Description</h2>
+<p>
+Account plugins for the credentials panel of the GNOME control center need
+to subclass <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> and implement its <code class="function">build_widget()</code> virtual method.
+This method will be called by the credentials panel when it needs to show a
+UI to handle some operations on the account, such as creation, editing or
+re-authentication.
+</p>
+</div>
+<div class="refsect1">
+<a name="ApPlugin.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="ApPlugin-struct"></a><h3>ApPlugin</h3>
+<pre class="programlisting">typedef struct _ApPlugin ApPlugin;</pre>
+<p>
+Use the accessor functions below.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="AP-PLUGIN-CREDENTIALS-ID-FIELD:CAPS"></a><h3>AP_PLUGIN_CREDENTIALS_ID_FIELD</h3>
+<pre class="programlisting">#define AP_PLUGIN_CREDENTIALS_ID_FIELD "CredentialsId"
+</pre>
+<p>
+The field in the credentials database for storing the signon identity ID.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-build-widget"></a><h3>ap_plugin_build_widget ()</h3>
+<pre class="programlisting"><span class="returnvalue">GtkWidget</span> *         ap_plugin_build_widget              (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);</pre>
+<p>
+Build a UI widget to perform the needed operation on the <span class="type">AgAccount</span>
+associated with this plugin:
+</p>
+<div class="itemizedlist"><ul class="itemizedlist" type="disc">
+<li class="listitem"><p>if the <span class="type">AgAccount</span> is a newly allocated instance (not stored on disk), then
+  the plugin should proceed with the account creation. Otherwise,</p></li>
+<li class="listitem"><p>if the <a class="link" href="ApPlugin.html#ApPlugin--need-authentication" title='The "need-authentication" property'><span class="type">"need-authentication"</span></a> property is set, the returned UI
+  widget should provide a way for the user to reauthenticate the account;</p></li>
+<li class="listitem"><p>if none of the above conditions apply, the plugin should return a widget
+  to allow editing the account global settings (that is, those settings
+  which are common for all applications using the account).
+The plugin will emit the <a class="link" href="ApPlugin.html#ApPlugin-finished" title='The "finished" signal'><span class="type">"finished"</span></a> signal once the widget has
+completed its tasks and can be destroyed.</p></li>
+</ul></div>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <span class="type">GtkWidget</span> which till take care of
+performing the needed tasks, or <code class="literal">NULL</code>. <span class="annotation">[transfer floating]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-act-headless"></a><h3>ap_plugin_act_headless ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ap_plugin_act_headless              (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);</pre>
+<p>
+Perform the needed operation on the <span class="type">AgAccount</span> associated with this plugin.
+This works similarly to the <a class="link" href="ApPlugin.html#ap-plugin-build-widget" title="ap_plugin_build_widget ()"><code class="function">ap_plugin_build_widget()</code></a> method, with the
+difference that in this case there is no UI involved.
+The plugin will emit the <a class="link" href="ApPlugin.html#ApPlugin-finished" title='The "finished" signal'><span class="type">"finished"</span></a> signal once it has
+completed its tasks.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-delete-account"></a><h3>ap_plugin_delete_account ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ap_plugin_delete_account            (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncReadyCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+Delete the account. When the operation is finished, <em class="parameter"><code>callback</code></em> will be
+invoked; you can then call <a class="link" href="ApPlugin.html#ap-plugin-delete-account-finish" title="ap_plugin_delete_account_finish ()"><code class="function">ap_plugin_delete_account_finish()</code></a> to know if the
+operation was successful.
+This is a virtual method; the base implementation removes the account from
+the accounts database and the accounts credentials from the Single Sign-On
+database.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>a callback which will be invoked when the operation has been
+completed.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data to be passed to the callback.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-delete-account-finish"></a><h3>ap_plugin_delete_account_finish ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            ap_plugin_delete_account_finish     (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">GAsyncResult</span> *result</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Finish the operation started with <a class="link" href="ApPlugin.html#ap-plugin-delete-account" title="ap_plugin_delete_account ()"><code class="function">ap_plugin_delete_account()</code></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>result</code></em> :</span></p></td>
+<td>the <span class="type">GAsyncResult</span> obtained from the <span class="type">GAsyncReadyCallback</span> passed to
+<a class="link" href="ApPlugin.html#ap-plugin-delete-account" title="ap_plugin_delete_account ()"><code class="function">ap_plugin_delete_account()</code></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>location for error, or <code class="literal">NULL</code>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if the operation succeeded, <code class="literal">FALSE</code> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-emit-finished"></a><h3>ap_plugin_emit_finished ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ap_plugin_emit_finished             (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);</pre>
+<p>
+Emits the <a class="link" href="ApPlugin.html#ApPlugin-finished" title='The "finished" signal'><span class="type">"finished"</span></a> signal. This method is useful for subclasses
+only.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-get-account"></a><h3>ap_plugin_get_account ()</h3>
+<pre class="programlisting"><span class="returnvalue">AgAccount</span> *         ap_plugin_get_account               (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);</pre>
+<p>
+Get the <span class="type">AgAccount</span> associated with this plugin instance.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <span class="type">AgAccount</span>, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-get-provider"></a><h3>ap_plugin_get_provider ()</h3>
+<pre class="programlisting"><span class="returnvalue">AgProvider</span> *        ap_plugin_get_provider              (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);</pre>
+<p>
+Get the <span class="type">AgProvider</span> associated with this plugin instance.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the <span class="type">AgProvider</span>, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-get-need-authentication"></a><h3>ap_plugin_get_need_authentication ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            ap_plugin_get_need_authentication   (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);</pre>
+<p>
+Get whether the <span class="type">AgAccount</span> associated with this plugin instance needs to be
+re-authenticated.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if the account needs re-authentication, <code class="literal">FALSE</code> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-set-need-authentication"></a><h3>ap_plugin_set_need_authentication ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ap_plugin_set_need_authentication   (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> need_authentication</code></em>);</pre>
+<p>
+Tell the plugin that the <span class="type">AgAccount</span> associated with it needs to be
+re-authenticated.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>need_authentication</code></em> :</span></p></td>
+<td>whether the plugin must perform the authentication.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-set-credentials"></a><h3>ap_plugin_set_credentials ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ap_plugin_set_credentials           (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *username</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *password</code></em>);</pre>
+<p>
+Set the user name and password. The plugin could use them for prefilling the
+login form (or skip it altogether).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>username</code></em> :</span></p></td>
+<td>login username.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>password</code></em> :</span></p></td>
+<td>the user password, or <code class="literal">NULL</code>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-get-username"></a><h3>ap_plugin_get_username ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       ap_plugin_get_username              (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);</pre>
+<p>
+Get the login username.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the username, or <code class="literal">NULL</code>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-get-password"></a><h3>ap_plugin_get_password ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       ap_plugin_get_password              (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);</pre>
+<p>
+Get the login password.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>the password, or <code class="literal">NULL</code>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-get-cookies"></a><h3>ap_plugin_get_cookies ()</h3>
+<pre class="programlisting"><span class="returnvalue">GHashTable</span> *        ap_plugin_get_cookies               (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);</pre>
+<p>
+Get the HTTP cookies.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a dictionary
+with cookie name and value pairs, or <code class="literal">NULL</code>. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8 utf8][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-set-cookies"></a><h3>ap_plugin_set_cookies ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ap_plugin_set_cookies               (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">GHashTable</span> *cookies</code></em>);</pre>
+<p>
+Set the HTTP cookies. The plugin may use them while performing a web-based
+authentication.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cookies</code></em> :</span></p></td>
+<td>a <span class="type">GHashTable</span> with
+cookie name and value pairs. <span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8 utf8][<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-get-ignore-cookies"></a><h3>ap_plugin_get_ignore_cookies ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            ap_plugin_get_ignore_cookies        (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);</pre>
+<p>
+Get whether the provided cookies should be ignored when performing the
+authentication.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>whether provided cookies should be ignored.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-set-ignore-cookies"></a><h3>ap_plugin_set_ignore_cookies ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ap_plugin_set_ignore_cookies        (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> ignore_cookies</code></em>);</pre>
+<p>
+Tells the plugin implementation that all provided cookies should be ignored
+when performing the authentication; an ApPlugin subclass might choose to
+ignore cookies when the provided cookies are known not to be working.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>ignore_cookies</code></em> :</span></p></td>
+<td>whether provided cookies should be ignored.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-get-user-cancelled"></a><h3>ap_plugin_get_user_cancelled ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            ap_plugin_get_user_cancelled        (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);</pre>
+<p>
+Get whether the requested operation was cancelled by the user.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if the operation was cancelled, <code class="literal">FALSE</code> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-set-user-cancelled"></a><h3>ap_plugin_set_user_cancelled ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ap_plugin_set_user_cancelled        (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> cancelled</code></em>);</pre>
+<p>
+Tell the plugin that the requested operation was cancelled by the user. This
+method should be called by <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> subclasses only.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>cancelled</code></em> :</span></p></td>
+<td>whether the plugin operation was cancelled by the user.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-get-error"></a><h3>ap_plugin_get_error ()</h3>
+<pre class="programlisting">const <span class="returnvalue">GError</span> *      ap_plugin_get_error                 (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>);</pre>
+<p>
+Get whether the requested operation ended in an error.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a <span class="type">GError</span> if an error occurred, <code class="literal">NULL</code> otherwise. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ap-plugin-set-error"></a><h3>ap_plugin_set_error ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                ap_plugin_set_error                 (<em class="parameter"><code><a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">GError</span> *error</code></em>);</pre>
+<p>
+Tell the plugin that the requested operation ended in an error. This method
+should be called by <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> subclasses only.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>the <span class="type">GError</span> to set on the plugin.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="ApPlugin.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="ApPlugin--account"></a><h3>The <code class="literal">"account"</code> property</h3>
+<pre class="programlisting">  "account"                  <span class="type">AgAccount</span>*            : Read / Write / Construct Only</pre>
+<p>
+The <span class="type">AgAccount</span> associated with the plugin.
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="ApPlugin--need-authentication"></a><h3>The <code class="literal">"need-authentication"</code> property</h3>
+<pre class="programlisting">  "need-authentication"      <span class="type">gboolean</span>              : Read / Write</pre>
+<p>
+Whether the plugin needs to be authenticated again.
+</p>
+<p>Default value: FALSE</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="ApPlugin.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2">
+<a name="ApPlugin-finished"></a><h3>The <code class="literal">"finished"</code> signal</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                user_function                      (<a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a> *plugin,
+                                                        <span class="type">gpointer</span>  user_data)      : <code class="literal">Run Last</code></pre>
+<p>
+Emitted when the plugin UI has completed its task and can be dismissed.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>plugin</code></em> :</span></p></td>
+<td>the <a class="link" href="ApPlugin.html" title="ApPlugin"><span class="type">ApPlugin</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,493 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>UnityWebappsContext</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="libunity-webapps Reference Manual">
+<link rel="up" href="coreapi.html" title="Interacting with the Service and Contexts">
+<link rel="prev" href="libunity-webapps-UnityWebappsService.html" title="UnityWebappsService">
+<link rel="next" href="desktopapis.html" title="Desktop integration APIs bindings of the Context Daemon">
+<meta name="generator" content="GTK-Doc V1.19 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="libunity-webapps-UnityWebappsService.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="coreapi.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libunity-webapps Reference Manual</th>
+<td><a accesskey="n" href="desktopapis.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="libunity-webapps-UnityWebappsContext.html#libunity-webapps-UnityWebappsContext.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="libunity-webapps-UnityWebappsContext.html#libunity-webapps-UnityWebappsContext.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="libunity-webapps-UnityWebappsContext"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="libunity-webapps-UnityWebappsContext.top_of_page"></a>UnityWebappsContext</span></h2>
+<p>UnityWebappsContext</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="libunity-webapps-UnityWebappsContext.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">struct              <a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext">UnityWebappsContext</a>;
+struct              <a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextClass" title="struct UnityWebappsContextClass">UnityWebappsContextClass</a>;
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-new" title="unity_webapps_context_new ()">unity_webapps_context_new</a>           (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *domain</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *icon_url</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *mime_types</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextReadyCallback" title="UnityWebappsContextReadyCallback ()"><span class="type">UnityWebappsContextReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="returnvalue">UnityWebappsContext</span></a> * <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-new-sync" title="unity_webapps_context_new_sync ()">unity_webapps_context_new_sync</a>    (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *domain</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *icon_url</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *mime_types</code></em>);
+<a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="returnvalue">UnityWebappsContext</span></a> * <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-new-for-context-name" title="unity_webapps_context_new_for_context_name ()">unity_webapps_context_new_for_context_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *context_name</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-get-context-name" title="unity_webapps_context_get_context_name ()">unity_webapps_context_get_context_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-get-name" title="unity_webapps_context_get_name ()">unity_webapps_context_get_name</a>      (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-get-domain" title="unity_webapps_context_get_domain ()">unity_webapps_context_get_domain</a>    (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-get-desktop-name" title="unity_webapps_context_get_desktop_name ()">unity_webapps_context_get_desktop_name</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-get-icon-name" title="unity_webapps_context_get_icon_name ()">unity_webapps_context_get_icon_name</a> (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-add-icon" title="unity_webapps_context_add_icon ()">unity_webapps_context_add_icon</a>      (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *url</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> size</code></em>);
+<span class="returnvalue">GVariant</span> *          <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-list-interests" title="unity_webapps_context_list_interests ()">unity_webapps_context_list_interests</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-on-interest-appeared" title="unity_webapps_context_on_interest_appeared ()">unity_webapps_context_on_interest_appeared</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextNotifyCallback" title="UnityWebappsContextNotifyCallback ()"><span class="type">UnityWebappsContextNotifyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-on-interest-vanished" title="unity_webapps_context_on_interest_vanished ()">unity_webapps_context_on_interest_vanished</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextNotifyCallback" title="UnityWebappsContextNotifyCallback ()"><span class="type">UnityWebappsContextNotifyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-get-interest-owner" title="unity_webapps_context_get_interest_owner ()">unity_webapps_context_get_interest_owner</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> interest_id</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-raise" title="unity_webapps_context_raise ()">unity_webapps_context_raise</a>         (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-raise-interest" title="unity_webapps_context_raise_interest ()">unity_webapps_context_raise_interest</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> interest_id</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-close" title="unity_webapps_context_close ()">unity_webapps_context_close</a>         (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-close-interest" title="unity_webapps_context_close_interest ()">unity_webapps_context_close_interest</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> interest_id</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-request-preview" title="unity_webapps_context_request_preview ()">unity_webapps_context_request_preview</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> interest_id</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextPreviewReadyCallback" title="UnityWebappsContextPreviewReadyCallback ()"><span class="type">UnityWebappsContextPreviewReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-get-view-is-active" title="unity_webapps_context_get_view_is_active ()">unity_webapps_context_get_view_is_active</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> interest_id</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-set-view-is-active" title="unity_webapps_context_set_view_is_active ()">unity_webapps_context_set_view_is_active</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> active</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-on-view-is-active-changed" title="unity_webapps_context_on_view_is_active_changed ()">unity_webapps_context_on_view_is_active_changed</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextViewNotifyCallback" title="UnityWebappsContextViewNotifyCallback ()"><span class="type">UnityWebappsContextViewNotifyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gchar</span> *             <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-get-view-location" title="unity_webapps_context_get_view_location ()">unity_webapps_context_get_view_location</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> interest_id</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-set-view-location" title="unity_webapps_context_set_view_location ()">unity_webapps_context_set_view_location</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *location</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-on-view-location-changed" title="unity_webapps_context_on_view_location_changed ()">unity_webapps_context_on_view_location_changed</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextLocationNotifyCallback" title="UnityWebappsContextLocationNotifyCallback ()"><span class="type">UnityWebappsContextLocationNotifyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">guint64</span>             <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-get-view-window" title="unity_webapps_context_get_view_window ()">unity_webapps_context_get_view_window</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> interest_id</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-set-view-window" title="unity_webapps_context_set_view_window ()">unity_webapps_context_set_view_window</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint64</span> window</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-on-view-window-changed" title="unity_webapps_context_on_view_window_changed ()">unity_webapps_context_on_view_window_changed</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextWindowNotifyCallback" title="UnityWebappsContextWindowNotifyCallback ()"><span class="type">UnityWebappsContextWindowNotifyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-on-close-callback" title="unity_webapps_context_on_close_callback ()">unity_webapps_context_on_close_callback</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">UnityWebappsContextCloseCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-on-raise-callback" title="unity_webapps_context_on_raise_callback ()">unity_webapps_context_on_raise_callback</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextRaiseCallback" title="UnityWebappsContextRaiseCallback ()"><span class="type">UnityWebappsContextRaiseCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-set-preview-requested-callback" title="unity_webapps_context_set_preview_requested_callback ()">unity_webapps_context_set_preview_requested_callback</a>
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextPreviewCallback" title="UnityWebappsContextPreviewCallback ()"><span class="type">UnityWebappsContextPreviewCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="libunity-webapps-UnityWebappsContext.html#unity-webapps-context-destroy" title="unity_webapps_context_destroy ()">unity_webapps_context_destroy</a>       (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> user_abandoned</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextActionCallback" title="UnityWebappsContextActionCallback ()">*UnityWebappsContextActionCallback</a>)
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextLocationNotifyCallback" title="UnityWebappsContextLocationNotifyCallback ()">*UnityWebappsContextLocationNotifyCallback</a>)
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *Param1</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> Param2</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *Param3</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> Param4</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextNotifyCallback" title="UnityWebappsContextNotifyCallback ()">*UnityWebappsContextNotifyCallback</a>)
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *Param1</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> Param2</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> Param3</code></em>);
+const <span class="returnvalue">gchar</span> *       (<a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextPreviewCallback" title="UnityWebappsContextPreviewCallback ()">*UnityWebappsContextPreviewCallback</a>)
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextPreviewReadyCallback" title="UnityWebappsContextPreviewReadyCallback ()">*UnityWebappsContextPreviewReadyCallback</a>)
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> interest_id</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *preview_data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextRaiseCallback" title="UnityWebappsContextRaiseCallback ()">*UnityWebappsContextRaiseCallback</a>) (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *file</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextReadyCallback" title="UnityWebappsContextReadyCallback ()">*UnityWebappsContextReadyCallback</a>) (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *Param1</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextViewNotifyCallback" title="UnityWebappsContextViewNotifyCallback ()">*UnityWebappsContextViewNotifyCallback</a>)
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *Param1</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> Param2</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> Param3</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> Param4</code></em>);
+<span class="returnvalue">void</span>                (<a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextWindowNotifyCallback" title="UnityWebappsContextWindowNotifyCallback ()">*UnityWebappsContextWindowNotifyCallback</a>)
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *Param1</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> Param2</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint64</span> Param3</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> Param4</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="libunity-webapps-UnityWebappsContext.description"></a><h2>Description</h2>
+</div>
+<div class="refsect1">
+<a name="libunity-webapps-UnityWebappsContext.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="UnityWebappsContext"></a><h3>struct UnityWebappsContext</h3>
+<pre class="programlisting">struct UnityWebappsContext {
+	GObject object;
+	UnityWebappsContextPrivate *priv;
+};
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="UnityWebappsContextClass"></a><h3>struct UnityWebappsContextClass</h3>
+<pre class="programlisting">struct UnityWebappsContextClass {
+	GObjectClass parent_class;
+
+	UnityWebappsContextAcceptDataChanged accept_data_changed;
+};
+</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-new"></a><h3>unity_webapps_context_new ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_new           (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *domain</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *icon_url</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *mime_types</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextReadyCallback" title="UnityWebappsContextReadyCallback ()"><span class="type">UnityWebappsContextReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-new-sync"></a><h3>unity_webapps_context_new_sync ()</h3>
+<pre class="programlisting"><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="returnvalue">UnityWebappsContext</span></a> * unity_webapps_context_new_sync    (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *domain</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *icon_url</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *mime_types</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-new-for-context-name"></a><h3>unity_webapps_context_new_for_context_name ()</h3>
+<pre class="programlisting"><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="returnvalue">UnityWebappsContext</span></a> * unity_webapps_context_new_for_context_name
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsService.html#UnityWebappsService" title="struct UnityWebappsService"><span class="type">UnityWebappsService</span></a> *service</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *context_name</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-get-context-name"></a><h3>unity_webapps_context_get_context_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       unity_webapps_context_get_context_name
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-get-name"></a><h3>unity_webapps_context_get_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       unity_webapps_context_get_name      (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-get-domain"></a><h3>unity_webapps_context_get_domain ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       unity_webapps_context_get_domain    (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-get-desktop-name"></a><h3>unity_webapps_context_get_desktop_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       unity_webapps_context_get_desktop_name
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-get-icon-name"></a><h3>unity_webapps_context_get_icon_name ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             unity_webapps_context_get_icon_name (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-add-icon"></a><h3>unity_webapps_context_add_icon ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_add_icon      (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *url</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> size</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-list-interests"></a><h3>unity_webapps_context_list_interests ()</h3>
+<pre class="programlisting"><span class="returnvalue">GVariant</span> *          unity_webapps_context_list_interests
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-on-interest-appeared"></a><h3>unity_webapps_context_on_interest_appeared ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_on_interest_appeared
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextNotifyCallback" title="UnityWebappsContextNotifyCallback ()"><span class="type">UnityWebappsContextNotifyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-on-interest-vanished"></a><h3>unity_webapps_context_on_interest_vanished ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_on_interest_vanished
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextNotifyCallback" title="UnityWebappsContextNotifyCallback ()"><span class="type">UnityWebappsContextNotifyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-get-interest-owner"></a><h3>unity_webapps_context_get_interest_owner ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             unity_webapps_context_get_interest_owner
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> interest_id</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-raise"></a><h3>unity_webapps_context_raise ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_raise         (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-raise-interest"></a><h3>unity_webapps_context_raise_interest ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_raise_interest
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> interest_id</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-close"></a><h3>unity_webapps_context_close ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_close         (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-close-interest"></a><h3>unity_webapps_context_close_interest ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_close_interest
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> interest_id</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-request-preview"></a><h3>unity_webapps_context_request_preview ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_request_preview
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> interest_id</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextPreviewReadyCallback" title="UnityWebappsContextPreviewReadyCallback ()"><span class="type">UnityWebappsContextPreviewReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-get-view-is-active"></a><h3>unity_webapps_context_get_view_is_active ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            unity_webapps_context_get_view_is_active
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> interest_id</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-set-view-is-active"></a><h3>unity_webapps_context_set_view_is_active ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_set_view_is_active
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> active</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-on-view-is-active-changed"></a><h3>unity_webapps_context_on_view_is_active_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_on_view_is_active_changed
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextViewNotifyCallback" title="UnityWebappsContextViewNotifyCallback ()"><span class="type">UnityWebappsContextViewNotifyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-get-view-location"></a><h3>unity_webapps_context_get_view_location ()</h3>
+<pre class="programlisting"><span class="returnvalue">gchar</span> *             unity_webapps_context_get_view_location
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> interest_id</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-set-view-location"></a><h3>unity_webapps_context_set_view_location ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_set_view_location
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *location</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-on-view-location-changed"></a><h3>unity_webapps_context_on_view_location_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_on_view_location_changed
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextLocationNotifyCallback" title="UnityWebappsContextLocationNotifyCallback ()"><span class="type">UnityWebappsContextLocationNotifyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-get-view-window"></a><h3>unity_webapps_context_get_view_window ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint64</span>             unity_webapps_context_get_view_window
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> interest_id</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-set-view-window"></a><h3>unity_webapps_context_set_view_window ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_set_view_window
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint64</span> window</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-on-view-window-changed"></a><h3>unity_webapps_context_on_view_window_changed ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_on_view_window_changed
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextWindowNotifyCallback" title="UnityWebappsContextWindowNotifyCallback ()"><span class="type">UnityWebappsContextWindowNotifyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-on-close-callback"></a><h3>unity_webapps_context_on_close_callback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_on_close_callback
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">UnityWebappsContextCloseCallback</span> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-on-raise-callback"></a><h3>unity_webapps_context_on_raise_callback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_on_raise_callback
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextRaiseCallback" title="UnityWebappsContextRaiseCallback ()"><span class="type">UnityWebappsContextRaiseCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-set-preview-requested-callback"></a><h3>unity_webapps_context_set_preview_requested_callback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_set_preview_requested_callback
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContextPreviewCallback" title="UnityWebappsContextPreviewCallback ()"><span class="type">UnityWebappsContextPreviewCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="unity-webapps-context-destroy"></a><h3>unity_webapps_context_destroy ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                unity_webapps_context_destroy       (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> user_abandoned</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="UnityWebappsContextActionCallback"></a><h3>UnityWebappsContextActionCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*UnityWebappsContextActionCallback)
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="UnityWebappsContextLocationNotifyCallback"></a><h3>UnityWebappsContextLocationNotifyCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*UnityWebappsContextLocationNotifyCallback)
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *Param1</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> Param2</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *Param3</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> Param4</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="UnityWebappsContextNotifyCallback"></a><h3>UnityWebappsContextNotifyCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*UnityWebappsContextNotifyCallback)
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *Param1</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> Param2</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> Param3</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="UnityWebappsContextPreviewCallback"></a><h3>UnityWebappsContextPreviewCallback ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       (*UnityWebappsContextPreviewCallback)
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="UnityWebappsContextPreviewReadyCallback"></a><h3>UnityWebappsContextPreviewReadyCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*UnityWebappsContextPreviewReadyCallback)
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> interest_id</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *preview_data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="UnityWebappsContextRaiseCallback"></a><h3>UnityWebappsContextRaiseCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*UnityWebappsContextRaiseCallback) (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *context</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *file</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="UnityWebappsContextReadyCallback"></a><h3>UnityWebappsContextReadyCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*UnityWebappsContextReadyCallback) (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *Param1</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="UnityWebappsContextViewNotifyCallback"></a><h3>UnityWebappsContextViewNotifyCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*UnityWebappsContextViewNotifyCallback)
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *Param1</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> Param2</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> Param3</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> Param4</code></em>);</pre>
+</div>
+<hr>
+<div class="refsect2">
+<a name="UnityWebappsContextWindowNotifyCallback"></a><h3>UnityWebappsContextWindowNotifyCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*UnityWebappsContextWindowNotifyCallback)
+                                                        (<em class="parameter"><code><a class="link" href="libunity-webapps-UnityWebappsContext.html#UnityWebappsContext" title="struct UnityWebappsContext"><span class="type">UnityWebappsContext</span></a> *Param1</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> Param2</code></em>,
+                                                         <em class="parameter"><code><span class="type">guint64</span> Param3</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> Param4</code></em>);</pre>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.19</div>
+</body>
+</html>

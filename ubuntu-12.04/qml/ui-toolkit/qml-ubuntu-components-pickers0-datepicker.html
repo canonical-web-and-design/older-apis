@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- DatePicker.qml -->
+  <title>UbuntuUserInterfaceToolkit 0.1: DatePicker</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+<script type="text/javascript" src="style/breadcrumbs.js"></script>
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:400,400italic">
+<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu+Mono:400">
+<link rel="stylesheet" type="text/css" href="style/reset.css" />
+<link rel="stylesheet" type="text/css" href="style/qtquick.css" />
+<link rel="stylesheet" type="text/css" href="style/base.css" />
+<link rel="stylesheet" type="text/css" href="style/scratch.css" />
+</head>
+<header>
+	<div class="header-login">
+		<ul>
+			<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+		</ul>
+	</div>
+	<div class="header-navigation">
+		<div>
+			<nav role="navigation">
+				<ul>
+					<li class="page_item page-item-5"><a href="http://developer.ubuntu.com/">Home</a></li>
+					<li class="page_item page-item-7"><a href="http://developer.ubuntu.com/get-started/">Get started</a></li>
+					<li class="page_item page-item-9"><a href="http://developer.ubuntu.com/resources/">Resources</a></li>
+					<li class="page_item page-item-11"><a href="http://developer.ubuntu.com/publish/">Publish</a></li>
+					<li class="page_item page-item-13"><a href="http://developer.ubuntu.com/community/">Community</a></li>
+					<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+					<li>
+						<form id="form-search" method="get" action="../../../../../index.html">
+							<fieldset>
+								<input id="input-search" type="text" name="s" value="Search" />
+							</fieldset>
+						</form>
+					</li>
+				</ul>
+			</nav>
+			<a class="logo-ubuntu" href="../../../../../index.html"><img src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/img/logo-ubuntu.png" width="119" height="27" alt="Ubuntu logo" /></a>
+			<h2><a href="../../../../../index.html">App Developer</a></h2>
+		</div>
+	</div>
+	
+	</header>
+   <div class="wrapper">
+   <div class="main-content"><ul class="breadcrumb">
+<li><a href="overview-ubuntu-sdk.html">Ubuntu User Interface Toolkit</a></li>
+<li>DatePicker</li>
+</ul><div class="toc">
+<h3><a name="toc">Contents</a></h3>
+<ul>
+<li class="level1"><a href="qml-ubuntu-components-pickers0-datepicker.html#properties">Properties</a></li>
+<li class="level1"><a href="qml-ubuntu-components-pickers0-datepicker.html#details">Detailed Description</a></li>
+<li class="level2"><a href="qml-ubuntu-components-pickers0-datepicker.html#layout">Layout</a></li>
+<li class="level3"><a href="qml-ubuntu-components-pickers0-datepicker.html#date-picker-layout-rules">Date picker layout rules</a></li>
+<li class="level3"><a href="qml-ubuntu-components-pickers0-datepicker.html#time-picker-layout-rules">Time picker layout rules</a></li>
+<li class="level3"><a href="qml-ubuntu-components-pickers0-datepicker.html#how-minimum-maximum-affects-the-tumblers">How minimum/maximum affects the tumblers</a></li>
+</ul>
+</div>
+</ul><h1 class="title">DatePicker</h1>
+<span class="subtitle"></span>
+<!-- $$$DatePicker-brief -->
+<p>DatePicker component provides date and time value picking functionality. <a href="qml-ubuntu-components-pickers0-datepicker.html#details">More...</a></p>
+<!-- @@@DatePicker -->
+<p>Inherits <a href="qml-ubuntu-components0-styleditem.html">StyledItem</a></p>
+<ul>
+<li><a href="qml-ubuntu-components-pickers0-datepicker-members.html">List of all members, including inherited members</a></li>
+</ul>
+<a name="properties"></a>
+<h2>Properties</h2>
+<ul>
+<li class="fn"><b><b><a href="qml-ubuntu-components-pickers0-datepicker.html#date-prop">date</a></b></b> : date</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-pickers0-datepicker.html#day-prop">day</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-pickers0-datepicker.html#hours-prop">hours</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-pickers0-datepicker.html#locale-prop">locale</a></b></b> : var</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-pickers0-datepicker.html#maximum-prop">maximum</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-pickers0-datepicker.html#minimum-prop">minimum</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-pickers0-datepicker.html#minutes-prop">minutes</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-pickers0-datepicker.html#mode-prop">mode</a></b></b> : string</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-pickers0-datepicker.html#month-prop">month</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-pickers0-datepicker.html#seconds-prop">seconds</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-pickers0-datepicker.html#style-prop">style</a></b></b> : Component</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-pickers0-datepicker.html#week-prop">week</a></b></b> : int</li>
+<li class="fn"><b><b><a href="qml-ubuntu-components-pickers0-datepicker.html#year-prop">year</a></b></b> : int</li>
+</ul>
+<!-- $$$DatePicker-description -->
+<a name="details"></a>
+<h2>Detailed Description</h2>
+<p>DatePicker combines up to three Picker elements providing different date or time value selection possibilities. It can be used to select full date (year, month, day), full time (hours, minutes, seconds) as well as to select a combination of year and month, month and day, hours and minutes, minutes and seconds or individual time units (i.e&#x2e; year, month or day as well as hours, minutes or seconds). The selected date as well as the initial one is provided by the <a href="qml-ubuntu-components-pickers0-datepicker.html#date-prop">date</a> property. For convenience the component provides also the <i>year</i>, <i>month</i>, <i>day</i>, <i>week</i>, <i>hours</i>, <i>minutes</i> and <i>seconds</i> values as separate properties, however these properties are not writable, and their initialization can happen only through the <a href="qml-ubuntu-components-pickers0-datepicker.html#date-prop">date</a> property.</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+import Ubuntu.Components.Pickers 0.1
+
+<span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-column.html">Column</a></span> {
+    <span class="type"><a href="qml-ubuntu-components0-label.html">Label</a></span> {
+        <span class="name">text</span>: <span class="string">&quot;Selected date: W&quot;</span> <span class="operator">+</span> <span class="name">datePicker</span>.<span class="name">week</span> <span class="operator">+</span> <span class="string">&quot; - &quot;</span> <span class="operator">+</span>
+                <span class="name">Qt</span>.<span class="name">formatDate</span>(<span class="name">datePicker</span>.<span class="name">date</span>, <span class="string">&quot;dddd, dd-mmmm-yyyy&quot;</span>)
+    }
+    <span class="type">DatePicker</span> {
+        <span class="name">id</span>: <span class="name">datePicker</span>
+    }
+}</pre>
+<p>The <a href="qml-ubuntu-components-pickers0-datepicker.html#mode-prop">mode</a> property specifies what time units should be shown by the picker. The property holds a string, combining <b>Years</b>, <b>Months</b>, <b>Days</b>, <b>Hours</b>, <b>Minutes</b> and <b>Seconds</b> strings sepatared with '|' character. A DatePicker which shows only year and month date units would look as follows:</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+import Ubuntu.Components.Pickers 0.1
+
+<span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-column.html">Column</a></span> {
+    <span class="type"><a href="qml-ubuntu-components0-label.html">Label</a></span> {
+        <span class="name">text</span>: <span class="string">&quot;Selected month: &quot;</span> <span class="operator">+</span> <span class="name">Qt</span>.<span class="name">formatDate</span>(<span class="name">datePicker</span>.<span class="name">date</span>, <span class="string">&quot;mmmm-yyyy&quot;</span>)
+    }
+    <span class="type">DatePicker</span> {
+        <span class="name">id</span>: <span class="name">datePicker</span>
+        <span class="name">mode</span>: <span class="string">&quot;Years|Months&quot;</span>
+    }
+}</pre>
+<p>The <b>mode</b> of the DatePicker is set to date picking. In case time picking is needed, the model should be set to contain the time specific mode flags. The following example demonstrates how to use DatePicker for time picking.</p>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+import Ubuntu.Components.Pickers 0.1
+
+<span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-column.html">Column</a></span> {
+    <span class="type"><a href="qml-ubuntu-components0-label.html">Label</a></span> {
+        <span class="name">text</span>: <span class="string">&quot;Selected time: &quot;</span> <span class="operator">+</span> <span class="name">Qt</span>.<span class="name">formatTime</span>(<span class="name">datePicker</span>.<span class="name">date</span>, <span class="string">&quot;hh:mm:ss&quot;</span>)
+    }
+    <span class="type">DatePicker</span> {
+        <span class="name">id</span>: <span class="name">datePicker</span>
+        <span class="name">mode</span>: <span class="string">&quot;Hours|Minutes|Seconds&quot;</span>
+    }
+}</pre>
+<p>Note that the order in which the mode flags are specified does not influence the order the pickers are arranged. That is driven by the date format of the <a href="qml-ubuntu-components-pickers0-datepicker.html#locale-prop">locale</a> used in the picker. Also not all combinations of mode flags are supported. See <a href="qml-ubuntu-components-pickers0-datepicker.html#mode-prop">mode</a> for the supported combinations.</p>
+<p>The default interval the date values are chosen is a window starting at the current date ending 50 years later. This window is defined by the <i>minimum</i> and <i>maximum</i> properties. The interval can be altered considering the following rules:</p>
+<ul>
+<li>- <i>minimum</i> must be less or equal than the <a href="qml-ubuntu-components-pickers0-datepicker.html#date-prop">date</a>; if the <i>date</i> value is less than the given <i>minimum</i>, the date will be set to the minimum's value</li>
+<li>- <i>maximum</i> value must be greater than the <i>minimum</i>, or invalid. When the maximum is smaller than the <a href="qml-ubuntu-components-pickers0-datepicker.html#date-prop">date</a>, the <a href="qml-ubuntu-components-pickers0-datepicker.html#date-prop">date</a> property will be updated to get the maximum value. When set to invalid date (see Date.getInvalidDate()), the upper limit of the date interval becomes infinite, meaning the year picker will extend infinitely. This leads to increased memory use and should be avoided if possible. Invalid date will make hours picker presenting 24 hours.</li>
+</ul>
+<pre class="qml">import QtQuick 2.0
+import Ubuntu.Components 0.1
+import Ubuntu.Components.Pickers 0.1
+
+<span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtquick-index.html/qml-qtquick2-column.html">Column</a></span> {
+    <span class="type"><a href="qml-ubuntu-components0-label.html">Label</a></span> {
+        <span class="name">text</span>: <span class="string">&quot;Selected date: &quot;</span> <span class="operator">+</span> <span class="name">Qt</span>.<span class="name">formatDate</span>(<span class="name">datePicker</span>.<span class="name">date</span>, <span class="string">&quot;dddd, dd-mmmm-yyyy&quot;</span>)
+    }
+    <span class="type">DatePicker</span> {
+        <span class="name">id</span>: <span class="name">datePicker</span>
+        <span class="name">minimum</span>: {
+            var <span class="name">d</span> = new <span class="name">Date</span>();
+            <span class="name">d</span>.<span class="name">setFullYear</span>(<span class="name">d</span>.<span class="name">getFullYear</span>() <span class="operator">-</span> <span class="number">1</span>);
+            <span class="keyword">return</span> <span class="name">d</span>;
+        }
+        <span class="name">maximum</span>: <span class="name">Date</span>.<span class="name">prototype</span>.<span class="name">getInvalidDate</span>.<span class="name">call</span>()
+    }
+}</pre>
+<p><b>Note</b>: do not use the <a href="qml-ubuntu-components-pickers0-datepicker.html#date-prop">date</a> property when initializing minimum and maximum as it will cause binding loops.</p>
+<a name="layout"></a>
+<h3>Layout</h3>
+<p>As mentioned earlier, DatePicker combines up to three Picker tumblers depending on the mode requested. These tumblers are laid out in a row in the order the default date format of the <a href="qml-ubuntu-components-pickers0-datepicker.html#locale-prop">locale</a> is.</p>
+<a name="date-picker-layout-rules"></a>
+<h4>Date picker layout rules</h4>
+<p>The date picker consist of three pickers: year, month, and date. The exact contents of the month and date pickers depends on the available width:</p>
+<ul>
+<li>* full name for month, number and full day for date (“August” “28 Wednesday”)</li>
+<li>* otherwise full name for month, number and abbreviated day for date (“August” “28 Wed”);</li>
+<li>* otherwise full name for month, number for date (“August” “28”);</li>
+<li>* otherwise abbreviated name for month, number for date (“Aug” “28”).</li>
+<li>* otherwise number for month, number for date (“08” “28”).</li>
+</ul>
+<p><i>If the currently selected date becomes impossible due to year change (from a leap to a non-leap year when the date is set to February 29) or month change (e.g&#x2e; from a month that has 31 days to one that has fewer when the date is set to 31), the date reduces automatically to the last day of the month (i.e February 28 or 30th day of the month).</i></p>
+<a name="time-picker-layout-rules"></a>
+<h4>Time picker layout rules</h4>
+<p>Time units are shown in fixed width picker tumblers, numbers padded with leading zeroes. There is no other special rule on the formatting of the time unit numbers.</p>
+<a name="how-minimum-maximum-affects-the-tumblers"></a>
+<h4>How minimum/maximum affects the tumblers</h4>
+<p>If minimum and maximum are within the same year, the year picker will be insensitive. If minimum and maximum are within the same month, the month picker will also be insensitive.</p>
+<!-- @@@DatePicker -->
+<h2>Property Documentation</h2>
+<!-- $$$date -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="date-prop"></a><span class="name">date</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-date.html">date</a></span></p></td></tr></table></div><div class="qmldoc"><p>The date chosen by the <a href="qml-ubuntu-components-pickers0-datepicker.html">DatePicker</a>. The default value is the date at the component creation time. The property automatically updates year, month and day properties.</p>
+</div></div><!-- @@@date -->
+<br/>
+<!-- $$$day -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="day-prop"></a><span class="qmlreadonly">read-only</span><span class="name">day</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>For convenience, the <b>day</b> value of the <a href="qml-ubuntu-components-pickers0-datepicker.html#date-prop">date</a> property.</p>
+</div></div><!-- @@@day -->
+<br/>
+<!-- $$$hours -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="hours-prop"></a><span class="qmlreadonly">read-only</span><span class="name">hours</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>For convenience, the <b>hours</b> value of the <a href="qml-ubuntu-components-pickers0-datepicker.html#date-prop">date</a> property.</p>
+</div></div><!-- @@@hours -->
+<br/>
+<!-- $$$locale -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="locale-prop"></a><span class="name">locale</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-var.html">var</a></span></p></td></tr></table></div><div class="qmldoc"><p>The property defines the locale used in the picker. The default value is the system locale.</p>
+<pre class="qml"><span class="type"><a href="qml-ubuntu-components-pickers0-datepicker.html">DatePicker</a></span> {
+     <span class="name">locale</span>: <span class="name">Qt</span>.<span class="name">locale</span>(<span class="string">&quot;hu_HU&quot;</span>)
+}</pre>
+</div></div><!-- @@@locale -->
+<br/>
+<!-- $$$maximum -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="maximum-prop"></a><span class="name">maximum</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>The maximum date (inclusive) to be shown in the picker. Both year and month values will be considered from the properties.</p>
+<p>See <a href="qml-ubuntu-components-pickers0-datepicker.html#minimum-prop">minimum</a> for more details.</p>
+</div></div><!-- @@@maximum -->
+<br/>
+<!-- $$$minimum -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="minimum-prop"></a><span class="name">minimum</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>The minimum date (inclusive) to be shown in the picker. Both year and month values will be considered from the properties.</p>
+<p>The year and month picker values are filled based on these values. The year picker will be infinite (extending infinitely) if the maximum is an invalid date. If the distance between maximum and minimum is less than a year, the year picker will be shown disabled.</p>
+<p>The month picker will be circular if the distance between maximum and minimum is at least one year, or if the maximum date is invalid.</p>
+<p>The default values are the current date for the minimum, and 50 year distance value for maximum.</p>
+</div></div><!-- @@@minimum -->
+<br/>
+<!-- $$$minutes -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="minutes-prop"></a><span class="qmlreadonly">read-only</span><span class="name">minutes</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>For convenience, the <b>minutes</b> value of the <a href="qml-ubuntu-components-pickers0-datepicker.html#date-prop">date</a> property.</p>
+</div></div><!-- @@@minutes -->
+<br/>
+<!-- $$$mode -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="mode-prop"></a><span class="name">mode</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-string.html">string</a></span></p></td></tr></table></div><div class="qmldoc"><p>Specifies what kind of date value selectors should be shown by the picker. This is a string of 'flags' separated by '|' separator, where flags are:</p>
+<table class="generic">
+ <thead><tr class="qt-style"><th  colspan="2" rowspan=" 1">Date picker modes</th></tr>
+<tr class="qt-style"><th >Value</th><th >Description</th></tr></thead>
+<tr valign="top" class="odd"><td >Years</td><td >Specifies to show the year picker</td></tr>
+<tr valign="top" class="even"><td >Months</td><td >Specifies to show the month picker</td></tr>
+<tr valign="top" class="odd"><td >Days</td><td >Specifies to show the day picker</td></tr>
+<thead><tr class="qt-style"><th  colspan="2" rowspan=" 1">Time picker modes</th></tr>
+<tr class="qt-style"><th >Value</th><th >Description</th></tr></thead>
+<tr valign="top" class="even"><td >Hours</td><td >Specifies to show the hours picker</td></tr>
+<tr valign="top" class="odd"><td >Minutes</td><td >Specifies to show the minutes picker</td></tr>
+<tr valign="top" class="even"><td >Seconds</td><td >Specifies to show the seconds picker</td></tr>
+</table>
+<p>With some exceptions, any combination of these flags is allowed within the same group. Date and time picker modes cannot be combined.</p>
+<p>The supported combinations are: <i>Years|Months|Days</i>, <i>Years|Months</i>, <i>Months|Days</i>, <i>Hours|Minutes|Seconds</i>, <i>Hours|Minutes</i> and <i>Minutes|Seconds</i>, as well as each mode flag individually.</p>
+<p>The default value is &quot;<i>Years|Months|Days</i>&quot;.</p>
+</div></div><!-- @@@mode -->
+<br/>
+<!-- $$$month -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="month-prop"></a><span class="qmlreadonly">read-only</span><span class="name">month</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>For convenience, the <b>month</b> value of the <a href="qml-ubuntu-components-pickers0-datepicker.html#date-prop">date</a> property.</p>
+</div></div><!-- @@@month -->
+<br/>
+<!-- $$$seconds -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="seconds-prop"></a><span class="qmlreadonly">read-only</span><span class="name">seconds</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>For convenience, the <b>seconds</b> value of the <a href="qml-ubuntu-components-pickers0-datepicker.html#date-prop">date</a> property.</p>
+</div></div><!-- @@@seconds -->
+<br/>
+<!-- $$$style -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="style-prop"></a><span class="name">style</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-qtquick2-component.html">Component</a></span></p></td></tr></table></div><div class="qmldoc"><p>Component instantiated immediately and placed below everything else.</p>
+</div></div><!-- @@@style -->
+<br/>
+<!-- $$$week -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="week-prop"></a><span class="qmlreadonly">read-only</span><span class="name">week</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>For convenience, the <b>week</b> value of the <a href="qml-ubuntu-components-pickers0-datepicker.html#date-prop">date</a> property.</p>
+</div></div><!-- @@@week -->
+<br/>
+<!-- $$$year -->
+<div class="qmlitem"><div class="qmlproto"><table class="qmlname"><tr valign="top" class="odd"><td class="tblQmlPropNode"><p><a name="year-prop"></a><span class="qmlreadonly">read-only</span><span class="name">year</span> : <span class="type"><a href="http://qt-project.org/doc/qt-5.0/qtqml/qml-int.html">int</a></span></p></td></tr></table></div><div class="qmldoc"><p>For convenience, the <b>year</b> value of the <a href="qml-ubuntu-components-pickers0-datepicker.html#date-prop">date</a> property.</p>
+</div></div><!-- @@@year -->
+<br/>
+</div></div>
+<div class="shadow"></div>
+<footer>
+	<div>
+		<nav role="navigation" class="clearfix">
+			<ul>
+				<li><a href="https://developer.ubuntu.com/get-started">Get started</a></li>
+				<li class="page_item page-item-16"><a href="http://developer.ubuntu.com/get-started/quickly-workflow/">Quickly workflow</a></li>
+<li class="page_item page-item-18"><a href="http://developer.ubuntu.com/get-started/qt-creator/">Qt Creator</a></li>
+<li class="page_item page-item-20"><a href="http://developer.ubuntu.com/get-started/eclipse/">Eclipse</a></li>
+<li class="page_item page-item-22"><a href="http://developer.ubuntu.com/get-started/monodevelop/">MonoDevelop</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/resources">Resources</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/tools/quickly">Quickly</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/api">API</a></li>
+				<li><a href="https://developer.ubuntu.com/resources/platform/documentation/platform-diagram">Platform overview</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/publish">Publish</a></li>
+				<li class="page_item page-item-24"><a href="http://developer.ubuntu.com/publish/commercial-software-faqs/">Commercial software FAQs</a></li>
+<li class="page_item page-item-34"><a href="http://developer.ubuntu.com/publish/application-states/">Application states</a></li>
+<li class="page_item page-item-577"><a href="http://developer.ubuntu.com/publish/my-apps-packages/">Uploading your app</a></li>
+<li class="page_item page-item-404"><a href="http://developer.ubuntu.com/publish/ubuntu-software-centre/">Ubuntu Software Centre</a></li>
+<li class="page_item page-item-427"><a href="http://developer.ubuntu.com/publish/licence-key-infrastructure/">Licence key infrastructure</a></li>
+<li class="page_item page-item-1230"><a href="http://developer.ubuntu.com/publish/updating-your-app/">Updating your app</a></li>
+			</ul>
+			<ul>
+				<li><a href="https://developer.ubuntu.com/community">Community</a></li>
+				<li class="page_item page-item-28"><a href="http://developer.ubuntu.com/community/app-developer-blog/">App Developer Blog</a></li>
+<li class="page_item page-item-30"><a href="http://developer.ubuntu.com/community/submit-a-tutorial/">Submit a tutorial</a></li>
+<li class="page_item page-item-32"><a href="http://developer.ubuntu.com/community/app-review-board-charter/">App Review Board charter</a></li>
+<li class="page_item page-item-2987"><a href="http://developer.ubuntu.com/community/on-air/">On air</a>
+<ul class='children'>
+	<li class="page_item page-item-3066"><a href="http://developer.ubuntu.com/community/on-air/recordings/">Recordings</a></li>
+</ul>
+</li>
+			</ul>
+			<ul class="last">
+				<li><a href="https://myapps.developer.ubuntu.com/dev">My Apps</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/openid/login/?next=/dev">Sign in or register</a></li>
+				<li><a href="https://myapps.developer.ubuntu.com/dev/account">My account</a></li>
+			</ul>
+		</nav>
+		<p>&copy; 2013 Canonical Ltd. Ubuntu and Canonical are registered trademarks of Canonical Ltd. <a class="link-bug" href="https://bugs.launchpad.net/ubuntudeveloperportal/+filebug">Report a bug on this site</a></p>
+	</div>
+</footer>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript" src="http://developer.ubuntu.com/wp-content/themes/wordpress-theme-ubuntudeveloper/js/base.js"></script>
+</body>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>BamfTab</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="libbamf Reference Manual">
+<link rel="up" href="ch01.html" title="Classes">
+<link rel="prev" href="BamfControl.html" title="BamfControl">
+<link rel="next" href="BamfView.html" title="BamfView">
+<meta name="generator" content="GTK-Doc V1.19 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="BamfControl.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">libbamf Reference Manual</th>
+<td><a accesskey="n" href="BamfView.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="BamfTab.html#BamfTab.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="BamfTab.html#BamfTab.description" class="shortcut">Description</a>
+                   | 
+                  <a href="BamfTab.html#BamfTab.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="BamfTab.html#BamfTab.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="BamfTab"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="BamfTab.top_of_page"></a>BamfTab</span></h2>
+<p>BamfTab</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="BamfTab.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">#define             <a class="link" href="BamfTab.html#BAMF-TAB-CONST:CAPS" title="BAMF_TAB_CONST()">BAMF_TAB_CONST</a>                      (obj)
+struct              <a class="link" href="BamfTab.html#BamfTab-struct" title="struct BamfTab">BamfTab</a>;
+struct              <a class="link" href="BamfTab.html#BamfTabClass" title="struct BamfTabClass">BamfTabClass</a>;
+<span class="returnvalue">void</span>                (<a class="link" href="BamfTab.html#BamfTabPreviewReadyCallback" title="BamfTabPreviewReadyCallback ()">*BamfTabPreviewReadyCallback</a>)      (<em class="parameter"><code><a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *preview_data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="BamfTab.html#bamf-tab-raise" title="bamf_tab_raise ()">bamf_tab_raise</a>                      (<em class="parameter"><code><a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a> *self</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="BamfTab.html#bamf-tab-close" title="bamf_tab_close ()">bamf_tab_close</a>                      (<em class="parameter"><code><a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a> *self</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="BamfTab.html#bamf-tab-request-preview" title="bamf_tab_request_preview ()">bamf_tab_request_preview</a>            (<em class="parameter"><code><a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="BamfTab.html#BamfTabPreviewReadyCallback" title="BamfTabPreviewReadyCallback ()"><span class="type">BamfTabPreviewReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="BamfTab.html#bamf-tab-get-desktop-name" title="bamf_tab_get_desktop_name ()">bamf_tab_get_desktop_name</a>           (<em class="parameter"><code><a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a> *self</code></em>);
+const <span class="returnvalue">gchar</span> *       <a class="link" href="BamfTab.html#bamf-tab-get-location" title="bamf_tab_get_location ()">bamf_tab_get_location</a>               (<em class="parameter"><code><a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a> *self</code></em>);
+<span class="returnvalue">guint64</span>             <a class="link" href="BamfTab.html#bamf-tab-get-xid" title="bamf_tab_get_xid ()">bamf_tab_get_xid</a>                    (<em class="parameter"><code><a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a> *self</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="BamfTab.html#bamf-tab-get-is-foreground-tab" title="bamf_tab_get_is_foreground_tab ()">bamf_tab_get_is_foreground_tab</a>      (<em class="parameter"><code><a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a> *self</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="BamfTab.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----GInitiallyUnowned
+         +----<a class="link" href="BamfView.html" title="BamfView">BamfView</a>
+               +----BamfTab
+</pre>
+</div>
+<div class="refsect1">
+<a name="BamfTab.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="BamfTab.html#BamfTab--desktop-id" title='The "desktop-id" property'>desktop-id</a>"               <span class="type">gchar</span>*                : Read
+  "<a class="link" href="BamfTab.html#BamfTab--is-foreground-tab" title='The "is-foreground-tab" property'>is-foreground-tab</a>"        <span class="type">gboolean</span>              : Read
+  "<a class="link" href="BamfTab.html#BamfTab--location" title='The "location" property'>location</a>"                 <span class="type">gchar</span>*                : Read
+  "<a class="link" href="BamfTab.html#BamfTab--xid" title='The "xid" property'>xid</a>"                      <span class="type">guint64</span>               : Read
+</pre>
+</div>
+<div class="refsect1">
+<a name="BamfTab.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="BamfTab.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="BAMF-TAB-CONST:CAPS"></a><h3>BAMF_TAB_CONST()</h3>
+<pre class="programlisting">#define BAMF_TAB_CONST(obj)             (G_TYPE_CHECK_INSTANCE_CAST ((obj), BAMF_TYPE_TAB, BamfTab const))
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfTab-struct"></a><h3>struct BamfTab</h3>
+<pre class="programlisting">struct BamfTab;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfTabClass"></a><h3>struct BamfTabClass</h3>
+<pre class="programlisting">struct BamfTabClass {
+  BamfViewClass parent_class;
+
+  const gchar * (*get_desktop_name)         (BamfTab *self);
+  const gchar * (*get_location)             (BamfTab *self);
+  guint64       (*get_xid)                  (BamfTab *self);
+  gboolean      (*get_is_foreground_tab)    (BamfTab *self);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfTabPreviewReadyCallback"></a><h3>BamfTabPreviewReadyCallback ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                (*BamfTabPreviewReadyCallback)      (<em class="parameter"><code><a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a> *self</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">gchar</span> *preview_data</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-tab-raise"></a><h3>bamf_tab_raise ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            bamf_tab_raise                      (<em class="parameter"><code><a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a> *self</code></em>);</pre>
+<p>
+Selects the <em class="parameter"><code>self</code></em> tab in the parent window.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>A <a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if success, <code class="literal">FALSE</code> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-tab-close"></a><h3>bamf_tab_close ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            bamf_tab_close                      (<em class="parameter"><code><a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a> *self</code></em>);</pre>
+<p>
+Closes the selected <em class="parameter"><code>self</code></em> tab.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>A <a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if success, <code class="literal">FALSE</code> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-tab-request-preview"></a><h3>bamf_tab_request_preview ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                bamf_tab_request_preview            (<em class="parameter"><code><a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a> *self</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="BamfTab.html#BamfTabPreviewReadyCallback" title="BamfTabPreviewReadyCallback ()"><span class="type">BamfTabPreviewReadyCallback</span></a> callback</code></em>,
+                                                         <em class="parameter"><code><span class="type">gpointer</span> user_data</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>a <a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>callback</code></em> :</span></p></td>
+<td>a callback function to call when the result is ready. <span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>][<acronym title="The callback is valid until first called."><span class="acronym">scope async</span></acronym>]</span>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>data to be sent to the callback. <span class="annotation">[<acronym title="This parameter is a 'user_data', for callbacks; many bindings can pass NULL here."><span class="acronym">closure</span></acronym>][<acronym title="NULL is ok, both for passing and for returning."><span class="acronym">allow-none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-tab-get-desktop-name"></a><h3>bamf_tab_get_desktop_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       bamf_tab_get_desktop_name           (<em class="parameter"><code><a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a> *self</code></em>);</pre>
+<p>
+Returns the desktop file for the tab.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>A <a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The tab desktop id or <code class="literal">NULL</code> if not set or available. Do not free the returned value, it belongs to <em class="parameter"><code>self</code></em>. <span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-tab-get-location"></a><h3>bamf_tab_get_location ()</h3>
+<pre class="programlisting">const <span class="returnvalue">gchar</span> *       bamf_tab_get_location               (<em class="parameter"><code><a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a> *self</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-tab-get-xid"></a><h3>bamf_tab_get_xid ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint64</span>             bamf_tab_get_xid                    (<em class="parameter"><code><a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a> *self</code></em>);</pre>
+<p>
+The desktop file for the tab.
+</p>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>A <a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The tab parent window XID id or 0 if not set or available.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="bamf-tab-get-is-foreground-tab"></a><h3>bamf_tab_get_is_foreground_tab ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            bamf_tab_get_is_foreground_tab      (<em class="parameter"><code><a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a> *self</code></em>);</pre>
+<div class="variablelist"><table border="0" class="variablelist">
+<colgroup>
+<col align="left" valign="top">
+<col>
+</colgroup>
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>A <a class="link" href="BamfTab.html" title="BamfTab"><span class="type">BamfTab</span></a>.</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+<code class="literal">TRUE</code> if the tab is the active one on parent window XID, <code class="literal">FALSE</code> otherwise.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1">
+<a name="BamfTab.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="BamfTab--desktop-id"></a><h3>The <code class="literal">"desktop-id"</code> property</h3>
+<pre class="programlisting">  "desktop-id"               <span class="type">gchar</span>*                : Read</pre>
+<p>The Desktop ID assosciated with the application hosted in the remote Tab.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfTab--is-foreground-tab"></a><h3>The <code class="literal">"is-foreground-tab"</code> property</h3>
+<pre class="programlisting">  "is-foreground-tab"        <span class="type">gboolean</span>              : Read</pre>
+<p>Whether the tab is the foreground tab in it's toplevel container.</p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfTab--location"></a><h3>The <code class="literal">"location"</code> property</h3>
+<pre class="programlisting">  "location"                 <span class="type">gchar</span>*                : Read</pre>
+<p>The Current location of the remote Tab.</p>
+<p>Default value: NULL</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="BamfTab--xid"></a><h3>The <code class="literal">"xid"</code> property</h3>
+<pre class="programlisting">  "xid"                      <span class="type">guint64</span>               : Read</pre>
+<p>XID for the toplevel window containing the remote Tab.</p>
+<p>Default value: 0</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.19</div>
+</body>
+</html>

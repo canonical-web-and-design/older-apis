@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CouchdbResponse</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Reference Manual for CouchDB GLib Bindings">
+<link rel="up" href="ch01.html" title="Core API">
+<link rel="prev" href="couchdb-glib-CouchdbQuery.html" title="CouchdbQuery">
+<link rel="next" href="CouchdbDatabase.html" title="CouchdbDatabase">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="couchdb-glib-CouchdbQuery.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Reference Manual for CouchDB GLib Bindings</th>
+<td><a accesskey="n" href="CouchdbDatabase.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="couchdb-glib-CouchdbResponse.html#couchdb-glib-CouchdbResponse.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="couchdb-glib-CouchdbResponse.html#couchdb-glib-CouchdbResponse.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="couchdb-glib-CouchdbResponse"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="couchdb-glib-CouchdbResponse.top_of_page"></a>CouchdbResponse</span></h2>
+<p>CouchdbResponse</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="couchdb-glib-CouchdbResponse.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse">CouchdbResponse</a>;
+                    <a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponseClass" title="CouchdbResponseClass">CouchdbResponseClass</a>;
+<a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="returnvalue">CouchdbResponse</span></a> *   <a class="link" href="couchdb-glib-CouchdbResponse.html#couchdb-response-new" title="couchdb_response_new ()">couchdb_response_new</a>                (<em class="parameter"><code><span class="type">void</span></code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbResponse.html#couchdb-response-get-etag" title="couchdb_response_get_etag ()">couchdb_response_get_etag</a>           (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> *self</code></em>);
+<span class="returnvalue">guint</span>               <a class="link" href="couchdb-glib-CouchdbResponse.html#couchdb-response-get-status-code" title="couchdb_response_get_status_code ()">couchdb_response_get_status_code</a>    (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> *self</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="couchdb-glib-CouchdbResponse.html#couchdb-response-get-content-type" title="couchdb_response_get_content_type ()">couchdb_response_get_content_type</a>   (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> *self</code></em>);
+<span class="returnvalue">gsize</span>               <a class="link" href="couchdb-glib-CouchdbResponse.html#couchdb-response-get-content-length" title="couchdb_response_get_content_length ()">couchdb_response_get_content_length</a> (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> *self</code></em>);
+<span class="returnvalue">JsonObject</span> *        <a class="link" href="couchdb-glib-CouchdbResponse.html#couchdb-response-get-json-object" title="couchdb_response_get_json_object ()">couchdb_response_get_json_object</a>    (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> *self</code></em>);
+<span class="returnvalue">GList</span> *             <a class="link" href="couchdb-glib-CouchdbResponse.html#couchdb-response-get-rows" title="couchdb_response_get_rows ()">couchdb_response_get_rows</a>           (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> *self</code></em>);
+                    <a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponsePrivate" title="CouchdbResponsePrivate">CouchdbResponsePrivate</a>;
+</pre>
+</div>
+<div class="refsect1">
+<a name="couchdb-glib-CouchdbResponse.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="couchdb-glib-CouchdbResponse.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="CouchdbResponse"></a><h3>CouchdbResponse</h3>
+<pre class="programlisting">typedef struct {
+	GObject parent;
+	CouchdbResponsePrivate *priv;
+} CouchdbResponse;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CouchdbResponseClass"></a><h3>CouchdbResponseClass</h3>
+<pre class="programlisting">typedef struct {
+	GObjectClass parent_class;
+} CouchdbResponseClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-response-new"></a><h3>couchdb_response_new ()</h3>
+<pre class="programlisting"><a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="returnvalue">CouchdbResponse</span></a> *   couchdb_response_new                (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-response-get-etag"></a><h3>couchdb_response_get_etag ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_response_get_etag           (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> *self</code></em>);</pre>
+<p>
+Returns the value of ETag header from the response. This header
+is set to the current revision of the document requested.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <em class="parameter"><code>string</code></em> containing the ETag header or <code class="literal">NULL</code>
+if there has been no ETag in response headers.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-response-get-status-code"></a><h3>couchdb_response_get_status_code ()</h3>
+<pre class="programlisting"><span class="returnvalue">guint</span>               couchdb_response_get_status_code    (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> *self</code></em>);</pre>
+<p>
+Returns the response status code
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>status code of the response</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-response-get-content-type"></a><h3>couchdb_response_get_content_type ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_response_get_content_type   (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> *self</code></em>);</pre>
+<p>
+Returns the string containing content type of the response.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Content-Type of the response or <code class="literal">NULL</code> if the header
+wasn't set</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-response-get-content-length"></a><h3>couchdb_response_get_content_length ()</h3>
+<pre class="programlisting"><span class="returnvalue">gsize</span>               couchdb_response_get_content_length (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> *self</code></em>);</pre>
+<p>
+Returns content length of the CouchDB response.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>content length or 0 if response doesn't contain
+any body.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-response-get-json-object"></a><h3>couchdb_response_get_json_object ()</h3>
+<pre class="programlisting"><span class="returnvalue">JsonObject</span> *        couchdb_response_get_json_object    (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> *self</code></em>);</pre>
+<p>
+Returns a <span class="type">JsonObject</span> containing the response from CouchDB server.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <span class="type">JsonObject</span> containing response from
+the server. Object is owned by <a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> and should not be
+freed. <span class="annotation">[<a href="http://foldoc.org/transfer%20none"><span class="acronym">transfer none</span></a>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-response-get-rows"></a><h3>couchdb_response_get_rows ()</h3>
+<pre class="programlisting"><span class="returnvalue">GList</span> *             couchdb_response_get_rows           (<em class="parameter"><code><a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> *self</code></em>);</pre>
+<p>
+Returns a list of <span class="type">JsonObject</span> rows returned by the CouchDB server.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>self</code></em> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <span class="type">GList</span>
+of <span class="type">JsonObject</span> objects. Returned objects are owned by <a class="link" href="couchdb-glib-CouchdbResponse.html#CouchdbResponse" title="CouchdbResponse"><span class="type">CouchdbResponse</span></a>,
+<span class="type">GList</span> should be freed by caller when no longer needed. <span class="annotation">[<a href="http://foldoc.org/element-type"><span class="acronym">element-type</span></a> Json.Object][<a href="http://foldoc.org/transfer%20container"><span class="acronym">transfer container</span></a>]</span>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CouchdbResponsePrivate"></a><h3>CouchdbResponsePrivate</h3>
+<pre class="programlisting">typedef struct _CouchdbResponsePrivate CouchdbResponsePrivate;</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

@@ -1,0 +1,638 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>couchdb-struct-field</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Reference Manual for CouchDB GLib Bindings">
+<link rel="up" href="ch01.html" title="Core API">
+<link rel="prev" href="couchdb-glib-CouchdbArrayField.html" title="couchdb-array-field">
+<link rel="next" href="ch02.html" title="Desktopcouch API">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="couchdb-glib-CouchdbArrayField.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Reference Manual for CouchDB GLib Bindings</th>
+<td><a accesskey="n" href="ch02.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="CouchdbStructField.html#CouchdbStructField.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="CouchdbStructField.html#CouchdbStructField.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="CouchdbStructField"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="CouchdbStructField.top_of_page"></a>couchdb-struct-field</span></h2>
+<p>couchdb-struct-field</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="CouchdbStructField.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="CouchdbStructField.html#CouchdbStructFieldClass" title="CouchdbStructFieldClass">CouchdbStructFieldClass</a>;
+<a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * <a class="link" href="CouchdbStructField.html#couchdb-struct-field-new" title="couchdb_struct_field_new ()">couchdb_struct_field_new</a>           (<em class="parameter"><code><span class="type">void</span></code></em>);
+<a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * <a class="link" href="CouchdbStructField.html#couchdb-struct-field-new-from-string" title="couchdb_struct_field_new_from_string ()">couchdb_struct_field_new_from_string</a>
+                                                        (<em class="parameter"><code>const <span class="type">char</span> *str</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="CouchdbStructField.html#couchdb-struct-field-has-field" title="couchdb_struct_field_has_field ()">couchdb_struct_field_has_field</a>      (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbStructField.html#couchdb-struct-field-remove-field" title="couchdb_struct_field_remove_field ()">couchdb_struct_field_remove_field</a>   (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="CouchdbStructField.html#couchdb-struct-field-get-field-names" title="couchdb_struct_field_get_field_names ()">couchdb_struct_field_get_field_names</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">GType</span>               <a class="link" href="CouchdbStructField.html#couchdb-struct-field-get-field-type" title="couchdb_struct_field_get_field_type ()">couchdb_struct_field_get_field_type</a> (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);
+<span class="returnvalue">CouchdbArrayField</span> * <a class="link" href="CouchdbStructField.html#couchdb-struct-field-get-array-field" title="couchdb_struct_field_get_array_field ()">couchdb_struct_field_get_array_field</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbStructField.html#couchdb-struct-field-set-array-field" title="couchdb_struct_field_set_array_field ()">couchdb_struct_field_set_array_field</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><span class="type">CouchdbArrayField</span> *value</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="CouchdbStructField.html#couchdb-struct-field-get-boolean-field" title="couchdb_struct_field_get_boolean_field ()">couchdb_struct_field_get_boolean_field</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbStructField.html#couchdb-struct-field-set-boolean-field" title="couchdb_struct_field_set_boolean_field ()">couchdb_struct_field_set_boolean_field</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> value</code></em>);
+<span class="returnvalue">gdouble</span>             <a class="link" href="CouchdbStructField.html#couchdb-struct-field-get-double-field" title="couchdb_struct_field_get_double_field ()">couchdb_struct_field_get_double_field</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbStructField.html#couchdb-struct-field-set-double-field" title="couchdb_struct_field_set_double_field ()">couchdb_struct_field_set_double_field</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><span class="type">gdouble</span> value</code></em>);
+<span class="returnvalue">gint</span>                <a class="link" href="CouchdbStructField.html#couchdb-struct-field-get-int-field" title="couchdb_struct_field_get_int_field ()">couchdb_struct_field_get_int_field</a>  (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbStructField.html#couchdb-struct-field-set-int-field" title="couchdb_struct_field_set_int_field ()">couchdb_struct_field_set_int_field</a>  (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> value</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="CouchdbStructField.html#couchdb-struct-field-get-string-field" title="couchdb_struct_field_get_string_field ()">couchdb_struct_field_get_string_field</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbStructField.html#couchdb-struct-field-set-string-field" title="couchdb_struct_field_set_string_field ()">couchdb_struct_field_set_string_field</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *value</code></em>);
+<a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * <a class="link" href="CouchdbStructField.html#couchdb-struct-field-get-struct-field" title="couchdb_struct_field_get_struct_field ()">couchdb_struct_field_get_struct_field</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbStructField.html#couchdb-struct-field-set-struct-field" title="couchdb_struct_field_set_struct_field ()">couchdb_struct_field_set_struct_field</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *value</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="CouchdbStructField.html#couchdb-struct-field-get-uuid" title="couchdb_struct_field_get_uuid ()">couchdb_struct_field_get_uuid</a>       (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbStructField.html#couchdb-struct-field-set-uuid" title="couchdb_struct_field_set_uuid ()">couchdb_struct_field_set_uuid</a>       (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *uuid</code></em>);
+<span class="returnvalue">char</span> *              <a class="link" href="CouchdbStructField.html#couchdb-struct-field-to-string" title="couchdb_struct_field_to_string ()">couchdb_struct_field_to_string</a>      (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="CouchdbStructField.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="CouchdbStructField.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="CouchdbStructFieldClass"></a><h3>CouchdbStructFieldClass</h3>
+<pre class="programlisting">typedef struct {
+	GObjectClass parent_class;
+} CouchdbStructFieldClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-new"></a><h3>couchdb_struct_field_new ()</h3>
+<pre class="programlisting"><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * couchdb_struct_field_new           (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
+<p>
+Create a new struct field object, to be added to a <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> or to
+another <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a>.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly-created <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object.</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-new-from-string"></a><h3>couchdb_struct_field_new_from_string ()</h3>
+<pre class="programlisting"><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * couchdb_struct_field_new_from_string
+                                                        (<em class="parameter"><code>const <span class="type">char</span> *str</code></em>);</pre>
+<p>
+Create a new struct field object, filling it with values taken from a string
+representing a JSON object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>str</code></em> :</span></p></td>
+<td>A JSON string</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A newly-created <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-has-field"></a><h3>couchdb_struct_field_has_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            couchdb_struct_field_has_field      (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);</pre>
+<p>
+Check whether a given field exists in the given <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field to check</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if the field exists, FALSE if not.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-remove-field"></a><h3>couchdb_struct_field_remove_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_struct_field_remove_field   (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);</pre>
+<p>
+Remove a field from the given <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field to remove</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-get-field-names"></a><h3>couchdb_struct_field_get_field_names ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            couchdb_struct_field_get_field_names
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+Get the list of field names the given <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object contains.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A list of strings containing the names of all the fields contained
+in the given <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object. When no longer needed, the list should
+be freed by calling <span class="type">g_slist_free</span>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-get-field-type"></a><h3>couchdb_struct_field_get_field_type ()</h3>
+<pre class="programlisting"><span class="returnvalue">GType</span>               couchdb_struct_field_get_field_type (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);</pre>
+<p>
+Get the value type of the given <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a>'s field.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field to get type</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>Type of the field.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-get-array-field"></a><h3>couchdb_struct_field_get_array_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">CouchdbArrayField</span> * couchdb_struct_field_get_array_field
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);</pre>
+<p>
+Retrieve the value of an array field from the given struct field.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The value of the given field.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-set-array-field"></a><h3>couchdb_struct_field_set_array_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_struct_field_set_array_field
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><span class="type">CouchdbArrayField</span> *value</code></em>);</pre>
+<p>
+Set the value of an array field in the given struct field.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-get-boolean-field"></a><h3>couchdb_struct_field_get_boolean_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            couchdb_struct_field_get_boolean_field
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);</pre>
+<p>
+Retrieve the value of a boolean field from the given struct field.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The value of the given field.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-set-boolean-field"></a><h3>couchdb_struct_field_set_boolean_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_struct_field_set_boolean_field
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><span class="type">gboolean</span> value</code></em>);</pre>
+<p>
+Set the value of a boolean field in the given struct field.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-get-double-field"></a><h3>couchdb_struct_field_get_double_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">gdouble</span>             couchdb_struct_field_get_double_field
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);</pre>
+<p>
+Retrieve the value of a decimal number field from the given struct field.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The value of the given field.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-set-double-field"></a><h3>couchdb_struct_field_set_double_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_struct_field_set_double_field
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><span class="type">gdouble</span> value</code></em>);</pre>
+<p>
+Set the value of a decimal number field in the given struct field.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-get-int-field"></a><h3>couchdb_struct_field_get_int_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">gint</span>                couchdb_struct_field_get_int_field  (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);</pre>
+<p>
+Retrieve the value of an integer field from the given struct field.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The value of the given field.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-set-int-field"></a><h3>couchdb_struct_field_set_int_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_struct_field_set_int_field  (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><span class="type">gint</span> value</code></em>);</pre>
+<p>
+Set the value of an integer field in the given struct field.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-get-string-field"></a><h3>couchdb_struct_field_get_string_field ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_struct_field_get_string_field
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);</pre>
+<p>
+Retrieve the value of a string field from the given struct field.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The value of the given field.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-set-string-field"></a><h3>couchdb_struct_field_set_string_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_struct_field_set_string_field
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *value</code></em>);</pre>
+<p>
+Set the value of a string field in the given struct field.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-get-struct-field"></a><h3>couchdb_struct_field_get_struct_field ()</h3>
+<pre class="programlisting"><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="returnvalue">CouchdbStructField</span></a> * couchdb_struct_field_get_struct_field
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>);</pre>
+<p>
+Retrieve the value of a struct field from the given struct field.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The value of the given field.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-set-struct-field"></a><h3>couchdb_struct_field_set_struct_field ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_struct_field_set_struct_field
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *field</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *value</code></em>);</pre>
+<p>
+Set the value of a string field in the given struct field.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>field</code></em> :</span></p></td>
+<td>Name of the field</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-get-uuid"></a><h3>couchdb_struct_field_get_uuid ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_struct_field_get_uuid       (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+Retrieve the unique ID of the given struct field. Note that this is a convenience
+function to allow documents with a format similar to:
+</p>
+<p>
+"list": {
+       "unique-id-1": { "field": "value" },
+       "unique-id-2": { "field": "value" }
+}
+</p>
+<p>
+So, not all <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> objects would have a value for this, unless explicitly
+used by the applications storing the documents on the CouchDB database.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The unique ID of the given struct field.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-set-uuid"></a><h3>couchdb_struct_field_set_uuid ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_struct_field_set_uuid       (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *uuid</code></em>);</pre>
+<p>
+Set the unique ID for the given struct field. See the explanation for <a class="link" href="CouchdbStructField.html#couchdb-struct-field-get-uuid" title="couchdb_struct_field_get_uuid ()"><span class="type">couchdb_struct_field_get_uuid</span></a>
+for knowing when to use this function.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uuid</code></em> :</span></p></td>
+<td>Unique ID</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-struct-field-to-string"></a><h3>couchdb_struct_field_to_string ()</h3>
+<pre class="programlisting"><span class="returnvalue">char</span> *              couchdb_struct_field_to_string      (<em class="parameter"><code><a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> *sf</code></em>);</pre>
+<p>
+Convert a <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> to a JSON string.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sf</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A string representing the contents of the given <a class="link" href="CouchdbStructField.html" title="couchdb-struct-field"><span class="type">CouchdbStructField</span></a>
+object in JSON format.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

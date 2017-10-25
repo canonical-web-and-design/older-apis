@@ -1,0 +1,446 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>autopilot.testcase - Base class for all Autopilot Test Cases &mdash; Autopilot 1.4+14.04.20140213-0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/nature.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/otto.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/centertext.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.4+14.04.20140213-0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="top" title="Autopilot 1.4+14.04.20140213-0 documentation" href="../index.html" />
+    <link rel="up" title="Autopilot API Documentation" href="index.html" />
+    <link rel="next" title="Frequently Asked Questions" href="../faq/faq.html" />
+    <link rel="prev" title="autopilot.process - Process Control" href="process.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../faq/faq.html" title="Frequently Asked Questions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="process.html" title="autopilot.process - Process Control"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">Autopilot 1.4+14.04.20140213-0 documentation</a> &raquo;</li>
+          <li><a href="index.html" accesskey="U">Autopilot API Documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-autopilot.testcase">
+<span id="autopilot-testcase-base-class-for-all-autopilot-test-cases"></span><h1><tt class="docutils literal"><span class="pre">autopilot.testcase</span></tt> - Base class for all Autopilot Test Cases<a class="headerlink" href="testcase.html#module-autopilot.testcase" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="quick-start">
+<h2>Quick Start<a class="headerlink" href="testcase.html#quick-start" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="testcase.html#autopilot.testcase.AutopilotTestCase" title="autopilot.testcase.AutopilotTestCase"><tt class="xref py py-class docutils literal"><span class="pre">AutopilotTestCase</span></tt></a> is the main class test authors will be
+interacting with. Every autopilot test case should derive from this class.
+<a class="reference internal" href="testcase.html#autopilot.testcase.AutopilotTestCase" title="autopilot.testcase.AutopilotTestCase"><tt class="xref py py-class docutils literal"><span class="pre">AutopilotTestCase</span></tt></a> derives from <tt class="xref py py-class docutils literal"><span class="pre">testtools.TestCase</span></tt>, so test
+authors can use all the methods defined in that class as well.</p>
+<p><strong>Writing tests</strong></p>
+<p>Tests must be named: <tt class="docutils literal"><span class="pre">test_&lt;testname&gt;</span></tt>, where <em>&lt;testname&gt;</em> is the name of the
+test. Test runners (including autopilot itself) look for methods with this
+naming convention. It is recommended that you make your test names descriptive
+of what each test is testing. For example, possible test names include:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">test_ctrl_p_opens_print_dialog</span>
+<span class="n">test_dash_remembers_maximized_state</span>
+</pre></div>
+</div>
+<p><strong>Launching the Application Under Test</strong></p>
+<p>If you are writing a test for an application, you need to use the
+<a class="reference internal" href="testcase.html#autopilot.testcase.AutopilotTestCase.launch_test_application" title="autopilot.testcase.AutopilotTestCase.launch_test_application"><tt class="xref py py-meth docutils literal"><span class="pre">launch_test_application</span></tt></a> method. This will launch the
+application, enable introspection, and return a proxy object representing the
+root of the application introspection tree.</p>
+<dl class="class">
+<dt id="autopilot.testcase.AutopilotTestCase">
+<em class="property">class </em><tt class="descclassname">autopilot.testcase.</tt><tt class="descname">AutopilotTestCase</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/autopilot/testcase.html#AutopilotTestCase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="testcase.html#autopilot.testcase.AutopilotTestCase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper around testtools.TestCase that adds significant functionality.</p>
+<p>This class should be the base class for all autopilot test case classes.
+Not using this class as the base class disables several important
+convenience methods, and also prevents the use of the failed-test
+recording tools.</p>
+<dl class="method">
+<dt id="autopilot.testcase.AutopilotTestCase.launch_test_application">
+<tt class="descname">launch_test_application</tt><big>(</big><em>application</em>, <em>*arguments</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/autopilot/testcase.html#AutopilotTestCase.launch_test_application"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="testcase.html#autopilot.testcase.AutopilotTestCase.launch_test_application" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch <tt class="docutils literal"><span class="pre">application</span></tt> and return a proxy object for the
+application.</p>
+<p>Use this method to launch an application and start testing it. The
+positional arguments are used as arguments to the application to lanch.
+Keyword arguments are used to control the manner in which the
+application is launched.</p>
+<p>This method is designed to be flexible enough to launch all supported
+types of applications. Autopilot can automatically determine how to
+enable introspection support for dynamically linked binary
+applications. For example, to launch a binary Gtk application, a test
+might start with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">app_proxy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">launch_test_application</span><span class="p">(</span><span class="s">&#39;gedit&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Applications can be given command line arguments by supplying
+positional arguments to this method. For example, if we want to launch
+<tt class="docutils literal"><span class="pre">gedit</span></tt> with a certain document loaded, we might do this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">app_proxy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">launch_test_application</span><span class="p">(</span>
+    <span class="s">&#39;gedit&#39;</span><span class="p">,</span> <span class="s">&#39;/tmp/test-document.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>... a Qt5 Qml application is launched in a similar fashion:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">app_proxy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">launch_test_application</span><span class="p">(</span>
+    <span class="s">&#39;qmlscene&#39;</span><span class="p">,</span> <span class="s">&#39;my_scene.qml&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you wish to launch an application that is not a dynamically linked
+binary, you must specify the application type. For example, a Qt4
+python application might be launched like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">app_proxy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">launch_test_application</span><span class="p">(</span>
+    <span class="s">&#39;my_qt_app.py&#39;</span><span class="p">,</span> <span class="n">app_type</span><span class="o">=</span><span class="s">&#39;qt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Similarly, a python/Gtk application is launched like so:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">app_proxy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">launch_test_application</span><span class="p">(</span>
+    <span class="s">&#39;my_gtk_app.py&#39;</span><span class="p">,</span> <span class="n">app_type</span><span class="o">=</span><span class="s">&#39;gtk&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>application</strong> &#8211; <p>The application to launch. The application can be
+specified as:</p>
+<blockquote>
+<div><ul>
+<li>A full, absolute path to an executable file.
+(<tt class="docutils literal"><span class="pre">/usr/bin/gedit</span></tt>)</li>
+<li>A relative path to an executable file.
+(<tt class="docutils literal"><span class="pre">./build/my_app</span></tt>)</li>
+<li>An app name, which will be searched for in $PATH (<tt class="docutils literal"><span class="pre">my_app</span></tt>)</li>
+</ul>
+</div></blockquote>
+</li>
+<li><strong>app_type</strong> &#8211; If set, provides a hint to autopilot as to which
+kind of introspection to enable. This is needed when the
+application you wish to launch is <em>not</em> a dynamically linked
+binary. Valid values are &#8216;gtk&#8217; or &#8216;qt&#8217;. These strings are case
+insensitive.</li>
+<li><strong>launch_dir</strong> &#8211; If set to a directory that exists the process
+will be launched from that directory.</li>
+<li><strong>capture_output</strong> &#8211; If set to True (the default), the process
+output will be captured and attached to the test as test detail.</li>
+<li><strong>emulator_base</strong> &#8211; If set, specifies the base class to be used for
+all emulators for this loaded application.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><strong>ValueError</strong> if unknown keyword arguments are passed.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">A proxy object that represents the application. Introspection
+data is retrievable via this object.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.testcase.AutopilotTestCase.launch_click_package">
+<tt class="descname">launch_click_package</tt><big>(</big><em>package_id</em>, <em>app_name=None</em>, <em>app_uris=''</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/autopilot/testcase.html#AutopilotTestCase.launch_click_package"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="testcase.html#autopilot.testcase.AutopilotTestCase.launch_click_package" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launch a click package application with introspection enabled.</p>
+<p>This method takes care of launching a click package with introspection
+exabled. You probably want to use this method if your application is
+packaged in a click application, or is started via upstart.</p>
+<p>Usage is similar to the
+<a class="reference internal" href="testcase.html#autopilot.testcase.AutopilotTestCase.launch_test_application" title="autopilot.testcase.AutopilotTestCase.launch_test_application"><tt class="xref py py-meth docutils literal"><span class="pre">AutopilotTestCase.launch_test_application</span></tt></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">app_proxy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">launch_click_package</span><span class="p">(</span>
+    <span class="s">&quot;com.ubuntu.dropping-letters&quot;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>package_id</strong> &#8211; The Click package name you want to launch. For
+example: <tt class="docutils literal"><span class="pre">com.ubuntu.dropping-letters</span></tt></li>
+<li><strong>app_name</strong> &#8211; Currently, only one application can be packaged in a
+click package, and this parameter can be left at None. If
+specified, it should be the application name you wish to launch.</li>
+<li><strong>app_uris</strong> &#8211; Parameters used to launch the click package. This
+parameter will be left empty if not used.</li>
+<li><strong>emulator_base</strong> &#8211; If set, specifies the base class to be used for
+all emulators for this loaded application.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>RuntimeError</strong> &#8211; If the specified package_id cannot be found in
+the click package manifest.</li>
+<li><strong>RuntimeError</strong> &#8211; If the specified app_name cannot be found within
+the specified click package.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.testcase.AutopilotTestCase.patch_environment">
+<tt class="descname">patch_environment</tt><big>(</big><em>key</em>, <em>value</em><big>)</big><a class="reference internal" href="../_modules/autopilot/testcase.html#AutopilotTestCase.patch_environment"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="testcase.html#autopilot.testcase.AutopilotTestCase.patch_environment" title="Permalink to this definition">¶</a></dt>
+<dd><p>Patch the process environment, setting <em>key</em> with value <em>value</em>.</p>
+<p>This patches os.environ for the duration of the test only. After
+calling this method, the following should be True:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">==</span> <span class="n">value</span>
+</pre></div>
+</div>
+<p>After the test, the patch will be undone (including deleting the key if
+if didn&#8217;t exist before this method was called).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Be aware that patching the environment in this way only
+affects the current autopilot process, and any processes spawned by
+autopilot. If you are planing on starting an application from within
+autopilot and you want this new application to read the patched
+environment variable, you must patch the environment <em>before</em>
+launching the new process.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>key</strong> (<em>string</em>) &#8211; The name of the key you wish to set. If the key
+does not already exist in the process environment it will be created
+(and then deleted when the test ends).</li>
+<li><strong>value</strong> (<em>string</em>) &#8211; The value you wish to set.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.testcase.AutopilotTestCase.assertVisibleWindowStack">
+<tt class="descname">assertVisibleWindowStack</tt><big>(</big><em>stack_start</em><big>)</big><a class="reference internal" href="../_modules/autopilot/testcase.html#AutopilotTestCase.assertVisibleWindowStack"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="testcase.html#autopilot.testcase.AutopilotTestCase.assertVisibleWindowStack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check that the visible window stack starts with the windows passed
+in.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Minimised windows are skipped.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>stack_start</strong> &#8211; An iterable of
+<a class="reference internal" href="process.html#autopilot.process.Window" title="autopilot.process.Window"><tt class="xref py py-class docutils literal"><span class="pre">Window</span></tt></a> instances.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><strong>AssertionError</strong> if the top of the window stack does not
+match the contents of the stack_start parameter.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.testcase.AutopilotTestCase.assertProperty">
+<tt class="descname">assertProperty</tt><big>(</big><em>obj</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/autopilot/testcase.html#AutopilotTestCase.assertProperty"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="testcase.html#autopilot.testcase.AutopilotTestCase.assertProperty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assert that <em>obj</em> has properties equal to the key/value pairs in
+kwargs.</p>
+<p>This method is intended to be used on objects whose attributes do not
+have the <tt class="xref py py-meth docutils literal"><span class="pre">wait_for</span></tt> method (i.e.- objects that do not come from
+the autopilot DBus interface).</p>
+<p>For example, from within a test, to assert certain properties on a
+<cite>~autopilot.process.Window</cite> instance:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">assertProperty</span><span class="p">(</span><span class="n">my_window</span><span class="p">,</span> <span class="n">is_maximized</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">assertProperties is a synonym for this method.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> &#8211; The object to test.</li>
+<li><strong>kwargs</strong> &#8211; One or more keyword arguments to match against the
+attributes of the <em>obj</em> parameter.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><strong>ValueError</strong> if no keyword arguments were given.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><strong>ValueError</strong> if a named attribute is a callable object.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>AssertionError</strong> if any of the attribute/value pairs in
+kwargs do not match the attributes on the object passed in.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.testcase.AutopilotTestCase.assertProperties">
+<tt class="descname">assertProperties</tt><big>(</big><em>obj</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="testcase.html#autopilot.testcase.AutopilotTestCase.assertProperties" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assert that <em>obj</em> has properties equal to the key/value pairs in
+kwargs.</p>
+<p>This method is intended to be used on objects whose attributes do not
+have the <tt class="xref py py-meth docutils literal"><span class="pre">wait_for</span></tt> method (i.e.- objects that do not come from
+the autopilot DBus interface).</p>
+<p>For example, from within a test, to assert certain properties on a
+<cite>~autopilot.process.Window</cite> instance:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="bp">self</span><span class="o">.</span><span class="n">assertProperty</span><span class="p">(</span><span class="n">my_window</span><span class="p">,</span> <span class="n">is_maximized</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">assertProperties is a synonym for this method.</p>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>obj</strong> &#8211; The object to test.</li>
+<li><strong>kwargs</strong> &#8211; One or more keyword arguments to match against the
+attributes of the <em>obj</em> parameter.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><strong>ValueError</strong> if no keyword arguments were given.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><strong>ValueError</strong> if a named attribute is a callable object.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><strong>AssertionError</strong> if any of the attribute/value pairs in
+kwargs do not match the attributes on the object passed in.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="autopilot.testcase.AutopilotTestCase.pick_app_launcher">
+<tt class="descname">pick_app_launcher</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="reference internal" href="../_modules/autopilot/testcase.html#AutopilotTestCase.pick_app_launcher"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="testcase.html#autopilot.testcase.AutopilotTestCase.pick_app_launcher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given an application path, return an object suitable for launching
+the application.</p>
+<p>This function attempts to guess what kind of application you are
+launching. If, for some reason the default implementation returns the
+wrong launcher, test authors may override this method to provide their
+own implemetnation.</p>
+<p>The default implementation calls
+<tt class="xref py py-func docutils literal"><span class="pre">autopilot.application.get_application_launcher_wrapper</span></tt></p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/otto-64.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="testcase.html#"><tt class="docutils literal"><span class="pre">autopilot.testcase</span></tt> - Base class for all Autopilot Test Cases</a><ul>
+<li><a class="reference internal" href="testcase.html#quick-start">Quick Start</a></li>
+</ul>
+</li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="https://developer.ubuntu.com/api/devel/ubuntu-14.04/autopilot/search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="process.html"
+                        title="previous chapter"><tt class="docutils literal"><span class="pre">autopilot.process</span></tt> - Process Control</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../faq/faq.html"
+                        title="next chapter">Frequently Asked Questions</a></p>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../faq/faq.html" title="Frequently Asked Questions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="process.html" title="autopilot.process - Process Control"
+             >previous</a> |</li>
+        <li><a href="../index.html">Autopilot 1.4+14.04.20140213-0 documentation</a> &raquo;</li>
+          <li><a href="index.html" >Autopilot API Documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      <div class=center_text>
+        <a href="../faq/contribute.html">Learn how you can contribute!</a> / <a href="https://bugs.launchpad.net/autopilot/+filebug">File a bug</a>
+     <br/>
+      </div>
+        &copy; Copyright 2012-2013, Canonical.
+    </div>
+
+
+  </body>
+</html>

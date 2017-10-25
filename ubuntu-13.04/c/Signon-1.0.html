@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="C">
+    
+    <title>Signon-1.0 C API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>Signon-1.0 C API Documentation</h1>
+
+<div class="class-normal">
+<a href="Signon-1.0.html#Signon.AuthService" class="class-anchor">⚓</a><h2 class="class-normal" id="Signon.AuthService">Class: SignonAuthService</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+Opaque struct. Use the accessor functions below.</p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Signon-1.0.html#Signon.AuthService">SignonAuthService</a>*</span><span class="method-name">signon_auth_service_new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">signon_auth_service_query_mechanisms</span><span class="method-parameters">(SignonAuthService *self, <span class="type-basetype type ">gchar</span> *method, <a class="link-Callback type " href="Signon-1.0.html#Signon.QueryMechanismCb">SignonQueryMechanismCb</a> cb, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">signon_auth_service_query_methods</span><span class="method-parameters">(SignonAuthService *self, <a class="link-Callback type " href="Signon-1.0.html#Signon.QueryMethodsCb">SignonQueryMethodsCb</a> cb, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Signon-1.0.html#Signon.AuthSession" class="class-anchor">⚓</a><h2 class="class-normal" id="Signon.AuthSession">Class: SignonAuthSession</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+Opaque struct. Use the accessor functions below.</p>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"state-changed"</span><span class="signal-parameters">(SignonAuthSession *auth_session, gint state, gchar* message)</span></p>
+<p class="signal-doc">
+Emitted when the state of the #SignonAuthSession changes.</p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Signon-1.0.html#Signon.AuthSession">SignonAuthSession</a>*</span><span class="method-name">signon_auth_session_new</span><span class="method-parameters">(<a class="link-Type type " href="Signon-1.0.html#gint">gint</a> id, <a class="link-Type type " href="Signon-1.0.html#utf8">const gchar</a> *method_name)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">signon_auth_session_cancel</span><span class="method-parameters">(SignonAuthSession *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">signon_auth_session_get_method</span><span class="method-parameters">(SignonAuthSession *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">signon_auth_session_process</span><span class="method-parameters">(SignonAuthSession *self, <a class="link-Record type " href="GLib-2.0.html#GLib.HashTable">GHashTable</a> *session_data, <span class="type-basetype type ">gchar</span> *mechanism, <a class="link-Callback type " href="Signon-1.0.html#Signon.AuthSessionProcessCb">SignonAuthSessionProcessCb</a> cb, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">signon_auth_session_process_async</span><span class="method-parameters">(SignonAuthSession *self, <a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant</a> *session_data, <span class="type-basetype type ">gchar</span> *mechanism, <a class="link-Class type " href="Gio-2.0.html#Gio.Cancellable">GCancellable</a> *cancellable, <a class="link-Callback type " href="Gio-2.0.html#Gio.AsyncReadyCallback">GAsyncReadyCallback</a> callback, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Variant">GVariant*</a></span><span class="method-name">signon_auth_session_process_finish</span><span class="method-parameters">(SignonAuthSession *self, <a class="link-Interface type " href="Gio-2.0.html#Gio.AsyncResult">GAsyncResult</a> *res)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">signon_auth_session_query_available_mechanisms</span><span class="method-parameters">(SignonAuthSession *self, <span class="type-basetype type ">gchar</span> *wanted_mechanisms, <a class="link-Callback type " href="Signon-1.0.html#Signon.AuthSessionQueryAvailableMechanismsCb">SignonAuthSessionQueryAvailableMechanismsCb</a> cb, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="Signon-1.0.html#Signon.Identity" class="class-anchor">⚓</a><h2 class="class-normal" id="Signon.Identity">Class: SignonIdentity</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+Opaque struct. Use the accessor functions below.</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">guint</span></span><span class="property-name">"id"</span><span class="property-access">read/write</span></p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"signout"</span><span class="signal-parameters">(SignonIdentity *identity)</span></p>
+<p class="signal-doc">
+Emitted when the identity was signed out.</p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Signon-1.0.html#Signon.Identity">SignonIdentity</a>*</span><span class="method-name">signon_identity_new</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Signon-1.0.html#Signon.Identity">SignonIdentity</a>*</span><span class="method-name">signon_identity_new_from_db</span><span class="method-parameters">(<a class="link-Type type " href="Signon-1.0.html#guint32">guint32</a> id)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">signon_identity_add_reference</span><span class="method-parameters">(SignonIdentity *self, <span class="type-basetype type ">gchar</span> *reference, <span class="type ">SignonIdentityReferenceAddedCb</span> cb, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Signon-1.0.html#Signon.AuthSession">SignonAuthSession*</a></span><span class="method-name">signon_identity_create_session</span><span class="method-parameters">(SignonIdentity *self, <span class="type-basetype type ">gchar</span> *method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Record type " href="GLib-2.0.html#GLib.Error">GError*</a></span><span class="method-name">signon_identity_get_last_error</span><span class="method-parameters">(SignonIdentity *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">signon_identity_query_info</span><span class="method-parameters">(SignonIdentity *self, <a class="link-Callback type " href="Signon-1.0.html#Signon.IdentityInfoCb">SignonIdentityInfoCb</a> cb, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">signon_identity_remove</span><span class="method-parameters">(SignonIdentity *self, <span class="type ">SignonIdentityRemovedCb</span> cb, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">signon_identity_remove_reference</span><span class="method-parameters">(SignonIdentity *self, <span class="type-basetype type ">gchar</span> *reference, <span class="type ">SignonIdentityReferenceRemovedCb</span> cb, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">signon_identity_signout</span><span class="method-parameters">(SignonIdentity *self, <span class="type ">SignonIdentitySignedOutCb</span> cb, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">signon_identity_store_credentials_with_args</span><span class="method-parameters">(SignonIdentity *self, <span class="type-basetype type ">gchar</span> *username, <span class="type-basetype type ">gchar</span> *secret, <span class="type-basetype type ">gboolean</span> store_secret, <a class="link-Record type " href="GLib-2.0.html#GLib.HashTable">GHashTable</a> *methods, <span class="type-basetype type ">gchar</span> *caption, <span class="type-basetype type ">gchar</span> *realms, <span class="type-basetype type ">gchar</span> *access_control_list, <a class="link-BitField type " href="Signon-1.0.html#Signon.IdentityType">SignonIdentityType</a> type, <a class="link-Callback type " href="Signon-1.0.html#Signon.IdentityStoreCredentialsCb">SignonIdentityStoreCredentialsCb</a> cb, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">signon_identity_store_credentials_with_info</span><span class="method-parameters">(SignonIdentity *self, <a class="link-Record type " href="Signon-1.0.html#Signon.IdentityInfo">SignonIdentityInfo</a> *info, <a class="link-Callback type " href="Signon-1.0.html#Signon.IdentityStoreCredentialsCb">SignonIdentityStoreCredentialsCb</a> cb, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">signon_identity_verify_secret</span><span class="method-parameters">(SignonIdentity *self, <span class="type-basetype type ">gchar</span> *secret, <a class="link-Callback type " href="Signon-1.0.html#Signon.IdentityVerifyCb">SignonIdentityVerifyCb</a> cb, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+</div>
+</div>
+</body>
+</html>
+

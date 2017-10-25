@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="C">
+    
+    <title>AppIndicator3-0.1 C API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>AppIndicator3-0.1 C API Documentation</h1>
+
+<div class="class-normal">
+<a href="AppIndicator3-0.1.html#AppIndicator3.Indicator" class="class-anchor">⚓</a><h2 class="class-normal" id="AppIndicator3.Indicator">Class: AppIndicator</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class type " href="GObject-2.0.html#GObject.Object">GObject</a></p>
+<p>
+A application indicator represents the values that are needed to show a
+unique status in the panel for an application.  In general, applications
+should try to fit in the other indicators that are available on the
+panel before using this.  But, sometimes it is necissary.
+
+ Private fields</p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"category"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The type of indicator that this represents.  Please don't use 'Other'. 
+Defaults to 'ApplicationStatus'.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">guint</span></span><span class="property-name">"ordering-index"</span><span class="property-access">read/write</span></p>
+<p class="property-doc">
+The ordering index is an odd parameter, and if you think you don't need
+it you're probably right.  In general, the application indicator try
+to place the applications in a recreatable place taking into account
+which category they're in to try and group them.  But, there are some
+cases where you'd want to ensure indicators are next to each other.
+To do that you can override the generated ordering index and replace it
+with a new one.  Again, you probably don't want to be doing this, but
+in case you do, this is the way.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"label-guide"</span><span class="property-access">read/write</span></p>
+<p class="property-doc">
+An optional string to provide guidance to the panel on how big
+the #AppIndicator:label string could get.  If this is set correctly
+then the panel should never 'jiggle' as the string adjusts through
+out the range of options.  For instance, if you were providing a
+percentage like "54% thrust" in #AppIndicator:label you'd want to
+set this string to "100% thrust" to ensure space when Scotty can
+get you enough power.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"title"</span><span class="property-access">read/write</span></p>
+<p class="property-doc">
+Provides a way to refer to this application indicator in a human
+readable form.  This is used in the Unity desktop in the HUD as
+the first part of the menu entries to distinguish them from the
+focused application's entries.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"attention-icon-desc"</span><span class="property-access">read/write</span></p>
+<p class="property-doc">
+If the indicator sets it's status to %APP_INDICATOR_STATUS_ATTENTION
+then this textual description of the icon shown.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"icon-name"</span><span class="property-access">read/write</span></p>
+<p class="property-doc">
+The name of the regular icon that is shown for the indicator.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"icon-desc"</span><span class="property-access">read/write</span></p>
+<p class="property-doc">
+The description of the regular icon that is shown for the indicator.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"label"</span><span class="property-access">read/write</span></p>
+<p class="property-doc">
+A label that can be shown next to the string in the application
+indicator.  The label will not be shown unless there is an icon
+as well.  The label is useful for numerical and other frequently
+updated information.  In general, it shouldn't be shown unless a
+user requests it as it can take up a significant amount of space
+on the user's panel.  This may not be shown in all visualizations.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"status"</span><span class="property-access">read/write</span></p>
+<p class="property-doc">
+Whether the indicator is shown or requests attention. Defaults to
+'Passive'.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gboolean</span></span><span class="property-name">"connected"</span><span class="property-access"> read-only</span></p>
+<p class="property-doc">
+Pretty simple, %TRUE if we have a reasonable expectation of being 
+displayed through this object. You should hide your TrayIcon if so.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"icon-theme-path"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+An additional place to look for icon names that may be installed by the
+application.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type ">unknown_{http://wwwgtkorg/introspection/core/10}type</span></span><span class="property-name">"dbus-menu-server"</span><span class="property-access">read/write</span></p>
+<p class="property-doc">
+A way to get the internal dbusmenu server if it is available.
+This should only be used for testing.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"attention-icon-name"</span><span class="property-access">read/write</span></p>
+<p class="property-doc">
+If the indicator sets it's status to %APP_INDICATOR_STATUS_ATTENTION
+then this icon is shown.</p>
+</div>
+<div class="property">
+<p>
+<span class="property-type"><span class="type-basetype type ">gchar*</span></span><span class="property-name">"id"</span><span class="property-access">construct-only</span></p>
+<p class="property-doc">
+The ID for this indicator, which should be unique, but used consistently
+by this program and its indicator.</p>
+</div>
+</div>
+<div class="signals">
+<h4 class="signals">Signals</h4>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"new-status"</span><span class="signal-parameters">(AppIndicator *indicator, gchar* arg1)</span></p>
+<p class="signal-doc">
+Emitted when #AppIndicator:status is changed</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"new-icon-theme-path"</span><span class="signal-parameters">(AppIndicator *indicator, gchar* object)</span></p>
+<p class="signal-doc">
+Signaled when there is a new icon set for the
+object.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"scroll-event"</span><span class="signal-parameters">(AppIndicator *indicator, gint arg1, GdkScrollDirection arg2)</span></p>
+<p class="signal-doc">
+Signaled when the #AppIndicator receives a scroll event.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"connection-changed"</span><span class="signal-parameters">(AppIndicator *indicator, gboolean arg1)</span></p>
+<p class="signal-doc">
+Signaled when we connect to a watcher, or when it drops away.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"new-label"</span><span class="signal-parameters">(AppIndicator *indicator, gchar* object, gchar* p0)</span></p>
+<p class="signal-doc">
+Emitted when either #AppIndicator:label or #AppIndicator:label-guide are
+changed.</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"new-icon"</span><span class="signal-parameters">(AppIndicator *indicator)</span></p>
+<p class="signal-doc">
+when #AppIndicator:icon-name is changed</p>
+</div>
+<div class="signal">
+<p>
+<span class="signal-return-type">void</span><span class="signal-name">"new-attention-icon"</span><span class="signal-parameters">(AppIndicator *indicator)</span></p>
+<p class="signal-doc">
+Emitted when #AppIndicator:attention-icon-name is changed</p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="AppIndicator3-0.1.html#AppIndicator3.Indicator">AppIndicator</a>*</span><span class="method-name">app_indicator_new</span><span class="method-parameters">(<a class="link-Type type " href="AppIndicator3-0.1.html#utf8">const gchar</a> *id, <a class="link-Type type " href="AppIndicator3-0.1.html#utf8">const gchar</a> *icon_name, <a class="link-Type type " href="AppIndicator3-0.1.html#AppIndicator3.IndicatorCategory">AppIndicatorCategory</a> category)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="AppIndicator3-0.1.html#AppIndicator3.Indicator">AppIndicator</a>*</span><span class="method-name">app_indicator_new_with_path</span><span class="method-parameters">(<a class="link-Type type " href="AppIndicator3-0.1.html#utf8">const gchar</a> *id, <a class="link-Type type " href="AppIndicator3-0.1.html#utf8">const gchar</a> *icon_name, <a class="link-Type type " href="AppIndicator3-0.1.html#AppIndicator3.IndicatorCategory">AppIndicatorCategory</a> category, <a class="link-Type type " href="AppIndicator3-0.1.html#utf8">const gchar</a> *icon_theme_path)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_build_menu_from_desktop</span><span class="method-parameters">(AppIndicator *self, <span class="type-basetype type ">gchar</span> *desktop_file, <span class="type-basetype type ">gchar</span> *desktop_profile)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_connection_changed</span><span class="method-parameters">(AppIndicator *self, <span class="type-basetype type ">gboolean</span> connected, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gtk-3.0.html#Gtk.StatusIcon">GtkStatusIcon*</a></span><span class="method-name">app_indicator_fallback</span><span class="method-parameters">(AppIndicator *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">app_indicator_get_attention_icon</span><span class="method-parameters">(AppIndicator *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">app_indicator_get_attention_icon_desc</span><span class="method-parameters">(AppIndicator *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="AppIndicator3-0.1.html#AppIndicator3.IndicatorCategory">AppIndicatorCategory</a></span><span class="method-name">app_indicator_get_category</span><span class="method-parameters">(AppIndicator *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">app_indicator_get_icon</span><span class="method-parameters">(AppIndicator *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">app_indicator_get_icon_desc</span><span class="method-parameters">(AppIndicator *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">app_indicator_get_icon_theme_path</span><span class="method-parameters">(AppIndicator *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">app_indicator_get_id</span><span class="method-parameters">(AppIndicator *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">app_indicator_get_label</span><span class="method-parameters">(AppIndicator *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">app_indicator_get_label_guide</span><span class="method-parameters">(AppIndicator *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gtk-3.0.html#Gtk.Menu">GtkMenu*</a></span><span class="method-name">app_indicator_get_menu</span><span class="method-parameters">(AppIndicator *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">guint32</span></span><span class="method-name">app_indicator_get_ordering_index</span><span class="method-parameters">(AppIndicator *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Class type " href="Gtk-3.0.html#Gtk.Widget">GtkWidget*</a></span><span class="method-name">app_indicator_get_secondary_activate_target</span><span class="method-parameters">(AppIndicator *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="AppIndicator3-0.1.html#AppIndicator3.IndicatorStatus">AppIndicatorStatus</a></span><span class="method-name">app_indicator_get_status</span><span class="method-parameters">(AppIndicator *self)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">gchar*</span></span><span class="method-name">app_indicator_get_title</span><span class="method-parameters">(AppIndicator *self)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_new_attention_icon</span><span class="method-parameters">(AppIndicator *self, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_new_icon</span><span class="method-parameters">(AppIndicator *self, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_new_icon_theme_path</span><span class="method-parameters">(AppIndicator *self, <span class="type-basetype type ">gchar</span> *icon_theme_path, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_new_label</span><span class="method-parameters">(AppIndicator *self, <span class="type-basetype type ">gchar</span> *label, <span class="type-basetype type ">gchar</span> *guide, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_new_status</span><span class="method-parameters">(AppIndicator *self, <span class="type-basetype type ">gchar</span> *status, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_scroll_event</span><span class="method-parameters">(AppIndicator *self, <span class="type-basetype type ">gint</span> delta, <a class="link-Enumeration type " href="Gdk-3.0.html#Gdk.ScrollDirection">GdkScrollDirection</a> direction, <span class="type-basetype type ">gpointer</span> user_data)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_set_attention_icon</span><span class="method-parameters">(AppIndicator *self, <span class="type-basetype type ">gchar</span> *icon_name)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_set_attention_icon_full</span><span class="method-parameters">(AppIndicator *self, <span class="type-basetype type ">gchar</span> *icon_name, <span class="type-basetype type ">gchar</span> *icon_desc)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_set_icon</span><span class="method-parameters">(AppIndicator *self, <span class="type-basetype type ">gchar</span> *icon_name)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_set_icon_full</span><span class="method-parameters">(AppIndicator *self, <span class="type-basetype type ">gchar</span> *icon_name, <span class="type-basetype type ">gchar</span> *icon_desc)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_set_icon_theme_path</span><span class="method-parameters">(AppIndicator *self, <span class="type-basetype type ">gchar</span> *icon_theme_path)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_set_label</span><span class="method-parameters">(AppIndicator *self, <span class="type-basetype type ">gchar</span> *label, <span class="type-basetype type ">gchar</span> *guide)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_set_menu</span><span class="method-parameters">(AppIndicator *self, <a class="link-Class type " href="Gtk-3.0.html#Gtk.Menu">GtkMenu</a> *menu)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_set_ordering_index</span><span class="method-parameters">(AppIndicator *self, <span class="type-basetype type ">guint32</span> ordering_index)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_set_secondary_activate_target</span><span class="method-parameters">(AppIndicator *self, <a class="link-Class type " href="Gtk-3.0.html#Gtk.Widget">GtkWidget</a> *menuitem)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_set_status</span><span class="method-parameters">(AppIndicator *self, <a class="link-Enumeration type " href="AppIndicator3-0.1.html#AppIndicator3.IndicatorStatus">AppIndicatorStatus</a> status)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_set_title</span><span class="method-parameters">(AppIndicator *self, <span class="type-basetype type ">gchar</span> *title)</span></p>
+</div>
+<div class="method method-virtual">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name">app_indicator_unfallback</span><span class="method-parameters">(AppIndicator *self, <a class="link-Class type " href="Gtk-3.0.html#Gtk.StatusIcon">GtkStatusIcon</a> *status_icon)</span></p>
+</div>
+</div>
+</div>
+</body>
+</html>
+

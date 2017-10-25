@@ -1,0 +1,511 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>CouchdbDatabase</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.76.1">
+<link rel="home" href="index.html" title="Reference Manual for CouchDB GLib Bindings">
+<link rel="up" href="ch01.html" title="Core API">
+<link rel="prev" href="couchdb-glib-CouchdbResponse.html" title="CouchdbResponse">
+<link rel="next" href="couchdb-glib-couchdb-database-info.html" title="couchdb-database-info">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="couchdb-glib-CouchdbResponse.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Reference Manual for CouchDB GLib Bindings</th>
+<td><a accesskey="n" href="couchdb-glib-couchdb-database-info.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="CouchdbDatabase.html#CouchdbDatabase.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="CouchdbDatabase.html#CouchdbDatabase.description" class="shortcut">Description</a>
+                   | 
+                  <a href="CouchdbDatabase.html#CouchdbDatabase.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="CouchdbDatabase"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="CouchdbDatabase.top_of_page"></a>CouchdbDatabase</span></h2>
+<p>CouchdbDatabase</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="CouchdbDatabase.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="CouchdbSession.html#CouchdbDatabase-struct" title="CouchdbDatabase">CouchdbDatabase</a>;
+                    <a class="link" href="CouchdbDatabase.html#CouchdbDatabaseClass" title="CouchdbDatabaseClass">CouchdbDatabaseClass</a>;
+<a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="returnvalue">CouchdbDatabase</span></a> *   <a class="link" href="CouchdbDatabase.html#couchdb-database-new" title="couchdb_database_new ()">couchdb_database_new</a>                (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *dbname</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="CouchdbDatabase.html#couchdb-database-list-documents" title="couchdb_database_list_documents ()">couchdb_database_list_documents</a>     (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="CouchdbDatabase.html#couchdb-database-get-design-documents" title="couchdb_database_get_design_documents ()">couchdb_database_get_design_documents</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="CouchdbDatabase.html#couchdb-database-get-all-documents" title="couchdb_database_get_all_documents ()">couchdb_database_get_all_documents</a>  (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">GSList</span> *            <a class="link" href="CouchdbDatabase.html#couchdb-database-execute-view" title="couchdb_database_execute_view ()">couchdb_database_execute_view</a>       (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *design_doc</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *view_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbDatabase.html#couchdb-database-free-document-list" title="couchdb_database_free_document_list ()">couchdb_database_free_document_list</a> (<em class="parameter"><code><span class="type">GSList</span> *doclist</code></em>);
+<a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="returnvalue">CouchdbDocument</span></a> *   <a class="link" href="CouchdbDatabase.html#couchdb-database-get-document" title="couchdb_database_get_document ()">couchdb_database_get_document</a>       (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *docid</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="returnvalue">CouchdbDesignDocument</span></a> * <a class="link" href="CouchdbDatabase.html#couchdb-database-get-design-document" title="couchdb_database_get_design_document ()">couchdb_database_get_design_document</a>
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *docid</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="CouchdbDatabase.html#couchdb-database-put-document" title="couchdb_database_put_document ()">couchdb_database_put_document</a>       (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">gboolean</span>            <a class="link" href="CouchdbDatabase.html#couchdb-database-delete-document" title="couchdb_database_delete_document ()">couchdb_database_delete_document</a>    (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="CouchdbDatabase.html#couchdb-database-listen-for-changes" title="couchdb_database_listen_for_changes ()">couchdb_database_listen_for_changes</a> (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>);
+<a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="returnvalue">CouchdbSession</span></a> *    <a class="link" href="CouchdbDatabase.html#couchdb-database-get-session" title="couchdb_database_get_session ()">couchdb_database_get_session</a>        (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>);
+const <span class="returnvalue">char</span> *        <a class="link" href="CouchdbDatabase.html#couchdb-database-get-name" title="couchdb_database_get_name ()">couchdb_database_get_name</a>           (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>);
+                    <a class="link" href="CouchdbDatabase.html#CouchdbDatabasePrivate" title="CouchdbDatabasePrivate">CouchdbDatabasePrivate</a>;
+</pre>
+</div>
+<div class="refsect1">
+<a name="CouchdbDatabase.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GObject
+   +----CouchdbDatabase
+</pre>
+</div>
+<div class="refsect1">
+<a name="CouchdbDatabase.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="CouchdbDatabase.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="CouchdbDatabase-struct"></a><h3>CouchdbDatabase</h3>
+<pre class="programlisting">typedef struct _CouchdbDatabase CouchdbDatabase;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CouchdbDatabaseClass"></a><h3>CouchdbDatabaseClass</h3>
+<pre class="programlisting">typedef struct {
+	GObjectClass parent_class;
+
+	/* Signals */
+	void (* document_created) (CouchdbDatabase *database, CouchdbDocument *document);
+	void (* document_updated) (CouchdbDatabase *database, CouchdbDocument *document);
+	void (* document_deleted) (CouchdbDatabase *database, const char *docid);
+} CouchdbDatabaseClass;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-new"></a><h3>couchdb_database_new ()</h3>
+<pre class="programlisting"><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="returnvalue">CouchdbDatabase</span></a> *   couchdb_database_new                (<em class="parameter"><code><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> *session</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *dbname</code></em>);</pre>
+<p>
+Create a new <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> object, which is to be used for operations on specific
+databases on the underlying CouchDB instance.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>session</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>dbname</code></em> :</span></p></td>
+<td>Name of the database</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A new <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> object.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-list-documents"></a><h3>couchdb_database_list_documents ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            couchdb_database_list_documents     (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Retrieve the list of all documents from a database on a running CouchDB instance.
+For each document, a <span class="type">CouchdbDocumentInfo</span> object is returned on the list, which
+can then be used for retrieving specific information for each document.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>database</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Placeholder for error information</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a list of <span class="type">CouchdbDocumentInfo</span> objects, or NULL if there are none
+or there was an error (in which case the error argument will contain information
+about the error). Once no longer needed, the list should be freed by calling
+<a class="link" href="CouchdbDatabase.html#couchdb-database-free-document-list" title="couchdb_database_free_document_list ()"><span class="type">couchdb_database_free_document_list</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-get-design-documents"></a><h3>couchdb_database_get_design_documents ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            couchdb_database_get_design_documents
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Retrieve all design documents from the given database.
+</p>
+<p>
+Design documents are special documents (well, they are really normal documents in
+the CouchDB database, just with a special ID) that contain views' code, which are used
+to create queries on the database that are cached and so make access to the database
+much quicker.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>database</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Placeholder for error information</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A list of <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> objects, or NULL if there are none
+or there was an error (in which case the error argument will contain information
+about the error). Once no longer needed, the list should be freed by calling
+<a class="link" href="CouchdbDatabase.html#couchdb-database-free-document-list" title="couchdb_database_free_document_list ()"><span class="type">couchdb_database_free_document_list</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-get-all-documents"></a><h3>couchdb_database_get_all_documents ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            couchdb_database_get_all_documents  (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Retrieve all documents from a database on a running CouchDB instance. For
+each document found in the database, a <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object is returned
+on the list, which represents the document's contents as found on the
+underlying database.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>database</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Placeholder for error information</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a list of <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> objects, or NULL if there are none
+or there was an error (in which case the error argument will contain information
+about the error). Once no longer needed, the list should be freed by calling
+<a class="link" href="CouchdbDatabase.html#couchdb-database-free-document-list" title="couchdb_database_free_document_list ()"><span class="type">couchdb_database_free_document_list</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-execute-view"></a><h3>couchdb_database_execute_view ()</h3>
+<pre class="programlisting"><span class="returnvalue">GSList</span> *            couchdb_database_execute_view       (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *design_doc</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *view_name</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Run a view on the database to retrieve documents. For
+each document found in the database, a <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object is returned
+on the list, which represents the document's contents as found on the
+underlying database.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>database</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>design_doc</code></em> :</span></p></td>
+<td>Name of the design document where the view to execute is</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>view_name</code></em> :</span></p></td>
+<td>Name of the view to execute</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Placeholder for error information</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>a list of <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> objects, or NULL if there are none
+or there was an error (in which case the error argument will contain information
+about the error). Once no longer needed, the list should be freed by calling
+<a class="link" href="CouchdbDatabase.html#couchdb-database-free-document-list" title="couchdb_database_free_document_list ()"><span class="type">couchdb_database_free_document_list</span></a>.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-free-document-list"></a><h3>couchdb_database_free_document_list ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_database_free_document_list (<em class="parameter"><code><span class="type">GSList</span> *doclist</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-get-document"></a><h3>couchdb_database_get_document ()</h3>
+<pre class="programlisting"><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="returnvalue">CouchdbDocument</span></a> *   couchdb_database_get_document       (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *docid</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Retrieve the last revision of a document from the given database.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>database</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>docid</code></em> :</span></p></td>
+<td>Unique ID of the document to be retrieved</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Placeholder for error information</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object if successful, NULL otherwise, in
+which case, the error argument will contain information about the error.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-get-design-document"></a><h3>couchdb_database_get_design_document ()</h3>
+<pre class="programlisting"><a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="returnvalue">CouchdbDesignDocument</span></a> * couchdb_database_get_design_document
+                                                        (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>,
+                                                         <em class="parameter"><code>const <span class="type">char</span> *docid</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Retrieve a design document from the given database.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>database</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>docid</code></em> :</span></p></td>
+<td>ID of the design document</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Placeholder for error information</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a class="link" href="couchdb-glib-CouchdbDesignDocument.html#CouchdbDesignDocument" title="CouchdbDesignDocument"><span class="type">CouchdbDesignDocument</span></a> object if successful, NULL otherwise, in
+which case, the error argument will contain information about the error.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-put-document"></a><h3>couchdb_database_put_document ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            couchdb_database_put_document       (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Store a document on a CouchDB database.
+</p>
+<p>
+If it is a new document, and hence does not have a unique ID, a unique ID
+will be generated and stored on the <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object. Likewise,
+whether the document is new or just an update to an existing one, the
+<a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object passed to this function will be updated to contain
+the latest revision of the document, as returned by CouchDB (revision that
+can be retrieved by calling <a class="link" href="CouchdbDocument.html#couchdb-document-get-revision" title="couchdb_document_get_revision ()"><span class="type">couchdb_document_get_revision</span></a>).
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>database</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Placeholder for error information</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if successful, FALSE otherwise, in which case the error
+argument will contain information about the error.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-delete-document"></a><h3>couchdb_database_delete_document ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>            couchdb_database_delete_document    (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>,
+                                                         <em class="parameter"><code><a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> *document</code></em>,
+                                                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
+<p>
+Delete an existing document from a CouchDB instance.
+</p>
+<p>
+Please take note that this operation can fail if there was an update to the
+document and that last revision was not retrieved by the calling application.
+This is due to the fact that, to remove a document from CouchDB, the latest
+revision needs to be sent, so if the <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object passed to this
+function does not contain the last revision, the operation will fail. In that
+case, retrieving the latest revision from CouchDB (with <a class="link" href="CouchdbDatabase.html#couchdb-database-get-document" title="couchdb_database_get_document ()"><span class="type">couchdb_database_get_document</span></a>)
+and trying the delete operation again should fix the issue.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>database</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>document</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbDocument.html" title="CouchdbDocument"><span class="type">CouchdbDocument</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>Placeholder for error information</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>TRUE if successful, FALSE otherwise, in which case the error
+argument will contain information about the error.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-listen-for-changes"></a><h3>couchdb_database_listen_for_changes ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                couchdb_database_listen_for_changes (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>);</pre>
+<p>
+Setup a listener to get information about changes done to a specific database. Please
+note that changes done in the application using couchdb-glib will be notified
+without the need of calling this function. But if the application wants to receive
+notifications of changes done externally (by another application, or by any other
+means, like replication with a remote database), it needs to call this function.
+</p>
+<p>
+For each change, one of the signals on the <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> object will be emitted,
+so applications just have to connect to those signals before calling this function.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>database</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> object</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-get-session"></a><h3>couchdb_database_get_session ()</h3>
+<pre class="programlisting"><a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="returnvalue">CouchdbSession</span></a> *    couchdb_database_get_session        (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>);</pre>
+<p>
+Retrieve the <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> associated with the given database object.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>database</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html" title="CouchdbSession"><span class="type">CouchdbSession</span></a> object.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="couchdb-database-get-name"></a><h3>couchdb_database_get_name ()</h3>
+<pre class="programlisting">const <span class="returnvalue">char</span> *        couchdb_database_get_name           (<em class="parameter"><code><a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> *database</code></em>);</pre>
+<p>
+Retrieve the name of the database the given <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> object maps to.
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>database</code></em> :</span></p></td>
+<td>A <a class="link" href="CouchdbSession.html#CouchdbDatabase"><span class="type">CouchdbDatabase</span></a> object</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>The name of the database</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="CouchdbDatabasePrivate"></a><h3>CouchdbDatabasePrivate</h3>
+<pre class="programlisting">typedef struct _CouchdbDatabasePrivate CouchdbDatabasePrivate;</pre>
+<p>
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

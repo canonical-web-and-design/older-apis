@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8"/>
+    <meta name="generator" content="Giraffe">
+    <meta name="language" content="Python">
+    
+    <title>UnityWebappsRepository-0.2 Python API Documentation</title>
+    <link rel="stylesheet" href="../giraffe.css" type="text/css" />
+  </head>
+<body>
+<h1>UnityWebappsRepository-0.2 Python API Documentation</h1>
+
+<div class="class-normal">
+<a href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.ApplicationCollector" class="class-anchor">⚓</a><h2 class="class-normal" id="UnityWebappsRepository.ApplicationCollector">Class: UnityWebappsRepository.ApplicationCollector</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<span class="type property-type">Array&lt;utf8&gt;</span><span class="property-name" id="UnityWebappsRepository.ApplicationCollector.path">"path"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="UnityWebappsRepository.ApplicationCollector.new">new</span><span class="method-parameters">(<a class="link-Type " href="UnityWebappsRepository-0.2.html#utf8">path</a>)</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="UnityWebappsRepository.ApplicationCollector.new_with_default_path">new_with_default_path</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="UnityWebappsRepository.ApplicationCollector.search_path">search_path</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.ApplicationManifest" class="class-anchor">⚓</a><h2 class="class-normal" id="UnityWebappsRepository.ApplicationManifest">Class: UnityWebappsRepository.ApplicationManifest</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="UnityWebappsRepository.ApplicationManifest.new">new</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="UnityWebappsRepository.ApplicationManifest.new_from_file">new_from_file</span><span class="method-parameters">(<a class="link-Type " href="UnityWebappsRepository-0.2.html#utf8">filename</a>)</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="UnityWebappsRepository.ApplicationManifest.get_base_path">get_base_path</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="UnityWebappsRepository.ApplicationManifest.get_domain">get_domain</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="UnityWebappsRepository.ApplicationManifest.get_name">get_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="UnityWebappsRepository.ApplicationManifest.get_package_name">get_package_name</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="UnityWebappsRepository.ApplicationManifest.load_from_file">load_from_file</span><span class="method-parameters">(<span class="type-basetype ">filename</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.ApplicationRepository" class="class-anchor">⚓</a><h2 class="class-normal" id="UnityWebappsRepository.ApplicationRepository">Class: UnityWebappsRepository.ApplicationRepository</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.LocalUrlIndex">UnityWebappsRepository.LocalUrlIndex</a><span class="property-name" id="UnityWebappsRepository.ApplicationRepository.local-index">"local-index"</span><span class="property-access">construct-only</span></p>
+</div>
+<div class="property">
+<p>
+<span class="type property-type">unknown_{http://www.gtk.org/introspection/core/1.0}type</span><span class="property-name" id="UnityWebappsRepository.ApplicationRepository.available-index">"available-index"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="UnityWebappsRepository.ApplicationRepository.new_default">new_default</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method method-static">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">void</span></span><span class="method-name" id="UnityWebappsRepository.ApplicationRepository.add_desktop_to_launcher">add_desktop_to_launcher</span><span class="method-parameters">(<span class="type-basetype ">desktop_name</span>)</span><span class="method-remark">(static method)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="UnityWebappsRepository.ApplicationRepository.get_resolved_application_domain">get_resolved_application_domain</span><span class="method-parameters">(<span class="type-basetype ">application</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="UnityWebappsRepository.ApplicationRepository.get_resolved_application_name">get_resolved_application_name</span><span class="method-parameters">(<span class="type-basetype ">application</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><a class="link-Enumeration type " href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.ApplicationStatus">UnityWebappsRepository.ApplicationStatus</a></span><span class="method-name" id="UnityWebappsRepository.ApplicationRepository.get_resolved_application_status">get_resolved_application_status</span><span class="method-parameters">(<span class="type-basetype ">application</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="UnityWebappsRepository.ApplicationRepository.get_userscript_contents">get_userscript_contents</span><span class="method-parameters">(<span class="type-basetype ">name</span>)</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="UnityWebappsRepository.ApplicationRepository.prepare">prepare</span><span class="method-parameters">()</span></p>
+</div>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">string</span></span><span class="method-name" id="UnityWebappsRepository.ApplicationRepository.resolve_url_as_json">resolve_url_as_json</span><span class="method-parameters">(<span class="type-basetype ">url</span>)</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.AptPackageMechanism" class="class-anchor">⚓</a><h2 class="class-normal" id="UnityWebappsRepository.AptPackageMechanism">Class: UnityWebappsRepository.AptPackageMechanism</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.PackageMechanism">UnityWebappsRepository.PackageMechanism</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="UnityWebappsRepository.AptPackageMechanism.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-normal">
+<a href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.LocalUrlIndex" class="class-anchor">⚓</a><h2 class="class-normal" id="UnityWebappsRepository.LocalUrlIndex">Class: UnityWebappsRepository.LocalUrlIndex</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="properties">
+<h4 class="properties">Properties</h4>
+<div class="property">
+<p>
+<a class="link-Class type property-type" href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.ApplicationCollector">UnityWebappsRepository.ApplicationCollector</a><span class="property-name" id="UnityWebappsRepository.LocalUrlIndex.collector">"collector"</span><span class="property-access">construct-only</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+<div class="method">
+<p>
+<span class="method-return-type"><span class="type-basetype type ">bool</span></span><span class="method-name" id="UnityWebappsRepository.LocalUrlIndex.load_applications">load_applications</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+</div>
+<div class="class-abstract">
+<a href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.PackageMechanism" class="class-anchor">⚓</a><h2 class="class-abstract" id="UnityWebappsRepository.PackageMechanism">Abstract Class: UnityWebappsRepository.PackageMechanism</h2>
+<div class="relations">
+<p>
+Known subclasses: <a class="link-Class " href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.AptPackageMechanism">UnityWebappsRepository.AptPackageMechanism</a></p>
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+</div>
+</div>
+<div class="class-normal">
+<a href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.PolicyAuthorizer" class="class-anchor">⚓</a><h2 class="class-normal" id="UnityWebappsRepository.PolicyAuthorizer">Class: UnityWebappsRepository.PolicyAuthorizer</h2>
+<div class="relations">
+<p>
+Subclass of: <a class="link-Class " href="GObject-2.0.html#GObject.Object">GObject.Object</a></p>
+</div>
+<div class="methods">
+<h4>Constructors</h4>
+<div class="method constructor">
+<p>
+<span class="method-return-type">&nbsp;</span><span class="method-name" id="UnityWebappsRepository.PolicyAuthorizer.new">new</span><span class="method-parameters">()</span></p>
+</div>
+</div>
+<div class="methods">
+<h4>Methods</h4>
+</div>
+</div>
+<div class="class-enum">
+<a href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.ApplicationStatus" class="class-anchor">⚓</a><h2 class="class-enum" id="UnityWebappsRepository.ApplicationStatus">Enum: UnityWebappsRepository.ApplicationStatus</h2>
+<div class="enum-members">
+<span class="enum-member">AVAILABLE</span><span class="enum-value">0</span><span class="enum-member">INSTALLED</span><span class="enum-value">1</span><span class="enum-member">UNRESOLVED</span><span class="enum-value">2</span></div>
+</div>
+<div class="class-enum">
+<a href="UnityWebappsRepository-0.2.html#UnityWebappsRepository.PackageStatus" class="class-anchor">⚓</a><h2 class="class-enum" id="UnityWebappsRepository.PackageStatus">Enum: UnityWebappsRepository.PackageStatus</h2>
+<div class="enum-members">
+<span class="enum-member">AVAILABLE</span><span class="enum-value">0</span><span class="enum-member">INSTALLED</span><span class="enum-value">1</span><span class="enum-member">UNAVAILABLE</span><span class="enum-value">2</span></div>
+</div>
+</body>
+</html>
+
